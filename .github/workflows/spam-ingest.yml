@@ -1,0 +1,36 @@
+name: spam-header-ingest
+
+on:
+  schedule:
+    - cron: '23 1 * * *'
+      timezone: 'Asia/Tokyo'
+  workflow_dispatch:
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build TypeScript
+        run: npm run build
+
+      - name: Run batch
+        env:
+          TIDB_DATABASE_URL: ${{ secrets.TIDB_DATABASE_URL }}
+          SPAM_DIRECTORY: spam
+          TEAM_CYMRU_ENABLED: 'true'
+          DOMAIN_LOOKUP_MAX_CANDIDATES: '5'
+        run: npm start
