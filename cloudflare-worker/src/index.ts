@@ -39,6 +39,15 @@ export default {
       );
     }
 
+    if (request.method !== 'GET') {
+      return jsonResponse(
+        {
+          error: 'method_not_allowed'
+        },
+        405
+      );
+    }
+
     const url = new URL(request.url);
     const limit = Math.min(Number(url.searchParams.get('limit') || '100'), 1000);
 
