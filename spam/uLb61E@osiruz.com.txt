@@ -1,0 +1,64 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:a155:0:b0:25f:c202:d360 with SMTP id k21csp165047eic;
+        Sat, 21 Mar 2026 05:46:29 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AJvYcCWcKMShoA8Y3hOPYCSiMEVvtijGy7M4nuVetJa0aZzd2/0VMaj4gDlLiu0z+NqcL9muyV3NWw5MAX6dp/y2hQ==@gmail.com
+X-Received: by 2002:a17:902:ecc1:b0:2b0:59ab:a3d with SMTP id d9443c01a7336-2b08278afbbmr61965175ad.29.1774097189489;
+        Sat, 21 Mar 2026 05:46:29 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1774097189; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=Llf1cU4MiXaq9u4XXHiHOBN67KM8wqijDBcYxaYiTeOE2vBuS5hQTKHRK2u1SfO/BH
+         0N7nlvSqE+fAVbX1sGmOSaLyaHuVxbRiMv4z1PSqZnk6M/5lNyGecXray8ukT/mXbg+d
+         D2ehQGdkD99ory3jPpcIZgZpHkA6HXh/suGqfxoreSo1RJ7euVOw17ojQNhmTHZWPOde
+         9+XNvEaxxJZlAS0T7f00od+rHozvhcbhT3z8y4JZfnGUvoqMyDyfX0gS6ign0TVUD7c2
+         PknP7np6720vERYQ6Qu0J7Rk7kJUcMxzmjaFlb56tvxmqe8hkMwaic3Zq0ARXY8dyQkT
+         vw6Q==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=track_id:content-transfer-encoding:mime-version:date:subject:to
+         :from:message-id:feedback-id:dkim-signature:dkim-signature;
+        bh=V0jwbq3sQTJuU3hDitaqHSV57LstiNvyGzOwN7OA0YA=;
+        fh=Rx2ZqZ7JF+M427M0uTND7dbyhRSdTSSZmrKP35GvJq0=;
+        b=Qh3oEZ/1XtH1JJO3ca6uIu1vEGE12AgKgmp5/KD0R3xBYBvKwl8ZGAWy5pUmbis8yn
+         j8QtQwB8/7RrK3lcX3Sxkt+1ev1ys9Mvr5L8s+tT92l32Erid8PtguAZgNcXRJUNgYmu
+         y7UPQEHuIl0qnArbpAlNBeEJ6040g87EEzMYayZPTmlElMCk0IC9qL+XWkkefiWuVsTW
+         F1Vpmw9IlEH3JRDCEw4HnDCib9EFaFL2f8guNRRwU/ARuD9/b4Bt/yl3G6Bs6D8OQN3f
+         5qGb8fG8rzOlDNE9mvJgrGbg4382Jt0jLyIhRnQImCBKGPFnpj4L9iRRQG8+NLIMyxpn
+         FtSQ==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=Zojc6E6k;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=X148O33L;
+       arc=pass (i=1 spf=pass spfdomain=osiruz.com);
+       spf=pass (google.com: domain of srs0=uttn=vb=osiruz.com=server@whither.jp designates 104.30.8.24 as permitted sender) smtp.mailfrom="SRS0=UTtN=vb=osiruz.com=server@whither.jp";
+       dmarc=fail (p=QUARANTINE sp=REJECT dis=NONE) header.from=apple.co.jp
+Return-Path: <SRS0=UTtN=vb=osiruz.com=server@whither.jp>
+Received: from i-ce.cloudflare-email.net (i-ce.cloudflare-email.net. [104.30.8.24])
+        by mx.google.com with ESMTPS id d9443c01a7336-2b083650617si83735705ad.88.2026.03.21.05.46.27
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 21 Mar 2026 05:46:29 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=uttn=vb=osiruz.com=server@whither.jp designates 104.30.8.24 as permitted sender) client-ip=104.30.8.24;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=Zojc6E6k;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=X148O33L;
+       arc=pass (i=1 spf=pass spfdomain=osiruz.com);
+       spf=pass (google.com: domain of srs0=uttn=vb=osiruz.com=server@whither.jp designates 104.30.8.24 as permitted sender) smtp.mailfrom="SRS0=UTtN=vb=osiruz.com=server@whither.jp";
+       dmarc=fail (p=QUARANTINE sp=REJECT dis=NONE) header.from=apple.co.jp
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed; h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from :resent-to:resent-cc:in-reply-to:references:list-id:list-help :list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post :list-owner:list-archive; t=1774097188; x=1774701988; bh=V0jwbq3sQTJuU3hDit aqHSV57LstiNvyGzOwN7OA0YA=; b=Zojc6E6kPdRr1mhvh/CWgpmlVkT9A9NRxYbcJGxddiw5z LGWxL+V0deRdxJW/mk74LyYcPYMsBCuFKtwSxqCuz/EBcfEibnur87N3eMXqnuh4Fk9e/UNbQsL 4gudDx/czjr499Wq4NQNtINdlS4BZ4kLmbkbrmNbZLfKIjub4XIBMVHNcELzV8krc829qkpgMh5 ikEwXhhfbpygsGRp3dw2LK92k03ek4+AFtUs+ouC6e4xsm38bWxBSi2S+dp3ytrW4F0/qQPReVE 4h3JB+xDS/qv33dfqgMjPLzdof2YxXwGUudYdcTmRa3fldKOT2zuc/9I7uk8jRh73xTTnzXg==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed; h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from :resent-to:resent-cc:in-reply-to:references:list-id:list-help :list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post :list-owner:list-archive; t=1774097188; x=1774701988; bh=V0jwbq3sQTJuU3hDit aqHSV57LstiNvyGzOwN7OA0YA=; b=X148O33LZE8xeaHa3GnfY84neck8XcfX/6pA7aZVNFTsD 0ubwkNKZYQneBj8K/YfpjttXya6jlI72oCEzg9UA97krJ3A3gny6r8jAyd1m3FgLil8T3/D7P+e 6iQ7yG5OjjzEP8Dv8QHGYn6indANRgwFt+AW3xWAbSIKn9h1wZLgcFI6VCB8RsQHCoX7SzAOTMR ewc3QS4PhNSeg8Wf7XrxvPtYEkt7u4tXmwvn2G2pvzV7e5h0LbdhkWnSYwywMhzBycyuELz3KTL AYa5+uU3SC+Ji9dOny6YeKlLmUP8480Yr4/lUtoOkQqeHAy+ITiMzAJ5v73TWoHIAskNQrSA==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: er2-yxc26@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from osiruz.com (35.221.119.9)
+        by cloudflare-email.net (cloudflare) id aOyJd5X1tN3G
+        for <er2-yxc26@whither.jp>; Sat, 21 Mar 2026 12:46:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none; b=g3hcNs40P2euIIlHgu1FOzztceV7vyfAyBjEwyALa+2y6HArBf3/OiX5NDkNof2+bFWyttRF9 XIktPApN/25FNJlfVdSTW/Kvg9ZQSfSr+XBi77PvxGjjuqX7+cKxzxq6nbfQXgm7f0XdqueQK27 b4nZZ7MtVSZSVGM28ChcVdcvPZCLF+rmsPMFYuHMqlva64fMG3HBEze/Hdt5MycJPNALrnc8r5W dRYnnUUvJz9s5FDQvog2WAHJDhj4P7rbPf+yp/dg4jupbeSlPZKjmOtc3eNzlpdjl/CElgRL/CP T81L+wFX+L5yLIyZhwCk0ZBmgV1SDkoVilLqG3mShi8A==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed; h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to :resent-cc:in-reply-to:references:list-id:list-help:list-subscribe :list-post:list-owner:list-archive; t=1774097186; x=1774701986; bh=V0jwbq3s QTJuU3hDitaqHSV57LstiNvyGzOwN7OA0YA=; b=bxKe1oATcyQwCcXcetx3UznSvX+hHpN3apw OD65n2MtL2WInjUxTvs2EJDHG0hyosZo3T6wEVOCcmn6Ev7nOxEcV7tuVf4G0bbJurtpCoOLR9a 8w1vqcreQ6BwapmdoNl65u+cRJBeJQryYLWcy3Oog68WNv6U2c7sQzFATU1pPzOeP5G8pSp+4mc YRLcuQC63VRkVG1dc1BvkCsBVG/ABaiBYOgzia3G0ouCsipMPZbA3Mn2Vw0uqfJzNx3wb/tTAWn pYGNLK4XcQ3uJTcDuMq6FpuvrXoHgrv9mnJG2eS+YYV5eQui3OfIbujhtJC22LCG61kpL6d7nRN qI01qdw==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net; dmarc=fail (policy not aligned) header.from=apple.co.jp policy.dmarc=quarantine; spf=pass (mx.cloudflare.net: domain of postmaster@osiruz.com designates 35.221.119.9 as permitted sender) smtp.helo=osiruz.com; spf=pass (mx.cloudflare.net: domain of server@osiruz.com designates 35.221.119.9 as permitted sender) smtp.mailfrom=server@osiruz.com; arc=none smtp.remote-ip=35.221.119.9
+Received-SPF: pass (mx.cloudflare.net: domain of server@osiruz.com designates 35.221.119.9 as permitted sender) receiver=mx.cloudflare.net; client-ip=35.221.119.9; envelope-from="server@osiruz.com"; helo=osiruz.com;
+Authentication-Results: mx.cloudflare.net; dmarc=fail (policy not aligned) header.from=apple.co.jp policy.dmarc=quarantine; spf=pass (mx.cloudflare.net: domain of postmaster@osiruz.com designates 35.221.119.9 as permitted sender) smtp.helo=osiruz.com; spf=pass (mx.cloudflare.net: domain of server@osiruz.com designates 35.221.119.9 as permitted sender) smtp.mailfrom=server@osiruz.com; arc=none smtp.remote-ip=35.221.119.9
+X-CF-SpamH-Score: 1
+Message-ID: <uLb61E@osiruz.com>
+From: Apple <help@apple.co.jp>
+To: "er2-yxc26@whither.jp" <er2-yxc26@whither.jp>
+Subject: 【重要】Apple News+ サブスクリプション更新のお知らせNo.73466223
+Date: Sat, 21 Mar 2026 20:46:22 +0800
