@@ -1,0 +1,64 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:a35b:0:b0:25f:c202:d360 with SMTP id k27csp362016eid;
+        Sun, 22 Mar 2026 07:12:34 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AJvYcCVodxIYjdgLngsGxzeSwCgtq60VVTgnVJTjYq7VQfPUI4r5Xrfl1fMA2XtgaYhwYBa7C7z5o1OP38RmsaITqQ==@gmail.com
+X-Received: by 2002:a17:90b:3c48:b0:35b:9958:4edd with SMTP id 98e67ed59e1d1-35bd2d09156mr6358209a91.30.1774188754161;
+        Sun, 22 Mar 2026 07:12:34 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1774188754; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=Ul1AtHQvaEue2HGoQhZiRhu3y1uvhRwJaUWlTCOj0D0QAFmr870lS2oSfB1kKjWVyh
+         WrH3FbNb3vosgilo20eGhC6z+DRm74n47ASYznbMmN5keLlXxNZx2kMEnYedRfp3kM4S
+         G6M0k0qdIukmL6NCbo7fHqNyIbpxe8U1UBzlKqARE9vwz8qn/ZRu4YJFzRI6uSWgzxyP
+         Bm99rSAqNOMIHHE7A2tM5+snB+WlTFB1/FkdS8pr8WSIdvTBd1Fv7BMg43EQHPXgiKEl
+         DzSZtAF1WQ7+OOW+DaIfpdzns7knvQIjpTx5k/R59lOTbbj8DvgnvyPNZbUWAwRMWXYM
+         SirQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=track_id:content-transfer-encoding:mime-version:date:subject:to
+         :from:message-id:feedback-id:dkim-signature:dkim-signature;
+        bh=yNu2sBQdwpU4Ve2F/NcEpvKE7fjc3eKkfujuleRofjw=;
+        fh=gUIbk4Ag2pgMxIBF1+t2hVOpVhG9pjwPshzIGkTlWq8=;
+        b=MGF6AzVm174jFEC3ZaefJouBoAeGDr0ZyfSBQgucCMkvpWfkvkN1lotrdCWl/UXKqb
+         zRmRFYIKCKfeBA/R5CJucem8KGqlKUyrGg7jBGziJ79K+OEXjMaxLEaz+ZkLK1HqOqzv
+         TRLfHUM5RqEkKGl04BeYBUOPl/TvcYfbCPdRy2pkni+ZsjgDML+rFGGbMXr2BEUFI1F3
+         DS7qmPKbVl74R48Y8M0i6Rhxt5ggezZf5QAmy8rY+WzOHip621PXsR3SuK4yZV1UXuW4
+         N1KtWPcHdZHKCtmh/2LC8M8VGsVjAQ/ByF4ZoyFjvK13f8g61jfftlTHfEOoh8S4hCJ0
+         Mnzw==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=MMsR8MjX;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=U92YsoCB;
+       arc=pass (i=1 spf=pass spfdomain=deficomp.com);
+       spf=pass (google.com: domain of srs0=ni1x=wb=deficomp.com=server@whither.jp designates 104.30.8.131 as permitted sender) smtp.mailfrom="SRS0=ni1X=wb=deficomp.com=server@whither.jp";
+       dmarc=fail (p=QUARANTINE sp=REJECT dis=NONE) header.from=apple.co.jp
+Return-Path: <SRS0=ni1X=wb=deficomp.com=server@whither.jp>
+Received: from i-bdb.cloudflare-email.net (i-bdb.cloudflare-email.net. [104.30.8.131])
+        by mx.google.com with ESMTPS id 41be03b00d2f7-c746f406412si10766990a12.390.2026.03.22.07.12.32
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 22 Mar 2026 07:12:34 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=ni1x=wb=deficomp.com=server@whither.jp designates 104.30.8.131 as permitted sender) client-ip=104.30.8.131;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=MMsR8MjX;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=U92YsoCB;
+       arc=pass (i=1 spf=pass spfdomain=deficomp.com);
+       spf=pass (google.com: domain of srs0=ni1x=wb=deficomp.com=server@whither.jp designates 104.30.8.131 as permitted sender) smtp.mailfrom="SRS0=ni1X=wb=deficomp.com=server@whither.jp";
+       dmarc=fail (p=QUARANTINE sp=REJECT dis=NONE) header.from=apple.co.jp
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed; h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from :resent-to:resent-cc:in-reply-to:references:list-id:list-help :list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post :list-owner:list-archive; t=1774188753; x=1774793553; bh=yNu2sBQdwpU4Ve2F/N cEpvKE7fjc3eKkfujuleRofjw=; b=MMsR8MjX6c2UN0RjE1ZMRsQhYCKCDZkLEY2aygcQtEKdC UlEtZ6mlqbdBwgz5BJImFjMLk3IJi/QJseUhIjvoP5iFENHQmYFyAqbgUxmRg+Eb0hKMB1ahiCC 5r85At75+8LtdO6B65ErJJFcKHUAyJoOzBL/kMWrYpA3ycSiftqcghiqWgoAvDrI91nZzLA9EBZ J9dbzhrRvoBxosfpJG7alDs1ybLbC0F8kAouw4/rY0lyR9yZCyTWSg0muPozA/vERLfXV4L1Hx1 gVguPQNEHFhZlk+V+awqsg/tThBHcWYr5HQ5s01+PmlVONkkUZRXBfh2RYmWwTH12t18esPA==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed; h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from :resent-to:resent-cc:in-reply-to:references:list-id:list-help :list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post :list-owner:list-archive; t=1774188753; x=1774793553; bh=yNu2sBQdwpU4Ve2F/N cEpvKE7fjc3eKkfujuleRofjw=; b=U92YsoCBA2EHweoW2sRk8vOxPX57WududMJelY4l+DJ9e oVSS+QMUI1EZwlzuU9DK1WTZyD+l3aBH+eKN1AIQWebTr7NzwZxu/WVkYdv7j6axqfCGj+8KjdV LyIJtPhvvhaTRjk+wAHyHY/RCOMpiQ0iGl99tdgF8tuhQ5ENewbVShtFGGnKWAYOCFekHBTTDpe S8u12LYGD/paJWkpB7cqc2sgGeqFDrt8csvh0HoNxNp7AM9kkyy2plD/SCBLOEDXtphmqqsPWWa 0CtHiz0JbMLvcr87bzo4AOOeoN330UbQ0e7xz8UXNxEE9NEjB+tk9tyrB6SUFhYkIr3y63yw==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: penguin@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from deficomp.com (35.221.111.221)
+        by cloudflare-email.net (cloudflare) id kPT5W9lZgdVd
+        for <penguin@whither.jp>; Sun, 22 Mar 2026 14:12:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none; b=WZ+E4Dfe3RuYD0TubuZtZzDd9PO7DSjy3g7T77m4gDq1cQwnSrHDqDhwN4VaD+fa2mCucz9Q0 VEWgjlLI+0IEh3R1K5QDldmOVR5PmrPJpLy57Vj0OKHK+9y6e3zyWv4KkXaFeJMVT6DZSgn7Qjw ZKcJ6XUVzv6OfI0ZxMdw9HbsdHlzrEppDguDktORgPMJr0Hh3QIfkkIPZTxmX3PWXdcrEJXnDxt X/nL3DUcsiglSXpIS9drFUqSh9LkXICew//a4fsLePs8J5kFSRyCA/CNI7hbJbhVbbcNcURdUww iPFmd36bMVL0spVntMb6XTaNmDZvNEVXJ2TJ+CA5Oe2A==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed; h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to :resent-cc:in-reply-to:references:list-id:list-help:list-subscribe :list-post:list-owner:list-archive; t=1774188751; x=1774793551; bh=yNu2sBQd wpU4Ve2F/NcEpvKE7fjc3eKkfujuleRofjw=; b=FxgT7OklBoCHHFohpljZTnhTl8qPpQTM1A5 BDae9ZPl0Qz++TZwuvVTuzGRfxGVglQdVpJr3vVTZNgB86EX1CTUdFxAHoFV9b4X1WyhtRXE/do ZhkMM+eGEDK7JAFT/4Oxsb8lhuwgWUsKRYhrURJCa5B0ZANCtGTNH6FaZzN7OTiAaYSukjwSRp0 D99xHzfKu82AAWxxSqmoRZ+vtL+H2gjiN7Oa2fHxYdqouA0BETBJuG5GbZ/bFhhe6qC/D6WbP5C NJ1fNCWLhYorN+guk45T3z5j/cSPc7DcpwCh6OnGOqXfGBnjdCH2CETP+PzJEWZkFur6L2M4WH6 5ubzrmA==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net; dmarc=fail (policy not aligned) header.from=apple.co.jp policy.dmarc=quarantine; spf=pass (mx.cloudflare.net: domain of postmaster@deficomp.com designates 35.221.111.221 as permitted sender) smtp.helo=deficomp.com; spf=pass (mx.cloudflare.net: domain of server@deficomp.com designates 35.221.111.221 as permitted sender) smtp.mailfrom=server@deficomp.com; arc=none smtp.remote-ip=35.221.111.221
+Received-SPF: pass (mx.cloudflare.net: domain of server@deficomp.com designates 35.221.111.221 as permitted sender) receiver=mx.cloudflare.net; client-ip=35.221.111.221; envelope-from="server@deficomp.com"; helo=deficomp.com;
+Authentication-Results: mx.cloudflare.net; dmarc=fail (policy not aligned) header.from=apple.co.jp policy.dmarc=quarantine; spf=pass (mx.cloudflare.net: domain of postmaster@deficomp.com designates 35.221.111.221 as permitted sender) smtp.helo=deficomp.com; spf=pass (mx.cloudflare.net: domain of server@deficomp.com designates 35.221.111.221 as permitted sender) smtp.mailfrom=server@deficomp.com; arc=none smtp.remote-ip=35.221.111.221
+X-CF-SpamH-Score: 1
+Message-ID: <dteWND3z@deficomp.com>
+From: Apple <help@apple.co.jp>
+To: "penguin@whither.jp" <penguin@whither.jp>
+Subject: Apple Fitness+ サブスクリプション更新のご案内No.7049486098
+Date: Sun, 22 Mar 2026 22:12:28 +0800
