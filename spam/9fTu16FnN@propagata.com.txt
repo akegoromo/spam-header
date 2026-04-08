@@ -1,0 +1,63 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:a35b:0:b0:25f:c202:d360 with SMTP id k27csp367458eid;
+        Sun, 22 Mar 2026 07:25:11 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AJvYcCXi6vbT2fLrmi5Ixe/HoORm3drS5HOk6p0O2JCdy94F1YXrcoOYmc71rmXKP9dnZoPvxFylN2TGaLXgwGvkDA==@gmail.com
+X-Received: by 2002:a17:902:da83:b0:2b0:66bc:2282 with SMTP id d9443c01a7336-2b0826d6bb5mr87212995ad.6.1774189510770;
+        Sun, 22 Mar 2026 07:25:10 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1774189510; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=FdcctkSLtZa9dR59V5EfO81ckD/LMrmoIKtDFygOoDHeb78yi9bgAe+p7crMrQoGJM
+         tz18Tqs4hSU0o7Yie7/FntJhcLHWYOj+6wV4jc7PwmCydweWIQkSs73u8lfAkEN1Zes9
+         CptyLRQjT6Ljlqq6qGKB2Rw1ZqXIIe7CHLG6G8+5jU+CowuuWzWtt7e/EsO91WDtj+7c
+         PFVU1aH72lOQUMoHAKp5V2rfzGIDZlfqdiv76zKokIfb5YohgSafzaVkBe26M5yS9yv3
+         B8lB6K4wXN867KJgZQx0X+SSWaT9rqGFgv10ry8dxRVhGgjJIqnWz0p5xgXNOIrH74rS
+         +O9Q==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=track_id:content-transfer-encoding:mime-version:date:subject:to
+         :from:message-id:feedback-id:dkim-signature:dkim-signature;
+        bh=OEYLZIZ5htUI8rMoTOZN8rUpgd7M3aKSoe22EzTVY0w=;
+        fh=fQWze01OliPNmGEne1HvSQ/xuo7jXoAdryJsxuhv5xk=;
+        b=S5pxPMLry0IdbqRvVkYVjBIzCWezdHnkpnv9QyOi052hiVL3J73W6TqLLnARyomoqZ
+         NwR/Mydi4zA1/3UD2mmP7lJMW7dgn/dyovdBlk1Rrr0cJfbULblXCxZJK5Mo4+WjBLKv
+         zbRSedhML2l8+j+pagHDYYS/EMESO7ELeZP2jVOZSAnueFf6njEYg/vcMzWSFvPFJmoc
+         ktN8ZE9FBseltRHj8/mGV4SdrZUNUiiYw22fVvzpMkEKWvLu8J/6e6ouIjMnHaY7+nRK
+         CNNEpQI5K6dXoqNJzD/Jwujs+7C6k1aBULfwoGEHhsRsWZkcer09EFNi+S3fYicNwiaV
+         wAAQ==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=TcKC+fza;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=G0JKADjB;
+       arc=pass (i=1 spf=pass spfdomain=propagata.com);
+       spf=pass (google.com: domain of srs0=xbwj=wb=propagata.com=server@whither.jp designates 104.30.10.219 as permitted sender) smtp.mailfrom="SRS0=xBWj=wb=propagata.com=server@whither.jp";
+       dmarc=fail (p=QUARANTINE sp=REJECT dis=NONE) header.from=apple.co.jp
+Return-Path: <SRS0=xBWj=wb=propagata.com=server@whither.jp>
+Received: from ba-cbj.cloudflare-email.net (ba-cbj.cloudflare-email.net. [104.30.10.219])
+        by mx.google.com with ESMTPS id d9443c01a7336-2b08350a1c0si129287385ad.5.2026.03.22.07.25.08
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 22 Mar 2026 07:25:10 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=xbwj=wb=propagata.com=server@whither.jp designates 104.30.10.219 as permitted sender) client-ip=104.30.10.219;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=TcKC+fza;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=G0JKADjB;
+       arc=pass (i=1 spf=pass spfdomain=propagata.com);
+       spf=pass (google.com: domain of srs0=xbwj=wb=propagata.com=server@whither.jp designates 104.30.10.219 as permitted sender) smtp.mailfrom="SRS0=xBWj=wb=propagata.com=server@whither.jp";
+       dmarc=fail (p=QUARANTINE sp=REJECT dis=NONE) header.from=apple.co.jp
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed; h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from :resent-to:resent-cc:in-reply-to:references:list-id:list-help :list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post :list-owner:list-archive; t=1774189510; x=1774794310; bh=OEYLZIZ5htUI8rMoTO ZN8rUpgd7M3aKSoe22EzTVY0w=; b=TcKC+fzaqhkzTaYHbgIMRI3+DQK7kvOOFi6CVMtfn5ee/ 4eMTFBHN0etLzlI/8CPwxCA/JXHcJ9vI1E6Efs13uyNFyC6ogLmbO2M/ZjPUozRICkavMykSNEd J9Ul59/KioHC/UFJFSrSNdy89tlx1IIKmZtYFkRWwmnsC68+GbC0ZAmSQo79Ot4L8aHr1p2fqvk rBihmZgDdmhKqH2sCtw9gbcFi7okDeOAEHwVGp8XJ1/D+BU0+KEd0DZBLiW+0UUteLZo1L0oFuz DFXmU57o4pdwL2HFOwQ0SD2DMNH4Db9lWJgZlB/VFU0JT+LOeg5urrowh9TslRJ7pLMxQdjg==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed; h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from :resent-to:resent-cc:in-reply-to:references:list-id:list-help :list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post :list-owner:list-archive; t=1774189510; x=1774794310; bh=OEYLZIZ5htUI8rMoTO ZN8rUpgd7M3aKSoe22EzTVY0w=; b=G0JKADjBq15uf0zgrViw2BOnhfOvHfICMsy+eK0KnU6dq YYUCrvx/MO3arhIU8NsQx5WUi7DMNWp7H0qHZDjBvxa+V0FbZ/e1kwgSwUL9C6O9eHlBMWager2 k8sFxSMQeB0v3eDat5Jt+JPW8yx1T5GuZaVFMwuRr3wOIYfgOeBmdohRULTXqLvRZq94x46v+br 5n6bWY77DACAHO9RSefTlPQw4YTfBogvtCo+3mkxhuNf+J3HUOI/CqJcuylhLu5LtEUoL/uF4Y2 j5NKreRliraX7AnGXyU5FtIcwhCnR2MIvRKIYxDiy+chIEJXI4XZ2kU9hQrEa+KGF6yxMW+A==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: er2-yxc26@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from propagata.com (34.153.214.30)
+        by cloudflare-email.net (cloudflare) id SSlA0kbYwxMJ
+        for <er2-yxc26@whither.jp>; Sun, 22 Mar 2026 14:25:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none; b=a7ciCz9rdG9O+tfVUupZYEDYAbBTYqg0igrJB388mv+LVRsUPlUqS6pBR8eoZQNjY8pxUf7kK sAOtw1CaYtgpjM4/xKMCLHov3K78Nlbs0rQtFJkRKVHkb/O6YEJUCGMNoVp9hcv3fByWz5bp28m tKQGORWEYYRyYq+zB4LyyfZRKr8OSq1PorkI6bXJ0Mna42yQ+rXzLipkUMegiKXMeVlWFEjCV3D trUytPLT3fu1WStsDXQ4bss/x512TNuz4fuDGBf1CLl3mvCBNxWkha5uw9NnaBifgDpKvha0NJ5 qufzbSyGFLs/WhsPXUh7KprD8cOZIF3WhOZwhII7Xuxg==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed; h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to :resent-cc:in-reply-to:references:list-id:list-help:list-subscribe :list-post:list-owner:list-archive; t=1774189506; x=1774794306; bh=OEYLZIZ5 htUI8rMoTOZN8rUpgd7M3aKSoe22EzTVY0w=; b=PFTaeDnB4Lfy0ULJjiPh70HjHy1xcocx1a+ wA164akUqcITzjs9UvdNffgc7eFc7ETdwh9nOiPdtIlr+OVrHfVVVzyWN7vQJEusuHInp0PBSt4 JE3UGqbnr927NUc0jTmkgZafo/drarvFth7aJYkpxHK2WIH5HmKA+nmUVUaznOVVtf6F6MZxjeA 4Jv4k+irleY+LLdkWLEqvZpdo4BYlX6Fmw6Is3NfUTRzlw/0WuhMG96ORPOJshIjBcmKyyTWEiy IeWnfwAM2m5D5+deCIgDzz3XiJFzsjXGR4p54Hi3luOVxNFYIqkaTdDqMPhZEuqwh+zq9id9V/T NfNl3tQ==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net; dmarc=fail (policy not aligned) header.from=apple.co.jp policy.dmarc=quarantine; spf=pass (mx.cloudflare.net: domain of postmaster@propagata.com designates 34.153.214.30 as permitted sender) smtp.helo=propagata.com; spf=pass (mx.cloudflare.net: domain of server@propagata.com designates 34.153.214.30 as permitted sender) smtp.mailfrom=server@propagata.com; arc=none smtp.remote-ip=34.153.214.30
+Received-SPF: pass (mx.cloudflare.net: domain of server@propagata.com designates 34.153.214.30 as permitted sender) receiver=mx.cloudflare.net; client-ip=34.153.214.30; envelope-from="server@propagata.com"; helo=propagata.com;
+Authentication-Results: mx.cloudflare.net; dmarc=fail (policy not aligned) header.from=apple.co.jp policy.dmarc=quarantine; spf=pass (mx.cloudflare.net: domain of postmaster@propagata.com designates 34.153.214.30 as permitted sender) smtp.helo=propagata.com; spf=pass (mx.cloudflare.net: domain of server@propagata.com designates 34.153.214.30 as permitted sender) smtp.mailfrom=server@propagata.com; arc=none smtp.remote-ip=34.153.214.30
+Message-ID: <9fTu16FnN@propagata.com>
+From: Apple <help@apple.co.jp>
+To: er2-yxc26 <er2-yxc26@whither.jp>
+Subject: Apple Fitness+ サブスクリプション更新のご案内No.485371731
+Date: Sun, 22 Mar 2026 22:25:01 +0800
