@@ -1,0 +1,47 @@
+name: Extract Spam Headers
+
+on:
+  schedule:
+    # 毎日 UTC 3:00 (JST 12:00) に実行
+    - cron: '34 23 * * *'
+  # GitHub Actions画面からの手動実行を許可
+  workflow_dispatch:
+
+jobs:
+  extract-headers:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # リポジトリへの書き込み権限
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Extract spam headers
+        id: extract
+        run: |
+          python scripts/extract_spam_headers.py
+          echo "Processing completed"
+
+      - name: Commit and push results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # 変更されたファイルをステージング
+          git add spam/ eml/
+          
+          # 変更がある場合のみコミット・プッシュ
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore: extract spam headers $(date -u +%Y-%m-%d)"
+            git push
+          fi
+        env:
+          GITHUB_TOKEN: $${{ secrets.GITHUB_TOKEN }}
