@@ -1,0 +1,213 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:c28a:0:b0:261:85fe:9a8 with SMTP id s10csp1463601eif;
+        Sun, 12 Apr 2026 04:27:06 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ8E/T14ZzNp6tsLzKxhVbw1hE/qmfTO9dFFUOmK0kB0nSkXXUhJfG/WP01x4wUn4kInJGf/UEZ6ty2JeqkxlA==@gmail.com
+X-Received: by 2002:a05:6a00:4fcf:b0:821:8ebc:2899 with SMTP id d2e1a72fcca58-82f0c131fc7mr9179650b3a.7.1775993226013;
+        Sun, 12 Apr 2026 04:27:06 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1775993226; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=gvq4BqFaqNT5vr2gi8AAFbbdtQ5s2KH+lrKkasmshSOWxYCV1xtdpZqLZnqNvbGy6n
+         OE+xR6Uu7CBPQA7M73i2npmhCYxKFGubSejUxvlcaSJWGiinJFCrpigyQSwdkjk23hf9
+         XD8lNjKjkJAj0rDY1Hz0e5dkqBArp7PpdKjqneq9akR2VEu/JhNJ/QmHIsaOJrSSXJmW
+         D2oRAlQAvK2S+ffBSDKMXEtLapXNgG8p8J0P07efYqT97sZ6841DrXA/D4aSHEMnCUm+
+         3h59fOZKGAp+FIIywITd2jP2CWfkNJGUNyuNvkNC7jirDnQa9lsTdKWkLGMvSRkWpRZf
+         5c3A==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=track_id:content-transfer-encoding:mime-version:date:subject:to
+         :from:message-id:dkim-signature:feedback-id:dkim-signature
+         :dkim-signature;
+        bh=zUN4TeaJyXymkJZ/Qk6d97Dz5B9Qv6b3I84tESxW7IA=;
+        fh=srfq3ZW+DVR9x9Ceea9HG7NYxN7NXSvi62YSj9Hdzjo=;
+        b=GlYUTO7Glp3BiyTaI2kRHt4nGQlAC4de0zchcg+bGssqNik/6U6aekyh5MYzuekf+8
+         XTOdfz7Bq5H4kXJSJyGhhLTnOVVlW6u6EilB8uWsjZLHVDZmx/KnmoBk3kYCCINj+muG
+         MzQ3TtACFLBr8PcnGz+lZ50LzdFGAbK0695QKkZJ6wrfMFlgpAoRgV56soXTmwu8Ypnz
+         gkVDoBJqflHfdwcVnpyLZgW5uRTLUEezMNFC3wqTdSRxGXrVHLheDTYNXbU1tzXIB6gQ
+         pRRUV+bJIDZ7pw8hmqIEgPvNA+9QmqUhr3CdNOd4LrWQOtonuQsBeNZp2USwsN/MPLbm
+         ynYQ==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=DMcu0Z0F;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b="QEHU/kaN";
+       dkim=permerror (no key for signature) header.i=@apple.com header.s=mail14 header.b=AzpekpDI;
+       arc=pass (i=1 spf=pass spfdomain=mail14.hkbnq.com);
+       spf=pass (google.com: domain of srs0=wdve=lc=mail14.hkbnq.com=mail14-penguin=whither.jp@whither.jp designates 104.30.8.199 as permitted sender) smtp.mailfrom="SRS0=WdVE=lc=mail14.hkbnq.com=mail14-penguin=whither.jp@whither.jp";
+       dmarc=fail (p=QUARANTINE sp=REJECT dis=NONE) header.from=apple.com
+Return-Path: <SRS0=WdVE=lc=mail14.hkbnq.com=mail14-penguin=whither.jp@whither.jp>
+Received: from i-bjj.cloudflare-email.net (i-bjj.cloudflare-email.net. [104.30.8.199])
+        by mx.google.com with ESMTPS id d2e1a72fcca58-82f0c533676si19643171b3a.199.2026.04.12.04.27.04
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 12 Apr 2026 04:27:05 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=wdve=lc=mail14.hkbnq.com=mail14-penguin=whither.jp@whither.jp designates 104.30.8.199 as permitted sender) client-ip=104.30.8.199;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=DMcu0Z0F;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b="QEHU/kaN";
+       dkim=permerror (no key for signature) header.i=@apple.com header.s=mail14 header.b=AzpekpDI;
+       arc=pass (i=1 spf=pass spfdomain=mail14.hkbnq.com);
+       spf=pass (google.com: domain of srs0=wdve=lc=mail14.hkbnq.com=mail14-penguin=whither.jp@whither.jp designates 104.30.8.199 as permitted sender) smtp.mailfrom="SRS0=WdVE=lc=mail14.hkbnq.com=mail14-penguin=whither.jp@whither.jp";
+       dmarc=fail (p=QUARANTINE sp=REJECT dis=NONE) header.from=apple.com
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1775993225; x=1776598025; bh=zUN4TeaJyXymkJZ/Qk
+	6d97Dz5B9Qv6b3I84tESxW7IA=; b=DMcu0Z0FA45yYf/WShkLd/eyLZ19EdzPJvRk2Abwt4u2G
+	NafkZgaXFer17tMxtPiHV1Seu7dvJx5lYVS0odGyt+hnJABOeUOFTxckmCyDwlqKWXqHTiINOQG
+	/WInuwffOOC1v5S9IxYqC0T/c68mzv1AOxlk7RnZIVTZkbOgQGx3hEHCtIVea1teLAxAQXA1IEw
+	L2SbyBbGHKEWbKPaXShvcSBFZReCm2k9fsCjxxr0WKgpwyDQ0jDYkOE21apCKJMPVCIQJ+oxkVQ
+	69VfXvo9JZmGs4KMZOsXfC6n5Y9wcLhYA6cDdqy4/yTJWy3r4dCBAG9I5icjFi7r1Kbi9zmw==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1775993225; x=1776598025; bh=zUN4TeaJyXymkJZ/Qk
+	6d97Dz5B9Qv6b3I84tESxW7IA=; b=QEHU/kaN3L0CNaeIaL4bdRv2TIYj6ZGa8zcXqgXpP898s
+	HRsNDBvrcgprfjcfAKoj2DUdlC5wUC0udRcRKj0f/R+ZXKEvrWoLaZfzyjVCs4b3cApYE0ZkBOn
+	gscmSr60m4S8n2GUvtYZsgY5/d0EIdI5WmkWGz362jYX1Mq6ynxN9vwGjnszTnqkG0teap7NRHM
+	NYRSAWLhrjaD6eXpSwDBRYnx4ClMWaEoCTACK2FMLKYp4zZf3bqfofOBsR5tN8HNBT7eigdQkoP
+	G71ykt4lbcmJRs7JRSkdJ+TXZCPbSd9He65gqfpC3Fcap0c4APVHZbt5ESB1ozRsTjE2xUww==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: penguin@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from mail14.hkbnq.com (34.85.44.20)
+        by cloudflare-email.net (cloudflare) id pEgDuR4aeRQ1
+        for <penguin@whither.jp>; Sun, 12 Apr 2026 11:27:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=fwkb/IbOWAJ5XgB7EX2Y5vTsOFjZH/rrRDSI0xBU3NzGv/RGZTjUMgM/GtQoOCCpyTeOarCkc
+	QVYZvrqIR89EK3HEnAj9ObZgBaIvF7FtaQdT5jcigxVBAHQ41cWuJpY9y/1Y0rJtW/CoxwiVGEZ
+	C0c+Uvvf3arssatBZ3iNHjq6LJdmm2IdNnDKrJaQJQ/IjNUZfllrRxE5G/Bg1GxRCgEyRG0nxSG
+	sLjxSUiG2urXR4y4oijItTU5/N4Inq+A88c8R4dokbbzxvanQhKSlytzWnp7JWJJ4jYH4Cpj5cJ
+	GJMuwRqQqeKAr4/W5azfNbEglpUem5AXL+GwDN/woh/Q==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1775993222; x=1776598022; bh=zUN4TeaJ
+	yXymkJZ/Qk6d97Dz5B9Qv6b3I84tESxW7IA=; b=UE3Qadr+esHyIDv4gSwdC1Vr0gID7tqpfG7
+	PsJ34sT6+Py+4PHd35Z0bvVBu7csWawScHY0dIaBwNIpGVOIhQwnNzdJNOnk57HENVJqDIxCC65
+	am6gmY/tfCIbOSMmO1qpLJKWYGsegKml3zHSP8l3loqU0PKlNQj1DIZ9fbUsXFKSRP24bb5oOIs
+	npG0UdNeYfHY1zYA9YSWJF4xCvJ9+XMaWUeul55n1K8RZpE7H8+UzHTl9AOw763TgmRb6td8HpH
+	zswVXMjnTSUKFrIiLBRlfOySZ9QNYCjRK4culSxqBUYllPr1ww39cosn0j+QDt2GvWzSEuzvL0+
+	giGB4kw==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=permerror (dns record not found) header.i=help@apple.com header.s=mail14 header.b=AzpekpDI;
+	dmarc=fail (policy not aligned) header.from=apple.com policy.dmarc=quarantine;
+	spf=pass (mx.cloudflare.net: domain of postmaster@mail14.hkbnq.com designates 34.85.44.20 as permitted sender) smtp.helo=mail14.hkbnq.com;
+	spf=pass (mx.cloudflare.net: domain of mail14-penguin=whither.jp@mail14.hkbnq.com designates 34.85.44.20 as permitted sender) smtp.mailfrom=mail14-penguin=whither.jp@mail14.hkbnq.com;
+	arc=none smtp.remote-ip=34.85.44.20
+Received-SPF: pass (mx.cloudflare.net: domain of mail14-penguin=whither.jp@mail14.hkbnq.com designates 34.85.44.20 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=34.85.44.20; envelope-from="mail14-penguin=whither.jp@mail14.hkbnq.com"; helo=mail14.hkbnq.com;
+Authentication-Results: mx.cloudflare.net;
+	dkim=permerror (dns record not found) header.i=help@apple.com header.s=mail14 header.b=AzpekpDI;
+	dmarc=fail (policy not aligned) header.from=apple.com policy.dmarc=quarantine;
+	spf=pass (mx.cloudflare.net: domain of postmaster@mail14.hkbnq.com designates 34.85.44.20 as permitted sender) smtp.helo=mail14.hkbnq.com;
+	spf=pass (mx.cloudflare.net: domain of mail14-penguin=whither.jp@mail14.hkbnq.com designates 34.85.44.20 as permitted sender) smtp.mailfrom=mail14-penguin=whither.jp@mail14.hkbnq.com;
+	arc=none smtp.remote-ip=34.85.44.20
+X-CF-SpamH-Score: 1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=mail14; d=apple.com;
+ h=Message-ID:From:To:Subject:Date:MIME-Version:Content-Type:
+ Content-Transfer-Encoding; i=help@apple.com;
+ bh=zUN4TeaJyXymkJZ/Qk6d97Dz5B9Qv6b3I84tESxW7IA=;
+ b=AzpekpDIZpgGNUNzm7dOyGQW50s9F8pmb+aiqbiCE0gcQ+SVhjz5tC8Zfr6TdwQByf0qs0+/M6NN
+   DKVh7AFGr3UMSZ5RIeoIMLdTPDiDP55Fj71OeoDU2jqFRZiyFEG0pC7IiB0STMXQtqJss/KQaab9
+   0b2jPBqSig+tI4VDFqnR1mv+jRv5V6qz6Ll7I2P7UvMB4a39Y+RZMg6Pr0zUkVxb/cTxkf+V1+be
+   jNOv+ju+LDVx97Z1tjQbsJTVFHsJH+G+QxaIUluRPZcYZHG18nT/yNmJuUk1Q71HT06WNqQvNiPt
+   PcfQmHHLiTfX2lTLvRrHxrCbnDC8qkTEk+0/Cg==
+Message-ID: <5zeannbO8@mail14.hkbnq.com>
+From: =?iso-2022-jp?Q?Apple?= <help@apple.com>
+To: =?iso-2022-jp?Q?penguin?= <penguin@whither.jp>
+Subject: =?iso-2022-jp?Q?=1B$B!Z=3DEMW![%"%+%&%s%H$N%;%-%e%j%F%#$K4X$9$k;j5^$N$*CN$i$;=1B(B(No.92095)?=
+Date: Sun, 12 Apr 2026 19:26:51 +0800
+X-Priority: 3
+MIME-Version: 1.0
+Content-Type: text/html; charset="ISO-2022-JP"
+Content-Transfer-Encoding: 7bit
+track_id: rlg7m
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>【重要】iCloud：アカウントリセットの申請に関するご確認</TITLE>
+<META content="text/html; charset=iso-2022-jp" http-equiv=Content-Type>
+<META content=text/css http-equiv=Content-Style-Type>
+<META name=viewport 
+content=width=device-width,initial-scale=1.0,maximum-scale=1.0,
+user-scalable=no>
+<STYLE type=text/css>
+body{padding:0;margin:0;background:#f5f7fa;font-family:-apple-system,
+BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif;}
+table{border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;
+width:100%;}
+a{color:#0071e3;text-decoration:none;}
+img{border:0;max-width:100%;height:auto;}
+@media only screen and (max-width:600px) {
+ .container{padding:20px 16px !important;}
+ .title{font-size:20px !important;}
+ .button{padding:12px 24px !important;font-size:15px !important;}
+}
+</STYLE>
+
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"></HEAD>
+<BODY>
+<DIV class=container 
+style="MAX-WIDTH: 600px; PADDING-BOTTOM: 30px; PADDING-TOP: 30px; 
+PADDING-LEFT: 20px; MARGIN: 0px auto; PADDING-RIGHT: 20px">
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD style="PADDING-BOTTOM: 16px" align=center><IMG alt=Apple 
+      
+src="https://s.mzstatic.com/email/images_shared/logo_apple_small_m-3x.png" 
+
+      width=24 height=24> </TD></TR>
+  <TR>
+    <TD align=center>
+      <DIV class=title 
+      style="FONT-SIZE: 22px; MARGIN-BOTTOM: 12px; FONT-WEIGHT: 700; COLOR: 
+#d70015">アカウントリセットの申請に関するご確認</DIV></TD></TR>
+  <TR>
+    <TD 
+    style="FONT-SIZE: 14px; COLOR: #333; PADDING-BOTTOM: 20px; TEXT-ALIGN: 
+left; PADDING-TOP: 0px; PADDING-LEFT: 12px; LINE-HEIGHT: 1.7; 
+PADDING-RIGHT: 12px">お客様のApple 
+      IDにおいて、iCloudストレージの初期化およびデータ重置のリクエストが送信されました。<BR><BR><STRONG 
+      style="COLOR: 
+#d70015">注意：</STRONG>この操作が完了すると、保存されている写真、書類、バックアップ等の全てのデータは永久に削除され、復旧できなくなり
+ます。 
+    </TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: #ffcfcf 1px solid; BORDER-RIGHT: #ffcfcf 1px solid; 
+BACKGROUND: #fff5f5; BORDER-BOTTOM: #ffcfcf 1px solid; PADDING-BOTTOM: 18px;
+ PADDING-TOP: 18px; PADDING-LEFT: 18px; BORDER-LEFT: #ffcfcf 1px solid; 
+PADDING-RIGHT: 18px; border-radius: 14px">
+      <DIV 
+      style="FONT-SIZE: 14px; COLOR: #333; LINE-HEIGHT: 
+1.8">もしご本人様による申請でない場合は、第三者が不正にアクセスしている可能性があります。至急、以下のリンクよりサインインし、申請をキャンセルしてく
+ださい。 
+      </DIV></TD></TR>
+  <TR>
+    <TD 
+    style="FONT-SIZE: 13px; COLOR: #86868b; PADDING-BOTTOM: 26px; 
+TEXT-ALIGN: center; PADDING-TOP: 24px; PADDING-LEFT: 12px; LINE-HEIGHT: 1.6;
+ PADDING-RIGHT: 12px">※本通知から24時間以内にアクションがない場合、申請は自動的に執行されます。 
+    </TD></TR>
+  <TR>
+    <TD align=center><A class=button 
+      style="FONT-SIZE: 15px; TEXT-DECORATION: none; BACKGROUND: #0071e3; 
+FONT-WEIGHT: 600; COLOR: #fff; PADDING-BOTTOM: 12px; PADDING-TOP: 12px; 
+PADDING-LEFT: 26px; DISPLAY: inline-block; PADDING-RIGHT: 26px; 
+border-radius: 999px" 
+      href="https://nghea.com/u/wlaleokexg">サインインして申請をキャンセルする </A></TD></TR>
+  <TR>
+    <TD 
+    style="FONT-SIZE: 12px; COLOR: #8e8e93; PADDING-TOP: 30px; LINE-HEIGHT: 
+1.6" 
+    align=center>
+      <P>■ お問い合わせ先<BR>Appleサポート：<A style="COLOR: #8e8e93" 
+      
+href="https://www.apple.com/jp/support/">https://www.apple.com/jp/support/</
+A><BR><BR>本メールは送信専用です。返信には対応しておりません。<BR>Copyright 
+      c 2026 Apple Inc. </P>
+      
+<P>6EC62331-50AD-4302-5396-4EF108CC6C15</P></TD></TR></TBODY></TABLE></DIV><
+/BODY></HTML>
+
+
