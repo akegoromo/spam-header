@@ -1,0 +1,293 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:c28a:0:b0:261:85fe:9a8 with SMTP id s10csp1906597eif;
+        Sun, 12 Apr 2026 23:39:54 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ93Sf8sgkHl9/rynYcNBnGZHv+WQCwYApMIMTWT+J8aWLd/Iqk1bV73Ki9JwIC/w+MTCo8qpTkiYsNZREJv0Q==@gmail.com
+X-Received: by 2002:a5d:46c6:0:b0:43d:70de:1c6e with SMTP id ffacd0b85a97d-43d70de3419mr5479269f8f.16.1776062394404;
+        Sun, 12 Apr 2026 23:39:54 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1776062394; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=MFlUFaMKXbpM7zo5EAPpeM0tqocGNB7+HgpI9d+wVN2BylUG1azve258k2gqJ3z8vb
+         U1SRLp2dl6EQJrqOHfJXwp5n+7mG0xFbTazEzSpvZbpUXmJjgtU9fhTrEXJFUI3f3jYX
+         CoaJnJnzWjSXQRv7Iq4dykl72NHZlGV+qYWnvzi++1uxbeUYdU5To/J3GX7QM3Rfc030
+         bc2HX/zIjhiGcFKlUylEnzmzCFs7MWu2W9IUMXx73XozGs2NX8P6/k8+H0lx1BBaY0bT
+         iU70fkmHM6X810RAICpoJaM85d1AUTmwWa5Qf7PoTWUnOnbCKQBfghlEqLW9+3FdjLr8
+         bH8A==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:mime-version:from:date:dkim-signature
+         :feedback-id:dkim-signature:dkim-signature;
+        bh=dy8nrADmX42l7RPWEZ1DOHeSxgsyHC97Nn2jXqq0PxU=;
+        fh=AmwUtjvAn7++NEBttiaVEnyCAVA5youKb81rEHZT4FM=;
+        b=Epa2j1YQJ4tiBlDNRErSkFuiKw+XrINDWi8MjY5DpgAtggbclfykgAEhfrPBeP6VRD
+         4yO4Z+JPntuaWWNvJGLIOqTnm9JGJqggmMeCS30GHGjDiaSFHzcwFN20SkbxfdCu9N8D
+         dsCLudSEGKD7n24si9MJQz17yoexoA0tEIKupjiFVD9ucXSSFvYOFQ67dubWO4CUXLaG
+         7AFXHJBrMOA02K0VdheaiuXpcPVLeL/Ebth9Etpad5amZ/csqWkKCP90h6tb5wQ9uHWl
+         RIMJi5sQ7gFfmzl6SaOpHWwnDYKzAz1dePVivJl1xp6BUMe2R2Y3SU+vDUCmUW21oup+
+         xwSw==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=WwfxONVs;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=fc3LZ79a;
+       dkim=pass header.i=@mxtcnz.com header.s=s1 header.b=Y8Mo3SAh;
+       arc=pass (i=1 spf=pass spfdomain=em5724.mxtcnz.com dkim=pass dkdomain=mxtcnz.com dmarc=pass fromdomain=mxtcnz.com);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.47 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=mxtcnz.com
+Return-Path: <cfbounces+ndrdrop@whither.jp>
+Received: from ba-eh.cloudflare-email.net (ba-eh.cloudflare-email.net. [104.30.10.47])
+        by mx.google.com with ESMTPS id ffacd0b85a97d-43d7851cb0asi3701561f8f.236.2026.04.12.23.39.54
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 12 Apr 2026 23:39:54 -0700 (PDT)
+Received-SPF: pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.47 as permitted sender) client-ip=104.30.10.47;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=WwfxONVs;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=fc3LZ79a;
+       dkim=pass header.i=@mxtcnz.com header.s=s1 header.b=Y8Mo3SAh;
+       arc=pass (i=1 spf=pass spfdomain=em5724.mxtcnz.com dkim=pass dkdomain=mxtcnz.com dmarc=pass fromdomain=mxtcnz.com);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.47 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=mxtcnz.com
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=To:Subject:From:Date:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1776062394; x=1776667194; bh=dy8nrADmX42l7RPWEZ
+	1DOHeSxgsyHC97Nn2jXqq0PxU=; b=WwfxONVshGPnkWK2vZPCX2yOfHLERQ0JaxnXoCGlUi22d
+	Fcn0CKa8C0oIXuOgNkavdYHwBZIwa4SjPWeeHuNMOQTDNKA/LT5LczqRt2L9B7ANlgCn+RvClJT
+	n2r5SRpoNsrValwGd6L1dFdrHiDPo7U0yitM8K9h/jgDWq5NqC0LcXk8iBvHNEiAnU9bjnlAABI
+	z1VY+OdyyjGMY7wJpgT286DQAkZJKD4dTSDAEtiEo6lqclfnTeC9CuTt/7KMCRP0aSjTPwYeG4A
+	SCATUYFwm7HeQ5wIdO9KsrW7phNKpafXwxQj85WfOlIt0/Cohtg2e+66ikUw+rav2PH9uUXQ==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=To:Subject:From:Date:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1776062394; x=1776667194; bh=dy8nrADmX42l7RPWEZ
+	1DOHeSxgsyHC97Nn2jXqq0PxU=; b=fc3LZ79atGpx78V64IjlJ3FnnzW6VWdJ05WbpsD10Kk32
+	Rd6Ao/nACTCGQbJZmC5qLul3HYbacBU6YjeUYLx2DVjyKMw/vTD+v3T7cbdNMo84tIRSZiR/vbG
+	6rcs+7yrr7P264fHDEX0wGZszOa7HzaTJ4Y35yGeVQm2eygJFl+a0KMDNGeFldFFkRd1Kp/K4+C
+	nUqbMceRxrA2ZK8cZVp3+FkvDW0dpr7WvBMxwEbUipbbtEFQRdDUCY1P3HPX+OZJZ7TMcBhQG+e
+	3Dkr4XhhREmOoHWHXPJ6oKEoZK9iIQVzWE3Jrf925qu+ai6L9lcjtp2pbD+04DQbcNMLgtIg==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: tnakahara@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from s.wfbtzhsv.outbound-mail.sendgrid.net (159.183.224.104)
+        by cloudflare-email.net (cloudflare) id ixPuvv4kDPLS
+        for <tnakahara@whither.jp>; Mon, 13 Apr 2026 06:39:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=CzkkkPHTjmgAq0x/Cp49OL2G+Y8rdYvFOpKTA0iDBI3tTR4I6uiq6HKidkyeT469cA8kfRTQU
+	orHxfL7jcYK2zIE/c72vz1rBVJZOudmsHpUM+eSq754LXa+CFTD0C+VLVeBbUhs2G2RMMrBuwnT
+	bHdfa/iV6I87wrb8MC1pb4qngBrdiRT4m2rhSFHVExgxM+C3AlLkAv77Ea5j2aIf+7BRIpgpoYJ
+	9Xw+HVfXx36Vo9Nzf6p1KDnwkVow0yc6M+h9J+3INSYEGQHBjBFxhwvPPRVy+s5XMt8v7MCJzJS
+	KrSUy0NPXjbMrOSdk7c7rhWtR3AifiEgXUgx1Z1aJiOw==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=To:Subject:From:Date:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1776062394; x=1776667194; bh=dy8nrADm
+	X42l7RPWEZ1DOHeSxgsyHC97Nn2jXqq0PxU=; b=BucA0MXIc5yUPrWLi1qLpEaPabfaYoIHexW
+	hOMwYwpXDZxAFEyeYYnCmIH2HVJl6+JLLH/s4QBq9GhoS7rV8adpHyx1KFkH+z1cWpOIGAt/Gc2
+	znda9h0dvCweG2O72kCUyTFFk4fVX3FIEVMea0Ju4wzTLnjG91cxbyswH5lCiPM8INAAZ/fW2v4
+	l2IvcN4aLPFsQAYqXPKI1ztjrN+pFk5a7ieVHfPt3YKW+TKYctEjNEJ9MAkbGFSwHbDzwI/2r6K
+	jA/HDNfz1uOrBahXy+2I/i/ZRZmPDmuvAHWVG3gjjKs0NpyEpIo2CWEqcVeSgekRSzco5yei0R4
+	tEmIYuA==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.d=mxtcnz.com header.s=s1 header.b=Y8Mo3SAh;
+	dmarc=pass header.from=mxtcnz.com policy.dmarc=none;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@s.wfbtzhsv.outbound-mail.sendgrid.net) smtp.helo=s.wfbtzhsv.outbound-mail.sendgrid.net;
+	spf=pass (mx.cloudflare.net: domain of bounces+97522446-736e-tnakahara=whither.jp@em5724.mxtcnz.com designates 159.183.224.104 as permitted sender) smtp.mailfrom=bounces+97522446-736e-tnakahara=whither.jp@em5724.mxtcnz.com;
+	arc=none smtp.remote-ip=159.183.224.104
+Received-SPF: pass (mx.cloudflare.net: domain of bounces+97522446-736e-tnakahara=whither.jp@em5724.mxtcnz.com designates 159.183.224.104 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=159.183.224.104; envelope-from="bounces+97522446-736e-tnakahara=whither.jp@em5724.mxtcnz.com"; helo=s.wfbtzhsv.outbound-mail.sendgrid.net;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.d=mxtcnz.com header.s=s1 header.b=Y8Mo3SAh;
+	dmarc=pass header.from=mxtcnz.com policy.dmarc=none;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@s.wfbtzhsv.outbound-mail.sendgrid.net) smtp.helo=s.wfbtzhsv.outbound-mail.sendgrid.net;
+	spf=pass (mx.cloudflare.net: domain of bounces+97522446-736e-tnakahara=whither.jp@em5724.mxtcnz.com designates 159.183.224.104 as permitted sender) smtp.mailfrom=bounces+97522446-736e-tnakahara=whither.jp@em5724.mxtcnz.com;
+	arc=none smtp.remote-ip=159.183.224.104
+X-CF-SpamH-Score: 0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mxtcnz.com;
+	h=content-type:date:from:mime-version:subject:to:cc:content-type:date:
+	from:subject:to;
+	s=s1; t=1776062392; bh=dy8nrADmX42l7RPWEZ1DOHeSxgsyHC97Nn2jXqq0PxU=;
+	b=Y8Mo3SAhkmqTkx7ehqn/tOgmhlzMzb5TFwyAFyhp+AK9VIDoFX1h2lRP7wPxNxDHvdgD
+	spBexTOTcszzyMeDfRfX4z+gBeSNXs4+L9bhRJNNDqtSC1sDrLK5lTDmsHWoVr4/gmYFE3
+	jRG8R22Q1gsRK4uc1iTZaPpLFGxvUyyBOr9LMZL6GuAB/dv98FjOpnoOjqgJjlGYG2Zy/l
+	ONptlgfan6Qu8K++zzBzfrFCyIa3h+3YyreGMKe38fQPh8BtgPxn0dwtIltwVUS/IoIRxy
+	il2TZ4LJkwSE1uJjDkK7jN59/28LdXYwj6keikv0R69gOy5T9vv59OMUUASfqOpQ==
+Received: by recvd-5588d448b5-p7sqj with SMTP id recvd-5588d448b5-p7sqj-1-69DC8FB8-10
+	2026-04-13 06:39:52.667511596 +0000 UTC m=+255342.440160249
+Received: from OTc1MjI0NDY (unknown)
+	by geopod-ismtpd-1 (SG) with HTTP
+	id vmb3Jm59SgmI5EP9jz7GHQ
+	Mon, 13 Apr 2026 06:39:52.566 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=98c991962a5a5c962feddd36a810916ba93dfdee76370397370147a8b7e7
+Date: Mon, 13 Apr 2026 06:39:52 +0000 (UTC)
+From: "mxtcnz.com" <info@mxtcnz.com>
+Mime-Version: 1.0
+Message-ID: <vmb3Jm59SgmI5EP9jz7GHQ@geopod-ismtpd-1>
+Subject: Transform Your Outdoor Space with Expert Concrete & Landscaping
+ Services in Toronto
+X-SG-EID: 
+ =?us-ascii?Q?u001=2Ehlw3Qb=2FFMkY7lVPEP1SfiVEUhfr1+jdVy4er88b+aU1n=2Fp7Z4Mt0pKaO6?=
+ =?us-ascii?Q?Asibecno2zg89YQ0hqKpbtK0NYUMbuM4DXx0gga?=
+ =?us-ascii?Q?jZdcC6IRZOuNpXznFuBgr9R6W32gjlYBfDLkYHR?=
+ =?us-ascii?Q?8oKFyuRLtg+AqtyTJn0uN36Mdxc2ZLkM2sjLmDc?=
+ =?us-ascii?Q?q85NYODj1njvsrmgUDmkczxw8g9iNBZL5rW5PGx?=
+ =?us-ascii?Q?TPHoa8OxRvNXHjswaajH38=3D?=
+To: tnakahara@whither.jp
+X-Entity-ID: u001.tVdcD3E9bPHnNepIJQhF5g==
+
+--98c991962a5a5c962feddd36a810916ba93dfdee76370397370147a8b7e7
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Mime-Version: 1.0
+
+Transform Your Outdoor Space
+   =20
+
+   =20
+       =20
+            MXTC NZ Construction & Landscaping
+            Your Trusted Local Experts in Concrete & Outdoor Renovations
+
+       =20
+       =20
+       =20
+            Dear Valued Homeowner,
+
+           =20
+            Are you looking to enhance the beauty and functionality of your=
+ outdoor space? At MXTC NZ, we specialize in high-quality concrete works, o=
+utdoor renovations, and landscaping services tailored to your needs.
+
+           =20
+            Our Services Include:
+           =20
+           =20
+               =20
+                    Concrete Driveways & Patios
+                    Retaining Walls & Foundations
+                    Outdoor Kitchens & Fire Pits
+                    Garden Landscaping & Planting
+                    Fencing & Decking
+                    Seasonal Maintenance & Cleanup
+               =20
+           =20
+           =20
+            As a family-owned SME, we take pride in delivering personalized=
+ service with attention to detail. Whether it's a small repair or a complet=
+e outdoor transformation, we're here to bring your vision to life.
+
+           =20
+            Limited Time Offer: Get 10% off your first project when you boo=
+k before [Insert Date].
+
+           =20
+            Get a Free Quote Today
+           =20
+            Let's create an outdoor space you'll love for years to come.
+
+           =20
+            Warm regards,
+
+            The MXTC NZ Team
+
+       =20
+       =20
+       =20
+            MXTC NZ Construction & Landscaping
+
+            info@mxtcnz.com | [Insert Phone Number]
+
+            Serving Toronto & GTA with pride.
+
+            Unsubscribe | Contact Us
+--98c991962a5a5c962feddd36a810916ba93dfdee76370397370147a8b7e7
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=us-ascii
+Mime-Version: 1.0
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=3D"UTF-8">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=
+=3D1.0">
+    <title>Transform Your Outdoor Space</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; backg=
+round-color: #f4f4f4; }
+        .container { max-width: 600px; margin: 0 auto; background: #fff; pa=
+dding: 20px; }
+        .header { text-align: center; margin-bottom: 30px; }
+        .header h1 { color: #2c3e50; margin: 0; }
+        .header p { color: #7f8c8d; margin-top: 10px; }
+        .content { line-height: 1.6; color: #333; }
+        .content h2 { color: #2c3e50; margin-top: 25px; }
+        .services { background: #ecf0f1; padding: 15px; margin: 20px 0; bor=
+der-radius: 5px; }
+        .services ul { padding-left: 20px; }
+        .services li { margin-bottom: 8px; }
+        .cta { background: #3498db; color: #fff; text-align: center; paddin=
+g: 15px; margin: 20px 0; border-radius: 5px; text-decoration: none; display=
+: block; }
+        .cta:hover { background: #2980b9; }
+        .footer { text-align: center; color: #7f8c8d; margin-top: 30px; fon=
+t-size: 12px; }
+        .footer a { color: #3498db; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class=3D"container">
+        <div class=3D"header">
+            <h1>MXTC NZ Construction & Landscaping</h1>
+            <p>Your Trusted Local Experts in Concrete & Outdoor Renovations=
+</p>
+        </div>
+       =20
+        <div class=3D"content">
+            <p>Dear Valued Homeowner,</p>
+           =20
+            <p>Are you looking to enhance the beauty and functionality of y=
+our outdoor space? At MXTC NZ, we specialize in high-quality concrete works=
+, outdoor renovations, and landscaping services tailored to your needs.</p>
+           =20
+            <h2>Our Services Include:</h2>
+           =20
+            <div class=3D"services">
+                <ul>
+                    <li>Concrete Driveways & Patios</li>
+                    <li>Retaining Walls & Foundations</li>
+                    <li>Outdoor Kitchens & Fire Pits</li>
+                    <li>Garden Landscaping & Planting</li>
+                    <li>Fencing & Decking</li>
+                    <li>Seasonal Maintenance & Cleanup</li>
+                </ul>
+            </div>
+           =20
+            <p>As a family-owned SME, we take pride in delivering personali=
+zed service with attention to detail. Whether it's a small repair or a comp=
+lete outdoor transformation, we're here to bring your vision to life.</p>
+           =20
+            <p><strong>Limited Time Offer:</strong> Get 10% off your first =
+project when you book before [Insert Date].</p>
+           =20
+            <a href=3D"mailto:info@mxtcnz.com" class=3D"cta">Get a Free Quo=
+te Today</a>
+           =20
+            <p>Let's create an outdoor space you'll love for years to come.=
+</p>
+           =20
+            <p>Warm regards,</p>
+            <p>The MXTC NZ Team</p>
+        </div>
+       =20
+        <div class=3D"footer">
+            <p>MXTC NZ Construction & Landscaping</p>
+            <p>info@mxtcnz.com | [Insert Phone Number]</p>
+            <p>Serving Toronto & GTA with pride.</p>
+            <p><a href=3D"mailto:info@mxtcnz.com">Unsubscribe</a> | <a href=
+=3D"mailto:info@mxtcnz.com">Contact Us</a></p>
+        </div>
+    </div>
+</body>
+</html>
+--98c991962a5a5c962feddd36a810916ba93dfdee76370397370147a8b7e7--
+
