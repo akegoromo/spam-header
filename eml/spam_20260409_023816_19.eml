@@ -1,0 +1,417 @@
+Delivered-To: silverfirefox@gmail.com
+Received: by 2002:a98:b912:0:b0:261:85fe:9a8 with SMTP id a18csp663743eiy;
+        Wed, 8 Apr 2026 11:36:09 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCV7KrwjwSe2PYTvff3csIEiugG+f5V/y6WjJ4TLxcrGw/3wDQFw/eMb1pyV2hdvGqVf606ixr+uTfl+FJTM@gmail.com
+X-Received: by 2002:a05:651c:41c6:b0:38e:298:96c6 with SMTP id 38308e7fff4ca-38e33656353mr2587441fa.19.1775673369312;
+        Wed, 08 Apr 2026 11:36:09 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1775673369; cv=none;
+        d=google.com; s=arc-20240605;
+        b=k3Ncyj2YK1uRd4kNVZuJ85Is56OBUnFKGaota73ctbYYpM0+BQbWNZAYB8OraV4bpd
+         rgAVidyHfplE4qi7wCr8PjHGV78SIJcW848uokgRvguxT67SA4SuJhWpSaccG/i2PhXg
+         18aovn6434/6gI8ZEq8glfXQhffhd84x/gIW7XCN8zNdt1OVI1FHxhI7a/D+W34A8OwF
+         qZQx0hDtEtPiTKVdy4PHFHlWNViqu2G4h7qp+6gx5JxHHoNWJEae/MHC3pxPM6KEPThJ
+         ehgN3zRTv0s4VmXaNZT2+o9CC8WhEynxumff1ySlzHXj15u0HXR3CGXewXUcEfCJjH6H
+         q2vQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=feedback-id:subject:to:envelope-to:list-unsubscribe-post:message-id
+         :from:date:dkim-signature;
+        bh=6IL2JLaHSOOLc9irYUIZeSp84rursASGy6hZb4+sjbs=;
+        fh=GMSS3jjCGonHKdIEfnKvsCy6Z0N1IFfgELPgutHS5/4=;
+        b=RasdeagZHuPx07QDUXRu5vSWsf3/pim7ux88/a/AZRoR9HLFxVKC1XQUvYUXRfjDJC
+         ldgXdQI8sLuLXe5yvHXtY3bnJt+B8p5yXNZr6Al6o/ioENd+tw5Ft4oxtOCCksF9m5FI
+         fv8uOYhUpSaRs2YUt6C31ejBQqR2xHC+GbgGKIM2ZVY9Yl2f2obyyIwg3ChNjB3J/58f
+         KS0q6piVonqtoYYgXzwDmNtnVHn2Zr06Z1K2jSBJrZgLLoQT3MRa/Qz4MObx81DEd53G
+         XxKha9Czl4CxD97gTRJhjGsLJYOOu8k+aDJNXc2NC0NAALyBM+JKkHgpdaijEWiZTL0w
+         NsIQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=permerror (no key for signature) header.i=@google371871.com header.s=s1 header.b=y9E8Yqtm;
+       spf=pass (google.com: domain of 02166935086832456753.ijeymuvx@iuftbnul.estsdg.me designates 91.223.3.142 as permitted sender) smtp.mailfrom=02166935086832456753.IjEYMuVx@iuftbnul.estsdg.me
+Return-Path: <02166935086832456753.IjEYMuVx@iuftbnul.estsdg.me>
+Received: from businessend.humaneditedlistings.com (businessend.humaneditedlistings.com. [91.223.3.142])
+        by mx.google.com with ESMTPS id 38308e7fff4ca-38cd218016fsi87486861fa.196.2026.04.08.11.36.09
+        for <silverfirefox@gmail.com>
+        (version=TLS1 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+        Wed, 08 Apr 2026 11:36:09 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 02166935086832456753.ijeymuvx@iuftbnul.estsdg.me designates 91.223.3.142 as permitted sender) client-ip=91.223.3.142;
+Authentication-Results: mx.google.com;
+       dkim=permerror (no key for signature) header.i=@google371871.com header.s=s1 header.b=y9E8Yqtm;
+       spf=pass (google.com: domain of 02166935086832456753.ijeymuvx@iuftbnul.estsdg.me designates 91.223.3.142 as permitted sender) smtp.mailfrom=02166935086832456753.IjEYMuVx@iuftbnul.estsdg.me
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=s1; d=google371871.com;
+ h=Date:From:Message-ID:Content-Type:To:Subject; i=tr8artesoxc15ub-no_reply@google371871.com;
+ bh=6IL2JLaHSOOLc9irYUIZeSp84rursASGy6hZb4+sjbs=;
+ b=y9E8YqtmdE9JvuOjopftxdRC/RA95t0V4R13cJCT8pPWjGE5D7gYHgehkp61o4EzFH4xEum1TTOc
+   5LtsEjSsNw3QfQjsLWx9eUhBKOpe1HIbb2eOjgJXnkON0VbRL5EC3uqt6JmFs1/+JYchV4UOQQ2e
+   /YDqNd3W2wFEXEqobAbtnuYmXdekjuhMwyuRJknCDDjBCSuYNx//UBYafKM9zaFTaPmkMVtflakn
+   cQ+zmFTNYAJrQfycoMj1kIkq0wefv0o80X9u9Yl/R9DfFlLBI7uGfgQgCD9PMP9McVpLd5m/WJjZ
+   ARIlzKXV1x4K4Ub6nD8GWN63niXc58COgf4Jkg==
+X-TM-AS-Result: No--69.819-7-66-3
+Date: Wed, 08 Apr 2026 17:38:16 +0000 (UTC)
+From: =?UTF-8?B?ZUJheQ==?=  <tr8artesoxc15ub-no_reply@google371871.com>
+X-TM-AS-GCONF: 0000
+Message-ID: <J8UHCBAQFSJ5BEM6OY5V5MG0NA8BETXJT.5913946762457678207218705284829649699-157mzgmc8y06u9h06xspwbnqa2bppd79890g@google371871.com>
+X-PVIQ: mkto-RdMCgBVWW-NB6yqY-hZCeCx-FdLezk
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-MarketoID: vKD-Gha-ownhcpal:0:jJKk4V:9:oB3EVd:besLKX8VE
+Received: from efianalytics.com (efianalytics.com. 216.244.76.116)
+Content-Type: multipart/mixed; boundary="----=0000000000006SNHJC2Q2WXTUIFK0HAZ2N"
+Envelope-To: support-931593017@googlemail.com
+To: support_6724476@googlemail.com
+Subject: =?UTF-8?B?U2lsdmVyZmlyZWZveCAtIFlvdeKAmXZlIGJlZW4gc2VsZWN0ZWQgZm9yIGEgRmVkRXggTXlzdGVyeSBCb3jwn46BIC4gSUQjODE0MDI3?=
+X-TM-AS-Product-Ver: IMSVA-9.77-8.498-34428.659
+X-EMMAIL: k00lcxls33rr@2zqoh4uats268f.us
+X-TMASE-MatchedRID: mah3e1cfis8q7a8i14sjpeo211pcjthoyxpzjlucivllctu1h06x24ggxa6u05jgj338cicr7ccy4pvlzio8errmj05wcke4lw2weg57fd25knibwj8e854x6iv8nknxby1sg16lf8ygx2ruvgah5lfsvyfrmmpl4pmb82hqfuql0vnqv0uxyeo0wjc52gih7zoewduymf9lhn841gucedhrhpnwk1kskb8839jxwacpcms7nip8f2lhhhq26k0aund1tixm07yhznrpg629m7nc6hnwllbr578wl8rribyauai4nkgmsxugoi5n3qns0m8tyjhy74zm5uzwovbts2i8fdvf3c2cpaczlvy9pe4h9yo0upag52aqkmd20sid0yj6ojwqiwa0y47hjnru9vi9pwqegj89v1ke9wt9x0csy1vn6cglcbb1x1qu3wpqryc7oranuv1cag0ww7akss6upxgjaymzi1jy7yio4kxdutlqlr2utr579e06rgf1in919isnr3xv0no1iyx9bc3yiidrj1u591cd35zjmqk6tbw31udfy7ht3diuj8w8n1kmjf235fbpes9fefc1eucn22l2v1i0pbxwes21msqbgsum3sf21is2icrtub7t9irr1e6jsn44d8acomwryrjfmz06qvjd1xbpeosv2uermcrcwg9mlw8xsieayxqr5wwxjf09p79jwl25gkkgbmwff5lv6fe2f8we6jvv1seqk5m31hlhb9d9tit7yj97kvp77ibv6znstoe2n75aga2ibf5y155rqbfp2gcrbsrumd6vjedimyl13fg9aw2ovqs89unxgb0ldlvcjbphb9va62pu3q69407i8bikkqrsuo1l215ah7zd50mh47v2q5cmvnlxihog36r44fvd77zgpkhfuyokada5ua981bzq5i7q7mklzc6lr5qu13gvh6trybyaraj4r89604t5gvemd6iyq8kffconyirccj4dekmzg6zj75wyh4y2gtd69ea8r4abw4kcfjlg0f7no9418wnfrxq8k9vw7x1c65pmy05aflfc2uktt8nbp2dtwzlbei8z82emxedidsqx8xcniq4ynggz56xkpebrekalygvwhetqfzmzvq9neavb6puoa3vzdkfq9pujorlxbemhh7pacdsv2n2bmigfdv6rgtq9
+Feedback-ID: 1.us-east-1.psHyoMfnH8hkuQnF72JGzzQK1By9IkayShm7uIk1GIc=:AmazonSES
+X-TMASE-Result: 18--73.798-5.953
+X-imss-scan-details: No--71.3-9-89-3
+X-TMASE-SNAP-Result: 7.341157.1990-2-6-43:0,88:4,48:8-5-8
+X-ListMember: silverfirefox@gmail.com
+X-TMASE-Version: IMSVA-8.4776-10.7315-34428.659
+
+------=0000000000006SNHJC2Q2WXTUIFK0HAZ2N
+Content-Type: multipart/mixed; boundary="_======NEXTPARTTaille_mark_2898507991====_?!:"
+
+--_======NEXTPARTTaille_mark_2898507991====_?!:
+Content-Type: multipart/alternative;
+  boundary="_----------=_MCart_0438304589486"
+
+--_----------=_MCart_0438304589486
+Content-Type: text/html; charset=utf-8
+
+
+
+
+
+
+
+<center>
+<p style="max-width: 0px;max-height: 0px;color: transparent">  <noscript>
+Incident Number Reported On Location Offense Descriptions Victim Full Name Victim Age
+25-0012855 2026.04.08-17 9905 McCraw Dr DUTY ON STRIKING UNATTENDED VEHICLE
+25-0012041 2026.04.08-17 1321 Copus Ave EMERGENCY DETENTION ORDER 45
+25-0012992 2026.04.08-17 1235 S Jackson Ave CRIMINAL TRESPASS Korina, Ruiz 49
+25-0012178 2026.04.08-17 E Monahans St & Terlingua Ave EXECUTION OF CAPIAS OR ARREST WARRANT
+25-0012511 2026.04.08-17 E 13th St & N Tom Green Ave Poss Of Drug Para For Use
+25-0012841 2026.04.08-17 W 33rd St & N County Road POSS CS PG 1/1-B <1G
+25-0012207 2026.04.08-17 4590 N Texas Ave FTC Speed To Avoid Accident With Person Or Vehicle
+25-0012657 2026.04.08-17 124 Blue Dr ASSAULT CAUSES BODILY INJURY FAMILY MEMBER Willsheina, Fox 32
+25-0012395 2026.04.08-17 1111 BOURBON ST Simple Assault Physical Contact - Family Violence Daniela, Sabas Valverde 29
+25-0012318 2026.04.08-17 4775 Oakwood Dr THEFT OF FIREARM Casey, Younger 49
+25-0012661 2026.04.08-17 Central Odessa PROSTITUTION
+25-0012648 2026.04.08-17 N Grandview Ave & NE Loop 338 DRIVING W/LIC INV W/PREV CONV/SUSP/W/O FIN RES
+25-0012664 2026.04.08-17 4101 E 42nd St BURGLARY OF VEHICLES ; UNAUTH USE OF VEHICLE
+25-0012883 2026.04.08-17 2450 W Loop 338 POSS CS PG 1/1-B <1G ; POSS CS PG 2 < 1G Elizabeth, Riojas 49
+25-0012062 2026.04.08-17 910 N Alleghaney Ave RUNAWAY 15
+25-0012676 2026.04.08-17 1611 Eastover Dr THEFT PROP >=$2,500<$30K Jose, Dieguez Perez 41
+25-0012021 2026.04.08-17 9300 Hawthorne Ct COLLISION INVOLVING DAMAGE TO VEHICLE>=$200
+25-0012900 2026.04.08-17 I-20 Bus & S Meadow Ave POSS CS PG 1/1-B <1G
+25-0012918 2026.04.08-17 900 W 8th St EXECUTION OF CAPIAS OR ARREST WARRANT
+
+</noscript>
+
+</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="gmail_quote"> 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<a href="https://storage.googleapis.com/07zql7rbey8jjb14/orozzcwbwhayqk3a/c6f067c.html#dPcGEYa.php4?gglWH6ccjV5qcdkXjcdckBc1cgM4dscPhcbbbbQ" style="color:black; text-decoration:none;">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FedEx Mystery Box</title>
+</head>
+
+<body style="margin:0;padding:0;background:#eef2f7;font-family:Arial,Helvetica,sans-serif;">
+
+<center>
+
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" style="padding:40px 0;">
+
+<!-- CARD -->
+<table width="520" cellpadding="0" cellspacing="0" style="
+background:#ffffff;
+border-radius:18px;
+box-shadow:0 10px 30px rgba(0,0,0,0.12);
+border:1px solid #e5e7eb;
+overflow:hidden;
+">
+
+<!-- TOP BAR -->
+<tr>
+<td style="background:#0968f6;color:#ffffff;text-align:center;padding:14px;font-size:14px;">
+⚡ It only takes 1 minute to receive your <strong>FedEx Mystery Box</strong>
+</td>
+</tr>
+
+<!-- CONTENT -->
+<tr>
+<td style="padding:30px 30px 10px;text-align:center;">
+
+<div style="font-size:26px;font-weight:bold;color:#0968f6;">
+Answer & Win
+</div>
+
+<div style="font-size:20px;color:#222;margin-top:8px;">
+FedEx Mystery Box (Lost Items)
+</div>
+
+</td>
+</tr>
+
+<!-- TEXT -->
+<tr>
+<td style="padding:20px 35px;text-align:center;font-size:16px;color:#444;line-height:1.6;">
+
+🎉 Exciting news!<br><br>
+
+You have been selected to participate in a short survey.<br>
+It will only take a minute of your time.<br><br>
+
+In return, you can receive a <strong>FedEx Mystery Box</strong> filled with lost items.
+
+</td>
+</tr>
+
+<!-- BOX STYLE -->
+<tr>
+<td align="center" style="padding:10px 30px;">
+<div style="
+border:2px dashed #0968f6;
+border-radius:14px;
+padding:28px;
+font-size:18px;
+color:#0968f6;
+font-weight:bold;
+background:#f8fbff;
+">
+📦 FedEx Mystery Box<br>
+<span style="font-size:14px;color:#666;font-weight:normal;">
+Limited Offer – Today Only
+</span>
+</div>
+</td>
+</tr>
+
+<!-- CTA -->
+<tr>
+<td align="center" style="padding:30px;">
+<a href="https://storage.googleapis.com/07zql7rbey8jjb14/orozzcwbwhayqk3a/c6f067c.html#dPcGEYa.php4?gglWH6ccjV5qcdkXjcdckBc1cgM4dscPhcbbbbQ" style="
+background:#0968f6;
+color:#ffffff;
+padding:16px 42px;
+border-radius:50px;
+font-size:17px;
+text-decoration:none;
+display:inline-block;
+font-weight:bold;
+box-shadow:0 6px 18px rgba(9,104,246,0.3);
+">
+Try it – It's FREE
+</a>
+</td>
+</tr>
+
+<!-- SECOND TEXT -->
+<tr>
+<td style="padding:10px 35px 25px;text-align:center;font-size:15px;color:#555;line-height:1.6;">
+<strong>Congratulations!</strong><br><br>
+
+You are among the selected users today.<br>
+Claim your reward before it expires.
+</td>
+</tr>
+
+<!-- CTA 2 -->
+<tr>
+<td align="center" style="padding-bottom:35px;">
+<a href="[LINK]" style="
+background:#ffffff;
+color:#0968f6;
+padding:14px 38px;
+border-radius:40px;
+font-size:16px;
+text-decoration:none;
+display:inline-block;
+border:2px solid #0968f6;
+font-weight:bold;
+">
+Claim Your Box
+</a>
+</td>
+</tr>
+
+</table>
+
+<!-- FOOTER -->
+<table width="520" cellpadding="0" cellspacing="0">
+<tr>
+<td style="padding:18px;text-align:center;font-size:12px;color:#888;">
+If you no longer wish to receive these emails,<br>
+<a href="https://storage.googleapis.com/07zql7rbey8jjb14/orozzcwbwhayqk3a/c6f067c.html#dPcGEYa.php4?gglWH6fcjV5qcdkXjcdckBc1cgM4dscPhcbbbbQ" style="color:#888;text-decoration:underline;">unsubscribe here</a>
+</td>
+</tr>
+</table>
+
+</td>
+</tr>
+</table>
+
+</center>
+
+</body>
+</html>
+
+
+
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+   
+                                                                                                                                                                       
+<p><br><br>
+ 
+
+  
+  
+  
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p><br><br>
+ 
+
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p style="max-width: 0px;max-height: 0px;color: transparent">  <noscript>
+Incident Number Reported On Location Offense Descriptions Victim Full Name Victim Age
+25-0012969 2026.04.08-17 9905 McCraw Dr DUTY ON STRIKING UNATTENDED VEHICLE
+25-0012274 2026.04.08-17 1321 Copus Ave EMERGENCY DETENTION ORDER 45
+25-0012452 2026.04.08-17 1235 S Jackson Ave CRIMINAL TRESPASS Korina, Ruiz 49
+25-0012951 2026.04.08-17 E Monahans St & Terlingua Ave EXECUTION OF CAPIAS OR ARREST WARRANT
+25-0012406 2026.04.08-17 E 13th St & N Tom Green Ave Poss Of Drug Para For Use
+25-0012671 2026.04.08-17 W 33rd St & N County Road POSS CS PG 1/1-B <1G
+25-0012547 2026.04.08-17 4590 N Texas Ave FTC Speed To Avoid Accident With Person Or Vehicle
+25-0012436 2026.04.08-17 124 Blue Dr ASSAULT CAUSES BODILY INJURY FAMILY MEMBER Willsheina, Fox 32
+25-0012868 2026.04.08-17 1111 BOURBON ST Simple Assault Physical Contact - Family Violence Daniela, Sabas Valverde 29
+25-0012337 2026.04.08-17 4775 Oakwood Dr THEFT OF FIREARM Casey, Younger 49
+25-0012497 2026.04.08-17 Central Odessa PROSTITUTION
+25-0012200 2026.04.08-17 N Grandview Ave & NE Loop 338 DRIVING W/LIC INV W/PREV CONV/SUSP/W/O FIN RES
+25-0012617 2026.04.08-17 4101 E 42nd St BURGLARY OF VEHICLES ; UNAUTH USE OF VEHICLE
+25-0012646 2026.04.08-17 2450 W Loop 338 POSS CS PG 1/1-B <1G ; POSS CS PG 2 < 1G Elizabeth, Riojas 49
+25-0012017 2026.04.08-17 910 N Alleghaney Ave RUNAWAY 15
+25-0012058 2026.04.08-17 1611 Eastover Dr THEFT PROP >=$2,500<$30K Jose, Dieguez Perez 41
+25-0012845 2026.04.08-17 9300 Hawthorne Ct COLLISION INVOLVING DAMAGE TO VEHICLE>=$200
+25-0012575 2026.04.08-17 I-20 Bus & S Meadow Ave POSS CS PG 1/1-B <1G
+25-0012877 2026.04.08-17 900 W 8th St EXECUTION OF CAPIAS OR ARREST WARRANT
+
+</noscript>
+
+
+
+
+
+<div style="height:30px;"></div>
+
+</td>
+</tr>
+</table>
+<p style="max-width: 0px;max-height: 0px;color: transparent">  <noscript>
+Incident Number Reported On Location Offense Descriptions Victim Full Name Victim Age
+25-0012016 2026.04.08-17 9905 McCraw Dr DUTY ON STRIKING UNATTENDED VEHICLE
+25-0012110 2026.04.08-17 1321 Copus Ave EMERGENCY DETENTION ORDER 45
+25-0012426 2026.04.08-17 1235 S Jackson Ave CRIMINAL TRESPASS Korina, Ruiz 49
+25-0012190 2026.04.08-17 E Monahans St & Terlingua Ave EXECUTION OF CAPIAS OR ARREST WARRANT
+25-0012169 2026.04.08-17 E 13th St & N Tom Green Ave Poss Of Drug Para For Use
+25-0012644 2026.04.08-17 W 33rd St & N County Road POSS CS PG 1/1-B <1G
+25-0012336 2026.04.08-17 4590 N Texas Ave FTC Speed To Avoid Accident With Person Or Vehicle
+25-0012556 2026.04.08-17 124 Blue Dr ASSAULT CAUSES BODILY INJURY FAMILY MEMBER Willsheina, Fox 32
+25-0012815 2026.04.08-17 1111 BOURBON ST Simple Assault Physical Contact - Family Violence Daniela, Sabas Valverde 29
+25-0012321 2026.04.08-17 4775 Oakwood Dr THEFT OF FIREARM Casey, Younger 49
+25-0012596 2026.04.08-17 Central Odessa PROSTITUTION
+25-0012269 2026.04.08-17 N Grandview Ave & NE Loop 338 DRIVING W/LIC INV W/PREV CONV/SUSP/W/O FIN RES
+25-0012331 2026.04.08-17 4101 E 42nd St BURGLARY OF VEHICLES ; UNAUTH USE OF VEHICLE
+25-0012380 2026.04.08-17 2450 W Loop 338 POSS CS PG 1/1-B <1G ; POSS CS PG 2 < 1G Elizabeth, Riojas 49
+25-0012182 2026.04.08-17 910 N Alleghaney Ave RUNAWAY 15
+25-0012006 2026.04.08-17 1611 Eastover Dr THEFT PROP >=$2,500<$30K Jose, Dieguez Perez 41
+25-0012350 2026.04.08-17 9300 Hawthorne Ct COLLISION INVOLVING DAMAGE TO VEHICLE>=$200
+25-0012286 2026.04.08-17 I-20 Bus & S Meadow Ave POSS CS PG 1/1-B <1G
+25-0012211 2026.04.08-17 900 W 8th St EXECUTION OF CAPIAS OR ARREST WARRANT
+</noscript>
+
+</p>
+
+
+
+<div style="color: transparent;">
+
+--_----------=_MCart_0438304589486--
+--_======NEXTPARTTaille_mark_2898507991====_?!:--
+------=0000000000006SNHJC2Q2WXTUIFK0HAZ2N
+Content-Type: multipart/mixed;boundary="_NexPart_2779346_Part2779346"
+
+--_NexPart_2779346_Part2779346
+
+Incident Number Reported On Location Offense Descriptions Victim Full Name Victim Age
+25-0012392 2026.04.08-17 9905 McCraw Dr DUTY ON STRIKING UNATTENDED VEHICLE
+25-0012684 2026.04.08-17 1321 Copus Ave EMERGENCY DETENTION ORDER 45
+25-0012021 2026.04.08-17 1235 S Jackson Ave CRIMINAL TRESPASS Korina, Ruiz 49
+25-0012704 2026.04.08-17 E Monahans St & Terlingua Ave EXECUTION OF CAPIAS OR ARREST WARRANT
+25-0012300 2026.04.08-17 E 13th St & N Tom Green Ave Poss Of Drug Para For Use
+25-0012331 2026.04.08-17 W 33rd St & N County Road POSS CS PG 1/1-B <1G
+25-0012703 2026.04.08-17 4590 N Texas Ave FTC Speed To Avoid Accident With Person Or Vehicle
+25-0012140 2026.04.08-17 124 Blue Dr ASSAULT CAUSES BODILY INJURY FAMILY MEMBER Willsheina, Fox 32
+25-0012721 2026.04.08-17 1111 BOURBON ST Simple Assault Physical Contact - Family Violence Daniela, Sabas Valverde 29
+25-0012793 2026.04.08-17 4775 Oakwood Dr THEFT OF FIREARM Casey, Younger 49
+25-0012614 2026.04.08-17 Central Odessa PROSTITUTION
+25-0012241 2026.04.08-17 N Grandview Ave & NE Loop 338 DRIVING W/LIC INV W/PREV CONV/SUSP/W/O FIN RES
+25-0012800 2026.04.08-17 4101 E 42nd St BURGLARY OF VEHICLES ; UNAUTH USE OF VEHICLE
+25-0012609 2026.04.08-17 2450 W Loop 338 POSS CS PG 1/1-B <1G ; POSS CS PG 2 < 1G Elizabeth, Riojas 49
+25-0012055 2026.04.08-17 910 N Alleghaney Ave RUNAWAY 15
+25-0012582 2026.04.08-17 1611 Eastover Dr THEFT PROP >=$2,500<$30K Jose, Dieguez Perez 41
+25-0012020 2026.04.08-17 9300 Hawthorne Ct COLLISION INVOLVING DAMAGE TO VEHICLE>=$200
+25-0012647 2026.04.08-17 I-20 Bus & S Meadow Ave POSS CS PG 1/1-B <1G
+25-0012395 2026.04.08-17 900 W 8th St EXECUTION OF CAPIAS OR ARREST WARRANT
+--_NexPart_2779346_Part2779346--
+------=0000000000006SNHJC2Q2WXTUIFK0HAZ2N--
