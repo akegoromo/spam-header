@@ -1,0 +1,984 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a05:7010:c946:b0:50c:8f10:bfa0 with SMTP id kc6csp1318641mdb;
+        Thu, 9 Apr 2026 11:07:46 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AJvYcCUm592Ak5d93QFHOYvwSZo0i6iQC8H7QHlmhKRqEzWrlY4KPbqlbg2vNHs1BJNR1JLafk6lfeuHVPfTWSfwyg==@gmail.com
+X-Received: by 2002:a67:ef49:0:b0:607:9443:b29d with SMTP id ada2fe7eead31-6079443b7a2mr4195993137.7.1775758065826;
+        Thu, 09 Apr 2026 11:07:45 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1775758065; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=GAd/f4suLumotOTNnKQqWq+lBJKbfalQ1az14kr2JYW7BADSAOHVCoLphURNFaFmJD
+         o4IwlcU+IsmbHi36hGkLDwPkAMaZaLOzh6mWW+zPyy88W0otYoEBxE3CDle7UAXyplcz
+         iMn4mZ6b75WoJaFw7scm7AqpXsYdVvQUHd6ff/D7Iy7BjZhs1SK74vh4GxO8QJDV1P/b
+         pKK4FT+MvU/dGkD55pyxNpjGKXycNpBtiUwxVODDO+hhPzyCGlyzBAjN7OGW3qFHeF6s
+         jFeJCHHtMLkkWVI3ZryK7xObbpDfccr4bqBQdERChd68i9PY8w7taqOcz5bYdY02R0G0
+         lTrg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:from:subject:date:message-id:sender:reply-to:mime-version
+         :dkim-signature:dkim-signature:feedback-id:dkim-signature
+         :dkim-signature;
+        bh=3oXPYkIAuO3/J/selkFx7AYsKqkmM5G9sjpX2hkqPfE=;
+        fh=AmwUtjvAn7++NEBttiaVEnyCAVA5youKb81rEHZT4FM=;
+        b=gfN3reUa1YfzFhnFks0AnC2dEPr/QzIF+PGgD76Gsui3IU8V9ouj5qxP6kkihx6rK6
+         I4VfQBtL7vt7yx0ZWzNssuNq590OcAiKTkoIajWeuCRqaH0sRJe+T1y5339nfu7AD7kd
+         e6cZ26trVKd0OeVrVX5xH88jE0PcDuhqDWMklDd1cU2SKhFMfdW5gj9j0d39vFmLztB1
+         NVEjPPTJqtW8NXXgx4DOuEW9AeX8Sp2BjHOs62fLN6WBjlR/iXk2CJh9CDAJzgoJ5K3C
+         WzUBIeCApfS4TNxPxUtajtOLZrXjcXEc/DI4bekv3d4BSH1AgSQq4vDXaYtXh2YMrgpp
+         RKOg==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=R8HhNiNH;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=ZSsRCqoB;
+       dkim=pass header.i=@google.com header.s=20251104 header.b=Dt9h6oDe;
+       dkim=pass header.i=@ltvmail-com.20251104.gappssmtp.com header.s=20251104 header.b=tdyoyS4B;
+       arc=pass (i=1 dkim=pass dkdomain=google.com dkim=pass dkdomain=ltvmail-com.20251104.gappssmtp.com);
+       spf=pass (google.com: domain of srs0=-zk9=ic=ltvmail.com=aniellowiseferguson@whither.jp designates 104.30.8.42 as permitted sender) smtp.mailfrom="SRS0=-zK9=ic=ltvmail.com=aniellowiseferguson@whither.jp"
+Return-Path: <SRS0=-zK9=ic=ltvmail.com=aniellowiseferguson@whither.jp>
+Received: from i-ec.cloudflare-email.net (i-ec.cloudflare-email.net. [104.30.8.42])
+        by mx.google.com with ESMTPS id 6a1803df08f44-8ac84c13e09si3049136d6.281.2026.04.09.11.07.45
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 09 Apr 2026 11:07:45 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=-zk9=ic=ltvmail.com=aniellowiseferguson@whither.jp designates 104.30.8.42 as permitted sender) client-ip=104.30.8.42;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=R8HhNiNH;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=ZSsRCqoB;
+       dkim=pass header.i=@google.com header.s=20251104 header.b=Dt9h6oDe;
+       dkim=pass header.i=@ltvmail-com.20251104.gappssmtp.com header.s=20251104 header.b=tdyoyS4B;
+       arc=pass (i=1 dkim=pass dkdomain=google.com dkim=pass dkdomain=ltvmail-com.20251104.gappssmtp.com);
+       spf=pass (google.com: domain of srs0=-zk9=ic=ltvmail.com=aniellowiseferguson@whither.jp designates 104.30.8.42 as permitted sender) smtp.mailfrom="SRS0=-zK9=ic=ltvmail.com=aniellowiseferguson@whither.jp"
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=To:From:Subject:Date:Reply-To:Feedback-ID:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1775758065; x=1776362865; bh=3oXPYkIAuO3/J/selk
+	Fx7AYsKqkmM5G9sjpX2hkqPfE=; b=R8HhNiNHb8bQ+TrfwGEcBbq9pjEzARrfTDWMmacW9Fl9f
+	cfmwK32ugWnRqNiSMOeA6r4IWUnLp9msaZMTrgyE4N+19yajPO4vrjP3o2NEuD13zYRpoMoGfwQ
+	YvSXDDNldjUZe9zVfgNxh2tNVb79/ICNafFWRAjXxdGpTThp4ZJavQOTDY7xkTh8kESxBWFCKJ3
+	76Ve5MDXn4vd5YGTLiJv07D0qA/lbFxKRgX2X6Zj+r2UaGZXhNZeh4XKCbFjfzcgozhsw6hIQ5m
+	Do5cpbI5b/YZGdHD+a4f5bWYJHo0wCIxKi9gyGXYRIAclo5t1CbMUTQgHGpEImLhpYm+ISnA==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=To:From:Subject:Date:Reply-To:Feedback-ID:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1775758065; x=1776362865; bh=3oXPYkIAuO3/J/selk
+	Fx7AYsKqkmM5G9sjpX2hkqPfE=; b=ZSsRCqoBQ3GQfe3rkTMV9AXKeMhQt4q5iiIvCA95fXlr/
+	cg23i9N5/XrKSjBpTxWxSPUDeGnI9CKrs5iMuI3THiELxub/CC7lTuJhm89rOwt2kp9vaZxwQgR
+	K3m7rxrBpz+OcYKPuO0ZP+gxJcmnibdZ3SLgBgv5qoZ/inv1yzOoYuSs9rUS4vOa5GKE2WlmoQ7
+	4SaYTz3wC95I8fxA5vfQGzh3yTq5RLfdPtTtQBewjKBaTbVXnqi8zzFfefSzJ+ZBPzsmnfh3Yh3
+	i4jAf0dtNBg8239SCZIOz40ZJjSbW+s7XWskUGY9I10nsuU++759ZfoYBeHR35BBX10jET2A==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: tnakahara@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from mail-vk1-xa4a.google.com (2607:f8b0:4864:20::a4a)
+        by cloudflare-email.net (cloudflare) id XXW7fNZzdQVR
+        for <tnakahara@whither.jp>; Thu, 09 Apr 2026 18:07:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=NP28DFHxoo403BKakYys17pNxD1Mbjac/s70yAqt/BVa8+vCgCdsPcZYeyHREc8nvK5D9Lu/8
+	brvXSkEgvvh78yrNgbZ3xQe0QtrT9ih/DTrIAZthfBOlLXISTT4vF0gA1jAfAXQAivxR9oRq2Bp
+	/igJxVOK+0NRNyFwdiKAZe1uz9BSwCfJKWpdslu5LYVjr3iAHuDibogvazer53AbiOXiOknyU/Z
+	npfJLt6JUOP2jkUxwV3ZFM0pGRksPvm7YYMsU/wQAh3JWlPLAcgztBHFg0TlVlj8gsQQtyL1Auq
+	CiDGtq7RvnuW/I5wesj8UMejaxvWVq9oCWq/6SlLPD6A==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=To:From:Subject:Date:Reply-To:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1775758064; x=1776362864; bh=3oXPYkIA
+	uO3/J/selkFx7AYsKqkmM5G9sjpX2hkqPfE=; b=MIEQ2212Ab2Z1TRXlU/TNN8J1jWc3IYyk6C
+	LeHX8mcSZL2ulWcU+hk4baZKVzjnWsGet3KwI84TiaJvr4vPdqm/uCJ3Arnzj6qNG5ARMDuKICl
+	VfrlWXFZcNl6vZ9T/Q8phciz1ecGgD5UuNV9DDeTMr0w2dnPNk+l0AkRg3mH3cfHh8Mw08FD3i0
+	s6cP4Ahfh2QPb9zys+TEjEa0Ks/vatkKC9CGuxJMPSkF2R2XP6o8mK80eAmqz2puOZCk98WOtED
+	m7x7uTVC+m0Sa/sAFf97L+2gR7vKrxcMX07JZiqUbekkkXBGRG14kgzYWRVUVWeMuFYaMVwisp/
+	+2DfvOw==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.d=google.com header.s=20251104 header.b=Dt9h6oDe;
+	dkim=pass header.d=ltvmail-com.20251104.gappssmtp.com header.s=20251104 header.b=tdyoyS4B;
+	dmarc=none header.from=ltvmail.com policy.dmarc=none;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@mail-vk1-xa4a.google.com) smtp.helo=mail-vk1-xa4a.google.com;
+	spf=none (mx.cloudflare.net: no SPF records found for aniellowiseferguson@ltvmail.com) smtp.mailfrom=aniellowiseferguson@ltvmail.com;
+	arc=none smtp.remote-ip="2607:f8b0:4864:20::a4a"
+Received-SPF: none (mx.cloudflare.net: no SPF records found for aniellowiseferguson@ltvmail.com)
+	receiver=mx.cloudflare.net; client-ip=2607:f8b0:4864:20::a4a; envelope-from="aniellowiseferguson@ltvmail.com"; helo=mail-vk1-xa4a.google.com;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.d=google.com header.s=20251104 header.b=Dt9h6oDe;
+	dkim=pass header.d=ltvmail-com.20251104.gappssmtp.com header.s=20251104 header.b=tdyoyS4B;
+	dmarc=none header.from=ltvmail.com policy.dmarc=none;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@mail-vk1-xa4a.google.com) smtp.helo=mail-vk1-xa4a.google.com;
+	spf=none (mx.cloudflare.net: no SPF records found for aniellowiseferguson@ltvmail.com) smtp.mailfrom=aniellowiseferguson@ltvmail.com;
+	arc=none smtp.remote-ip="2607:f8b0:4864:20::a4a"
+X-CF-SpamH-Score: 0
+Received: by mail-vk1-xa4a.google.com with SMTP id 71dfb90a1353d-56eedc95688so2196607e0c.2
+        for <tnakahara@whither.jp>; Thu, 09 Apr 2026 11:07:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1775758063; x=1776362863; darn=whither.jp;
+        h=to:from:subject:date:message-id:sender:reply-to:mime-version:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=3oXPYkIAuO3/J/selkFx7AYsKqkmM5G9sjpX2hkqPfE=;
+        b=Dt9h6oDes9WXgQshYJm8IG2HEf2Z/yvaI9fGd/gB8aJfvedU+gl3RszXgFZNi6p0lF
+         SfhJEOE5QvMQlNQtVHmSC4UGx9LZmfYAt7DtWEURe2AGeSubMybbcwf2qQZxfjN9OgZi
+         DE72ZoGOLdMqFYyUcuJu6N6tGD1DO+agfSfe/oltT/ZgdSDnDJup9ZK5jgJ+0AqCNxLY
+         XW/656EDDgsRTH+gkJXPUwaLUNTwW35U8PT8KC5z+aKw01ARrS4cX+MWy6mqmgYAWqJX
+         h/gtDtkHiKUD0DIeZtg2LXajswOnKcv+sUz1HyTMQeAKitFSvw+VNFCTGkJaRTzQgFUc
+         aoYg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ltvmail-com.20251104.gappssmtp.com; s=20251104; t=1775758063; x=1776362863; darn=whither.jp;
+        h=to:from:subject:date:message-id:sender:reply-to:mime-version:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=3oXPYkIAuO3/J/selkFx7AYsKqkmM5G9sjpX2hkqPfE=;
+        b=tdyoyS4Bk/KP/dD8acuI/wajuEc2pEI4FSO8wcP/a7iwtG9TO82c2QPjMDp5XRzv6f
+         TC2M0LcJ4p+UQvB4PIHYiW0+YPaKlEihCGPVRAqUxSdnzMsQdD0D/AA8zSDqGkJv+WMZ
+         7yb9rZgbIHHXqYj0Gcd0/LHUGAzNXQLn4hgZn/mMR2JKzOBFw/kbgqkvxSQO82on8vbI
+         +uAk3vT3dxU4/M6tLtcCRG7aW0MP1rWT3IWh6odK4lObI9nziwH3Q9Z6mMt7ZPxoj019
+         ggRwoc7gHd3LWFnR9OyG9vAvr3APy/+r3zvAzyxNBIo11h7ujJYsC71+tbbH245QPYT9
+         553w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775758063; x=1776362863;
+        h=to:from:subject:date:message-id:sender:reply-to:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=3oXPYkIAuO3/J/selkFx7AYsKqkmM5G9sjpX2hkqPfE=;
+        b=sw6UP4/55NiOduVIhDPZ48nhf+qgMvcsLLov4saOQycbOD22sgs29xyXYrRZuYvCUa
+         WWXOhR5q98u8JdM9k0wEmzFqBP8pPH35V+L1m8fDySckwS754mvzDBjLNQw0nWEI+rJl
+         4WLHRBZFs4PB60vUogWxI3jmnJ7NsHGq54lRY0zoDMpKO+geUwS/OJf1yirsOMwA52Nh
+         KelsFQvqa2PeXO4pxdGESvHQ9MMzH+ELsfoGcUMx0spkgtKzeYoR0NuEPmjrf1CgJi5J
+         uUYmkb7mdrMP6VzSeqmwefGE8cdWP6oV4HbzVWWg0d2jiCIFXjSODLiIEoXHQI7e/N4j
+         I1pw==
+X-Gm-Message-State: AOJu0Yz8UnJ/S6eFWM4L3YtJ31dY9sv8n/hGdu9w5q5CfNdxK7o6o5wn
+	8HVPFMem0SeHBiM9bqF3hKwlOYVhoJG0wxnPvpSG2SwKIed3OlXKAw8ZeGjKXtqGuly+NjmEG74
+	dqAVYmj+m5i+Wob6Cix4Ou/x96wnI7wUaDr3sBO1q90uANBdVaDFh8WOi
+MIME-Version: 1.0
+X-Received: by 2002:a05:6122:1810:b0:566:354d:9f4a with SMTP id
+ 71dfb90a1353d-56f3bb21f97mr79692e0c.1.1775758063047; Thu, 09 Apr 2026
+ 11:07:43 -0700 (PDT)
+Reply-To: Aniello Wise-ferguson <aniellowiseferguson@ltvmail.com>
+Sender: Google Calendar <calendar-notification@google.com>
+Message-ID: <calendar-3c57ad7d-d88e-4e6e-847a-98ea644829bb@google.com>
+Date: Thu, 09 Apr 2026 18:07:43 +0000
+Subject: Invitation: Reminder: Your Plan is Due for Renewal - Review at Your
+ C... @ Fri Apr 10, 2026 4:06pm (GMT+9) (tnakahara@whither.jp)
+From: Aniello Wise-ferguson <aniellowiseferguson@ltvmail.com>
+To: tnakahara@whither.jp
+Content-Type: multipart/mixed; boundary="0000000000008e21a3064f0ae4d7"
+
+--0000000000008e21a3064f0ae4d7
+Content-Type: multipart/alternative; boundary="0000000000008e21a2064f0ae4d5"
+
+--0000000000008e21a2064f0ae4d5
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+Content-Transfer-Encoding: base64
+
+UmVtaW5kZXI6IFlvdXIgUGxhbiBpcyBEdWUgZm9yIFJlbmV3YWwg4oCTIFJldmlldyBhdCBZb3Vy
+IENvbnZlbmllbmNlDQpGcmlkYXkgQXByIDEwLCAyMDI2IOKLhSA0OjA2cG0NCkphcGFuIFN0YW5k
+YXJkIFRpbWUNCg0KDQoNCkJpbGwgZGF0ZTogRnJpZGF5LCAxMCBBcHJpbCAyMDI2DQoNClN1YnNj
+cmlwdGlvbiBSZW5ld2FsIFN0YXR1cyBJbmZvcm1hdGlvbg0KDQpDdXN0b21lciBTdXBwb3J0IE5v
+dGljZSwNCg0KV2UgYXJlIHdyaXRpbmcgdG8gaW5mb3JtIHlvdSB0aGF0IHlvdXIgbWVtYmVyc2hp
+cCB1bmRlciBHZWVrU3F1YWQgd2lsbCAgDQpyZW5ldyB0b2RheS4gQSB0b3RhbCBhbW91bnQgb2Yg
+JDQyNS44NCB3aWxsIGJlIHByb2Nlc3NlZCBhY2NvcmRpbmdseS4gRm9yICANCmhlbHAsIHBsZWFz
+ZSBjb250YWN0IDF7ODA4fSAgNDM5LTc2MDguDQoNClJlY2VpcHQgRGF0YSBIdWI6DQpTZXJ2aWNl
+IFByb3ZpZGVyOiBHZWVrU3F1YWQNCkJpbGwgbnVtYmVyOiA1ODg1ODkyNy01MTINCkFkZC1vbiBT
+ZXJ2aWNlOiBDeWJlckNvcmUgRXNzZW50aWFscw0KVmFsaWRpdHk6IFRocmVlIFllYXJzDQpUb3Rh
+bCBQYXlhYmxlOiAkNDI1Ljg0DQoNCklmIHlvdSBuZWVkIGFueSBhc3Npc3RhbmNlLCBmZWVsIGZy
+ZWUgdG8gY29udGFjdCAxezgwOH0gIDQzOS03NjA4Lg0KDQpXaXRoIG9uZ29pbmcgYXBwcmVjaWF0
+aW9uLA0KU2FtJydTIERpYXoNCkdlZWtTcXVhZCwgSW5jLg0KMjAyNiBDb21wYW55LiBBbGwgUmln
+aHRzIFJlc2VydmVkLg0KRW50cnkgS2V5OiA4NzlkNTM4OC0zYTU3LTQ1MWItYjhiYi0zNTVjMTA2
+NDVhZWQNCg0KT3JnYW5pemVyDQpBbmllbGxvIFdpc2UtZmVyZ3Vzb24NCmFuaWVsbG93aXNlZmVy
+Z3Vzb25AbHR2bWFpbC5jb20NCg0KUmVwbHkgZm9yIHRuYWthaGFyYUB3aGl0aGVyLmpwIGFuZCB2
+aWV3IG1vcmUgZGV0YWlscyAgDQpodHRwczovL2NhbGVuZGFyLmdvb2dsZS5jb20vY2FsZW5kYXIv
+ZXZlbnQ/YWN0aW9uPVZJRVcmZWlkPWFXZzFjMWh3VWtWM1YxTmlhWGRRTlhaRVdtRk9RWE0yYkZJ
+Z2RHNWhhMkZvWVhKaFFIZG9hWFJvWlhJdWFuQSZ0b2s9TXpFallXNXBaV3hzYjNkcGMyVm1aWEpu
+ZFhOdmJrQnNkSFp0WVdsc0xtTnZiVFU0T0dKalpERXlPR000TVdRMlpqSm1NMlZsTkRnNE9HUmlZ
+bVF5TldNd016a3dOalUyTlRFJmN0ej1Bc2lhJTJGVG9reW8maGw9ZW4mZXM9MA0KWW91ciBhdHRl
+bmRhbmNlIGlzIG9wdGlvbmFsLg0KDQp+fi8vfn4NCkludml0YXRpb24gZnJvbSBHb29nbGUgQ2Fs
+ZW5kYXI6IGh0dHBzOi8vY2FsZW5kYXIuZ29vZ2xlLmNvbS9jYWxlbmRhci8NCg0KWW91IGFyZSBy
+ZWNlaXZpbmcgdGhpcyBlbWFpbCBiZWNhdXNlIHlvdSBhcmUgYW4gYXR0ZW5kZWUgb24gdGhlIGV2
+ZW50Lg0KDQpGb3J3YXJkaW5nIHRoaXMgaW52aXRhdGlvbiBjb3VsZCBhbGxvdyBhbnkgcmVjaXBp
+ZW50IHRvIHNlbmQgYSByZXNwb25zZSB0byAgDQp0aGUgb3JnYW5pemVyLCBiZSBhZGRlZCB0byB0
+aGUgZ3Vlc3QgbGlzdCwgaW52aXRlIG90aGVycyByZWdhcmRsZXNzIG9mICANCnRoZWlyIG93biBp
+bnZpdGF0aW9uIHN0YXR1cywgb3IgbW9kaWZ5IHlvdXIgUlNWUC4NCg0KTGVhcm4gbW9yZSBodHRw
+czovL3N1cHBvcnQuZ29vZ2xlLmNvbS9jYWxlbmRhci9hbnN3ZXIvMzcxMzUjZm9yd2FyZGluZw0K
+--0000000000008e21a2064f0ae4d5
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!doctype html><html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:=
+schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:offi=
+ce"><head><title></title><!--[if !mso]><meta http-equiv=3D"X-UA-Compatible"=
+ content=3D"IE=3Dedge"><![endif]--><meta http-equiv=3D"Content-Type" conten=
+t=3D"text/html; charset=3DUTF-8"><meta name=3D"viewport" content=3D"width=
+=3Ddevice-width,initial-scale=3D1"><meta name=3D"color-scheme" content=3D"l=
+ight dark"><meta name=3D"supported-color-schemes" content=3D"light dark">
+    <style>
+      body, html {
+        font-family: Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+      }
+
+      #outlook a {
+        padding: 0;
+      }
+
+      .ReadMsgBody {
+        width: 100%;
+      }
+
+      .ExternalClass {
+        width: 100%;
+      }
+
+      .ExternalClass * {
+        line-height: 100%;
+      }
+
+      table,
+      td {
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+      }
+
+      img {
+        border: 0;
+        height: auto;
+        line-height: 100%;
+        outline: none;
+        text-decoration: none;
+        -ms-interpolation-mode: bicubic;
+      }
+
+      p {
+        display: block;
+        margin: 13px 0;
+      }
+    </style>
+    <!--[if !mso]><!-->
+    <style>
+      @media only screen and (max-width:580px) {
+        @-ms-viewport {
+          width: 320px;
+        }
+
+        @viewport {
+          width: 320px;
+        }
+      }
+    </style>
+    <!--<![endif]-->
+    <!--[if mso]>
+          <xml>
+          <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+          </o:OfficeDocumentSettings>
+          </xml>
+          <![endif]-->
+    <!--[if lte mso 11]>
+          <style>
+            .outlook-group-fix { width:100% !important; }
+          </style>
+    <![endif]-->
+
+    <!--[if !mso]><!-- -->
+  <style>body, html {font-family:Roboto,Helvetica,Arial,sans-serif;}@font-f=
+ace {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  src: url(//fonts.gstatic.com/s/roboto/v48/KFOMCnqEu92Fr1ME7kSn66aGLdTylUA=
+MQXC89YmC2DPNWubEbVmUiA8.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: normal;
+  src: url(//fonts.gstatic.com/s/roboto/v48/KFOMCnqEu92Fr1ME7kSn66aGLdTylUA=
+MQXC89YmC2DPNWub2bVmUiA8.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+  src: url(//fonts.gstatic.com/s/roboto/v48/KFOMCnqEu92Fr1ME7kSn66aGLdTylUA=
+MQXC89YmC2DPNWuYjalmUiA8.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Material Icons Extended';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/s/materialiconsextended/v154/kJEjBvgX7BgnkSr=
+UwT8UnLVc38YydejYY-oE_LvM.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Google Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/s/googlematerialicons/v144/Gw6kwdfw6UnXLJCcm=
+afZyFRXb3BL9rvi0QZG3g.otf) format('opentype');
+}
+
+.google-material-icons {
+  font-family: 'Google Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+}
+@font-face {
+  font-family: 'Google Material Icons Filled';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/s/googlematerialiconsfilled/v118/WWXFlimHYg6=
+HKI3TavMkbKdhBmDvgach8TVpeGsuueSZJH4.otf) format('opentype');
+}
+
+.google-material-icons-filled {
+  font-family: 'Google Material Icons Filled';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+}
+@font-face {
+  font-family: 'Google Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/s/googlesans/v14/4UaGrENHsxJlGDuGo1OIlL3Owps=
+.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Google Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: url(//fonts.gstatic.com/s/googlesans/v14/4UabrENHsxJlGDuGo1OIlLU94Yt=
+zCwM.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Google Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url(//fonts.gstatic.com/s/googlesans/v14/4UabrENHsxJlGDuGo1OIlLV154t=
+zCwM.ttf) format('truetype');
+}
+</style><!--<![endif]-->
+      <style>
+        .body-container {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+      </style>
+ =20
+      <style>
+        u+.body .body-container,
+        body[data-outlook-cycle] .body-container,
+        #MessageViewBody .body-container {
+          padding-left: 0;
+          padding-right: 0;
+        }
+      </style>
+ =20
+    <style>
+      @media only screen and (min-width:580px) {
+        .column-per-37 {
+          width: 37% !important;
+          max-width: 37%;
+        }
+
+        .column-per-63 {
+          width: 63% !important;
+          max-width: 63%;
+        }
+      }
+    </style>
+ =20
+    <style>
+      .appointment-buttons th {
+        display: block;
+        clear: both;
+        float: left;
+        margin-top: 12px;
+      }
+
+      .appointment-buttons th a {
+        float: left;
+      }
+
+      #MessageViewBody .appointment-buttons th {
+       margin-top: 24px;
+      }
+    </style>
+ =20
+    <style>
+      @media only screen and (max-width:580px) {
+        table.full-width-mobile {
+          width: 100% !important;
+        }
+
+        td.full-width-mobile {
+          width: auto !important;
+        }
+      }
+    </style>
+    <style>
+      .main-container-inner,
+      .info-bar-inner {
+        padding: 12px 16px !important;
+      }
+
+      .main-column-table-ltr {
+        padding-right: 0 !important;
+      }
+
+      .main-column-table-rtl {
+        padding-left: 0 !important;
+      }
+
+      @media only screen and (min-width:580px) {
+        .main-container-inner {
+          padding: 24px 32px !important;
+        }
+
+        .info-bar-inner {
+          padding: 12px 32px !important;
+        }
+
+        .main-column-table-ltr {
+          padding-right: 32px !important;
+        }
+
+        .main-column-table-rtl {
+          padding-left: 32px !important;
+        }
+
+        .appointment-buttons th {
+          display: table-cell;
+          clear: none;
+        }
+      }
+
+      .primary-text {
+        color: #3c4043 !important;
+      }
+
+      .secondary-text,
+      .phone-number a {
+        color: #70757a !important;
+      }
+
+      .accent-text {
+        color: #1a73e8 !important;
+      }
+
+      .accent-text-dark {
+        color: #185abc !important;
+      }
+
+      .grey-button-text,
+      .attachment-chip a {
+        color: #5f6368 !important;
+      }
+
+      .primary-button {
+        background-color: #1a73e8 !important;
+      }
+
+      .primary-button-text {
+        color: #fff !important;
+      }
+
+      .underline-on-hover:hover {
+        text-decoration: underline !important;
+      }
+
+      .grey-infobar-text {
+        color: #202124 !important;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .primary-text:not([class^=3D"x_"]) {
+          color: #e8eaed !important;
+        }
+
+        .secondary-text:not([class^=3D"x_"]),
+        .phone-number:not([class^=3D"x_"]) a {
+          color: #9aa0a6 !important;
+        }
+
+        .grey-button-text:not([class^=3D"x_"]),
+        .attachment-chip:not([class^=3D"x_"]) a {
+          color: #bdc1c6 !important;
+        }
+
+        .accent-text:not([class^=3D"x_"]),
+        .hairline-button-text:not([class^=3D"x_"]) {
+          color: #8ab4f8 !important;
+        }
+
+        .primary-button:not([class^=3D"x_"]) {
+          background-color: #8ab4f8 !important;
+        }
+
+        .primary-button-text:not([class^=3D"x_"]) {
+          color: #202124 !important;
+        }
+      }
+    </style>
+    <style>
+      @media (prefers-color-scheme: dark) {
+        .cse-banner:not([class^=3D"x_"]) {
+          background-color: #3c4043 !important; /* Google Grey 800 */
+        }
+
+        .encryption-icon:not([class^=3D"x_"]) {
+          /* WARNING: This causes the whole style tag to get stripped in Gm=
+ail. */
+          background-image: url('https://fonts.gstatic.com/s/i/googlemateri=
+aliconsfilled/encrypted/v3/gm_grey200-24dp/2x/gm_filled_encrypted_gm_grey20=
+0_24dp.png') !important;
+        }
+      }
+    </style>
+    <!--[if !mso]><!-->
+    <style>
+      .prevent-link a {
+        color: inherit !important;
+        text-decoration: none !important;
+        font-size: inherit !important;
+        font-family: inherit !important;
+        font-weight: inherit !important;
+        line-height: inherit !important;
+      }
+    </style>
+    <!--<![endif]-->
+
+    <!--[if mso | IE]>
+      <style>
+        .main-container-inner {
+          padding: 24px 32px !important;
+        }
+
+        .info-bar-inner {
+          padding: 12px 32px !important;
+        }
+
+        .cse-banner .encryption-icon {
+          /* We use the IE workaround instead. */
+          background-image: none !important;
+        }
+
+        .cse-banner .encryption-icon .ms-fallback {
+          display: block !important;
+        }
+
+        /* NB: Some MS clients ignore dark-scheme styling and apply their o=
+wn, so there's nothing we can do to help there. */
+        @media (prefers-color-scheme: dark) {
+          .cse-banner:not([class^=3D"x_"]) .encryption-icon .ms-fallback {
+            display: none !important;
+          }
+
+          .cse-banner:not([class^=3D"x_"]) .encryption-icon .ms-fallback-da=
+rk {
+            display: block !important;
+          }
+        }
+      </style>
+    <![endif]-->
+  </head><body class=3D"body"><span itemscope itemtype=3D"http://schema.org=
+/InformAction"><span style=3D"display:none" itemprop=3D"about" itemscope it=
+emtype=3D"http://schema.org/Person"><meta itemprop=3D"description" content=
+=3D"Invitation from Aniello Wise-ferguson"/></span><span itemprop=3D"object=
+" itemscope itemtype=3D"http://schema.org/Event"><meta itemprop=3D"eventSta=
+tus" content=3D"http://schema.org/EventScheduled"/><span itemprop=3D"publis=
+her" itemscope itemtype=3D"http://schema.org/Organization"><meta itemprop=
+=3D"name" content=3D"Google Calendar"/></span><meta itemprop=3D"eventId/goo=
+gleCalendar" content=3D"ih5sXpREwWSbiwP5vDZaNAs6lR"/><span style=3D"display=
+: none; font-size: 1px; color: #fff; line-height: 1px; height: 0; max-heigh=
+t: 0; width: 0; max-width: 0; opacity: 0; overflow: hidden;" itemprop=3D"na=
+me">Reminder: Your Plan is Due for Renewal =E2=80=93 Review at Your Conveni=
+ence</span><meta itemprop=3D"url" content=3D"https://calendar.google.com/ca=
+lendar/event?action=3DVIEW&amp;eid=3DaWg1c1hwUkV3V1NiaXdQNXZEWmFOQXM2bFIgdG=
+5ha2FoYXJhQHdoaXRoZXIuanA&amp;tok=3DMzEjYW5pZWxsb3dpc2VmZXJndXNvbkBsdHZtYWl=
+sLmNvbTU4OGJjZDEyOGM4MWQ2ZjJmM2VlNDg4OGRiYmQyNWMwMzkwNjU2NTE&amp;ctz=3DAsia=
+%2FTokyo&amp;hl=3Den&amp;es=3D0"/><span aria-hidden=3D"true"><time itemprop=
+=3D"startDate" datetime=3D"20260410T070608Z"></time><time itemprop=3D"endDa=
+te" datetime=3D"20260410T070608Z"></time></span><div style=3D"display: none=
+; font-size: 1px; color: #fff; line-height: 1px; height: 0; max-height: 0; =
+width: 0; max-width: 0; opacity: 0; overflow: hidden;">Bill date: Friday, 1=
+0 April 2026
+
+Subscription Renewal Status Information
+
+Customer Support Notice,
+
+We are writing to inform you that your membership under GeekSquad will rene=
+w today. A total amount </div><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" align=3D"center" style=3D"width:100%;" cla=
+ss=3D"body-container"><tbody><tr><td style=3D"" class=3D"" align=3D"left"><=
+!--[if mso | IE]><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" ro=
+le=3D"presentation"><tr><td height=3D"16" style=3D"height:16px;"><![endif]-=
+-><div style=3D"height:16px;" aria-hidden=3D"true"> &nbsp; </div><!--[if ms=
+o | IE]></td></tr></table><![endif]--><table border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" role=3D"presentation" align=3D"center" style=3D"width:10=
+0%;" class=3D""><tbody><tr><td style=3D"border: solid 1px #dadce0; border-r=
+adius: 8px; direction: rtl; font-size: 0; padding: 24px 32px; text-align: l=
+eft; vertical-align: top;" class=3D"main-container-inner"><!--[if mso | IE]=
+><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on"><tr><![endif]--><div class=3D"" style=3D"font-size: 13px; text-align: l=
+eft; direction: ltr; display: inline-block; vertical-align: top; width: 100=
+%;overflow: hidden; word-wrap: break-word;"><table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%" class=3D"main=
+-column-table-ltr" style=3D"padding-right: 32px; padding-left: 0;;table-lay=
+out: fixed;"><tbody><tr><td class=3D"main-column-td" style=3D"padding:0; ve=
+rtical-align:top;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+role=3D"presentation" width=3D"100%" style=3D"table-layout: fixed;"><tr><td=
+ style=3D"font-size: 0; padding: 0; text-align: left; word-break: break-wor=
+d;;padding-bottom:24px;"><div style=3D"font-family: Roboto, sans-serif;font=
+-style: normal; font-weight: 400; font-size: 14px; line-height: 20px; lette=
+r-spacing: 0.2px;color: #3c4043; text-decoration: none;" class=3D"primary-t=
+ext" role=3D"presentation"><span>Bill date: Friday, 10 April 2026<p>Subscri=
+ption Renewal Status Information</p><p>Customer Support Notice,</p><p>We ar=
+e writing to inform you that your membership under GeekSquad will renew tod=
+ay. A total amount of $425.84 will be processed accordingly. For help, plea=
+se contact 1{808}  439-7608.</p><p>Receipt Data Hub:<br>Service Provider: G=
+eekSquad<br>Bill number: 58858927-512<br>Add-on Service: CyberCore Essentia=
+ls<br>Validity: Three Years<br>Total Payable: $425.84</p><p>If you need any=
+ assistance, feel free to contact 1{808}  439-7608.</p><p>With ongoing appr=
+eciation,<br>Sam&#39;&#39;S Diaz<br>GeekSquad, Inc.<br>2026 Company. All Ri=
+ghts Reserved.<br>Entry Key: 879d5388-3a57-451b-b8bb-355c10645aed</p></span=
+><meta itemprop=3D"description" content=3D"Bill date: Friday, 10 April 2026
+
+Subscription Renewal Status Information
+
+Customer Support Notice,
+
+We are writing to inform you that your membership under GeekSquad will rene=
+w today. A total amount of $425.84 will be processed accordingly. For help,=
+ please contact 1{808}  439-7608.
+
+Receipt Data Hub:
+Service Provider: GeekSquad
+Bill number: 58858927-512
+Add-on Service: CyberCore Essentials
+Validity: Three Years
+Total Payable: $425.84
+
+If you need any assistance, feel free to contact 1{808}  439-7608.
+
+With ongoing appreciation,
+Sam&#39;&#39;S Diaz
+GeekSquad, Inc.
+2026 Company. All Rights Reserved.
+Entry Key: 879d5388-3a57-451b-b8bb-355c10645aed"/></div></td></tr><tr><td s=
+tyle=3D"font-size: 0; padding: 0; text-align: left; word-break: break-word;=
+;padding-bottom:24px;"><div style=3D"font-family: Roboto, sans-serif;font-s=
+tyle: normal; font-weight: 400; font-size: 14px; line-height: 20px; letter-=
+spacing: 0.2px;color: #3c4043; text-decoration: none;" class=3D"primary-tex=
+t" role=3D"presentation"><span aria-hidden=3D"true"><time itemprop=3D"start=
+Date" datetime=3D"20260410T070608Z"></time><time itemprop=3D"endDate" datet=
+ime=3D"20260410T070608Z"></time></span><table border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" role=3D"presentation" style=3D"padding-bottom: 4px;"><t=
+r><td><h2 class=3D"primary-text" style=3D"font-size: 14px;color: #3c4043; t=
+ext-decoration: none;font-weight: 700;-webkit-font-smoothing: antialiased;m=
+argin: 0; padding: 0;">When</h2></td></tr></table><span>Friday Apr 10, 2026=
+ =E2=8B=85 4:06pm (Japan Standard Time)</span></div></td></tr><tr><td style=
+=3D"font-size: 0; padding: 0; text-align: left; word-break: break-word;;pad=
+ding-bottom:24px;"><div style=3D"font-family: Roboto, sans-serif;font-style=
+: normal; font-weight: 400; font-size: 14px; line-height: 20px; letter-spac=
+ing: 0.2px;color: #3c4043; text-decoration: none;" class=3D"primary-text" r=
+ole=3D"presentation"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" role=3D"presentation" style=3D"padding-bottom: 4px;"><tr><td><h2 class=3D=
+"primary-text" style=3D"font-size: 14px;color: #3c4043; text-decoration: no=
+ne;font-weight: 700;-webkit-font-smoothing: antialiased;margin: 0; padding:=
+ 0;">Organizer</h2></td></tr></table><div style=3D"color: #3c4042;"><span c=
+lass=3D"notranslate"><a class=3D"primary-text underline-on-hover" style=3D"=
+display: inline-block;;color: #3c4043; text-decoration: none;" href=3D"mail=
+to:aniellowiseferguson@ltvmail.com">Aniello Wise-ferguson</a></span><span i=
+temprop=3D"organizer" itemscope itemtype=3D"http://schema.org/Person"><meta=
+ itemprop=3D"name" content=3D"Aniello Wise-ferguson"/><meta itemprop=3D"ema=
+il" content=3D"aniellowiseferguson@ltvmail.com"/></span></div><div style=3D=
+"color: #707579;"><a class=3D"secondary-text underline-on-hover" style=3D"d=
+isplay: inline-block;;color: #70757a; text-decoration: none;" href=3D"mailt=
+o:aniellowiseferguson@ltvmail.com">aniellowiseferguson@ltvmail.com</a></div=
+></div></td></tr><tr><td style=3D"font-size: 0; padding: 0; text-align: lef=
+t; word-break: break-word;;padding-bottom:24px;"><div style=3D"font-family:=
+ Roboto, sans-serif;font-style: normal; font-weight: 400; font-size: 14px; =
+line-height: 20px; letter-spacing: 0.2px;color: #3c4043; text-decoration: n=
+one;" class=3D"primary-text" role=3D"presentation"><table border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"padding-bott=
+om: 4px;"><tr><td><h2 class=3D"primary-text" style=3D"font-size: 14px;color=
+: #3c4043; text-decoration: none;font-weight: 700;-webkit-font-smoothing: a=
+ntialiased;margin: 0; padding: 0;">Guests</h2></td></tr></table>(Guest list=
+ has been hidden at organizer's request)</div></td></tr><tr><td style=3D"fo=
+nt-size: 0; padding: 0; text-align: left; word-break: break-word;;padding-b=
+ottom:0px;"><div style=3D"color: #3c4043; text-decoration: none;;font-famil=
+y: Roboto, sans-serif;font-size: 14px; line-height: 20px; mso-line-height-r=
+ule: exactly; text-align: left;" class=3D"primary-text"><div><span style=3D=
+"font-weight: 700;-webkit-font-smoothing: antialiased;">Reply</span><span c=
+lass=3D"secondary-text" style=3D"color: #70757a; text-decoration: none;"> f=
+or <a class=3D"secondary-text underline-on-hover" style=3D"display: inline-=
+block;;color: #70757a; text-decoration: none;" href=3D"mailto:tnakahara@whi=
+ther.jp">tnakahara@whither.jp</a></span></div></div></td></tr><tr><td style=
+=3D"font-size: 0; padding: 0; text-align: left; word-break: break-word;;pad=
+ding-bottom:16px;"><div style=3D"font-family: Roboto, sans-serif;font-size:=
+ 14px; line-height: 20px; mso-line-height-rule: exactly; text-align: left;"=
+><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"border-collapse: separate;"><tr><td style=3D"padding-top: 8px;=
+ padding-left: 0; padding-right: 12px;"><!-- RSVP buttons --><table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"b=
+order: solid 1px #dadce0; border-radius: 16px; border-collapse: separate;fo=
+nt-family: &#39;Google Sans&#39;, Roboto, sans-serif;;display: inline-block=
+;;margin-right: 12px; margin-left: 0;"><tr><td align=3D"center" vertical-al=
+ign=3D"middle" role=3D"presentation"><span itemprop=3D"potentialaction" ite=
+mscope itemtype=3D"http://schema.org/RsvpAction"><meta itemprop=3D"attendan=
+ce" content=3D"http://schema.org/RsvpAttendance/Yes"/><span itemprop=3D"han=
+dler" itemscope itemtype=3D"http://schema.org/HttpActionHandler"><link item=
+prop=3D"method" href=3D"http://schema.org/HttpRequestMethod/GET"/><span sty=
+le=3D"color: #5f6367;"><a href=3D"https://calendar.google.com/calendar/even=
+t?action=3DRESPOND&amp;eid=3DaWg1c1hwUkV3V1NiaXdQNXZEWmFOQXM2bFIgdG5ha2FoYX=
+JhQHdoaXRoZXIuanA&amp;rst=3D1&amp;tok=3DMzEjYW5pZWxsb3dpc2VmZXJndXNvbkBsdHZ=
+tYWlsLmNvbTU4OGJjZDEyOGM4MWQ2ZjJmM2VlNDg4OGRiYmQyNWMwMzkwNjU2NTE&amp;ctz=3D=
+Asia%2FTokyo&amp;hl=3Den&amp;es=3D0" style=3D"font-weight: 400;font-family:=
+ &#39;Google Sans&#39;, Roboto, sans-serif;color: #5f6368; font-size: 14px;=
+ line-height: 120%; mso-line-height-rule: exactly; margin: 0; text-decorati=
+on: none; text-transform: none;" class=3D"grey-button-text" itemprop=3D"url=
+" target=3D"_blank"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ role=3D"presentation"><tr><td align=3D"center" role=3D"presentation" valig=
+n=3D"middle" style=3D"padding: 6px 0; padding-left: 16px; padding-right: 12=
+px; white-space: nowrap;"><!--[if mso]><a href=3D"https://calendar.google.c=
+om/calendar/event?action=3DRESPOND&amp;eid=3DaWg1c1hwUkV3V1NiaXdQNXZEWmFOQX=
+M2bFIgdG5ha2FoYXJhQHdoaXRoZXIuanA&amp;rst=3D1&amp;tok=3DMzEjYW5pZWxsb3dpc2V=
+mZXJndXNvbkBsdHZtYWlsLmNvbTU4OGJjZDEyOGM4MWQ2ZjJmM2VlNDg4OGRiYmQyNWMwMzkwNj=
+U2NTE&amp;ctz=3DAsia%2FTokyo&amp;hl=3Den&amp;es=3D0" class=3D"grey-button-t=
+ext" itemprop=3D"url" target=3D"_blank"><![endif]--><span class=3D"grey-but=
+ton-text" style=3D"font-weight: 400;font-family: &#39;Google Sans&#39;, Rob=
+oto, sans-serif;color: #5f6368; font-size: 14px; line-height: 120%; mso-lin=
+e-height-rule: exactly; margin: 0; text-decoration: none; text-transform: n=
+one;">Yes</span><!--[if mso]></a><![endif]--></td></tr></table></a></span><=
+/span></span></td><td align=3D"center" vertical-align=3D"middle" role=3D"pr=
+esentation" style=3D"border-left: solid 1px #dadce0; border-right: solid 1p=
+x #dadce0;"><span itemprop=3D"potentialaction" itemscope itemtype=3D"http:/=
+/schema.org/RsvpAction"><meta itemprop=3D"attendance" content=3D"http://sch=
+ema.org/RsvpAttendance/No"/><span itemprop=3D"handler" itemscope itemtype=
+=3D"http://schema.org/HttpActionHandler"><link itemprop=3D"method" href=3D"=
+http://schema.org/HttpRequestMethod/GET"/><span style=3D"color: #5f6367;"><=
+a href=3D"https://calendar.google.com/calendar/event?action=3DRESPOND&amp;e=
+id=3DaWg1c1hwUkV3V1NiaXdQNXZEWmFOQXM2bFIgdG5ha2FoYXJhQHdoaXRoZXIuanA&amp;rs=
+t=3D2&amp;tok=3DMzEjYW5pZWxsb3dpc2VmZXJndXNvbkBsdHZtYWlsLmNvbTU4OGJjZDEyOGM=
+4MWQ2ZjJmM2VlNDg4OGRiYmQyNWMwMzkwNjU2NTE&amp;ctz=3DAsia%2FTokyo&amp;hl=3Den=
+&amp;es=3D0" style=3D"font-weight: 400;font-family: &#39;Google Sans&#39;, =
+Roboto, sans-serif;color: #5f6368; font-size: 14px; line-height: 120%; mso-=
+line-height-rule: exactly; margin: 0; text-decoration: none; text-transform=
+: none;" class=3D"grey-button-text" itemprop=3D"url" target=3D"_blank"><tab=
+le border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation"><=
+tr><td align=3D"center" role=3D"presentation" valign=3D"middle" style=3D"pa=
+dding: 6px 12px; white-space: nowrap;"><!--[if mso]><a href=3D"https://cale=
+ndar.google.com/calendar/event?action=3DRESPOND&amp;eid=3DaWg1c1hwUkV3V1Nia=
+XdQNXZEWmFOQXM2bFIgdG5ha2FoYXJhQHdoaXRoZXIuanA&amp;rst=3D2&amp;tok=3DMzEjYW=
+5pZWxsb3dpc2VmZXJndXNvbkBsdHZtYWlsLmNvbTU4OGJjZDEyOGM4MWQ2ZjJmM2VlNDg4OGRiY=
+mQyNWMwMzkwNjU2NTE&amp;ctz=3DAsia%2FTokyo&amp;hl=3Den&amp;es=3D0" class=3D"=
+grey-button-text" itemprop=3D"url" target=3D"_blank"><![endif]--><span clas=
+s=3D"grey-button-text" style=3D"font-weight: 400;font-family: &#39;Google S=
+ans&#39;, Roboto, sans-serif;color: #5f6368; font-size: 14px; line-height: =
+120%; mso-line-height-rule: exactly; margin: 0; text-decoration: none; text=
+-transform: none;">No</span><!--[if mso]></a><![endif]--></td></tr></table>=
+</a></span></span></span></td><td align=3D"center" vertical-align=3D"middle=
+" role=3D"presentation"><span itemprop=3D"potentialaction" itemscope itemty=
+pe=3D"http://schema.org/RsvpAction"><meta itemprop=3D"attendance" content=
+=3D"http://schema.org/RsvpAttendance/Maybe"/><span itemprop=3D"handler" ite=
+mscope itemtype=3D"http://schema.org/HttpActionHandler"><link itemprop=3D"m=
+ethod" href=3D"http://schema.org/HttpRequestMethod/GET"/><span style=3D"col=
+or: #5f6367;"><a href=3D"https://calendar.google.com/calendar/event?action=
+=3DRESPOND&amp;eid=3DaWg1c1hwUkV3V1NiaXdQNXZEWmFOQXM2bFIgdG5ha2FoYXJhQHdoaX=
+RoZXIuanA&amp;rst=3D3&amp;tok=3DMzEjYW5pZWxsb3dpc2VmZXJndXNvbkBsdHZtYWlsLmN=
+vbTU4OGJjZDEyOGM4MWQ2ZjJmM2VlNDg4OGRiYmQyNWMwMzkwNjU2NTE&amp;ctz=3DAsia%2FT=
+okyo&amp;hl=3Den&amp;es=3D0" style=3D"font-weight: 400;font-family: &#39;Go=
+ogle Sans&#39;, Roboto, sans-serif;color: #5f6368; font-size: 14px; line-he=
+ight: 120%; mso-line-height-rule: exactly; margin: 0; text-decoration: none=
+; text-transform: none;" class=3D"grey-button-text" itemprop=3D"url" target=
+=3D"_blank"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D=
+"presentation"><tr><td align=3D"center" role=3D"presentation" valign=3D"mid=
+dle" style=3D"padding: 6px 0; padding-left: 12px; padding-right: 16px; whit=
+e-space: nowrap;"><!--[if mso]><a href=3D"https://calendar.google.com/calen=
+dar/event?action=3DRESPOND&amp;eid=3DaWg1c1hwUkV3V1NiaXdQNXZEWmFOQXM2bFIgdG=
+5ha2FoYXJhQHdoaXRoZXIuanA&amp;rst=3D3&amp;tok=3DMzEjYW5pZWxsb3dpc2VmZXJndXN=
+vbkBsdHZtYWlsLmNvbTU4OGJjZDEyOGM4MWQ2ZjJmM2VlNDg4OGRiYmQyNWMwMzkwNjU2NTE&am=
+p;ctz=3DAsia%2FTokyo&amp;hl=3Den&amp;es=3D0" class=3D"grey-button-text" ite=
+mprop=3D"url" target=3D"_blank"><![endif]--><span class=3D"grey-button-text=
+" style=3D"font-weight: 400;font-family: &#39;Google Sans&#39;, Roboto, san=
+s-serif;color: #5f6368; font-size: 14px; line-height: 120%; mso-line-height=
+-rule: exactly; margin: 0; text-decoration: none; text-transform: none;">Ma=
+ybe</span><!--[if mso]></a><![endif]--></td></tr></table></a></span></span>=
+</span></td></tr></table><!-- More options --><a href=3D"https://calendar.g=
+oogle.com/calendar/event?action=3DVIEW&amp;eid=3DaWg1c1hwUkV3V1NiaXdQNXZEWm=
+FOQXM2bFIgdG5ha2FoYXJhQHdoaXRoZXIuanA&amp;tok=3DMzEjYW5pZWxsb3dpc2VmZXJndXN=
+vbkBsdHZtYWlsLmNvbTU4OGJjZDEyOGM4MWQ2ZjJmM2VlNDg4OGRiYmQyNWMwMzkwNjU2NTE&am=
+p;ctz=3DAsia%2FTokyo&amp;hl=3Den&amp;es=3D0" style=3D"display: inline-block=
+;;font-weight: 400;font-family: &#39;Google Sans&#39;, Roboto, sans-serif;c=
+olor: #5f6368; font-size: 14px; line-height: 120%; mso-line-height-rule: ex=
+actly; margin: 0; text-decoration: none; text-transform: none;" class=3D"gr=
+ey-button-text" target=3D"_blank"><table border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" role=3D"presentation" style=3D"border: solid 1px #dadce0; bo=
+rder-radius: 16px; border-collapse: separate;font-family: &#39;Google Sans&=
+#39;, Roboto, sans-serif;"><tr><td align=3D"center" vertical-align=3D"middl=
+e" role=3D"presentation" style=3D"padding: 6px 0; padding-left: 16px; paddi=
+ng-right: 12px; white-space: nowrap;;color: #5f6367;"><!--[if mso]><a href=
+=3D"https://calendar.google.com/calendar/event?action=3DVIEW&amp;eid=3DaWg1=
+c1hwUkV3V1NiaXdQNXZEWmFOQXM2bFIgdG5ha2FoYXJhQHdoaXRoZXIuanA&amp;tok=3DMzEjY=
+W5pZWxsb3dpc2VmZXJndXNvbkBsdHZtYWlsLmNvbTU4OGJjZDEyOGM4MWQ2ZjJmM2VlNDg4OGRi=
+YmQyNWMwMzkwNjU2NTE&amp;ctz=3DAsia%2FTokyo&amp;hl=3Den&amp;es=3D0" class=3D=
+"grey-button-text" target=3D"_blank"><![endif]--><span class=3D"grey-button=
+-text" style=3D"font-weight: 400;font-family: &#39;Google Sans&#39;, Roboto=
+, sans-serif;color: #5f6368; font-size: 14px; line-height: 120%; mso-line-h=
+eight-rule: exactly; margin: 0; text-decoration: none; text-transform: none=
+;">More options</span><!--[if mso]></a><![endif]--></td></tr></table></a></=
+td></tr></table></div></td></tr></table></td></tr></tbody></table></div><!-=
+-[if mso | IE]></tr></table><![endif]--></td></tr></tbody></table><table bo=
+rder=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" align=
+=3D"center" style=3D"width:100%;" class=3D""><tbody><tr><td style=3D"font-s=
+ize: 0; padding: 0; text-align: left; word-break: break-word;;padding:4px 1=
+2px;" class=3D"" align=3D"left"><div class=3D"secondary-text" style=3D"colo=
+r: #70757a; text-decoration: none;font-family: Roboto, sans-serif;font-size=
+: 12px; line-height: 16px; mso-line-height-rule: exactly; text-align: left;=
+"><p>Invitation from <a href=3D"https://calendar.google.com/calendar/" clas=
+s=3D"accent-text underline-on-hover" style=3D"font-family: Roboto, sans-ser=
+if;font-size: 12px; line-height: 16px; mso-line-height-rule: exactly;;color=
+: #1a73e8; text-decoration: none;" target=3D"_blank">Google Calendar</a></p=
+><p>You are receiving this email because you are an attendee on the event.<=
+/p><p>Forwarding this invitation could allow any recipient to send a respon=
+se to the organizer, be added to the guest list, invite others regardless o=
+f their own invitation status, or modify your RSVP. <a class=3D"accent-text=
+ underline-on-hover" style=3D"font-family: Roboto, sans-serif;font-size: 12=
+px; line-height: 16px; mso-line-height-rule: exactly;;color: #1a73e8; text-=
+decoration: none;" href=3D"https://support.google.com/calendar/answer/37135=
+#forwarding">Learn more</a></p></div></td></tr></tbody></table></td></tr></=
+tbody></table></span></span></body></html>
+--0000000000008e21a2064f0ae4d5
+Content-Type: text/calendar; charset="UTF-8"; method=REQUEST
+Content-Transfer-Encoding: quoted-printable
+
+BEGIN:VCALENDAR
+PRODID:-//Google Inc//Google Calendar 70.9054//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:REQUEST
+BEGIN:VTIMEZONE
+TZID:America/New_York
+X-LIC-LOCATION:America/New_York
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0400
+TZNAME:EDT
+DTSTART:19700308T020000
+RRULE:FREQ=3DYEARLY;BYMONTH=3D3;BYDAY=3D2SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0500
+TZNAME:EST
+DTSTART:19701101T020000
+RRULE:FREQ=3DYEARLY;BYMONTH=3D11;BYDAY=3D1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTART;TZID=3DAmerica/New_York:20260410T030608
+DTSTAMP:20260409T180743Z
+ORGANIZER;CN=3DAniello Wise-ferguson:mailto:aniellowiseferguson@ltvmail.com
+UID:ih5sXpREwWSbiwP5vDZaNAs6lR@google.com
+ATTENDEE;CUTYPE=3DINDIVIDUAL;ROLE=3DREQ-PARTICIPANT;PARTSTAT=3DNEEDS-ACTION=
+;RSVP=3D
+ TRUE;CN=3Dtnakahara@whither.jp;X-NUM-GUESTS=3D0:mailto:tnakahara@whither.j=
+p
+X-MICROSOFT-CDO-OWNERAPPTID:1138522817
+CREATED:20260409T180611Z
+DESCRIPTION:Bill date: Friday\, 10 April 2026\n\nSubscription Renewal Statu
+ s Information\n\nCustomer Support Notice\,\n\nWe are writing to inform you=
+=20
+ that your membership under GeekSquad will renew today. A total amount of $=
+4
+ 25.84 will be processed accordingly. For help\, please contact 1{808}  439=
+-
+ 7608.\n\nReceipt Data Hub:\nService Provider: GeekSquad\nBill number: 5885=
+8
+ 927-512\nAdd-on Service: CyberCore Essentials\nValidity: Three Years\nTota=
+l
+  Payable: $425.84\n\nIf you need any assistance\, feel free to contact 1{8=
+0
+ 8}  439-7608.\n\nWith ongoing appreciation\,\nSam''S Diaz\nGeekSquad\, Inc=
+.
+ \n2026 Company. All Rights Reserved.\nEntry Key: 879d5388-3a57-451b-b8bb-3=
+5
+ 5c10645aed
+LAST-MODIFIED:20260409T180611Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Reminder: Your Plan is Due for Renewal =E2=80=93 Review at Your Con=
+venience
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:This is an event reminder
+TRIGGER:-P0DT0H10M0S
+END:VALARM
+END:VEVENT
+END:VCALENDAR
+
+--0000000000008e21a2064f0ae4d5--
+--0000000000008e21a3064f0ae4d7
+Content-Type: application/ics; name="invite.ics"
+Content-Disposition: attachment; filename="invite.ics"
+Content-Transfer-Encoding: base64
+
+QkVHSU46VkNBTEVOREFSDQpQUk9ESUQ6LS8vR29vZ2xlIEluYy8vR29vZ2xlIENhbGVuZGFyIDcw
+LjkwNTQvL0VODQpWRVJTSU9OOjIuMA0KQ0FMU0NBTEU6R1JFR09SSUFODQpNRVRIT0Q6UkVRVUVT
+VA0KQkVHSU46VlRJTUVaT05FDQpUWklEOkFtZXJpY2EvTmV3X1lvcmsNClgtTElDLUxPQ0FUSU9O
+OkFtZXJpY2EvTmV3X1lvcmsNCkJFR0lOOkRBWUxJR0hUDQpUWk9GRlNFVEZST006LTA1MDANClRa
+T0ZGU0VUVE86LTA0MDANClRaTkFNRTpFRFQNCkRUU1RBUlQ6MTk3MDAzMDhUMDIwMDAwDQpSUlVM
+RTpGUkVRPVlFQVJMWTtCWU1PTlRIPTM7QllEQVk9MlNVDQpFTkQ6REFZTElHSFQNCkJFR0lOOlNU
+QU5EQVJEDQpUWk9GRlNFVEZST006LTA0MDANClRaT0ZGU0VUVE86LTA1MDANClRaTkFNRTpFU1QN
+CkRUU1RBUlQ6MTk3MDExMDFUMDIwMDAwDQpSUlVMRTpGUkVRPVlFQVJMWTtCWU1PTlRIPTExO0JZ
+REFZPTFTVQ0KRU5EOlNUQU5EQVJEDQpFTkQ6VlRJTUVaT05FDQpCRUdJTjpWRVZFTlQNCkRUU1RB
+UlQ7VFpJRD1BbWVyaWNhL05ld19Zb3JrOjIwMjYwNDEwVDAzMDYwOA0KRFRTVEFNUDoyMDI2MDQw
+OVQxODA3NDNaDQpPUkdBTklaRVI7Q049QW5pZWxsbyBXaXNlLWZlcmd1c29uOm1haWx0bzphbmll
+bGxvd2lzZWZlcmd1c29uQGx0dm1haWwuY29tDQpVSUQ6aWg1c1hwUkV3V1NiaXdQNXZEWmFOQXM2
+bFJAZ29vZ2xlLmNvbQ0KQVRURU5ERUU7Q1VUWVBFPUlORElWSURVQUw7Uk9MRT1SRVEtUEFSVElD
+SVBBTlQ7UEFSVFNUQVQ9TkVFRFMtQUNUSU9OO1JTVlA9DQogVFJVRTtDTj10bmFrYWhhcmFAd2hp
+dGhlci5qcDtYLU5VTS1HVUVTVFM9MDptYWlsdG86dG5ha2FoYXJhQHdoaXRoZXIuanANClgtTUlD
+Uk9TT0ZULUNETy1PV05FUkFQUFRJRDoxMTM4NTIyODE3DQpDUkVBVEVEOjIwMjYwNDA5VDE4MDYx
+MVoNCkRFU0NSSVBUSU9OOkJpbGwgZGF0ZTogRnJpZGF5XCwgMTAgQXByaWwgMjAyNlxuXG5TdWJz
+Y3JpcHRpb24gUmVuZXdhbCBTdGF0dQ0KIHMgSW5mb3JtYXRpb25cblxuQ3VzdG9tZXIgU3VwcG9y
+dCBOb3RpY2VcLFxuXG5XZSBhcmUgd3JpdGluZyB0byBpbmZvcm0geW91IA0KIHRoYXQgeW91ciBt
+ZW1iZXJzaGlwIHVuZGVyIEdlZWtTcXVhZCB3aWxsIHJlbmV3IHRvZGF5LiBBIHRvdGFsIGFtb3Vu
+dCBvZiAkNA0KIDI1Ljg0IHdpbGwgYmUgcHJvY2Vzc2VkIGFjY29yZGluZ2x5LiBGb3IgaGVscFws
+IHBsZWFzZSBjb250YWN0IDF7ODA4fSAgNDM5LQ0KIDc2MDguXG5cblJlY2VpcHQgRGF0YSBIdWI6
+XG5TZXJ2aWNlIFByb3ZpZGVyOiBHZWVrU3F1YWRcbkJpbGwgbnVtYmVyOiA1ODg1OA0KIDkyNy01
+MTJcbkFkZC1vbiBTZXJ2aWNlOiBDeWJlckNvcmUgRXNzZW50aWFsc1xuVmFsaWRpdHk6IFRocmVl
+IFllYXJzXG5Ub3RhbA0KICBQYXlhYmxlOiAkNDI1Ljg0XG5cbklmIHlvdSBuZWVkIGFueSBhc3Np
+c3RhbmNlXCwgZmVlbCBmcmVlIHRvIGNvbnRhY3QgMXs4MA0KIDh9ICA0MzktNzYwOC5cblxuV2l0
+aCBvbmdvaW5nIGFwcHJlY2lhdGlvblwsXG5TYW0nJ1MgRGlhelxuR2Vla1NxdWFkXCwgSW5jLg0K
+IFxuMjAyNiBDb21wYW55LiBBbGwgUmlnaHRzIFJlc2VydmVkLlxuRW50cnkgS2V5OiA4NzlkNTM4
+OC0zYTU3LTQ1MWItYjhiYi0zNQ0KIDVjMTA2NDVhZWQNCkxBU1QtTU9ESUZJRUQ6MjAyNjA0MDlU
+MTgwNjExWg0KTE9DQVRJT046DQpTRVFVRU5DRTowDQpTVEFUVVM6Q09ORklSTUVEDQpTVU1NQVJZ
+OlJlbWluZGVyOiBZb3VyIFBsYW4gaXMgRHVlIGZvciBSZW5ld2FsIOKAkyBSZXZpZXcgYXQgWW91
+ciBDb252ZW5pZW5jZQ0KVFJBTlNQOk9QQVFVRQ0KQkVHSU46VkFMQVJNDQpBQ1RJT046RElTUExB
+WQ0KREVTQ1JJUFRJT046VGhpcyBpcyBhbiBldmVudCByZW1pbmRlcg0KVFJJR0dFUjotUDBEVDBI
+MTBNMFMNCkVORDpWQUxBUk0NCkVORDpWRVZFTlQNCkVORDpWQ0FMRU5EQVINCg==
+--0000000000008e21a3064f0ae4d7--
+
