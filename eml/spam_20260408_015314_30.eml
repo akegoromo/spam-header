@@ -1,0 +1,534 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:97d2:0:b0:261:85fe:9a8 with SMTP id e18csp2433055eic;
+        Tue, 7 Apr 2026 09:53:19 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AJvYcCUXva8Xq81at1SBG7gNbg/48xC1r+3ghNYhzFBiD6APWPKnKlhIw9InC8eUN5mUUJcP9Ewkz/br/CO/xktr8Q==@gmail.com
+X-Received: by 2002:ad4:5aeb:0:b0:89c:bdd0:9407 with SMTP id 6a1803df08f44-8a7022bba2cmr299820246d6.3.1775580799599;
+        Tue, 07 Apr 2026 09:53:19 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1775580799; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=BCK0dfdMK1JLx8669LC20iPuprmmAIqwhTYg7w/nJdi0DaPYHw4Yuy3MEIMdaRO5BK
+         jE3axp7JLw8N0EqNHPaEIHRSudH2G5srU44dIzoiSWgyYon494ed/xDLFI7SPCDa7Tgk
+         akz8TQpI4S2mM1cajd3iDMH7knhcIPRU5aj3WzzHddfNABoKQNtRurtzOd2M2IV/A0zl
+         VmU5bf2Z2r1/DA+d9lMiNTJ5DGETd2RZQjIPG7zma3t9cdihvcYLzuYYnV3A6LBygEIM
+         x9G3rvQlKzRxAv2qhWC87rAZXRzU948UH8RMUHFq0xjxggM4bEySq2U1THD5CnV6nGrx
+         +5bQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=mime-version:subject:from:to:message-id:date:dkim-signature
+         :feedback-id:dkim-signature:dkim-signature;
+        bh=vGhYrrdtUE8NbS1OAzMr1sA51QEBD3ygMARb8Gahvgw=;
+        fh=AmwUtjvAn7++NEBttiaVEnyCAVA5youKb81rEHZT4FM=;
+        b=bnrz8CncPx8GEME8tC1A9LtK9ofR6KkR3GdiVotnr/W3PY63jlV9ZgPZNbp9Mi58dE
+         lliX4NgW7TIRbld22B8aJIY3nbrWgPMN5wCE7ScBkXiJGZ+RQsmi+TDl7dy2Ey5DcMWN
+         jqpn0JehFKN5uX7NnIglB76gYj+vFhka+MoG/dPMbi8AtjQslI/XLUBmZ8JeDPeQJAeQ
+         OlsrE3v7sGZa9MZyAUFTu+5pxRpaHsU+FRgAYlJzNFZGrsdJ7LI8rf28tWf9q+DcuUY/
+         1dnELBEc60IBaWmCJdzPZKJSkc8++CYsfd/BqNO7Xb53D83qIC+mbPqC3s+AUf9wlWut
+         xpJA==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=enTjZXGe;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=Dt+v1NIf;
+       dkim=pass header.i=@line.yeechantech.com header.s=qcloud header.b=nYx1lgbk;
+       arc=pass (i=1 spf=pass spfdomain=line.yeechantech.com dkim=pass dkdomain=line.yeechantech.com dmarc=pass fromdomain=line.yeechantech.com);
+       spf=pass (google.com: domain of srs0=1mxm=gc=line.yeechantech.com=mail@whither.jp designates 104.30.10.175 as permitted sender) smtp.mailfrom="SRS0=1mXM=gc=line.yeechantech.com=mail@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=line.yeechantech.com
+Return-Path: <SRS0=1mXM=gc=line.yeechantech.com=mail@whither.jp>
+Received: from ba-bhf.cloudflare-email.net (ba-bhf.cloudflare-email.net. [104.30.10.175])
+        by mx.google.com with ESMTPS id 6a1803df08f44-8a597dc67e8si239859076d6.323.2026.04.07.09.53.18
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 07 Apr 2026 09:53:19 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=1mxm=gc=line.yeechantech.com=mail@whither.jp designates 104.30.10.175 as permitted sender) client-ip=104.30.10.175;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=enTjZXGe;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=Dt+v1NIf;
+       dkim=pass header.i=@line.yeechantech.com header.s=qcloud header.b=nYx1lgbk;
+       arc=pass (i=1 spf=pass spfdomain=line.yeechantech.com dkim=pass dkdomain=line.yeechantech.com dmarc=pass fromdomain=line.yeechantech.com);
+       spf=pass (google.com: domain of srs0=1mxm=gc=line.yeechantech.com=mail@whither.jp designates 104.30.10.175 as permitted sender) smtp.mailfrom="SRS0=1mXM=gc=line.yeechantech.com=mail@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=line.yeechantech.com
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Subject:From:To:Date:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1775580799; x=1776185599; bh=vGhYrrdtUE8NbS1OAz
+	Mr1sA51QEBD3ygMARb8Gahvgw=; b=enTjZXGemcVLrw9oQBCDHLzgeLJR1/3J9Ir9vG5o60VsC
+	A9vJ5jNQDaY32muqYYm858rLPiNYTD5CAAF3yt7wq8LPlDcAhL2JhvudEVYM0sEObHPAh0xCyIv
+	Ezu8yQNracu+GeuxQD3Pdv5suQR69DqbFg7UzFvjy9LnUnPApVzcdxteaHYaVi6uUD8BDiwkAmx
+	+/me48V1hP4dANTcCsJBQJQseK7Psa/gHDb+sPloClL7uScFB72fTgjMhqyVmm3RWs31S9jU7Vf
+	bVuRjj0LEBClOugPftsvTdJ1eROLfgYt4IP2tYU8Zqo5U6Ql/sn+hO1GHxfggeQtoMxyLQSg==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Subject:From:To:Date:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1775580799; x=1776185599; bh=vGhYrrdtUE8NbS1OAz
+	Mr1sA51QEBD3ygMARb8Gahvgw=; b=Dt+v1NIfzHPtNr6BlYngWjn+UchSOF7YMbBvAJkDeJAXj
+	SC7qltd7bnaNw4XaLRYL/8sVcNYG/Hy3R0XHFRn8XPq1YJZ8AKh0weymXxCDT5hDn6sqoFKd4JU
+	TyaamvhfgwuLQ5gIJuIv3fzC+2FuLEoTuAdSJMmvMTmktH/dN0BKb/r/ito32AXN3fsCjk3peq2
+	bFKWPZwyRGHwIj/Hv6TfW1/zDQhsRuvdZ/2mlKJtWB5sKncoclyfovEKI/O9jjhFsdsAWN6rM5s
+	b/wjHoI9jfAleohZPfewMw8gjWZmVWX7NRl2JX60PWyLAMpmcGrpF+URiz6WIElomfO7tW5w==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: tnakahara@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from ptr-hk-43-132-251-34.qcloudmail.com (43.132.251.34)
+        by cloudflare-email.net (cloudflare) id nrji1cWG2UpS
+        for <tnakahara@whither.jp>; Tue, 07 Apr 2026 16:53:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=gz82E+CDRffZULOzRquprgYBQlhtNBBe/cP+QS6EqP58GJNVAhIq3HiNefakDWff8B9YtsaL3
+	eknCZErGepLFOPHvEvV2uAFkSwbHK+hIABeJT5OOFL+w7WNYUzvx4lko2tY/kGnGngBn00KR2Ww
+	l7Pre1Jhb8x6rcq257gIgvPcj9uBPlO0JsBCAVbehecmalbKGR+dYJV068by+gHwAYxbRIaUCkk
+	ssEEcMiF/1INRuNuXpP91Vmv7m3ezwT0Ksjq/u0MKed28uPES6GcWyyw7/rfLD6WwLckHkdRogW
+	CjOlsKooTdaIY+KF2Ak4sBzlxpRKyaF+xgOYlJiMFwuw==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Subject:From:To:Date:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1775580797; x=1776185597; bh=vGhYrrdt
+	UE8NbS1OAzMr1sA51QEBD3ygMARb8Gahvgw=; b=H2ciqYShpYrWW8ScBs5ePHepNzImlk4mfkD
+	nBhtyCXsLTpu6o/772Po1cZJTeJiaZ03IYnQpk89maY9YyIzNwZICA/qm4bFelQ9SqXUgz3KLP/
+	p1e2Vh8azqSumFZvql0YHPBcBYjLZ3osOdweWBY0lLnA475hkNXwKgIQNjHNmgJRzcaMR4y9+PA
+	5iqPbKCtXq7D+Hm7QSJhEc9zprxe42ybgEHS7F+G6trVT5D7EGQc5PiW9lPiz80Ycg5+6o4Yh4I
+	qxDeU//8Yk6hs3B4m/2PHiEgwlYp99/sA6l2TB8D2W7Y4t84yKCeToX9XQ4fozxoLrPLIQs9ytA
+	bvuXk9A==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.d=line.yeechantech.com header.s=qcloud header.b=nYx1lgbk;
+	dmarc=pass header.from=line.yeechantech.com policy.dmarc=none;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@ptr-hk-43-132-251-34.qcloudmail.com) smtp.helo=ptr-hk-43-132-251-34.qcloudmail.com;
+	spf=pass (mx.cloudflare.net: domain of mail@line.yeechantech.com designates 43.132.251.34 as permitted sender) smtp.mailfrom=mail@line.yeechantech.com;
+	arc=none smtp.remote-ip=43.132.251.34
+Received-SPF: pass (mx.cloudflare.net: domain of mail@line.yeechantech.com designates 43.132.251.34 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=43.132.251.34; envelope-from="mail@line.yeechantech.com"; helo=ptr-hk-43-132-251-34.qcloudmail.com;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.d=line.yeechantech.com header.s=qcloud header.b=nYx1lgbk;
+	dmarc=pass header.from=line.yeechantech.com policy.dmarc=none;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@ptr-hk-43-132-251-34.qcloudmail.com) smtp.helo=ptr-hk-43-132-251-34.qcloudmail.com;
+	spf=pass (mx.cloudflare.net: domain of mail@line.yeechantech.com designates 43.132.251.34 as permitted sender) smtp.mailfrom=mail@line.yeechantech.com;
+	arc=none smtp.remote-ip=43.132.251.34
+X-CF-SpamH-Score: 2
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=qcloud; d=line.yeechantech.com; t=1775580794;
+  h=from:to:subject:content-type:content-transfer-encoding;
+ bh=vGhYrrdtUE8NbS1OAzMr1sA51QEBD3ygMARb8Gahvgw=;
+ b=nYx1lgbkZj3TCHPkNEbLy3TmFrvlmFaAWOLnfAVmkk/NAfaRjG1MYp9QEBpZcbI7ISdWky
+ 4SsBp9mi2BsBxTFLhDzvymFwuxscfpqAkaVppbYU31ZkbIUZquKOd9WF5SCGu8DcNOGis8
+ j0YIubvLGcfHW7fsjhhy0b27MfPesv4=
+Date: Wed, 08 Apr 2026 00:53:14 +0800
+Message-Id: <6aa8aafdd7a8445eb2d49ed69c79584b.20260408.1775580794@qcloudmail.com>
+To: tnakahara@whither.jp
+From: Haykkim <mail@line.yeechantech.com>
+Subject: Haykkim: A Foldable Magnetic Bluetooth Controller
+Mime-Version: 1.0
+Content-Type: multipart/mixed;
+ boundary=365be9b3ede00a3f6f98e5bc4a772cd197e5c7b42b368fdc3929942e0be3
+
+--365be9b3ede00a3f6f98e5bc4a772cd197e5c7b42b368fdc3929942e0be3
+Content-Type: multipart/alternative;
+ boundary=0680b27ef85a0571a04f8c516cecfe13c06b3cbbd2029f096e5f0f7a3944
+
+--0680b27ef85a0571a04f8c516cecfe13c06b3cbbd2029f096e5f0f7a3944
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=UTF-8
+
+<html><head></head><body>=EF=BB=BF<meta charset=3D"utf-8"/><meta/><meta/><m=
+eta/><meta/><meta/><meta/><style type=3D"text/css">// TODO: fix me!
+            @import url(https://fonts.googleapis.com/css2?family=3DOpen+San=
+s:ital,wght@0,400;0,700;1,400;1,700&family=3DOpen+Sans:ital,wght@0,400;0,70=
+0;1,400;1,700&family=3DOpen+Sans:ital,wght@0,400;0,700;1,400;1,700&family=
+=3DMerriweather:ital,wght@0,400;0,700;1,400;1,700&family=3DMerriweather:ita=
+l,wght@0,400;0,700;1,400;1,700&display=3Dswap);</style><table align=3D"cent=
+er" role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" =
+width=3D"640" style=3D"margin: auto;" class=3D"contentMainTable"><tbody><tr=
+ class=3D"wp-block-editor-imageblock-v1"><td style=3D"background-color:#fff=
+fff;padding-top:0;padding-bottom:0;padding-left:0;padding-right:0" align=3D=
+"center"><table align=3D"center" width=3D"100%" style=3D"width:100%;border-=
+spacing:0;border-collapse:collapse;max-width:100%" role=3D"presentation"><t=
+body><tr align=3D"center"><td style=3D"padding:0"><a rel=3D"nofollow noopen=
+er" target=3D"_blank" href=3D"https://1319021590-hk.callback.cloudses.com/a=
+pi/webhook?upn=3Deb4ffc552935405db76234bb95083795952c2f425cf24cbdfc0623d520=
+fe301141e5d5d05ce0f9d30b8e226c411554c0a62dfe197c5505ebc1c007b67e032d32318a2=
+f87756b002240ca8a7abd737a3bd63b9d91939f17ce310cc6dc58bc2c73a1c9b30f9ea781b4=
+9fea15f05b42ef7a31035ab557cf52da7aacf971001103ef77f08656d91b0793ef50a67126d=
+aafb91d6c5a122511c2f9f04b82ce32ae97dbe99a4f51b477714afe7298195071d60a8101e6=
+00e2be05d283d2e8f63b2bf3b69cef362c745e435487ac24f04a358f8698eadb57888f0f477=
+0c715cdf4852c69025c968f99a5a5af0b74b3ad73e395a455bf3adb5ad51e319d5b7d4d04f9=
+3a4375008f941567f6a6e2e70fdd7da20aec354bbf64737643a674d5af31e09cf6a6017e187=
+40461db22fda42659044c137a240da8b1b1d420d9b98210f2eaf16cc9f5631294137c15f4ac=
+d2043e19ea547a60855e70be722dc52b330f192da162877a01f2fac8a4bbb54ea95c28ae167=
+687e163456d76b2e58a04a99536e4c2870608f72f81dbb55aa3ecc97dd7389b8f49258fcaff=
+f8af48c60e66550ef28c77034adc7d9f2b3728575fa36c13daea331bf81a46f9cd927e95df1=
+c596a708fb4d0d964fc4375da56a013bcc23733a0115b73bd501f1750b5e0134164c441cbc1=
+12c69d9ca2441b29cedb7874f3935f27aa098804ec82fc54ecb9c38ccb5351bee191522f103=
+38c5942d3dc1c9486c6ba5f0cb562864ab79f9f4768376d0781d51bf6fde1ad57699ede22bc=
+62989b1ad4c4cbbf312b1f772d3ab25f2b490a34a4fbae5b65e2231922380e7f31f9b72ce35=
+96797685bc19817e98fb46c2b34ca9924ef5c53a08a8df1f1ddec429663f8402a7b7319f084=
+458408af4865e3259514713b0b988af0e48e351a98ef619925fede24af85bf6b83f7bf37f93=
+3a76081f05171a74d1403d48dd0ca9c24a64500c92054bccc6a2c39dd4ef866479c8c6f88e4=
+11f6becbd2599094ac7353c4255bd2f8b1a24619157e5804d38f80b558a117d5780a03aa94c=
+1639869e4fa09700c8d2265c46bc84d16056dab693fe1ef1e0ac4d9f8fb919cf5aaad7fca66=
+06bfbd05a7fd5d202236cdbe13adfe9d0e0cb9c27cba808067ea11165c5be8156b3d260a52"=
+><img src=3D"https://api.smtprelay.co/userfile/d2e0a63f-59d1-409b-8277-808b=
+3c5ddfeb/6357_183.jpg" width=3D"640" height=3D"" alt=3D"" style=3D"border-r=
+adius:0px;display:block;height:auto;width:100%;max-width:100%;border:0" cla=
+ss=3D"g-img"/></a></td></tr></tbody></table></td></tr><tr class=3D"wp-block=
+-editor-buttonblock-v1" align=3D"center"><td style=3D"background-color:#FFF=
+FFF;padding-top:39px;padding-right:20px;padding-bottom:44px;padding-left:20=
+px;width:100%" valign=3D"top"><table role=3D"presentation" cellspacing=3D"0=
+" cellpadding=3D"0" class=3D"button-table"><tbody><tr><td valign=3D"top" cl=
+ass=3D"button-WGE-Pbv8zVRdznH25aFsN button-td button-td-primary" style=3D"c=
+ursor:pointer;border:none;border-radius:4px;background-color:#070707;font-s=
+ize:17px;font-family:Open Sans, sans-serif;width:fit-content;direction:ltr;=
+text-decoration:none;letter-spacing:0;color:#ffffff;overflow:hidden"><a sty=
+le=3D"color:#ffffff;display:block;padding:21px 16px 21px 16px" rel=3D"nofol=
+low noopener" target=3D"_blank" href=3D"https://1319021590-hk.callback.clou=
+dses.com/api/webhook?upn=3Deb4ffc552935405db76234bb95083795952c2f425cf24cbd=
+fc0623d520fe301141e5d5d05ce0f9d30b8e226c411554c0a62dfe197c5505ebc1c007b67e0=
+32d32318a2f87756b002240ca8a7abd737a3bd63b9d91939f17ce310cc6dc58bc2c73a1c9b3=
+0f9ea781b49fea15f05b42ef7a31035ab557cf52da7aacf971001103ef77f08656d91b0793e=
+f50a67126daafb91d6c5a122511c2f9f04b82ce32ae97dbe99a4f51b477714afe7298195071=
+d60a8101e600e2be05d283d2e8f63b2bf3b69cef362c745e435487ac24f04a358f8698eadb5=
+7888f0f4770c715cdf4852c69025c968f99a5a5af0b74b3ad73e395a455bf3adb5ad51e319d=
+5b7d4d04f93a4375008f941567f6a6e2e70fdd7da20aec354bbf64737643a674d5af31e09cf=
+6a6017e18740461db22fda42659044c137a240da8b1b1d420d9b98210f2eaf16cc9f5631294=
+137c15f4acd2043e19ea547a60855e70be722dc52b330f192da162877a01f2fac8a4bbb54ea=
+95c28ae167687e163456d76b2e58a04a99536e4c2870608f72f81dbb55aa3ecc97dd7389b8f=
+49258fcafff8af48c60e66550ef28c77034adc7d9f2b3728575fa36c13daea331bf81a46f9c=
+d927e95df1c596a708fb4d0d964fc4375da56a013bcc23733a0115b73bd501f1750b5e01341=
+64c441cbc112c69d9ca2441b29cedb7874f3935f27aa098804ec82fc54ecb9c38ccb5351bee=
+191522f10338c5942d3dc1c9486c6ba5f0cb562864ab79f9f4768376d0781d51bf6fde1ad57=
+699ede22bc62989b1ad4c4cbbf312b1f772d3ab25f2b490a34a4fbae5b65e2231922380e7f3=
+1f9b72ce3596797685bc19817e98fb46c2b34ca9924ef5c53a08a8df1f1ddec429663f8402a=
+7b7319f084458408af4865e3259514713b0b988af0e48e351a98ef619925fede24af85bf6b8=
+3f7bf37f933a76081f05171a74d1403d48dd0ca9c24a64500c92054bccc6a2c39dd4ef86647=
+9c8c6f88e411f6becbd2599094ac7353c4255bd2f8b1a24619157e5804d38f80b558a117d57=
+80a03aa94c1639869e4fa09700c8d2265c46bc84d16056dab693fe1ef1e0ac4d9f8fb919cf5=
+aaad7fca6606bfbd05a7fd5d202236cdbe13adfe9d0e0cb9c27cba808067ea11165c5be8156=
+b3d260a52"><span style=3D"font-weight: bold" class=3D"bold">GRAB THE EARLY =
+BIRD ON KICKSTARTER NOW!</span></a></td></tr></tbody></table></td></tr><tr>=
+<td valign=3D"top" align=3D"center" style=3D"padding:31px 31px 31px 31px;ba=
+ckground-color:#FFFFFF"><p class=3D"paragraph" style=3D"font-family:Open Sa=
+ns, sans-serif;text-align:center;line-height:24.00px;font-size:12px;margin:=
+0;color:#5f5f5f;word-break:normal">If you no longer wish to receive mail fr=
+om us, you can <a class=3D"c0c4d759-1c22-48d4-a614-785d6acaf420-6V201gHRzhD=
+xAzaNqZiJS" style=3D"color: #5457FF; display: inline-block;" rel=3D"nofollo=
+w noopener" target=3D"_blank" href=3D"https://1319021590-hk.callback.clouds=
+es.com/api/webhook?upn=3Deb4ffc552935405db76234bb95083795952c2f425cf24cbdfc=
+0623d520fe301141e5d5d05ce0f9d30b8e226c411554c0a62dfe197c5505ebc1c007b67e032=
+d32318a2f87756b002240ca8a7abd737a3bd63b9d91939f17ce310cc6dc58bc2c73a1c9b30f=
+9ea781b49fea15f05b42ef7a31035ab557cf52da7aacf971001103ef77f08656d91b0793ef5=
+0a67126daafb91d6c5a122511c2f9f04b82ce32ae97dbe99a4f51b477714afe7298195071d6=
+0a8101e600e2be05d283d2e8f63b2bf3b69cef362c745e435487ac24f04a358f8698eadb578=
+88f0f4770c715cdf4852c69025c968f99a5a5af0b74b3ad73e395a455bf3adb5ad51e319d5b=
+7d4d04f93a4375008f941567f6a6e2e70fdd7da20aec354bbf64737643a674d5af31e09cf6a=
+6017e18740461db22fda42659044c137a240da8b1b1d420d9b98210f2eaf16cc9f563129413=
+7c15f4acd2043e19ea547a60855e70be722dc52b330f192da162877a01f2fac8a4bbb54ea95=
+c28ae167687e163456d76b2e58a04a99536e4c28706985083358993b32982b7625afa2afc18=
+1abf9720ca5e822e4e91b1701042fdf17647435d80d190174822a4304e934cfe6e82e04f168=
+9e37becd8ccf641ef1bb9b366ba1aa53c33575e5de6c80c2cfc058fb369df13288f471df764=
+460cc9e9072e617c777cda1e4847a55f037053cc4d9b021df5eac48c6b7ea0f7a0110ca27ed=
+30c2939890d67f3a999557266db82dc51b4dd88a4fd195ce4b6534af15c2e40d9ae5aaf39ec=
+cf2a256126a38fedf99ba8ca660f9ae70cc83afc245b562ea37d5f0b939b63697c6cd224588=
+829bd18d178efdc6d8c505965d7c482539d40b6e81ffe75257d33d8aaa24230762d364bc269=
+8a22173f649c651f2a643403c256d4836a8af82e88f177d20bcd5941884247bba3859986c99=
+08136e52a6e23a3de22898735e451ff0ee472b01dd56b7ef703bf7e15f5e539cd673d76dc63=
+2a80262f3f3d2067a016a55f65df48a4c5b8813c">unsubscribe</a>.<br/></p></td></t=
+r><tr class=3D"wp-block-editor-paragraphblock-v1"><td valign=3D"top" style=
+=3D"padding:12px 12px 12px 12px;background-color:#FFFFFF;word-break:normal;=
+hyphens:auto;-webkit-hyphens:auto;-ms-hyphens:auto"><p class=3D"paragraph" =
+style=3D"font-family:Open Sans, sans-serif;text-align:center;line-height:11=
+.50px;font-size:10px;margin:0;color:#5f5f5f;word-break:normal">Unable to vi=
+ew? Read it <a class=3D"62d10d6d-b252-49a7-af10-c771dbd58b15-Xzt0XJLlayJkgP=
+I0XyMI5" style=3D"color: #5457FF; display: inline-block;" rel=3D"nofollow n=
+oopener" target=3D"_blank" href=3D"https://1319021590-hk.callback.cloudses.=
+com/api/webhook?upn=3Deb4ffc552935405db76234bb95083795952c2f425cf24cbdfc062=
+3d520fe301141e5d5d05ce0f9d30b8e226c411554c0a62dfe197c5505ebc1c007b67e032d32=
+318a2f87756b002240ca8a7abd737a3bd63b9d91939f17ce310cc6dc58bc2c73a1c9b30f9ea=
+781b49fea15f05b42ef7a31035ab557cf52da7aacf971001103ef77f08656d91b0793ef50a6=
+7126daafb91d6c5a122511c2f9f04b82ce32ae97dbe99a4f51b477714afe7298195071d60a8=
+101e600e2be05d283d2e8f63b2bf3b69cef362c745e435487ac24f04a358f8698eadb57888f=
+0f4770c715cdf4852c69025c968f99a5a5af0b74b3ad73e395a455bf3adb5ad51e319d5b7d4=
+d04f93a4375008f941567f6a6e2e70fdd7da20aec354bbf64737643a674d5af31e09cf6a601=
+7e18740461db22fda42659044c137a240da8b1b1d420d9b98210f2eaf16cc9f5631294137c1=
+5f4acd2043e19ea547a60855e70be722dc52b330f192da162877a01f2fac8a4bbb54ea95c28=
+ae167687e163456d76b2e58a04a99536e4c287065eab750fc7c6520d929928954b21b5f8719=
+931195e8696dcdc2edb375856106505a51569066d65ecc083b4887ee51a771de85a27e6b8b3=
+ace136828448ee2cc2ed6289850c171129b01479c04a40af6885025d674150cf1073c40c759=
+00ffeb64abf5c99c437fb789c2a4c4627d3f1dcb65122014aaeb92b5e268da3674ee51f1335=
+aa31141158b82cf5d007114a2a5675e768b8b3f3d12fe03fa12aa1834bc4681883360ae592e=
+13a54b3a71d140b3c63bd50fd80dc1ac081f681574301efc4b9c8177165770459d0b1161d8e=
+70aea875bae522d206cd806b816190f7ad0bc94f6803528eddcaf0b2b8691d120cd6bf02be5=
+c0c7ac1ca37e3a25dd6bc4a8fb8a6841a7c7ce925bcca2fd6b1fe7279bc2543287eab8af9dc=
+e845318180155e1b009702d74517f8600c36eff043a9c77e3c8245fe9d526daf672ee7a789e=
+d773de7b31600c71e4ff416468a74cca8bfa8">Online</a></p></td></tr></tbody></ta=
+ble><style>table .button-td a,
+    table p,
+    table li {
+      -ms-word-break: break-word;
+      word-break: break-word !important;
+    }</style><style>:root {
+            color-scheme: light;
+            supported-color-schemes: light;
+        }
+
+        html,
+        body {
+            margin: 0 auto !important;
+            padding: 0 !important;
+            height: 100% !important;
+            width: 100% !important;
+
+            overflow-wrap: break-word;
+            -ms-word-break: break-word;
+            word-break: break-word;
+        }
+
+
+        
+  
+
+
+  center,
+  #body_table {
+    
+  }
+
+  ul, ol {
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  li {
+    margin-bottom: 0;
+  }
+
+  
+
+  .list-block-list-outside-left li {
+    margin-left: 20px !important;
+  }
+
+  .list-block-list-outside-right li {
+    margin-right: 20px !important;
+  }
+
+  
+     .paragraph {
+      font-size: 16px;
+      font-family: Open Sans, sans-serif;
+      font-weight: normal;
+      font-style: normal;
+      text-align: start;
+      line-height: 1.6;
+      text-decoration: none;
+      color: #5f5f5f;
+      
+    }
+  
+
+     .heading1 {
+      font-size: 32px;
+      font-family: Merriweather, serif;
+      font-weight: normal;
+      font-style: normal;
+      text-align: start;
+      line-height: 1;
+      text-decoration: none;
+      color: #000000;
+      
+    }
+  
+
+     .heading2 {
+      font-size: 26px;
+      font-family: Merriweather, serif;
+      font-weight: normal;
+      font-style: normal;
+      text-align: start;
+      line-height: 1;
+      text-decoration: none;
+      color: #000000;
+      
+    }
+  
+
+     .heading3 {
+      font-size: 19px;
+      font-family: Open Sans, sans-serif;
+      font-weight: normal;
+      font-style: normal;
+      text-align: start;
+      line-height: 1;
+      text-decoration: none;
+      color: #000000;
+      
+    }
+  
+
+     .list {
+      font-size: 16px;
+      font-family: Open Sans, sans-serif;
+      font-weight: normal;
+      font-style: normal;
+      text-align: start;
+      line-height: 1.6;
+      text-decoration: none;
+      color: #5f5f5f;
+      
+    }
+  
+
+  p a, 
+  li a {
+    
+    color: #5457FF;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: normal;
+
+  }
+
+  .button-table a {
+    text-decoration: none;
+    font-style: normal;
+    font-weight: normal;
+  }
+
+  .paragraph > span {text-decoration: none;}.heading1 > span {text-decorati=
+on: none;}.heading2 > span {text-decoration: none;}.heading3 > span {text-d=
+ecoration: none;}.list > span {text-decoration: none;}
+
+
+        * {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        div[style*=3D"margin: 16px 0"] {
+            margin: 0 !important;
+        }
+
+        #MessageViewBody,
+        #MessageWebViewDiv {
+            width: 100% !important;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            mso-table-lspace: 0pt !important;
+            mso-table-rspace: 0pt !important;
+        }
+        table:not(.button-table) {
+            border-spacing: 0 !important;
+            border-collapse: collapse !important;
+            table-layout: fixed !important;
+            margin: 0 auto !important;
+        }
+
+        th {
+            font-weight: normal;
+        }
+
+        tr td p {
+            margin: 0;
+        }
+
+        img {
+            -ms-interpolation-mode: bicubic;
+        }
+
+        a[x-apple-data-detectors],
+
+        .unstyle-auto-detected-links a,
+        .aBn {
+            border-bottom: 0 !important;
+            cursor: default !important;
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+        }
+
+        .im {
+            color: inherit !important;
+        }
+
+        .a6S {
+            display: none !important;
+            opacity: 0.01 !important;
+        }
+
+        img.g-img+div {
+            display: none !important;
+        }
+
+        @media only screen and (min-device-width: 320px) and (max-device-wi=
+dth: 374px) {
+            u~div .contentMainTable {
+                min-width: 320px !important;
+            }
+        }
+
+        @media only screen and (min-device-width: 375px) and (max-device-wi=
+dth: 413px) {
+            u~div .contentMainTable {
+                min-width: 375px !important;
+            }
+        }
+
+        @media only screen and (min-device-width: 414px) {
+            u~div .contentMainTable {
+                min-width: 414px !important;
+            }
+        }</style><style>@media only screen and (max-device-width: 640px) {
+            .contentMainTable {
+                width: 100% !important;
+                margin: auto !important;
+            }
+            .single-column {
+                width: 100% !important;
+                margin: auto !important;
+            }
+            .multi-column {
+                width: 100% !important;
+                margin: auto !important;
+            }
+        }
+        @media only screen and (max-width: 640px) {
+            .contentMainTable {
+                width: 100% !important;
+                margin: auto !important;
+            }
+            .single-column {
+                width: 100% !important;
+                margin: auto !important;
+            }
+            .multi-column {
+                width: 100% !important;
+                margin: auto !important;
+            }
+        }</style><img src=3D"https://dm-us.aliyuncs.com/trace/v1/report?bid=
+=3D203492&amp;env=3D1800000025540166376&amp;mac=3D108292&amp;mf=3Dnews@mail=
+.yeechantech.com&amp;msgid=3D01ec00cc-edc9-4916-bad6-7fddb01b6e8c@alibaba.c=
+om&amp;sac=3D0&amp;tag=3D90&amp;tid=3D203492&amp;to=3Dkentchanchn@gmail.com=
+&amp;tpl=3D&amp;ts=3D1775458015&amp;type=3D1&amp;url=3D&amp;v=3D1.0&amp;sig=
+n=3D749f78225a40accbd9f20721d58dd7ad&amp;urlts=3D1775458015" alt=3D"" style=
+=3D"display: none; width: 1px; height: 1px;"/>
+<img src=3D"https://1319021590-hk.callback.cloudses.com/api/webhook?upn=3D7=
+f5fc2d81bf99757e3e56e8e756f73cbb429529fbdf87c83beddca06d8da95a9d4bd6e9bf2a6=
+b08325c965858ecddcc8a0b2edd5cd530e9fcca343be73c8e578d05737546f1aa7da15ddaa6=
+f2b138353f48098048ddf2c80db67f7acfb2f32b29296aa5c6794a482e55074b3db7021c7e0=
+43bbfb1c301c62efadcdb00c39b78ef7cefe5738c700f6db89ed1d830781d095754b18d61cd=
+2bdd6614c2328bd09574aee06b8bf7c6917b698f9721bbddfc088ff722cd99991e63b5e45b6=
+1054a2ca8f03243d323ec3dbe8773433fc62dc1755adad488848ba21763c6f3dac582f34f64=
+7a84911f2e0c0b055cecbf72ab94579831b7c7e270d37a5a463b90611174d66897bfa377819=
+0a1f59d670379055b7e72ce2121cd234a8b7ea7e58626348bd" alt=3D"" height=3D"1" w=
+idth=3D"1" border=3D"0" style=3D"height:1px !important;width:1px !important=
+;border-width:0 !important;margin-top:0 !important;margin-bottom:0 !importa=
+nt;margin-right:0 !important;margin-left:0 !important;padding-top:0 !import=
+ant;padding-bottom:0 !important;padding-right:0 !important;padding-left:0 !=
+important;"/></body></html>=
+
+--0680b27ef85a0571a04f8c516cecfe13c06b3cbbd2029f096e5f0f7a3944--
+
+--365be9b3ede00a3f6f98e5bc4a772cd197e5c7b42b368fdc3929942e0be3--
+

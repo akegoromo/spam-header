@@ -1,0 +1,951 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:97d2:0:b0:261:85fe:9a8 with SMTP id e18csp2308958eic;
+        Tue, 7 Apr 2026 06:56:19 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AJvYcCVd0BHWAZQKTDSfCH+6UFU0uzRvPREbAuNBRDt8butD8oV6RNkO7llqPM8FR0vEuQBDwd2RxFIl5e46x4UCkQ==@gmail.com
+X-Received: by 2002:ad4:5bee:0:b0:8a0:f453:cc01 with SMTP id 6a1803df08f44-8a702c9509amr271636176d6.18.1775570178561;
+        Tue, 07 Apr 2026 06:56:18 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1775570178; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=PYhKecGJZs7gs3ifSFosVXdHyM2RVAWeFB2Du5ccFEHwABSOOCckX7kSzM06POBWu4
+         Y8yqut3hztZNEmToytyQj/Y6gZUGA+kWkjUIswg5CKC/bj2giEpbAfwfjsfQEC1tLksz
+         VjsAPUJHJXmorXa1l/GEfUEfAncvm4gMBemFRAcdHV6xv9iBO27xP+EImvzfnJEEPuJ2
+         MS6sIzQfmzOFOpOPU0/C+7z21hsNrGaH/OUFTCh7ki0eIJM2Ir6kls6mFYkU5Q77fJVU
+         BlBluwvuMsTkUKUW3QTdWjas6AYVF4TccRfuRdXusxmPKIfqTnEtaMNjpWtKLRAN3s/8
+         O3bg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:from:subject:date:message-id:sender:reply-to:mime-version
+         :dkim-signature:dkim-signature:feedback-id:dkim-signature
+         :dkim-signature;
+        bh=Rt/cpHpQ28DN9INN4nxEYtybasdrCAjTujTGjdpl66A=;
+        fh=AmwUtjvAn7++NEBttiaVEnyCAVA5youKb81rEHZT4FM=;
+        b=AsgsrQDIGMxN1FzS+LM7eBqisGSQOsPv0LwfHkUYSvIoo/3j7m0BXVNag4sQp4VE4n
+         j0YNFYI/lCS2yBQ+RjRWw3WVaeNnKsh/u9k3xEJ++3jRnb+jpQOQw3yIibN4bAkQF5DL
+         dUNxHqKrF5tUbTT/ZwgcpmH+vJ8eub/cJ9Lm/7sytWdZm/J2tQ5x49tMnmydbv9ZcJMR
+         OqzH91jj20R03axFc7MGZZZQum0Oo2Zo5AVYeQUxqRU4TDvncdeZ9TM2au1PzCxFc/o4
+         mtbhlUIuNMuk9IhC8a0mkjQkUItqE1az1VXPfv83s1eJ310x9+fNl6GO27WWw1RfcHqe
+         72uw==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=G4GS1T3N;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=AISyFvqU;
+       dkim=pass header.i=@google.com header.s=20251104 header.b=hwfOU4Cd;
+       dkim=pass header.i=@timeforusa-com.20251104.gappssmtp.com header.s=20251104 header.b=xgU4rM4b;
+       arc=pass (i=1 dkim=pass dkdomain=google.com dkim=pass dkdomain=timeforusa-com.20251104.gappssmtp.com);
+       spf=pass (google.com: domain of srs0=l_b0=gc=timeforusa.com=amorasakworkforce@whither.jp designates 104.30.8.152 as permitted sender) smtp.mailfrom="SRS0=l_B0=gc=timeforusa.com=amorasakworkforce@whither.jp"
+Return-Path: <SRS0=l_B0=gc=timeforusa.com=amorasakworkforce@whither.jp>
+Received: from i-bfc.cloudflare-email.net (i-bfc.cloudflare-email.net. [104.30.8.152])
+        by mx.google.com with ESMTPS id 6a1803df08f44-8a598ce6256si229979206d6.528.2026.04.07.06.56.18
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 07 Apr 2026 06:56:18 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=l_b0=gc=timeforusa.com=amorasakworkforce@whither.jp designates 104.30.8.152 as permitted sender) client-ip=104.30.8.152;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=G4GS1T3N;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=AISyFvqU;
+       dkim=pass header.i=@google.com header.s=20251104 header.b=hwfOU4Cd;
+       dkim=pass header.i=@timeforusa-com.20251104.gappssmtp.com header.s=20251104 header.b=xgU4rM4b;
+       arc=pass (i=1 dkim=pass dkdomain=google.com dkim=pass dkdomain=timeforusa-com.20251104.gappssmtp.com);
+       spf=pass (google.com: domain of srs0=l_b0=gc=timeforusa.com=amorasakworkforce@whither.jp designates 104.30.8.152 as permitted sender) smtp.mailfrom="SRS0=l_B0=gc=timeforusa.com=amorasakworkforce@whither.jp"
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=To:From:Subject:Date:Reply-To:Feedback-ID:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1775570178; x=1776174978; bh=Rt/cpHpQ28DN9INN4n
+	xEYtybasdrCAjTujTGjdpl66A=; b=G4GS1T3NAlieEwniUd6aTjs8HX8FiPhCWhdLVUxKdG9SX
+	g6Bflr+X34BJy8mIKOiPWABGep+GzZlogPcQgxz17S31EnLJNG/a7xgiq2jRyI5pt6erjJ96WDb
+	X36zOiyBMIEv4mG6V2bQDnS2TsrVp7hpKokzptH3+SNJAWtSOBZFX+1p8bGWV0TM5GUkbUlDSRV
+	K4F5u/4dHPlFSoE3bL+EUY5u/P/HX1bnilhkVjcd9yzsXrXHVix4FKSf0uDbVlkhxHdfWiboC2M
+	CUiinz5iq4lnSUAUo2N+k339dObFUYSVUG5gDwX07Fgawh+PdoOv5h2GivIj9AOxSpJiC5RQ==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=To:From:Subject:Date:Reply-To:Feedback-ID:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1775570178; x=1776174978; bh=Rt/cpHpQ28DN9INN4n
+	xEYtybasdrCAjTujTGjdpl66A=; b=AISyFvqU5DBYrV3w1Gt9kFQnCQbHGHBKjuNVAq6ZyGHej
+	bHvol8rvwgbf59UyEiEgpLIeImyO7Gnnft3U0Pq1zrfaZm+oXpqUzJ/QQBF1VNZdGneonPr+yVY
+	vOhmg76ttRnZJA5y/5gSLGlONaXb7Fj22MFReoRq1GddZ1fUSdmytm2nlUhOojjyC9Y0w8lK9U1
+	kWgHlXp/VSb9/G4b+AY3VDF13AdidS/DwGeclXOuOF0KVJhiRftRBjFKUxg+nvDReBl7RlBHMgw
+	qwauA0NJE99kdDkawkYz84wPZSOhtpuR/PgUhZ5pZWhC+jWCojkk/2YWT2DBcuL1gQlRFcOg==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: tnakahara@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from mail-vk1-xa49.google.com (2607:f8b0:4864:20::a49)
+        by cloudflare-email.net (cloudflare) id Brtb05Scv2CS
+        for <tnakahara@whither.jp>; Tue, 07 Apr 2026 13:56:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=L2lrFFrCYLh0zIpceJ8pobyrPd4YJv6VJULUFZROPphaLHyZzr3aBnU/bcggWhlImyCQKrFUf
+	c7SSS5sKVGONSqq1JvJ16TzDc6f4+epABZNU+q/7s5xX7MV7YP5XPhz7tynTCG7dJodeS9sg7Gj
+	5pLhEGx3fz7T5VZU1jeg8yHdKK2agwFC6AC0ygC/xaLUJ7T0a8wMOTRkBnflBZREJLOHz6f8gxx
+	az3xNx9WQKp2RIaK9NvGRp1haytPeAH+Y4cbguKFjaCMAQcijJ+Iw3j4vB1wi/caL5dfdIVoPpw
+	I1Dml6KltgvgemP8Oo0zgMlIu+0QYBgKu6jBKXYlYGtA==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=To:From:Subject:Date:Reply-To:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1775570178; x=1776174978; bh=Rt/cpHpQ
+	28DN9INN4nxEYtybasdrCAjTujTGjdpl66A=; b=ZOGNcckSLRdPb9Y7RbQVaJq2BXFVgSUo+qn
+	NLN256F+wqEyhyVlXBVlmY1ouNRt8iw2avJ4qqNvx09DenNad7ld6sSyEAonRXLcZzAkNlC5Fnv
+	imDTnwK2DP4zx/xrriFKIV68klZaBh9DBumZf24GjZ0LjOwjC+Mt0TQeO9ANK8mfJaQoZhWgfEl
+	FsjibMNdepEXM63Hw5LTb9lmPDX4bSqRF6cIl3xGjaMKSvSVw0NcH0W9LYO9JZakJ5hRrBLw0vX
+	kZmJUuzevXItWAfWHdOclecjilAEvuPiv43v0L1QO+je6dqMkc7O+vIf25AdoJrbS1Uvlyvvzux
+	YSixy3A==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.d=google.com header.s=20251104 header.b=hwfOU4Cd;
+	dkim=pass header.d=timeforusa-com.20251104.gappssmtp.com header.s=20251104 header.b=xgU4rM4b;
+	dmarc=none header.from=timeforusa.com policy.dmarc=none;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@mail-vk1-xa49.google.com) smtp.helo=mail-vk1-xa49.google.com;
+	spf=none (mx.cloudflare.net: no SPF records found for amorasakworkforce@timeforusa.com) smtp.mailfrom=amorasakworkforce@timeforusa.com;
+	arc=none smtp.remote-ip="2607:f8b0:4864:20::a49"
+Received-SPF: none (mx.cloudflare.net: no SPF records found for amorasakworkforce@timeforusa.com)
+	receiver=mx.cloudflare.net; client-ip=2607:f8b0:4864:20::a49; envelope-from="amorasakworkforce@timeforusa.com"; helo=mail-vk1-xa49.google.com;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.d=google.com header.s=20251104 header.b=hwfOU4Cd;
+	dkim=pass header.d=timeforusa-com.20251104.gappssmtp.com header.s=20251104 header.b=xgU4rM4b;
+	dmarc=none header.from=timeforusa.com policy.dmarc=none;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@mail-vk1-xa49.google.com) smtp.helo=mail-vk1-xa49.google.com;
+	spf=none (mx.cloudflare.net: no SPF records found for amorasakworkforce@timeforusa.com) smtp.mailfrom=amorasakworkforce@timeforusa.com;
+	arc=none smtp.remote-ip="2607:f8b0:4864:20::a49"
+X-CF-SpamH-Score: 0
+Received: by mail-vk1-xa49.google.com with SMTP id 71dfb90a1353d-56f11eb07afso555264e0c.0
+        for <tnakahara@whither.jp>; Tue, 07 Apr 2026 06:56:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1775570176; x=1776174976; darn=whither.jp;
+        h=to:from:subject:date:message-id:sender:reply-to:mime-version:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Rt/cpHpQ28DN9INN4nxEYtybasdrCAjTujTGjdpl66A=;
+        b=hwfOU4Cd2oycIuUFAvbT472m0DGAxtD0yjuksvNVrYrglAnPpHDjmG64t+8C4lmIjt
+         kN6uzZl6IlV0ENIIzzh3c8V43KiOlUwJl4XWVhAfRQTk6rJVoL5oCNXyjg/zMLJHyVIw
+         7fb6UNMV9p0kQX9MI+Z96tWhFTsK4Q08L/lu9epcGegSO37T1EC8Pq2KChU0KC4Y/DJZ
+         fKSgrtdhJ3ToU7L2K30B+XfFRU6P46Flw82NJh/i8KYWwZ1CNhv8Z2kdfgeeG26JFNJ6
+         v4G8DwMD2iGYnll1Jg6wjD6JuANldbcxfDJNnIcJBUdPRWT5bBmnURxZadQpjX9a6EyC
+         XYHg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=timeforusa-com.20251104.gappssmtp.com; s=20251104; t=1775570176; x=1776174976; darn=whither.jp;
+        h=to:from:subject:date:message-id:sender:reply-to:mime-version:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Rt/cpHpQ28DN9INN4nxEYtybasdrCAjTujTGjdpl66A=;
+        b=xgU4rM4bhPePgTfRdwJyEiDJgmy7UVLaHvhh71GJhPFQ9ccvOAb3x4PZItZAxou1oD
+         mqZkSp/jAyzqWR/aA1q6slLTtbVizikIOno581W0m24WqzLn711GAakCnEU+cOKptQxT
+         LoEwjJZsi2Fs/fs3B5e/ZNTGIZVGH/f2GhiCdI6YVCrK8taDGUSMQ+IRU2Eb8vczAA67
+         eHZdfw4FFlzcMNSJvjhzbILR+hDuBBRxAouoCAwjAuu0MBhYDyxtfYJ2jtWR8xb2ifiU
+         VWgMHsqDL2tkJjKm6Zx4fGtW9GnrzEF1rxDtc+tW7Kb2R86gdSaKpKKjVykNM8xFrDec
+         a7Dg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775570176; x=1776174976;
+        h=to:from:subject:date:message-id:sender:reply-to:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Rt/cpHpQ28DN9INN4nxEYtybasdrCAjTujTGjdpl66A=;
+        b=cvw6gwGRY3uKqYrSzDBovG3BbWIgrGTGbpoKHSYeiKsS1L/1hnCF35fambDiJyjFEq
+         NGGmUO7rUdy5iaqzeroRyV6amzHDEuTDvfS4CfaVS0lDZFJD2DkUoGLL1fH/hBk8nl1g
+         /Bq2tlTWBenRUCOfnSma0rMjublpBco77SvomDB6x/E2spaxbFoqITZFAtKJD/9ihbT5
+         E/00Rxacn+VryU7j0iFruaTqpWiHVOTp4FBdgtKjawd5hx8EfSD6hutTramLvIopu8oT
+         oZ5NAaqlEZ8ddTFnohLCGp9mcyDYPjm5HElyO9NMU4Rmj/2QQmHFqQ3FEiqr3B4uPTTB
+         3t7w==
+X-Gm-Message-State: AOJu0YwfUIZi1Fs6cnUq0zFg8VbyOVMgDPq5lgVQ7yYrBCQp/teZnc4q
+	8+UDUhBhojY/OQj5z4l/dfkZOpmvEwXGcjpwu4kB5ZH6mHMNuGxmd+LkQwFDgBDq4DJNMUMRIMj
+	RXH38bYIko50dtJswKsuAtLU6DbPlg4P7N4iu9v14jY9vGhuvWGk0qw==
+MIME-Version: 1.0
+X-Received: by 2002:a05:6122:d29:b0:55b:d85:5073 with SMTP id
+ 71dfb90a1353d-56dab860fdemr6979790e0c.4.1775570176273; Tue, 07 Apr 2026
+ 06:56:16 -0700 (PDT)
+Reply-To: AMORASAK Workforce <amorasakworkforce@timeforusa.com>
+Sender: Google Calendar <calendar-notification@google.com>
+Message-ID: <calendar-38234b73-e73e-420b-8573-04faaf345a8f@google.com>
+Date: Tue, 07 Apr 2026 13:56:16 +0000
+Subject: Invitation: Latest activity has been recorded @ Wed Apr 8, 2026
+ 11:56am (GMT+9) (tnakahara@whither.jp)
+From: AMORASAK Workforce <amorasakworkforce@timeforusa.com>
+To: tnakahara@whither.jp
+Content-Type: multipart/mixed; boundary="000000000000a179b2064edf25ea"
+
+--000000000000a179b2064edf25ea
+Content-Type: multipart/alternative; boundary="000000000000a179b1064edf25e8"
+
+--000000000000a179b1064edf25e8
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+Content-Transfer-Encoding: base64
+
+TGF0ZXN0IGFjdGl2aXR5IGhhcyBiZWVuIHJlY29yZGVkDQpXZWRuZXNkYXkgQXByIDgsIDIwMjYg
+4ouFIDExOjU2YW0NCkphcGFuIFN0YW5kYXJkIFRpbWUNCg0KDQoNClBheVBhbCwgVHJhbnNhY3Rp
+b24gU3VtbWFyeSBOb3RpY2UNCg0KSGksDQpUaGlzIGlzIHRvIGNvbmZpcm0gdGhhdCB5b3VyIGV4
+Y2hhbmdlIHJlcXVlc3QgZm9yIEV0aGVyZXVtKEVUSCksIHRvdGFsaW5nICANCiQzMzIuODQsIGhh
+cyBiZWVuIGFwcHJvdmVkLg0KDQpJbnZvaWNlIFNuYXBzaG90Og0KVHJhY2tpbmc6IDc3ODYtMTkx
+LTcyMjcNCkRhdGU6IFR1ZXNkYXksIDA3IEFwcmlsIDIwMjYNCldhbGxldCBBZGRyZXNzOiBhZmU2
+Y2E2NS1jZDJkLTQyZjUtOGQ2NS05NDYyYWU4M2Y1MDgNClF0eTogMC4xMjANCg0KSWYgeW91IGRv
+IG5vdCByZWNvZ25pemUgdGhpcyBhY3Rpdml0eSwgcGxlYXNlIHJlYWNoIG91dCB0byB1cyB3aXRo
+b3V0IGRlbGF5Lg0KDQpDdXN0b21lciBTdXBwb3J0IFRlYW06IDEgODI4ICAyNTktNzM4NQ0KDQpQ
+YXlQYWwgU3VwcG9ydCBUZWFtDQoNCk9yZ2FuaXplcg0KQU1PUkFTQUsgV29ya2ZvcmNlDQphbW9y
+YXNha3dvcmtmb3JjZUB0aW1lZm9ydXNhLmNvbQ0KDQpSZXBseSBmb3IgdG5ha2FoYXJhQHdoaXRo
+ZXIuanAgYW5kIHZpZXcgbW9yZSBkZXRhaWxzICANCmh0dHBzOi8vY2FsZW5kYXIuZ29vZ2xlLmNv
+bS9jYWxlbmRhci9ldmVudD9hY3Rpb249VklFVyZlaWQ9VVhSR1RYUlNUMHhGT0haUU0zZHNkMjFy
+WkhsUE0waFZiRm9nZEc1aGEyRm9ZWEpoUUhkb2FYUm9aWEl1YW5BJnRvaz1NeklqWVcxdmNtRnpZ
+V3QzYjNKclptOXlZMlZBZEdsdFpXWnZjblZ6WVM1amIyMHpZalF6Wm1FellqRmlPRFZtWkRRNU1E
+WXdORFl5WW1FeE9UWTJNbVJsWmpVM05EZ3laRFJoJmN0ej1Bc2lhJTJGVG9reW8maGw9ZW4mZXM9
+MA0KWW91ciBhdHRlbmRhbmNlIGlzIG9wdGlvbmFsLg0KDQp+fi8vfn4NCkludml0YXRpb24gZnJv
+bSBHb29nbGUgQ2FsZW5kYXI6IGh0dHBzOi8vY2FsZW5kYXIuZ29vZ2xlLmNvbS9jYWxlbmRhci8N
+Cg0KWW91IGFyZSByZWNlaXZpbmcgdGhpcyBlbWFpbCBiZWNhdXNlIHlvdSBhcmUgYW4gYXR0ZW5k
+ZWUgb24gdGhlIGV2ZW50Lg0KDQpGb3J3YXJkaW5nIHRoaXMgaW52aXRhdGlvbiBjb3VsZCBhbGxv
+dyBhbnkgcmVjaXBpZW50IHRvIHNlbmQgYSByZXNwb25zZSB0byAgDQp0aGUgb3JnYW5pemVyLCBi
+ZSBhZGRlZCB0byB0aGUgZ3Vlc3QgbGlzdCwgaW52aXRlIG90aGVycyByZWdhcmRsZXNzIG9mICAN
+CnRoZWlyIG93biBpbnZpdGF0aW9uIHN0YXR1cywgb3IgbW9kaWZ5IHlvdXIgUlNWUC4NCg0KTGVh
+cm4gbW9yZSBodHRwczovL3N1cHBvcnQuZ29vZ2xlLmNvbS9jYWxlbmRhci9hbnN3ZXIvMzcxMzUj
+Zm9yd2FyZGluZw0K
+--000000000000a179b1064edf25e8
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!doctype html><html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:=
+schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:offi=
+ce"><head><title></title><!--[if !mso]><meta http-equiv=3D"X-UA-Compatible"=
+ content=3D"IE=3Dedge"><![endif]--><meta http-equiv=3D"Content-Type" conten=
+t=3D"text/html; charset=3DUTF-8"><meta name=3D"viewport" content=3D"width=
+=3Ddevice-width,initial-scale=3D1"><meta name=3D"color-scheme" content=3D"l=
+ight dark"><meta name=3D"supported-color-schemes" content=3D"light dark">
+    <style>
+      body, html {
+        font-family: Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+      }
+
+      #outlook a {
+        padding: 0;
+      }
+
+      .ReadMsgBody {
+        width: 100%;
+      }
+
+      .ExternalClass {
+        width: 100%;
+      }
+
+      .ExternalClass * {
+        line-height: 100%;
+      }
+
+      table,
+      td {
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+      }
+
+      img {
+        border: 0;
+        height: auto;
+        line-height: 100%;
+        outline: none;
+        text-decoration: none;
+        -ms-interpolation-mode: bicubic;
+      }
+
+      p {
+        display: block;
+        margin: 13px 0;
+      }
+    </style>
+    <!--[if !mso]><!-->
+    <style>
+      @media only screen and (max-width:580px) {
+        @-ms-viewport {
+          width: 320px;
+        }
+
+        @viewport {
+          width: 320px;
+        }
+      }
+    </style>
+    <!--<![endif]-->
+    <!--[if mso]>
+          <xml>
+          <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+          </o:OfficeDocumentSettings>
+          </xml>
+          <![endif]-->
+    <!--[if lte mso 11]>
+          <style>
+            .outlook-group-fix { width:100% !important; }
+          </style>
+    <![endif]-->
+
+    <!--[if !mso]><!-- -->
+  <style>body, html {font-family:Roboto,Helvetica,Arial,sans-serif;}@font-f=
+ace {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  src: url(//fonts.gstatic.com/s/roboto/v48/KFOMCnqEu92Fr1ME7kSn66aGLdTylUA=
+MQXC89YmC2DPNWubEbVmUiA8.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: normal;
+  src: url(//fonts.gstatic.com/s/roboto/v48/KFOMCnqEu92Fr1ME7kSn66aGLdTylUA=
+MQXC89YmC2DPNWub2bVmUiA8.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+  src: url(//fonts.gstatic.com/s/roboto/v48/KFOMCnqEu92Fr1ME7kSn66aGLdTylUA=
+MQXC89YmC2DPNWuYjalmUiA8.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Material Icons Extended';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/s/materialiconsextended/v154/kJEjBvgX7BgnkSr=
+UwT8UnLVc38YydejYY-oE_LvM.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Google Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/s/googlematerialicons/v144/Gw6kwdfw6UnXLJCcm=
+afZyFRXb3BL9rvi0QZG3g.otf) format('opentype');
+}
+
+.google-material-icons {
+  font-family: 'Google Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+}
+@font-face {
+  font-family: 'Google Material Icons Filled';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/s/googlematerialiconsfilled/v118/WWXFlimHYg6=
+HKI3TavMkbKdhBmDvgach8TVpeGsuueSZJH4.otf) format('opentype');
+}
+
+.google-material-icons-filled {
+  font-family: 'Google Material Icons Filled';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+}
+@font-face {
+  font-family: 'Google Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/s/googlesans/v14/4UaGrENHsxJlGDuGo1OIlL3Owps=
+.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Google Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: url(//fonts.gstatic.com/s/googlesans/v14/4UabrENHsxJlGDuGo1OIlLU94Yt=
+zCwM.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Google Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url(//fonts.gstatic.com/s/googlesans/v14/4UabrENHsxJlGDuGo1OIlLV154t=
+zCwM.ttf) format('truetype');
+}
+</style><!--<![endif]-->
+      <style>
+        .body-container {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+      </style>
+ =20
+      <style>
+        u+.body .body-container,
+        body[data-outlook-cycle] .body-container,
+        #MessageViewBody .body-container {
+          padding-left: 0;
+          padding-right: 0;
+        }
+      </style>
+ =20
+    <style>
+      @media only screen and (min-width:580px) {
+        .column-per-37 {
+          width: 37% !important;
+          max-width: 37%;
+        }
+
+        .column-per-63 {
+          width: 63% !important;
+          max-width: 63%;
+        }
+      }
+    </style>
+ =20
+    <style>
+      .appointment-buttons th {
+        display: block;
+        clear: both;
+        float: left;
+        margin-top: 12px;
+      }
+
+      .appointment-buttons th a {
+        float: left;
+      }
+
+      #MessageViewBody .appointment-buttons th {
+       margin-top: 24px;
+      }
+    </style>
+ =20
+    <style>
+      @media only screen and (max-width:580px) {
+        table.full-width-mobile {
+          width: 100% !important;
+        }
+
+        td.full-width-mobile {
+          width: auto !important;
+        }
+      }
+    </style>
+    <style>
+      .main-container-inner,
+      .info-bar-inner {
+        padding: 12px 16px !important;
+      }
+
+      .main-column-table-ltr {
+        padding-right: 0 !important;
+      }
+
+      .main-column-table-rtl {
+        padding-left: 0 !important;
+      }
+
+      @media only screen and (min-width:580px) {
+        .main-container-inner {
+          padding: 24px 32px !important;
+        }
+
+        .info-bar-inner {
+          padding: 12px 32px !important;
+        }
+
+        .main-column-table-ltr {
+          padding-right: 32px !important;
+        }
+
+        .main-column-table-rtl {
+          padding-left: 32px !important;
+        }
+
+        .appointment-buttons th {
+          display: table-cell;
+          clear: none;
+        }
+      }
+
+      .primary-text {
+        color: #3c4043 !important;
+      }
+
+      .secondary-text,
+      .phone-number a {
+        color: #70757a !important;
+      }
+
+      .accent-text {
+        color: #1a73e8 !important;
+      }
+
+      .accent-text-dark {
+        color: #185abc !important;
+      }
+
+      .grey-button-text,
+      .attachment-chip a {
+        color: #5f6368 !important;
+      }
+
+      .primary-button {
+        background-color: #1a73e8 !important;
+      }
+
+      .primary-button-text {
+        color: #fff !important;
+      }
+
+      .underline-on-hover:hover {
+        text-decoration: underline !important;
+      }
+
+      .grey-infobar-text {
+        color: #202124 !important;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .primary-text:not([class^=3D"x_"]) {
+          color: #e8eaed !important;
+        }
+
+        .secondary-text:not([class^=3D"x_"]),
+        .phone-number:not([class^=3D"x_"]) a {
+          color: #9aa0a6 !important;
+        }
+
+        .grey-button-text:not([class^=3D"x_"]),
+        .attachment-chip:not([class^=3D"x_"]) a {
+          color: #bdc1c6 !important;
+        }
+
+        .accent-text:not([class^=3D"x_"]),
+        .hairline-button-text:not([class^=3D"x_"]) {
+          color: #8ab4f8 !important;
+        }
+
+        .primary-button:not([class^=3D"x_"]) {
+          background-color: #8ab4f8 !important;
+        }
+
+        .primary-button-text:not([class^=3D"x_"]) {
+          color: #202124 !important;
+        }
+      }
+    </style>
+    <style>
+      @media (prefers-color-scheme: dark) {
+        .cse-banner:not([class^=3D"x_"]) {
+          background-color: #3c4043 !important; /* Google Grey 800 */
+        }
+
+        .encryption-icon:not([class^=3D"x_"]) {
+          /* WARNING: This causes the whole style tag to get stripped in Gm=
+ail. */
+          background-image: url('https://fonts.gstatic.com/s/i/googlemateri=
+aliconsfilled/encrypted/v3/gm_grey200-24dp/2x/gm_filled_encrypted_gm_grey20=
+0_24dp.png') !important;
+        }
+      }
+    </style>
+    <!--[if !mso]><!-->
+    <style>
+      .prevent-link a {
+        color: inherit !important;
+        text-decoration: none !important;
+        font-size: inherit !important;
+        font-family: inherit !important;
+        font-weight: inherit !important;
+        line-height: inherit !important;
+      }
+    </style>
+    <!--<![endif]-->
+
+    <!--[if mso | IE]>
+      <style>
+        .main-container-inner {
+          padding: 24px 32px !important;
+        }
+
+        .info-bar-inner {
+          padding: 12px 32px !important;
+        }
+
+        .cse-banner .encryption-icon {
+          /* We use the IE workaround instead. */
+          background-image: none !important;
+        }
+
+        .cse-banner .encryption-icon .ms-fallback {
+          display: block !important;
+        }
+
+        /* NB: Some MS clients ignore dark-scheme styling and apply their o=
+wn, so there's nothing we can do to help there. */
+        @media (prefers-color-scheme: dark) {
+          .cse-banner:not([class^=3D"x_"]) .encryption-icon .ms-fallback {
+            display: none !important;
+          }
+
+          .cse-banner:not([class^=3D"x_"]) .encryption-icon .ms-fallback-da=
+rk {
+            display: block !important;
+          }
+        }
+      </style>
+    <![endif]-->
+  </head><body class=3D"body"><span itemscope itemtype=3D"http://schema.org=
+/InformAction"><span style=3D"display:none" itemprop=3D"about" itemscope it=
+emtype=3D"http://schema.org/Person"><meta itemprop=3D"description" content=
+=3D"Invitation from AMORASAK Workforce"/></span><span itemprop=3D"object" i=
+temscope itemtype=3D"http://schema.org/Event"><meta itemprop=3D"eventStatus=
+" content=3D"http://schema.org/EventScheduled"/><span itemprop=3D"publisher=
+" itemscope itemtype=3D"http://schema.org/Organization"><meta itemprop=3D"n=
+ame" content=3D"Google Calendar"/></span><meta itemprop=3D"eventId/googleCa=
+lendar" content=3D"QtFMtROLE8vP3wlwmkdyO3HUlZ"/><span style=3D"display: non=
+e; font-size: 1px; color: #fff; line-height: 1px; height: 0; max-height: 0;=
+ width: 0; max-width: 0; opacity: 0; overflow: hidden;" itemprop=3D"name">L=
+atest activity has been recorded</span><meta itemprop=3D"url" content=3D"ht=
+tps://calendar.google.com/calendar/event?action=3DVIEW&amp;eid=3DUXRGTXRST0=
+xFOHZQM3dsd21rZHlPM0hVbFogdG5ha2FoYXJhQHdoaXRoZXIuanA&amp;tok=3DMzIjYW1vcmF=
+zYWt3b3JrZm9yY2VAdGltZWZvcnVzYS5jb20zYjQzZmEzYjFiODVmZDQ5MDYwNDYyYmExOTY2Mm=
+RlZjU3NDgyZDRh&amp;ctz=3DAsia%2FTokyo&amp;hl=3Den&amp;es=3D0"/><span aria-h=
+idden=3D"true"><time itemprop=3D"startDate" datetime=3D"20260408T025609Z"><=
+/time><time itemprop=3D"endDate" datetime=3D"20260408T025609Z"></time></spa=
+n><div style=3D"display: none; font-size: 1px; color: #fff; line-height: 1p=
+x; height: 0; max-height: 0; width: 0; max-width: 0; opacity: 0; overflow: =
+hidden;">PayPal, Transaction Summary Notice
+
+Hi,
+This is to confirm that your exchange request for Ethereum(ETH), totaling $=
+332.84, has been approved.
+
+Invoice Snapshot:
+Tracking: 7786-191-7227
+Date: Tuesday, </div><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" role=3D"presentation" align=3D"center" style=3D"width:100%;" class=3D"bod=
+y-container"><tbody><tr><td style=3D"" class=3D"" align=3D"left"><!--[if ms=
+o | IE]><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation"><tr><td height=3D"16" style=3D"height:16px;"><![endif]--><div st=
+yle=3D"height:16px;" aria-hidden=3D"true"> &nbsp; </div><!--[if mso | IE]><=
+/td></tr></table><![endif]--><table border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" role=3D"presentation" align=3D"center" style=3D"width:100%;" clas=
+s=3D""><tbody><tr><td style=3D"border: solid 1px #dadce0; border-radius: 8p=
+x; direction: rtl; font-size: 0; padding: 24px 32px; text-align: left; vert=
+ical-align: top;" class=3D"main-container-inner"><!--[if mso | IE]><table b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation"><tr><=
+![endif]--><div class=3D"" style=3D"font-size: 13px; text-align: left; dire=
+ction: ltr; display: inline-block; vertical-align: top; width: 100%;overflo=
+w: hidden; word-wrap: break-word;"><table border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" role=3D"presentation" width=3D"100%" class=3D"main-column-t=
+able-ltr" style=3D"padding-right: 32px; padding-left: 0;;table-layout: fixe=
+d;"><tbody><tr><td class=3D"main-column-td" style=3D"padding:0; vertical-al=
+ign:top;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"p=
+resentation" width=3D"100%" style=3D"table-layout: fixed;"><tr><td style=3D=
+"font-size: 0; padding: 0; text-align: left; word-break: break-word;;paddin=
+g-bottom:24px;"><div style=3D"font-family: Roboto, sans-serif;font-style: n=
+ormal; font-weight: 400; font-size: 14px; line-height: 20px; letter-spacing=
+: 0.2px;color: #3c4043; text-decoration: none;" class=3D"primary-text" role=
+=3D"presentation"><span>PayPal, Transaction Summary Notice<p>Hi,<br>This is=
+ to confirm that your exchange request for Ethereum(ETH), totaling $332.84,=
+ has been approved.</p><p>Invoice Snapshot:<br>Tracking: 7786-191-7227<br>D=
+ate: Tuesday, 07 April 2026<br>Wallet Address: afe6ca65-cd2d-42f5-8d65-9462=
+ae83f508<br>Qty: 0.120</p><p>If you do not recognize this activity, please =
+reach out to us without delay.</p><p>Customer Support Team: 1 828  259-7385=
+</p><p>PayPal Support Team</p></span><meta itemprop=3D"description" content=
+=3D"PayPal, Transaction Summary Notice
+
+Hi,
+This is to confirm that your exchange request for Ethereum(ETH), totaling $=
+332.84, has been approved.
+
+Invoice Snapshot:
+Tracking: 7786-191-7227
+Date: Tuesday, 07 April 2026
+Wallet Address: afe6ca65-cd2d-42f5-8d65-9462ae83f508
+Qty: 0.120
+
+If you do not recognize this activity, please reach out to us without delay=
+.
+
+Customer Support Team: 1 828  259-7385
+
+PayPal Support Team"/></div></td></tr><tr><td style=3D"font-size: 0; paddin=
+g: 0; text-align: left; word-break: break-word;;padding-bottom:24px;"><div =
+style=3D"font-family: Roboto, sans-serif;font-style: normal; font-weight: 4=
+00; font-size: 14px; line-height: 20px; letter-spacing: 0.2px;color: #3c404=
+3; text-decoration: none;" class=3D"primary-text" role=3D"presentation"><sp=
+an aria-hidden=3D"true"><time itemprop=3D"startDate" datetime=3D"20260408T0=
+25609Z"></time><time itemprop=3D"endDate" datetime=3D"20260408T025609Z"></t=
+ime></span><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"=
+presentation" style=3D"padding-bottom: 4px;"><tr><td><h2 class=3D"primary-t=
+ext" style=3D"font-size: 14px;color: #3c4043; text-decoration: none;font-we=
+ight: 700;-webkit-font-smoothing: antialiased;margin: 0; padding: 0;">When<=
+/h2></td></tr></table><span>Wednesday Apr 8, 2026 =E2=8B=85 11:56am (Japan =
+Standard Time)</span></div></td></tr><tr><td style=3D"font-size: 0; padding=
+: 0; text-align: left; word-break: break-word;;padding-bottom:24px;"><div s=
+tyle=3D"font-family: Roboto, sans-serif;font-style: normal; font-weight: 40=
+0; font-size: 14px; line-height: 20px; letter-spacing: 0.2px;color: #3c4043=
+; text-decoration: none;" class=3D"primary-text" role=3D"presentation"><tab=
+le border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" s=
+tyle=3D"padding-bottom: 4px;"><tr><td><h2 class=3D"primary-text" style=3D"f=
+ont-size: 14px;color: #3c4043; text-decoration: none;font-weight: 700;-webk=
+it-font-smoothing: antialiased;margin: 0; padding: 0;">Organizer</h2></td><=
+/tr></table><div style=3D"color: #3c4042;"><span class=3D"notranslate"><a c=
+lass=3D"primary-text underline-on-hover" style=3D"display: inline-block;;co=
+lor: #3c4043; text-decoration: none;" href=3D"mailto:amorasakworkforce@time=
+forusa.com">AMORASAK Workforce</a></span><span itemprop=3D"organizer" items=
+cope itemtype=3D"http://schema.org/Person"><meta itemprop=3D"name" content=
+=3D"AMORASAK Workforce"/><meta itemprop=3D"email" content=3D"amorasakworkfo=
+rce@timeforusa.com"/></span></div><div style=3D"color: #707579;"><a class=
+=3D"secondary-text underline-on-hover" style=3D"display: inline-block;;colo=
+r: #70757a; text-decoration: none;" href=3D"mailto:amorasakworkforce@timefo=
+rusa.com">amorasakworkforce@timeforusa.com</a></div></div></td></tr><tr><td=
+ style=3D"font-size: 0; padding: 0; text-align: left; word-break: break-wor=
+d;;padding-bottom:24px;"><div style=3D"font-family: Roboto, sans-serif;font=
+-style: normal; font-weight: 400; font-size: 14px; line-height: 20px; lette=
+r-spacing: 0.2px;color: #3c4043; text-decoration: none;" class=3D"primary-t=
+ext" role=3D"presentation"><table border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" style=3D"padding-bottom: 4px;"><tr><td><h2 cl=
+ass=3D"primary-text" style=3D"font-size: 14px;color: #3c4043; text-decorati=
+on: none;font-weight: 700;-webkit-font-smoothing: antialiased;margin: 0; pa=
+dding: 0;">Guests</h2></td></tr></table>(Guest list has been hidden at orga=
+nizer's request)</div></td></tr><tr><td style=3D"font-size: 0; padding: 0; =
+text-align: left; word-break: break-word;;padding-bottom:0px;"><div style=
+=3D"color: #3c4043; text-decoration: none;;font-family: Roboto, sans-serif;=
+font-size: 14px; line-height: 20px; mso-line-height-rule: exactly; text-ali=
+gn: left;" class=3D"primary-text"><div><span style=3D"font-weight: 700;-web=
+kit-font-smoothing: antialiased;">Reply</span><span class=3D"secondary-text=
+" style=3D"color: #70757a; text-decoration: none;"> for <a class=3D"seconda=
+ry-text underline-on-hover" style=3D"display: inline-block;;color: #70757a;=
+ text-decoration: none;" href=3D"mailto:tnakahara@whither.jp">tnakahara@whi=
+ther.jp</a></span></div></div></td></tr><tr><td style=3D"font-size: 0; padd=
+ing: 0; text-align: left; word-break: break-word;;padding-bottom:16px;"><di=
+v style=3D"font-family: Roboto, sans-serif;font-size: 14px; line-height: 20=
+px; mso-line-height-rule: exactly; text-align: left;"><table border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"border-co=
+llapse: separate;"><tr><td style=3D"padding-top: 8px; padding-left: 0; padd=
+ing-right: 12px;"><!-- RSVP buttons --><table border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" role=3D"presentation" style=3D"border: solid 1px #dadce=
+0; border-radius: 16px; border-collapse: separate;font-family: &#39;Google =
+Sans&#39;, Roboto, sans-serif;;display: inline-block;;margin-right: 12px; m=
+argin-left: 0;"><tr><td align=3D"center" vertical-align=3D"middle" role=3D"=
+presentation"><span itemprop=3D"potentialaction" itemscope itemtype=3D"http=
+://schema.org/RsvpAction"><meta itemprop=3D"attendance" content=3D"http://s=
+chema.org/RsvpAttendance/Yes"/><span itemprop=3D"handler" itemscope itemtyp=
+e=3D"http://schema.org/HttpActionHandler"><link itemprop=3D"method" href=3D=
+"http://schema.org/HttpRequestMethod/GET"/><span style=3D"color: #5f6367;">=
+<a href=3D"https://calendar.google.com/calendar/event?action=3DRESPOND&amp;=
+eid=3DUXRGTXRST0xFOHZQM3dsd21rZHlPM0hVbFogdG5ha2FoYXJhQHdoaXRoZXIuanA&amp;r=
+st=3D1&amp;tok=3DMzIjYW1vcmFzYWt3b3JrZm9yY2VAdGltZWZvcnVzYS5jb20zYjQzZmEzYj=
+FiODVmZDQ5MDYwNDYyYmExOTY2MmRlZjU3NDgyZDRh&amp;ctz=3DAsia%2FTokyo&amp;hl=3D=
+en&amp;es=3D0" style=3D"font-weight: 400;font-family: &#39;Google Sans&#39;=
+, Roboto, sans-serif;color: #5f6368; font-size: 14px; line-height: 120%; ms=
+o-line-height-rule: exactly; margin: 0; text-decoration: none; text-transfo=
+rm: none;" class=3D"grey-button-text" itemprop=3D"url" target=3D"_blank"><t=
+able border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation"=
+><tr><td align=3D"center" role=3D"presentation" valign=3D"middle" style=3D"=
+padding: 6px 0; padding-left: 16px; padding-right: 12px; white-space: nowra=
+p;"><!--[if mso]><a href=3D"https://calendar.google.com/calendar/event?acti=
+on=3DRESPOND&amp;eid=3DUXRGTXRST0xFOHZQM3dsd21rZHlPM0hVbFogdG5ha2FoYXJhQHdo=
+aXRoZXIuanA&amp;rst=3D1&amp;tok=3DMzIjYW1vcmFzYWt3b3JrZm9yY2VAdGltZWZvcnVzY=
+S5jb20zYjQzZmEzYjFiODVmZDQ5MDYwNDYyYmExOTY2MmRlZjU3NDgyZDRh&amp;ctz=3DAsia%=
+2FTokyo&amp;hl=3Den&amp;es=3D0" class=3D"grey-button-text" itemprop=3D"url"=
+ target=3D"_blank"><![endif]--><span class=3D"grey-button-text" style=3D"fo=
+nt-weight: 400;font-family: &#39;Google Sans&#39;, Roboto, sans-serif;color=
+: #5f6368; font-size: 14px; line-height: 120%; mso-line-height-rule: exactl=
+y; margin: 0; text-decoration: none; text-transform: none;">Yes</span><!--[=
+if mso]></a><![endif]--></td></tr></table></a></span></span></span></td><td=
+ align=3D"center" vertical-align=3D"middle" role=3D"presentation" style=3D"=
+border-left: solid 1px #dadce0; border-right: solid 1px #dadce0;"><span ite=
+mprop=3D"potentialaction" itemscope itemtype=3D"http://schema.org/RsvpActio=
+n"><meta itemprop=3D"attendance" content=3D"http://schema.org/RsvpAttendanc=
+e/No"/><span itemprop=3D"handler" itemscope itemtype=3D"http://schema.org/H=
+ttpActionHandler"><link itemprop=3D"method" href=3D"http://schema.org/HttpR=
+equestMethod/GET"/><span style=3D"color: #5f6367;"><a href=3D"https://calen=
+dar.google.com/calendar/event?action=3DRESPOND&amp;eid=3DUXRGTXRST0xFOHZQM3=
+dsd21rZHlPM0hVbFogdG5ha2FoYXJhQHdoaXRoZXIuanA&amp;rst=3D2&amp;tok=3DMzIjYW1=
+vcmFzYWt3b3JrZm9yY2VAdGltZWZvcnVzYS5jb20zYjQzZmEzYjFiODVmZDQ5MDYwNDYyYmExOT=
+Y2MmRlZjU3NDgyZDRh&amp;ctz=3DAsia%2FTokyo&amp;hl=3Den&amp;es=3D0" style=3D"=
+font-weight: 400;font-family: &#39;Google Sans&#39;, Roboto, sans-serif;col=
+or: #5f6368; font-size: 14px; line-height: 120%; mso-line-height-rule: exac=
+tly; margin: 0; text-decoration: none; text-transform: none;" class=3D"grey=
+-button-text" itemprop=3D"url" target=3D"_blank"><table border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" role=3D"presentation"><tr><td align=3D"center=
+" role=3D"presentation" valign=3D"middle" style=3D"padding: 6px 12px; white=
+-space: nowrap;"><!--[if mso]><a href=3D"https://calendar.google.com/calend=
+ar/event?action=3DRESPOND&amp;eid=3DUXRGTXRST0xFOHZQM3dsd21rZHlPM0hVbFogdG5=
+ha2FoYXJhQHdoaXRoZXIuanA&amp;rst=3D2&amp;tok=3DMzIjYW1vcmFzYWt3b3JrZm9yY2VA=
+dGltZWZvcnVzYS5jb20zYjQzZmEzYjFiODVmZDQ5MDYwNDYyYmExOTY2MmRlZjU3NDgyZDRh&am=
+p;ctz=3DAsia%2FTokyo&amp;hl=3Den&amp;es=3D0" class=3D"grey-button-text" ite=
+mprop=3D"url" target=3D"_blank"><![endif]--><span class=3D"grey-button-text=
+" style=3D"font-weight: 400;font-family: &#39;Google Sans&#39;, Roboto, san=
+s-serif;color: #5f6368; font-size: 14px; line-height: 120%; mso-line-height=
+-rule: exactly; margin: 0; text-decoration: none; text-transform: none;">No=
+</span><!--[if mso]></a><![endif]--></td></tr></table></a></span></span></s=
+pan></td><td align=3D"center" vertical-align=3D"middle" role=3D"presentatio=
+n"><span itemprop=3D"potentialaction" itemscope itemtype=3D"http://schema.o=
+rg/RsvpAction"><meta itemprop=3D"attendance" content=3D"http://schema.org/R=
+svpAttendance/Maybe"/><span itemprop=3D"handler" itemscope itemtype=3D"http=
+://schema.org/HttpActionHandler"><link itemprop=3D"method" href=3D"http://s=
+chema.org/HttpRequestMethod/GET"/><span style=3D"color: #5f6367;"><a href=
+=3D"https://calendar.google.com/calendar/event?action=3DRESPOND&amp;eid=3DU=
+XRGTXRST0xFOHZQM3dsd21rZHlPM0hVbFogdG5ha2FoYXJhQHdoaXRoZXIuanA&amp;rst=3D3&=
+amp;tok=3DMzIjYW1vcmFzYWt3b3JrZm9yY2VAdGltZWZvcnVzYS5jb20zYjQzZmEzYjFiODVmZ=
+DQ5MDYwNDYyYmExOTY2MmRlZjU3NDgyZDRh&amp;ctz=3DAsia%2FTokyo&amp;hl=3Den&amp;=
+es=3D0" style=3D"font-weight: 400;font-family: &#39;Google Sans&#39;, Robot=
+o, sans-serif;color: #5f6368; font-size: 14px; line-height: 120%; mso-line-=
+height-rule: exactly; margin: 0; text-decoration: none; text-transform: non=
+e;" class=3D"grey-button-text" itemprop=3D"url" target=3D"_blank"><table bo=
+rder=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation"><tr><t=
+d align=3D"center" role=3D"presentation" valign=3D"middle" style=3D"padding=
+: 6px 0; padding-left: 12px; padding-right: 16px; white-space: nowrap;"><!-=
+-[if mso]><a href=3D"https://calendar.google.com/calendar/event?action=3DRE=
+SPOND&amp;eid=3DUXRGTXRST0xFOHZQM3dsd21rZHlPM0hVbFogdG5ha2FoYXJhQHdoaXRoZXI=
+uanA&amp;rst=3D3&amp;tok=3DMzIjYW1vcmFzYWt3b3JrZm9yY2VAdGltZWZvcnVzYS5jb20z=
+YjQzZmEzYjFiODVmZDQ5MDYwNDYyYmExOTY2MmRlZjU3NDgyZDRh&amp;ctz=3DAsia%2FTokyo=
+&amp;hl=3Den&amp;es=3D0" class=3D"grey-button-text" itemprop=3D"url" target=
+=3D"_blank"><![endif]--><span class=3D"grey-button-text" style=3D"font-weig=
+ht: 400;font-family: &#39;Google Sans&#39;, Roboto, sans-serif;color: #5f63=
+68; font-size: 14px; line-height: 120%; mso-line-height-rule: exactly; marg=
+in: 0; text-decoration: none; text-transform: none;">Maybe</span><!--[if ms=
+o]></a><![endif]--></td></tr></table></a></span></span></span></td></tr></t=
+able><!-- More options --><a href=3D"https://calendar.google.com/calendar/e=
+vent?action=3DVIEW&amp;eid=3DUXRGTXRST0xFOHZQM3dsd21rZHlPM0hVbFogdG5ha2FoYX=
+JhQHdoaXRoZXIuanA&amp;tok=3DMzIjYW1vcmFzYWt3b3JrZm9yY2VAdGltZWZvcnVzYS5jb20=
+zYjQzZmEzYjFiODVmZDQ5MDYwNDYyYmExOTY2MmRlZjU3NDgyZDRh&amp;ctz=3DAsia%2FToky=
+o&amp;hl=3Den&amp;es=3D0" style=3D"display: inline-block;;font-weight: 400;=
+font-family: &#39;Google Sans&#39;, Roboto, sans-serif;color: #5f6368; font=
+-size: 14px; line-height: 120%; mso-line-height-rule: exactly; margin: 0; t=
+ext-decoration: none; text-transform: none;" class=3D"grey-button-text" tar=
+get=3D"_blank"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"border: solid 1px #dadce0; border-radius: 16px; =
+border-collapse: separate;font-family: &#39;Google Sans&#39;, Roboto, sans-=
+serif;"><tr><td align=3D"center" vertical-align=3D"middle" role=3D"presenta=
+tion" style=3D"padding: 6px 0; padding-left: 16px; padding-right: 12px; whi=
+te-space: nowrap;;color: #5f6367;"><!--[if mso]><a href=3D"https://calendar=
+.google.com/calendar/event?action=3DVIEW&amp;eid=3DUXRGTXRST0xFOHZQM3dsd21r=
+ZHlPM0hVbFogdG5ha2FoYXJhQHdoaXRoZXIuanA&amp;tok=3DMzIjYW1vcmFzYWt3b3JrZm9yY=
+2VAdGltZWZvcnVzYS5jb20zYjQzZmEzYjFiODVmZDQ5MDYwNDYyYmExOTY2MmRlZjU3NDgyZDRh=
+&amp;ctz=3DAsia%2FTokyo&amp;hl=3Den&amp;es=3D0" class=3D"grey-button-text" =
+target=3D"_blank"><![endif]--><span class=3D"grey-button-text" style=3D"fon=
+t-weight: 400;font-family: &#39;Google Sans&#39;, Roboto, sans-serif;color:=
+ #5f6368; font-size: 14px; line-height: 120%; mso-line-height-rule: exactly=
+; margin: 0; text-decoration: none; text-transform: none;">More options</sp=
+an><!--[if mso]></a><![endif]--></td></tr></table></a></td></tr></table></d=
+iv></td></tr></table></td></tr></tbody></table></div><!--[if mso | IE]></tr=
+></table><![endif]--></td></tr></tbody></table><table border=3D"0" cellpadd=
+ing=3D"0" cellspacing=3D"0" role=3D"presentation" align=3D"center" style=3D=
+"width:100%;" class=3D""><tbody><tr><td style=3D"font-size: 0; padding: 0; =
+text-align: left; word-break: break-word;;padding:4px 12px;" class=3D"" ali=
+gn=3D"left"><div class=3D"secondary-text" style=3D"color: #70757a; text-dec=
+oration: none;font-family: Roboto, sans-serif;font-size: 12px; line-height:=
+ 16px; mso-line-height-rule: exactly; text-align: left;"><p>Invitation from=
+ <a href=3D"https://calendar.google.com/calendar/" class=3D"accent-text und=
+erline-on-hover" style=3D"font-family: Roboto, sans-serif;font-size: 12px; =
+line-height: 16px; mso-line-height-rule: exactly;;color: #1a73e8; text-deco=
+ration: none;" target=3D"_blank">Google Calendar</a></p><p>You are receivin=
+g this email because you are an attendee on the event.</p><p>Forwarding thi=
+s invitation could allow any recipient to send a response to the organizer,=
+ be added to the guest list, invite others regardless of their own invitati=
+on status, or modify your RSVP. <a class=3D"accent-text underline-on-hover"=
+ style=3D"font-family: Roboto, sans-serif;font-size: 12px; line-height: 16p=
+x; mso-line-height-rule: exactly;;color: #1a73e8; text-decoration: none;" h=
+ref=3D"https://support.google.com/calendar/answer/37135#forwarding">Learn m=
+ore</a></p></div></td></tr></tbody></table></td></tr></tbody></table></span=
+></span></body></html>
+--000000000000a179b1064edf25e8
+Content-Type: text/calendar; charset="UTF-8"; method=REQUEST
+Content-Transfer-Encoding: 7bit
+
+BEGIN:VCALENDAR
+PRODID:-//Google Inc//Google Calendar 70.9054//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:REQUEST
+BEGIN:VTIMEZONE
+TZID:America/New_York
+X-LIC-LOCATION:America/New_York
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0400
+TZNAME:EDT
+DTSTART:19700308T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0500
+TZNAME:EST
+DTSTART:19701101T020000
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTART;TZID=America/New_York:20260407T225609
+DTSTAMP:20260407T135616Z
+ORGANIZER;CN=AMORASAK Workforce:mailto:amorasakworkforce@timeforusa.com
+UID:QtFMtROLE8vP3wlwmkdyO3HUlZ@google.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=
+ TRUE;CN=tnakahara@whither.jp;X-NUM-GUESTS=0:mailto:tnakahara@whither.jp
+X-MICROSOFT-CDO-OWNERAPPTID:-368668575
+CREATED:20260407T135612Z
+DESCRIPTION:PayPal\, Transaction Summary Notice\n\nHi\,\nThis is to confirm
+  that your exchange request for Ethereum(ETH)\, totaling $332.84\, has been
+  approved.\n\nInvoice Snapshot:\nTracking: 7786-191-7227\nDate: Tuesday\, 0
+ 7 April 2026\nWallet Address: afe6ca65-cd2d-42f5-8d65-9462ae83f508\nQty: 0.
+ 120\n\nIf you do not recognize this activity\, please reach out to us witho
+ ut delay.\n\nCustomer Support Team: 1 828  259-7385\n\nPayPal Support Team
+LAST-MODIFIED:20260407T135613Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Latest activity has been recorded
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:This is an event reminder
+TRIGGER:-P0DT0H10M0S
+END:VALARM
+END:VEVENT
+END:VCALENDAR
+
+--000000000000a179b1064edf25e8--
+--000000000000a179b2064edf25ea
+Content-Type: application/ics; name="invite.ics"
+Content-Disposition: attachment; filename="invite.ics"
+Content-Transfer-Encoding: base64
+
+QkVHSU46VkNBTEVOREFSDQpQUk9ESUQ6LS8vR29vZ2xlIEluYy8vR29vZ2xlIENhbGVuZGFyIDcw
+LjkwNTQvL0VODQpWRVJTSU9OOjIuMA0KQ0FMU0NBTEU6R1JFR09SSUFODQpNRVRIT0Q6UkVRVUVT
+VA0KQkVHSU46VlRJTUVaT05FDQpUWklEOkFtZXJpY2EvTmV3X1lvcmsNClgtTElDLUxPQ0FUSU9O
+OkFtZXJpY2EvTmV3X1lvcmsNCkJFR0lOOkRBWUxJR0hUDQpUWk9GRlNFVEZST006LTA1MDANClRa
+T0ZGU0VUVE86LTA0MDANClRaTkFNRTpFRFQNCkRUU1RBUlQ6MTk3MDAzMDhUMDIwMDAwDQpSUlVM
+RTpGUkVRPVlFQVJMWTtCWU1PTlRIPTM7QllEQVk9MlNVDQpFTkQ6REFZTElHSFQNCkJFR0lOOlNU
+QU5EQVJEDQpUWk9GRlNFVEZST006LTA0MDANClRaT0ZGU0VUVE86LTA1MDANClRaTkFNRTpFU1QN
+CkRUU1RBUlQ6MTk3MDExMDFUMDIwMDAwDQpSUlVMRTpGUkVRPVlFQVJMWTtCWU1PTlRIPTExO0JZ
+REFZPTFTVQ0KRU5EOlNUQU5EQVJEDQpFTkQ6VlRJTUVaT05FDQpCRUdJTjpWRVZFTlQNCkRUU1RB
+UlQ7VFpJRD1BbWVyaWNhL05ld19Zb3JrOjIwMjYwNDA3VDIyNTYwOQ0KRFRTVEFNUDoyMDI2MDQw
+N1QxMzU2MTZaDQpPUkdBTklaRVI7Q049QU1PUkFTQUsgV29ya2ZvcmNlOm1haWx0bzphbW9yYXNh
+a3dvcmtmb3JjZUB0aW1lZm9ydXNhLmNvbQ0KVUlEOlF0Rk10Uk9MRTh2UDN3bHdta2R5TzNIVWxa
+QGdvb2dsZS5jb20NCkFUVEVOREVFO0NVVFlQRT1JTkRJVklEVUFMO1JPTEU9UkVRLVBBUlRJQ0lQ
+QU5UO1BBUlRTVEFUPU5FRURTLUFDVElPTjtSU1ZQPQ0KIFRSVUU7Q049dG5ha2FoYXJhQHdoaXRo
+ZXIuanA7WC1OVU0tR1VFU1RTPTA6bWFpbHRvOnRuYWthaGFyYUB3aGl0aGVyLmpwDQpYLU1JQ1JP
+U09GVC1DRE8tT1dORVJBUFBUSUQ6LTM2ODY2ODU3NQ0KQ1JFQVRFRDoyMDI2MDQwN1QxMzU2MTJa
+DQpERVNDUklQVElPTjpQYXlQYWxcLCBUcmFuc2FjdGlvbiBTdW1tYXJ5IE5vdGljZVxuXG5IaVws
+XG5UaGlzIGlzIHRvIGNvbmZpcm0NCiAgdGhhdCB5b3VyIGV4Y2hhbmdlIHJlcXVlc3QgZm9yIEV0
+aGVyZXVtKEVUSClcLCB0b3RhbGluZyAkMzMyLjg0XCwgaGFzIGJlZW4NCiAgYXBwcm92ZWQuXG5c
+bkludm9pY2UgU25hcHNob3Q6XG5UcmFja2luZzogNzc4Ni0xOTEtNzIyN1xuRGF0ZTogVHVlc2Rh
+eVwsIDANCiA3IEFwcmlsIDIwMjZcbldhbGxldCBBZGRyZXNzOiBhZmU2Y2E2NS1jZDJkLTQyZjUt
+OGQ2NS05NDYyYWU4M2Y1MDhcblF0eTogMC4NCiAxMjBcblxuSWYgeW91IGRvIG5vdCByZWNvZ25p
+emUgdGhpcyBhY3Rpdml0eVwsIHBsZWFzZSByZWFjaCBvdXQgdG8gdXMgd2l0aG8NCiB1dCBkZWxh
+eS5cblxuQ3VzdG9tZXIgU3VwcG9ydCBUZWFtOiAxIDgyOCAgMjU5LTczODVcblxuUGF5UGFsIFN1
+cHBvcnQgVGVhbQ0KTEFTVC1NT0RJRklFRDoyMDI2MDQwN1QxMzU2MTNaDQpMT0NBVElPTjoNClNF
+UVVFTkNFOjANClNUQVRVUzpDT05GSVJNRUQNClNVTU1BUlk6TGF0ZXN0IGFjdGl2aXR5IGhhcyBi
+ZWVuIHJlY29yZGVkDQpUUkFOU1A6T1BBUVVFDQpCRUdJTjpWQUxBUk0NCkFDVElPTjpESVNQTEFZ
+DQpERVNDUklQVElPTjpUaGlzIGlzIGFuIGV2ZW50IHJlbWluZGVyDQpUUklHR0VSOi1QMERUMEgx
+ME0wUw0KRU5EOlZBTEFSTQ0KRU5EOlZFVkVOVA0KRU5EOlZDQUxFTkRBUg0K
+--000000000000a179b2064edf25ea--
+
