@@ -1,0 +1,144 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:a358:0:b0:261:71de:4e72 with SMTP id k24csp228934eid;
+        Fri, 27 Mar 2026 23:41:57 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AJvYcCV9WeNobi9rzwaKKMsuIq0Ngk0QUKbn+mJMte+gb0vFQMiseugXU5zpSwHPPcv7ifLy89wHKelr4bLlE6OfRw==@gmail.com
+X-Received: by 2002:a17:902:fc8f:b0:2b0:643b:41d2 with SMTP id d9443c01a7336-2b0cdd40311mr53178955ad.47.1774680117571;
+        Fri, 27 Mar 2026 23:41:57 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1774680117; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=Zw2x2G+Wk6t+bnPg6kXDdV/NbKtBPwWrQnjtYmEZvG7Ss0K70Hr9S+/OVcFMvKQ9qC
+         a6UzkXiWDt+1JaH/k+ab7khVrQ3Ea1P3ZajfTmtRoDh+Beja/6MxaYbb6a4dYWxdd/tD
+         dxNFgmSUr3gpevaDI/x5rHKM+u1+RG2fvK+69ggVYPonE2ACzvI+KEZElC29YDJls2wi
+         P8coW5DXM6yp4hgEKHimUHZXHRFDa8n+DlFxEw61xD6KGUmJSU1qo1iKEXHZSkFPEsoL
+         Qpq/jbZW0HL1FKZynw+4gvBBfWOkdnCd8S8z0B5Mys/+4DI0MCgS6a3bMKJ/VL6AR2Ku
+         Wrtw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=track_id:content-transfer-encoding:mime-version:date:subject:to
+         :from:message-id:feedback-id:dkim-signature:dkim-signature;
+        bh=DW6fnsmpWz463gAg3hRjCiUgKC1+lrh+UPGvqiL9zcc=;
+        fh=ENXOhFKW7CT4pn4Lz1vO6o5YQQdiV/Ih3E4yEdfzxpY=;
+        b=hANaVPIXNGDGq7vEcD/+C4M9gko/kfQfmJCzgRs6Sm7YAHYqDJqzkr6W5oSbQE4EIZ
+         WN2CWJ7cuKsiYKRlQVCzik/xhXU5W4kKoNhXpAIRKcWJblgTZ/Z5l5akZL12Of7Nq5gi
+         SZEgyTJdCuWOqynmnGWgpOO0odrOfc0Wtg6blQO1ne5rIEii6LVxsrEVUEVDwObEvZU+
+         gYpbC6/WqO3BmJ620KT2ATDPR3Xi9hcSGUIf9aVjHkPY50DEgcX+tn8QV6F2B6Gp3lKQ
+         FgAOyd+SxJAP9bfvSa6SjulMOQddX6ZFjkMwpsKh54NSqwe2TFngzagOZxBrdW4ach+0
+         g+BQ==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=h4AdvJTy;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=GygHji5X;
+       arc=pass (i=1 spf=pass spfdomain=huanfulai.com);
+       spf=pass (google.com: domain of srs0=ilux=4b=huanfulai.com=server@whither.jp designates 104.30.10.128 as permitted sender) smtp.mailfrom="SRS0=ILuX=4b=huanfulai.com=server@whither.jp";
+       dmarc=fail (p=QUARANTINE sp=REJECT dis=NONE) header.from=apple.com
+Return-Path: <SRS0=ILuX=4b=huanfulai.com=server@whither.jp>
+Received: from ba-bci.cloudflare-email.net (ba-bci.cloudflare-email.net. [104.30.10.128])
+        by mx.google.com with ESMTPS id d9443c01a7336-2b242768567si30262975ad.159.2026.03.27.23.41.56
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 27 Mar 2026 23:41:57 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=ilux=4b=huanfulai.com=server@whither.jp designates 104.30.10.128 as permitted sender) client-ip=104.30.10.128;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=h4AdvJTy;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=GygHji5X;
+       arc=pass (i=1 spf=pass spfdomain=huanfulai.com);
+       spf=pass (google.com: domain of srs0=ilux=4b=huanfulai.com=server@whither.jp designates 104.30.10.128 as permitted sender) smtp.mailfrom="SRS0=ILuX=4b=huanfulai.com=server@whither.jp";
+       dmarc=fail (p=QUARANTINE sp=REJECT dis=NONE) header.from=apple.com
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1774680117; x=1775284917; bh=DW6fnsmpWz463gAg3h
+	RjCiUgKC1+lrh+UPGvqiL9zcc=; b=h4AdvJTysj/GQLv3F9VIC457y03CtuUIAM1nMwklfxzvL
+	7gpBHgPLCD82PMcj3n+hFaxCEaNZwmsDWUY2p7GNwWy1NayJIAtaGwWUvhkIMFBqzl0j4ohxszf
+	vgoyJ/PBvh/4M2+7Z4nf2ahujsLcqTrhz9uFsYEMwnAerO2SBVf3ODiMM62L3ECpSYNLY5QyGNe
+	p10SfYXYNrOrMou+KVClZbeiQr/38oaJeTGQes9Pr9C41WulvnnF45NigfMMG6Kub3EnbD7iw2U
+	gU/tWrekiZV1URgHrHXk5rr2qLEnEW0I7ephFyCqWncNJmpLyPtraHFZnAB3efwFL1xxEOUA==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1774680117; x=1775284917; bh=DW6fnsmpWz463gAg3h
+	RjCiUgKC1+lrh+UPGvqiL9zcc=; b=GygHji5XCUiMiKOTLlC5KSQSCDtsMf8suwLi5+5zucj26
+	Yb5YYl5XDs0iKX8FnmXTeuxtI0vzZmDddneIwdAZIFUVHBnJP/8dS/PoWY7LIC3tWOqaZ/q8Mrn
+	LhJIZqahBzwBDeejyczVADBJJuWu2it8QRWxjxhUqvrMBHEuzCL66kbEXO+Blsr1XzqRqE65Cfu
+	EWbdm9TFPyFI0U5Hw7LT8c26pPkb7U9kyrqgSqXgnlgwP2WU8j6BMx4ej5xUXMioYYUxvMaKbbL
+	jOwDTDAhnEsDSSzplBAQd+Qjs/ZoeaW7AlyUA8cDWDqbjBjTOwDS3dgRHYjn8OqImvE3JDdQ==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: penguin@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from huanfulai.com (35.243.112.101)
+        by cloudflare-email.net (cloudflare) id L79ukikm6rLO
+        for <penguin@whither.jp>; Sat, 28 Mar 2026 06:41:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=SIOkjm5C9Asi8PUMyfAR3CuSd27PJh/D/Q5DPVZ1Q7KymFQD4Y0UjpOIsyhz0AzVEMLmObZG4
+	7HvVyAd7p9goL2CGfimTuQP/5sv+rmX0TtzwW3uQTY9xK050LZ9cKtm11TUJcJBSTgsCHPA2ZAE
+	ki/RhqVPG08qyo/XMZjqDRSXstQSEwHG2ua1NVpkjwZWRIcNlb31BkuKeCiHbPEfrs8DJiaNVwr
+	lU9B/lS7F8EFLtSOEs8OUFQpYzcDeQdw7vOBhrVbOI8HMNAVsXFtQyvdTfhGBnff+xGB/TuF/82
+	a8cLALCrkeO9ab1jCkRTPtSlSEg1Y/GdjsM96X7P2pmg==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1774680114; x=1775284914; bh=DW6fnsmp
+	Wz463gAg3hRjCiUgKC1+lrh+UPGvqiL9zcc=; b=Ge5wFnMQYrBTALmYKCODG/L4LGZAklhqC5g
+	zRx1XZQtSSf0PoBgHiGcaSO6khQANqa7Pp6DjdYEFgwCU+H/P5SIoIMuasPswyoj8/mXgQaumvm
+	lkw6kq9F6Hs4dJ+K0P9NcVzmU3rClklHJ6blAIY0mNYJKSA3LXR/wLSVuyxqd1fnvy/pq+9RYE/
+	5/tISzO/frjWHcQg2dcq11DRR6zZ2RUCzDF8HfvKpXrtrBphU1UgFuJ2IjStYyz8cfHjld+Tpk/
+	uV8ok7008f8gbjm483c9xDBMX3qxzT7fOS7dfqQZHkhopyAftKwM5jt5mVa2Lqv043Vy12FDjov
+	iEmL/DQ==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dmarc=fail (policy not aligned) header.from=apple.com policy.dmarc=quarantine;
+	spf=pass (mx.cloudflare.net: domain of postmaster@huanfulai.com designates 35.243.112.101 as permitted sender) smtp.helo=huanfulai.com;
+	spf=pass (mx.cloudflare.net: domain of server@huanfulai.com designates 35.243.112.101 as permitted sender) smtp.mailfrom=server@huanfulai.com;
+	arc=none smtp.remote-ip=35.243.112.101
+Received-SPF: pass (mx.cloudflare.net: domain of server@huanfulai.com designates 35.243.112.101 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=35.243.112.101; envelope-from="server@huanfulai.com"; helo=huanfulai.com;
+Authentication-Results: mx.cloudflare.net;
+	dmarc=fail (policy not aligned) header.from=apple.com policy.dmarc=quarantine;
+	spf=pass (mx.cloudflare.net: domain of postmaster@huanfulai.com designates 35.243.112.101 as permitted sender) smtp.helo=huanfulai.com;
+	spf=pass (mx.cloudflare.net: domain of server@huanfulai.com designates 35.243.112.101 as permitted sender) smtp.mailfrom=server@huanfulai.com;
+	arc=none smtp.remote-ip=35.243.112.101
+X-CF-SpamH-Score: 1
+Message-ID: <ooyd1yO@huanfulai.com>
+From: =?iso-2022-jp?Q?Apple?= <serverinfo@apple.com>
+To: <penguin@whither.jp>
+Subject: =?iso-2022-jp?Q?Apple_Fitness+_=1B$B%5%V%9%/%j%W%7%g%s99=3F7$N$40FFb=1B(BNo.49628?=
+Date: Sat, 28 Mar 2026 14:41:51 +0800
+X-Priority: 3
+MIME-Version: 1.0
+Content-Type: text/html; charset="ISO-2022-JP"
+Content-Transfer-Encoding: 7bit
+track_id: SHXdk
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=iso-2022-jp" http-equiv=Content-Type>
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"></HEAD>
+<BODY>
+<P>Apple Fitness+ サブスクリプション更新のご案内<BR>━━━━━━━━━━━━━━━━━━━━</P>
+<P>お客様の Apple ID 宛て</P>
+<P>日頃よりAppleサービスをご愛顧いただき、誠にありがとうございます。</P>
+<P>お客様にご利用いただいております Apple Fitness+ 3ヶ月間のお試し体験 につきまして、2026年3月29日（日） 
+をもちまして終了となります。</P>
+<P>お試し期間終了後は、年間プランへの自動更新が行われる予定です。</P>
+<P>━━━━━━━━━━━━━━━━━━━━<BR>■ 現在ご契約中の内容<BR>━━━━━━━━━━━━━━━━━━━━</P>
+<P>&nbsp;サービス名：Apple 
+Fitness+<BR>&nbsp;体験終了日：2026年3月29日<BR>&nbsp;自動更新後のプラン：年間メンバーシップ<BR>&nbsp;
+更新料金（税込）：7,800円／年<BR>&nbsp;お支払い方法：ご登録中の支払い方法が適用されます</P>
+<P>━━━━━━━━━━━━━━━━━━━━<BR>■ 自動更新を解除される場合<BR>━━━━━━━━━━━━━━━━━━━━</P>
+<P>自動更新をご希望されない場合は、2026年3月29日（日）の24時間前までに、下記リンクよりキャンセル手続きを完了してください。</P>
+<P><A href="https://bananargepublic.com/YLJRrBxto6"><FONT 
+size=4>https://www.apple.com/jp/subscriptions/</FONT></A></P>
+<P>※ログイン後、「サブスクリプション」メニューからお手続きをお願いいたします</P>
+<P>━━━━━━━━━━━━━━━━━━━━<BR>■ ご確認いただきたい事項<BR>━━━━━━━━━━━━━━━━━━━━</P>
+<P>&nbsp;自動更新をご希望の場合は、特に操作は必要ございません<BR>&nbsp;
+キャンセル手続き後も、3月29日までは通常どおりご利用いただけます<BR>&nbsp;
+ご不明な点がございましたら、Appleサポートまでお問い合わせください</P>
+<P>━━━━━━━━━━━━━━━━━━━━</P>
+<P>Apple Japan<BR>〒106-6140 東京都港区六本木6-10-1 六本木ヒルズ森タワー</P>
+<P>本メールは、Apple Fitness+ 
+のお試し期間終了が近いお客様にお送りしております。<BR>購読管理ページでは、すべてのサブスクリプションの確認および管理が可能です。</P>
+<P>Copyright c 2026 Apple Inc. All rights reserved.</P>
+<P><A href="https://www.apple.com/">https://www.apple.com/</A></P>
+<P>H8FGUEDQ</P></BODY></HTML>
+
+
