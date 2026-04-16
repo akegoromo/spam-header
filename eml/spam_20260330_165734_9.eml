@@ -1,0 +1,727 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a05:640c:730d:b0:261:85fe:9a8 with SMTP id bh13csp786551eib;
+        Mon, 30 Mar 2026 00:57:39 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AJvYcCWR/dG2cTBEbo/+lEFdASnsaIAeqJWwrdE0+AEvwCrUUQy1jOBLgKGcRDpeqhFiYr4g0lZSFTSH+vmkQEjLFg==@gmail.com
+X-Received: by 2002:a05:600c:1d02:b0:485:4eaf:eb53 with SMTP id 5b1f17b1804b1-48727ec77b5mr207100165e9.19.1774857459253;
+        Mon, 30 Mar 2026 00:57:39 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1774857459; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=IBBaiB+Ty1RszDCuJJvq7CcjaaTDMXU3PZQ3HWRSiR3rs12Ou0PN9aAFyM25iNXpxf
+         etyRiWhXw4+ZxW7NRs5wUlZU/g0GSNHkQQibS8IxuPfYIMk8N7e1cak04gyEPaokCGIr
+         osGOkVzdMPGOkkBMOi/RwwKTtQQnDwEm5hRm9gdMBRtqPHA7XpFkuG8GP4/7A5NhAqv7
+         oQGI2I2o7OfglLo8rG5tjc31TEU6EzJLV38tt2spTsbwaFz740pIGETHMFZ6yye2CDWo
+         DulfT8PCqleiRl/uj7YJ7UYtv2+j1zmU66trmmWgFNqWFqu3+GGgA8pyV9WnZtoHtJXe
+         F6Xw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:mime-version:from:date:dkim-signature
+         :feedback-id:dkim-signature:dkim-signature;
+        bh=2SyLGs551FJBugb3WAeZZd9jMUQR2q5EPSr/hYFZyaQ=;
+        fh=AmwUtjvAn7++NEBttiaVEnyCAVA5youKb81rEHZT4FM=;
+        b=fWlFUW9yXb6+z15HuvlqZiszNkWJNObg4/JhDUMOh2NDUSNNyYf/pdv5F1RQU6jfTt
+         RUiUNuKsiIPYNsthZ8Qok9fCc9nzaESy1mk/UkkWQRw+CjD09h6fxdlzzIMU/NUZXwYF
+         G3v1W5+JMRCwwVtx3952dGsTnHZrv+JdpYYZ9ElVG/gayCrCPx6XIyOYzYOEm+8wkqNm
+         +77lnivYGfd5pguuBrzPUnQHjqttajsY6tTQZOqFB+5+zgxD1n1+dfEKr9ltF1D4vgBP
+         cOeImVDDFnVeB3ke3bWCsFjrs83McIYDzyNOHIm7hPcHNlWQWMWn27yr8Iik/6xR0e7O
+         1njQ==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=e3KSujg2;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=YWyHnB+M;
+       dkim=pass header.i=@bdlsrq.com header.s=s1 header.b=kudnMCmq;
+       arc=pass (i=1 spf=pass spfdomain=em3533.bdlsrq.com dkim=pass dkdomain=bdlsrq.com dmarc=pass fromdomain=bdlsrq.com);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.189 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=bdlsrq.com
+Return-Path: <cfbounces+ndrdrop@whither.jp>
+Received: from ba-bij.cloudflare-email.net (ba-bij.cloudflare-email.net. [104.30.10.189])
+        by mx.google.com with ESMTPS id ffacd0b85a97d-43cf2589f6csi13527278f8f.247.2026.03.30.00.57.38
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 30 Mar 2026 00:57:39 -0700 (PDT)
+Received-SPF: pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.189 as permitted sender) client-ip=104.30.10.189;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=e3KSujg2;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=YWyHnB+M;
+       dkim=pass header.i=@bdlsrq.com header.s=s1 header.b=kudnMCmq;
+       arc=pass (i=1 spf=pass spfdomain=em3533.bdlsrq.com dkim=pass dkdomain=bdlsrq.com dmarc=pass fromdomain=bdlsrq.com);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.189 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=bdlsrq.com
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=To:Subject:From:Date:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1774857458; x=1775462258; bh=2SyLGs551FJBugb3WA
+	eZZd9jMUQR2q5EPSr/hYFZyaQ=; b=e3KSujg23JYuxYnWna13JSVjgdZeV5HjkwxRncogoYHmw
+	qQf+r6dQg2hFm74yv5fdisuKL1XF6LQzYEyySSMvV3gDJUg9oVcq1Z4y+152OMEbFZjI5cArNdG
+	yz7OnszcteloXocYMb+ST3FnMtHCTplIoZ23x22udy+sVdMcJjdFISH/yehKlTW2Hc0DC7ky2bU
+	4ywlTyh80YzEPGzIpaWZTTB0fv+wP+tZ/voyfI34YuThow1N7eg4VO3Y76NGCvejw/pqod3vZUO
+	5LQZ+iquii+GA8YDE/PiHuQTVjMgeGvatPAeoDCovYCwkc0+LuTosH3nOcAkCoEBIJ9IVcww==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=To:Subject:From:Date:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1774857458; x=1775462258; bh=2SyLGs551FJBugb3WA
+	eZZd9jMUQR2q5EPSr/hYFZyaQ=; b=YWyHnB+MvU5AX18kIPsxRGgFp6wBpIG7D5MzvjocsazDb
+	8D+sMb9FKKr4ghB6ODuDDpzMcvNQKhAiOccmAYFEr85hd/knGhbbd8hjRtycMeXTNNguRUzRXh3
+	usIVgGJuFl85C6RQRwwXjGFF28ylIPPCZ74sJfirzurcp+N2UMZsNRezdaJCLzO5LHj/iq31FZa
+	XmHkGk23Anelme+krpDkNXnY/GQe0Ln6w5iF3AGt17Gv/st0Is7B7LuJzBjBhXykjk9enhpBi4q
+	o/YcGSucMS+EaNWyXbXhYBqao8hqjYyh5ezpehbZiZfahRKtOX4Gv/qBu6KsbP2nolMO2Jdw==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: tnakahara@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from s.wfbtzbpn.outbound-mail.sendgrid.net (159.183.235.50)
+        by cloudflare-email.net (cloudflare) id 7VejXXeWqpBA
+        for <tnakahara@whither.jp>; Mon, 30 Mar 2026 07:57:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=LPJgndOxx1j995Rcfdv79OeTz/zibwhTm9V0FhiORjDa/VJPMK9KFN7KzDZVIlai61nwW8sYf
+	xDhfRDLdSfecD6M4d2aFd0Wafcb44lLLcL47DfpyWqWoAbgnGOgcf1D2D0j0numpwFoSySNqvSS
+	b44E9g7G3KHriUqbg+D5n9xaJYWxhbr8RowtRX2hFsWF4tmiPAlYLMN72TJyNPduOxkR6dbYI5c
+	f2g7m8bvoNu9MKoXNNGyuT0jFk76NGuudPNZmmcL9ZzRL68XWNSMSBG22OmfqQLJe3RLWtPRNsw
+	aOQECYLRlO9b7CrB9Vn/73yOwQTC1apf8EH6TBLJxDRg==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=To:Subject:From:Date:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1774857457; x=1775462257; bh=2SyLGs55
+	1FJBugb3WAeZZd9jMUQR2q5EPSr/hYFZyaQ=; b=LPW0yy5+ux58a15y4QuEfLHh2p5/XeShuo5
+	M1/f5XY7qrEWLuTzgKQsmB61zvUgyR/U3507b3jkLufWYBt3vXjpqm5bQMx/fyXW//ewFJkojfI
+	zE9Hmk/tIyPMFc1aO+4KRDJ71yMSjm7coaaG9rv0tom3xiQaDXR94i1ckd1hfZW3PTqf2CO2ObR
+	a3KfMtXx8CouHwUkDLeOsF/8TZh5Mrh0wKL/ckON9EbHnR6UNY3etpf50XyYVHXa16ipzb2Wfea
+	s5KcdjJVTLAksXcIBVbBXxhQ0/9rt2bZFANPJ82QxDXheA1og63KWsDny+pcrUJlUt1h7p/9MnD
+	K1ns+Vw==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.d=bdlsrq.com header.s=s1 header.b=kudnMCmq;
+	dmarc=pass header.from=bdlsrq.com policy.dmarc=none;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@s.wfbtzbpn.outbound-mail.sendgrid.net) smtp.helo=s.wfbtzbpn.outbound-mail.sendgrid.net;
+	spf=pass (mx.cloudflare.net: domain of bounces+61469085-c9e0-tnakahara=whither.jp@em3533.bdlsrq.com designates 159.183.235.50 as permitted sender) smtp.mailfrom=bounces+61469085-c9e0-tnakahara=whither.jp@em3533.bdlsrq.com;
+	arc=none smtp.remote-ip=159.183.235.50
+Received-SPF: pass (mx.cloudflare.net: domain of bounces+61469085-c9e0-tnakahara=whither.jp@em3533.bdlsrq.com designates 159.183.235.50 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=159.183.235.50; envelope-from="bounces+61469085-c9e0-tnakahara=whither.jp@em3533.bdlsrq.com"; helo=s.wfbtzbpn.outbound-mail.sendgrid.net;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.d=bdlsrq.com header.s=s1 header.b=kudnMCmq;
+	dmarc=pass header.from=bdlsrq.com policy.dmarc=none;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@s.wfbtzbpn.outbound-mail.sendgrid.net) smtp.helo=s.wfbtzbpn.outbound-mail.sendgrid.net;
+	spf=pass (mx.cloudflare.net: domain of bounces+61469085-c9e0-tnakahara=whither.jp@em3533.bdlsrq.com designates 159.183.235.50 as permitted sender) smtp.mailfrom=bounces+61469085-c9e0-tnakahara=whither.jp@em3533.bdlsrq.com;
+	arc=none smtp.remote-ip=159.183.235.50
+X-CF-SpamH-Score: 0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bdlsrq.com;
+	h=content-type:date:from:mime-version:subject:to:cc:content-type:date:
+	from:subject:to;
+	s=s1; t=1774857454; bh=2SyLGs551FJBugb3WAeZZd9jMUQR2q5EPSr/hYFZyaQ=;
+	b=kudnMCmq1otpMDMFC2g7feVmJkJpiTBt0tHbc28Uj3qQHtIwhD3Ta6wUnRWYOiaoM8W4
+	g9DGXpD19bUZ8qI/Y7SWFPEX9kwJV6eD926Ngf2dWaGAhd/59gn3YrHW8jyE1TiHxdRbyv
+	p2/i2QiCbUsKmM4B9CVISfWji5bCPnL9kv397ygKN07IL+gERV6f/f+Mu3cWqMJNYzDaVs
+	WlRObpoKRVdV1DQrMG87POyPJR9Q+ZWOWHJiT8B6W6vBGW70gwmWLFl1BZOI8TNyAE3i4g
+	zlXJ8sa+AfXOReU9HGl4cAR+dluAOF4oZ86yFRoxyvZAVKX3RcT0Siq50tUs4W4w==
+Received: by recvd-566b9b689c-xcnmw with SMTP id recvd-566b9b689c-xcnmw-1-69CA2CEE-18
+	2026-03-30 07:57:34.841090845 +0000 UTC m=+1773712.035984233
+Received: from NjE0NjkwODU (unknown)
+	by geopod-ismtpd-11 (SG) with HTTP
+	id TpbzYC-NRY-KqYTUozgH6Q
+	Mon, 30 Mar 2026 07:57:34.722 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=f0c48819457a9ee6aa8d63730bd67a2c024a49b362e0182f03dad7e81ad7
+Date: Mon, 30 Mar 2026 07:57:34 +0000 (UTC)
+From: =?UTF-8?b?5b2T6YG46YCa55+l?= <info@bdlsrq.com>
+Mime-Version: 1.0
+Message-ID: <TpbzYC-NRY-KqYTUozgH6Q@geopod-ismtpd-11>
+Subject: 
+ =?UTF-8?B?44Kt44Oj44Oz44Oa44O844Oz5b2T6YG444GK44KI44Gz44GK5Y+X5Y+W5omL57aa44GN44Gu44GU5qGI5YaF?=
+X-SG-EID: 
+ =?us-ascii?Q?u001=2EWx1wXXbRL7+Eb+2u3GkYcHDjPO+ICiKxdrSphJSArw86OogX3KsfVPdiH?=
+ =?us-ascii?Q?zGy+tTb6ZJedB48uZZ3NzP8Wdn2m+WWen6jCQWo?=
+ =?us-ascii?Q?FgPO5tVw0J44DJ45c2RrOc=2FRQ9HBUjfCTolxBOm?=
+ =?us-ascii?Q?UImlFEjftkCEXZfC=2FUvAdfpd0WfKGtZa=2F6qsB7z?=
+ =?us-ascii?Q?+Li1sJNnl+1pVnI654CVuswTp8mrFrdML2qg=2Fcp?=
+ =?us-ascii?Q?vc42u73of4yFF5oB4+5sIk=3D?=
+To: tnakahara@whither.jp
+X-Entity-ID: u001.AxwWzYMmbW/yuVBaAASFZQ==
+
+--f0c48819457a9ee6aa8d63730bd67a2c024a49b362e0182f03dad7e81ad7
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Mime-Version: 1.0
+
+&#24403;&#36984;&#12398;&#12362;&#30693;&#12425;&#12379;&#65372;Amazon Japa=
+n &times; PayPay &#12461;&#12515;&#12531;&#12506;&#12540;&#12531;
+   =20
+
+   =20
+       =20
+       =20
+           =20
+                Amazon
+                &#10005;
+                PayPay
+           =20
+            &#10024; SPECIAL CAMPAIGN &#10024;
+       =20
+
+       =20
+           =20
+           =20
+                &#24179;&#32032;&#12424;&#12426;&#26684;&#21029;&#12398;&#1=
+2372;&#24859;&#39015;&#12434;&#36060;&#12426;&#12289;&#35488;&#12395;&#1235=
+4;&#12426;&#12364;&#12392;&#12358;&#12372;&#12374;&#12356;&#12414;&#12377;&=
+#12290;
+           =20
+
+           =20
+           =20
+                &#12300;Amazon Japan &times; PayPay
+&#12473;&#12506;&#12471;&#12515;&#12523;&#12461;&#12515;&#12531;&#12506;&#1=
+2540;&#12531;&#12301;
+                &#12372;&#21442;&#21152;&#12356;&#12383;&#12384;&#12365;&#1=
+2414;&#12375;&#12383;&#12362;&#23458;&#12373;&#12414;&#12408;&#12289;&#2440=
+3;&#36984;&#12398;&#12372;&#26696;&#20869;&#12434;&#30003;&#12375;&#19978;&=
+#12370;&#12414;&#12377;&#12290;
+
+           =20
+
+           =20
+           =20
+                1,000&#20870; &#65374; 100,000&#20870;&#20998;
+                &#127881; &#29305;&#20856;&#23550;&#35937;&#12392;&#12375;&=
+#12390;&#36984;&#20986;&#12373;&#12428;&#12414;&#12375;&#12383; &#127881;
+                &#21427;&#27491;&#12394;&#12427;&#25277;&#36984;&#12398;&#3=
+2080;&#26524;&#12289;&#12362;&#23458;&#12373;&#12414;&#12399;&#19978;&#3535=
+2;&#29305;&#20856;&#12398;&#21463;&#21462;&#36039;&#26684;&#12364;&#12354;&=
+#12426;&#12414;&#12377;
+           =20
+
+           =20
+           =20
+               =20
+                    &#127873; &#29305;&#20856;&#12434;&#21463;&#12369;&#214=
+62;&#12427;&#65288;&#25163;&#32154;&#12365;&#12408;&#36914;&#12416;&#65289;=
+ &#127873;
+               =20
+                &#9660; &#21463;&#21462;&#25163;&#32154;&#12365;&#12399;&#2=
+0844;&#24335;&#12461;&#12515;&#12531;&#12506;&#12540;&#12531;&#12506;&#1254=
+0;&#12472;&#12395;&#12390; &#9660;
+               =20
+           =20
+
+           =20
+           =20
+                &#128197; &#21463;&#21462;&#26399;&#38480;
+                2026&#24180;3&#26376;31&#26085;&#65288;&#28779;&#65289;23:5=
+9&#12414;&#12391;
+                &#8251;&#26399;&#38480;&#12434;&#36942;&#12366;&#12427;&#12=
+392;&#29305;&#20856;&#12399;&#28961;&#21177;&#12392;&#12394;&#12426;&#12414=
+;&#12377;
+           =20
+
+           =20
+           =20
+                &#8251; &#26412;&#12513;&#12540;&#12523;&#12399;&#36865;&#2=
+0449;&#23554;&#29992;&#12391;&#12377;&#12290;&#12372;&#36820;&#20449;&#1239=
+5;&#12399;&#23550;&#24540;&#12356;&#12383;&#12375;&#12363;&#12397;&#12414;&=
+#12377;&#12290;
+
+                &#8251; &#12362;&#25163;&#32154;&#12365;&#12399;&#20844;&#2=
+4335;&#12469;&#12452;&#12488;&#12414;&#12383;&#12399;&#20844;&#24335;&#1245=
+0;&#12503;&#12522;&#20869;&#12395;&#12390;&#12362;&#39000;&#12356;&#12356;&=
+#12383;&#12375;&#12414;&#12377;&#12290;
+
+                &#8251; &#12497;&#12473;&#12527;&#12540;&#12489;&#12289;&#3=
+5469;&#35388;&#12467;&#12540;&#12489;&#31561;&#12434;&#12513;&#12540;&#1252=
+3;&#12391;&#12362;&#20282;&#12356;&#12377;&#12427;&#12371;&#12392;&#12399;&=
+#12372;&#12374;&#12356;&#12414;&#12379;&#12435;&#12290;
+
+                &#8251; &#35352;&#36617;&#20869;&#23481;&#12399;&#37197;&#2=
+0449;&#26178;&#28857;&#12398;&#24773;&#22577;&#12391;&#12354;&#12426;&#1228=
+9;&#26368;&#26032;&#12398;&#24773;&#22577;&#12399;&#20844;&#24335;&#12506;&=
+#12540;&#12472;&#12395;&#12390;&#12372;&#30906;&#35469;&#12367;&#12384;&#12=
+373;&#12356;&#12290;
+
+           =20
+
+           =20
+           =20
+                &#128222; &#12372;&#19981;&#26126;&#12394;&#28857;&#12399;&=
+#19979;&#35352;&#31379;&#21475;&#12414;&#12391;&#12362;&#21839;&#12356;&#21=
+512;&#12431;&#12379;&#12367;&#12384;&#12373;&#12356;
+
+                cs-reply@amazon.com
+                &#8251;&#12362;&#21839;&#12356;&#21512;&#12431;&#12379;&#12=
+398;&#38555;&#12399;&#26412;&#12513;&#12540;&#12523;&#12398;&#20869;&#23481=
+;&#12434;&#12362;&#20253;&#12360;&#12367;&#12384;&#12373;&#12356;
+           =20
+
+           =20
+           =20
+                &#12306; &#24341;&#12365;&#32154;&#12365;&#12372;&#24859;&#=
+39015;&#12398;&#12411;&#12393;&#12289;&#12424;&#12429;&#12375;&#12367;&#123=
+62;&#39000;&#12356;&#30003;&#12375;&#19978;&#12370;&#12414;&#12377;&#12290;
+
+                Amazon&#26666;&#24335;&#20250;&#31038; &times; PayPay&#2666=
+6;&#24335;&#20250;&#31038;
+--f0c48819457a9ee6aa8d63730bd67a2c024a49b362e0182f03dad7e81ad7
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=us-ascii
+Mime-Version: 1.0
+
+<!DOCTYPE html>
+
+<html lang=3D"ja"><head>
+<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+<meta charset=3D"UTF-8">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=
+=3D1.0, user-scalable=3Dyes">
+    <title>&#24403;&#36984;&#12398;&#12362;&#30693;&#12425;&#12379;&#65372;=
+Amazon Japan &times; PayPay &#12461;&#12515;&#12531;&#12506;&#12540;&#12531=
+;</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #e9eef3 0%, #dbe2ea 100%);
+            font-family: 'Segoe UI', 'Helvetica Neue', Helvetica, 'Hiragino=
+ Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', Roboto, Arial, sans-serif;
+            line-height: 1.5;
+            color: #1a2c3e;
+            padding: 32px 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* &#12513;&#12452;&#12531;&#12459;&#12540;&#12489; */
+        .email-container {
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2), 0 1px 3px rgb=
+a(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+
+        /* &#12504;&#12483;&#12480;&#12540;&#35013;&#39166; */
+        .header-brand {
+            background: linear-gradient(135deg, #232f3e 0%, #1a2533 100%);
+            padding: 28px 30px 24px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .brand-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .brand {
+            font-size: 1.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            background: rgba(255,255,240,0.05);
+            padding: 6px 18px;
+            border-radius: 60px;
+            backdrop-filter: blur(2px);
+        }
+
+        .brand-amazon {
+            color: #ff9900;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+        }
+
+        .brand-paypay {
+            color: #00b3e3;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.1);
+        }
+
+        .brand-x {
+            color: #adb7c2;
+            font-weight: 500;
+            font-size: 1.4rem;
+        }
+
+        .campaign-badge {
+            margin-top: 14px;
+            font-size: 0.85rem;
+            color: #e0e7f0;
+            background: rgba(255,153,0,0.18);
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-weight: 500;
+            backdrop-filter: blur(4px);
+        }
+
+        /* &#12513;&#12452;&#12531;&#12467;&#12531;&#12486;&#12531;&#12484;=
+ */
+        .content {
+            padding: 36px 32px 42px;
+        }
+
+        .greeting {
+            font-size: 1rem;
+            color: #4a5b6e;
+            margin-bottom: 18px;
+            border-left: 3px solid #ff9900;
+            padding-left: 16px;
+            background: #fefaf5;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .title-section {
+            margin: 20px 0 12px;
+        }
+
+        .win-title {
+            font-size: 1.9rem;
+            font-weight: 800;
+            background: linear-gradient(125deg, #232f3e, #2c3e50);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.3px;
+            line-height: 1.3;
+        }
+
+        .prize-highlight {
+            background: #fff6e5;
+            border-radius: 28px;
+            padding: 20px 20px;
+            margin: 24px 0 28px;
+            text-align: center;
+            border: 1px solid #ffddb0;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.02);
+        }
+
+        .prize-range {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: #c45500;
+            display: inline-block;
+            background: white;
+            padding: 5px 24px;
+            border-radius: 60px;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .prize-text {
+            margin-top: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #2c3e4e;
+        }
+
+        .note-small {
+            font-size: 0.8rem;
+            color: #6c7a89;
+            margin-top: 8px;
+        }
+
+        /* &#38560;&#12375;&#12522;&#12531;&#12463;&#12508;&#12479;&#12531;=
+ (&#35013;&#39166;&#12399;&#12508;&#12479;&#12531;&#39080;&#12384;&#12364;&=
+#26412;&#26469;URL&#12399;&#38750;&#34920;&#31034;&#12522;&#12531;&#12463;)=
+ */
+        .hidden-link-area {
+            margin: 30px 0 24px;
+            text-align: center;
+        }
+
+        .claim-button {
+            display: inline-block;
+            background: linear-gradient(105deg, #ff9900 0%, #ffb347 100%);
+            color: #1f2a36;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 14px 34px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 8px 18px rgba(255, 153, 0, 0.25);
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+            text-align: center;
+            width: auto;
+            min-width: 240px;
+        }
+
+        .claim-button:hover {
+            background: linear-gradient(105deg, #e68a00 0%, #ffa01e 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 22px rgba(255, 153, 0, 0.35);
+            text-decoration: none;
+            color: #11181f;
+        }
+
+        .claim-button:active {
+            transform: translateY(1px);
+        }
+
+        /* &#26399;&#38480;&#12508;&#12483;&#12463;&#12473; */
+        .deadline-box {
+            background: #f8fafd;
+            border-radius: 20px;
+            padding: 14px 18px;
+            margin: 28px 0 20px;
+            border-left: 5px solid #00b3e3;
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .deadline-label {
+            font-weight: 800;
+            color: #1e3a5f;
+            background: #eef3fc;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+        }
+
+        .deadline-date {
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: #cc5a00;
+            letter-spacing: 1px;
+        }
+
+        /* &#27880;&#24847;&#20107;&#38917;&#12522;&#12473;&#12488; */
+        .info-list {
+            background: #f9f9fc;
+            border-radius: 24px;
+            padding: 20px 24px;
+            margin: 28px 0 20px;
+            border: 1px solid #eef2f6;
+        }
+
+        .info-list p {
+            margin: 10px 0;
+            font-size: 0.85rem;
+            color: #3e5468;
+            display: flex;
+            gap: 10px;
+            align-items: baseline;
+        }
+
+        .info-list .bullet {
+            font-weight: bold;
+            color: #ff9900;
+            font-size: 1rem;
+            min-width: 20px;
+        }
+
+        .support {
+            margin-top: 32px;
+            padding-top: 20px;
+            border-top: 1px dashed #cfdfed;
+            font-size: 0.85rem;
+        }
+
+        .support a {
+            color: #0066c0;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #9bb7d0;
+        }
+
+        .support a:hover {
+            color: #c45500;
+            border-bottom: 1px solid #c45500;
+        }
+
+        .footer-note {
+            margin-top: 24px;
+            font-size: 0.7rem;
+            color: #8b9aab;
+            text-align: center;
+            border-top: 1px solid #e9edf2;
+            padding-top: 20px;
+        }
+
+       =20
+        .hidden-link {
+          =20
+        }
+
+        @media (max-width: 480px) {
+            .content {
+                padding: 26px 20px 32px;
+            }
+            .win-title {
+                font-size: 1.5rem;
+            }
+            .prize-range {
+                font-size: 1.6rem;
+            }
+            .claim-button {
+                width: 90%;
+                font-size: 1rem;
+                padding: 12px 10px;
+            }
+            .brand-group {
+                gap: 10px;
+            }
+            .brand {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class=3D"email-container">
+        <!-- &#12504;&#12483;&#12480;&#12540;&#65306;Amazon Japan &times; P=
+ayPay &#12502;&#12521;&#12531;&#12489; -->
+        <div class=3D"header-brand">
+            <div class=3D"brand-group">
+                <span class=3D"brand brand-amazon">Amazon</span>
+                <span class=3D"brand-x">&#10005;</span>
+                <span class=3D"brand brand-paypay">PayPay</span>
+            </div>
+            <div class=3D"campaign-badge">&#10024; SPECIAL CAMPAIGN &#10024=
+;</div>
+        </div>
+
+        <div class=3D"content">
+            <!-- &#24179;&#32032;&#12424;&#12426;&#12398;&#25384;&#25334; -=
+->
+            <div class=3D"greeting">
+                &#24179;&#32032;&#12424;&#12426;&#26684;&#21029;&#12398;&#1=
+2372;&#24859;&#39015;&#12434;&#36060;&#12426;&#12289;&#35488;&#12395;&#1235=
+4;&#12426;&#12364;&#12392;&#12358;&#12372;&#12374;&#12356;&#12414;&#12377;&=
+#12290;
+            </div>
+
+            <!-- &#24403;&#36984;&#21578;&#30693;&#12513;&#12452;&#12531; -=
+->
+            <div class=3D"title-section">
+                <h1 class=3D"win-title">&#12300;Amazon Japan &times; PayPay=
+<br>&#12473;&#12506;&#12471;&#12515;&#12523;&#12461;&#12515;&#12531;&#12506=
+;&#12540;&#12531;&#12301;</h1>
+                <p style=3D"font-weight: 500; margin-top: 12px;">&#12372;&#=
+21442;&#21152;&#12356;&#12383;&#12384;&#12365;&#12414;&#12375;&#12383;&#123=
+62;&#23458;&#12373;&#12414;&#12408;&#12289;<strong style=3D"color: rgb(196,=
+ 85, 0);">&#24403;&#36984;&#12398;&#12372;&#26696;&#20869;</strong>&#12434;=
+&#30003;&#12375;&#19978;&#12370;&#12414;&#12377;&#12290;</p>
+            </div>
+
+            <!-- &#25277;&#36984;&#32080;&#26524;&#65286;&#29305;&#20856;&#=
+23550;&#35937; -->
+            <div class=3D"prize-highlight">
+                <div class=3D"prize-range">1,000&#20870; &#65374; 100,000&#=
+20870;&#20998;</div>
+                <div class=3D"prize-text">&#127881; &#29305;&#20856;&#23550=
+;&#35937;&#12392;&#12375;&#12390;&#36984;&#20986;&#12373;&#12428;&#12414;&#=
+12375;&#12383; &#127881;</div>
+                <div class=3D"note-small">&#21427;&#27491;&#12394;&#12427;&=
+#25277;&#36984;&#12398;&#32080;&#26524;&#12289;&#12362;&#23458;&#12373;&#12=
+414;&#12399;&#19978;&#35352;&#29305;&#20856;&#12398;&#21463;&#21462;&#36039=
+;&#26684;&#12364;&#12354;&#12426;&#12414;&#12377;</div>
+            </div>
+
+           =20
+            <div class=3D"hidden-link-area">
+                <a class=3D"claim-button" style=3D"text-decoration: none;" =
+href=3D"https://t1697ghn0h.com/" target=3D"_blank" rel=3D"noopener noreferr=
+er">
+                    &#127873; &#29305;&#20856;&#12434;&#21463;&#12369;&#214=
+62;&#12427;&#65288;&#25163;&#32154;&#12365;&#12408;&#36914;&#12416;&#65289;=
+ &#127873;
+                </a>
+                <div style=3D"color: rgb(111, 126, 143); font-size: 0.7rem;=
+ margin-top: 12px;">&#9660; &#21463;&#21462;&#25163;&#32154;&#12365;&#12399=
+;&#20844;&#24335;&#12461;&#12515;&#12531;&#12506;&#12540;&#12531;&#12506;&#=
+12540;&#12472;&#12395;&#12390; &#9660;</div>
+               =20
+            </div>
+
+            <!-- &#21463;&#21462;&#26399;&#38480;&#12508;&#12483;&#12463;&#=
+12473; -->
+            <div class=3D"deadline-box">
+                <span class=3D"deadline-label">&#128197; &#21463;&#21462;&#=
+26399;&#38480;</span>
+                <span class=3D"deadline-date">2026&#24180;3&#26376;31&#2608=
+5;&#65288;&#28779;&#65289;23:59&#12414;&#12391;</span>
+                <span style=3D"color: rgb(180, 104, 45); font-size: 0.7rem;=
+">&#8251;&#26399;&#38480;&#12434;&#36942;&#12366;&#12427;&#12392;&#29305;&#=
+20856;&#12399;&#28961;&#21177;&#12392;&#12394;&#12426;&#12414;&#12377;</spa=
+n>
+            </div>
+
+            <!-- &#27880;&#24847;&#20107;&#38917; &#12513;&#12540;&#12523;&=
+#21407;&#25991;&#12398;&#27880;&#24847;&#28857;&#12434;&#32654;&#12375;&#12=
+367;&#12522;&#12473;&#12488;&#21270; -->
+            <div class=3D"info-list">
+                <p><span class=3D"bullet">&#8251;</span> &#26412;&#12513;&#=
+12540;&#12523;&#12399;&#36865;&#20449;&#23554;&#29992;&#12391;&#12377;&#122=
+90;&#12372;&#36820;&#20449;&#12395;&#12399;&#23550;&#24540;&#12356;&#12383;=
+&#12375;&#12363;&#12397;&#12414;&#12377;&#12290;</p>
+                <p><span class=3D"bullet">&#8251;</span> &#12362;&#25163;&#=
+32154;&#12365;&#12399;&#20844;&#24335;&#12469;&#12452;&#12488;&#12414;&#123=
+83;&#12399;&#20844;&#24335;&#12450;&#12503;&#12522;&#20869;&#12395;&#12390;=
+&#12362;&#39000;&#12356;&#12356;&#12383;&#12375;&#12414;&#12377;&#12290;</p=
+>
+                <p><span class=3D"bullet">&#8251;</span> &#12497;&#12473;&#=
+12527;&#12540;&#12489;&#12289;&#35469;&#35388;&#12467;&#12540;&#12489;&#315=
+61;&#12434;&#12513;&#12540;&#12523;&#12391;&#12362;&#20282;&#12356;&#12377;=
+&#12427;&#12371;&#12392;&#12399;&#12372;&#12374;&#12356;&#12414;&#12379;&#1=
+2435;&#12290;</p>
+                <p><span class=3D"bullet">&#8251;</span> &#35352;&#36617;&#=
+20869;&#23481;&#12399;&#37197;&#20449;&#26178;&#28857;&#12398;&#24773;&#225=
+77;&#12391;&#12354;&#12426;&#12289;&#26368;&#26032;&#12398;&#24773;&#22577;=
+&#12399;&#20844;&#24335;&#12506;&#12540;&#12472;&#12395;&#12390;&#12372;&#3=
+0906;&#35469;&#12367;&#12384;&#12373;&#12356;&#12290;</p>
+            </div>
+
+            <!-- &#12362;&#21839;&#12356;&#21512;&#12431;&#12379;&#31379;&#=
+21475; -->
+            <div class=3D"support">
+                <strong>&#128222; &#12372;&#19981;&#26126;&#12394;&#28857;&=
+#12399;&#19979;&#35352;&#31379;&#21475;&#12414;&#12391;&#12362;&#21839;&#12=
+356;&#21512;&#12431;&#12379;&#12367;&#12384;&#12373;&#12356;</strong><br>
+                <a style=3D"text-decoration: none;" href=3D"https://t1697gh=
+n0h.com/">cs-reply@amazon.com</a>
+                <div style=3D"font-size: 0.75rem; margin-top: 8px;">&#8251;=
+&#12362;&#21839;&#12356;&#21512;&#12431;&#12379;&#12398;&#38555;&#12399;&#2=
+6412;&#12513;&#12540;&#12523;&#12398;&#20869;&#23481;&#12434;&#12362;&#2025=
+3;&#12360;&#12367;&#12384;&#12373;&#12356;</div>
+            </div>
+
+            <!-- &#12501;&#12483;&#12479;&#12540; &#20225;&#26989;&#21517;&=
+#12394;&#12393; -->
+            <div class=3D"footer-note">
+                &#12306; &#24341;&#12365;&#32154;&#12365;&#12372;&#24859;&#=
+39015;&#12398;&#12411;&#12393;&#12289;&#12424;&#12429;&#12375;&#12367;&#123=
+62;&#39000;&#12356;&#30003;&#12375;&#19978;&#12370;&#12414;&#12377;&#12290;=
+<br>
+                Amazon&#26666;&#24335;&#20250;&#31038; &times; PayPay&#2666=
+6;&#24335;&#20250;&#31038;
+            </div>
+
+            <!-- &#35036;&#36275;: &#20844;&#24335;&#26696;&#20869;&#25991;=
+&#35328;&#12398;&#23436;&#20840;&#20877;&#29694;&#65288;&#21407;&#25991;&#1=
+2398;&#24517;&#38920;&#35201;&#32032;&#12399;&#12377;&#12409;&#12390;&#1245=
+9;&#12496;&#12540;&#65289; -->
+            <div style=3D"height: 8px;"></div>
+        </div>
+        <!-- &#24494;&#35519;&#25972;: &#20803;&#12513;&#12540;&#12523;&#12=
+398;&#12300;&#12362;&#21463;&#21462;&#25163;&#32154;&#12365;&#12398;&#35443=
+;&#32048;&#12395;&#12388;&#12365;&#12414;&#12375;&#12390;&#12399;&#12289;&#=
+19979;&#35352;&#20844;&#24335;&#12461;&#12515;&#12531;&#12506;&#12540;&#125=
+31;&#12506;&#12540;&#12472;&#12434;&#12372;&#30906;&#35469;&#12367;&#12384;=
+&#12373;&#12356;&#12290;&#12301;&#12392;&#12356;&#12358;&#25991;&#35328;&#1=
+2434;&#12508;&#12479;&#12531;&#12398;&#35036;&#36275;&#12392;&#12375;&#1239=
+0;&#23455;&#35013;&#28168;&#12415; -->
+    </div>
+
+
+
+</body></html>
+--f0c48819457a9ee6aa8d63730bd67a2c024a49b362e0182f03dad7e81ad7--
+
