@@ -1,0 +1,142 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:97d2:0:b0:261:85fe:9a8 with SMTP id e18csp2105590eic;
+        Tue, 7 Apr 2026 00:39:05 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AJvYcCXlAMHbzOll3XpnvM51es0cxrtXfcxMmQvUqP59g+K2GWwCLdYsgVr4JqqGNNp8ugx6p3HJTLmptZScCzCeYg==@gmail.com
+X-Received: by 2002:a05:6a00:94f6:b0:82c:7420:82bf with SMTP id d2e1a72fcca58-82d0dbfef49mr15689417b3a.19.1775547545111;
+        Tue, 07 Apr 2026 00:39:05 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1775547545; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=TENl1tnSss2EIHvcBjLfv1cp3SpbZWQUVOnl5ShBZPDXP/R1TxjbL2cGuE+PeleDPG
+         sovUkb9mheMNC+Y48OckER/Bx1fdOj7av+RUprM+rCInNqtn1xfdwE8YPioNRqLcmJw5
+         HadaeEPSe7PzX3Ej+9+GuYIFSCNw/48MJ0mCm/boZ35lrTIgqWig11LdwZtwmotkAr/e
+         DV6Fo0WcL/dp2GY6eipQyWM1e+VVIsxzju8qf1xClEXw7DUrQWfLA5w+yfz8P7JwUedm
+         VfgETrh25Wi63scJNvfCRZIWewNlRkKLYyFPQkZS2N18n1HHmOkl2cqbY7ZR1Nh5r/BC
+         Gs4g==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=xrefnumber:xannouncementid:xnotificationid:xcustomertenantid
+         :reporting-meta:content-transfer-encoding:mime-version:subject
+         :references:message-id:to:reply-to:from:date:list-unsubscribe-post
+         :list-unsubscribe:dkim-signature:dkim-signature:feedback-id
+         :dkim-signature:dkim-signature;
+        bh=YI0YSFxYQWvkYzjPcsIDLN+HVIYmaHOFZvLgISUJocg=;
+        fh=AmwUtjvAn7++NEBttiaVEnyCAVA5youKb81rEHZT4FM=;
+        b=Nr8MO4JKi9CvrxPeHioraOGqqc3vEI/9st24zCsWvmJLmCo+EfIJ9VBhimuGCkdLss
+         TsBWlMo0kOdSF/zqixvvNmGcGfvcgeHjUUBoh8xHtnT7XjYQoMIsUamw7oKck8B9B/Pu
+         x7V3GK49vYtGdWxXaOE6Apm4o0CdLYg3ubFABXt4AwJ2lapWZ662tDhde+yb9vQHk9RI
+         JPgU4ep1IjED/j/uNIvqy1/OceBE7dp+XHjDO7R1jD8pHWSB9Lna0RdFkyDDxZRZrfM0
+         dajWjN4uDxIZWP4DocLnICftrBcVDXYv92Xsl10d2jwKD6gCMBg65XRpoD8WCT4Ei6dm
+         K9EQ==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=MmOj0pcJ;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b="RljQGr/w";
+       dkim=pass header.i=@mail.announcements.ap-tokyo-1.oci.oraclecloud.com header.s=live-nrt-20220104 header.b=ETWVg6vO;
+       dkim=pass header.i=@nrt1.rp.oracleemaildelivery.com header.s=prod-nrt-20200122 header.b=dnlyWR7q;
+       arc=pass (i=1 spf=pass spfdomain=nrt1.rp.oracleemaildelivery.com dkim=pass dkdomain=mail.announcements.ap-tokyo-1.oci.oraclecloud.com dkim=pass dkdomain=nrt1.rp.oracleemaildelivery.com dmarc=pass fromdomain=mail.announcements.ap-tokyo-1.oci.oraclecloud.com);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.8.195 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=oraclecloud.com
+Return-Path: <cfbounces+ndrdrop@whither.jp>
+Received: from i-bjf.cloudflare-email.net (i-bjf.cloudflare-email.net. [104.30.8.195])
+        by mx.google.com with ESMTPS id d2e1a72fcca58-82cf9d6ff7fsi39295707b3a.242.2026.04.07.00.39.03
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 07 Apr 2026 00:39:05 -0700 (PDT)
+Received-SPF: pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.8.195 as permitted sender) client-ip=104.30.8.195;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=MmOj0pcJ;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b="RljQGr/w";
+       dkim=pass header.i=@mail.announcements.ap-tokyo-1.oci.oraclecloud.com header.s=live-nrt-20220104 header.b=ETWVg6vO;
+       dkim=pass header.i=@nrt1.rp.oracleemaildelivery.com header.s=prod-nrt-20200122 header.b=dnlyWR7q;
+       arc=pass (i=1 spf=pass spfdomain=nrt1.rp.oracleemaildelivery.com dkim=pass dkdomain=mail.announcements.ap-tokyo-1.oci.oraclecloud.com dkim=pass dkdomain=nrt1.rp.oracleemaildelivery.com dmarc=pass fromdomain=mail.announcements.ap-tokyo-1.oci.oraclecloud.com);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.8.195 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=oraclecloud.com
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Subject:References:To:Reply-to:From:Date:List-Unsubscribe-Post
+	:List-Unsubscribe:Feedback-ID:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:list-id:list-help:list-subscribe:list-post
+	:list-owner:list-archive; t=1775547544; x=1776152344; bh=YI0YSFxYQWvkYzjPcs
+	IDLN+HVIYmaHOFZvLgISUJocg=; b=MmOj0pcJZmwpRuX+FUdXFjTBIA8xyZ+I4b9LpUTOAHz7o
+	whoPiHyJ28hRwSlj/jbadSlDn/Dq/ntjyZSBlXOxb8baPXVbkp8Tc9Wc5EDXVFuQSDosuMB6upU
+	evvLLBGlItNbEIKT+401q3SiAuSfZOamVKtVtVTp6Nn36zf8v4HrXkC15tOOSEQ4XZAjcgcXD3i
+	G6OKch/4I6qpnIcX3T1mtQs3Nul9V0tFqhfYA5W0XBLdM+0IjcmIHJNY85Ac3DxxpAfWFnpDV1J
+	v6fc0A+7jCFnaFTeDiZ+N2VMausdOzuSglixIQpjHG0KjrtIPr+BF0rOYFgavvg0LEx0VHJQ==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Subject:References:To:Reply-to:From:Date:List-Unsubscribe-Post
+	:List-Unsubscribe:Feedback-ID:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:list-id:list-help:list-subscribe:list-post
+	:list-owner:list-archive; t=1775547544; x=1776152344; bh=YI0YSFxYQWvkYzjPcs
+	IDLN+HVIYmaHOFZvLgISUJocg=; b=RljQGr/wjKdtDemgr0lLLTRNNy+sKYhm1O02zGtiQ9VRe
+	PD5HMLPggQ3q4gCFOiLLORwg+92xipH88j8wq6d+CofVQgLqz0E5TeHvy2xzuzzVVkFTE1Kzk0B
+	AG8xAofAepaGU/9ALtwtY3w4TAFcFHdybVxmnYgpAD1/mFPra8muNp1Ic7P0oERXFv4OnShm5mz
+	yC23OPaUAM2TydV6Bt2yGa1AtFWdZgKYzES7OX5T67hTZPelW5WHc0QfocxVDwTDrzy7XdH92d0
+	YS2nT6AcIVn/upCYfGdwq2yhlp8zOJ8PK21NUcQOUAFVuZrHl/Llnu3KbuswwYRQRnuZkgJA==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: tnakahara@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from aib29dd30.nrt1.oracleemaildelivery.com (192.29.44.30)
+        by cloudflare-email.net (cloudflare) id Ssrv4E3UfblO
+        for <tnakahara@whither.jp>; Tue, 07 Apr 2026 07:39:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=iaexp7Gb4k/JpIM5Dm16h16PCzfA22zNlecLg3bXgIeNsTRqf3Mf7OuYKSOBoRhNz7rghF05b
+	2MnAF+GoVHGHRnATckCJUbKvQJFc+58CekeosuAPWdUU8wJeOMz+5Ky94rlWxpmglset3SKXIyc
+	rRiG9MQwDZxReBj6nKCa+aSB4ar+N76AyG2xpbe8lNsVWctMz3w7dX76BvN01JcgzGgukE5/PjV
+	VqQuTh0dJdSy1cSJUSapwyj4aHHaNXPtU2SU8G1lpn/bvVQNlahKukb+0oi2CM6HDfYmnbsxstV
+	pKrLf/jIBDZE2HS2gE9aSDnrYx8IzWC/ss5w/Fkon4Uw==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Subject:References:To:Reply-to:From:Date:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1775547542; x=1776152342; bh=YI0YSFxY
+	QWvkYzjPcsIDLN+HVIYmaHOFZvLgISUJocg=; b=bPghTfXrviVa3nFwHTCdIrC5nAYiRG2+oxy
+	tw2XSNk63dUWBB7yGHc4BU2T48Xq2nDTiTyBXauU/QC/kXBj1lDbOUMbjEZ9Ys8VNRYg2eOy2Wy
+	cTT/OU3RRvQXydv3bYLGr4y5sB+qxPXJHGpLjl5W/IgtGNjJT0wJJjEXgG+TXFWAzIPWLb+F62e
+	EPYGeyAo0yLPwzli9G6gEHknsZ0jP2jm1YBL8aIYc2tqgM5kz2OAmp2AqR0p7kCzBnWq+ivbPBC
+	A7ihqxCYs4cMSlPfEPzDkJJiqGe1h4W1jHSXJDEdZj1i0XNKtrHQGW2pGFgsi4D3FaE5x2eTxcj
+	ZMoc5Fg==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.d=mail.announcements.ap-tokyo-1.oci.oraclecloud.com header.s=live-nrt-20220104 header.b=ETWVg6vO;
+	dkim=pass header.d=nrt1.rp.oracleemaildelivery.com header.s=prod-nrt-20200122 header.b=dnlyWR7q;
+	dmarc=pass header.from=mail.announcements.ap-tokyo-1.oci.oraclecloud.com policy.dmarc=quarantine;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@aib29dd30.nrt1.oracleemaildelivery.com) smtp.helo=aib29dd30.nrt1.oracleemaildelivery.com;
+	spf=pass (mx.cloudflare.net: domain of bounces+tnakahara=whither.jp@nrt1.rp.oracleemaildelivery.com designates 192.29.44.30 as permitted sender) smtp.mailfrom=bounces+tnakahara=whither.jp@nrt1.rp.oracleemaildelivery.com;
+	arc=none smtp.remote-ip=192.29.44.30
+Received-SPF: pass (mx.cloudflare.net: domain of bounces+tnakahara=whither.jp@nrt1.rp.oracleemaildelivery.com designates 192.29.44.30 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=192.29.44.30; envelope-from="bounces+tnakahara=whither.jp@nrt1.rp.oracleemaildelivery.com"; helo=aib29dd30.nrt1.oracleemaildelivery.com;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.d=mail.announcements.ap-tokyo-1.oci.oraclecloud.com header.s=live-nrt-20220104 header.b=ETWVg6vO;
+	dkim=pass header.d=nrt1.rp.oracleemaildelivery.com header.s=prod-nrt-20200122 header.b=dnlyWR7q;
+	dmarc=pass header.from=mail.announcements.ap-tokyo-1.oci.oraclecloud.com policy.dmarc=quarantine;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@aib29dd30.nrt1.oracleemaildelivery.com) smtp.helo=aib29dd30.nrt1.oracleemaildelivery.com;
+	spf=pass (mx.cloudflare.net: domain of bounces+tnakahara=whither.jp@nrt1.rp.oracleemaildelivery.com designates 192.29.44.30 as permitted sender) smtp.mailfrom=bounces+tnakahara=whither.jp@nrt1.rp.oracleemaildelivery.com;
+	arc=none smtp.remote-ip=192.29.44.30
+X-CF-SpamH-Score: 0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=live-nrt-20220104;
+ d=mail.announcements.ap-tokyo-1.oci.oraclecloud.com;
+ h=Date:To:From:Subject:Message-Id:MIME-Version:Sender:List-Unsubscribe:List-Unsubscribe-Post;
+ bh=YI0YSFxYQWvkYzjPcsIDLN+HVIYmaHOFZvLgISUJocg=;
+ b=ETWVg6vOZiPLobb+DFIzrakAElH1QJ8+5UdXkoZaLB/OVRTgWbB6Gvsu3lWwLk2Jtec6+roWEIZu
+   y7q9z8oLrjqJI8qMnhicJPeogb7ln9aNIdLV+qI8SRJMl/fb9gpDZZhYJqiGF3vnwfHwOf9c11Da
+   SvOdrBrFyxPcfHQOdj1EMakokl97mEAjxrEx4HJ3GDqwmPQd29VKRrCeIQu6OUGtevU1Y2vmVjMM
+   3rtS4bpe3HDXNRSFBB5xDIvH8fLMNXT/pV+pyZso+Jj0EjDMXJq0DKb5wqYTvIAFo/knUSifi0ER
+   fqldHpGfjMzBj165IkiTHvuIDLdYvH3iDj3OeA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=prod-nrt-20200122;
+ d=nrt1.rp.oracleemaildelivery.com;
+ h=Date:To:From:Subject:Message-Id:MIME-Version:Sender:List-Unsubscribe:List-Unsubscribe-Post;
+ bh=YI0YSFxYQWvkYzjPcsIDLN+HVIYmaHOFZvLgISUJocg=;
+ b=dnlyWR7qDQaL0Cw0CMiOhI3clK36idxzFhIy6kLYRscrZ9nKX07gmkjyX87Z17ExhcnhWRtCKREd
+   pP7jrxRaa41hrvhsILk69ox6eFaya0idaJifRzi4ma4xh9TXxYwBSZqgYoULyDRxWFiIWi+ajUeM
+   hQiMZXrW5UDVHIHhDNqB946zHT9OTYfEiGnwKqhmVQtj8ZI/jZ35eCcFYjeyXEtNBxnkEmy7vM7h
+   h9QakaHMYPxQAYZNo+l03xYxwtsrqAh3pGPMqBoqGDBKL9FgVWGIeSZwU9YdyyKAHTICrDst0prA
+   rovP1evD0McrF4Lo5tXQaeNR2IQBlh1nC4SZ5A==
+Received: by omta-ad1-fd1-402-ap-tokyo-1.omtaad1.vcndpnrt.oraclevcn.com
+ (Oracle Communications Messaging Server 8.1.0.1.20260212 64bit (built Feb 12
+ 2026))
+ with ESMTPS id <0TD400BZK5900I30@omta-ad1-fd1-402-ap-tokyo-1.omtaad1.vcndpnrt.oraclevcn.com> for
+ tnakahara@whither.jp; Tue, 07 Apr 2026 07:39:00 +0000 (GMT)
+List-Unsubscribe:
+ <https://cell0.track.email.ap-tokyo-1.oci.oraclecloud.com/20221014/track/unsubscribe?V=16&H=AAH9xI0XuQYqzr68y4U7JmijlXVK5FoNG4ctHol_-QZlF-Nf49KoI-q1C_EJW5ybKfFzyvWbYjTbul40Zx__Q2kIIyQm1e6glpLM6T_DOe5G5YUMWXj4KKbxhevKPauA3kqsf2wWNavBMZOwCMJ2x5uCqz4UclymrvLtRFjP4wCwZjn-z8TMO_Qws8LKS87fO8IhLC71-vrtkfN1UCxdCTjQTeyAbKoMpD6hhLRnAXOqUVeHUhdUqLWFn2pKpzmt0Cza04Oib_qMKiZKL8hGNwG9rfok41Y9EQIQllxUNTpX_GueSzRTcN55zsvFCD3KoDXO59OrBmLDuhbUrwIOP9IIpoeKbXEFDKVHWBEBX0z1g2XCcS6vZKtmbWNr7_cRxGnVPURI6rxGXRs4EoJpowcjURqhiXWXRewmNUwBKaDMmyytD2IRZQ-tX9lVX5nH72fqBii3n5VUNeYZ6DUzopQhjTEO-uvbrNq2kHT3sGjGFr_VsIEjbYQicA5NgyTIYCQXPG-_80JAiyLaa6zEy1JDAgdGVqtxwA>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Date: Tue, 7 Apr 2026 07:39:00 +0000 (UTC)
+From: noreply@mail.announcements.ap-tokyo-1.oci.oraclecloud.com
+Reply-to: noreply@mail.announcements.ap-tokyo-1.oci.oraclecloud.com
+To: tnakahara@whither.jp
+Message-id:
