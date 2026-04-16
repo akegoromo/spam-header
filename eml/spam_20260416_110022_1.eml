@@ -1,0 +1,941 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a05:640c:8212:b0:261:85fe:9a8 with SMTP id c18csp926090eim;
+        Wed, 15 Apr 2026 19:01:03 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ+6XbGqIApWtsBdIwm1MwCvWNMZzkW/xpePTzyfZZJcnyqTP21fekcOcZQmrCNNeqE6htFQi7N7pS5VMNSkzw==@gmail.com
+X-Received: by 2002:a05:6a00:130a:b0:82a:76ab:3279 with SMTP id d2e1a72fcca58-82f763f4aa7mr1398776b3a.4.1776304863191;
+        Wed, 15 Apr 2026 19:01:03 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1776304863; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=kLqhWW9kzRvDh36dw6T/CbQaDVziECi0HayQfr/NOXBNAAxNqDYvRu6lQ6SEvIUb3K
+         ehRfwtKkTklQy5hvD8rXbrgSRL6zJ4RYOS4Vsqllt9VXATOkkFYGw4gUZsQRBZBS7eTi
+         NSoFC2RKOF+mjKtjunD4AnVzKPAWeJ1K+JTvEeO1HVw+5UrwQ+Mkk6bxsh1b6xTYGgSq
+         eCb9SGISrTbQAqI0qeHdiSadePu66F/KgwTA39PNv96893Zs1KuSH7Uj0/Y2b4BNiegx
+         rq8nxMo8F70amSm0b6NFJGS7RLYoxbmNr3XfGl7/edkbD1+DNVzdytPlg2DOBSlAM3u+
+         xDDw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:list-unsubscribe-post:message-id:mime-version
+         :reply-to:to:date:subject:from:dkim-signature:feedback-id
+         :dkim-signature:dkim-signature;
+        bh=k0PMu9V/gPKNU1+/sRodJb+bQupgpZ1YMY4+ETbafGc=;
+        fh=ENXOhFKW7CT4pn4Lz1vO6o5YQQdiV/Ih3E4yEdfzxpY=;
+        b=M0RkAWn16zdquEY7awKi6Qhkjw8ccGnqCsAYeW4DgjbDtxB7dWLdBxyL6ktc1byDJ4
+         SPtHHsOJIRzHq1EHJPzHKTI1ltRX34BtmUWvR6f1C5UIsrgBZmsstWXNdf3BpUh7VP2b
+         qI5yAeNwZ3ZbUiFD2N8EBoNEq3NyAoip/TqgDATUBIpOwXRCOnCiJgmgw/sKbTiBiJ7H
+         KDGGAsI9JzwOjCxP1fLvyQFj3Q8LC8i3YmG67Z8TTCULUGWsIjlN/rHQe13gTNHCMI8d
+         V2VPiVsSjlmAAu//5JEfd0hzRcL9rlh93EItgHT3iVsbdFeSFbNxbkooVOfaQMy7GrF3
+         WAWg==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=YOYMOsiH;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=cfknJwHa;
+       dkim=pass header.i=@mm.gu-global.com header.s=fastretailinggu header.b=gUexHE89;
+       arc=pass (i=1 spf=pass spfdomain=mm.gu-global.com dkim=pass dkdomain=mm.gu-global.com dmarc=pass fromdomain=mm.gu-global.com);
+       spf=pass (google.com: domain of srs0=umvq=pc=mm.gu-global.com=ec-system@whither.jp designates 104.30.10.172 as permitted sender) smtp.mailfrom="SRS0=UMVq=pc=mm.gu-global.com=ec-system@whither.jp";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=gu-global.com
+Return-Path: <SRS0=UMVq=pc=mm.gu-global.com=ec-system@whither.jp>
+Received: from ba-bhc.cloudflare-email.net (ba-bhc.cloudflare-email.net. [104.30.10.172])
+        by mx.google.com with ESMTPS id d2e1a72fcca58-82f675145a3si8241989b3a.240.2026.04.15.19.01.00
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 15 Apr 2026 19:01:03 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=umvq=pc=mm.gu-global.com=ec-system@whither.jp designates 104.30.10.172 as permitted sender) client-ip=104.30.10.172;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=YOYMOsiH;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=cfknJwHa;
+       dkim=pass header.i=@mm.gu-global.com header.s=fastretailinggu header.b=gUexHE89;
+       arc=pass (i=1 spf=pass spfdomain=mm.gu-global.com dkim=pass dkdomain=mm.gu-global.com dmarc=pass fromdomain=mm.gu-global.com);
+       spf=pass (google.com: domain of srs0=umvq=pc=mm.gu-global.com=ec-system@whither.jp designates 104.30.10.172 as permitted sender) smtp.mailfrom="SRS0=UMVq=pc=mm.gu-global.com=ec-system@whither.jp";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=gu-global.com
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=List-Unsubscribe:List-Unsubscribe-Post:Reply-To:To:Date:Subject:From
+	:Feedback-ID:cc:resent-date:resent-from:resent-to:resent-cc:in-reply-to
+	:references:list-id:list-help:list-subscribe:list-post:list-owner
+	:list-archive; t=1776304862; x=1776909662; bh=k0PMu9V/gPKNU1+/sRodJb+bQupgp
+	Z1YMY4+ETbafGc=; b=YOYMOsiH622oZz3W/6fRhhx+EUv0h9J4QLO6CjHkYVCu8kfFp81D2iSh
+	/YJaBoMoHtdNDb9e8XphbEymZRVI/dCknBO6YEh0IWvRef1JYBY8HkQLxSnDrdnZPM3uZ9F3faf
+	ZOXbiiVpToORykIgpIL8syZ0yhmd3JQQtnhL2xnXXKD0Isj28t9r3vB7DWETLUij2xSMGDf6q5t
+	A59Ek4XN0giyL+tV10EcSG+MyxeQBObtJCBvXX1Zw4rVlvjsK4/tbEOY28+1ZOobm1+rGPdi8Eg
+	2gwqjLYVUWC2odl723nsgAkHqCyIiXnkkch+Bs4Oanqog6GvMS/RnaO3YcR+g==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=List-Unsubscribe:List-Unsubscribe-Post:Reply-To:To:Date:Subject:From
+	:Feedback-ID:cc:resent-date:resent-from:resent-to:resent-cc:in-reply-to
+	:references:list-id:list-help:list-subscribe:list-post:list-owner
+	:list-archive; t=1776304862; x=1776909662; bh=k0PMu9V/gPKNU1+/sRodJb+bQupgp
+	Z1YMY4+ETbafGc=; b=cfknJwHa/WRBFek/wIQi1YbfGxwu77PYxtqveuuhF5QLYcgVacz8SGlq
+	7v3rIFxC28X1hugHscO2HA6+9LIEw31zPkU+/iYbnoikTw9HaazUfAJl4YUGDwmBzvzncnrz++0
+	uDm3qXMxaAriHmpBaH31adVAYoGCwT+urI3Cev7/dyu6kYxuqx68pbom5181yA9WstqBY3Qnvh5
+	saJzPBE7pGgtoJVENIsZn0atuqlsG3jgG/VwKBrcE0U6tsWiZ+sS6q+nPx14VF3k7dSRQNwRtgM
+	PgPOlp9/xM4peWs/GH0ZcrXf3g4/D0Ch4FpLB3LoGWXW+kEbM+fwZPpjgDwiQ==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: penguin@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from r242.mm.gu-global.com (130.248.136.242)
+        by cloudflare-email.net (cloudflare) id YCFTp03fVQ8p
+        for <penguin@whither.jp>; Thu, 16 Apr 2026 02:00:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=EO7dn/j+w38wS3DehMSsqEoWMkGhz+/9WQLCtlKYgDKp7SWrvM//zqfjA8gwZwytPyF3Hyf48
+	qDDz7ZlRbvx79e6OJ7v7dn6vlNjMK3icXe7ttFtIgHMTwyC8a7iGXS29Drg0k9aV1dmmnS3CiNi
+	5ER5qaXz6d8zl46FJ+t0isJ4cEzrdqwUBjjgqe6QvYmNWuWnUleRgA+WX7oywbolGJk3kqI37Up
+	cFIwpV5LZ6Thj6DeYksMwTxamcLMP+Iht5XOmXvOTpdmd2Smh21EMt12UiU6MLtjVIhW9Ijn1nO
+	m579tA2b/sP+EcL1iTE3kKMEShNC0bSkx2Er0Yx+dhQQ==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Reply-To:To:Date:Subject:From:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1776304858; x=1776909658; bh=k0PMu9V/
+	gPKNU1+/sRodJb+bQupgpZ1YMY4+ETbafGc=; b=UZhkHKPEbmzhkKPkQHhxgsZrGM4jCjh5+z4
+	9E1AmS5yAeoAQTQ6rVuaVMUdIOi5KGdGwMUkF4ARlOFIlG1R8tLlBamRb3U+TQCc6zi4YCFNbxZ
+	/s6uOehEvijWh7IZofKknQxPBuMVplLSV5WV8bU9+75+0YkxD9uu3kcWWP4dH2c0zcVG0QlksS1
+	qLaCTj59StM43YkTmnIRjb2tWXQrwCXj2feDuIiQNNgMkAbGJsa1GbYZhGXI6Em24nNKCLbyfbt
+	rEeDVHt5F2CIxJoFUSeMAaq1CgHDp5bSDOin0WSzoOo1wsulxyq/VHo1/VBY5vgfJgQ1rbvLPeC
+	+QT1ckQ==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.d=mm.gu-global.com header.s=fastretailinggu header.b=gUexHE89;
+	dmarc=pass header.from=mm.gu-global.com policy.dmarc=reject;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@r242.mm.gu-global.com) smtp.helo=r242.mm.gu-global.com;
+	spf=pass (mx.cloudflare.net: domain of ec-system@mm.gu-global.com designates 130.248.136.242 as permitted sender) smtp.mailfrom=ec-system@mm.gu-global.com;
+	arc=none smtp.remote-ip=130.248.136.242
+Received-SPF: pass (mx.cloudflare.net: domain of ec-system@mm.gu-global.com designates 130.248.136.242 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=130.248.136.242; envelope-from="ec-system@mm.gu-global.com"; helo=r242.mm.gu-global.com;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.d=mm.gu-global.com header.s=fastretailinggu header.b=gUexHE89;
+	dmarc=pass header.from=mm.gu-global.com policy.dmarc=reject;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@r242.mm.gu-global.com) smtp.helo=r242.mm.gu-global.com;
+	spf=pass (mx.cloudflare.net: domain of ec-system@mm.gu-global.com designates 130.248.136.242 as permitted sender) smtp.mailfrom=ec-system@mm.gu-global.com;
+	arc=none smtp.remote-ip=130.248.136.242
+X-CF-SpamH-Score: 1
+Return-Path: <ec-system@mm.gu-global.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mm.gu-global.com;
+	s=fastretailinggu; t=1776304846;
+	bh=k0PMu9V/gPKNU1+/sRodJb+bQupgpZ1YMY4+ETbafGc=;
+	h=From:Subject:Date:To:MIME-Version:Message-ID:
+	 List-Unsubscribe-Post:List-Unsubscribe:Content-Type;
+	b=gUexHE89XoEMNH5648U78mEEqca+56FDpUmvZY1CBZTzGsZrM+t0IBi/reaNhDkyr
+	 kWZ45A24sVVT2+vtp3lRbJurIjDuJKrpwGsVumwG5oqRZMT/VQTknxjKWlJmcEbcUp
+	 5PBmjQRv2nCCiaFz3oKvSlXKw7WVxvOttPl1boPwO5ZWMXHoO9sEyhfH4fZkFSmleO
+	 Q7HEa/AWlrVsuixKo0knYMBCEt2AHLv9iaVYFGVZtq5HUCQsJDvuCTL6FLnSNbw3LQ
+	 nbdH6MBMSqGQMsR98FnkGZUVjT8tXPa1jHEO+dv1R63Xql0+Z9Yp7W6gRkAXzPC9a0
+	 Nlammq9s9qnlA==
+X-MSFBL: rq+y2HYS1h0uu0lUJ/8HjlwDingwD2GiI3CSOiZlfsk=|eyJnIjoicHJvZC5kZWZ
+	hdWx0XzVjNjU4ZjFiLTRkMmEtNDRlNi1hYjk1LTJlMjc1YTc0OTI4NiIsImIiOiJ
+	mYXN0cmV0YWlsaW5nZ3VfMTMwLjI0OC4xMzYuMjQyX3Byb2QuZGVmYXVsdF81YzY
+	1OGYxYi00ZDJhLTQ0ZTYtYWI5NS0yZTI3NWE3NDkyODYiLCJyIjoicGVuZ3VpbkB
+	3aGl0aGVyLmpwIiwicmNwdF9tZXRhIjp7ICJpbiI6ICJmYXN0cmV0YWlsaW5nZ3V
+	fbWlkX3Byb2Q2IiwgInIiOiAicGVuZ3VpbkB3aGl0aGVyLmpwIiwgIm0iOiAiNjg
+	1NTkxNzM3IiwgImQiOiAiMzM4Nzk3MSIsICJpIjogIkQ1RTc0MkI2NUI4MDczNEE
+	wQTQ5NUMzRkBBZG9iZU9yZyIgfX0=
+Received: from [10.1.1.88] ([10.1.1.88:38565] helo=r90.mm.gu-global.com) by sgp3-prod1-mta-i-0c942c2b739848ada (envelope-from <ec-system@mm.gu-global.com>) (ecelerity 4.4.1.20033 r(msys-ecelerity:tags/4.4.1.0^0)) with ESMTP id 5E/65-15260-EC240E96; Thu, 16 Apr 2026 02:00:46 +0000
+From: =?utf-8?B?77yc44K444O844Om44O877ye?= <ec-system@mm.gu-global.com>
+Subject: =?utf-8?B?44CQ5pys5pel5pyA57WC5pel44CR54m55Yil5L6h5qC844GvNA==?=
+ =?utf-8?B?LzE2KOacqCnjgb7jgafjgILjgYrjg4jjgq/jgarjgqLjgqTjg4bjg6A=?=
+ =?utf-8?B?44KS44GK6LK344GE6YCD44GX44Gq44GP?=
+Date: Thu, 16 Apr 2026 11:00:22 +0900
+To: <penguin@whither.jp>
+Reply-To: <ec-system@mm.gu-global.com>
+MIME-Version: 1.0
+X-mailer: nlserver, Build 8.9.2
+Message-ID: <NM628DD4CB90033B243fastretailinggu_mid_prod6@mm.gu-global.com>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+List-Unsubscribe: <https://www.gu-global.com/jp/api/commerce/v5/ja/subscriptions/oneclick-unsubscribe/RDc2RjI1MUQtQzYyOS00QjhBLUJFQzAtRjY5NzY3RjU3RUI0OjJiZmY3NjNhY2NlZWRjNzFjM2M1ZjM1YWJhZGY4ZjEyOnZZbU9nT3VrYVYxcVQ4NFMyU0RyQytYdDJpS1F6Z2t5MFBtQjJKNHJYYVE9>
+Content-Type: multipart/alternative;
+	charset="windows-1252";
+	boundary="----=_NextPart_680_077080E9.077080E9"
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_680_077080E9.077080E9
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+◆◇◆◇◆◇◆◇◆
+      GU
+ MAIL MAGAZINE
+◆◇----------◆◇
+ 2026/4/16(木)
+◆◇◆◇◆◇◆◇◆
+
+◆【本日最終日】特別価格は4/16(木)まで。おトクなアイテムをお買い逃しなく
+  https://t4.mm.gu-global.com/r/?id=tc892acfe,1ac5f5ea,136873df
+
+◆【4/19(日)まで】「星のカービィ」とのコラボレーションをオンラインストアにて先行予約販売実施中。詳しくはこちら。
+  https://t4.mm.gu-global.com/r/?id=tc892acfe,1ac5f5ea,136873e0
+
+◆【予告:4/17(金)販売開始】ENGINEERED GARMENTSとジーユーのコラボレーション第2弾。詳しくはこちら。
+  https://t4.mm.gu-global.com/r/?id=tc892acfe,1ac5f5ea,136873e1
+
+◆衣料回収への協力で抽選20名様にデニムミニバッグをプレゼント。
+  https://t4.mm.gu-global.com/r/?id=tc892acfe,1ac5f5ea,136873e2
+
+◆◇◆◇◆◇◆◇◆
+　おすすめリンク
+◇◆◇◆◇◆◇◆◇
+
+◆【アプリ会員特別価格】今だけの限定価格アイテム
+  https://t4.mm.gu-global.com/r/?id=tc892acfe,1ac5f5ea,136873e3
+
+◆【値下げ】売り切れ御免！お得なアイテム
+  https://t4.mm.gu-global.com/r/?id=tc892acfe,1ac5f5ea,136873e4
+
+◆【新作】話題の商品が続々入荷
+  https://t4.mm.gu-global.com/r/?id=tc892acfe,1ac5f5ea,136873e5
+
+◆【特集】トレンド商品が満載
+  https://t4.mm.gu-global.com/r/?id=tc892acfe,1ac5f5ea,136873e6
+
+◆【コレクション一覧】人気キャラクターや有名ブランドとのスペシャルコレクション
+  https://t4.mm.gu-global.com/r/?id=tc892acfe,1ac5f5ea,136873e7
+
+------------------
+
+◆GUオンラインストア
+  https://t4.mm.gu-global.com/r/?id=tc892acfe,1ac5f5ea,136873e8
+
+◆メールマガジンの解除
+  ・スマートフォンのお客様はこちらより解除をお願いいたします。
+  https://t4.mm.gu-global.com/r/?id=tc892acfe,1ac5f5ea,136873e9
+
+◆アプリで、もっと便利・もっとおトクに
+まずはジーユーアプリをダウンロード！
+アプリ新規ダウンロードで500円クーポンプレゼント。
+詳しくはこちら
+https://t4.mm.gu-global.com/r/?id=tc892acfe,1ac5f5ea,136873ea
+
+
+※アプリ会員特別価格商品は、店舗ではアプリ会員のみ、オンラインストアではすべてのお客様が特別価格でお買い上げいただけます。
+※アイテムによっては、オンラインストア及び一部店舗のみでお取扱いしている場合がございます。
+※TEEN・KIDSは一部店舗およびオンラインストアのみのお取扱いとなります｡
+※セット対象商品や一部限定価格、期間は店舗と異なる場合がございます。
+※全てのコーナーは、売り切れ次第終了となります。
+※送料500円は、お買上げ4,990円以上で無料となります。
+※店舗受取りの場合には、ご購入金額にかかわらず送料は無料です。
+※メールマガジンの登録は無料ですが、接続料、通信料はお客様のご負担となります。
+
+
+発行  株式会社ジーユー
+
+------=_NextPart_680_077080E9.077080E9
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:mso=3D"urn:schemas-micro=
+soft-com:office:office" xmlns:msdt=3D"uuid:C2F41010-65B3-11d1-A29F-00AA00C1=
+4882">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8" />
+<title>GU MAIL MAGAZINE</title>
+<style type=3D"text/css">
+body, td, th {
+    font-family: "Noto Sans", "=EF=BC=AD=EF=BC=B3 =EF=BC=B0=E3=82=B4=E3=82=
+=B7=E3=83=83=E3=82=AF", "MS PGothic", "=E3=83=A1=E3=82=A4=E3=83=AA=E3=82=AA=
+", Meiryo, Osaka, sans-serif, monol_space;
+    font-size: 10pt;
+    color: #333333;
+}
+a {
+    color: #12298c;
+    font-weight: bold;
+}
+=2Eprice {
+    font-size: 14px;
+    color: #FF0000;
+    font-weight: bold;
+}
+img {
+    display: block
+}
+table{
+  border-collapse: collapse;
+  border-spacing: 0;
+  }
+  
+</style>
+
+<!-- JavaScript Handler code -->
+<!--<script>
+function logEvent(name, params) {
+  if (!name) {
+    return;
+  }
+
+  if (window.AnalyticsWebInterface) {
+    // Call Android interface
+    window.AnalyticsWebInterface.logEvent(name, JSON.stringify(params));
+  } else if (window.webkit
+      && window.webkit.messageHandlers
+      && window.webkit.messageHandlers.firebase) {
+    // Call iOS interface
+    var message =3D {
+      command: 'logEvent',
+      name: name,
+      parameters: params
+    };
+    window.webkit.messageHandlers.firebase.postMessage(message);
+  } else {
+    // No Android or iOS interface found
+    console.log(""No native APIs found."");
+  }
+}
+
+function setUserProperty(name, value) {
+  if (!name || !value) {
+    return;
+  }
+
+  if (window.AnalyticsWebInterface) {
+    // Call Android interface
+    window.AnalyticsWebInterface.setUserProperty(name, value);
+  } else if (window.webkit
+      && window.webkit.messageHandlers
+      && window.webkit.messageHandlers.firebase) {
+    // Call iOS interface
+    var message =3D {
+      command: 'setUserProperty',
+      name: name,
+      value: value
+   };
+    window.webkit.messageHandlers.firebase.postMessage(message);
+  } else {
+    // No Android or iOS interface found
+    console.log(""No native APIs found."");
+  }
+}
+</script>-->
+<!-- End JavaScript Handler code -->
+
+<!-- trackPageView Tag -->
+<!--<script>
+    window.dataLayer =3D window.dataLayer || [];
+    dataLayer.push({
+      'siteType' : 'responsive',
+      'pageType' : 'other'
+    });
+</script>-->
+<!-- End trackPageView Tag -->
+
+<!-- Google Tag Manager -->
+<!--<script>(function(w,d,s,l,i){w[l]=3Dw[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=3Dd.getElementsByTagName(s)[0],
+j=3Dd.createElement(s),dl=3Dl!=3D'dataLayer'=3F'&l=3D'+l:'';j.async=3Dtrue;=
+j.src=3D
+'https://www.googletagmanager.com/gtm.js=3Fid=3D'+i+dl;f.parentNode.insertB=
+efore(j,f);
+})(window,document,'script','dataLayer','GTM-NMD6F5H');</script>
+
+<script>  
+        dataLayer.push({
+                'event' : 'trackPageView',
+                'subID' : subID,
+                'loginState' : loginState,
+                'brand' : 'GU', 
+                'pageUrlPath' : path,
+                'pageTitle' : pageTitle,
+                'previousPageExists' : /http(s)=3F:\/\/(www\.)=3Fgu-global.=
+com/.test( document.referrer ) =3F true : false
+        });
+</script> -->
+<!-- End Google Tag Manager -->
+
+<!-- Google Analytics Content Experiwoment code -->
+<!-- 141110in -->
+<!--=E3=83=97=E3=83=83=E3=82=B7=E3=83=A5html_GA=E3=82=B3=E3=83=BC=E3=83=89_=
+start-->
+<!--<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=3Dr;i[r]=3Di[r]||functi=
+on(){
+(i[r].q=3Di[r].q||[]).push(arguments)},i[r].l=3D1*new Date();a=3Ds.createEl=
+ement(o),
+m=3Ds.getElementsByTagName(o)[0];a.async=3D1;a.src=3Dg;m.parentNode.insertB=
+efore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga')=
+;
+ga('create', 'UA-494938-89', {'allowLinker': true});
+ga('require', 'linker');
+ga('require', 'displayfeatures');
+ga('linker:autoLink', ['www.uniqlo.com','www.gu-japan.com']);
+ga('send', 'pageview');
+</script>-->
+<!--=E3=83=97=E3=83=83=E3=82=B7=E3=83=A5html_GA=E3=82=B3=E3=83=BC=E3=83=89_=
+end-->
+
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x002=
+3_Editor msdt:dt=3D"string">KAWAKAMI Hinako[GUJP:JDC Site Planning and Mana=
+gement](=E5=B7=9D=E4=B8=8A =E6=97=A5=E5=90=91=E5=AD=90)</mso:display_urn_x0=
+03a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x002=
+3_Author msdt:dt=3D"string">KAWAKAMI Hinako[GUJP:JDC Site Planning and Mana=
+gement](=E5=B7=9D=E4=B8=8A =E6=97=A5=E5=90=91=E5=AD=90)</mso:display_urn_x0=
+03a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+
+<body bgcolor=3D"#FFFFFF" text=3D"#333333" style=3D"text-align:center;margi=
+n:0;padding:0;">
+ 
+<!-- Google Tag Manager noscript -->
+<!--<noscript>
+<iframe src=3D"https://www.googletagmanager.com/ns.html=3Fid=3DGTM-NMD6F5H"
+height=3D"0" width=3D"0" style=3D"display:none;visibility:hidden"></iframe>
+</noscript>-->
+<!-- End Google Tag Manager noscript -->
+
+<div align=3D"center"> 
+<!--header_start--> 
+  <!-- <table cellpadding=3D"0" cellspacing=3D"0" width=3D"660" style=3D"bo=
+rder-bottom:1px solid #000 !important;">
+<tr><td align=3D"left"><p style=3D" font-size:11px; color:#333333; margin:2=
+px; letter-spacing:-2px;">=E3=81=93=E3=81=AE=E3=83=A1=E3=83=BC=E3=83=AB=E3=
+=81=AF=E3=82=A4=E3=83=B3=E3=82=BF=E3=83=BC=E3=83=8D=E3=83=83=E3=83=88=E3=81=
+=AB=E6=8E=A5=E7=B6=9A=E3=81=97=E3=81=9F=E7=8A=B6=E6=85=8B=E3=81=A7=E3=81=94=
+=E8=A6=A7=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82=E6=8E=A5=E7=B6=9A=E3=
+=81=8C=E5=88=87=E3=82=8C=E3=81=A6=E3=81=84=E3=82=8B=E3=81=A8=E7=94=BB=E5=83=
+=8F=E3=81=AF=E8=A1=A8=E7=A4=BA=E3=81=95=E3=82=8C=E3=81=BE=E3=81=9B=E3=82=93=
+=E3=80=82<br />
+=E3=81=94=E5=88=A9=E7=94=A8=E3=81=AE=E3=83=A1=E3=83=BC=E3=83=AB=E3=82=BD=E3=
+=83=95=E3=83=88=E3=81=AE=E7=A8=AE=E9=A1=9E=E3=81=AB=E3=82=88=E3=82=8A=E3=80=
+=81=E3=83=9E=E3=83=AB=E3=83=81=E3=83=91=E3=83=BC=E3=83=88=E3=82=BF=E3=82=A4=
+=E3=83=97=E3=81=AE=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=AE=E5=8F=97=E4=BF=A1=E3=
+=81=8C=E3=81=A7=E3=81=8D=E3=81=9A=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=8C=E6=AD=
+=A3=E3=81=97=E3=81=8F=E9=96=B2=E8=A6=A7=E3=81=A7=E3=81=8D=E3=81=AA=E3=81=84=
+=E5=A0=B4=E5=90=88=E3=81=8C=E3=81=82=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82<br=
+ />
+</p></td>
+</tr></table> --> 
+  <!--=E3=83=97=E3=83=AA=E3=83=98=E3=83=83=E3=83=80=E3=83=BC=E3=81=93=E3=81=
+=93-->
+  <table>
+    <tr>
+      <td style=3D"display:none;mso-hide:all">=E4=BB=8A=E3=81=99=E3=81=90=
+=E3=83=81=E3=82=A7=E3=83=83=E3=82=AF</td>
+    </tr>
+  </table>
+   <!--/ =E4=BB=B6=E5=90=8D=E3=81=93=E3=81=93 /-->
+  <table cellpadding=3D"0" cellspacing=3D"0" style=3D"width:660px;border-co=
+llapse:collapse;border-spacing:0;margin:0 auto;">
+    <tr>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,13687389" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/SA_E-mail_Magazine/header/gulogo.jpg" width=3D"220" style=
+=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,1368738a" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/SA_E-mail_Magazine/header/gendertab_women.jpg" width=3D"150=
+" style=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,1368738b" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/SA_E-mail_Magazine/header/gendertab_men.jpg" width=3D"118" =
+style=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,1368738c" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/SA_E-mail_Magazine/header/gendertab_kids-teen.jpg" width=3D=
+"172" style=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+    </tr>
+  </table>
+  <!--header_end--> 
+  <!--/////////////////////// =E3=82=B3=E3=83=BC=E3=83=87=E3=82=A3=E3=83=B3=
+=E3=82=B0=E3=81=93=E3=81=93=E3=81=8B=E3=82=89 ///////////////////////-->
+
+  <table cellpadding=3D"0" cellspacing=3D"0" style=3D"width:660px;border-co=
+llapse:collapse;border-spacing:0;margin:0 auto;">
+    <tr> 
+      <!--///////////// free_banner01 /////////////-->
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,1368738d" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/free_banner_01.jpg" wid=
+th=3D"660" style=3D"display:block" border=3D"0" alt=3D""  /></a></td>
+   </tr>
+      <!--///////////// free_banner02 /////////////-->
+  <tr>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,1368738e" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/free_banner_02.jpg" wid=
+th=3D"660" style=3D"display:block" border=3D"0" alt=3D""  /></a></td>
+    </tr>   
+         
+  </table>
+
+  <!--/////////////////////// =E3=83=A1=E3=82=A4=E3=83=B3=E3=83=93=E3=82=B8=
+=E3=83=A5=E3=82=A2=E3=83=AB=E3=81=93=E3=81=93=E3=81=8B=E3=82=89 ///////////=
+////////////-->
+   &nbsp;
+   <table cellpadding=3D"0" cellspacing=3D"0" style=3D"width:660px;border-c=
+ollapse:collapse;border-spacing:0;margin:0 auto;">
+  <tr>
+      <td colspan=3D"2"><img style=3D"display:block" src=3D"https://www.gu-=
+global.com/jp/ja/contents/marketing/mailimg/ttl_crm/l_space.gif" width=3D"6=
+60" height=3D"8" border=3D"0" alt=3D""  /></td>
+    </tr>
+  <tr>
+      <td colspan=3D"2"><img src=3D"https://image.uniqlo.com/GU/ST3/jp/imag=
+esother/E-mail_Magazine/20260416_ALL_gentei/onlinetext0.jpg" width=3D"660" =
+style=3D"display:block" border=3D"0" alt=3D""  /></td>
+    </tr>
+     <tr>
+      <td colspan=3D"2"><img style=3D"display:block" src=3D"https://www.gu-=
+global.com/jp/ja/contents/marketing/mailimg/all2/space1px.jpg" width=3D"660=
+" height=3D"10" border=3D"0" alt=3D"" /></td>
+    </tr>
+  <tr>
+      <td colspan=3D"2"><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc=
+892acfe,1ac5f5ea,1368738f" target=3D"_blank" ><img src=3D"https://image.uni=
+qlo.com/GU/ST3/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/body_01.j=
+pg" width=3D"660" style=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+    </tr>
+  </table>
+
+  <!--/////////////////////// =E6=8E=B2=E8=BC=89=E5=95=86=E5=93=81=E3=81=93=
+=E3=81=93=E3=81=8B=E3=82=89 ///////////////////////-->  
+  
+  <table cellpadding=3D"0" cellspacing=3D"0" style=3D"width:660px;border-co=
+llapse:collapse;border-spacing:0;margin:0 auto;">  
+    
+    <tr>
+      <td colspan=3D"2"><img src=3D"https://image.uniqlo.com/GU/ST3/jp/imag=
+esother/E-mail_Magazine/20260416_ALL_gentei/body_02.jpg" width=3D"660" styl=
+e=3D"display:block" border=3D"0" alt=3D"" /></td>
+    </tr>    
+    
+    <tr>
+      <td colspan=3D"2"><img src=3D"https://image.uniqlo.com/GU/ST3/jp/imag=
+esother/E-mail_Magazine/20260416_ALL_gentei/body_03.jpg" width=3D"660" styl=
+e=3D"display:block" border=3D"0" alt=3D"" /></td>
+    </tr>  
+    
+    <tr>
+      <td colspan=3D"2"><img src=3D"https://image.uniqlo.com/GU/ST3/jp/imag=
+esother/E-mail_Magazine/20260416_ALL_gentei/body_04.jpg" width=3D"660" styl=
+e=3D"display:block" border=3D"0" alt=3D"" /></td>
+    </tr>      
+    
+    <tr>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,13687390" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/body_05.jpg" width=3D"3=
+30" style=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,13687391" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/body_06.jpg" width=3D"3=
+30" style=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+    </tr>  
+    
+    <tr>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,13687392" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/body_07.jpg" width=3D"3=
+30" style=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,13687393" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/body_08.jpg" width=3D"3=
+30" style=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+    </tr>    
+    
+    <tr>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,13687394" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/body_09.jpg" width=3D"3=
+30" style=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,13687395" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/body_10.jpg" width=3D"3=
+30" style=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+    </tr>    
+    
+  </table>  
+  
+  <table cellpadding=3D"0" cellspacing=3D"0" style=3D"width:660px;border-co=
+llapse:collapse;border-spacing:0;margin:0 auto;">          
+    
+    <tr>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,13687396" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/body_11.jpg" width=3D"2=
+20" style=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,13687397" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/body_12.jpg" width=3D"2=
+20" style=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,13687398" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/body_13.jpg" width=3D"2=
+20" style=3D"display:block" border=3D"0" alt=3D"" /></a></td>      
+    </tr>      
+    
+  </table>    
+  
+  <table cellpadding=3D"0" cellspacing=3D"0" style=3D"width:660px;border-co=
+llapse:collapse;border-spacing:0;margin:0 auto;">    
+    
+    <tr>
+      <td colspan=3D"2"><img src=3D"https://image.uniqlo.com/GU/ST3/jp/imag=
+esother/E-mail_Magazine/20260416_ALL_gentei/body_14.jpg" width=3D"660" styl=
+e=3D"display:block" border=3D"0" alt=3D"" /></td>
+    </tr>      
+    
+    <tr>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,13687399" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/body_15.jpg" width=3D"3=
+30" style=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,1368739a" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/body_16.jpg" width=3D"3=
+30" style=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+    </tr>  
+    
+    <tr>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,1368739b" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/body_17.jpg" width=3D"3=
+30" style=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,1368739c" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/body_18.jpg" width=3D"3=
+30" style=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+    </tr>      
+    
+  </table>  
+  
+  <table cellpadding=3D"0" cellspacing=3D"0" style=3D"width:660px;border-co=
+llapse:collapse;border-spacing:0;margin:0 auto;">          
+    
+    <tr>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,1368739d" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/body_19.jpg" width=3D"2=
+20" style=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,1368739e" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/body_20.jpg" width=3D"2=
+20" style=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,1368739f" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/body_21.jpg" width=3D"2=
+20" style=3D"display:block" border=3D"0" alt=3D"" /></a></td>      
+    </tr>      
+    
+  </table>  
+  
+  <table cellpadding=3D"0" cellspacing=3D"0" style=3D"width:660px;border-co=
+llapse:collapse;border-spacing:0;margin:0 auto;">    
+    
+    <tr>
+      <td colspan=3D"2"><img src=3D"https://image.uniqlo.com/GU/ST3/jp/imag=
+esother/E-mail_Magazine/20260416_ALL_gentei/body_22.jpg" width=3D"660" styl=
+e=3D"display:block" border=3D"0" alt=3D"" /></td>
+    </tr>      
+    
+    <tr>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,136873a0" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/body_23.jpg" width=3D"3=
+30" style=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,136873a1" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/body_24.jpg" width=3D"3=
+30" style=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+    </tr>      
+    
+  </table>  
+  
+  <table cellpadding=3D"0" cellspacing=3D"0" style=3D"width:660px;border-co=
+llapse:collapse;border-spacing:0;margin:0 auto;">          
+    
+    <tr>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,136873a2" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/body_25.jpg" width=3D"2=
+20" style=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,136873a3" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/body_26.jpg" width=3D"2=
+20" style=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,136873a4" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/body_27.jpg" width=3D"2=
+20" style=3D"display:block" border=3D"0" alt=3D"" /></a></td>      
+    </tr>
+    
+    <tr>
+      <td colspan=3D"3"><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc=
+892acfe,1ac5f5ea,136873a5" target=3D"_blank" ><img src=3D"https://image.uni=
+qlo.com/GU/ST3/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/seemore.j=
+pg" width=3D"660" style=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+    </tr>      
+    
+  </table>    
+
+    
+<!--/////////////////////// =E3=82=B3=E3=83=BC=E3=83=87=E3=82=A3=E3=83=B3=
+=E3=82=B0=E3=81=93=E3=81=93=E3=81=BE=E3=81=A7 ///////////////////////-->
+  <!--=E3=81=8A=E3=83=88=E3=82=AF=E3=81=AA=E3=82=A2=E3=82=A4=E3=83=86=E3=83=
+=A0=E3=83=90=E3=83=8A=E3=83=BC-->
+  <table cellpadding=3D"0" cellspacing=3D"0" style=3D"width:660px;border-co=
+llapse:collapse;border-spacing:0;margin:0 auto;">
+   <tr>
+      <td colspan=3D"2"><img style=3D"display:block" src=3D"https://www.gu-=
+global.com/jp/ja/contents/marketing/mailimg/all2/space1px.jpg" width=3D"660=
+" height=3D"54" border=3D"0" alt=3D"" /></td>
+    </tr>     
+    
+  <tr>
+      <td colspan=3D"2"><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc=
+892acfe,1ac5f5ea,136873a6" target=3D"_blank" ><img src=3D"https://image.uni=
+qlo.com/GU/ST3/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/yoyaku_Ki=
+rby.jpg" width=3D"660" style=3D"display:block" border=3D"0" alt=3D"" /></a>=
+</td>
+    </tr>      
+    
+  <tr>
+      <td colspan=3D"2"><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc=
+892acfe,1ac5f5ea,136873c5" target=3D"_blank" ><img src=3D"https://image.uni=
+qlo.com/GU/ST3/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/image_01.=
+jpg" width=3D"660" style=3D"display:block" border=3D"0" alt=3D"" /></a></td=
+>
+    </tr>    
+         
+   <tr>
+      <td colspan=3D"2"><img src=3D"https://image.uniqlo.com/GU/ST3/jp/imag=
+esother/E-mail_Magazine/20260416_ALL_gentei/box_00.jpg" width=3D"660" style=
+=3D"display:block" border=3D"0" alt=3D"" /></td>
+    </tr>
+    <tr>
+      <td colspan=3D"2"><img style=3D"display:block" src=3D"https://www.gu-=
+global.com/jp/ja/contents/marketing/mailimg/all2/space1px.jpg" width=3D"660=
+" height=3D"1" border=3D"0" alt=3D"" /></td>
+    </tr>
+  <tr>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,136873c6" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/pdbanner.jpg" width=3D"=
+330" style=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,136873c7" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/genntei.jpg" width=3D"3=
+30" style=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+    </tr>
+  </table>    
+  
+  <!--=E7=89=B9=E9=9B=86BOX=E3=83=90=E3=83=8A=E3=83=BC-->
+  <table cellpadding=3D"0" cellspacing=3D"0" style=3D"width:660px;border-co=
+llapse:collapse;border-spacing:0;margin:0 auto;">
+    <tr>
+      <td colspan=3D"2"><img style=3D"display:block" src=3D"https://www.gu-=
+global.com/jp/ja/contents/marketing/mailimg/all2/space1px.jpg" width=3D"660=
+" height=3D"64" border=3D"0" alt=3D"" /></td>
+    </tr>
+    <tr>
+      <td colspan=3D"2"><img src=3D"https://image.uniqlo.com/GU/ST3/jp/imag=
+esother/E-mail_Magazine/20260416_ALL_gentei/box_01.jpg" width=3D"660" style=
+=3D"display:block" border=3D"0" alt=3D"" /></td>
+    </tr>
+  <tr>
+      <td colspan=3D"2"><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc=
+892acfe,1ac5f5ea,136873c8" target=3D"_blank" ><img src=3D"https://image.uni=
+qlo.com/GU/ST3/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/box_15.jp=
+g" width=3D"660" style=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+    </tr>
+     <tr>
+      <td colspan=3D"2"><img style=3D"display:block" src=3D"https://www.gu-=
+global.com/jp/ja/contents/marketing/mailimg/all2/space1px.jpg" width=3D"660=
+" height=3D"0" border=3D"0" alt=3D"" /></td>
+    </tr>
+    <tr>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,136873c9" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/box_02.jpg" width=3D"33=
+0" style=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,136873ca" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/box_03.jpg" width=3D"33=
+0" style=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+    </tr>
+    <tr>
+      <td colspan=3D"2"><img style=3D"display:block" src=3D"https://www.gu-=
+global.com/jp/ja/contents/marketing/mailimg/all2/space1px.jpg" width=3D"660=
+" height=3D"14" border=3D"0" alt=3D"" /></td>
+    </tr>
+
+    <tr>
+      <td colspan=3D"2"><img style=3D"display:block" src=3D"https://www.gu-=
+global.com/jp/ja/contents/marketing/mailimg/all2/space1px.jpg" width=3D"660=
+" height=3D"0" border=3D"0" alt=3D"" /></td>
+    </tr>
+    <tr>
+      <td colspan=3D"2"><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc=
+892acfe,1ac5f5ea,136873cb" target=3D"_blank" ><img src=3D"https://image.uni=
+qlo.com/GU/ST3/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/box_06.jp=
+g" width=3D"660" style=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+    </tr>
+    <tr>
+      <td colspan=3D"2"><img style=3D"display:block" src=3D"https://www.gu-=
+global.com/jp/ja/contents/marketing/mailimg/all2/space1px.jpg" width=3D"660=
+" height=3D"44" border=3D"0" alt=3D"" /></td>
+    </tr>
+  </table>
+  <!--=E3=81=8A=E7=9F=A5=E3=82=89=E3=81=9BBOX=E3=83=90=E3=83=8A=E3=83=BC-->
+  <table cellpadding=3D"0" cellspacing=3D"0" style=3D"width:660px;border-co=
+llapse:collapse;border-spacing:0;margin:0 auto;">
+    <tr>
+      <td colspan=3D"2"><img src=3D"https://image.uniqlo.com/GU/ST3/jp/imag=
+esother/E-mail_Magazine/20260416_ALL_gentei/box_09.jpg" width=3D"660" style=
+=3D"display:block" border=3D"0" alt=3D"" /></td>
+    </tr>    
+
+    <tr>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,136873cc" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/box_10.jpg" width=3D"33=
+0" style=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,136873cd" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/box_11.jpg" width=3D"33=
+0" style=3D"display:block" bord er=3D"0" alt=3D"" /></a></td>
+    </tr>
+    <tr>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,136873ce" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/box_12.jpg" width=3D"33=
+0" style=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,136873cf" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/box_13.jpg" width=3D"33=
+0" style=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+    </tr>
+    <tr>
+      <td colspan=3D"2"><img style=3D"display:block" src=3D"https://www.gu-=
+global.com/jp/ja/contents/marketing/mailimg/all2/space1px.jpg" width=3D"660=
+" height=3D"88" border=3D"0" alt=3D"" /></td>
+    </tr>
+  </table>
+
+  <table cellpadding=3D"0" cellspacing=3D"0" style=3D"width:660px;border-co=
+llapse:collapse;border-spacing:0;margin:0 auto;">
+    <tr> 
+      <!--///////////// free_banner03 /////////////-->
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,136873d0" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/free_banner_03.jpg" wid=
+th=3D"330" style=3D"display:block" border=3D"0" alt=3D""  /></a></td>
+      <!--///////////// free_banner04 /////////////-->
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,136873d1" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/E-mail_Magazine/20260416_ALL_gentei/free_banner_04.jpg" wid=
+th=3D"330" style=3D"display:block" border=3D"0" alt=3D""  /></a></td>
+    </tr>
+  </table>
+
+  <!--APP Downroad_start-->
+  <table cellpadding=3D"0" cellspacing=3D"0" style=3D"width:660px;border-co=
+llapse:collapse;border-spacing:0;margin:0 auto; ">
+    <tr>
+      <td><img src=3D"https://image.uniqlo.com/GU/ST3/jp/imagesother/SA_E-m=
+ail_Magazine/footer/footer_01.jpg" width=3D"660" style=3D"display:block" bo=
+rder=3D"0" alt=3D"" /></td>
+    </tr>
+    <tr>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,136873d2" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/SA_E-mail_Magazine/footer/footer_03.jpg" width=3D"660" styl=
+e=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+    </tr>
+ </table>
+  <!--APP Downroad_end-->
+  <!--Online store=E3=81=A7=E8=B3=BC=E5=85=A5=E6=99=82=E3=81=AE=E3=81=94=E6=
+=A1=88=E5=86=85-->
+  <table cellpadding=3D"0" cellspacing=3D"0" style=3D"width:660px;border-co=
+llapse:collapse;border-spacing:0;margin:0 auto; ">
+  <!--navi_start-->
+    <tr>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,136873d3" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/SA_E-mail_Magazine/footer/footer_05.jpg" width=3D"660" styl=
+e=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+    </tr>
+    <tr>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,136873d4" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/SA_E-mail_Magazine/footer/footer_07.jpg" width=3D"660" styl=
+e=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+    </tr>
+    <tr>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,136873d5" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/SA_E-mail_Magazine/footer/footer_08.jpg" width=3D"660" styl=
+e=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+    </tr>
+    <tr>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,136873d6" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/SA_E-mail_Magazine/footer/footer_09.jpg" width=3D"660" styl=
+e=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+    </tr>
+    <tr>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,136873d7" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/SA_E-mail_Magazine/footer/footer_10.jpg" width=3D"660" styl=
+e=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+    </tr>
+  <!--navi_end-->
+    <tr>
+      <td><img src=3D"https://image.uniqlo.com/GU/ST3/jp/imagesother/SA_E-m=
+ail_Magazine/footer/footer_12.jpg" width=3D"660" style=3D"display:block" bo=
+rder=3D"0" alt=3D"" /></td>
+    </tr>
+  </table>
+  
+  <!--SNS-->
+  <table cellpadding=3D"0" cellspacing=3D"0" style=3D"width:660px;border-co=
+llapse:collapse;border-spacing:0;margin:0 auto; background-color: #F4F4F4; =
+">
+    <tr>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,136873d8" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/SA_E-mail_Magazine/footer/footer_13.jpg" width=3D"110" styl=
+e=3D"display:block" border=3D"0" alt=3D""/></a></td>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,136873d9" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/SA_E-mail_Magazine/footer/footer_14.jpg" width=3D"110" styl=
+e=3D"display:block" border=3D"0" alt=3D""/></a></td>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,136873da" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/SA_E-mail_Magazine/footer/footer_15.jpg" width=3D"110" styl=
+e=3D"display:block" border=3D"0" alt=3D""/></a></td>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,136873db" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/SA_E-mail_Magazine/footer/footer_16.jpg" width=3D"110" styl=
+e=3D"display:block" border=3D"0" alt=3D""/></a></td>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,136873dc" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/SA_E-mail_Magazine/footer/footer_17.jpg" width=3D"110" styl=
+e=3D"display:block" border=3D"0" alt=3D""/></a></td>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,136873dd" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/SA_E-mail_Magazine/footer/footer_18.jpg" width=3D"110" styl=
+e=3D"display:block" border=3D"0" alt=3D""/></a></td>
+  </tr>
+</table>
+  <!--footer_start-->
+  <table cellpadding=3D"0" cellspacing=3D"0" style=3D"width:660px;border-co=
+llapse:collapse;border-spacing:0;margin:0 auto; ">
+    <tr>
+      <td><a href=3D"https://t4.mm.gu-global.com/r/=3Fid=3Dhc892acfe,1ac5f5=
+ea,136873de" target=3D"_blank" ><img src=3D"https://image.uniqlo.com/GU/ST3=
+/jp/imagesother/SA_E-mail_Magazine/footer/footer_20.jpg" width=3D"660" styl=
+e=3D"display:block" border=3D"0" alt=3D"" /></a></td>
+    </tr>
+  </table>
+  <!--footer_end--> 
+</div>
+<img height=3D'0' width=3D'0' alt=3D'' src=3D'https://t4.mm.gu-global.com/r=
+/=3Fid=3Dhc892acfe,1ac5f5ea,1'/></body>
+</html>
+
+------=_NextPart_680_077080E9.077080E9--
+
+
