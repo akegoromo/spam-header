@@ -1,0 +1,666 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a05:640c:2f11:b0:261:85fe:9a8 with SMTP id w17csp549103eiu;
+        Wed, 1 Apr 2026 17:49:33 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AJvYcCUDC0+4OEZISyQkptnF8i3NtVOw9RQvRM+R/UWUiCiSv6dWGyCLCyps6pMSn0VuqElKChIiaMC1NCqEhCD60w==@gmail.com
+X-Received: by 2002:a05:6a00:21ca:b0:829:acf6:9406 with SMTP id d2e1a72fcca58-82d0039240emr388184b3a.29.1775090973305;
+        Wed, 01 Apr 2026 17:49:33 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1775090973; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=B+klTVMdIx2QZ2D8XE2/Hb93usrqVydwy4PeeVNv9jTt6MQq2AbKJg+qyVkF7SMjGk
+         w02o0t5wxdnRdlLweuzJvwvLR0Sp1y+WIk0F/A0lJ1hp3tyLSUT9kF0WMGQDetDEv0GF
+         4O3+YAVhEsEXhGba4TdlLNzIYe2OrbDc8RmNa5fWDCw8nG81dYhBNpSaAw1+NV79YZjr
+         Ksxg5/ABB5bLSQiq4mKy7bQWSal91qECJqZOa0NM6xt03MJp3H2Vwo8tez58Dh4Q7aIj
+         Ao1/rLwDIywMMDW7AbmrrGZsnKrxZOkE8RIuia6wMmomHG/wGCm53EcBZ0nrdVl+yPam
+         VMWQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=mime-version:list-unsubscribe-post:list-unsubscribe:list-id
+         :feedback-id:message-id:date:to:reply-to:from:subject:dkim-signature
+         :dkim-signature:dkim-signature;
+        bh=OpwXiLasgVze/ZdQxUW+DdWmUQuHuON2U4bvoI2eBQ0=;
+        fh=LnGVlAla77Gyfiw8zkzbOhaVlqYgEu27l8ujdfvsIGY=;
+        b=QGG8dE4TiJB3rbmNAcInUGfUXh0CSpmGmLPiS3H9uJiBPoxCbP2YuDF4uqeMC67ZHb
+         1Hp9UbmYVuxOUg3kshWteg+NYnA/hlF9jrmyX09b1tleCzIKCfU1pjr3WPjfB0Rc3bFD
+         /3h2zLuye+wje+FM1hvdD6fQdeOBza6rUIvQSeawaWfFo7Ctsyx7iEgA1TRCI3Z0Vp0v
+         mJMvO5Pm8ITCY+JIT3IbRQ+COfHUH7WbWDBwiHTGvWIjGMQry0iLUk8EUXcd95Z3TbpO
+         CIOyAHuJVo84Hj7P45H2W158yEvxqS5eDNt5ZZRPY1hm3vCo3+dflTG4aZw6NwFiOaKn
+         pGxg==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=Icn297wD;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=DP8oZTzg;
+       dkim=pass header.i=@mailchimpapp.com header.s=k3 header.b=XaNeRpMv;
+       arc=pass (i=1 spf=pass spfdomain=mail42.suw91.mcdlv.net dkim=pass dkdomain=250046299.mailchimpapp.com dmarc=pass fromdomain=250046299.mailchimpapp.com);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.8.55 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=mailchimpapp.com
+Return-Path: <cfbounces+ndrdrop@whither.jp>
+Received: from i-ff.cloudflare-email.net (i-ff.cloudflare-email.net. [104.30.8.55])
+        by mx.google.com with ESMTPS id d2e1a72fcca58-82cf9b33a17si2884615b3a.17.2026.04.01.17.49.32
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 01 Apr 2026 17:49:33 -0700 (PDT)
+Received-SPF: pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.8.55 as permitted sender) client-ip=104.30.8.55;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=Icn297wD;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=DP8oZTzg;
+       dkim=pass header.i=@mailchimpapp.com header.s=k3 header.b=XaNeRpMv;
+       arc=pass (i=1 spf=pass spfdomain=mail42.suw91.mcdlv.net dkim=pass dkdomain=250046299.mailchimpapp.com dmarc=pass fromdomain=250046299.mailchimpapp.com);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.8.55 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=mailchimpapp.com
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=List-Unsubscribe-Post:List-Unsubscribe:List-ID:Feedback-ID:Date:To
+	:Reply-To:From:Subject:cc:resent-date:resent-from:resent-to:resent-cc
+	:in-reply-to:references:list-help:list-subscribe:list-post:list-owner
+	:list-archive; t=1775090972; x=1775695772; bh=OpwXiLasgVze/ZdQxUW+DdWmUQuHu
+	ON2U4bvoI2eBQ0=; b=Icn297wDE8YVnno0GgldaHvREwByz/3Ca3AjgCyD13fyoF2QZ6tflgwX
+	DDVAalhDgkN59EvRYa5+RWbvo9ugBi6kwr49rHP28HFW1pg9aqrw2wxW+zr74HJ56vRzuisjxFj
+	EFt2476PVeh60kI/h1Hd3w4Chu9LOiZ9PIFJkMLRHJfjNeDxPABWj+qzXGuXKtXCGf+4YOixET3
+	YMVUlL6KnTApV9dj6N8dX/xuOAOBjnvVMO7pY6QdEAmhXlhzzwoBeeO4wBHTx4Utd1sRvgXB0uH
+	NnKa/vBpogPDh7avmCuoJIVGl++RnoF7asp15Tl0UiMDrN3r+ZbQ9562OawCg==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=List-Unsubscribe-Post:List-Unsubscribe:List-ID:Feedback-ID:Date:To
+	:Reply-To:From:Subject:cc:resent-date:resent-from:resent-to:resent-cc
+	:in-reply-to:references:list-help:list-subscribe:list-post:list-owner
+	:list-archive; t=1775090972; x=1775695772; bh=OpwXiLasgVze/ZdQxUW+DdWmUQuHu
+	ON2U4bvoI2eBQ0=; b=DP8oZTzgj5pf/WUhHIRfzXIRGttVq4nsDzBhU1hcbaYy+KvgF9dd7vBW
+	hFf8FqCRT1Kj/vyFEwG2pUQV3ZGCB2TcmQ2m0EZLBCEml+eJe0JhuWV/dMnlF9h1XYYE3o79nVi
+	pIg1+RzO/tc9h85dvBoLEZXmIXtMWkgfJNO9eCX4MxP7VrAacTN3Jcgi150Vjeuw58ppfcyp0ps
+	3mCDeT6SKfeCZCmcu076l1AYhrtm9Tcv0jmDSwaYo1vWoM9FM/7rXnMjgvcBlPHxTtkNuedeD9i
+	XAFFPEQwMmXvBsvurrazeern7stgIwN9T9pAduFvODjtlgEt145D4gQDxrYtw==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: tnakahara@whither.jp silver.firefox+whither-jp@gmail.com
+Received: from mail42.suw91.mcdlv.net (198.2.184.42)
+        by cloudflare-email.net (cloudflare) id 63k5kzTnCOJM
+        for <tnakahara@whither.jp>; Thu, 02 Apr 2026 00:49:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=HExsjS/VQ5f+ijuGhNBGhwbsWx1FrHiSnuqKPtYlVXICZrnwoGUd+m/xo3y81JI5jzZ6aLLuk
+	exvbNMAmWIBW+Ijhu+jG/kewkwwAAtATvBWSNbbflnOE55dIBs9Za2L/W/x4Xn/wd0AwXh5Z3e+
+	exlqcm9JBi0mHc1YGXcKaaJSPDZc5p/mmbW9T/VHSnb/vYJK2VWtBBvXuxB0Voe7JrtwaSLrFeV
+	023PoN8aDYXoqkM7zH79m26gQQGlcNsJ+mNAxCKw4uPu2VQE42f+viDzIv84fBJHvkCsJbEL2Yf
+	3ZCW+TX29CnO5kpc/hsQZAfoxkxFIvTZG4S/CHTrHXrw==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=List-ID:Date:To:Reply-To:From:Subject:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1775090970; x=1775695770; bh=OpwXiLas
+	gVze/ZdQxUW+DdWmUQuHuON2U4bvoI2eBQ0=; b=QfhPIL7nf0rBEJyzVIDJqpM8sUQH5/pswyJ
+	cnMcHH93OTJEfezvIrkpOMzLfxh/Bf9fo/Z9KdwyYPmE26m4Sw0qR5dse3UwkOl6wpgpzNktGxS
+	TM5v4OL0Y8CniPgRY3qwS+lwx8JI+8Ct0QPXPHMH9El7fl6ENuvNSUdDgkJGQBZsHTC1WGLyRoH
+	JESof4slOmoKlR+QEU8UJtYJzcyGcn4ZcPPOjoGpVQrv3E2rIMtLAl2TyCPxavpeQ3Rsu9EKEgE
+	8UQUYcDrtfXwzeEbIW/0t3mIeTB8xYPLQoT7TVKUBfN3lOtmHI4TRA52Cg6zQ/X5c7Rx5j9XFRu
+	MLCLGAQ==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=ourlangde@250046299.mailchimpapp.com header.s=k3 header.b=XaNeRpMv;
+	dmarc=pass header.from=250046299.mailchimpapp.com policy.dmarc=reject;
+	spf=pass (mx.cloudflare.net: domain of postmaster@mail42.suw91.mcdlv.net designates 198.2.184.42 as permitted sender) smtp.helo=mail42.suw91.mcdlv.net;
+	spf=pass (mx.cloudflare.net: domain of bounce-mc.us17_250046299.2324-065ce33c9d@mail42.suw91.mcdlv.net designates 198.2.184.42 as permitted sender) smtp.mailfrom=bounce-mc.us17_250046299.2324-065ce33c9d@mail42.suw91.mcdlv.net;
+	arc=none smtp.remote-ip=198.2.184.42
+Received-SPF: pass (mx.cloudflare.net: domain of bounce-mc.us17_250046299.2324-065ce33c9d@mail42.suw91.mcdlv.net designates 198.2.184.42 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=198.2.184.42; envelope-from="bounce-mc.us17_250046299.2324-065ce33c9d@mail42.suw91.mcdlv.net"; helo=mail42.suw91.mcdlv.net;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=ourlangde@250046299.mailchimpapp.com header.s=k3 header.b=XaNeRpMv;
+	dmarc=pass header.from=250046299.mailchimpapp.com policy.dmarc=reject;
+	spf=pass (mx.cloudflare.net: domain of postmaster@mail42.suw91.mcdlv.net designates 198.2.184.42 as permitted sender) smtp.helo=mail42.suw91.mcdlv.net;
+	spf=pass (mx.cloudflare.net: domain of bounce-mc.us17_250046299.2324-065ce33c9d@mail42.suw91.mcdlv.net designates 198.2.184.42 as permitted sender) smtp.mailfrom=bounce-mc.us17_250046299.2324-065ce33c9d@mail42.suw91.mcdlv.net;
+	arc=none smtp.remote-ip=198.2.184.42
+X-CF-SpamH-Score: 0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailchimpapp.com;
+	s=k3; t=1775090963; x=1775360963;
+	i=ourlangde@250046299.mailchimpapp.com;
+	bh=OpwXiLasgVze/ZdQxUW+DdWmUQuHuON2U4bvoI2eBQ0=;
+	h=Subject:From:Reply-To:To:Date:Message-ID:X-MC-User:Feedback-ID:
+	 List-ID:List-Unsubscribe:List-Unsubscribe-Post:Content-Type:
+	 MIME-Version:CC:Date:Subject:From;
+	b=XaNeRpMv8B/Jk1H2skfBKME9yI6Ptnsr4/wGSGnHrIQytGqub+a+h8RNhvEIz2fHZ
+	 tRR1Y2OMfV2NKrfEj0t4Pz6daAaaPouowFhqRKW5qKGQO9UlyxAVb/TkedEuV9kbme
+	 GwXwsD0hQblZFFpFfGmouaqkXNItNakqRYIhb/kvQTLop4VUQloywZSfEZZ14bflEH
+	 BUwblCfCYrbm0NE2Oag0UFaczvGo20a5KLa6UjQinVmvJPSnZfONzR5r4DFFjCczF0
+	 O9IclYAcjmG/3kAK+xSH1jlyiIG53CgL3/rDzTpPXq+ypwZ5fJBHX7FgMWg4f9AZGD
+	 7GB4yv/ZXP2yQ==
+Received: from localhost (localhost [127.0.0.1])
+	by mail42.suw91.mcdlv.net (Mailchimp) with ESMTP id 4fmNXg3wvGzLfK636
+	for <tnakahara@whither.jp>; Thu,  2 Apr 2026 00:49:23 +0000 (UTC)
+Subject: =?utf-8?Q?VITATEX=20Smart=20Sleep=20Shirt=3A=20Where=20Comfort=20Meets=20Unseen=20Care?=
+From: VITATEX <ourlangde@250046299.mailchimpapp.com>
+Reply-To:  <ourlangde@outlook.com>
+To: <tnakahara@whither.jp>
+Date: Thu,  2 Apr 2026 00:49:15 +0000
+Message-ID: <68da015d2294065f3b34df90f.065ce33c9d.20260402004841.df231eae0a.ecc400b1@mail42.suw91.mcdlv.net>
+X-Mailer: Mailchimp Mailer - **CIDdf231eae0a065ce33c9d**
+X-Campaign: mailchimp68da015d2294065f3b34df90f.df231eae0a
+X-campaignid: mailchimp68da015d2294065f3b34df90f.df231eae0a
+X-Report-Abuse: Please report abuse for this campaign here: https://mailchimp.com/contact/abuse/?u=68da015d2294065f3b34df90f&id=df231eae0a&e=065ce33c9d
+X-MC-User: 68da015d2294065f3b34df90f
+Feedback-ID: 250046299:250046299.2324:us17:mc
+List-ID: 68da015d2294065f3b34df90fmc list <68da015d2294065f3b34df90f.622.list-id.mcsv.net>
+X-Accounttype: pr
+List-Unsubscribe: <https://outlook.us17.list-manage.com/unsubscribe?u=68da015d2294065f3b34df90f&id=b18eb0c681&t=h&e=065ce33c9d&c=df231eae0a>, <mailto:unsubscribe-mc.us17_68da015d2294065f3b34df90f.df231eae0a-065ce33c9d@unsubscribe.mailchimpapp.net?subject=unsubscribe>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Content-Type: multipart/alternative; boundary="_----------=_MCPart_277854058"
+MIME-Version: 1.0
+
+This is a multi-part message in MIME format
+
+--_----------=_MCPart_277854058
+Content-Type: text/plain; charset="utf-8"; format="fixed"
+Content-Transfer-Encoding: quoted-printable
+
+https://www.kickstarter.com/projects/vitatex/vitatex-smart-sleep-shirt-whe=
+re-comfort-meets-unseen-care?ref=3D2n8ec7
+
+The first garment that tracks your sleep.
+ORDER ON KICKSTARTER NOW! (https://www.kickstarter.com/projects/vitatex/vi=
+tatex-smart-sleep-shirt-where-comfort-meets-unseen-care?ref=3D2n8ec7)
+
+If you no longer wish to receive mail from us=2C you can unsubscribe ({uns=
+ubscribe}) .
+
+Unable to view? Read it Online ({view})
+
+This email was sent to tnakahara@whither.jp (mailto:tnakahara@whither.jp)
+why did I get this? (https://outlook.us17.list-manage.com/about?u=3D68da01=
+5d2294065f3b34df90f&id=3Db18eb0c681&e=3D065ce33c9d&c=3Ddf231eae0a)     unsub=
+scribe from this list (https://outlook.us17.list-manage.com/unsubscribe?u=
+=3D68da015d2294065f3b34df90f&id=3Db18eb0c681&t=3Db&e=3D065ce33c9d&c=3Ddf231e=
+ae0a)     update subscription preferences (https://outlook.us17.list-manag=
+e.com/profile?u=3D68da015d2294065f3b34df90f&id=3Db18eb0c681&e=3D065ce33c9d&c=
+=3Ddf231eae0a)
+LangDe . Japan=2C =E3=80=92151-0063 Tokyo=2C Shibuya=2C Tomigaya=2C 1 Chom=
+e=E2=88=9251=E2=88=922 =E3=83=87=E3=83=A5=E3=82=AA=E3=83=91=E3=83=BC=E3=82=
+=AF=E3=83=93=E3=83=AB M=E3=82=B5=E3=82=A4=E3=83=89B1F . Shibuya=2C 13 151-=
+0052 . Japan
+--_----------=_MCPart_277854058
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html lang=3D"en" xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:sc=
+hemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:offic=
+e">
+
+    <head>
+        <meta charset=3D"utf-8">
+        <meta name=3D"viewport" content=3D"width=3Ddevice-width">
+        <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+        <meta name=3D"x-apple-disable-message-reformatting">
+        <meta name=3D"format-detection" content=3D"telephone=3Dno=2Caddres=
+s=3Dno=2Cemail=3Dno=2Cdate=3Dno=2Curl=3Dno">
+
+        <meta name=3D"color-scheme" content=3D"light">
+        <meta name=3D"supported-color-schemes" content=3D"light">
+
+
+        <!--[if !mso]><!-->
+
+          <link rel=3D"preload" as=3D"style" href=3D"https://fonts.googlea=
+pis.com/css2?family=3DOpen+Sans:ital=2Cwght@0=2C400;0=2C700;1=2C400;1=2C70=
+0&family=3DOpen+Sans:ital=2Cwght@0=2C400;0=2C700;1=2C400;1=2C700&family=3D=
+Open+Sans:ital=2Cwght@0=2C400;0=2C700;1=2C400;1=2C700&family=3DOpen+Sans:i=
+tal=2Cwght@0=2C400;0=2C700;1=2C400;1=2C700&family=3DOpen+Sans:ital=2Cwght@=
+0=2C400;0=2C700;1=2C400;1=2C700&display=3Dswap">
+          <link rel=3D"stylesheet" href=3D"https://fonts.googleapis.com/cs=
+s2?family=3DOpen+Sans:ital=2Cwght@0=2C400;0=2C700;1=2C400;1=2C700&family=
+=3DOpen+Sans:ital=2Cwght@0=2C400;0=2C700;1=2C400;1=2C700&family=3DOpen+San=
+s:ital=2Cwght@0=2C400;0=2C700;1=2C400;1=2C700&family=3DOpen+Sans:ital=2Cwg=
+ht@0=2C400;0=2C700;1=2C400;1=2C700&family=3DOpen+Sans:ital=2Cwght@0=2C400;=
+0=2C700;1=2C400;1=2C700&display=3Dswap">
+
+          <style type=3D"text/css">
+          // TODO: fix me!
+            @import url(https://fonts.googleapis.com/css2?family=3DOpen+Sa=
+ns:ital=2Cwght@0=2C400;0=2C700;1=2C400;1=2C700&family=3DOpen+Sans:ital=2Cw=
+ght@0=2C400;0=2C700;1=2C400;1=2C700&family=3DOpen+Sans:ital=2Cwght@0=2C400=
+;0=2C700;1=2C400;1=2C700&family=3DOpen+Sans:ital=2Cwght@0=2C400;0=2C700;1=
+=2C400;1=2C700&family=3DOpen+Sans:ital=2Cwght@0=2C400;0=2C700;1=2C400;1=2C=
+700&display=3Dswap);
+        </style>
+
+        <!--<![endif]-->
+
+        <!--[if mso]>
+          <style>
+              // TODO: fix me!
+              * {
+                  font-family: sans-serif !important;
+              }
+          </style>
+        <![endif]-->
+
+
+        <!-- NOTE: the title is processed in the backend during the campai=
+gn dispatch -->
+        <title></title>
+
+        <!--[if gte mso 9]>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:AllowPNG/>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+        <![endif]-->
+
+    <style type=3D"text/css">
+        :root {
+            color-scheme: light;
+            supported-color-schemes: light;
+        }
+
+        html=2C
+        body {
+            margin: 0 auto !important;
+            padding: 0 !important;
+            height: 100% !important;
+            width: 100% !important;
+
+            overflow-wrap: break-word;
+            -ms-word-break: break-word;
+            word-break: break-word;
+        }
+
+
+
+
+
+
+  center=2C
+  #body_table {
+
+  }
+
+  ul=2C ol {
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  li {
+    margin-bottom: 0;
+  }
+
+
+
+  .list-block-list-outside-left li {
+    margin-left: 20px !important;
+  }
+
+  .list-block-list-outside-right li {
+    margin-right: 20px !important;
+  }
+
+
+     .paragraph {
+      font-size: 16px;
+      font-family: Open Sans=2C sans-serif;
+      font-weight: normal;
+      font-style: normal;
+      text-align: start;
+      line-height: 1;
+      text-decoration: none;
+      color: #1f1f1f;
+
+    }
+
+
+     .heading1 {
+      font-size: 31px;
+      font-family: Open Sans=2C sans-serif;
+      font-weight: bold;
+      font-style: normal;
+      text-align: center;
+      line-height: 1;
+      text-decoration: none;
+      color: #96001D;
+
+    }
+
+
+     .heading2 {
+      font-size: 26px;
+      font-family: Open Sans=2C sans-serif;
+      font-weight: normal;
+      font-style: normal;
+      text-align: center;
+      line-height: 1;
+      text-decoration: none;
+      color: #000000;
+
+    }
+
+
+     .heading3 {
+      font-size: 15px;
+      font-family: Open Sans=2C sans-serif;
+      font-weight: bold;
+      font-style: normal;
+      text-align: center;
+      line-height: 1;
+      text-decoration: none;
+      color: #FFFCE9;
+
+    }
+
+
+     .list {
+      font-size: 15px;
+      font-family: Open Sans=2C sans-serif;
+      font-weight: normal;
+      font-style: normal;
+      text-align: start;
+      line-height: 1;
+      text-decoration: none;
+      color: #5f5f5f;
+
+    }
+
+
+  p a=2C
+  li a {
+
+    color: #96001D;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: normal;
+
+  }
+
+  .button-table a {
+    text-decoration: none;
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  .paragraph > span {text-decoration: none;}.heading1 > span {text-decorat=
+ion: none;}.heading2 > span {text-decoration: none;}.heading3 > span {text=
+-decoration: none;}.list > span {text-decoration: none;}
+
+
+        * {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        div[style*=3D"margin: 16px 0"] {
+            margin: 0 !important;
+        }
+
+        #MessageViewBody=2C
+        #MessageWebViewDiv {
+            width: 100% !important;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            mso-table-lspace: 0pt !important;
+            mso-table-rspace: 0pt !important;
+        }
+        table:not(.button-table) {
+            border-spacing: 0 !important;
+            border-collapse: collapse !important;
+            table-layout: fixed !important;
+            margin: 0 auto !important;
+        }
+
+        th {
+            font-weight: normal;
+        }
+
+        tr td p {
+            margin: 0;
+        }
+
+        img {
+            -ms-interpolation-mode: bicubic;
+        }
+
+        a[x-apple-data-detectors]=2C
+
+        .unstyle-auto-detected-links a=2C
+        .aBn {
+            border-bottom: 0 !important;
+            cursor: default !important;
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+        }
+
+        .im {
+            color: inherit !important;
+        }
+
+        .a6S {
+            display: none !important;
+            opacity: 0.01 !important;
+        }
+
+        img.g-img+div {
+            display: none !important;
+        }
+
+        @media only screen and (min-device-width: 320px) and (max-device-w=
+idth: 374px) {
+            u~div .contentMainTable {
+                min-width: 320px !important;
+            }
+        }
+
+        @media only screen and (min-device-width: 375px) and (max-device-w=
+idth: 413px) {
+            u~div .contentMainTable {
+                min-width: 375px !important;
+            }
+        }
+
+        @media only screen and (min-device-width: 414px) {
+            u~div .contentMainTable {
+                min-width: 414px !important;
+            }
+        }
+    </style>
+    <style type=3D"text/css">
+        @media only screen and (max-device-width: 640px) {
+            .contentMainTable {
+                width: 100% !important;
+                margin: auto !important;
+            }
+            .single-column {
+                width: 100% !important;
+                margin: auto !important;
+            }
+            .multi-column {
+                width: 100% !important;
+                margin: auto !important;
+            }
+        }
+        @media only screen and (max-width: 640px) {
+            .contentMainTable {
+                width: 100% !important;
+                margin: auto !important;
+            }
+            .single-column {
+                width: 100% !important;
+                margin: auto !important;
+            }
+            .multi-column {
+                width: 100% !important;
+                margin: auto !important;
+            }
+        }
+    </style>
+    <!--[if mso | IE]>
+<style>
+=2Ebutton-QrI2T1RcVJixSBo7AHkzC { padding: 16px 40px; };
+=2Ebutton-QrI2T1RcVJixSBo7AHkzC a { margin: -16px -40px; }; </style>
+<![endif]-->
+
+<!--[if mso | IE]>
+    <style>
+        .list-block-outlook-outside-left {
+            margin-left: -18px;
+        }
+
+        .list-block-outlook-outside-right {
+            margin-right: -18px;
+        }
+
+        a:link=2C span.MsoHyperlink {
+            mso-style-priority:99;
+
+    color: #96001D;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: normal;
+
+        }
+    </style>
+<![endif]-->
+
+
+<style type=3D"text/css">
+    table .button-td a=2C
+    table p=2C
+    table li {
+      -ms-word-break: break-word;
+      word-break: break-word !important;
+    }
+</style>
+
+
+    </head>
+
+    <body width=3D"100%" style=3D"margin: 0; padding: 0 !important; mso-li=
+ne-height-rule: exactly; background-color: #F5F6F8;">
+        <center role=3D"article" aria-roledescription=3D"email" lang=3D"en=
+" style=3D"width: 100%; background-color: #F5F6F8;">
+            <!--[if mso | IE]>
+            <table role=3D"presentation" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" id=3D"body_table" width=3D"100%" style=3D"background-color=
+: #F5F6F8;">
+            <tbody>
+                <tr>
+                    <td>
+                    <![endif]-->
+                        <table align=3D"center" role=3D"presentation" cell=
+spacing=3D"0" cellpadding=3D"0" border=3D"0" width=3D"640" style=3D"margin=
+: auto;" class=3D"contentMainTable">
+                            <tr class=3D"wp-block-editor-spacerblock-v1"><=
+td style=3D"background-color:#F5F6F8;line-height:50px;font-size:50px;width=
+:100%;min-width:100%">&nbsp;</td></tr><tr class=3D"wp-block-editor-imagebl=
+ock-v1"><td style=3D"background-color:#FFFCE9;padding-top:25px;padding-bot=
+tom:25px;padding-left:25px;padding-right:25px" align=3D"center"><table ali=
+gn=3D"center" width=3D"100%" style=3D"width:100%;border-spacing:0;border-c=
+ollapse:collapse;max-width:100%" role=3D"presentation"><tbody><tr align=3D=
+"center"><td style=3D"padding:0"><a href=3D"https://outlook.us17.list-mana=
+ge.com/track/click?u=3D68da015d2294065f3b34df90f&id=3D4cf9d31aa6&e=3D065ce33c9d"><img src=3D"https://api.smtprelay.co/userfile/d2e0a63f-59d1-409b-8=
+277-808b3c5ddfeb/7f832ac102c51ca119fb10f247cd8532_original.jpg" width=3D"5=
+90" height=3D"" alt=3D"" style=3D"border-radius:0px;display:block;height:a=
+uto;width:100%;max-width:100%;border:0" class=3D"g-img"></a></td></tr></tb=
+ody></table></td></tr><tr class=3D"wp-block-editor-paragraphblock-v1"><td=
+ valign=3D"top" style=3D"padding:0px 32px 1px 32px;background-color:#FFFCE=
+9;word-break:normal;hyphens:auto;-webkit-hyphens:auto;-ms-hyphens:auto"><p=
+ class=3D"paragraph" style=3D"font-family:Open Sans=2C sans-serif;text-ali=
+gn:center;line-height:32.00px;font-size:16px;margin:0;color:#1f1f1f;word-b=
+reak:normal"><span style=3D"font-weight: bold" class=3D"bold">The first ga=
+rment that tracks your sleep.</span></p></td></tr><tr class=3D"wp-block-ed=
+itor-buttonblock-v1" align=3D"center"><td style=3D"background-color:#FFFCE=
+9;padding-top:20px;padding-right:20px;padding-bottom:20px;padding-left:20p=
+x;width:100%" valign=3D"top"><table role=3D"presentation" cellspacing=3D"0=
+" cellpadding=3D"0" class=3D"button-table"><tbody><tr><td valign=3D"top" c=
+lass=3D"button-QrI2T1RcVJixSBo7AHkzC button-td button-td-primary" style=3D=
+"cursor:pointer;border:none;border-radius:5px;background-color:#5448a3;fon=
+t-size:16px;font-family:Open Sans=2C sans-serif;width:fit-content;directio=
+n:ltr;text-decoration:none;color:#FFFCE9;overflow:hidden"><a style=3D"colo=
+r:#FFFCE9;display:block;padding:16px 40px 16px 40px" href=3D"https://outlo=
+ok.us17.list-manage.com/track/click?u=3D68da015d2294065f3b34df90f&id=3D1fc=
+adb28c4&e=3D065ce33c9d">ORDER ON KICKSTARTER NOW!</a></td></tr></tbody></=
+table></td></tr><tr><td valign=3D"top" align=3D"center" style=3D"padding:2=
+0px 20px 20px 20px;background-color:#FFFCE9"><p aria-label=3D"Unsubscribe"=
+ class=3D"paragraph" style=3D"font-family:Open Sans=2C sans-serif;text-ali=
+gn:center;line-height:22.00px;font-size:11px;margin:0;color:#1f1f1f;word-b=
+reak:normal">If you no longer wish to receive mail from us=2C you can <a c=
+lass=3D"c0c4d759-1c22-48d4-a614-785d6acaf420-6V201gHRzhDxAzaNqZiJS" href=
+=3D"{unsubscribe}" data-type=3D"mergefield" data-id=3D"c0c4d759-1c22-48d4-=
+a614-785d6acaf420-6V201gHRzhDxAzaNqZiJS" data-filename=3D"" style=3D"color=
+: #96001D; display: inline-block;" data-mergefield-value=3D"unsubscribe" d=
+ata-mergefield-input-value=3D"">unsubscribe</a>.<br></p></td></tr><tr clas=
+s=3D"wp-block-editor-paragraphblock-v1"><td valign=3D"top" style=3D"paddin=
+g:12px 12px 12px 12px;background-color:#FFFCE9;word-break:normal;hyphens:a=
+uto;-webkit-hyphens:auto;-ms-hyphens:auto"><p class=3D"paragraph" style=3D=
+"font-family:Open Sans=2C sans-serif;text-align:center;line-height:11.50px=
+;font-size:10px;margin:0;color:#1f1f1f;word-break:normal">Unable to view?=
+ Read it <a href=3D"{view}" data-type=3D"mergefield" data-id=3D"62d10d6d-b=
+252-49a7-af10-c771dbd58b15-Xzt0XJLlayJkgPI0XyMI5" data-filename=3D"" class=
+=3D"62d10d6d-b252-49a7-af10-c771dbd58b15-Xzt0XJLlayJkgPI0XyMI5" data-merge=
+field-value=3D"view" data-mergefield-input-value=3D"" style=3D"color: #960=
+01D; display: inline-block;">Online</a></p></td></tr>
+                        </table>
+                    <!--[if mso | IE]>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+            <![endif]-->
+        </center>
+                <center>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wi=
+dth=3D"100%" id=3D"canspamBarWrapper" style=3D"background-color:#FFFFFF; b=
+order-top:1px solid #E5E5E5;">
+                    <tr>
+                        <td align=3D"center" valign=3D"top" style=3D"paddi=
+ng-top:20px; padding-bottom:20px;">
+                            <table border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" id=3D"canspamBar">
+                                <tr>
+                                    <td align=3D"center" valign=3D"top" st=
+yle=3D"color:#606060; font-family:Helvetica=2C Arial=2C sans-serif; font-s=
+ize:11px; line-height:150%; padding-right:20px; padding-bottom:5px; paddin=
+g-left:20px; text-align:center;">
+                                        This email was sent to <a href=3D"=
+mailto:tnakahara@whither.jp" target=3D"_blank" style=3D"color:#404040 !importa=
+nt;">tnakahara@whither.jp</a>
+                                        <br>
+                                        <a href=3D"https://outlook.us17.li=
+st-manage.com/about?u=3D68da015d2294065f3b34df90f&id=3Db18eb0c681&e=3D065ce33c9d&c=3Ddf231eae0a" target=3D"_blank" style=3D"color:#404040 !important;"=
+><em>why did I get this?</em></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href=3D"https:=
+//outlook.us17.list-manage.com/unsubscribe?u=3D68da015d2294065f3b34df90f&i=
+d=3Db18eb0c681&t=3Db&e=3D065ce33c9d&c=3Ddf231eae0a" style=3D"color:#404040 !=
+important;">unsubscribe from this list</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href=
+=3D"https://outlook.us17.list-manage.com/profile?u=3D68da015d2294065f3b34d=
+f90f&id=3Db18eb0c681&e=3D065ce33c9d&c=3Ddf231eae0a" style=3D"color:#404040 !=
+important;">update subscription preferences</a>
+                                        <br>
+                                        LangDe &middot; Japan=2C =E3=80=92=
+151-0063 Tokyo=2C Shibuya=2C Tomigaya=2C 1 Chome=E2=88=9251=E2=88=922 =E3=
+=83=87=E3=83=A5=E3=82=AA=E3=83=91=E3=83=BC=E3=82=AF=E3=83=93=E3=83=AB M=E3=
+=82=B5=E3=82=A4=E3=83=89B1F &middot; Shibuya=2C 13 151-0052 &middot; Japan
+                                        <br>
+                                        <br>
+
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <style type=3D"text/css">
+                    @media only screen and (max-width: 480px){
+                        table#canspamBar td{font-size:14px !important;}
+                        table#canspamBar td a{display:block !important; ma=
+rgin-top:10px !important;}
+                    }
+                </style>
+            </center><div style=3D"display:none;"><img src=3D"https://outl=
+ook.us17.list-manage.com/track/open.php?u=3D68da015d2294065f3b34df90f&id=
+=3Ddf231eae0a&e=3D065ce33c9d" height=3D"1" width=3D"1" style=3D"display:n=
+one;" alt=3D""></div></body>
+</html>
+--_----------=_MCPart_277854058--
+

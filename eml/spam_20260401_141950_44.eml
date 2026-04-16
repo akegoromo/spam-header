@@ -1,0 +1,402 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:b90c:0:b0:261:85fe:9a8 with SMTP id a12csp209085eiy;
+        Tue, 31 Mar 2026 22:19:58 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AJvYcCVWouWgF6P4fTZYHd1YSMhORj72So20FNdIkQ48EeDjbWJUsybJYYn8KqGWSK2JVF8JQrDgaf0XyZsO9ZBeUA==@gmail.com
+X-Received: by 2002:a17:902:db0a:b0:2b0:af2f:b26e with SMTP id d9443c01a7336-2b269c580b5mr20923565ad.28.1775020798063;
+        Tue, 31 Mar 2026 22:19:58 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1775020798; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=SBaQ2N5Bf2wtWVY0nId07d7oa6AYYdrsBLwQbsSrsESEMnvY9ke6RvtOCJlxDwq/6G
+         ttJPJ45FMt7ARpeBzLsbqqIegsGlHv3kD5UO+2KowGEd2wYr+Fk6VjNOfQ7RhQohGyuo
+         z/dFW/lNLmtHH03HV1ClymvaDc1xgakVEUjn5O3b29R8Xcg6ojCN1MoxEzSO1/h+0b1U
+         TvFhfdgyKMdQzQPP2CyPIckmDyZOkfh683+2wLKJAtK7CogZj3kM/c10ZetbDxg0kv8m
+         VDmIwQk+F/M7vcEBE9t2xb+YWo7nuhrAymwlVAL07qM7wCRXR5Gc0RMOIQpUP7ARt1uk
+         lG2w==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=feedback-id:mime-version:date:message-id:subject:reply-to:to:from
+         :list-unsubscribe:dkim-signature:dkim-signature:dkim-signature
+         :dkim-signature;
+        bh=DT0A95D2XYUiUbnGZyST3xTNlhYM7vfeJoy6W4SdSrs=;
+        fh=AmwUtjvAn7++NEBttiaVEnyCAVA5youKb81rEHZT4FM=;
+        b=kLCAbrgjHloEnimDYURHYwcLkKzLa9QXDEnLunq3BDybUSfpF3yS7NkG6Df4fRThk1
+         icAKlLwubrPHblCiG9D3E/DyIGBo2cD/VWc2JZxtzMMduDTUiJfLHO1aGtmK4uXbtVkA
+         tyu25CgRHmg/AH+BM9FAxFF+CwQ0tT6xXboBkZ2cKRrimg7IC0F61JQSZGTAaH0Y6OUj
+         ffB83K41pWQOajXn3J487F5LT6ClprHSsF4inE+rlaWV7tXIOq2ty5jMCflrcgm29yM2
+         AkxlO/eKgWX5cmRy0132VlxcHc4o7gKevMghmYTWI/Y3aMQYW7j5MfT4YWlysjVdw7ke
+         rxUQ==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=YYBf2FDM;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=fuGTwb4a;
+       dkim=pass header.i=@giduct.io header.s=resend header.b=OyNKIwjw;
+       dkim=pass header.i=@amazonses.com header.s=suwteswkahkjx5z3rgaujjw4zqymtlt2 header.b=LrE1aSxi;
+       arc=pass (i=1 spf=pass spfdomain=send.giduct.io dkim=pass dkdomain=giduct.io dkim=pass dkdomain=amazonses.com dmarc=pass fromdomain=giduct.io);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.43 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=giduct.io
+Return-Path: <cfbounces+ndrdrop@whither.jp>
+Received: from ba-ed.cloudflare-email.net (ba-ed.cloudflare-email.net. [104.30.10.43])
+        by mx.google.com with ESMTPS id d9443c01a7336-2b26ec19480si8157445ad.97.2026.03.31.22.19.55
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 31 Mar 2026 22:19:58 -0700 (PDT)
+Received-SPF: pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.43 as permitted sender) client-ip=104.30.10.43;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=YYBf2FDM;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=fuGTwb4a;
+       dkim=pass header.i=@giduct.io header.s=resend header.b=OyNKIwjw;
+       dkim=pass header.i=@amazonses.com header.s=suwteswkahkjx5z3rgaujjw4zqymtlt2 header.b=LrE1aSxi;
+       arc=pass (i=1 spf=pass spfdomain=send.giduct.io dkim=pass dkdomain=giduct.io dkim=pass dkdomain=amazonses.com dmarc=pass fromdomain=giduct.io);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.43 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=giduct.io
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Feedback-ID:Date:Subject:Reply-To:To:From:List-Unsubscribe:cc
+	:resent-date:resent-from:resent-to:resent-cc:in-reply-to:references
+	:list-id:list-help:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1775020797; x=1775625597; bh=DT0A95D2XYUiUbnGZy
+	ST3xTNlhYM7vfeJoy6W4SdSrs=; b=YYBf2FDMuSWW5UmLLL1S86ohmW3lg6kAUfhAUy+bCjcPq
+	+iXJJR8hLarzSUT84BfvLvZYUMZ8e6Y0lb/g4S0NzKhlVKCTkO5Scj0W0xDNrI2LnGf/SvLmB+d
+	9T3mIx7jyNzRk7FOKEVhBaJsWQH3+gYNczp28tysiIASSXYNF/tAgVKq8IyXE4KcnwaCfuiZHf4
+	Lgif4Nzt2Jhw1QesyckjXlzzPVlr5d/kpIuPV7s9k+hlVw18/CVOTUkQe+VvHPbzBfDonsJ2mau
+	gglrh52v2vkE3muhtvpUvtzb5cx4/D/5utce+AvGy8rq0dcztShRGWGyCXfGUx2RMQbR2B4A==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Feedback-ID:Date:Subject:Reply-To:To:From:List-Unsubscribe:cc
+	:resent-date:resent-from:resent-to:resent-cc:in-reply-to:references
+	:list-id:list-help:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1775020797; x=1775625597; bh=DT0A95D2XYUiUbnGZy
+	ST3xTNlhYM7vfeJoy6W4SdSrs=; b=fuGTwb4apuXdI7tiOY0/pK8PU5Jnq4DFnbyeiqE/8FGNi
+	Z0ozriBl6ca3M94y67drVU8/YGHtnu756KCVl/gJNTQnm9s9JPkfD5un0kyIByFntD2RK6pSvZ0
+	8dyYv7K+o2MpFDUtN3GENGMVs6zjIqd8k9MN5ixfl+pulPe/hJcYX7LpNt350Vhusm5PBLXMmjZ
+	cGxD0Mh3L+12sUfHbm2HB/vLoJ+8CYTnfSwxttbq/9jxhyroKhPKHLKAo9KWtGqJ65nt9qwdrH8
+	Evr9pjpbTUZiudoFp1UMoxsmALuk4IL1eu+vnE83P5wKbFNyY7TRRk+vMK4WcuSvKa0G70fw==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: tnakahara@whither.jp silver.firefox+whither-jp@gmail.com
+Received: from e234-51.smtp-out.ap-northeast-1.amazonses.com (23.251.234.51)
+        by cloudflare-email.net (cloudflare) id MAdZuVxuKaPF
+        for <tnakahara@whither.jp>; Wed, 01 Apr 2026 05:19:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=PEZGok5G9PHjTjzp3Du6LZHj5lVXKXTuHfjSsxbgeE5DEqf1pzqnYlo4kvcQLCykHmn7K5wfS
+	tQzXMXUiXMqkCZO4bLts0aPdRAPDzV8LbqId+s5fEA8WuzNJtlTeS8i4+rr0PRWZzhcvLOhhE61
+	3OjUIHPWfgYp8f6PoVaWQDH+HaKYKNk+OBrM+xmxx4uXV6QPvGOIJLqqimtv8H22cxClKgctDLG
+	NWYBp6P1FMPsKiJ9ftDxHAPjOU1ndecZQrQsg0PrWeNWjaGrKRJrCPT02CL0orscvEUpabx9VWT
+	0NaSecJCslyymk4l85gAGz0Ph2ktXbXQVGWHa+7GCZxw==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:Reply-To:To:From:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1775020793; x=1775625593; bh=DT0A95D2
+	XYUiUbnGZyST3xTNlhYM7vfeJoy6W4SdSrs=; b=GSZE+sg1USrAHD+rCwmmjFt88i4be9/CsEs
+	enH4oC/aQ3e/iYOq9NHzwJxk9n/bUW4/7PdupLZGLhyaPswrw2uVLxCWlV4yrkMJjmLVJz4WWBs
+	GunKzTzMlZOl2U/nQeU+wMx1Oytiop7Bdn2rDn6+lKxTiUdcZxNavgE9geeJsaAXuDW+e6Qsdnv
+	UL28daJfM0DCgN08Y5WalL+oZEzQHWC2zcAAXm/evh3jS7FrjigkC0s0bdJONdmmeteB32ig6EG
+	Qp8Wo1sL4Fz7ttUR1xZud7k+SRXhJpw6ubNZVAcuNUM2Oc3en8bEQsDLq0RLm2nqXsyk17Rm1w8
+	iGARZJQ==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.d=giduct.io header.s=resend header.b=OyNKIwjw;
+	dkim=pass header.d=amazonses.com header.s=suwteswkahkjx5z3rgaujjw4zqymtlt2 header.b=LrE1aSxi;
+	dmarc=pass header.from=giduct.io policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@e234-51.smtp-out.ap-northeast-1.amazonses.com designates 23.251.234.51 as permitted sender) smtp.helo=e234-51.smtp-out.ap-northeast-1.amazonses.com;
+	spf=pass (mx.cloudflare.net: domain of 0106019d477bd378-4d6b8c8e-2bde-4889-baa7-7629c682adbb-000000@send.giduct.io designates 23.251.234.51 as permitted sender) smtp.mailfrom=0106019d477bd378-4d6b8c8e-2bde-4889-baa7-7629c682adbb-000000@send.giduct.io;
+	arc=none smtp.remote-ip=23.251.234.51
+Received-SPF: pass (mx.cloudflare.net: domain of 0106019d477bd378-4d6b8c8e-2bde-4889-baa7-7629c682adbb-000000@send.giduct.io designates 23.251.234.51 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=23.251.234.51; envelope-from="0106019d477bd378-4d6b8c8e-2bde-4889-baa7-7629c682adbb-000000@send.giduct.io"; helo=e234-51.smtp-out.ap-northeast-1.amazonses.com;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.d=giduct.io header.s=resend header.b=OyNKIwjw;
+	dkim=pass header.d=amazonses.com header.s=suwteswkahkjx5z3rgaujjw4zqymtlt2 header.b=LrE1aSxi;
+	dmarc=pass header.from=giduct.io policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@e234-51.smtp-out.ap-northeast-1.amazonses.com designates 23.251.234.51 as permitted sender) smtp.helo=e234-51.smtp-out.ap-northeast-1.amazonses.com;
+	spf=pass (mx.cloudflare.net: domain of 0106019d477bd378-4d6b8c8e-2bde-4889-baa7-7629c682adbb-000000@send.giduct.io designates 23.251.234.51 as permitted sender) smtp.mailfrom=0106019d477bd378-4d6b8c8e-2bde-4889-baa7-7629c682adbb-000000@send.giduct.io;
+	arc=none smtp.remote-ip=23.251.234.51
+X-CF-SpamH-Score: 1
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple; s=resend;
+	d=giduct.io; t=1775020790;
+	h=List-Unsubscribe:From:To:Reply-To:Subject:Message-ID:Date:MIME-Version:Content-Type;
+	bh=gDcND/Smfm+dUIl5l0LACakh8Jz3f8KYOkucKMEEPZs=;
+	b=OyNKIwjwjzbwLJBoOtsz45ClUeQKR+8rpwNGRpmkbUNFBxrg19eKFQV+SJPv3OrP
+	rkFKqZKVUBGTvGmMB4VHp3zRRZnNdOZQoGHJjA19uBi0HXkCgkDKXLI8N2Pcb1vk0FQ
+	pjaQWjpCDFTcRznE7VD8hnGVI4uAipf7XbU5hZXw=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=suwteswkahkjx5z3rgaujjw4zqymtlt2; d=amazonses.com; t=1775020790;
+	h=List-Unsubscribe:From:To:Reply-To:Subject:Message-ID:Date:MIME-Version:Content-Type:Feedback-ID;
+	bh=gDcND/Smfm+dUIl5l0LACakh8Jz3f8KYOkucKMEEPZs=;
+	b=LrE1aSxiO+qBYkMRmRIM6koZBUVbeilXoMrXshCKUd1T99quA5tbAcCBaGpuzGR6
+	hfEFmNahDRFI2PgCfHWOVIUAG09Sy3KCB+VQhpg+Hk8ut5VKihJwve3Tvron7RtH9rZ
+	2VFMIgB8PCKeM3gW1E0FE+7Z7JgO9vVl5ogE4Nqs=
+List-Unsubscribe: <mailto:info@giduct.io?subject=unsubscribe>
+From: =?UTF-8?B?44K74oCM44K+44Oz44Kr5LiA44OJ?= <info@giduct.io>
+To: tnakahara@whither.jp
+Reply-To: info@giduct.io
+Subject: =?UTF-8?B?44K74oCM44K+44Oz44Kr5LiA44OJ44Od4oCM44Kk?=
+ =?UTF-8?B?44Oz44OI44Gu5aSx4oCM5Yq55LqI4oCM5a6a44Gr?=
+ =?UTF-8?B?44Gk44GE44Gm?=
+Message-ID: <0106019d477bd378-4d6b8c8e-2bde-4889-baa7-7629c682adbb-000000@ap-northeast-1.amazonses.com>
+Date: Wed, 1 Apr 2026 05:19:50 +0000
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--_NmP-c7a2b90f90351153-Part_1"
+Feedback-ID: :1.ap-northeast-1.ItY8LLn503G9HleC1q7wRAPfMpOG6hvM0hqotLAhy45gfvkQMvoVzJdKoWqNg4FYAe6ZK/eTdMaxqumaxG56bBOXfSAT8VqV6VM70voBj/WK/JOmxNAslNFek+/GwNXOuzlKNX25YMvAoKzUXTk0IG+ewx2uCLP7jkxq41djf1En4rgB7Ufr9IVy8zur6EuB:1.ap-northeast-1.tL27A1JIpKR2Y51a8BkHZBekDcSR82jwOhKrSwgRw2U=:AmazonSES
+X-SES-Outgoing: 2026.04.01-23.251.234.51
+
+----_NmP-c7a2b90f90351153-Part_1
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: base64
+
+44CQ6YeN4oCM6KaB44CR44K74oCM44K+44Oz44Kr5LiA44OJ44Od4oCM44Kk44Oz44OI5pyJ4oCM
+5Yq55pyf4oCM6ZmQ44GM6L+r4oCM44Gj44Gm44GE44G+44GZ772c44GK5pep4oCM44KB44Gr44GU
+5Yip4oCM55So44GP44Gg44GV44GECiAgICAKICAgIAogICAgCiAgICAKICAgICAgICAKICAgIAoK
+ICAgIAogICAgCiAgICAgICAgCiAgICAgICAgICAgIAogICAgICAgICAgICAgICAgCiAgICAgICAg
+ICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAoKICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIAoKICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICDjgJDph43opoHjgJHjgrvigIzjgr7jg7PjgqvkuIDjg4njg53igIzjgqTjg7Pjg4jmnInigIzl
+irnmnJ/igIzpmZDjgYzov6vigIzjgaPjgabjgYTjgb7jgZkKICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAKCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAKCiAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAg44GE44Gk44KC44K74oCM44K+44Oz44Kr5LiA44OJ
+44KS44GU5Yip4oCM55So44GE44Gf44Gg44GN44CB6Kqg4oCM44Gr44GC44KK44GM44Go44GG44GU
+44GW44GE44G+44GZ44CCCgrjgYrlrqLigIzmp5jjgYzjgYrmjIHigIzjgaHjga4KICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAg44K74oCM44K+44Oz44Kr5LiA44OJ44Od4oCM44Kk
+44Oz44OI44Gu5LiA4oCM6YOo44GM44G+44KC44Gq44GP5pyJ4oCM5Yq55pyf4oCM6ZmQ44KS6L+O
+4oCM44GI44G+44GZ44CCCuacieKAjOWKueacn+KAjOmZkOOCkumBjuKAjOOBjuOBvuOBmeOBqOOA
+geacquKAjOS9v+eUqOWIhuOBruODneKAjOOCpOODs+ODiOOBr+iHquKAjOWLleeahOOBq+WkseKA
+jOWKueOBhOOBn+OBl+OBvuOBmeOAggogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAoK
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIAoKICAgICAgICAgICAgICAgICAgICAgICAgICAg
+IAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAog
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICDilqAKICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIOWkseKAjOWKueS6iOKAjOWumuODneKA
+jOOCpOODs+ODiOaVsAoKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIDgsOTIw44Od4oCM44Kk44Oz44OICgrilqAg5aSx4oCM5Yq55LqI4oCM5a6a5pel
+CgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMjAy
+NuW5tDA05pyIMuaXpQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAKCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCgogICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAoKICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIAoKICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICDjgrvigIzjgr7jg7PjgqvkuIDjg4njg53igIzjgqTjg7Pjg4jjga/ku6XigIzkuIvj
+ga7nlKjigIzpgJTjgavjgZTliKnigIznlKjjgYTjgZ/jgaDjgZHjgb7jgZnvvJoKCuODu+iri+KA
+jOaxgumHkeKAjOmhjeOBuOOBruWFheKAjOW9kwrjg7vQkG3QsHrQvm7jgq7igIzjg5Xjg4jliLgK
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgLyDmpb3igIzlpKlFZHkgLyBU44Od
+4oCM44Kk44Oz44OI44Gq44Gp5ZCE4oCM56iu44Od4oCM44Kk44Oz44OI5Lqk4oCM5o+bCuODu+iI
+quKAjOepuuS8muKAjOekvuODnuOCpOODrOS4gOOCuOS6pOKAjOaPmwrjg7vjgrvigIzjgr7jg7Pj
+grDjg6vkuIDjg5fllYbigIzlk4HkuqTigIzmj5sg44Gq44GpIAoKICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIAoKICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAg5LuK4oCM44GZ44GQ44Od4oCM44Kk44Oz44OI44KS5Yip4oCM
+55So44GZ44KLCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+IAoKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKCiAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCgogICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgCgogICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIOKAu+acieKAjOWKueacn+KAjOmZkOOCkumBjuKAjOOBjuOBn+ODneKAjOOCpOODs+ODiOOB
+ruWGjeKAjOeZuuihjOOBr+OBp+OBjeOBvuOBm+OCk+OAggrigLvkuqTigIzmj5vlrozigIzkuobj
+gb7jgafjgavjgYrmmYLigIzplpPjgYzjgYvjgYvjgovloLTigIzlkIjjgYzjgZTjgZbjgYTjgb7j
+gZnjgIIKCuagquKAjOW8j+S8muKAjOekvuOCu+KAjOOCvuODs+aDheKAjOWgseOCt+OCueKAjOOD
+huODoOOCug==
+----_NmP-c7a2b90f90351153-Part_1
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML lang=3Dja>
+
+<HEAD>
+    <TITLE>=E3=80=90=E9=87=8D=E2=80=8C=E8=A6=81=
+=E3=80=91=E3=82=BB=E2=80=8C=E3=82=BE=E3=83=B3=E3=82=AB=E4=B8=80=E3=83=89=
+=E3=83=9D=E2=80=8C=E3=82=A4=E3=83=B3=E3=83=88=E6=9C=89=E2=80=8C=E5=8A=B9=
+=E6=9C=9F=E2=80=8C=E9=99=90=E3=81=8C=E8=BF=AB=E2=80=8C=E3=81=A3=E3=81=A6=
+=E3=81=84=E3=81=BE=E3=81=99=EF=BD=9C=E3=81=8A=E6=97=A9=E2=80=8C=E3=82=81=
+=E3=81=AB=E3=81=94=E5=88=A9=E2=80=8C=E7=94=A8=E3=81=8F=E3=81=A0=E3=81=95=
+=E3=81=84</TITLE>
+    <META content=3D"text/html; charset=3DUTF-8" =
+http-equiv=3DContent-Type>
+    <META name=3Dviewport =
+content=3D"width=3Ddevice-width, initial-scale=3D1.0">
+    <META name=3DGENERATOR content=3D"MSHTML 11.00.10570.1001">
+    <STYLE type=3Dtext/css>
+        <!--
+        -->
+    </STYLE>
+</HEAD>
+
+<BODY style=3D"PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; =
+MARGIN: 0px; PADDING-RIGHT: 0px" bgColor=3D#f4f6f8>
+    <!-- =E5=A4=96=E6=9E=A0 -->
+    <TABLE cellSpacing=3D0 cellPadding=3D0 =
+width=3D"100%" bgColor=3D#f4f6f8 border=3D0>
+        <TBODY>
+            <TR>
+                <TD align=3Dcenter><!-- =
+=E3=83=A1=E3=82=A4=E3=83=B3=E3=82=B3=E3=83=B3=E3=83=86=E3=83=8A -->
+                    <TABLE style=3D"MARGIN: 30px 0px" cellSpacing=3D0 =
+cellPadding=3D0 width=3D600 bgColor=3D#ffffff border=3D0>
+                        <TBODY><!-- =E3=83=AD=E3=82=B4=E9=A2=A8=E3=83=98=
+=E3=83=83=E3=83=80=E3=83=BC -->
+                            <TR>
+                                <TD style=3D"PADDING-BOTTOM: 10px; =
+PADDING-TOP: 20px; PADDING-LEFT: 30px; PADDING-RIGHT: 30px"
+                                    align=3Dleft><IMG =
+alt=3D=E3=82=BB=E2=80=8C=E3=82=BE=E3=83=B3=E3=82=AB=E4=B8=80=E3=83=89
+                                        src=3D"https://hgmuez.com/saison/i4=
+.svg"
+                                        width=3D120> </TD>
+                            </TR><!-- =E3=82=BF=E3=82=A4=E3=83=88=E3=83=AB =
+-->
+                            <TR>
+                                <TD
+                                    style=3D"FONT-SIZE: 15px; FONT-WEIGHT: =
+bold; COLOR: rgb(51,51,51); PADDING-BOTTOM: 10px; PADDING-TOP: 10px; =
+PADDING-LEFT: 30px; PADDING-RIGHT: 30px">
+                                 =
+   =E3=80=90=E9=87=8D=E8=A6=81=E3=80=91=E3=82=BB=E2=80=8C=E3=82=BE=
+=E3=83=B3=E3=82=AB=E4=B8=80=E3=83=89=E3=83=9D=E2=80=8C=E3=82=A4=E3=83=B3=
+=E3=83=88=E6=9C=89=E2=80=8C=E5=8A=B9=E6=9C=9F=E2=80=8C=E9=99=90=E3=81=8C=
+=E8=BF=AB=E2=80=8C=E3=81=A3=E3=81=A6=E3=81=84=E3=81=BE=E3=81=99
+                                </TD>
+                            </TR><!--=
+ =E6=9C=AC=E6=96=87 -->
+                            <TR>
+                                <TD
+                                    =
+style=3D"FONT-SIZE: 14px; COLOR: rgb(68,68,68); PADDING-BOTTOM: 10px; =
+PADDING-TOP: 10px; PADDING-LEFT: 30px; LINE-HEIGHT: 1.8; PADDING-RIGHT: =
+30px">
+                                    =E3=81=84=E3=81=A4=E3=82=82=
+=E3=82=BB=E2=80=8C=E3=82=BE=E3=83=B3=E3=82=AB=E4=B8=80=E3=83=89=E3=82=92=
+=E3=81=94=E5=88=A9=E2=80=8C=E7=94=A8=E3=81=84=E3=81=9F=E3=81=A0=E3=81=8D=
+=E3=80=81=E8=AA=A0=E2=80=8C=E3=81=AB=E3=81=82=E3=82=8A=E3=81=8C=E3=81=A8=
+=E3=81=86=E3=81=94=E3=81=96=E3=81=84=E3=81=BE=E3=81=99=E3=80=82<BR><BR>=
+=E3=81=8A=E5=AE=A2=E2=80=8C=E6=A7=98=E3=81=8C=E3=81=8A=E6=8C=81=E2=80=8C=
+=E3=81=A1=E3=81=AE
+                                    =
+<B>=E3=82=BB=E2=80=8C=E3=82=BE=E3=83=B3=E3=82=AB=E4=B8=80=E3=83=89=
+=E3=83=9D=E2=80=8C=E3=82=A4=E3=83=B3=E3=83=88=E3=81=AE=E4=B8=80=E2=80=8C=
+=E9=83=A8=E3=81=8C=E3=81=BE=E3=82=82=E3=81=AA=E3=81=8F=E6=9C=89=E2=80=8C=
+=E5=8A=B9=E6=9C=9F=E2=80=8C=E9=99=90=E3=82=92=E8=BF=8E=E2=80=8C=E3=81=88=
+=E3=81=BE=E3=81=99=E3=80=82</B><BR>=E6=9C=89=E2=80=8C=E5=8A=B9=E6=9C=9F=
+=E2=80=8C=E9=99=90=E3=82=92=E9=81=8E=E2=80=8C=E3=81=8E=E3=81=BE=E3=81=99=
+=E3=81=A8=E3=80=81=E6=9C=AA=E2=80=8C=E4=BD=BF=E7=94=A8=E5=88=86=E3=81=AE=
+=E3=83=9D=E2=80=8C=E3=82=A4=E3=83=B3=E3=83=88=E3=81=AF=E8=87=AA=E2=80=8C=
+=E5=8B=95=E7=9A=84=E3=81=AB=E5=A4=B1=E2=80=8C=E5=8A=B9=E3=81=84=E3=81=9F=
+=E3=81=97=E3=81=BE=E3=81=99=E3=80=82
+                                </TD>
+                            </TR><!-- =E6=83=85=E5=A0=B1=E3=83=9C=
+=E3=83=83=E3=82=AF=E3=82=B9 -->
+                            <TR>
+                                <TD
+                                    =
+style=3D"PADDING-BOTTOM: 20px; PADDING-TOP: 20px; PADDING-LEFT: 30px; =
+PADDING-RIGHT: 30px">
+                                    <TABLE =
+cellSpacing=3D0 cellPadding=3D10 width=3D"100%" bgColor=3D#f9fafb =
+border=3D0>
+                                        <TBODY>
+                                            <TR>
+                          =
+                      <TD style=3D"FONT-SIZE: 14px; LINE-HEIGHT: 1.=
+6">=E2=96=A0
+                                                    =
+=E5=A4=B1=E2=80=8C=E5=8A=B9=E4=BA=88=E2=80=8C=E5=AE=9A=E3=83=9D=E2=80=8C=
+=E3=82=A4=E3=83=B3=E3=83=88=E6=95=B0<BR>
+                                  =
+                  <FONT color=3D#d70000><B>8,920=E3=83=9D=E2=80=8C=
+=E3=82=A4=E3=83=B3=E3=83=88</B></FONT><BR><BR>=E2=96=A0 =
+=E5=A4=B1=E2=80=8C=E5=8A=B9=E4=BA=88=E2=80=8C=E5=AE=9A=E6=97=A5<BR>
+                                                    <FONT =
+color=3D#d70000><B>2026=E5=B9=B404=E6=9C=882=E6=97=A5</B></FONT>
+                                                </TD>
+                                            </TR>
+                         =
+               </TBODY>
+                                    </TABLE>
+                                </TD>
+                            </TR><!--=
+ =E5=88=A9=E7=94=A8=E6=A1=88=E5=86=85 -->
+                            <TR>
+                                <TD
+                                    =
+style=3D"FONT-SIZE: 14px; COLOR: rgb(68,68,68); PADDING-BOTTOM: 10px; =
+PADDING-TOP: 10px; PADDING-LEFT: 30px; LINE-HEIGHT: 1.8; PADDING-RIGHT: =
+30px">
+                                    =E3=82=BB=E2=80=8C=E3=82=BE=
+=E3=83=B3=E3=82=AB=E4=B8=80=E3=83=89=E3=83=9D=E2=80=8C=E3=82=A4=E3=83=B3=
+=E3=83=88=E3=81=AF=E4=BB=A5=E2=80=8C=E4=B8=8B=E3=81=AE=E7=94=A8=E2=80=8C=
+=E9=80=94=E3=81=AB=E3=81=94=E5=88=A9=E2=80=8C=E7=94=A8=E3=81=84=E3=81=9F=
+=E3=81=A0=E3=81=91=E3=81=BE=E3=81=99=EF=BC=9A<BR><BR>=E3=83=BB=E8=AB=8B=
+=E2=80=8C=E6=B1=82=E9=87=91=E2=80=8C=E9=A1=8D=E3=81=B8=E3=81=AE=E5=85=85=
+=E2=80=8C=E5=BD=93<BR>=E3=83=BB=D0=90m=D0=B0z=D0=BEn=E3=82=AE=E2=80=8C=
+=E3=83=95=E3=83=88=E5=88=B8
+                                    / =
+=E6=A5=BD=E2=80=8C=E5=A4=A9Edy / T=E3=83=9D=E2=80=8C=E3=82=A4=E3=83=B3=
+=E3=83=88=E3=81=AA=E3=81=A9=E5=90=84=E2=80=8C=E7=A8=AE=E3=83=9D=E2=80=8C=
+=E3=82=A4=E3=83=B3=E3=83=88=E4=BA=A4=E2=80=8C=E6=8F=9B<BR>=E3=83=BB=
+=E8=88=AA=E2=80=8C=E7=A9=BA=E4=BC=9A=E2=80=8C=E7=A4=BE=E3=83=9E=E3=82=A4=
+=E3=83=AC=E4=B8=80=E3=82=B8=E4=BA=A4=E2=80=8C=E6=8F=9B<BR>=E3=83=BB=
+=E3=82=BB=E2=80=8C=E3=82=BE=E3=83=B3=E3=82=B0=E3=83=AB=E4=B8=80=E3=83=97=
+=E5=95=86=E2=80=8C=E5=93=81=E4=BA=A4=E2=80=8C=E6=8F=9B =E3=81=AA=E3=81=A9 =
+</TD>
+                            </TR><!-- =E3=83=9C=E3=82=BF=E3=83=B3 -->
+                            <TR>
+                                <TD =
+style=3D"PADDING-BOTTOM: 30px; PADDING-TOP: 30px; PADDING-LEFT: 30px; =
+PADDING-RIGHT: 30px"
+                                    align=3Dcenter>
+                                    <TABLE cellSpacing=3D0 cellPadding=3D0 =
+border=3D0>
+                                        <TBODY>
+                                            <TR>
+                          =
+                      <TD style=3D"PADDING-BOTTOM: 14px; PADDING-TOP: 14px;=
+ PADDING-LEFT: 40px; PADDING-RIGHT: 40px; border-radius: 4px"
+                                                    bgColor=3D#e60000><A =
+href=3D"https://giduct.io" style=3D"text-decoration:none;"><STRONG>
+                                                            <FONT =
+color=3D#ffffff>=E4=BB=8A=E2=80=8C=E3=81=99=E3=81=90=E3=83=9D=E2=80=8C=
+=E3=82=A4=E3=83=B3=E3=83=88=E3=82=92=E5=88=A9=E2=80=8C=E7=94=A8=E3=81=99=
+=E3=82=8B</FONT>
+                                                        =
+</STRONG></A>
+                                                </TD>
+                                            </TR>
+                         =
+               </TBODY>
+                                    </TABLE>
+                                </TD>
+                            </TR><!--=
+ =E3=83=95=E3=83=83=E3=82=BF=E3=83=BC -->
+                            <TR>
+                                <TD
+                                    =
+style=3D"FONT-SIZE: 12px; COLOR: rgb(119,119,119); PADDING-BOTTOM: 20px; =
+PADDING-TOP: 20px; PADDING-LEFT: 30px; LINE-HEIGHT: 1.6; PADDING-RIGHT: =
+30px">
+                                    =E2=80=BB=E6=9C=89=E2=80=8C=
+=E5=8A=B9=E6=9C=9F=E2=80=8C=E9=99=90=E3=82=92=E9=81=8E=E2=80=8C=E3=81=8E=
+=E3=81=9F=E3=83=9D=E2=80=8C=E3=82=A4=E3=83=B3=E3=83=88=E3=81=AE=E5=86=8D=
+=E2=80=8C=E7=99=BA=E8=A1=8C=E3=81=AF=E3=81=A7=E3=81=8D=E3=81=BE=E3=81=9B=
+=E3=82=93=E3=80=82<BR>=E2=80=BB=E4=BA=A4=E2=80=8C=E6=8F=9B=E5=AE=8C=
+=E2=80=8C=E4=BA=86=E3=81=BE=E3=81=A7=E3=81=AB=E3=81=8A=E6=99=82=E2=80=8C=
+=E9=96=93=E3=81=8C=E3=81=8B=E3=81=8B=E3=82=8B=E5=A0=B4=E2=80=8C=E5=90=88=
+=E3=81=8C=E3=81=94=E3=81=96=E3=81=84=E3=81=BE=E3=81=99=E3=80=82<BR><BR>=
+=E6=A0=AA=E2=80=8C=E5=BC=8F=E4=BC=9A=E2=80=8C=E7=A4=BE=E3=82=BB=E2=80=8C=
+=E3=82=BE=E3=83=B3=E6=83=85=E2=80=8C=E5=A0=B1=E3=82=B7=E3=82=B9=E2=80=8C=
+=E3=83=86=E3=83=A0=E3=82=BA
+                                </TD>
+                            </TR>
+                        </TBODY>
+                    </TABLE>
+                </TD>
+            </TR>
+        </TBODY>
+    </TABLE>
+</BODY>
+
+</HTML>
+----_NmP-c7a2b90f90351153-Part_1--
+
