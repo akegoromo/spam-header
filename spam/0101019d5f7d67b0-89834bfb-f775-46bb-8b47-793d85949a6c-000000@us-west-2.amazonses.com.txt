@@ -1,0 +1,131 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:97d2:0:b0:261:85fe:9a8 with SMTP id e18csp1262718eic;
+        Sun, 5 Apr 2026 14:12:30 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AJvYcCVoOrR+Vz04ePjnbZ6mYWvJlBPZ90DE32VtHhTH7nEyZmfNVIaFUHnhmgCBuofMgzzE5k/vxPe2usCSDSAdBw==@gmail.com
+X-Received: by 2002:a05:6a00:bc0b:b0:82a:64c7:8c6d with SMTP id d2e1a72fcca58-82d0dacdbcemr10252661b3a.25.1775423550568;
+        Sun, 05 Apr 2026 14:12:30 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1775423550; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=DAk6mebcjeZArNDD/YzULDWuB2R8ZAXi6XPvwKoRmngA+MdxSR2ivr768T9jg/SoIZ
+         WOTH0fbJlHOr28wltDJGdXojKjLsYTfMng5rWmBimUll92YdCjkKsuW5fhFvjbAc3foa
+         7u9WWh5teUmnjLWloBz9A6VxdnmGQDLZsbk02MLGvA/EdqAiq/2wItsk3wJPONdIgJH9
+         iyR2Zz76C7Lm3NnPUOzwEVWQbZZduQXFol72ip587z6RSuBynj9GmbiNmL5z3RClR9CA
+         csRchev3rJv4ndWweMo16VPR6bFz6b0ntdPbBJKEbRnaeZ529t20kvxGrkdqlcaU2yE1
+         xJwQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=feedback-id:date:message-id:content-transfer-encoding:mime-version
+         :subject:to:from:dkim-signature:dkim-signature:dkim-signature
+         :dkim-signature;
+        bh=aidzW24Jqkl9Y6231vJ+Pk99o+ZGAf9aVxJXIRMXtsU=;
+        fh=L8gvAGOJvQyoon4TB+PCQG7s/TZWpCG8GpDllIfiBvk=;
+        b=GNGuxrd7vG5xepNM6X5r+Kd6GpG636/JUApwUrDlYqkdx9M+WXghSXjjMMn33s6Jzn
+         8yKHQ24r56ClVKd3upldcAK8qE1SMa9FJlTsjSBWPvNZCGGh/OUclnjXjyi57QCWoKFb
+         iZNkHdv/YUFp+kaVpyUfN1HunJnXsJAgiVaWQPoEVbAK1yFulydr/JolW2o8h8F/FNMT
+         dBKAZN5DsAG59I69qF3Zf3wdyA5np7gfhGhTA4wobqz7ra2NgNFBiejNSWvHSyDOgsfa
+         bBoW2gHp7wnrbiFfkaZxJb0Et83oxbyfUWsu8G8k+et+QYsebHmTYcMvI8hh5lRQt2xe
+         r4bA==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=McW1bkVP;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=GN7MdKPx;
+       dkim=pass header.i=@milleporte.com header.s=5aomnwmxe54x7nuw2bcmbmrvvx7aw6bu header.b=ETjSQX5d;
+       dkim=pass header.i=@amazonses.com header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=xn2TzbOs;
+       arc=pass (i=1 spf=pass spfdomain=us-west-2.amazonses.com dkim=pass dkdomain=milleporte.com dkim=pass dkdomain=amazonses.com dmarc=pass fromdomain=milleporte.com);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.157 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=milleporte.com
+Return-Path: <cfbounces+ndrdrop@whither.jp>
+Received: from ba-bfh.cloudflare-email.net (ba-bfh.cloudflare-email.net. [104.30.10.157])
+        by mx.google.com with ESMTPS id d2e1a72fcca58-82cf9b36307si30135508b3a.51.2026.04.05.14.12.29
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 05 Apr 2026 14:12:30 -0700 (PDT)
+Received-SPF: pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.157 as permitted sender) client-ip=104.30.10.157;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=McW1bkVP;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=GN7MdKPx;
+       dkim=pass header.i=@milleporte.com header.s=5aomnwmxe54x7nuw2bcmbmrvvx7aw6bu header.b=ETjSQX5d;
+       dkim=pass header.i=@amazonses.com header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=xn2TzbOs;
+       arc=pass (i=1 spf=pass spfdomain=us-west-2.amazonses.com dkim=pass dkdomain=milleporte.com dkim=pass dkdomain=amazonses.com dmarc=pass fromdomain=milleporte.com);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.157 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=milleporte.com
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Feedback-ID:Date:Subject:To:From:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1775423550; x=1776028350; bh=aidzW24Jqkl9Y6231v
+	J+Pk99o+ZGAf9aVxJXIRMXtsU=; b=McW1bkVPXrQ3NINWoZocc7QnAQvNCOdHPHwzkfT4Lpqs1
+	hr+Y0sljXkKdy4GIdsZ4U2nZvIlsVop/BZ7+JvNR6RTKLKkK8T271pp/ZVkCq743tpXJ0U8uhF8
+	xGtT3+c6gVdBX0FNShgLduZ0o8nicOQRxTQ7DwsEfWRZBYLRxBRRUelkY8gUYNOSLmoKLQRLrV4
+	8fnT+lX2b7zmaSOQ1rPTImKE9fiIsNsX1mLwcJQSksQunLE/dwpftHZmz5WD3AWZ26vbf9wgOo6
+	JK3XGuCu+4Q+3RmQnkUuBZlbD5I/2ACQ1XqJ4k14AtsZMHRvyFNvqFYJJ50fvhEMA7oo6buQ==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Feedback-ID:Date:Subject:To:From:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1775423550; x=1776028350; bh=aidzW24Jqkl9Y6231v
+	J+Pk99o+ZGAf9aVxJXIRMXtsU=; b=GN7MdKPxJyk3EJ+6WVomL1xjwvynHhJmulNIaP6tWHVgO
+	0l7D1hgX9jBxaf0xE+nnX2J9BdW9LXz2XBHNOC9Rbxd+OHiOpJcv8u7951to6aS4r2tMbuVzbWa
+	aQWs8XGAGZnUe2tb17+y57IyF5l/RN0biCxABKKhUPxuJA9unxbV+yi/ge9i9DZGtJo1M2QNyg2
+	Z9Ia7iDgx2uOBTr6EdWm9O3yqjj8Lo2T4cLSCs8N1vWbBoBjfKAwlirNY1gHcGlNyBva6tTCy7z
+	Ts8BJXfqF0eLdX6DHxOs/+xWrPGl1gMHWtNqudqjkSj7zxa5PLH5rjb+WKCi2lCmcVsuvswA==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: flamingo@whither.jp silver.firefox+whither-jp@gmail.com
+Received: from a27-141.smtp-out.us-west-2.amazonses.com (54.240.27.141)
+        by cloudflare-email.net (cloudflare) id DPQ2kiyALSzD
+        for <flamingo@whither.jp>; Sun, 05 Apr 2026 21:12:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=PyXYqUQqOSnLaSpcr8G+xrFYBfldjHt2v0dOxBNpMFpqu3MQ6iaO7Aq0WdngpPZk7n17p0hto
+	o60pzv5a3ocH6fj3kgdLWsBC1QlKQJ5ONxKKrWEQKG8BnkP1sztwNORq1d/AWKjg8YY/aPwl61i
+	UiFDbk2OiCre4j4694vuax6y7XUUHcnnEwv58tlcUuZR09o7USCO638lnn88lj7xb8XGel+/YPm
+	tlR697kiLh4j+tFb4fNtTnX2jReLT8R7RcwcSbgwjJSsoa4HM0zVzsQkqpoG/EHD/k8LaLrumKo
+	O6HSueiXjkAYliVXjJxjfoXRRhqISsO1eO1irMI8TnMw==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1775423549; x=1776028349; bh=aidzW24J
+	qkl9Y6231vJ+Pk99o+ZGAf9aVxJXIRMXtsU=; b=SEza3uIBIt3gS/08pc2XXVbWO3BezQBSxsY
+	Vtu0X5mg/jN0SY8OMYkLpc4TrcaseC/hLdJElq0i4+IGFmNEdtEibQi39l+7rJfej+BqTHWTa/H
+	Psjn+Olx6jDcu+tMd4hgcP5op1bVTAcaotPG1CA521I4aeyFL3mKylZyXLXcJIFMbvFbbooU6TB
+	INKYNMouLlzD4G2bUbjaI/Q6/Sj2m/VAAXusYez1ojPZwxyhRdwFaWmQDYUuoPGsPQOLOynnPyT
+	d00HFX9q0P4Mbd3YlR2VrRNCh1CmcPjIx9Et9o3da6aW7Hb9geYyurJLaIDUWii7hBVZcNn3ZlC
+	xNRmXvw==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.d=milleporte.com header.s=5aomnwmxe54x7nuw2bcmbmrvvx7aw6bu header.b=ETjSQX5d;
+	dkim=pass header.d=amazonses.com header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=xn2TzbOs;
+	dmarc=pass header.from=milleporte.com policy.dmarc=quarantine;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@a27-141.smtp-out.us-west-2.amazonses.com) smtp.helo=a27-141.smtp-out.us-west-2.amazonses.com;
+	spf=pass (mx.cloudflare.net: domain of 0101019d5f7d67b0-89834bfb-f775-46bb-8b47-793d85949a6c-000000@us-west-2.amazonses.com designates 54.240.27.141 as permitted sender) smtp.mailfrom=0101019d5f7d67b0-89834bfb-f775-46bb-8b47-793d85949a6c-000000@us-west-2.amazonses.com;
+	arc=none smtp.remote-ip=54.240.27.141
+Received-SPF: pass (mx.cloudflare.net: domain of 0101019d5f7d67b0-89834bfb-f775-46bb-8b47-793d85949a6c-000000@us-west-2.amazonses.com designates 54.240.27.141 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=54.240.27.141; envelope-from="0101019d5f7d67b0-89834bfb-f775-46bb-8b47-793d85949a6c-000000@us-west-2.amazonses.com"; helo=a27-141.smtp-out.us-west-2.amazonses.com;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.d=milleporte.com header.s=5aomnwmxe54x7nuw2bcmbmrvvx7aw6bu header.b=ETjSQX5d;
+	dkim=pass header.d=amazonses.com header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=xn2TzbOs;
+	dmarc=pass header.from=milleporte.com policy.dmarc=quarantine;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@a27-141.smtp-out.us-west-2.amazonses.com) smtp.helo=a27-141.smtp-out.us-west-2.amazonses.com;
+	spf=pass (mx.cloudflare.net: domain of 0101019d5f7d67b0-89834bfb-f775-46bb-8b47-793d85949a6c-000000@us-west-2.amazonses.com designates 54.240.27.141 as permitted sender) smtp.mailfrom=0101019d5f7d67b0-89834bfb-f775-46bb-8b47-793d85949a6c-000000@us-west-2.amazonses.com;
+	arc=none smtp.remote-ip=54.240.27.141
+X-CF-SpamH-Score: 1
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=5aomnwmxe54x7nuw2bcmbmrvvx7aw6bu; d=milleporte.com; t=1775423547;
+	h=From:To:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-ID:Date;
+	bh=aidzW24Jqkl9Y6231vJ+Pk99o+ZGAf9aVxJXIRMXtsU=;
+	b=ETjSQX5dGKGXa9nCSpOYcoSyq3ubY9DBSXpejDEMx/44kU0mNB+5Au3m3nJfeVaC
+	ZRD2K6ZRGOEczVrK+KOSsYWHkzKD3Kab7hIR26oG9uIE7zyMJSIo41lKfYUzOGJDlbP
+	YoMLeKiZ9Zb2O0Z2BdVGNga3YylKOOpkp7wnKIMw=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=hsbnp7p3ensaochzwyq5wwmceodymuwv; d=amazonses.com; t=1775423547;
+	h=From:To:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-ID:Date:Feedback-ID;
+	bh=aidzW24Jqkl9Y6231vJ+Pk99o+ZGAf9aVxJXIRMXtsU=;
+	b=xn2TzbOs/Fw7k8Kas56PS9kjIItt+QxJQZulb1XB6uYi7VK0OE7ilGMfzRl00Z01
+	YLzkgDIQ+zgeKAGUFEEyNmjULf5dkMnzOfidLiiL/+XI8/p9qQfwWxBRbNJ0CmG6VWH
+	Nf/oAfRASImpaMUCRZRo6l6ioSrYknCdoAYhVLrA=
+From: MILLEPORTE <service@milleporte.com>
+To: flamingo@whither.jp
+Subject: =?UTF-8?B?44GK6KqV55Sf5pel44GK44KB44Gn44Go44GG44GU?=
+ =?UTF-8?B?44GW44GE44G+44GZ772c44Of44Os44Od44Or44OG?=
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Message-ID: <0101019d5f7d67b0-89834bfb-f775-46bb-8b47-793d85949a6c-000000@us-west-2.amazonses.com>
+Date: Sun, 5 Apr 2026 21:12:27 +0000

@@ -1,0 +1,137 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a05:640c:730d:b0:261:85fe:9a8 with SMTP id bh13csp1467019eib;
+        Mon, 30 Mar 2026 23:36:57 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AJvYcCV5VFkNfLIq9dQBjUHHH+nakpQJSSgQR+YiVEwnC+6tWDLL6nlWCSY1Pds6b5nWzVEbDhofsVsbwSs+b31Mrw==@gmail.com
+X-Received: by 2002:a05:6000:2c13:b0:43b:4136:1e6f with SMTP id ffacd0b85a97d-43b9ea62325mr24369313f8f.38.1774939017644;
+        Mon, 30 Mar 2026 23:36:57 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1774939017; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=PvtGwO5RgmAl90Q8R1awA1EhQBPS2Y+yjwAi/FoGVRZxBTJAam+yzJhXzVJjLqMSPW
+         5xSFrlwoqUlP12mhtsqL87vnDk1TGUPO+8jsdFYDaal2BhRtshLb4CzpEnnV6TDCXSsA
+         +HO15uQpoNu2uX2c6Mrj+UCA2Q8rWHVbO/n5y8xfyOQsVKZdG/383CRy25MP2n7R0spi
+         xHGrA365XkIsiTSxqnS/Woe77RM7u4qCcsyXiJslZZRTNg/dVACEcbSqkAX72d0MytBD
+         iMnpI1vWctiCwxPLwZsT/Fm3RrnpK9T9hykqFxjgJK5J2+gZCYhRZXEolLF5DlJhAp3j
+         +wMA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:dkim-signature:dkim-signature:feedback-id:dkim-signature
+         :dkim-signature;
+        bh=qoLFKtX1/bn9jCdsAQR9OYQVJclX1XgiE0XTNFCE7Ac=;
+        fh=qiMXRaPi1E4B7pNYHv0kY8kKvWMH6z5Z6bF+8QXduDY=;
+        b=iK4r10wbqiz5ffvnDQm5vrHUSEt2G/x74pg80RHLRBD4mnIlleMhlq/885+ZItpM0S
+         t/fjEJGYw2ZmT1ocq7m/+zFbIqsuswjLcYRCqfTLoQ1eEIuGoOGAg1rS66mqowMRpYsa
+         ZI3AX0us8i3yLXFwEBHUlAPMQRNzGBSj4g7L37EaabewhkgDpOYauFTPvc6TKkcCLgzR
+         ZuKsOFhbFN+daVQbXbP4sObr1mn43mI2NLfIVBnXOhxyzTJilvSuIwnThCAc4Ituec2f
+         pdvf7fCkVFTqRjTZtCg14qCslgUdQGgFih1rbbHbrf5Sekpt7RtjgLPGM1ch4SgoD7Q3
+         Caug==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b="GR9/oaJg";
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=cJtF+YV+;
+       dkim=pass header.i=@mail38.zha-qiusu.com header.s=mail38 header.b=QJ7e01LS;
+       dkim=neutral (body hash did not verify) header.i=@mail38.zha-qiusu.com header.s=mail header.b=YyLti5C5;
+       arc=pass (i=1 spf=pass spfdomain=mail38.zha-qiusu.com dkim=pass dkdomain=mail38.zha-qiusu.com dmarc=pass fromdomain=mail38.zha-qiusu.com);
+       spf=pass (google.com: domain of srs0=kp7z=7b=mail38.zha-qiusu.com=noreply-penguin=whither.jp@whither.jp designates 104.30.10.1 as permitted sender) smtp.mailfrom="SRS0=Kp7Z=7b=mail38.zha-qiusu.com=noreply-penguin=whither.jp@whither.jp";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=mail38.zha-qiusu.com
+Return-Path: <SRS0=Kp7Z=7b=mail38.zha-qiusu.com=noreply-penguin=whither.jp@whither.jp>
+Received: from ba-b.cloudflare-email.net (ba-b.cloudflare-email.net. [104.30.10.1])
+        by mx.google.com with ESMTPS id ffacd0b85a97d-43cf2573830si19535097f8f.178.2026.03.30.23.36.55
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 30 Mar 2026 23:36:57 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=kp7z=7b=mail38.zha-qiusu.com=noreply-penguin=whither.jp@whither.jp designates 104.30.10.1 as permitted sender) client-ip=104.30.10.1;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b="GR9/oaJg";
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=cJtF+YV+;
+       dkim=pass header.i=@mail38.zha-qiusu.com header.s=mail38 header.b=QJ7e01LS;
+       dkim=neutral (body hash did not verify) header.i=@mail38.zha-qiusu.com header.s=mail header.b=YyLti5C5;
+       arc=pass (i=1 spf=pass spfdomain=mail38.zha-qiusu.com dkim=pass dkdomain=mail38.zha-qiusu.com dmarc=pass fromdomain=mail38.zha-qiusu.com);
+       spf=pass (google.com: domain of srs0=kp7z=7b=mail38.zha-qiusu.com=noreply-penguin=whither.jp@whither.jp designates 104.30.10.1 as permitted sender) smtp.mailfrom="SRS0=Kp7Z=7b=mail38.zha-qiusu.com=noreply-penguin=whither.jp@whither.jp";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=mail38.zha-qiusu.com
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1774939017; x=1775543817; bh=qoLFKtX1/bn9jCdsAQ
+	R9OYQVJclX1XgiE0XTNFCE7Ac=; b=GR9/oaJgaz0ms/DN8PlWOh0Ps/enCWkgFDNGFyLFyE6Kd
+	6esONjKnCkXwAw+JjhuYIhKGDfMHHMVPA9EQcPHpuhfjiCEnn1ydmTyO7b7bZpF8MWIPHelO7xT
+	lBOnwvj7SdnKRpNESsUrlBt8gP6BkH+tXsVxXvqi0ZNPHuoHMsXlRg4TEvUg+ra7JwC6eVqr1iH
+	GmpUgpAAcLz0eyopxEl6c5rEvjC+A5epqqxu0jTHAoJ9uz6oAupzSk69pOR1/RFQs2fpFnCEZmy
+	HKJxj7KlxZmdWaZF5Eiy4wpQzXG9V7bMuoi84cDtKdAXrUpBlk5Tl6c7lzmNWIKQIPm/i+PQ==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1774939017; x=1775543817; bh=qoLFKtX1/bn9jCdsAQ
+	R9OYQVJclX1XgiE0XTNFCE7Ac=; b=cJtF+YV+R4iIcYVEE+PJh1WQMscsc8i+XqZuTho5iHmZp
+	I4+TlIUHXK5IYB9Iiu1d86itiem4p9Hg2pLnnTdYjfVdvkks5Gm2HuPqWEpVDjxQzbzY3xz9tSY
+	GSqCXjOQApWCrd6tfli0nFwO3zodTX+XlTRsQdfLMwoj2FlrOeVhVgGJz4EWnDdh2tjD1zRXFBS
+	ELwr2MoRiSywna+PNZpYOl4uBwdsVTh/WjS6TnUruGcpC1Z5bkiay0Pcike+dEF89UghijBJss5
+	i6kD5EZnW1t9JQc9VEEP1QVkdGnn2A1tTSTgvD5bD5SRnLYjXJmIMaTl0ZvLi9aq6BlKgPXw==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: penguin@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from mail38.zha-qiusu.com (34.165.153.244)
+        by cloudflare-email.net (cloudflare) id wrv5102h3c3b
+        for <penguin@whither.jp>; Tue, 31 Mar 2026 06:36:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=J0HgaJLw3QMh4MloVNQGBdmofgPkMptfJHNyP62Xa5kfr5BJWzKYT11jWF1O8J365eUuSXMks
+	useu11NdECmvIk1PTN1FY4SAbTWOdZzFYl3sA4GObNAI6OxVJufzpeRDH9PfZilNLGrxvOJXi4n
+	gwLXy3j3DJWX2/tERm6SwJhhIkuGF/9Pj5kwAl1yRxu3r86KeHX7RoGv1COHli7O92XdnOeBMEO
+	oitIyvp/bzYkXQ/rF+S+8PafW0NqnlLsDkH54wNnykWpMP3bhryWw6XDcbsPIUD/nHwIRqDmLCJ
+	zht9z/8c/Ey2LTwXLQp1PU2J1tJGlnKybDXAF+YBKUug==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1774939014; x=1775543814; bh=qoLFKtX1
+	/bn9jCdsAQR9OYQVJclX1XgiE0XTNFCE7Ac=; b=dG1fS2xfIxQDqByi724+CbFRWtIoKr4C8zT
+	SjiKktaZiZQf765tlDpdref/4b0t1DZgogbwIsaBnlJEs979N81N7Fbxim3PR9DNIWXnutFvq4G
+	QjqbDeQlu+NAno+CLWpvUPt3rr+jgnT1sGBefsE/y5svDgZinNiFtPcJSvp9XPX+eHm7b16Z7en
+	LlrXG90t+VUZ+HmimhgI3EuJLXsUIKNNLbNsQgrzRiKEu/G9DBrba6OPY1x8YjPX6XxphhqMwUn
+	CZ8Gg4awFBCWv6qkCo9B9eaiW1VHUFSKjyHpiIGs8NjGMCSUX2PzwdNlV16PHmynLHsMn1p5T/y
+	O20Cwdw==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=noreply@mail38.zha-qiusu.com header.s=mail38 header.b=QJ7e01LS;
+	dkim=neutral (body hash did not verify) header.d=mail38.zha-qiusu.com header.s=mail header.b=YyLti5C5;
+	dmarc=pass header.from=mail38.zha-qiusu.com policy.dmarc=quarantine;
+	spf=pass (mx.cloudflare.net: domain of postmaster@mail38.zha-qiusu.com designates 34.165.153.244 as permitted sender) smtp.helo=mail38.zha-qiusu.com;
+	spf=pass (mx.cloudflare.net: domain of noreply-penguin=whither.jp@mail38.zha-qiusu.com designates 34.165.153.244 as permitted sender) smtp.mailfrom=noreply-penguin=whither.jp@mail38.zha-qiusu.com;
+	arc=none smtp.remote-ip=34.165.153.244
+Received-SPF: pass (mx.cloudflare.net: domain of noreply-penguin=whither.jp@mail38.zha-qiusu.com designates 34.165.153.244 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=34.165.153.244; envelope-from="noreply-penguin=whither.jp@mail38.zha-qiusu.com"; helo=mail38.zha-qiusu.com;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=noreply@mail38.zha-qiusu.com header.s=mail38 header.b=QJ7e01LS;
+	dkim=neutral (body hash did not verify) header.d=mail38.zha-qiusu.com header.s=mail header.b=YyLti5C5;
+	dmarc=pass header.from=mail38.zha-qiusu.com policy.dmarc=quarantine;
+	spf=pass (mx.cloudflare.net: domain of postmaster@mail38.zha-qiusu.com designates 34.165.153.244 as permitted sender) smtp.helo=mail38.zha-qiusu.com;
+	spf=pass (mx.cloudflare.net: domain of noreply-penguin=whither.jp@mail38.zha-qiusu.com designates 34.165.153.244 as permitted sender) smtp.mailfrom=noreply-penguin=whither.jp@mail38.zha-qiusu.com;
+	arc=none smtp.remote-ip=34.165.153.244
+X-CF-SpamH-Score: 1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=mail38; d=mail38.zha-qiusu.com;
+ h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type:
+ Content-Transfer-Encoding; i=noreply@mail38.zha-qiusu.com;
+ bh=qoLFKtX1/bn9jCdsAQR9OYQVJclX1XgiE0XTNFCE7Ac=;
+ b=QJ7e01LSRcU451RPlZblmfKmt9YpcslkLiJz1NNpGoL95gp4eJnjTWlYDl4W8U5xIQMgiyDEuTje
+   Y/vGZlYPw1zIEdPZ/r+enIOjvtrvh2h5D3qcJN45THXWyYuOBi2kjPZMFOG04AP0lDh1KcLvENHb
+   u20XvVqI+1geQaiHBzTB/1xK+afudjo587IwSgp3UYH2cr684kxNr54ybulnDYUF3pxnNdn63s9N
+   Z3+3DtNYh/eFvij3ZZtYQmM4k3PhbTRjGvjbtVRhrqKofRSLB4rteYEYxKFIBhv9XWy5cVGOdn/R
+   +uYJYrtgrO4TIydKpI1dsXOu/ECBd+W7uS/9fg==
+Received: from mail.f3c26d6.shiga.jp ([171.213.155.172])
+ (Authenticated sender: notification771@mail38.zha-qiusu.com)
+ by mail38.zha-qiusu.com (Mail Proxy) with ESMTPSA id GJ1EDHIP-C4AA-16C9-8FAF.9
+ for <penguin@whither.jp>;
+ TLS1_2, cipher=TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 (authenticated bits=0); Tue, 31 Mar 2026 15:34:30 +0900
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mail38.zha-qiusu.com; s=mail; t=1774938870;
+ h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+ bh=MfphYmE84mKHShFh4nV6MDt3b9OOILTYnz/7GMaAVxo=;
+ b=YyLti5C5sdtJVC2mg7Fj7tFOrXmlLxvce24nbZDx1QhwZV61qz7uA/NxbLraDok3A/VnbIIM
+   fGL5K7VSX2T8GWADI5kadO1l7+QJB3EBZK1T79cdB7baYLheY5dsfexq+6nFuPK5ha74k6ea
+   INy1SwLWQnagj2ZzfgnWw0Kz1AAARoJzFEW+wAnHQLMoaECYflam0XmGF59ACPcSXRv3ivJ7
+   onvY6J3cONaomvYGVd7jJ40OlnJshvXTYe0/Y7otj7mIy4KVC6Hc001wwwVRL80ozNVQw/wb
+   zl5Z+iYROeYzpckZg1mS0ku/+4d17mKSajR1enFoaWj/q1Zw1BOTqg==
+From: ana <noreply@mail38.zha-qiusu.com>
+To: penguin@whither.jp
+Subject: =?UTF-8?B?44CQQU5B44CR44Oe44Kk44Or5pyJ5Yq55pyf6ZmQ44Gu44GK55+l44KJ44Gb?= =?UTF-8?B?77yIMjAyNuW5tDPmnIgzMeaXpeOBvuOBp++8ie+8iQ==?=
+Date: Tue, 31 Mar 2026 15:34:30 +0900
+Message-ID: <1774938870073795014.7c163d6a8f6d@mail38.zha-qiusu.com>
