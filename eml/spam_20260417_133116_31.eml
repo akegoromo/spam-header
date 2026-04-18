@@ -1,0 +1,868 @@
+Delivered-To: silver.firefox+salvia-info@gmail.com
+Received: by 2002:a05:640c:320f:b0:261:85fe:9a8 with SMTP id g15csp116147eia;
+        Thu, 16 Apr 2026 21:31:25 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ/61AKaLrtUNAfMSZ8xQiCp79/K1WD26RNRDU4W3KSR/1Vb2TPDYj7GYiq7NZBDT2d2+8H/p7F/DCILTzbMMw==@gmail.com
+X-Received: by 2002:a05:7022:622:b0:12c:15ce:a71b with SMTP id a92af1059eb24-12c73b5c628mr389679c88.25.1776400284764;
+        Thu, 16 Apr 2026 21:31:24 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1776400284; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=Kz20DGb+IcEtbrW6HWxfqrpbdl6jqvqxjbgHAMRoqS+/HTerkBF2hmgpWqaiaZ1ehZ
+         dpyP4nXQC+7I2rysirl+NMFim434+yAUSy3Fk+D4IySEsvJIlX/e0E+MowoDSWIOVVwz
+         hVBSyg68ayuTEbFDirAohAjcAMWYzteJ0Ke5bsCfQ1A7JFFn0tGNOtI9MQQIWJQJjXt7
+         WnuU+w7p8eulph4M8YWipyvgV2+IkECi3A04ZZr9yEmIG20RBMu60AoX1JmaeyAIkpkN
+         /TGEyiUF+wbydB6tvYYOOcZpYTomtlqBa/Cf2GE2Wr0JNnkvq6rOWgT3DDjPw2oTLsFk
+         WDQQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe-post:list-unsubscribe:to:reply-to:subject
+         :message-id:mime-version:from:date:dkim-signature:feedback-id
+         :dkim-signature:dkim-signature;
+        bh=eRDQB2wHGDqqkc1yILzLVdC/r5MryJn0dvFIcKM6W+A=;
+        fh=l8GhESt5LtnadQi1unZGyEk1BOPLqjKLf8fUlGQfRAU=;
+        b=EllXcWK3UX2bMos+JcqD8ZjwdkcLYcLEAwr3PREt8peY+lZuPQ1RdnBtiIU+UBPFN7
+         NDbIsRq6L3Da9hnXo7+11hfxUDReOPRLolkMwa1jV+ZktiETjPT5rf84Z6A6BMi0ctDb
+         8zHH+r2bVpIqXf2ThiJk8cHahaY4+a/WkBNkMCNmrMWNdP7vAHYLq9hRzUeSN3ALz3Yu
+         dYVT2TJxJUw4gZ3tYOG0Pi15hsnG7yvL8hHBHtkPxa2iBeAMR3EUWH6txKXBOo5AVi1A
+         2Q6hAqask6aEm/7RrXcwqCOISUYeyMB3DP5Bp25t3BG1GoDaDlgKnlCQlHYWo1vYR629
+         GCOg==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=CL9sOga2;
+       dkim=pass header.i=@salviasplendens.info header.s=cf2024-1 header.b=CrxriltR;
+       dkim=pass header.i=@genspark.ai header.s=s1 header.b=gp1+U+IE;
+       arc=pass (i=1 spf=pass spfdomain=em9182.genspark.ai dkim=pass dkdomain=genspark.ai dmarc=pass fromdomain=genspark.ai);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@salviasplendens.info designates 104.30.8.104 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@salviasplendens.info;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=genspark.ai
+Return-Path: <cfbounces+ndrdrop@salviasplendens.info>
+Received: from i-bae.cloudflare-email.net (i-bae.cloudflare-email.net. [104.30.8.104])
+        by mx.google.com with ESMTPS id a92af1059eb24-12c74a007dbsi1244990c88.6.2026.04.16.21.31.22
+        for <silver.firefox+salvia-info@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 16 Apr 2026 21:31:24 -0700 (PDT)
+Received-SPF: pass (google.com: domain of cfbounces+ndrdrop@salviasplendens.info designates 104.30.8.104 as permitted sender) client-ip=104.30.8.104;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=CL9sOga2;
+       dkim=pass header.i=@salviasplendens.info header.s=cf2024-1 header.b=CrxriltR;
+       dkim=pass header.i=@genspark.ai header.s=s1 header.b=gp1+U+IE;
+       arc=pass (i=1 spf=pass spfdomain=em9182.genspark.ai dkim=pass dkdomain=genspark.ai dmarc=pass fromdomain=genspark.ai);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@salviasplendens.info designates 104.30.8.104 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@salviasplendens.info;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=genspark.ai
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=List-Unsubscribe-Post:List-Unsubscribe:To:Reply-To:Subject:From:Date
+	:Feedback-ID:cc:resent-date:resent-from:resent-to:resent-cc:in-reply-to
+	:references:list-id:list-help:list-subscribe:list-post:list-owner
+	:list-archive; t=1776400283; x=1777005083; bh=eRDQB2wHGDqqkc1yILzLVdC/r5Mry
+	Jn0dvFIcKM6W+A=; b=CL9sOga2FitP0BlAWqgVyiRf4YJdOLX7SRfhJ9CcmEQ80T0Qw27oIP++
+	kXZoJjT69Spqviyu+jE83LK3WrSuIAMuzLOvUy+UfxDekp6blkIedalEyr/XZrL4lb8cyYPmC2F
+	35buR0H8KXNL9kgi2OOenBv+Zwyt7SRutgFVLvbWo31PMHgJnPND6EJmMIqmUAP1Dc093t66UXA
+	1nlEhcm3ntseTDjUPnLbXy8gWSd2xm+cXy41J+JH4yDQ6hAunm+9EqzzDl7NoeNFSXJBuC9QAZr
+	0Yt3ExDVTMqtYrYbNKXJNRGjFls0gTbd/8daqM6SkOmZD2K//7M9CVmIVMNnw==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=salviasplendens.info; c=relaxed/relaxed;
+	h=List-Unsubscribe-Post:List-Unsubscribe:To:Reply-To:Subject:From:Date
+	:Feedback-ID:cc:resent-date:resent-from:resent-to:resent-cc:in-reply-to
+	:references:list-id:list-help:list-subscribe:list-post:list-owner
+	:list-archive; t=1776400283; x=1777005083; bh=eRDQB2wHGDqqkc1yILzLVdC/r5Mry
+	Jn0dvFIcKM6W+A=; b=CrxriltR/1QXhHNGyEBLmvaua5oKafbX9XwsLVZKwu5vg9WLVF4zREie
+	AmDSgPWPaFcfgEcz0ydG3D4+Wt9GCnmiq7dlkY6QcLf4mklg2tzFsPrS3uEEgq1WOtkyFc6fS6G
+	x2zbt7NeZ0VekAsz96RD+8ZzsdL/DVt2gXxRe56VWhNdBX+tUXLY8OzmI8shAnVTJG5IYEmphna
+	yXvLaFyg+FTF0Yg3AKrQxmogjdkBW15XK3qgs+uOEjGR2Dp5sZ02ZA1dZ8BoUKwrISPQeLIb8EU
+	d9PE9Yf8ZrNkPhob7AUp1c4Nk6qH/UgauP4Ac6Nh4IFx8quTguUEGvT16dKnw==;
+X-Forwarded-To: silver.firefox+salvia-info@gmail.com
+X-Forwarded-For: genspark@salviasplendens.info silver.firefox+salvia-info@gmail.com
+Feedback-ID: salviasplendens.info:1:1:Cloudflare
+Received: from xvfrtfzk.outbound-mail.sendgrid.net (168.245.127.225)
+        by cloudflare-email.net (cloudflare) id BLoE5RjDkpAA
+        for <genspark@salviasplendens.info>; Fri, 17 Apr 2026 04:31:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=RUw0mIXJyZp3MhIJ99BaEjurN6qCSa4WAVYwERmDJEaCP8guNWDaUnXXf2mUs8Pbp6fwEyX6t
+	X7xUuGsyLhy8dC9PrxCRJY8bwlEEl0/Yukjo4cSn0jxF2qZKt4RWlBHullurvsmKg2PnQ9VM9eK
+	n0wS1IZb6KhF+wtM5PF/+JtcuGMMn9MWE0LjqpfHAUwcngN2bi2Y/kPM4ghJMP9bh0d1lcs7A8m
+	hkUIvBTVnsCGeUoMHUSXLagwWUsGxsi90AQtwxZ4/3xep+g7Hwk8WypDNKwDhQMdAPReeULsTmH
+	1pSlKbdnl5LhCJQLZ7KulP3dDo1x9TGjTOH5T/03Nu3Q==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=To:Reply-To:Subject:From:Date:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1776400280; x=1777005080; bh=eRDQB2wH
+	GDqqkc1yILzLVdC/r5MryJn0dvFIcKM6W+A=; b=YGc3h0agHdUhaNhq2n9DFOj2QjFK8hlYrud
+	cEu4agyO6A0RbgS+cIL76MFqZbZCyxxpFnXLz0VG72X3mv5gsS+z4Jm+TOI+/9Msd11RhbbLoFk
+	1qCyrsEqEO/mBcSN9ePBV/BkM6aUTsyTnGeH/HQYhlUgVSJGhhsfzFJfBv6uijjquK6MVfvaVSd
+	+ulWK5LrwX6zROF7ndEUwHsKtfwHR5iKXiiFMz2LDVT6NBUAKYugUQB045349qKxVIajVF58eem
+	4VnW3W3poQulIvwtd7tWBdz1QhVEWdlEe6WJg1BCRfSv0MuR5gW4eh+MhVrZicFWkdHqCnWW9zd
+	b6rsofg==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.d=genspark.ai header.s=s1 header.b=gp1+U+IE;
+	dmarc=pass header.from=genspark.ai policy.dmarc=none;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@xvfrtfzk.outbound-mail.sendgrid.net) smtp.helo=xvfrtfzk.outbound-mail.sendgrid.net;
+	spf=pass (mx.cloudflare.net: domain of bounces+45487987-9009-genspark=salviasplendens.info@em9182.genspark.ai designates 168.245.127.225 as permitted sender) smtp.mailfrom=bounces+45487987-9009-genspark=salviasplendens.info@em9182.genspark.ai;
+	arc=none smtp.remote-ip=168.245.127.225
+Received-SPF: pass (mx.cloudflare.net: domain of bounces+45487987-9009-genspark=salviasplendens.info@em9182.genspark.ai designates 168.245.127.225 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=168.245.127.225; envelope-from="bounces+45487987-9009-genspark=salviasplendens.info@em9182.genspark.ai"; helo=xvfrtfzk.outbound-mail.sendgrid.net;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.d=genspark.ai header.s=s1 header.b=gp1+U+IE;
+	dmarc=pass header.from=genspark.ai policy.dmarc=none;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@xvfrtfzk.outbound-mail.sendgrid.net) smtp.helo=xvfrtfzk.outbound-mail.sendgrid.net;
+	spf=pass (mx.cloudflare.net: domain of bounces+45487987-9009-genspark=salviasplendens.info@em9182.genspark.ai designates 168.245.127.225 as permitted sender) smtp.mailfrom=bounces+45487987-9009-genspark=salviasplendens.info@em9182.genspark.ai;
+	arc=none smtp.remote-ip=168.245.127.225
+X-CF-SpamH-Score: 1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=genspark.ai;
+	h=content-type:date:from:mime-version:subject:reply-to:to:
+	list-unsubscribe:list-unsubscribe-post:cc:content-type:date:from:subject:to;
+	s=s1; t=1776400276; bh=eRDQB2wHGDqqkc1yILzLVdC/r5MryJn0dvFIcKM6W+A=;
+	b=gp1+U+IELztv+vJlbQGo1RcieUdkSuMAwFMdAI9Wt3oo97bnmgft8SQmORuvSvUUxuOP
+	UQLArRan4t60zPExA6YkFdS7aXeJO+18J+W59M0GA4Zjm/Ro/5Am4K4w02OiWnS+pwga50
+	Lp+y2U1Q6TU1sKWZP0o7oaI94+IIZWeUpHoqb8iZFxKD7bOsShCw2bacwTnAhBGbLK+L1Y
+	VFwJTORPkPN69rgoy7kcQrp+3AYNumCIVMluPGYnI9EhaImNObt2KdeTn6L2KR7eni7azh
+	nKSMERcC4BEBdy9YJwP8UE9TcytBqYNpUKgBFJ7vBFSyP9NI8aUB7A21Gm6F6DFA==
+Received: by recvd-645cb7b9db-wbgh8 with SMTP id recvd-645cb7b9db-wbgh8-1-69E1B793-2C
+	2026-04-17 04:31:15.248526953 +0000 UTC m=+559701.545069943
+Received: from NDU0ODc5ODc (unknown)
+	by geopod-ismtpd-68 (SG) with HTTP
+	id cXn520bfT7ar4nFi54g6QA
+	Fri, 17 Apr 2026 04:31:15.220 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=14f5218a35b6b827901e90546246347e321e46ccf58ae1d21f0fc4a956ba
+Date: Fri, 17 Apr 2026 04:31:16 +0000 (UTC)
+From: Genspark Community Team <community@genspark.ai>
+Mime-Version: 1.0
+Message-ID: <cXn520bfT7ar4nFi54g6QA@geopod-ismtpd-68>
+Subject: Founding Member Invitation: Genspark Genius Program
+Reply-To: community@genspark.ai
+X-SG-EID: 
+ =?us-ascii?Q?u001=2ED+3OgDasA4x=2FZgotyrFRqGivwJulH6JIlHFOdwGwoEMLp7v=2F61ihXga4s?=
+ =?us-ascii?Q?vWCNHBzGUWVX=2FpYapmHEZoX2VKHSu1eewFBPfNW?=
+ =?us-ascii?Q?7TgmydgtWTojGtuJBHGWKKKT6SvcVbPZAF2s2n0?=
+ =?us-ascii?Q?E0eaZAzX0aRFt1XSNq26KL6zeba=2FzJnoR3F07+R?=
+ =?us-ascii?Q?RWsdxJHWX7ObWRhfIN6cjY1tLF4qRQCfFZvvTwV?=
+ =?us-ascii?Q?su9una=2FQ0TUTlV8AAYFTstOFZ723bobFUUG34Jq?=
+ =?us-ascii?Q?1286hnRrYDYijwAzEvyeoZZMZw=3D=3D?=
+X-SG-ID: 
+ =?us-ascii?Q?u001=2EXwhBPNhCejkv4+fVosb2QVfR16Qxp9CrA7PjDe5zzeI=2F0IZCBsPXtgHbA?=
+ =?us-ascii?Q?oGIj+RskLxA4N2rJjSWrHfgX07tLOm0v5BUQcd6?=
+ =?us-ascii?Q?w3knjorGi7Hwu0WCOA5AFSvy0=2FwlG32=2Fiur2lv6?=
+ =?us-ascii?Q?woLLGkwP2sUEOba1j7Vk66aZ1=2F5bRHeG6nHJEWA?=
+ =?us-ascii?Q?pmOJow=2FH0aPyXALFh2U93rEURYo26OoZiHsfdZ+?=
+ =?us-ascii?Q?ltANFCX8=2FR59WSd8UrtT6KsYAAYqUDsSgsF4rBh?=
+ =?us-ascii?Q?K6x3nuBw1MnIRg5AiO4qeFX4stOs5yDqBDDNsGM?=
+ =?us-ascii?Q?yGCtLYvfd2HkvuWHyg+07wdnavEdMWcn20SsG=2F8?=
+ =?us-ascii?Q?WAC8pPMOiW6rlLqgRJbCLk+ymLYkpxGL3N11PUK?=
+ =?us-ascii?Q?lgSlonZvRpNdgfNll8r1=2FqFHDvJMxzaG+X91cqw?=
+ =?us-ascii?Q?BnRrjyvpYfFf5+D15GemVA5KfeVUq9iaZ4D0TNf?=
+ =?us-ascii?Q?jBKU=2FDz6oQ7LI5+AQW7THuQAk4FdQ789plgxdJJ?=
+ =?us-ascii?Q?sv3d60xw7VVLwy0X8oyQ0EEDtbxmb=2Fymx3oQyvs?=
+ =?us-ascii?Q?o3JszLO1XIlMUvS1LiTxERQyq31ImcGBQ+H=2Fl1U?=
+ =?us-ascii?Q?xUx5GQcBGNHrznJkBV5eMMRrnvkEPGHJ+7B5Blg?=
+ =?us-ascii?Q?KdCPRjZPeXfAs5GspZLRVvHuyITwWG2xDb17Spn?=
+ =?us-ascii?Q?xnTZ+W+SthcUSA4eauq2JL0nkZl6eiJPrOG8Hjo?=
+ =?us-ascii?Q?Anna7iD6Zwj4yLNiJ64hXP0AT60VYVaR9lex85+?=
+ =?us-ascii?Q?PHZEss8Sx4bGcf0Kzozso7fYq48=3D?=
+To: "ge******@sa*************.info" <genspark@salviasplendens.info>
+X-Entity-ID: u001.6XAn5RIkwOqEmb6VMV5syw==
+List-Unsubscribe: 
+ =?us-ascii?Q?=3Chttps=3A=2F=2Fu45487987=2Ect=2Esendgrid=2Enet=2Flu=2Funsubscribe=3Foc=3Du001=2E8vYH?=
+ =?us-ascii?Q?ZVnMbHD0k5hUR0y3t9TQINmO2AAq4KIABb7jfW-?=
+ =?us-ascii?Q?BYnlqFZQokxFjJmOLFWh=5FqDYihLhiWvMOvZklnb?=
+ =?us-ascii?Q?cKdcKffZeM48IqKzZ8zbC3bfpOU3XkjBsQkPMdn?=
+ =?us-ascii?Q?-2-gHBb77njmMrP4LJ8RNPlg0A6tuiA0XNQpp2J?=
+ =?us-ascii?Q?ExvlgXUIkXF0HfRodvZA7X3WgP3jIxUUwpzx4Gw?=
+ =?us-ascii?Q?waLH0L2gPpSrfiYeW9P1SKn5pwfQ9UGCLw3OSxq?=
+ =?us-ascii?Q?1BAWVyfm5HUi3WcTyKnYKxibIxdqKYkSWpiPrwq?=
+ =?us-ascii?Q?wnAGUuPtlpW=5FZ=5FPZOTHcjLWsGFgfrNYe-24M1R5?=
+ =?us-ascii?Q?ajgn0La6B0QmteK2FyF5XSPxLZcF1w-bvf85dBF?=
+ =?us-ascii?Q?kgl79uCQ0yKnTDGSdS1zRxbXtTyhM-iux583557?=
+ =?us-ascii?Q?85cJg51GjESz48FMF9nWA7ZZNzh73=5FXALiEHfV2?=
+ =?us-ascii?Q?zGFd9yTtq8WPltm09mE-9ImytJ1VTozqpqKjEYO?=
+ =?us-ascii?Q?-2WOr7CyIAisjQ=5Fg93ivH2csYw37BAwFWdOZRRP?=
+ =?us-ascii?Q?FWYC90XKp1CB=5FpKCqk9BWGFVb1iuwSyxiI3w8o3?=
+ =?us-ascii?Q?849k21JC7UgN=5FZz=5FUGijx=5F4KRfSwB2UvWBeKAWn?=
+ =?us-ascii?Q?yRYsz218p8YbhP4ROcpHA2yNcd-AIKAllettYAl?=
+ =?us-ascii?Q?Bz-t=5FcSzW5UD9Ox0j-Y3MP5Q5iGVGIs-DeY0rpl?=
+ =?us-ascii?Q?weX83kja2xQF6Embd=5FOG-4zHc9klBaztEaTlhYm?=
+ =?us-ascii?Q?gEGO=5Ftri=5FwEmkrl=5FryPYbh84GGKQlTuCGC6=5FafX?=
+ =?us-ascii?Q?rsUG1VUAqqiEYQrMv=5FZBl9z0DGvi0jgbuFHghwO?=
+ =?us-ascii?Q?ZftE9CWw3O06ne7sI6ZfuOlRGjJCPjFmxQESZ=5Fn?=
+ =?us-ascii?Q?UodESDz93RwDByuQImK6vhPqVvU6MR7TJGOpfQR?=
+ =?us-ascii?Q?QPB=5FCZ0sgEnKpgao-vtHfqof5jJtyTypq-0qSko?=
+ =?us-ascii?Q?4q3XwB49se8aAaWVIXkTSWwBzrZPiGebEk8F-7h?=
+ =?us-ascii?Q?ieces6elXQwjr6ciIVXG99pCAJ1-0sIVBF6nTMB?=
+ =?us-ascii?Q?=5FlrkJeFsUDdjf9Uvk2TzqGnH5mwCcJ5U-T3HCTA?=
+ =?us-ascii?Q?=5F6FLu3IAjVeEHsdHvY0jO3Lh0A1JXP5eq5GJ6nq?=
+ =?us-ascii?Q?ZB-qMXRdVP1h4=5FCMWBswijUN3I81HPANqoI3c=5Fi?=
+ =?us-ascii?Q?oh2eP8lzon2DSnAbkPtbQyhYhm9Urj1WlbxViAR?=
+ =?us-ascii?Q?t=5Fn30279z6RSNmXteNiN5fa2K8TolHTAdu-Zyfk?=
+ =?us-ascii?Q?fm5nDpqM9ehexd6lefI4vcso0wcCFS=5FqTph4Sbi?=
+ =?us-ascii?Q?jruLiRQHT2KF7RvFZ0WpI5OzuTvI6wBGgvJikpI?=
+ =?us-ascii?Q?DxpHqkgsr9x8Gp=5Fw9QSvTaiZ9=5FYgUlX87bbhu9p?=
+ =?us-ascii?Q?fCMXFhC7GcV78dRSPpvg2Qxfw5rdAIypUy17Wt=5F?=
+ =?us-ascii?Q?4-VPFzwLOoh-nL8G-fx1tAsZoi2ErpdtO-qYbn5?=
+ =?us-ascii?Q?WBhT51nKk5E4a0Z5l0AxTiNdOb-qD1bbh8uy6ct?=
+ =?us-ascii?Q?2DEK8xCSy4D7GF1y8U8GXutRg7OBDwQzgWUn=5F85?=
+ =?us-ascii?Q?SZK2Kg6dyQZbDInQnmWvWBpi4l4PkmXaXv45jux?=
+ =?us-ascii?Q?j9GwUx3gKUWj=5FsDjFALkgXEEVDjVR8HWGw=5FFPPl?=
+ =?us-ascii?Q?snU07eXTssfvaYMzUS5xKemoWy0MDKtMTK5UMrt?=
+ =?us-ascii?Q?Ud1tmlMo5yyIZMeMzPR2rPRIk1NX-emtHRcd6Rt?=
+ =?us-ascii?Q?vzE8mibx1omUS1CkfsRpoSmDKzkSpz8mxEUdj67?=
+ =?us-ascii?Q?gQx2abdFd4tCI1xu96IjtM=3E=2C=3Cmailto=3Aunsubsc?=
+ =?us-ascii?Q?ribe=40em9182=2Egenspark=2Eai=3Fsubject=3D4548798?=
+ =?us-ascii?Q?7=2EwuVEGeLQBd=5FOO3yWC-EsPSQQy1duHoqQ1kVZa?=
+ =?us-ascii?Q?iV6BJ5oMDAwdTAwMCEGLlWI-wLPdZTo1iPpuiev?=
+ =?us-ascii?Q?TC5lv3bdGHlf-f5N9Q6EFHWqD0qN-ntKlI1OmM7?=
+ =?us-ascii?Q?1GA1orESKkzS9feDO6-MBEmUdG72hHuh9LqMRkr?=
+ =?us-ascii?Q?e1d4bBwF79WSWS86lY=5Fmx5U0xf0A=3D=3D=2Exq-X5Pa4?=
+ =?us-ascii?Q?msnEuCMcZYcssqU7dp6zWFHx9djxKsy2=5FK1oMDA?=
+ =?us-ascii?Q?wdTAwMPiUE276WrV3i88hnMbzXTaxPffP-7L-9t?=
+ =?us-ascii?Q?GlRFjncnFgy2iT2M-8TpRE71C5Q3jpmiuUJV8Kl?=
+ =?us-ascii?Q?5ICYVArJ7PAqACQb=5FolXlulBSKjGrsrhHUd=5FkWl?=
+ =?us-ascii?Q?Ntx=5FkEFJBX9b=5FlQ0LHei0-93m5MSgzC8UBMByLX?=
+ =?us-ascii?Q?00CZu7MsF-7wfjT-5Nwujq7kQKmllMidhxsp4AZ?=
+ =?us-ascii?Q?0b29xJicRgES3DSFzdYlSuaRltyscTF-oX5eAW4?=
+ =?us-ascii?Q?aCi86D=5FdI1LvU67PQZ5FYsS1L9uh4-WPf=5FupLMb?=
+ =?us-ascii?Q?s1XfQayjdT-HqoKQxPnFfugav7pcOmW7f8cmbp9?=
+ =?us-ascii?Q?hRvb4C0vPLxQmABO-oWeZxkGLpqte5640mkpUkA?=
+ =?us-ascii?Q?KrZ3nQTNHcwcw7IjhC5nq1vthHXF7BYFkc-t=5Fww?=
+ =?us-ascii?Q?QeUE=5FU5ykFIyMNMq6s0bXrrI8s-dpY27E6LVyF-?=
+ =?us-ascii?Q?OPbigsomN2LlukXEj1sW7jGw89M8ebisiEFwiw6?=
+ =?us-ascii?Q?c-UCJikj8C8T6fcQW7DcD4eqEKKL6tU4ALJ78bs?=
+ =?us-ascii?Q?uoXTIzJhQ6RXVO8kjF6uCOQkU6fVHhwIwqPRfqM?=
+ =?us-ascii?Q?k2pCUKIwmmChs5LErLh6gH0Y8TV19f4leCdWmmR?=
+ =?us-ascii?Q?bpXw-YbBMR0LBKsmQu2ovhSyZWeOl=5FfXrXoylTb?=
+ =?us-ascii?Q?4JF4bFy8HyOX40FDPDElEYeJl0ZuePcxiqcOlt8?=
+ =?us-ascii?Q?t37O=5FWSthwTFfU0f3hJkqrHPQ3cjwA5kdS3Gxnk?=
+ =?us-ascii?Q?pYbGRmUYO8BvsLf0P-DdF8P9-k--8Gia1kivhUV?=
+ =?us-ascii?Q?UkK0LdObH4sjtIKXsNBprZaxHWLhQZgnJBURhMD?=
+ =?us-ascii?Q?KUMd0OJYRSYDYWTEy0QgvrkZsmsHqjyQUsq74Va?=
+ =?us-ascii?Q?vE995dyvc72-yywbTFKLYH5PyK-kK=5FArk1nkYmV?=
+ =?us-ascii?Q?MJCoOV72UyGoGrk-vAbtI9kzEgKs27RtIsMprrf?=
+ =?us-ascii?Q?EJYvMmKElfTHO4=5FtN-GUedUD4LEXeTU49Ig8Bwm?=
+ =?us-ascii?Q?E8pys5cU=5F=3E?=
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+
+--14f5218a35b6b827901e90546246347e321e46ccf58ae1d21f0fc4a956ba
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+Hi there,
+
+You know that feeling when you discover a better way to work, and immediate=
+ly want to tell everyone about it?
+
+That's exactly why we're officially launching the *Genspark Genius Program.=
+*
+
+A community initiative for people who love Genspark and want to help others=
+ learn, connect, and grow with it.
+
+*We're looking for the founding cohort.* People who:
+
+=E2=9C=A8 Know their field well
+
+=F0=9F=9A=80=C2=A0Excited to build community, not just be in one
+
+=F0=9F=A4=9D=C2=A0Get energized by helping others level up
+
+=F0=9F=92=A1=C2=A0Are ready to help shape this from day one
+
+As a Genspark Genius, you can host a local meetup, run a workshop on AI-nat=
+ive productivity for your industry, create tutorials, or just start convers=
+ations that help people see what's possible.
+
+You'll get support from the Genspark team, early access to what we're build=
+ing, and a community of people just as excited about the future of work as =
+you are.
+
+This is a chance to do more than participate in the community, it=E2=80=99s=
+ a chance to help shape it from day one.
+
+*Ready to help shape this?*
+
+=E2=9C=8D=EF=B8=8FApply to the Genspark Genius Program now! ( https://www.g=
+enspark.ai/genius/index.html )
+
+*Let's build the future of work together. =F0=9F=9A=80*
+
+Stay=C2=A0Genspark,
+
+The Community Team @=C2=A0Genspark
+
+*P.S.* =E2=80=94 Know someone perfect for this? Forward this their way.
+
+Your all-in-one AI workspace
+
+( https://discord.com/invite/CsAQ6F4MPy ) ( https://www.instagram.com/gensp=
+ark_ai/ ) ( https://www.linkedin.com/company/gensparkai ) ( https://x.com/g=
+enspark_ai ) ( https://www.youtube.com/@GensparkProduct )
+
+PRODUCTS
+
+AI Browser ( https://www.genspark.ai/browser )
+
+Speakly ( https://speakly.ai/ )
+
+COMPANY
+
+Blog ( https://mainfunc.ai/blog )
+
+Privacy ( https://mainfunc.ai/privacy )
+
+Terms ( https://mainfunc.ai/terms )
+
+DOWNLOAD
+
+( https://apps.apple.com/us/app/id6739554054 )
+
+( https://play.google.com/store/apps/details?id=3Dai.mainfunc.genspark&hl=
+=3Den )
+
+Unsubscribe ( http://url2040.genspark.ai/asm/unsubscribe/?user_id=3D4548798=
+7&data=3Dzac7Nj60RwQcGGkXMttMiv3ovg7oxZ9HeVnyRcBNbJloMDAwdTAwMAelcGl6RCC_Vy=
+_UmzRGj1bwv41k9jEkk06DiXrRydbBvp2nuh1rY25Yr5ZzNflo-kVpmBNYiwvmxzp7dnfoiAQxL=
+zq5_chbBWYpa3w3GDGYAP1g21X90ylu_Z1M--_ML6rvCOQqesOUEob-k17Cnpgkf6p-87NM5xpc=
+J5jQdv0YlPtT3H2qxvpIxVMW-PaKWk3h3wLQVNYqQL0yPAiuUMNz5xaVqtQGyGQCgX6CPGMI1L5=
+g6MrqJw8hLpupzXNJc8Vs8YIqooBqKQL0Y_PkfHJNYUUtX-b86T6mMMx_wZIdsm3HgXp_xcro4v=
+dGmjNlJH3sKD2fxd9PrkSxWduKTeLLqtDjieF-5GcXIz_JGK_NEWZ-VTFWhMCqJN2S9bHyw_jsR=
+YVsoP_DWaR1oywsxi7AJ6or9zHCZZU_lZwFlvgzmA-d9dfarbT2tQqDed6tkKINQ1VmTCq-fvE1=
+juT3fDrOiHnYPZeyvaJ2h3TdGGql_HvlKswtAWDKHHr7dLcUIHdwlyshJQf6m2gYgZVhDp4ricw=
+ktxaZIHJGgzXLANKb-WDUHqwUB66D6o9ZODEkeWofS2h--Ot-Kp0C7XCZM5qkaYjJvyLMwkRXye=
+sLEzjkgEphZJzsMLH1yF03Q8LuvRib_e4bSUCHUPvGoWZ-SBUiXo2ZdupJ0Sa762gU7QffbkE35=
+lBDbUPcGiCTCD2A63vZEAE7tEohzysDZjRCplCjHVIOmy4gkCcYT394pqXEseNklEpy4C-vb7OX=
+JpE_HTpekvar9uUfBpCUDuAJgCLO_c82tubABQda34QBvKOmRcEqHszdGeqYy_81GPW16O022BJ=
+zUiRvPkWezHbYdiquwGXOEoWmkp8Z6a8NLcvR_YGTDgbyO6f0PoWKryn64BfNJFEtteKOfH1qo0=
+ZJxpsKI-cSH3JLMEN0ttS7QCn9N1BsNhcGtJj0OFs7W6VbuixOmXb5Lp9uPNZZx4AKMVFlsB4uA=
+BQRsWAOIlI-EWRmMHixVJRXTWfRGrfHxgi_yhHkpzPpogx3UzIOWeoUgY6KRx-Yw0GbxypemzQe=
+Dx-k6CFHeEght-PSl-bb1gm-tGr-6vJgnpwdksiSHrqhwc4=3D ) or Update your prefere=
+nces. ( http://url2040.genspark.ai/asm/?user_id=3D45487987&data=3DY5aHpJaJb=
+Kcnrt3kQLQf8yxtb1KXazV-U3im2531ZQpoMDAwdTAwMJZ-lpI3pZuiGzFbPJK1c-xD_XHBlmPN=
+6tGKCeHNpu2q2744G-eo4gAkG61ENYYTbHQcSR5GyDHTnmJRaNjbeMgtGpumteXRUTeoG-Ud58Q=
+7FMHhI3e_00WCxusYN0UmpkX1RxZgr-VioOjdPs4OVpysa-wbeKj_qNiUczT50x8wBn6Kj0uXFe=
+58_9OkGOz0B28OycP-fp3t8GVUmuZva_ZCFaIuaT21baF4v-Os7Lf-pnThIor59fLMQ-8IMsAlt=
+v5NANR2SaHJ9OvtNL_WgYIF1Gia2_IN1UbtW8S0NQyWwrRoFT2nAlxEzVjbciNpMrMV192cyhic=
+f2t0rp5s7_OSUeAxhG4BQ50R0Ej1ag6toc5h5yLYs9Z9Jyo1GA-jrdOQFe9P6FbXhoQ3oMgFKpO=
+0pJn7yfx5q6KpAq1pMAJiWsQvFTxmTNyc79KbQYSI0B6UYAp6058XKWORsafSnr5QKZUJekSRED=
+u-NktSQpFVlkG5QMyKHhj1EVtNzLVbyVA7sLzYeI0dwdkqffp4nDUQLYLNBSjVab-3l-P1GkMEg=
+sbyKEXaJN4j8QiBziHPP8XR6jjRbxJAPuupCM402DtDk2NYVp2m2QQUcYv2rtTeyYDGZeFCYwYj=
+pbvtW7p-Z8uSPD635O2Ss1FiTYnyBKE3EDy0MGc1sdTMnSN84Vi4Bvic012ZAXjLfRGnJsjCaN8=
+AhqN9mP3XObNPghCwpAL6bWq9BkNmtO6t8KJGRTZs7cIoBikbT4nDQu0Bm0zlnuKuMoOMjxyBQl=
+jtjkn0O5uTgPDyWSTqXasuPJxEAiqeTZtOu6Ado4GUXRo9NWk7IomuIarbZcEKrjkazdEMimUM8=
+DYDztF5rQmG5_g81XqG4su6J5_18PuUS89YzuOg6u9g8YfEBADT6VEP-kiV-UyjS79ceJf_jgxQ=
+7o0cFY8Xe9GE0Prq4KlF_TyCQ3mmzvXywNho2daCqGTnRUcXRdxVBXVJxVPTvEPiqa7x9jEVmmh=
+MMLcte3N6qB-fEYE54hWVvaWFfM1NbSd5pFay10v0G37ZCqlJrohilu5MxrsO6iTcr05Tjje88A=
+CY3KX1zA=3D=3D )
+--14f5218a35b6b827901e90546246347e321e46ccf58ae1d21f0fc4a956ba
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<html>
+  <head>
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=
+=3D1.0" />
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8=
+" />
+  </head>
+  <style>
+    img {
+      vertical-align: middle;
+    }
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #333;
+        color: #eee;
+      }
+
+      .logo {
+        filter: invert(1);
+      }
+
+      a {
+        color: #0f7fff;
+      }
+    }
+    @media (hover: hover) {
+        .markdown-viewer {
+            position: relative;
+        }
+    .markdown-viewer:after {
+        background-color: #0f7fff;
+        bottom: 0;
+        content: "";
+        height: 2px;
+        left: 0;
+        position: absolute;
+        transition: all .3s ease;
+        right: 0;
+    }
+}
+  </style>
+
+  <body>
+    <div
+      style=3D"
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        line-height: 1.6;
+      "
+    >
+      <div style=3D"max-width: 700px; padding: 0 16px; box-sizing: border-b=
+ox">
+        <div class=3D"logo">
+          <img
+            style=3D"width: 150px"
+            src=3D"https://gensparkpublicblob-cdn-e6g4btgjavb5a7gh.z03.azur=
+efd.net/user-upload-image/manual/mail/genspark_logo.png"
+          />
+        </div>
+         =20
+        <p>Hi there,</p>
+
+        <p>You know that feeling when you discover a better way to work, an=
+d immediately want to tell everyone about it?=20
+        </p>
+        <p>That's exactly why we're officially launching the <b> Genspark G=
+enius Program.</b></p>
+           =20
+        <p>A community initiative for people who love Genspark and want to =
+help others learn, connect, and grow with it.</p>  =20
+        <p><b>We're looking for the founding cohort.</b> People who:  </p>
+        <p>=E2=9C=A8 Know their field well </p>
+       =20
+        <p>=F0=9F=9A=80=C2=A0Excited to build community, not just be in one=
+</p>
+        <p>=F0=9F=A4=9D=C2=A0Get energized by helping others level up</p>
+       =20
+        <p>=F0=9F=92=A1=C2=A0Are ready to help shape this from day one</p>
+        <p>As a Genspark Genius, you can host a local meetup, run a worksho=
+p on AI-native productivity for your industry, create tutorials, or just st=
+art conversations that help people see what's possible.</p>
+       =20
+        <p>You'll get support from the Genspark team, early access to what =
+we're building, and a community of people just as excited about the future =
+of work as you are.</p>
+        <p>This is a chance to do more than participate in the community, i=
+t=E2=80=99s a chance to help shape it from day one. </p>
+
+        <p><b>Ready to help shape this?</b></p>
+
+
+
+
+       =20
+       =20
+        <p>  <a class=3D"markdown-viewer" href=3D"http://url2040.genspark.a=
+i/ls/click?upn=3Du001.B3lo9tNn2VAwshD7p7MMyYx0cneFBfsXXnzrDf7OhLwKbOJauw6sU=
+6aZL2bMZ9yusz7oh6Gq2Ce32GYW49o-2F4w-3D-3D-sJa_5EBfonW17rhgHpAyCcTXqc0VOIACC=
+C-2B2BS4yjQQOkyYCyQEuiGXlVNz91nSEiQJkSme-2Fwl8Qo64tEuddoh6US58HrcDehHZtuOWW=
+jS1Zd0S3ocRXr5plObKvgH025lruVx5RTiCKUzZYwdbifuMjdoYwov79nuB0TdBvGqGYgQWavcO=
+hs1sfbJHx0aV1-2Fm6ODPrDvqpGvvS3i-2Bb1MNziu8FewYOj38EMOkxwfcvJsSQNue6VmSLWtP=
+qWaXQKHMAdQfCoE3wC8KdpjBOP9Tr0iavK2M0HpKwibQ695rhwWEnwxneUdTEFwZBE5m3rZk9pi=
+JhtqsZkkFXXiSt-2Bxw2JwUDsWEyDUx8-2BEbRHMzmjqWD-2BRzB7g5HocqpuyRELGW0lRZ-2Bg=
+-2FDRobMmt4i8UjUKdb6JFdVIBJzfMCnKctu7-2FEV0MIf7ZwkdO9Wxup4BEueIngclBkVJdfmZ=
+PhxZVauysB-2FyQ6O-2Fgo0rYmZPcRxAjv2OkumIZA9yj84hRXzppuF-2FM0YlQXvXug7UhwRDU=
+6Jw7nwKrHVYaW3uMhhISkWvL3-2BAUlV80bUz2zxAUblm8gFX98sWvoRR9qoVRC6FR4SUZPpWST=
+60mV-2BEtOsCpFOjfjFrrPnqIKaExK8zqP9ssHsO-2BnlOzETNK-2BE3LQn82pmOdd9n-2FyRQ9=
+ghbwTCfWX2cseatnb3dzn-2F5FjQul9P387MF-2B45gq8uda3ruLwftPwViZQSRr3uERXjsAI83=
+ndhbHEC-2FcyH-2Btv5WtuVWTE8fcGk5nmv8-2B4XT66WQOErs2ycwKQ2obqt4M-2F2odidB2Fu=
+EDtuzIfNxKvK0vuHLDu4DNwNwhJTwRUJAr6mfVttLOghLvF0mVaJd1XKu1iH3-2B8wviK-2FLRB=
+jUs8GMyF7xd5ZLzdpVm7gVNlZwZ7gjREsij3thaBEDj4MGZ1CFN0Oiv4zMrb-2BYAoejIr2lK6r=
+EqumOdhDMv" style=3D"
+           =20
+          "> =E2=9C=8D=EF=B8=8FApply to the Genspark Genius Program now! </=
+a></p>
+         =20
+          <p><b>Let's build the future of work together. =F0=9F=9A=80</b></=
+p>
+          <p>Stay=C2=A0Genspark,</p>
+          <p>The Community Team @=C2=A0Genspark</p>
+          <p><b>P.S. </b>=E2=80=94 Know someone perfect for this? Forward t=
+his their way.</p>
+
+
+          <!-- Footer Navigation -->
+      <div style=3D"padding: 48px 48px 0 48px;">
+        <div style=3D"border-top: 1px solid #EAEAEA; padding-top: 40px;">
+          <!-- Logo & Tagline + Social Icons -->
+          <table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" =
+border=3D"0" width=3D"100%" style=3D"margin-bottom: 32px;">
+            <tr>
+              <td align=3D"center">
+                <img
+                  src=3D"https://gensparkpublicblob-cdn-e6g4btgjavb5a7gh.z0=
+3.azurefd.net/user-upload-image/manual/mail/genspark_logo.png"
+                  alt=3D"Genspark"
+                  style=3D"width:130px; height:auto; display:block; margin:=
+0 auto;"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td align=3D"center" style=3D"padding-top: 8px;">
+                <p style=3D"font-family:Inter,Arial,sans-serif; font-size:1=
+3px; color:#909499; margin:0;">
+                  Your all-in-one AI workspace
+                </p>
+              </td>
+            </tr>
+            <!-- Social Icons under tagline -->
+            <tr>
+              <td align=3D"center" style=3D"padding-top: 16px;">
+                <table role=3D"presentation" cellspacing=3D"0" cellpadding=
+=3D"0" border=3D"0">
+                  <tr>
+                    <td style=3D"padding:0 10px;">
+                      <a href=3D"http://url2040.genspark.ai/ls/click?upn=3D=
+u001.B3lo9tNn2VAwshD7p7MMyRtbNQi2r9G7lk8M1ItR0M3E8Iq9u320YvBcM4mPSdukl8qB_5=
+EBfonW17rhgHpAyCcTXqc0VOIACCC-2B2BS4yjQQOkyYCyQEuiGXlVNz91nSEiQJkSme-2Fwl8Q=
+o64tEuddoh6US58HrcDehHZtuOWWjS1Zd0S3ocRXr5plObKvgH025lruVx5RTiCKUzZYwdbifuM=
+jdoYwov79nuB0TdBvGqGYgQWavcOhs1sfbJHx0aV1-2Fm6ODPrDvqpGvvS3i-2Bb1MNziu8FewY=
+Oj38EMOkxwfcvJsSQNue6VmSLWtPqWaXQKHMAdQfCoE3wC8KdpjBOP9Tr0iavK2M0HpKwibQ695=
+rhwWEnwxneUdTEFwZBE5m3rZk9piJhtqsZkkFXXiSt-2Bxw2JwUDsWEyDUx8-2BEbRHMzmjqWD-=
+2BRzB7g5HocqpuyRELGW0lRZ-2Bg-2FDRobMmt4i8UjUKdb6JFdVIBJzfMCnKctu7-2FEV0MIf7=
+ZwkdO9Wxup4BEueIngclBkVJdfmZPhxZVauysB-2FyQ6O-2Fgo0rYmZPcRxAjv2OkumIZA9yj84=
+hRXzppuF-2FM0YlQXvXug7UhwRDU6Jw7nwKrHVYaW3uMhhISkWvL3-2BAUlV80bUz2zxAUblm8g=
+FX98sWvoRR9qoVRC6FR4SUZPpWST60mV-2BEtOsCpFOjfjFrrPnqIKaExK8zqP9ssHsO-2BnlOz=
+ETNK-2BE3LQn82pmOdd9n-2FyRQ9ghbwTCfWX2cseatnb3dzn-2F5FjQul9P387MF-2B45gq8ud=
+a3ruLwftPwViZQSRr3uERXjsAI83ndhbHEC-2FcyH-2Btv5WtuVWTE8fcGk5nmv8-2B4XT66WQO=
+Ers2ycwKQ2ECVd0oXrELYrahD7TOomDffebsNs7n-2FhKzLRQoXhqJa9L0q6RUtP-2FDwU3J0pJ=
+XjEwgGIPxUKG-2BvtyVfezpgJ4uLNlgmMCfENh0ZAv5paCU9DMJrTKANj5-2BQpTCEJNV-2BB01=
+Zivah5kP-2F-2BMTCfqwKGT-2B7maV4Kvcx0sKgmU3m-2B0y" target=3D"_blank">
+                        <img src=3D"https://gensparkpublicblob-cdn-e6g4btgj=
+avb5a7gh.z03.azurefd.net/user-upload-image/manual/mail/1231discord.png" alt=
+=3D"Discord" style=3D"width:30px; height:30px; display:block;" />
+                      </a>
+                    </td>
+                    <td style=3D"padding:0 10px;">
+                      <a href=3D"http://url2040.genspark.ai/ls/click?upn=3D=
+u001.B3lo9tNn2VAwshD7p7MMyfeIZG8OpiXN6tNpeM5wKVhj0Lf22j0yKsyD-2FnSJfQVr8ssw=
+_5EBfonW17rhgHpAyCcTXqc0VOIACCC-2B2BS4yjQQOkyYCyQEuiGXlVNz91nSEiQJkSme-2Fwl=
+8Qo64tEuddoh6US58HrcDehHZtuOWWjS1Zd0S3ocRXr5plObKvgH025lruVx5RTiCKUzZYwdbif=
+uMjdoYwov79nuB0TdBvGqGYgQWavcOhs1sfbJHx0aV1-2Fm6ODPrDvqpGvvS3i-2Bb1MNziu8Fe=
+wYOj38EMOkxwfcvJsSQNue6VmSLWtPqWaXQKHMAdQfCoE3wC8KdpjBOP9Tr0iavK2M0HpKwibQ6=
+95rhwWEnwxneUdTEFwZBE5m3rZk9piJhtqsZkkFXXiSt-2Bxw2JwUDsWEyDUx8-2BEbRHMzmjqW=
+D-2BRzB7g5HocqpuyRELGW0lRZ-2Bg-2FDRobMmt4i8UjUKdb6JFdVIBJzfMCnKctu7-2FEV0MI=
+f7ZwkdO9Wxup4BEueIngclBkVJdfmZPhxZVauysB-2FyQ6O-2Fgo0rYmZPcRxAjv2OkumIZA9yj=
+84hRXzppuF-2FM0YlQXvXug7UhwRDU6Jw7nwKrHVYaW3uMhhISkWvL3-2BAUlV80bUz2zxAUblm=
+8gFX98sWvoRR9qoVRC6FR4SUZPpWST60mV-2BEtOsCpFOjfjFrrPnqIKaExK8zqP9ssHsO-2Bnl=
+OzETNK-2BE3LQn82pmOdd9n-2FyRQ9ghbwTCfWX2cseatnb3dzn-2F5FjQul9P387MF-2B45gq8=
+uda3ruLwftPwViZQSRr3uERXjsAI83ndhbHEC-2FcyH-2Btv5WtuVWTE8fcGk5nmv8-2B4XT66W=
+QOErs2ycwKQxsbx4-2FwrdVxxpz6rnXWCCdEtXtE4XhPtMD56mYL2soMnCqIqTGJ6oDWb8SRV6-=
+2FFIZtOH94VJ9jzy-2FSR-2F3xYU0l-2Boul3vCn7d8dopjfHo-2FP06OpOdVSuUmcMcRQb4yAu=
+Jnn0N9H9pejgilkTsXreI5-2FyRZyMpGJ2HQGMQu206DNi" target=3D"_blank">
+                        <img src=3D"https://gensparkpublicblob-cdn-e6g4btgj=
+avb5a7gh.z03.azurefd.net/user-upload-image/manual/mail/1231instagram.png" a=
+lt=3D"Instagram" style=3D"width:30px; height:30px; display:block;" />
+                      </a>
+                    </td>
+                    <td style=3D"padding:0 10px;">
+                      <a href=3D"http://url2040.genspark.ai/ls/click?upn=3D=
+u001.B3lo9tNn2VAwshD7p7MMyQlaDO32CFzQG2RbsSZoXjkN-2Fld8KMhD741cRimXY6otGHdF=
+yCujig59cOUIBRhILA-3D-3DGxu3_5EBfonW17rhgHpAyCcTXqc0VOIACCC-2B2BS4yjQQOkyYC=
+yQEuiGXlVNz91nSEiQJkSme-2Fwl8Qo64tEuddoh6US58HrcDehHZtuOWWjS1Zd0S3ocRXr5plO=
+bKvgH025lruVx5RTiCKUzZYwdbifuMjdoYwov79nuB0TdBvGqGYgQWavcOhs1sfbJHx0aV1-2Fm=
+6ODPrDvqpGvvS3i-2Bb1MNziu8FewYOj38EMOkxwfcvJsSQNue6VmSLWtPqWaXQKHMAdQfCoE3w=
+C8KdpjBOP9Tr0iavK2M0HpKwibQ695rhwWEnwxneUdTEFwZBE5m3rZk9piJhtqsZkkFXXiSt-2B=
+xw2JwUDsWEyDUx8-2BEbRHMzmjqWD-2BRzB7g5HocqpuyRELGW0lRZ-2Bg-2FDRobMmt4i8UjUK=
+db6JFdVIBJzfMCnKctu7-2FEV0MIf7ZwkdO9Wxup4BEueIngclBkVJdfmZPhxZVauysB-2FyQ6O=
+-2Fgo0rYmZPcRxAjv2OkumIZA9yj84hRXzppuF-2FM0YlQXvXug7UhwRDU6Jw7nwKrHVYaW3uMh=
+hISkWvL3-2BAUlV80bUz2zxAUblm8gFX98sWvoRR9qoVRC6FR4SUZPpWST60mV-2BEtOsCpFOjf=
+jFrrPnqIKaExK8zqP9ssHsO-2BnlOzETNK-2BE3LQn82pmOdd9n-2FyRQ9ghbwTCfWX2cseatnb=
+3dzn-2F5FjQul9P387MF-2B45gq8uda3ruLwftPwViZQSRr3uERXjsAI83ndhbHEC-2FcyH-2Bt=
+v5WtuVWTE8fcGk5nmv8-2B4XT66WQOErs2ycwKQ9AsYYil1fECUQIPrdfZ9izwAvc93JdsuMBXP=
+pgkFjRcI-2Fts0Wecl4x4KXJv5ll-2Fbn-2BZeRBBMFtrkzJjaeb8WDo0EpjNlWGV8Gn45k5MIy=
+cyY2F3S7vYxCK83PSh5HRYzv7WvPrXfAxkW5b-2BZjkLGDCCyam-2B9UY76nUSafOu9NYD" tar=
+get=3D"_blank">
+                        <img src=3D"https://gensparkpublicblob-cdn-e6g4btgj=
+avb5a7gh.z03.azurefd.net/user-upload-image/manual/mail/1231linkedln.png" al=
+t=3D"LinkedIn" style=3D"width:30px; height:30px; display:block;" />
+                      </a>
+                    </td>
+                    <td style=3D"padding:0 10px;">
+                      <a href=3D"http://url2040.genspark.ai/ls/click?upn=3D=
+u001.B3lo9tNn2VAwshD7p7MMyWXtqTOfcgI8uxMYaIpbwgGN26PGZA4A9QiglqfAOkTvRt2v_5=
+EBfonW17rhgHpAyCcTXqc0VOIACCC-2B2BS4yjQQOkyYCyQEuiGXlVNz91nSEiQJkSme-2Fwl8Q=
+o64tEuddoh6US58HrcDehHZtuOWWjS1Zd0S3ocRXr5plObKvgH025lruVx5RTiCKUzZYwdbifuM=
+jdoYwov79nuB0TdBvGqGYgQWavcOhs1sfbJHx0aV1-2Fm6ODPrDvqpGvvS3i-2Bb1MNziu8FewY=
+Oj38EMOkxwfcvJsSQNue6VmSLWtPqWaXQKHMAdQfCoE3wC8KdpjBOP9Tr0iavK2M0HpKwibQ695=
+rhwWEnwxneUdTEFwZBE5m3rZk9piJhtqsZkkFXXiSt-2Bxw2JwUDsWEyDUx8-2BEbRHMzmjqWD-=
+2BRzB7g5HocqpuyRELGW0lRZ-2Bg-2FDRobMmt4i8UjUKdb6JFdVIBJzfMCnKctu7-2FEV0MIf7=
+ZwkdO9Wxup4BEueIngclBkVJdfmZPhxZVauysB-2FyQ6O-2Fgo0rYmZPcRxAjv2OkumIZA9yj84=
+hRXzppuF-2FM0YlQXvXug7UhwRDU6Jw7nwKrHVYaW3uMhhISkWvL3-2BAUlV80bUz2zxAUblm8g=
+FX98sWvoRR9qoVRC6FR4SUZPpWST60mV-2BEtOsCpFOjfjFrrPnqIKaExK8zqP9ssHsO-2BnlOz=
+ETNK-2BE3LQn82pmOdd9n-2FyRQ9ghbwTCfWX2cseatnb3dzn-2F5FjQul9P387MF-2B45gq8ud=
+a3ruLwftPwViZQSRr3uERXjsAI83ndhbHEC-2FcyH-2Btv5WtuVWTE8fcGk5nmv8-2B4XT66WQO=
+Ers2ycwKQ-2BYjb0Uo-2BtP3Mk-2B6h-2FPlEIl571ySwQeV2gDatJeDZJfBakUocWtnlt3Bxm9=
+MTkB3UByJqrYyu-2BPl-2BkpsLWcgXb8H-2Bq2COE2kzYuCaBgH-2FnxhSH-2BGMdTgyzx-2BUQ=
+bb0umIecxYnd7RXR0Oh9LQop-2FVGYeNS9qfhehGWNRaFsoJbION" target=3D"_blank">
+                        <img src=3D"https://gensparkpublicblob-cdn-e6g4btgj=
+avb5a7gh.z03.azurefd.net/user-upload-image/manual/mail/1231twitter.png" alt=
+=3D"X" style=3D"width:30px; height:30px; display:block;" />
+                      </a>
+                    </td>
+                    <td style=3D"padding:0 10px;">
+                      <a href=3D"http://url2040.genspark.ai/ls/click?upn=3D=
+u001.B3lo9tNn2VAwshD7p7MMyfuhz9EqrvhutomrOlK7vSWj7FBnjwuBEOREu146VXlTXHj74T=
+QKXBszvyV4PfbM-2FA-3D-3DMsKY_5EBfonW17rhgHpAyCcTXqc0VOIACCC-2B2BS4yjQQOkyYC=
+yQEuiGXlVNz91nSEiQJkSme-2Fwl8Qo64tEuddoh6US58HrcDehHZtuOWWjS1Zd0S3ocRXr5plO=
+bKvgH025lruVx5RTiCKUzZYwdbifuMjdoYwov79nuB0TdBvGqGYgQWavcOhs1sfbJHx0aV1-2Fm=
+6ODPrDvqpGvvS3i-2Bb1MNziu8FewYOj38EMOkxwfcvJsSQNue6VmSLWtPqWaXQKHMAdQfCoE3w=
+C8KdpjBOP9Tr0iavK2M0HpKwibQ695rhwWEnwxneUdTEFwZBE5m3rZk9piJhtqsZkkFXXiSt-2B=
+xw2JwUDsWEyDUx8-2BEbRHMzmjqWD-2BRzB7g5HocqpuyRELGW0lRZ-2Bg-2FDRobMmt4i8UjUK=
+db6JFdVIBJzfMCnKctu7-2FEV0MIf7ZwkdO9Wxup4BEueIngclBkVJdfmZPhxZVauysB-2FyQ6O=
+-2Fgo0rYmZPcRxAjv2OkumIZA9yj84hRXzppuF-2FM0YlQXvXug7UhwRDU6Jw7nwKrHVYaW3uMh=
+hISkWvL3-2BAUlV80bUz2zxAUblm8gFX98sWvoRR9qoVRC6FR4SUZPpWST60mV-2BEtOsCpFOjf=
+jFrrPnqIKaExK8zqP9ssHsO-2BnlOzETNK-2BE3LQn82pmOdd9n-2FyRQ9ghbwTCfWX2cseatnb=
+3dzn-2F5FjQul9P387MF-2B45gq8uda3ruLwftPwViZQSRr3uERXjsAI83ndhbHEC-2FcyH-2Bt=
+v5WtuVWTE8fcGk5nmv8-2B4XT66WQOErs2ycwKQ4B-2FqbEFsX-2BSyyPWKq-2BhXKjzHG9GAjq=
+h9-2F5XMxSyaJ-2FE-2FJkrSkp0pE-2F9wdj-2BSIrIaOf9ubZiNtMzi2h1gND1RkKBqpehbliA=
+uw-2B3nvdfbas8qtIASZ9-2FnAUL3oDmKpcAYeLteKVzgMTAYNI-2BvL-2FVW9spCfzSAgNdWA9=
+T5qccmcpJ" target=3D"_blank">
+                        <img src=3D"https://gensparkpublicblob-cdn-e6g4btgj=
+avb5a7gh.z03.azurefd.net/user-upload-image/manual/mail/playbutton.png" alt=
+=3D"YouTube" style=3D"width:30px; height:30px; display:block;" />
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+
+          <!-- 3-Column Links (TOOLS =E5=88=A0=E9=99=A4) -->
+          <table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" =
+border=3D"0" width=3D"100%">
+            <tr>
+              <!-- PRODUCTS -->
+              <td style=3D"vertical-align:top; width:33.33%; padding-right:=
+12px;">
+                <p style=3D"font-family:Inter,Arial,sans-serif; font-size:1=
+1px; font-weight:700; color:#232425; letter-spacing:0.08em; margin:0 0 16px=
+ 0;">PRODUCTS</p>
+                <p style=3D"margin:0 0 12px 0;"><a href=3D"http://url2040.g=
+enspark.ai/ls/click?upn=3Du001.B3lo9tNn2VAwshD7p7MMyYx0cneFBfsXXnzrDf7OhLxc=
+tRpe-2BDDSL24PGoKvvF6LafCl_5EBfonW17rhgHpAyCcTXqc0VOIACCC-2B2BS4yjQQOkyYCyQ=
+EuiGXlVNz91nSEiQJkSme-2Fwl8Qo64tEuddoh6US58HrcDehHZtuOWWjS1Zd0S3ocRXr5plObK=
+vgH025lruVx5RTiCKUzZYwdbifuMjdoYwov79nuB0TdBvGqGYgQWavcOhs1sfbJHx0aV1-2Fm6O=
+DPrDvqpGvvS3i-2Bb1MNziu8FewYOj38EMOkxwfcvJsSQNue6VmSLWtPqWaXQKHMAdQfCoE3wC8=
+KdpjBOP9Tr0iavK2M0HpKwibQ695rhwWEnwxneUdTEFwZBE5m3rZk9piJhtqsZkkFXXiSt-2Bxw=
+2JwUDsWEyDUx8-2BEbRHMzmjqWD-2BRzB7g5HocqpuyRELGW0lRZ-2Bg-2FDRobMmt4i8UjUKdb=
+6JFdVIBJzfMCnKctu7-2FEV0MIf7ZwkdO9Wxup4BEueIngclBkVJdfmZPhxZVauysB-2FyQ6O-2=
+Fgo0rYmZPcRxAjv2OkumIZA9yj84hRXzppuF-2FM0YlQXvXug7UhwRDU6Jw7nwKrHVYaW3uMhhI=
+SkWvL3-2BAUlV80bUz2zxAUblm8gFX98sWvoRR9qoVRC6FR4SUZPpWST60mV-2BEtOsCpFOjfjF=
+rrPnqIKaExK8zqP9ssHsO-2BnlOzETNK-2BE3LQn82pmOdd9n-2FyRQ9ghbwTCfWX2cseatnb3d=
+zn-2F5FjQul9P387MF-2B45gq8uda3ruLwftPwViZQSRr3uERXjsAI83ndhbHEC-2FcyH-2Btv5=
+WtuVWTE8fcGk5nmv8-2B4XT66WQOErs2ycwKQ1kvXGfZ48CGlwM13ZsPgVeq0Afm3QF9tdZdog7=
+kGr7JiAVzIpnwrqub1OEoRfsfOQkpCmXcyYkfvtcqumwP5JHo5POKrVx1zv2mmwEztVu7dPynxD=
+eAZ5kIYvXh8KAqnS3S88uBt5LwopU-2BuS5hmcNUQXuiWC6cRaxshOja2s4S" target=3D"_bl=
+ank" style=3D"font-family:Inter,Arial,sans-serif; font-size:13px; color:#90=
+9499; text-decoration:none;">AI Browser</a></p>
+                <p style=3D"margin:0;"><a href=3D"http://url2040.genspark.a=
+i/ls/click?upn=3Du001.B3lo9tNn2VAwshD7p7MMyRa1fP5q-2BgHvMzsTwFh7gF8-3Dvmkt_=
+5EBfonW17rhgHpAyCcTXqc0VOIACCC-2B2BS4yjQQOkyYCyQEuiGXlVNz91nSEiQJkSme-2Fwl8=
+Qo64tEuddoh6US58HrcDehHZtuOWWjS1Zd0S3ocRXr5plObKvgH025lruVx5RTiCKUzZYwdbifu=
+MjdoYwov79nuB0TdBvGqGYgQWavcOhs1sfbJHx0aV1-2Fm6ODPrDvqpGvvS3i-2Bb1MNziu8Few=
+YOj38EMOkxwfcvJsSQNue6VmSLWtPqWaXQKHMAdQfCoE3wC8KdpjBOP9Tr0iavK2M0HpKwibQ69=
+5rhwWEnwxneUdTEFwZBE5m3rZk9piJhtqsZkkFXXiSt-2Bxw2JwUDsWEyDUx8-2BEbRHMzmjqWD=
+-2BRzB7g5HocqpuyRELGW0lRZ-2Bg-2FDRobMmt4i8UjUKdb6JFdVIBJzfMCnKctu7-2FEV0MIf=
+7ZwkdO9Wxup4BEueIngclBkVJdfmZPhxZVauysB-2FyQ6O-2Fgo0rYmZPcRxAjv2OkumIZA9yj8=
+4hRXzppuF-2FM0YlQXvXug7UhwRDU6Jw7nwKrHVYaW3uMhhISkWvL3-2BAUlV80bUz2zxAUblm8=
+gFX98sWvoRR9qoVRC6FR4SUZPpWST60mV-2BEtOsCpFOjfjFrrPnqIKaExK8zqP9ssHsO-2BnlO=
+zETNK-2BE3LQn82pmOdd9n-2FyRQ9ghbwTCfWX2cseatnb3dzn-2F5FjQul9P387MF-2B45gq8u=
+da3ruLwftPwViZQSRr3uERXjsAI83ndhbHEC-2FcyH-2Btv5WtuVWTE8fcGk5nmv8-2B4XT66WQ=
+OErs2ycwKQx1wV0fECrjZVqys4GROz46xEtzcO-2FzMSw4tLuZc2-2Fmznh1s2c2C6oJKJ76ZZU=
+kfhEM6HTFbdji5RpvsKwzVMm7X3Et-2FyXU3G1jHXknORBd5JdZVaTWyYBchKLUQ9MkAiONpkkk=
+QlSf-2F9SN2VddOv7XejyYSXSnHqJGovnBN-2FgDW" target=3D"_blank" style=3D"font-=
+family:Inter,Arial,sans-serif; font-size:13px; color:#909499; text-decorati=
+on:none;">Speakly</a></p>
+              </td>
+
+              <!-- COMPANY -->
+              <td style=3D"vertical-align:top; width:33.33%; padding:0 12px=
+;">
+                <p style=3D"font-family:Inter,Arial,sans-serif; font-size:1=
+1px; font-weight:700; color:#232425; letter-spacing:0.08em; margin:0 0 16px=
+ 0;">COMPANY</p>
+                <p style=3D"margin:0 0 12px 0;"><a href=3D"http://url2040.g=
+enspark.ai/ls/click?upn=3Du001.B3lo9tNn2VAwshD7p7MMyTm-2FEmc-2BI9XU00w1tT8L=
+YAXPTSBTdjUdp4YSy245sN0tKiLE_5EBfonW17rhgHpAyCcTXqc0VOIACCC-2B2BS4yjQQOkyYC=
+yQEuiGXlVNz91nSEiQJkSme-2Fwl8Qo64tEuddoh6US58HrcDehHZtuOWWjS1Zd0S3ocRXr5plO=
+bKvgH025lruVx5RTiCKUzZYwdbifuMjdoYwov79nuB0TdBvGqGYgQWavcOhs1sfbJHx0aV1-2Fm=
+6ODPrDvqpGvvS3i-2Bb1MNziu8FewYOj38EMOkxwfcvJsSQNue6VmSLWtPqWaXQKHMAdQfCoE3w=
+C8KdpjBOP9Tr0iavK2M0HpKwibQ695rhwWEnwxneUdTEFwZBE5m3rZk9piJhtqsZkkFXXiSt-2B=
+xw2JwUDsWEyDUx8-2BEbRHMzmjqWD-2BRzB7g5HocqpuyRELGW0lRZ-2Bg-2FDRobMmt4i8UjUK=
+db6JFdVIBJzfMCnKctu7-2FEV0MIf7ZwkdO9Wxup4BEueIngclBkVJdfmZPhxZVauysB-2FyQ6O=
+-2Fgo0rYmZPcRxAjv2OkumIZA9yj84hRXzppuF-2FM0YlQXvXug7UhwRDU6Jw7nwKrHVYaW3uMh=
+hISkWvL3-2BAUlV80bUz2zxAUblm8gFX98sWvoRR9qoVRC6FR4SUZPpWST60mV-2BEtOsCpFOjf=
+jFrrPnqIKaExK8zqP9ssHsO-2BnlOzETNK-2BE3LQn82pmOdd9n-2FyRQ9ghbwTCfWX2cseatnb=
+3dzn-2F5FjQul9P387MF-2B45gq8uda3ruLwftPwViZQSRr3uERXjsAI83ndhbHEC-2FcyH-2Bt=
+v5WtuVWTE8fcGk5nmv8-2B4XT66WQOErs2ycwKQ03tdZShqOlJ8BJBD21rUjaz0Bj7cB4e1M9Q0=
+pRErv6nrGZtnZB3ts3dXMx35DGE-2FXhFhCiqFfgg7X1DMv-2Fc8j62Bm6sKCe87omuggtpFw2U=
+0iEMwzS4pSYRYD81jgpEBs9mxEFA38D1kIVfl4Ixc5SqqVd-2FCoc-2F-2BXE9CF1lthba" tar=
+get=3D"_blank" style=3D"font-family:Inter,Arial,sans-serif; font-size:13px;=
+ color:#909499; text-decoration:none;">Blog</a></p>
+               =20
+                <p style=3D"margin:0 0 12px 0;"><a href=3D"http://url2040.g=
+enspark.ai/ls/click?upn=3Du001.B3lo9tNn2VAwshD7p7MMyS0iKOgnAg4Zu5xehpMo6rhb=
+tEdMyTBqv65fubPq553vM2Hl_5EBfonW17rhgHpAyCcTXqc0VOIACCC-2B2BS4yjQQOkyYCyQEu=
+iGXlVNz91nSEiQJkSme-2Fwl8Qo64tEuddoh6US58HrcDehHZtuOWWjS1Zd0S3ocRXr5plObKvg=
+H025lruVx5RTiCKUzZYwdbifuMjdoYwov79nuB0TdBvGqGYgQWavcOhs1sfbJHx0aV1-2Fm6ODP=
+rDvqpGvvS3i-2Bb1MNziu8FewYOj38EMOkxwfcvJsSQNue6VmSLWtPqWaXQKHMAdQfCoE3wC8Kd=
+pjBOP9Tr0iavK2M0HpKwibQ695rhwWEnwxneUdTEFwZBE5m3rZk9piJhtqsZkkFXXiSt-2Bxw2J=
+wUDsWEyDUx8-2BEbRHMzmjqWD-2BRzB7g5HocqpuyRELGW0lRZ-2Bg-2FDRobMmt4i8UjUKdb6J=
+FdVIBJzfMCnKctu7-2FEV0MIf7ZwkdO9Wxup4BEueIngclBkVJdfmZPhxZVauysB-2FyQ6O-2Fg=
+o0rYmZPcRxAjv2OkumIZA9yj84hRXzppuF-2FM0YlQXvXug7UhwRDU6Jw7nwKrHVYaW3uMhhISk=
+WvL3-2BAUlV80bUz2zxAUblm8gFX98sWvoRR9qoVRC6FR4SUZPpWST60mV-2BEtOsCpFOjfjFrr=
+PnqIKaExK8zqP9ssHsO-2BnlOzETNK-2BE3LQn82pmOdd9n-2FyRQ9ghbwTCfWX2cseatnb3dzn=
+-2F5FjQul9P387MF-2B45gq8uda3ruLwftPwViZQSRr3uERXjsAI83ndhbHEC-2FcyH-2Btv5Wt=
+uVWTE8fcGk5nmv8-2B4XT66WQOErs2ycwKQ5IX-2BTn4UfpOfG7M1-2B2MOP8xkleYMguXngdSy=
+-2FFTnDLpHVrXBmu8YUmro-2FjJzVFkbDEnOag90MA1If-2B9duQNCoNi1qqHbhXwYzpHcydzEg=
+FEV2xEyMIizUmsK8HXxNTrKyLTG1f-2Be8PPzEDTglnrAU6LfV-2FEj6ALOKUX5FLSqMpV" tar=
+get=3D"_blank" style=3D"font-family:Inter,Arial,sans-serif; font-size:13px;=
+ color:#909499; text-decoration:none;">Privacy</a></p>
+                <p style=3D"margin:0;"><a href=3D"http://url2040.genspark.a=
+i/ls/click?upn=3Du001.B3lo9tNn2VAwshD7p7MMycsIDr982LhZFbHP2TXkTffWXTggI2M5R=
+y92Gz1LcIpM8gpG_5EBfonW17rhgHpAyCcTXqc0VOIACCC-2B2BS4yjQQOkyYCyQEuiGXlVNz91=
+nSEiQJkSme-2Fwl8Qo64tEuddoh6US58HrcDehHZtuOWWjS1Zd0S3ocRXr5plObKvgH025lruVx=
+5RTiCKUzZYwdbifuMjdoYwov79nuB0TdBvGqGYgQWavcOhs1sfbJHx0aV1-2Fm6ODPrDvqpGvvS=
+3i-2Bb1MNziu8FewYOj38EMOkxwfcvJsSQNue6VmSLWtPqWaXQKHMAdQfCoE3wC8KdpjBOP9Tr0=
+iavK2M0HpKwibQ695rhwWEnwxneUdTEFwZBE5m3rZk9piJhtqsZkkFXXiSt-2Bxw2JwUDsWEyDU=
+x8-2BEbRHMzmjqWD-2BRzB7g5HocqpuyRELGW0lRZ-2Bg-2FDRobMmt4i8UjUKdb6JFdVIBJzfM=
+CnKctu7-2FEV0MIf7ZwkdO9Wxup4BEueIngclBkVJdfmZPhxZVauysB-2FyQ6O-2Fgo0rYmZPcR=
+xAjv2OkumIZA9yj84hRXzppuF-2FM0YlQXvXug7UhwRDU6Jw7nwKrHVYaW3uMhhISkWvL3-2BAU=
+lV80bUz2zxAUblm8gFX98sWvoRR9qoVRC6FR4SUZPpWST60mV-2BEtOsCpFOjfjFrrPnqIKaExK=
+8zqP9ssHsO-2BnlOzETNK-2BE3LQn82pmOdd9n-2FyRQ9ghbwTCfWX2cseatnb3dzn-2F5FjQul=
+9P387MF-2B45gq8uda3ruLwftPwViZQSRr3uERXjsAI83ndhbHEC-2FcyH-2Btv5WtuVWTE8fcG=
+k5nmv8-2B4XT66WQOErs2ycwKQ76C9znjo2chnSiN9T2gBQPxDoATfw3WHZi20f8ESOsTpSnoNy=
+MkdxL7ktTq3m18Ic30EYbL-2FuIgbRzDMXuUzI6xk-2F9glQsS7F1e13hnga6TIUS8wfxOLDBg4=
+InLHu0UHNc0KmgUPnuC0CzAQwxAFOqLoLWlTPzFLFpgCQdAgLqo" target=3D"_blank" styl=
+e=3D"font-family:Inter,Arial,sans-serif; font-size:13px; color:#909499; tex=
+t-decoration:none;">Terms</a></p>
+              </td>
+
+              <!-- DOWNLOAD -->
+              <td style=3D"vertical-align:top; width:33.33%; padding-left:1=
+2px;">
+                <p style=3D"font-family:Inter,Arial,sans-serif; font-size:1=
+1px; font-weight:700; color:#232425; letter-spacing:0.08em; margin:0 0 16px=
+ 0;">DOWNLOAD</p>
+                <p style=3D"margin:0 0 10px 0;">
+                  <a href=3D"http://url2040.genspark.ai/ls/click?upn=3Du001=
+.B3lo9tNn2VAwshD7p7MMyb1goEWffEpOlNqYABH5DfGCE64logpwFVDFn3AcwXbsmTUnJ1lw-2=
+BMYmcAyPNhzQ8g-3D-3DSvZ2_5EBfonW17rhgHpAyCcTXqc0VOIACCC-2B2BS4yjQQOkyYCyQEu=
+iGXlVNz91nSEiQJkSme-2Fwl8Qo64tEuddoh6US58HrcDehHZtuOWWjS1Zd0S3ocRXr5plObKvg=
+H025lruVx5RTiCKUzZYwdbifuMjdoYwov79nuB0TdBvGqGYgQWavcOhs1sfbJHx0aV1-2Fm6ODP=
+rDvqpGvvS3i-2Bb1MNziu8FewYOj38EMOkxwfcvJsSQNue6VmSLWtPqWaXQKHMAdQfCoE3wC8Kd=
+pjBOP9Tr0iavK2M0HpKwibQ695rhwWEnwxneUdTEFwZBE5m3rZk9piJhtqsZkkFXXiSt-2Bxw2J=
+wUDsWEyDUx8-2BEbRHMzmjqWD-2BRzB7g5HocqpuyRELGW0lRZ-2Bg-2FDRobMmt4i8UjUKdb6J=
+FdVIBJzfMCnKctu7-2FEV0MIf7ZwkdO9Wxup4BEueIngclBkVJdfmZPhxZVauysB-2FyQ6O-2Fg=
+o0rYmZPcRxAjv2OkumIZA9yj84hRXzppuF-2FM0YlQXvXug7UhwRDU6Jw7nwKrHVYaW3uMhhISk=
+WvL3-2BAUlV80bUz2zxAUblm8gFX98sWvoRR9qoVRC6FR4SUZPpWST60mV-2BEtOsCpFOjfjFrr=
+PnqIKaExK8zqP9ssHsO-2BnlOzETNK-2BE3LQn82pmOdd9n-2FyRQ9ghbwTCfWX2cseatnb3dzn=
+-2F5FjQul9P387MF-2B45gq8uda3ruLwftPwViZQSRr3uERXjsAI83ndhbHEC-2FcyH-2Btv5Wt=
+uVWTE8fcGk5nmv8-2B4XT66WQOErs2ycwKQ-2F558PLoeFB0LhhxO8dRK0u7-2F5YOaEvvoU-2B=
+CfmiTFy8z6b3eIqTMJrBKjbwPNARsJfSRrwbWrOoBCgFUvY8vTdRoHLUoojGR-2FMCh3GhVvZMP=
+puD9ojzFWm0hhifWsvxr8Z8uUv3izDyczES0tP8uRpfCZuR8qIxqMWw2eH5YWl7O" target=3D=
+"_blank">
+                    <img src=3D"https://cdn1.genspark.ai/user-upload-image/=
+admin/image/f53c7cea-ae5f-4c76-8740-b98f36dd3097" alt=3D"Download on the Ap=
+p Store" style=3D"width:135px; height:40px; display:block;" />
+                  </a>
+                </p>
+                <p style=3D"margin:0;">
+                  <a href=3D"http://url2040.genspark.ai/ls/click?upn=3Du001=
+.B3lo9tNn2VAwshD7p7MMydVu94EFQ5HQ5YUBIZ3Td6CSuWsOYNoNZwlClRYNPknS9XcZ5BMlkB=
+fuwD903P2xYFgVoHS3T-2Fuw6mreg0hVRIxzGCTyu3ymVe2oXHJuek0729iK_5EBfonW17rhgHp=
+AyCcTXqc0VOIACCC-2B2BS4yjQQOkyYCyQEuiGXlVNz91nSEiQJkSme-2Fwl8Qo64tEuddoh6US=
+58HrcDehHZtuOWWjS1Zd0S3ocRXr5plObKvgH025lruVx5RTiCKUzZYwdbifuMjdoYwov79nuB0=
+TdBvGqGYgQWavcOhs1sfbJHx0aV1-2Fm6ODPrDvqpGvvS3i-2Bb1MNziu8FewYOj38EMOkxwfcv=
+JsSQNue6VmSLWtPqWaXQKHMAdQfCoE3wC8KdpjBOP9Tr0iavK2M0HpKwibQ695rhwWEnwxneUdT=
+EFwZBE5m3rZk9piJhtqsZkkFXXiSt-2Bxw2JwUDsWEyDUx8-2BEbRHMzmjqWD-2BRzB7g5Hocqp=
+uyRELGW0lRZ-2Bg-2FDRobMmt4i8UjUKdb6JFdVIBJzfMCnKctu7-2FEV0MIf7ZwkdO9Wxup4BE=
+ueIngclBkVJdfmZPhxZVauysB-2FyQ6O-2Fgo0rYmZPcRxAjv2OkumIZA9yj84hRXzppuF-2FM0=
+YlQXvXug7UhwRDU6Jw7nwKrHVYaW3uMhhISkWvL3-2BAUlV80bUz2zxAUblm8gFX98sWvoRR9qo=
+VRC6FR4SUZPpWST60mV-2BEtOsCpFOjfjFrrPnqIKaExK8zqP9ssHsO-2BnlOzETNK-2BE3LQn8=
+2pmOdd9n-2FyRQ9ghbwTCfWX2cseatnb3dzn-2F5FjQul9P387MF-2B45gq8uda3ruLwftPwViZ=
+QSRr3uERXjsAI83ndhbHEC-2FcyH-2Btv5WtuVWTE8fcGk5nmv8-2B4XT66WQOErs2ycwKQ8-2B=
+OHMWeHbOnSp-2FoxVjh2sanCvQeWTgOyD4ElDQy3YmAs0P-2BS1CKX4-2FCeZF3Ax-2B1PBD3q0=
+HfBhKXW9YV5KRx-2Bz7gFBULzIBYUenjBvRo5isaffpRJKJfbfN9NvlXDp4VrkF3ldijTMKJBeX=
+QEg3NTxTL5939p7dYR4Yf0suuj0-2F6" target=3D"_blank">
+                    <img src=3D"https://cdn1.genspark.ai/user-upload-image/=
+admin/image/020bdaa1-0e1a-44f0-b1da-94beb34f1766" alt=3D"Get it on Google P=
+lay" style=3D"width:135px; height:40px; display:block;" />
+                  </a>
+                </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div style=3D"padding: 24px 48px 48px 48px; text-align:center;">
+        <p style=3D"font-family:Inter,Arial,sans-serif; font-size:12px; col=
+or:#909499; line-height:1.6; margin:0;">
+          <a href=3D"http://url2040.genspark.ai/asm/unsubscribe/?user_id=3D=
+45487987&amp;data=3Dzac7Nj60RwQcGGkXMttMiv3ovg7oxZ9HeVnyRcBNbJloMDAwdTAwMAe=
+lcGl6RCC_Vy_UmzRGj1bwv41k9jEkk06DiXrRydbBvp2nuh1rY25Yr5ZzNflo-kVpmBNYiwvmxz=
+p7dnfoiAQxLzq5_chbBWYpa3w3GDGYAP1g21X90ylu_Z1M--_ML6rvCOQqesOUEob-k17Cnpgkf=
+6p-87NM5xpcJ5jQdv0YlPtT3H2qxvpIxVMW-PaKWk3h3wLQVNYqQL0yPAiuUMNz5xaVqtQGyGQC=
+gX6CPGMI1L5g6MrqJw8hLpupzXNJc8Vs8YIqooBqKQL0Y_PkfHJNYUUtX-b86T6mMMx_wZIdsm3=
+HgXp_xcro4vdGmjNlJH3sKD2fxd9PrkSxWduKTeLLqtDjieF-5GcXIz_JGK_NEWZ-VTFWhMCqJN=
+2S9bHyw_jsRYVsoP_DWaR1oywsxi7AJ6or9zHCZZU_lZwFlvgzmA-d9dfarbT2tQqDed6tkKINQ=
+1VmTCq-fvE1juT3fDrOiHnYPZeyvaJ2h3TdGGql_HvlKswtAWDKHHr7dLcUIHdwlyshJQf6m2gY=
+gZVhDp4ricwktxaZIHJGgzXLANKb-WDUHqwUB66D6o9ZODEkeWofS2h--Ot-Kp0C7XCZM5qkaYj=
+JvyLMwkRXyesLEzjkgEphZJzsMLH1yF03Q8LuvRib_e4bSUCHUPvGoWZ-SBUiXo2ZdupJ0Sa762=
+gU7QffbkE35lBDbUPcGiCTCD2A63vZEAE7tEohzysDZjRCplCjHVIOmy4gkCcYT394pqXEseNkl=
+Epy4C-vb7OXJpE_HTpekvar9uUfBpCUDuAJgCLO_c82tubABQda34QBvKOmRcEqHszdGeqYy_81=
+GPW16O022BJzUiRvPkWezHbYdiquwGXOEoWmkp8Z6a8NLcvR_YGTDgbyO6f0PoWKryn64BfNJFE=
+tteKOfH1qo0ZJxpsKI-cSH3JLMEN0ttS7QCn9N1BsNhcGtJj0OFs7W6VbuixOmXb5Lp9uPNZZx4=
+AKMVFlsB4uABQRsWAOIlI-EWRmMHixVJRXTWfRGrfHxgi_yhHkpzPpogx3UzIOWeoUgY6KRx-Yw=
+0GbxypemzQeDx-k6CFHeEght-PSl-bb1gm-tGr-6vJgnpwdksiSHrqhwc4=3D" target=3D"_b=
+lank" style=3D"color:#909499; text-decoration:underline;">Unsubscribe</a>
+          <span style=3D"color:#C4C7CC;"> or </span>
+          <a href=3D"http://url2040.genspark.ai/asm/?user_id=3D45487987&amp=
+;data=3DY5aHpJaJbKcnrt3kQLQf8yxtb1KXazV-U3im2531ZQpoMDAwdTAwMJZ-lpI3pZuiGzF=
+bPJK1c-xD_XHBlmPN6tGKCeHNpu2q2744G-eo4gAkG61ENYYTbHQcSR5GyDHTnmJRaNjbeMgtGp=
+umteXRUTeoG-Ud58Q7FMHhI3e_00WCxusYN0UmpkX1RxZgr-VioOjdPs4OVpysa-wbeKj_qNiUc=
+zT50x8wBn6Kj0uXFe58_9OkGOz0B28OycP-fp3t8GVUmuZva_ZCFaIuaT21baF4v-Os7Lf-pnTh=
+Ior59fLMQ-8IMsAltv5NANR2SaHJ9OvtNL_WgYIF1Gia2_IN1UbtW8S0NQyWwrRoFT2nAlxEzVj=
+bciNpMrMV192cyhicf2t0rp5s7_OSUeAxhG4BQ50R0Ej1ag6toc5h5yLYs9Z9Jyo1GA-jrdOQFe=
+9P6FbXhoQ3oMgFKpO0pJn7yfx5q6KpAq1pMAJiWsQvFTxmTNyc79KbQYSI0B6UYAp6058XKWORs=
+afSnr5QKZUJekSREDu-NktSQpFVlkG5QMyKHhj1EVtNzLVbyVA7sLzYeI0dwdkqffp4nDUQLYLN=
+BSjVab-3l-P1GkMEgsbyKEXaJN4j8QiBziHPP8XR6jjRbxJAPuupCM402DtDk2NYVp2m2QQUcYv=
+2rtTeyYDGZeFCYwYjpbvtW7p-Z8uSPD635O2Ss1FiTYnyBKE3EDy0MGc1sdTMnSN84Vi4Bvic01=
+2ZAXjLfRGnJsjCaN8AhqN9mP3XObNPghCwpAL6bWq9BkNmtO6t8KJGRTZs7cIoBikbT4nDQu0Bm=
+0zlnuKuMoOMjxyBQljtjkn0O5uTgPDyWSTqXasuPJxEAiqeTZtOu6Ado4GUXRo9NWk7IomuIarb=
+ZcEKrjkazdEMimUM8DYDztF5rQmG5_g81XqG4su6J5_18PuUS89YzuOg6u9g8YfEBADT6VEP-ki=
+V-UyjS79ceJf_jgxQ7o0cFY8Xe9GE0Prq4KlF_TyCQ3mmzvXywNho2daCqGTnRUcXRdxVBXVJxV=
+PTvEPiqa7x9jEVmmhMMLcte3N6qB-fEYE54hWVvaWFfM1NbSd5pFay10v0G37ZCqlJrohilu5Mx=
+rsO6iTcr05Tjje88ACY3KX1zA=3D=3D" target=3D"_blank" style=3D"color:#909499; =
+text-decoration:underline;">Update your preferences.</a>
+        </p>
+      </div>
+   =20
+       =20
+       =20
+      =20
+
+
+        <img src=3D"http://url2040.genspark.ai/wf/open?upn=3Du001.aFcml6aEg=
+lUuvjd6jiq3Bt3a5iBia31E9I4zF6Feu47H4OHjVmQGirh3xQSLX0FowYlqOI45BZxzSNgIXPWP=
+Bu0PMsXaUqW2eS0iUVCCumsXKpCb1Scd-2FIsn6p9P6UCD4VZenOjM1IJa1KWQrSKwESzoqHOUI=
+2qBqJ3rcu6DM9PTRapXChcM7VgFK7N4NvEmpM0enuEUE1egsIGIe5K8twFzLcDBIij-2F2UEJy-=
+2BnuzrjTvzQNkrEwxOzGi8o7hHrnOhEmZMxB5NpqdVklCjizHChqPJa7lelGAPPruvIrmJ-2Fa7=
+4cEewuiUs3WK6qdMmrfjQ07Wr5WuRsStODsiAxFkfzOWHChILagLMxKOQh7obtHKEld09DJqZ07=
+bOoD14z1pRdGUNUhnVQChg3bbpXBL2m54-2FPJwuddr1GQvDHlLPwilxtXP-2FP0QJ8F9udhjPH=
+aFxi8TWZz82XhB7NuTDbSJc3NcXBPjxW2wKRQtnIT27AUeRQgJYvfZ9ynPxCaEvOQqp6F0dQk75=
+xzJ-2BMygW1JJrajU-2B9NDbU9uCLn5V2euqgirAJ079RKS9DD0MfLme-2F5F2kQWHAmXC3Jx65=
+M1d1mflhEenp4v960xo9-2BgMV4T4H2Zd762depG0cN7qM5-2BN3fiPCAzL1Mu52PXPoqs1xw90=
+-2B3BI70m-2BRj5mRKi9vJZtlOgg-2Bo1KvesJ5V04OPSsfAqwWMfq-2FJNPjv3jv50qtKLqZao=
+TL7sWY0-2FwJKmFDNOprJm6dVkX13qtrbpMC-2BGT1TDruuNlOwB9d8YXEdd8CAGLbaF8GnnL4O=
+szqs8nfnAxysV6JGEFcp8YsqgG9bPorVT92Q-2BMNWw9yC1HMHZyKm882mo4tLyO-2BU3p2kJkS=
+Pq1Hwjde8gd5-2FhDEI-2BgPbnzkrIgkDUuXs-2Bm2wxx8QeiPii7REsBVUkSTUxSwuxbD-2Bt9=
+Ytakk5Iaw5rCm1MbU63cvtWuJH5wSKJtN-2BTfhMJchuAg-3D-3D" alt=3D"" width=3D"1" =
+height=3D"1" border=3D"0" style=3D"height:1px !important;width:1px !importa=
+nt;border-width:0 !important;margin-top:0 !important;margin-bottom:0 !impor=
+tant;margin-right:0 !important;margin-left:0 !important;padding-top:0 !impo=
+rtant;padding-bottom:0 !important;padding-right:0 !important;padding-left:0=
+ !important;"/>
+--14f5218a35b6b827901e90546246347e321e46ccf58ae1d21f0fc4a956ba--
+
