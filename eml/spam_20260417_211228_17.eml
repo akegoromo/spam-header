@@ -1,0 +1,127 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a05:640c:320f:b0:261:85fe:9a8 with SMTP id g15csp338235eia;
+        Fri, 17 Apr 2026 05:12:39 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ8vSaTSIrfNEkTHctQUvaER8PWD4O2Q3AxuyaJkSF1B6jVyMiwIKA+qkoUzhioTPViAFR1jyEUFQhAeMtyc+A==@gmail.com
+X-Received: by 2002:a05:7300:80c5:b0:2df:7882:1ce0 with SMTP id 5a478bee46e88-2e479618a50mr1287308eec.29.1776427958694;
+        Fri, 17 Apr 2026 05:12:38 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1776427958; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=h/Ya4RQ9bzCixQtM+96K7dMu9mQY65THdEghH3SGtelHw2vKgB8jqNiPdacQUDf5n0
+         cSkPLJTJQUwvRNhlVnHrZG/J2OhNKpobt5Ld+mGqWqFjtNy4jis0VL1FqaCZagPraPtn
+         QAeW8GmqheRuo31g7ZAX1dD9qFOLiMS3DPbiGXdCPr+MIEPmItPXc4S6hSjJUacZrjEg
+         a54qCTc7vIcxWP3B8kmK6Pkw4noIV+TJGd2A6kQYM5KbmsRGv+U/9fPTBhjOOHZssAYp
+         1+NV8N5oBiZPb2wnBB54atwHFtgOwylQ4ZzOvVHkv5vgzMsMw3o0zx7g7ubz5rz+c5zx
+         5SgQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=message-id:date:subject:to:dkim-signature:from:mime-version
+         :content-transfer-encoding:feedback-id:dkim-signature:dkim-signature;
+        bh=VNwfvjuKK67Vmrl6Rd/SU2NYVSGn+H0SUcsuY8K0vhI=;
+        fh=LnGVlAla77Gyfiw8zkzbOhaVlqYgEu27l8ujdfvsIGY=;
+        b=J1vEZxAkqYb6jmO21409ube8g7DhzQ33IjPgBUcb1oY4qmOpECkIbuX/3Wl+0accJR
+         cN2gYpsBrI2v5b3GxQOhKj3vxzsl4G2LcTun/bsaYRyhJpFeoneJZKIMVqbGGaRAhUN3
+         8Nq4ouZlousdjamYqHZUHy0aU5+PsHKhLvQHD4eHz3L3xOgKjxt2TQV4zpceQ4J0DGA+
+         jjX1JBsUMG15OFQVs+6Rm7ioBJs3Ww95GnXjYm+eqd5jUKenANMalyI3wS/pT7y98gF3
+         EtBT9pPYoWvoDbN1dMS6ugoQirZM1mJzXsrCITL2LqTKb3Vczr5K/XJhIm7WHpN8KGiz
+         EU4A==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=hCJbJCpE;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=KMrP5kqF;
+       dkim=pass header.i=@nova.sezstsu.cn header.s=clyer header.b="ZDGsPX/F";
+       arc=pass (i=1 spf=pass spfdomain=nova.sezstsu.cn dkim=pass dkdomain=nova.sezstsu.cn dmarc=pass fromdomain=nova.sezstsu.cn);
+       spf=pass (google.com: domain of srs0=pqr9=qc=nova.sezstsu.cn=noguchibeach@whither.jp designates 104.30.10.111 as permitted sender) smtp.mailfrom="SRS0=pQR9=qc=nova.sezstsu.cn=noguchibeach@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=sezstsu.cn
+Return-Path: <SRS0=pQR9=qc=nova.sezstsu.cn=noguchibeach@whither.jp>
+Received: from ba-bbb.cloudflare-email.net (ba-bbb.cloudflare-email.net. [104.30.10.111])
+        by mx.google.com with ESMTPS id 5a478bee46e88-2e539eaada4si4519798eec.11.2026.04.17.05.12.36
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 17 Apr 2026 05:12:37 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=pqr9=qc=nova.sezstsu.cn=noguchibeach@whither.jp designates 104.30.10.111 as permitted sender) client-ip=104.30.10.111;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=hCJbJCpE;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=KMrP5kqF;
+       dkim=pass header.i=@nova.sezstsu.cn header.s=clyer header.b="ZDGsPX/F";
+       arc=pass (i=1 spf=pass spfdomain=nova.sezstsu.cn dkim=pass dkdomain=nova.sezstsu.cn dmarc=pass fromdomain=nova.sezstsu.cn);
+       spf=pass (google.com: domain of srs0=pqr9=qc=nova.sezstsu.cn=noguchibeach@whither.jp designates 104.30.10.111 as permitted sender) smtp.mailfrom="SRS0=pQR9=qc=nova.sezstsu.cn=noguchibeach@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=sezstsu.cn
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1776427957; x=1777032757; bh=VNwfvjuKK67Vmrl6Rd
+	/SU2NYVSGn+H0SUcsuY8K0vhI=; b=hCJbJCpEEohV5hbVTUjOXmBfJz49pVyUVsnsRzh7eafhu
+	KdQ4rWiBN33o4tHQEUxBHPNu9pQlgRtWoSwkOBgPO+SxaTEhoq4byafrjGY5L8QQFDor79xjUhA
+	VYy8aiA5yJ55AVEA9IbjqDQ8M+N10agFdG5w0XA4jIKMrzQv71n8dZ3bzpP1T9B9Z4QXlzHSIfb
+	hqBVdfHMA6KkisHLPBer7P4aD4HgNMUnv0pPgyVM1gRti57OySnNts5xeKS3fT2ynas81gnLF7M
+	Y2Hj0CPcNVa1CqZhkeU+kblkDkndqugJpjGJ27za8s4+BzHSWYUz+5wjmCT+IJKB/jLoU1cQ==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1776427957; x=1777032757; bh=VNwfvjuKK67Vmrl6Rd
+	/SU2NYVSGn+H0SUcsuY8K0vhI=; b=KMrP5kqFkaVdagQlWRq+o4P8lUXAZh4oe8IoEkst3qpnp
+	eO/v8hnzJXRRmiOuNso93eRQsKz+Sy7C7hY8VQZE2u+dbJfWHDuMq73hBDNv64Rqe28jawBo6+L
+	Uv4Tcpxq+eG2UH5Qd5HYOxfzF+FWFq99x366ZE3UauDqUDtE5QQ535JKE9PxcDZWPipxT3+Ecbf
+	DW4vWwYUz5DkeCItvWG2QZ+/17//wpuiGU0VuQdXQ82XWQ5PjygAg3+rju3GQ/a/Mf95EgXxRwF
+	kjrWBdkckzdC0WsVrMSGJEk5DKk2XW1HV6JdAmkkTLr5IDNG7OOKlLCYrvIsudbVYM3N31fA==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: tnakahara@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from nova.sezstsu.cn (60.21.13.123)
+        by cloudflare-email.net (cloudflare) id kL3ShrlYUIac
+        for <tnakahara@whither.jp>; Fri, 17 Apr 2026 12:12:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=OXU5ochwoAsBf7wbMLe3m3z/17LTyf1C0Sboo1D9gjJrvmdULa3XHlvO8s9OMXeHm7qVM+Ahp
+	0STCT+6ZTB/TN71ASmeoMdTLJrw+PR67UBVf7cW2R43qQumakrmoKcK4z56tzIjQ9KeIxJzLKFo
+	iXbw4ad5bK/btDe+9fqzt79SUDMQa6Fwe6N6MbeMsL7nbYFSCfD1Vtc8Gv3q1/61oAQrIuschvZ
+	lqNH/7j4z2Mfh5nunbVr6Yur2PmvWA1EPrlxi4qfAaZNKojUCBvD/UduD6iVI14YhcpZjE/xD0S
+	FE4dTSWnxCdVdXfQYecqhpcsz5XLgrQmGVlQJJZh6REg==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1776427955; x=1777032755; bh=VNwfvjuK
+	K67Vmrl6Rd/SU2NYVSGn+H0SUcsuY8K0vhI=; b=SNGCh6vIcD2ok4nPxf+gVBPpD4pEvqn4l17
+	EzlGHblN/MWvLgAKUFl86SjiQZMmRGyCtrIHCE4kfCIKh/TJLi6ZZPsY0X0UP0JEXwUPkthkgTK
+	IW1Kfs8mITfl2jAhO8aQWx1Bp5bevCBPhyl5dJJhBmMM214zFQMqTMskhKzDMhdDoEHt0o8+rdl
+	SVtI9ricdalW6eAWZc1iglopCrl721Bm6EbJSAH91Y1hEiX15zBBe3vyUcVQrBC9PMUDve50kfj
+	dqClnu1/xD65kuKQzExjUc9cT11YXoFcXuZEWfEpL6L0xk6Rbe26EnATRGfISAp5e5eeYsc5gAk
+	F2XDChg==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=@nova.sezstsu.cn header.s=clyer header.b=ZDGsPX/F;
+	dmarc=pass header.from=nova.sezstsu.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@nova.sezstsu.cn designates 60.21.13.123 as permitted sender) smtp.helo=nova.sezstsu.cn;
+	spf=pass (mx.cloudflare.net: domain of noguchibeach@nova.sezstsu.cn designates 60.21.13.123 as permitted sender) smtp.mailfrom=noguchibeach@nova.sezstsu.cn;
+	arc=none smtp.remote-ip=60.21.13.123
+Received-SPF: pass (mx.cloudflare.net: domain of noguchibeach@nova.sezstsu.cn designates 60.21.13.123 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=60.21.13.123; envelope-from="noguchibeach@nova.sezstsu.cn"; helo=nova.sezstsu.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=@nova.sezstsu.cn header.s=clyer header.b=ZDGsPX/F;
+	dmarc=pass header.from=nova.sezstsu.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@nova.sezstsu.cn designates 60.21.13.123 as permitted sender) smtp.helo=nova.sezstsu.cn;
+	spf=pass (mx.cloudflare.net: domain of noguchibeach@nova.sezstsu.cn designates 60.21.13.123 as permitted sender) smtp.mailfrom=noguchibeach@nova.sezstsu.cn;
+	arc=none smtp.remote-ip=60.21.13.123
+X-CF-SpamH-Score: 2
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+From: e-Orico <noguchibeach@nova.sezstsu.cn>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nova.sezstsu.cn;
+ i=@nova.sezstsu.cn; q=dns/txt; s=clyer; t=1776427948; h=from : to :
+ subject : date : message-id;
+ bh=VNwfvjuKK67Vmrl6Rd/SU2NYVSGn+H0SUcsuY8K0vhI=;
+ b=ZDGsPX/FeqhqzRazFYrDT3xsHi6u1AUdcLBvqbQpxLseOHSI0/a7IdcFsxMfBJtJt4oVV
+ 6/UgeIqH88uWCFYiTIh/on3tFLXy2spXPnRx5pX3BK12MaxhCfb6RGBQYuUBf7pREEFdmU9
+ pjUnK+2aPHKStABZHtbzA3snVov979NnSnlu8qV68FswW/S+1mMP9a9zdAFSA7f6Sha89e/
+ UYYCLz+PkfRqvlWEoPbj0OFqIotSD8ziJNrTXuh5NxEMPQsxATV+RxXiZBu21hhQupGlf3R
+ JxpFGU669101FkJYRHBjX17BrPtBPlnp8I1PILN1WbVE0ejRmCo/MvMwUJ0A==
+To: <tnakahara@whither.jp>
+Subject: =?utf-8?b?ZeOCquODquOCs+OCq+ODvOODieOBlOWIqeeUqOOBq+OBpOOBhOOBpuOBruOBiuefpeOCieOBm+OBqOOBlOeiuuiqjeS+nemgvA==?=
+Date: Fri, 17 Apr 2026 21:12:28 +0900
+Message-ID: <1776427948452.16n7wn6781t5@nova.sezstsu.cn>
+X-Senderauth-Result: pass
+X-Country-Code: JP
+
+PEhUTUw+PEhFQUQ+DQo8bWV0YSBodHRwLWVxdWl2PSJDb250ZW50LVR5cGUiIGNvbnRlbnQ9InRleHQvaHRtbDsgY2hhcnNldD0iVVRGLTgiPg0KPE1FVEEgbmFtZT1HRU5FUkFUT1IgY29udGVudD0iTVNIVE1MIDExLjAwLjEwNTcwLjEwMDEiPjxtZXRhIG5hbWU9InZpZXdwb3J0IiBjb250ZW50PSJ5ZXMiPjwvSEVBRD4NCjxCT0RZPg0KPFA+ZeOCquODquOCs+OCq+ODvOODie+9nOOBlOWIqeeUqOaYjue0sOOBrumAmuefpTwvUD4NCjxQPjxCUj7ml6XpoIPjgojjgopl44Kq44Oq44Kz44Kr44O844OJ44KS44GU5oSb6aGn44GE44Gf44Gg44GN6Kqg44Gr44GC44KK44GM44Go44GG44GU44GW44GE44G+44GZ44CCPC9QPg0KPFA+44GK5a6i5qeY44Gu44Kr44O844OJ44Gr44KI44KL44GK5byV44GN6JC944Go44GX44GM5q2j5bi444Gr5a6M5LqG44GE44Gf44GX44G+44GX44Gf44CCPC9QPg0KPHNlY3Rpb24gc3R5bGU9Im1hcmdpbjowIDAgMWVtIDAiPuS4i+iomOOBruODquODs+OCr+OCiOOCiuOAgeips+e0sOOBquOBlOWIqeeUqOaYjue0sOOCkuOBlOeiuuiqjeOBhOOBn+OBoOOBkeOBvuOBmeOAgjwvc2VjdGlvbj4NCjx0YWJsZSBjZWxscGFkZGluZz0iMCIgY2VsbHNwYWNpbmc9IjAiIGJvcmRlcj0iMCIgd2lkdGg9IjEwMCUiIHN0eWxlPSJib3JkZXItY29sbGFwc2U6Y29sbGFwc2U7bWFyZ2luOjA7cGFkZGluZzowIj48dHI+PHRkIHN0eWxlPSJwYWRkaW5nOjAgMCAxZW0gMCI+5LiH44GM5LiA44CB6Lqr44Gr
+6Kaa44GI44Gu44Gq44GE44GU5Yip55So44GM44GU44GW44GE44G+44GX44Gf44KJ44CB6YCf44KE44GL44Gr5byK56S+44G+44Gn44GU6YCj57Wh44KS44GK6aGY44GE44GE44Gf44GX44G+44GZ44CCPC90ZD48L3RyPjwvdGFibGU+DQo8aGVhZGVyIHN0eWxlPSJtYXJnaW46MCAwIDFlbSAwIj4mbmJzcDs8L2hlYWRlcj4NCjxkaXYgc3R5bGU9Im1hcmdpbjowIDAgMWVtIDAiPjxBIGhyZWY9Imh0dHBzOi8veXdoZGJxcy5jbi9CWVNDQkFXZkh0Lm9zYWthLmNvbSI+PEZPTlQgc2l6ZT00PuOBlOWIqeeUqOaYjue0sOOBrueiuuiqjeOBr+OBk+OBoeOCiTwvRk9OVD4gPC9BPjwvZGl2Pg0KPGRpdiBzdHlsZT0ibWFyZ2luOjAgMCAxZW0gMCI+PEJSPuKAu+acrOODoeODvOODq+OBr+mAgeS/oeWwgueUqOOBp+OBmeOAgui/lOS/oeOBr+OBiuWPl+OBkeOBp+OBjeOBvuOBm+OCk+OAgjxCUj7jgZTkuI3mmI7jgarngrnjga9l44Kq44Oq44Kz44Kr44K544K/44Oe44O844K744Oz44K/44O844G+44Gn44GK5ZWP44GE5ZCI44KP44Gb44GP44Gg44GV44GE44CCIDwvZGl2Pg0KPGRpdiBzdHlsZT0ibWFyZ2luOjAgMCAxZW0gMCI+PHNwYW4+Jm5ic3A7PC9zcGFuPjwvZGl2PjwvQk9EWT48L0hUTUw+DQo=
+
