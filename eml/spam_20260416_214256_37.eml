@@ -1,0 +1,151 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a05:640c:8212:b0:261:85fe:9a8 with SMTP id c18csp1204863eim;
+        Thu, 16 Apr 2026 05:43:01 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ9yhybPkd9bi1Nui9sXfjAPNefwK3lIfDm/peA+NTGaZ6yFBrgrMoVzWa4pGQtpyeQOT4HB+jlgUZoFPT9MJw==@gmail.com
+X-Received: by 2002:a05:7301:6446:b0:2c1:7afc:df06 with SMTP id 5a478bee46e88-2d586eaa01cmr14074434eec.5.1776343381257;
+        Thu, 16 Apr 2026 05:43:01 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1776343381; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=FDlX242EreMcjDHF7vBSxOu6Hk42NY8ZPZIBd6rCH/UUcQZOGqfXbwckXSeiwBwJe6
+         i35s4Etwozj7pBqeos74wV9YQ6WXv8oCoOZEzt/3OL6/sXEcif34BCFKNqTdG2ML8V0j
+         M7eccQHeFBatigTvXwfh45f7WsIBHFY3PY3jbWkbftIDty5TzzxE94MPB26Dsr/5rURp
+         7ljz9eoNDHEHcFnsDbWTJUSaIGvv2KnmJlOW5DDZx5XFUewAr3TF9bsoCKGlxPGH3+kC
+         PYp5crXyk056sucoIB/kkBeSIuvMq/lZNF6pM+R6kQjvBI/7A/POWqJpesjboZbIGWFk
+         d3sw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:track-id:mime-version:message-id:date
+         :subject:to:from:dkim-signature:dkim-signature:feedback-id
+         :dkim-signature:dkim-signature;
+        bh=lrldfe2Z877L9NXqC6l/S2GZKZcVV44sZ89wgbhPu9E=;
+        fh=AmwUtjvAn7++NEBttiaVEnyCAVA5youKb81rEHZT4FM=;
+        b=ARzKuEoezBazNuVCt2+yj603DfLLRcj3n3tIe8epMqLykLb3DhGTljkOWFeAMkFCg+
+         eoRb5l1EasBeA1Vo8NSRQzfeUN9E/5nd97flNq/pQaJOPOxj8ZCRynDuGEWS6dujb+O+
+         xQrpNLTcQrb01OnRAI/fRrA4LnV42lPWY/PE6LD6UQqLquvhWWlS/8I/WCllUe7BvzXV
+         7NL/VEOSV34ouhwsUT0NYPHwDA6jowgtz5Y58hHMp+ooHl0Ag5rJald3dTSeTObyiX7+
+         g2dq2++v+wDFV/oJrfgb8qfdXD7iJwLXO6DSnLV2at+ky+kthkQsBM3S+cMYV1ZlBGru
+         GD8w==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=YoH2Ji5Z;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=fZRC1qwu;
+       dkim=pass header.i=@emailservice.actkapp.com header.s=emailservice header.b=ywzvJ+8n;
+       dkim=neutral (body hash did not verify) header.i=@emailservice.actkapp.com header.s=selector1 header.b="/aPfzsIc";
+       arc=pass (i=1 spf=pass spfdomain=emailservice.actkapp.com dkim=pass dkdomain=emailservice.actkapp.com dmarc=pass fromdomain=emailservice.actkapp.com);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.154 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=emailservice.actkapp.com
+Return-Path: <cfbounces+ndrdrop@whither.jp>
+Received: from ba-bfe.cloudflare-email.net (ba-bfe.cloudflare-email.net. [104.30.10.154])
+        by mx.google.com with ESMTPS id 5a478bee46e88-2e26af00e3csi1461923eec.47.2026.04.16.05.43.00
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 16 Apr 2026 05:43:00 -0700 (PDT)
+Received-SPF: pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.154 as permitted sender) client-ip=104.30.10.154;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=YoH2Ji5Z;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=fZRC1qwu;
+       dkim=pass header.i=@emailservice.actkapp.com header.s=emailservice header.b=ywzvJ+8n;
+       dkim=neutral (body hash did not verify) header.i=@emailservice.actkapp.com header.s=selector1 header.b="/aPfzsIc";
+       arc=pass (i=1 spf=pass spfdomain=emailservice.actkapp.com dkim=pass dkdomain=emailservice.actkapp.com dmarc=pass fromdomain=emailservice.actkapp.com);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.154 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=emailservice.actkapp.com
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1776343380; x=1776948180; bh=lrldfe2Z877L9NXqC6
+	l/S2GZKZcVV44sZ89wgbhPu9E=; b=YoH2Ji5ZniKPqTkUO4sApiyHKdzIOLozBIv6yXbf34hiu
+	WGfZJ3L8RLsqykIGp6Jic2l4Um9/BgGtLDEQODb4rKDSUv5on4HkYXgTlWYCrbIe+VAWPapqEHH
+	1HcYAE3qUN/TfUsy2TRN1jx9KNejJovmAU/WQ7ZtZ05376kRTjeuHvFYlu8StkfhNwVx6JqwFvg
+	6PRqUjEQYhiTXoHqQ02tgYGJzVY9IsnB+5xbTs0hmDy5YN9LdzcVvJKPOnftp6cZa1rdxfN8y8a
+	dy1oRhcpqm8AILdRU+3t6nhygB1cizoN4CNpJjhqHS5rPvnEFcHQnPS7c/XeKuupXCOwgaqA==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1776343380; x=1776948180; bh=lrldfe2Z877L9NXqC6
+	l/S2GZKZcVV44sZ89wgbhPu9E=; b=fZRC1qwuNjrR7h6urjuJb6L25p+xuS3x3/fSTsfelbjKv
+	BC2MGBEGt8JpPwHAzBQmt52Jmm3IXM1NFE/fxj8p0PII64z/IVgrBTuqtMeAEK4XVPBe9tfBRsh
+	8+ggheQIfRBPJ7ewJ/lCPxn5u+ST+gJwko85EOBytXpihIrrpJn0PoiLp93ytTJAz8I+jvrBNw/
+	hXgh/mDn3YPmv+DnoSJpZ2ydNTdA+CqokS2NR8SuBbhiWSfxhN14hqHlDJu1XMWmGeQdbsYTDpt
+	AQzSij/QydZvlC0Dmalqk1VKED0hjzS/PO/Xd+xptAsiSqqOYAQyd25H3AEKHovpuT4ROaJA==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: tnakahara@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from emailservice.actkapp.com (34.16.191.115)
+        by cloudflare-email.net (cloudflare) id vFcMKCQeoZxs
+        for <tnakahara@whither.jp>; Thu, 16 Apr 2026 12:42:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=iIIEawBFC9WS7g1o7dwJ56Q4qPuKwIIufSKxi2SrS5izxBWAEqpnwlEieOz4onkjkBV6UjBkt
+	eka85JvIqj2tikhyUbAlPXXddVYLL4BOmiWpCjFhQAPNM4t0o6ModEV6Ulx5p5D/2QSXXEjpDQF
+	FRWrvucjAIubesiv2XVyxDh/qR6aWCbA3T0Z2oKLVJH8qEDA+SwnsVrGkQ+j9v9pXFjySo6zOFQ
+	1TM69rzl6cmqBl3omMKzoOcq+XxHHyW2Lp06kYbjGuhUsQIjOr2SdjKJMKGARG3k76J30+p8C/P
+	qZIw0SFYMffE+2+q3jGH48gQOcY3e5eIuN8NO8o9N6RA==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1776343379; x=1776948179; bh=lrldfe2Z
+	877L9NXqC6l/S2GZKZcVV44sZ89wgbhPu9E=; b=QNRJlp3DmmhuReBA5mKjWILhWWoSGHQ5YwD
+	a+Mab1KTDgNU798AxPu2NuHpR2A9tESjD3euGV2ZVzQ/cbFYhrMj9ygPVV0cGacxQJSWaLLUhXd
+	fYL0odg2OLTE7S93g3p6UGH80mrCc7rm88po+ZdAOK84dY+OxO0cNE5WAdCHqxVj2ObdyDVDOic
+	NCHik/+8hmCKQuExSYdsDD7spcG9E2H/NbJtt47Bwr4RzpHo8BPltAMtKTlNVkVBawK655Tn8D7
+	sYqGgPQFyD/PqUq71VE3F4cVC0iEwn01bH1eJzZkZ0Arb89yy/3h4BZVvbfZyDAwsqsxllpIFif
+	GdTOJRw==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=noreply@emailservice.actkapp.com header.s=emailservice header.b=ywzvJ+8n;
+	dkim=neutral (body hash did not verify) header.d=emailservice.actkapp.com header.s=selector1 header.b=/aPfzsIc;
+	dmarc=pass header.from=emailservice.actkapp.com policy.dmarc=quarantine;
+	spf=pass (mx.cloudflare.net: domain of postmaster@emailservice.actkapp.com designates 34.16.191.115 as permitted sender) smtp.helo=emailservice.actkapp.com;
+	spf=pass (mx.cloudflare.net: domain of noreply-tnakahara=whither.jp@emailservice.actkapp.com designates 34.16.191.115 as permitted sender) smtp.mailfrom=noreply-tnakahara=whither.jp@emailservice.actkapp.com;
+	arc=none smtp.remote-ip=34.16.191.115
+Received-SPF: pass (mx.cloudflare.net: domain of noreply-tnakahara=whither.jp@emailservice.actkapp.com designates 34.16.191.115 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=34.16.191.115; envelope-from="noreply-tnakahara=whither.jp@emailservice.actkapp.com"; helo=emailservice.actkapp.com;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=noreply@emailservice.actkapp.com header.s=emailservice header.b=ywzvJ+8n;
+	dkim=neutral (body hash did not verify) header.d=emailservice.actkapp.com header.s=selector1 header.b=/aPfzsIc;
+	dmarc=pass header.from=emailservice.actkapp.com policy.dmarc=quarantine;
+	spf=pass (mx.cloudflare.net: domain of postmaster@emailservice.actkapp.com designates 34.16.191.115 as permitted sender) smtp.helo=emailservice.actkapp.com;
+	spf=pass (mx.cloudflare.net: domain of noreply-tnakahara=whither.jp@emailservice.actkapp.com designates 34.16.191.115 as permitted sender) smtp.mailfrom=noreply-tnakahara=whither.jp@emailservice.actkapp.com;
+	arc=none smtp.remote-ip=34.16.191.115
+X-CF-SpamH-Score: 0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=emailservice;
+ d=emailservice.actkapp.com;
+ h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type:
+ Content-Transfer-Encoding; i=noreply@emailservice.actkapp.com;
+ bh=lrldfe2Z877L9NXqC6l/S2GZKZcVV44sZ89wgbhPu9E=;
+ b=ywzvJ+8nbFbNVBXcS2/sPtDLUqnUIioP+CmqVBncTQVopZVnDWmgRjh5NZJdNkyflmfMjvCl2ulf
+   0rdoQyfzqtgUHjtdFLYoz81L3gwnHMJsPPDucIhEbuF1SUa/11Uv8Q7avu1Ho4BTAdb6R2yLsjJh
+   a0wPB3o6AwUE/w7IXBjuGxOjdljky8xeqmK1/ntKoHPWPH7Y115kLim3dkWJ+EUWbZauysAx6vlX
+   QPZZ766OzHOBSH2N1bFtHGvXULH1lc83AfDnXMFzoIucQ6Eoe/fI6zQlFAIkf4IvQca2fCYm2tnO
+   1M2tJc8KtSDl20qwiKJDPhWv2116yPi4oidMuQ==
+Received: from smtp.email-coordinator.ehime.jp ([114.27.162.211])
+ (Authenticated sender: user969@emailservice.actkapp.com)
+ by emailservice.actkapp.com (Relay SMTP) with ESMTPSA id XMJWDE8K-1673-48C6-2E76.6
+ for <tnakahara@whither.jp>;
+ TLS1_3, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA (authenticated bits=0); Thu, 16 Apr 2026 21:42:56 +0900
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=emailservice.actkapp.com; s=selector1; t=1776343376;
+ h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+ bh=eS027+PG20bE56K3hnlu5QOLkf16+lj+ZSj7IBevuMA=;
+ b=/aPfzsIcL/PDORasXJKPf4OdDbnXE+Zjw3AiCm1rncCwHIHX9hEQUCho86mgZFm4TySjIMc8
+   A0iB+XfIl5wEV5GZenaY22G/sLEOhXAl59KLP1EnEQbJF1jQdBkq/C23xcRYN8AYAac0avKY
+   622Fpkl8hiM85ZJLlu4BaXHyVGVByors7s9Fsyf9KBwUFK0dTvLdVFMuvEoA3mRUkdMWLLBO
+   vLbeSpWtV3zuIBF2uejEQDuJGbG7tRbBwvEFn2GoODOqsFG05Hy/cX7CU60wCYDyVZuRy8w2
+   BxK+a8lrGsr2R5nCyn3jmcNAlWlCjkl5XenL57fUqvExeNYiNPrhTQ==
+From: =?ISO-2022-JP?B?GyRCJSIlXiU+JXNKKk4uGyhC?= <noreply@emailservice.actkapp.com>
+To: tnakahara@whither.jp
+Subject: =?ISO-2022-JP?B?GyRCJDRDbUo4PiZJSiReJGIkSiQvRX5DZRsoQg==?=
+Date: Thu, 16 Apr 2026 21:42:56 +0900
+Message-ID: <1776343376404280785.ee48d63b3736@emailservice.actkapp.com>
+MIME-Version: 1.0
+X-Mailer: iPhone Mail (18D70)
+Track-ID: e97402b3882a42018f76093afb026fc2
+Content-Type: text/html; charset="ISO-2022-JP"
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html><meta charset="utf-8"><html><body style="margin:0;padding:22px;font-family:Helvetica,sans-serif;background:#f9f9f9"><div style="max-width:600px;margin:0 auto"><div style="height:4px;background:#146eb4"></div><div style="background:#fff;border:1px solid #e0e0e0;border-top:0;padding:24px;font-size:14px;line-height:1.65;color:#2c2c2c"><div style="font-size:18px;font-weight:bold;margin-bottom:14px">お客様</div>
+<p style="margin:0 0 17px">お届け物が1つ、明日届く予定となっております。 <b>"お届け先"</b>の変更につきましては、配送状況の確認画面にて行えます。ドライバーよりお電話（<b>050-3928-7883</b>）またはSMSにて、ご連絡させていただく場合がございます。<b style="border-bottom:2px solid #00DFFC">アマゾン</b>の配達時間は7時〜22時となっております。</p>
+<div style="background:#f7f7f7;padding:10px 12px;margin:0 0 16px"><p style="margin:0 0 4px">配送サービス：<b style="border-bottom:2px solid #00DFFC">アマゾン</b></p><p style="margin:0">配送伝票番号：<b style="border-bottom:2px solid #00DFFC">786708160985</b></p></div>
+<div style="padding:16px 0;text-align:center"><a href="https://eiyyaav.com/t/vyjva" target="_blank" rel="nofollow noopener noreferrer" style="display:block;background:#ffa41c;color:#111;text-decoration:none;padding:10px;text-align:center;font-weight:bold;font-size:15px">お届け状況の確認</a></div>
+<div style="border-top:1px solid #e0e0e0;margin:14px 0"></div>
+<div style="font-size:10px;color:#aaa;line-height:16px">このメールは送信専用となっております。ご返信はご遠慮ください。</div></div></div></body></html>
+
