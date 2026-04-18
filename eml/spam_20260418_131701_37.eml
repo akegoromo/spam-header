@@ -1,0 +1,64 @@
+Delivered-To: silver.firefox@gmail.com
+Received: by 2002:a98:c058:0:b0:261:85fe:9a8 with SMTP id m24csp520256eic;
+        Fri, 17 Apr 2026 23:05:13 -0700 (PDT)
+X-Received: by 2002:a05:620a:448f:b0:8d6:2958:ec16 with SMTP id af79cd13be357-8e792469102mr839116285a.60.1776492312785;
+        Fri, 17 Apr 2026 23:05:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1776492312; cv=none;
+        d=google.com; s=arc-20240605;
+        b=FxXFaQ1SMEMJShm6BLJ6l63bJ7v/wk5Xoa3gtEUdtI/8Ulx6XW7mW6ExvcYyhfgeAN
+         Tno1OP0+ZWh25UDg65jcq4fl+c+KshrkeygNoKvi6CsXvQFaTgO5m+1tguqE6etB4o3c
+         ak0so9sG8+i9tSFoj/9VTdIuLnhYrCP0fRIBqgVrfIgWWxohveoYf3/amm4xDQANbipx
+         +9FIfKt7SGQYmXRrgfo2K2SSOR5SLLAXJHjuPhseUuJyZkZWOhImS8eydr3Tzed2j+TF
+         feAbixArHxs3IIyWH9TTW592TU/UTTiDjyXP3kLBg/CIm0NLQB2Gmwsv2aAwU2+GBXH6
+         9eMA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=message-id:content-transfer-encoding:to:subject:date:from
+         :dkim-signature;
+        bh=SRuBqER25DiZvhyKe14lgtNVEuCLJa2BGzGDXs9uajg=;
+        fh=30F+LetgEkDSNSp+uLeo/St8k5O2MuAL6jcfWOE8egk=;
+        b=LoxfUrUSHH8gD/vbFbs1Xrm9gutXhuTfuWYS4PhTjxU/dHr7ekVKw+9dO3VRJh6LZG
+         n+V+96JQM58kCj/f1/6cSqJpbiaoYzK3dPbnSh6OhEreVrXMsU/UdznjRyxZQAX4c+28
+         6Z57LYfeczal3bMNzw1SZCp+gjqZUdtr97aewPVDCekytczw4d37mmkgkOt1XdWRKRJH
+         mt3uuzAfe0UsFF5YnkvfLmvuJH28LcH6yqb6VD5rtQKq7CJIrFFRDxahIywdhd6VlDOv
+         l2gbxys8X8fQ/cb+7KzzZlUy1zSOtL1BOpDv0qLKQfSShS2Ubkb4vxGaezZn20EF8S4u
+         Mbpw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=fail header.i=@plasticmilieu.com header.s=202604 header.b=k0dPwNEn;
+       spf=pass (google.com: domain of un4sztzt2s2xtv34p@dgz65ih.plasticmilieu.com designates 3.139.44.27 as permitted sender) smtp.mailfrom=Un4SZTzT2S2xTv34P@dgz65ih.plasticmilieu.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=plasticmilieu.com
+Return-Path: <Un4SZTzT2S2xTv34P@dgz65ih.plasticmilieu.com>
+Received: from [3.149.155.91] (ec2-3-139-44-27.us-east-2.compute.amazonaws.com. [3.139.44.27])
+        by mx.google.com with ESMTP id 6a1803df08f44-8b02af31eb0si52707766d6.641.2026.04.17.23.05.11
+        for <silver.firefox@gmail.com>;
+        Fri, 17 Apr 2026 23:05:12 -0700 (PDT)
+Received-SPF: pass (google.com: domain of un4sztzt2s2xtv34p@dgz65ih.plasticmilieu.com designates 3.139.44.27 as permitted sender) client-ip=3.139.44.27;
+Authentication-Results: mx.google.com;
+       dkim=fail header.i=@plasticmilieu.com header.s=202604 header.b=k0dPwNEn;
+       spf=pass (google.com: domain of un4sztzt2s2xtv34p@dgz65ih.plasticmilieu.com designates 3.139.44.27 as permitted sender) smtp.mailfrom=Un4SZTzT2S2xTv34P@dgz65ih.plasticmilieu.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=plasticmilieu.com
+Received: by 05svsx76.dtk (Postfix, from userid 0)
+	id 1DFBC42871; Sat, 18 Apr 2026 15:05:05 +0900 (JST)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=202604; d=plasticmilieu.com; t=1776485824; h=to:from:date:subject:
+ message-id; bh=SRuBqER25DiZvhyKe14lgtNVEuCLJa2BGzGDXs9uajg=;
+ b=k0dPwNEnONYIv6VgCvyMuh5pRhSVYWtBiWqbMitZfeJqwX2g0FlaLdC9EHGj7O1HMDEuIS
+ mefmUDAnK9dTRR/sTDpO2jL58MwXozYS0OzUbC0XTwxcQa5c0DGn50XArV/FhRtWJWYMZ8
+ cp55RQRErPgAnl6ThGV+u8emeeyxrqUdCycWRrDCOGOfwhq7RHRdGPMVlr87gi/yxFGINq
+ SLEhmGY+Zb2v2OFEN+OrpF+rPk7inkKH20Dilpd6WRyxFG0fM5Rhm0v7k0eSAUPv+rO1hD
+ oL3NJZUe6Z3Y0Bogt2/XSgwgHZpA7PCG6bnLKRFg9Mq8vBBpe6ODzNeP2IXSGw==
+From: =?UTF-8?B?5aSn6JS15q2j6JS1?= <mail@ewsh2f.plasticmilieu.com>
+Date: Sat, 18 Apr 2026 13:17:01 +0900
+Subject: =?UTF-8?B?56eB44Gv6LOH55Sj5a6244Gu5aSn6JS144Go55Sz44GX44G+44GZ44CC5LuK?=
+To: silver.firefox@gmail.com
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
+Message-Id: <20260418044006.14585B80BB@stc204.localhost>
+
+4pay56eB44Gv6LOH55Sj5a6244Gu5aSn6JS144Go55Sz44GX44G+44GZ44CC5LuK4oCm5pel5pys
+44Gv44Go44Gm44KC5L2P44G/44GaCuKJoGh0dHBzOi8vcGxhc3RpY21pbGlldS5jb20vb2pZcXJO
+L0tsMHJyNnRuMnYvODNwczV1cC9KQmo2b0hROS9YbFlOCgrphY3kv6HlgZzmraLjga/jgZPjgaHj
+gokKaHR0cHM6Ly9wbGFzdGljbWlsaWV1LmNvbS9IRDdORDhJLzZoWlhoWi9fc1owck1FZy9PSmRz
+UTdQRDQ3L3FOMGhGCgoKCgo=
+
+
