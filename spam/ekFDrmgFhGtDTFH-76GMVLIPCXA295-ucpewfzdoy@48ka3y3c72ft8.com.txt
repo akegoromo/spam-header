@@ -1,0 +1,55 @@
+Delivered-To: silver.firefox@gmail.com
+Received: by 2002:a98:c058:0:b0:261:85fe:9a8 with SMTP id m24csp457217eic;
+        Fri, 17 Apr 2026 19:30:04 -0700 (PDT)
+X-Received: by 2002:a05:600c:c090:b0:488:c744:49b with SMTP id 5b1f17b1804b1-488fb74a53dmr53187685e9.7.1776479404091;
+        Fri, 17 Apr 2026 19:30:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1776479404; cv=none;
+        d=google.com; s=arc-20240605;
+        b=UNizlNhV9hM/mvSexCk58omg60PQJRm2SOJ9adhFypNqx/jL0f5u5PPGoMc3unlcWF
+         KLMNJP2rwsHYFF0FGHjRFTQUEiRAiz1tiKb7yp86eZ1yB+zsEnB0vYd7Ui3z2hogvRgC
+         mDpt2iJxm/jWC0ccYbdtOk3Rqof9/gCGBSh2j7JDXAODTu1iZZ0GYf9+7ewvyDJtkWTQ
+         3s5Hgf3zx8mmXKt08/HbLQdFhYjVmf4ZogHcsckicG+L4bMqVwnWJ93FLcxJEify6Ix2
+         BGynfWFoVXj29VMraeEDokB+QUT3eXMmpXyVsWda31pG+1/NECgwlm20C7FgkC/qHTjP
+         ixCQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:message-id:subject:mime-version:from:to
+         :date:dkim-signature;
+        bh=S46TrnSoHGAoJaLe74HLV3ECRGq65MJjJGcYS2Qmres=;
+        fh=30F+LetgEkDSNSp+uLeo/St8k5O2MuAL6jcfWOE8egk=;
+        b=NBqF7zi7PjyEhmdKcnRSlUHt8X8KYO+QtBm6O5E6kl4FRTv+KvmM2RcFHY4LyfK+Wu
+         bW13FUV61QhelW0TIRxKou8W+2gR9usmd0gc8ZJqP3hwV4GvHvU9RMol9k1fEtJ5utpZ
+         YpGv/B03VphrXCW5A75ijDCp+VHls6ZvQ1Gbn8wy2ec8DfZ6BDvKQU9VPtOyGEdMCph8
+         lGqwaJizy6VgFsSjVcjd1E33BWYKzmcrg0EcRTh5Ar4ogLriBV5Htoz+g+psTQRczEWi
+         NqRBpfgGbJp3BDy8M1WdbFoDjrRVuQxefdEbqKPF2GQTiEzeUNhRTttn+ytGPZ48TJHS
+         5xxg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@48ka3y3c72ft8.com header.s=202604 header.b=jbxk6VuR;
+       spf=pass (google.com: domain of v9nfdtqc5-x-svpmafz@48ka3y3c72ft8.com designates 54.247.114.167 as permitted sender) smtp.mailfrom=v9NFDtQC5-x-SvPmAFZ@48ka3y3c72ft8.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=48ka3y3c72ft8.com
+Return-Path: <v9NFDtQC5-x-SvPmAFZ@48ka3y3c72ft8.com>
+Received: from [54.247.114.167] (ec2-54-247-114-167.eu-west-1.compute.amazonaws.com. [54.247.114.167])
+        by mx.google.com with ESMTP id 5b1f17b1804b1-488fc0f835csi86109305e9.3.2026.04.17.19.30.03
+        for <silver.firefox@gmail.com>;
+        Fri, 17 Apr 2026 19:30:03 -0700 (PDT)
+Received-SPF: pass (google.com: domain of v9nfdtqc5-x-svpmafz@48ka3y3c72ft8.com designates 54.247.114.167 as permitted sender) client-ip=54.247.114.167;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@48ka3y3c72ft8.com header.s=202604 header.b=jbxk6VuR;
+       spf=pass (google.com: domain of v9nfdtqc5-x-svpmafz@48ka3y3c72ft8.com designates 54.247.114.167 as permitted sender) smtp.mailfrom=v9NFDtQC5-x-SvPmAFZ@48ka3y3c72ft8.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=48ka3y3c72ft8.com
+Received: by 4iiw7eqe.myj (Postfix, from userid 0)
+	id 76B224118A; Sat, 18 Apr 2026 11:30:03 +0900 (JST)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=202604; d=48ka3y3c72ft8.com; t=1776479186; h=to:from:date:subject:
+ message-id; bh=S46TrnSoHGAoJaLe74HLV3ECRGq65MJjJGcYS2Qmres=;
+ b=jbxk6VuRpq1WtcqlMIAlmiYZrAEdZNrAbpD6aA0b2FeaVyMnRyl/Ms50GDzzBSIDKYizhr
+ GwgfLPwKAdlmaz+IuMLArQGHNnrc7Q8q6YiGBspCNy4xdgZvg5YHFXb9v9qmEzKNRb5kX1
+ FyGaTmIf3eZNlWjHApx1YA+Gc0W1AxHiS9LtJdSPsJwZZpZz91+HWytTPUgLdCejQLObBx
+ b711iJ4q1PMjyqKgEne2DWM+c3Q+VrQi5n8QH1qTAhxXVJCto72jw8VEzacf+5UGgXCJTf
+ Hgd15R5NxbMFT6WAGyv8TNQOlwP0tH45gSuz5xCLiUufs5sNugkVbYluOB5iug==
+Date: Sat, 18 Apr 2026 11:26:22 +0900
+To: silver.firefox@gmail.com
+From: =?EUC-JP?B?x+O86KWtpeOl86XaLqG8pfPD5g==?= <iV_kEq80r0H814yb3FN@48ka3y3c72ft8.com>
+MIME-Version: 1.0
+Subject: =?EUC-JP?B?wbSkxqTOpbWlpKXIpM7K3c2tpd0upaSl86XIpPLH46SkvOik6qTepLmho8r9y6Gkz6Kt?=
+Message-ID: <ekFDrmgFhGtDTFH-76GMVLIPCXA295-ucpewfzdoy@48ka3y3c72ft8.com>

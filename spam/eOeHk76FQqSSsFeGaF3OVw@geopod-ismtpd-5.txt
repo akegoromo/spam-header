@@ -1,0 +1,127 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a05:640c:320f:b0:261:85fe:9a8 with SMTP id g15csp108232eia;
+        Thu, 16 Apr 2026 21:08:43 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ/H7R7j/E2yJO31ojyaugR+B/vgAuP3A3Y49AujAXdKr51KxiPZ8UeI+nLFrp3N33LETB/Yefly2/ylOGauqA==@gmail.com
+X-Received: by 2002:a4a:ee0b:0:b0:687:d4de:1f95 with SMTP id 006d021491bc7-694638573abmr497446eaf.26.1776398923520;
+        Thu, 16 Apr 2026 21:08:43 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1776398923; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=FyPMPes1n62rw/UENMJmZLBUj97VFObtCZJlmdy2uYJaRASmjbjdmEDh0/prMnAPsO
+         EUqsnyjebJiMkvEMOrSrf3L2tW8dvFn6ZZ2A0VDsZ1/q6ko/63f7m26mwQh5QxIkY951
+         LU0Ei2b7y4NjJCCueC89SPKg2RM6LoaeYhfvJbq1MrNlzg01owY3cI6CGmk8sZu6lnNF
+         2fBLIcqrDbJ2x6zp2rzSpxkVA6J4Z7ihTmTBffaXqisCA/SYs0VNBHwhfP8jL8PE+1VN
+         qo/biCZ3Y7JLLNIGU6RFsjawAlfGaETtqTQLIwwhK5Iep9K1/aAAwZ1w7sLZohEsbOoo
+         Ncdg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe-post:list-unsubscribe:to:subject:message-id
+         :mime-version:from:date:content-transfer-encoding:dkim-signature
+         :feedback-id:dkim-signature:dkim-signature;
+        bh=NI8UAjTfXlUUlbpZZsaSlzAVMGsibn5ptBCAO03IaPI=;
+        fh=qiMXRaPi1E4B7pNYHv0kY8kKvWMH6z5Z6bF+8QXduDY=;
+        b=Sil8Wti8343TtDZXBOO2jhabeCzQ1O2N0Sms+2gSGDpMsuClTy5Q1heuri5mmhlWV2
+         uLbWmddaZdqxSH5v4By9kVInZMlvT6iS2oJTDj5m+lfH0X3RX41VsMaNl9mulbZV9bLw
+         0nwB2BYzuaK0KnWAwAt3pWCGKhCPs7sx6FiRoylNVt+wFM4nTGNwGa5nvnwzJypCVr+R
+         sPZK4xuNVTVwO4/gr4hPrDuq3E8S6My70pO0xcu4/Ul0FQMphmOC5gX9AY5Fnrr7lvs+
+         d3m+XKcLzV3zn3u0LbTHkWq0TOc+s9Z8a3oLMC1Vabrfq5KBTkH7ZzOCVFaBvQB/4xYC
+         VXlQ==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=V3g0YzUx;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=iLZ0MvsR;
+       dkim=pass header.i=@email.openai.com header.s=s1 header.b=jrVx8ab5;
+       arc=pass (i=1 spf=pass spfdomain=em6623.email.openai.com dkim=pass dkdomain=email.openai.com dmarc=pass fromdomain=email.openai.com);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.100 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=openai.com
+Return-Path: <cfbounces+ndrdrop@whither.jp>
+Received: from ba-baa.cloudflare-email.net (ba-baa.cloudflare-email.net. [104.30.10.100])
+        by mx.google.com with ESMTPS id 006d021491bc7-69464fdd881si260068eaf.69.2026.04.16.21.08.41
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 16 Apr 2026 21:08:43 -0700 (PDT)
+Received-SPF: pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.100 as permitted sender) client-ip=104.30.10.100;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=V3g0YzUx;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=iLZ0MvsR;
+       dkim=pass header.i=@email.openai.com header.s=s1 header.b=jrVx8ab5;
+       arc=pass (i=1 spf=pass spfdomain=em6623.email.openai.com dkim=pass dkdomain=email.openai.com dmarc=pass fromdomain=email.openai.com);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.100 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=openai.com
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=List-Unsubscribe-Post:List-Unsubscribe:To:Subject:From:Date:Feedback-ID
+	:reply-to:cc:resent-date:resent-from:resent-to:resent-cc:in-reply-to
+	:references:list-id:list-help:list-subscribe:list-post:list-owner
+	:list-archive; t=1776398923; x=1777003723; bh=NI8UAjTfXlUUlbpZZsaSlzAVMGsib
+	n5ptBCAO03IaPI=; b=V3g0YzUx/xZ9apAnEJQdFVgIAoPLErjNfm6RpdHCnk+KZMci67ri7Ndd
+	Qyukv8s1DBMT/803kzprH6eGNJZxOhO0KMruVVz+AIO0rCAUHD7AL2Gn5zKTe7nERJdYm1blNP5
+	E2Gr9Ge67oDrFWm117nu3Jk9tOMY9TryzpKaDfB7krJEXRawJfEEUf9xlPVyUBz6G9dLgWdOCPS
+	+58T+GVVxi+iuPwH4P0qXo2TAjjHsKq6Fa/1N/hXt30mKYWwXZEXD18+TAqve0uE7vnjBNdKAYB
+	4WSACopznXgZbHnc49b1dS6CdIgseZA2zQNOD2mSDHm4pk1YhvXhvgXGmkCgg==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=List-Unsubscribe-Post:List-Unsubscribe:To:Subject:From:Date:Feedback-ID
+	:reply-to:cc:resent-date:resent-from:resent-to:resent-cc:in-reply-to
+	:references:list-id:list-help:list-subscribe:list-post:list-owner
+	:list-archive; t=1776398923; x=1777003723; bh=NI8UAjTfXlUUlbpZZsaSlzAVMGsib
+	n5ptBCAO03IaPI=; b=iLZ0MvsRnqfo3tom4H23vwmGI6tgspm/JeW28Ay26SaUMn6R0m7ivB/4
+	EoCRt3bFBKQF0CTIUScXu5uehUfO/6oTEGGpTy5+qS68SwbtdGKz1LsaJUK1S07ozw8szyMOy0B
+	PTMrKy/im5sX0ViUEdHH2fIN/tJtod16hRMpLp7H5rLb/nrMsuqHF7/9M/NwIoZ7fgP/jDGxc0v
+	zTYJsLTZYZl8veUbeVWEPL7+OMC14HIMCX7HpcgjUuDVqF6TbIM6sIFBwktxLf9vdmBrpO+E6ux
+	92xKowSERIl8ezCQkh3VecJnOnM1plfcQo5j+CW4LoqPebjf372edrbyPJSDg==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: penguin@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from o28.ptr9608.openai.com (159.183.141.36)
+        by cloudflare-email.net (cloudflare) id g9DZ4FNFg90X
+        for <penguin@whither.jp>; Fri, 17 Apr 2026 04:08:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=dSIGOk8RqB6s1BNk0VIKTVWtqvW6N3vTBwV+c34oscleQ9FKvBjL08+dnfk0VVs82jlr4hzA1
+	nPvOWcdSbKqtuSTAt0m+76cIyAHihr1UcXVB9v8ON2Hvd6aU99o59KtsrxYAt27P6kPaOMGJQ1l
+	5fhWa3ee7VvW8mqndJkM+dnkugfP05xiRD0Fb8rcv13LU81F2mfJY4QsVfSqqcUMfnqVVXizwm8
+	aQ/6U0TxSO1gmfPs5IcslLZzuzTHh+Hw+f5/WVlQPr17KP6z355vmZLCJt9Rb+1c5AvE5fmJm/m
+	20d0Erjgxf0/Dlxzixybj+e0iYmWAjYhUX7WZQjHWSKQ==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=To:Subject:From:Date:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1776398920; x=1777003720; bh=NI8UAjTf
+	XlUUlbpZZsaSlzAVMGsibn5ptBCAO03IaPI=; b=QshS5jumF6dvVDjFoyEdZpRoqZeoKuECuT0
+	aXJtyhOdbNJ8HrLB0lVn9nnEgS4rPWqQ0S10e62CBnIjWTkIQ7DlY1iJN3BzIm5XElZNg80UqIp
+	xcE3IY5sdMduHp53P0XMZJc4009FOfR2+qFG9LpA6CjdqU5mk1dIzj7dHtKu1wU8glREL60U/O8
+	fMJKC+8P/mOy26uvh6L5ec5ZE/w+fG8NEZ3LcdXrhZh0LAAcUNXANLL3HDHjs9CNr86mmgjlbtJ
+	IFekz9iFTtt+o7nEnaPu0M/MN89yU9mNJbdUJ0jkzBKKq5UVanpx8KuBdKjdL21sPCNrTJX4jlZ
+	0b117DQ==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.d=email.openai.com header.s=s1 header.b=jrVx8ab5;
+	dmarc=pass header.from=email.openai.com policy.dmarc=reject;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@o28.ptr9608.openai.com) smtp.helo=o28.ptr9608.openai.com;
+	spf=pass (mx.cloudflare.net: domain of bounces+20216706-d2d5-penguin=whither.jp@em6623.email.openai.com designates 159.183.141.36 as permitted sender) smtp.mailfrom=bounces+20216706-d2d5-penguin=whither.jp@em6623.email.openai.com;
+	arc=none smtp.remote-ip=159.183.141.36
+Received-SPF: pass (mx.cloudflare.net: domain of bounces+20216706-d2d5-penguin=whither.jp@em6623.email.openai.com designates 159.183.141.36 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=159.183.141.36; envelope-from="bounces+20216706-d2d5-penguin=whither.jp@em6623.email.openai.com"; helo=o28.ptr9608.openai.com;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.d=email.openai.com header.s=s1 header.b=jrVx8ab5;
+	dmarc=pass header.from=email.openai.com policy.dmarc=reject;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@o28.ptr9608.openai.com) smtp.helo=o28.ptr9608.openai.com;
+	spf=pass (mx.cloudflare.net: domain of bounces+20216706-d2d5-penguin=whither.jp@em6623.email.openai.com designates 159.183.141.36 as permitted sender) smtp.mailfrom=bounces+20216706-d2d5-penguin=whither.jp@em6623.email.openai.com;
+	arc=none smtp.remote-ip=159.183.141.36
+X-CF-SpamH-Score: 1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=email.openai.com;
+	h=content-transfer-encoding:content-type:date:from:mime-version:subject:
+	to:list-unsubscribe:list-unsubscribe-post:cc:content-type:date:from:
+	subject:to;
+	s=s1; t=1776398918; bh=NI8UAjTfXlUUlbpZZsaSlzAVMGsibn5ptBCAO03IaPI=;
+	b=jrVx8ab5nnClVgQgHtOtXsPWAlcMsSNmGpItVHiqjd01+p3xNZwSwdBevJT/XBjChzco
+	NK36Y4ZU7AsPcbyDAhO1N9wkqMqk61iKfW168YCQWj/M8ZnvoAbxmslp1T/DGk5faftTEK
+	slGuDAEIhMKRkOFuyX51MFp/2n+MUXxcgb/6ffEswuCVkyfshbzF5149aIn6xl6N813eh+
+	awhVQH07zgdMjFBXqv5he+WFYUYHvC5Pv/5XpErPtpgIgFdIM6iF98+94qFCxN9JIP8Wcl
+	l6YZg54qmoUcmQVhZnQrRC21v7DKxgv0Z8u240lUDiyWhYrx/++W+LhUgtIehy6A==
+Received: by recvd-54bf865b66-9jj25 with SMTP id recvd-54bf865b66-9jj25-1-69E1B246-3D
+	2026-04-17 04:08:38.462510758 +0000 UTC m=+558305.274721004
+Received: from MjAyMTY3MDY (unknown)
+	by geopod-ismtpd-5 (SG) with HTTP
+	id eOeHk76FQqSSsFeGaF3OVw
+	Fri, 17 Apr 2026 04:08:38.430 +0000 (UTC)
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Date: Fri, 17 Apr 2026 04:08:38 +0000 (UTC)
+From: ChatGPT <noreply@email.openai.com>
+Mime-Version: 1.0
+Message-ID: <eOeHk76FQqSSsFeGaF3OVw@geopod-ismtpd-5>
