@@ -1,0 +1,269 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:c058:0:b0:261:85fe:9a8 with SMTP id m24csp2039210eic;
+        Mon, 20 Apr 2026 13:56:36 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ937XhVpCBQMYXPfrNs+4BOFpnXO7Lqhniw20oqc4TPOcfq+gK0eqZYZIGX5ytkoAEDkNYGecSxTcnjXwbRUA==@gmail.com
+X-Received: by 2002:a17:907:60d4:b0:ba3:eaf1:2743 with SMTP id a640c23a62f3a-ba421debcc2mr606889266b.19.1776718596379;
+        Mon, 20 Apr 2026 13:56:36 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1776718596; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=HlzhN2/FMVb5TF+lqqhxB3TIODeQ53km9LsNRstEK4N+AO0x65LXux+K1Mjr6NUX+n
+         VopQTWyTlePFBLXCw/Ykdh5zenaQfSM3TyOzO/8Vuo9sf3fEJzmxEnwL73H8WYHq43KI
+         49GhQfweGNOwol8b3pl4j8DSmPFNQCE2V3ITgGyEa2vqXBAhxYwT+Wp/mBoIbXSEEvjQ
+         XqTpbSSvh4vjluGKiUbz9kIOZG68e/bz8PWFvZHKvaOz5B0645moaiVE3Oqsll3TxArp
+         x4eTBYJ8FbVNSH8Ee3PxIfEa0635c9QtWkCaOHih26U9lvHevgL5LuF9KE2aSONnWWyW
+         uZwg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=user-agent:message-id:date:subject:to:dkim-signature:from
+         :mime-version:content-transfer-encoding:feedback-id:dkim-signature
+         :dkim-signature;
+        bh=d0pyXfWdeEdD2BQ7ju63lnkhgfqt+iubl+nGFS1y4nE=;
+        fh=ENXOhFKW7CT4pn4Lz1vO6o5YQQdiV/Ih3E4yEdfzxpY=;
+        b=Tget8kfCQJkpXqUv5mNuSoaiJfF2LuS8Kio3oZ3WENPx2/fgJ3QVjE28HZ5l2H0KSp
+         zARExw7kXPnBFpfQPasapeqVTx2GNslGa9838VHPf14ukFYxs+PBVlRoF22o38t3Zqto
+         lmblzaw9U3eCZJ5FKBS0X3KTtAt7dP+c3GRdoeVkKDpuHgVwPoRZR/bhK4fwVRhuu3xt
+         IbVMkTH9lSebKjG88B2W5aXJtniDuFN5ATrywXhIwvyv7rVZFaMXqgRGJ8tTRxXuGP+U
+         Ox/sb9PABJYKXd+ssYlACfh+3zNkPYwMzk64Akbt916Ry0xd0uzDGnebMpGH6K2UVE7K
+         zY5Q==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=MLKKGXLM;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=DjKBLRrR;
+       dkim=pass header.i=@sauve.u-c-h-c.cn header.s=zamia header.b=FkOkvObJ;
+       arc=pass (i=1 spf=pass spfdomain=sauve.u-c-h-c.cn dkim=pass dkdomain=sauve.u-c-h-c.cn dmarc=pass fromdomain=sauve.u-c-h-c.cn);
+       spf=pass (google.com: domain of srs0=worg=tc=sauve.u-c-h-c.cn=tsukadamikumist@whither.jp designates 104.30.8.172 as permitted sender) smtp.mailfrom="SRS0=worg=tc=sauve.u-c-h-c.cn=tsukadamikumist@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=u-c-h-c.cn
+Return-Path: <SRS0=worg=tc=sauve.u-c-h-c.cn=tsukadamikumist@whither.jp>
+Received: from i-bhc.cloudflare-email.net (i-bhc.cloudflare-email.net. [104.30.8.172])
+        by mx.google.com with ESMTPS id 4fb4d7f45d1cf-672c4d709besi4537773a12.185.2026.04.20.13.56.35
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 20 Apr 2026 13:56:35 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=worg=tc=sauve.u-c-h-c.cn=tsukadamikumist@whither.jp designates 104.30.8.172 as permitted sender) client-ip=104.30.8.172;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=MLKKGXLM;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=DjKBLRrR;
+       dkim=pass header.i=@sauve.u-c-h-c.cn header.s=zamia header.b=FkOkvObJ;
+       arc=pass (i=1 spf=pass spfdomain=sauve.u-c-h-c.cn dkim=pass dkdomain=sauve.u-c-h-c.cn dmarc=pass fromdomain=sauve.u-c-h-c.cn);
+       spf=pass (google.com: domain of srs0=worg=tc=sauve.u-c-h-c.cn=tsukadamikumist@whither.jp designates 104.30.8.172 as permitted sender) smtp.mailfrom="SRS0=worg=tc=sauve.u-c-h-c.cn=tsukadamikumist@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=u-c-h-c.cn
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1776718595; x=1777323395; bh=d0pyXfWdeEdD2BQ7ju
+	63lnkhgfqt+iubl+nGFS1y4nE=; b=MLKKGXLMy7AjY4z/yAzg5wMpPNj1SCDjsy9IN1/B+RmwA
+	wLx/sGFWt3aNMqYOFiijBT/PW5xzkrYKu/8lt1rgw8X6HyV7wahI1KmQY7dqg32bM5so/PMjppP
+	/nAfwqaI41MPduwFlZ57yRgrE5IpNp4uUoHR8Wu+zySLYGEzEJEcPQr+NSmK+qdLdIzLvPhOf+5
+	2E3bNyuBpmrOO0hg0dLvD50o1+DZBxvWxp5JYDKqOzP5taUFsCkoPp8h2GVbiaWZXw5wMfCQV+o
+	rEvafKDpVNkU92C8wbxjkOML0hgwxoimwsWBZsHjhzvLLzVuZJazAvJrBVlZLrfpb569nRwg==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1776718595; x=1777323395; bh=d0pyXfWdeEdD2BQ7ju
+	63lnkhgfqt+iubl+nGFS1y4nE=; b=DjKBLRrRhGdxuebBzEXzPDJ1Y4UfFTgTM2bDcACL7+K1l
+	UAFZ/JreNoEq9qbWkV9YLyV3qs0f/Yw8p9i860AUhFTEcqWquO0j66APWw/zsxYVpnauKR5EiTK
+	FogkFVQPuCLdTJvC/hMgplGYqDPUEpbEukR3KZmhAa1Vxz6vHZUucNgs6Av6FCVOtDh3c1QIU2h
+	YVUW5Aka2JBdCpuyNIh7TTKijUfpCcsWzuGBd/o/ml4y5L8kugyE/ThIZK5eZBXOVSdPG8Xi/Rb
+	cSYXJzCLd+Bq+/bZ5k2KAlUzbiT/J4ZSWYm0u78EYCtKaC4xIk9ne7qox9MC6nFGuwRz4eIA==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: penguin@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from sauve.u-c-h-c.cn (113.109.120.200)
+        by cloudflare-email.net (cloudflare) id sX24V6tLzYgw
+        for <penguin@whither.jp>; Mon, 20 Apr 2026 20:56:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=FXkxHSde7ssjG9A4PYCBhPndFNToEYo8pSgXBZHNmQksI8BJw+OyCebyVwZ4XUGdJ+4Ou7k0V
+	eLqdh2nKEPDkBMB0HWp6EEH6foC1XGHtzxYf1+JNHHxrsCllHYxJRseVUjbbqCk/XNf564jUBhd
+	5snTam503MCIGXNg1pOms/FxTJLLgeLtk7na4Zy7Kg9dQTpKliumv7PxfuPdjKIQM7vMr2Co2dd
+	3xdq+Hw5N15amQzzrF+h8Shoe1POOcMtth/CWyS2ZWHrow6A2fZr2dEd7dTOeTXMH3y3JQWQU9x
+	NWYE0yeG72WQ1f0zSka5I0UMO5jw0eD7H1EyLPMFVhhg==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1776718594; x=1777323394; bh=d0pyXfWd
+	eEdD2BQ7ju63lnkhgfqt+iubl+nGFS1y4nE=; b=DWiNpmw3jx3Z9cva1sdL+L4X9f/agEw4NM1
+	ejT3TIa8yRLsc94DDrdLRLuxO7OvlPs0QEO6zue/mrPdDG85dWWwq8Wqa4dK2USeZJQXzyyJuYk
+	W0vDbiKFFxHHOqmt50NnvvNrghdO0iVp1yDIVei7yN5xnc+FgNcq4gWlDr0dM3d0dzmFPCjTUF5
+	S9lQxeTKSikEPWeggW1PgVKv2QB5rc7xB9Yj2zCYturvOGLoGOccPthzdRdTirH4Xz4g8HC50DI
+	MRlGxIOYceGHoeVnC+fdH5maHI7L5ZWLG2iipQK7c52hhInLQAO5DJBhal4udpNuX6JDRhr7SfZ
+	4VXTVBw==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=@sauve.u-c-h-c.cn header.s=zamia header.b=FkOkvObJ;
+	dmarc=pass header.from=sauve.u-c-h-c.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@sauve.u-c-h-c.cn designates 113.109.120.200 as permitted sender) smtp.helo=sauve.u-c-h-c.cn;
+	spf=pass (mx.cloudflare.net: domain of tsukadamikumist@sauve.u-c-h-c.cn designates 113.109.120.200 as permitted sender) smtp.mailfrom=tsukadamikumist@sauve.u-c-h-c.cn;
+	arc=none smtp.remote-ip=113.109.120.200
+Received-SPF: pass (mx.cloudflare.net: domain of tsukadamikumist@sauve.u-c-h-c.cn designates 113.109.120.200 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=113.109.120.200; envelope-from="tsukadamikumist@sauve.u-c-h-c.cn"; helo=sauve.u-c-h-c.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=@sauve.u-c-h-c.cn header.s=zamia header.b=FkOkvObJ;
+	dmarc=pass header.from=sauve.u-c-h-c.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@sauve.u-c-h-c.cn designates 113.109.120.200 as permitted sender) smtp.helo=sauve.u-c-h-c.cn;
+	spf=pass (mx.cloudflare.net: domain of tsukadamikumist@sauve.u-c-h-c.cn designates 113.109.120.200 as permitted sender) smtp.mailfrom=tsukadamikumist@sauve.u-c-h-c.cn;
+	arc=none smtp.remote-ip=113.109.120.200
+X-CF-SpamH-Score: 2
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+From: =?utf-8?b?44Oo44OJ44OQ44K344O744OJ44OD44OI44O744Kz44Og?= <tsukadamikumist@sauve.u-c-h-c.cn>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sauve.u-c-h-c.cn;
+ i=@sauve.u-c-h-c.cn; q=dns/txt; s=zamia; t=1776718590; h=from : to :
+ subject : date : message-id;
+ bh=d0pyXfWdeEdD2BQ7ju63lnkhgfqt+iubl+nGFS1y4nE=;
+ b=FkOkvObJrnz/QIIZ5R125b4K4gGtjZYrwU+2zgufNR4MZ8kYuiKhyGtieVG2F5X3x9Cxg
+ 50qpEjVhWQvVpKVs1GcaaR1Niay45cgSeMAG6OtsrPVc/oGYy2qSdn3mQ06e1xyL06dzKCU
+ /1F4cBiK0Anr3NnbgFT+GWvIOuj6tT9Bf+OhbuPXtXQFzqH3q7jXda9waOO5JlaJfGArd+9
+ pfUxG0hTs4PlrNlzcWMrsZmXx7ROAzYq7UXjen2u62icMGNjYr98uBCFRN5jYneryFISXY7
+ CnDfID9L8zhczojWMghoi8TiawB45R17X4Ks9nFpjQ66KeoWiREswkk1z1gg==
+To: <penguin@whither.jp>
+Subject: =?utf-8?b?44Oo44OJ44OQ44K344OJ44OD44OI44Kz44Og77ya44CM44GK5a6i5qeY5oOF5aCx44CN5aSJ5pu05L6d6aC85Y+X5LuY44Gu44GU6YCj57Wh?=
+Date: Tue, 21 Apr 2026 05:56:29 +0900
+Message-ID: <2688-e6-6l-qw-4s8258@sauve.u-c-h-c.cn>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:115.0) Gecko/20100101 Thunderbird/115.0
+X-Originating-IP: [10.0.0.85]
+X-Priority: 4
+
+<HTML lang=3Dja><HEAD><TITLE>=E3=80=90=E3=83=A8=E3=83=89=E3=83=90=E3=82=B7=E3=82=AB=E3=83=A1=E3=83=A9=E3=80=91=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E3=81=94=E7=A2=BA=E8=AA=8D=E3=81=AE=E3=81=8A=E9=A1=98=E3=81=84</TITLE>
+<META content=3D"text/html; charset=3D"UTF-8" http-equiv=3DContent-Type>
+<META name=3Dviewport content=3D"width=3Ddevice-width, initial-scale=3D1.0">
+<STYLE type=3Dtext/css>
+ body {
+ margin: 0;
+ padding: 0;
+ background-color: #f2f3f5;
+ font-family: "Hiragino Kaku Gothic ProN","=E3=83=A1=E3=82=A4=E3=83=AA=E3=82=AA",sans-serif;
+ color: #333333;
+ line-height: 1.8;
+ }
+ table {
+ border-collapse: collapse;
+ }
+ .mail-wrapper {
+ width: 100%;
+ padding: 40px 0;
+ background-color: #f2f3f5;
+ }
+ .mail-container {
+ width: 660px;
+ margin: 0 auto;
+ background-color: #ffffff;
+ border: 1px solid #d9d9d9;
+ }
+ .header {
+ background-color: #00499A;
+ color: #ffffff;
+ font-size: 18px;
+ font-weight: bold;
+ padding: 20px 30px;
+ }
+ .body {
+ padding: 32px 36px;
+ font-size: 14px;
+ }
+ .body p {
+ margin: 0 0 16px 0;
+ }
+ .alert {
+ background-color: #FFF5F5;
+ border-left: 4px solid #D93026;
+ padding: 14px 18px;
+ margin: 20px 0;
+ font-size: 13px;
+ }
+ .info-table {
+ width: 100%;
+ border: 1px solid #dddddd;
+ margin: 20px 0;
+ font-size: 13px;
+ }
+ .info-table th {
+ background-color: #F8F8F8;
+ text-align: left;
+ width: 35%;
+ padding: 8px 12px;
+ border-bottom: 1px solid #dddddd;
+ font-weight: normal;
+ color: #555;
+ }
+ .info-table td {
+ padding: 8px 12px;
+ border-bottom: 1px solid #dddddd;
+ }
+ .cta {
+ text-align: center;
+ margin: 30px 0;
+ }
+ .cta a {
+ background-color: #D93026;
+ color: #ffffff;
+ text-decoration: none;
+ font-weight: bold;
+ font-size: 14px;
+ padding: 12px 40px;
+ border-radius: 2px;
+ display: inline-block;
+ }
+ .note {
+ border-top: 1px solid #e0e0e0;
+ margin-top: 24px;
+ padding-top: 18px;
+ font-size: 13px;
+ }
+ .footer {
+ background-color: #f6f6f6;
+ border-top: 1px solid #cccccc;
+ padding: 20px 30px;
+ font-size: 12px;
+ color: #777777;
+ text-align: center;
+ }
+ .footer p {
+ margin: 4px 0;
+ }
+</STYLE>
+
+<META name=3DGENERATOR content=3D"MSHTML 11.00.10570.1001"></HEAD>
+<BODY>
+<TABLE class=3Dmail-wrapper cellSpacing=3D0 cellPadding=3D0 width=3D"100%">
+  <TBODY>
+  <TR>
+    <TD align=3Dcenter>
+      <TABLE class=3Dmail-container cellSpacing=3D0 cellPadding=3D0 width=3D660>
+        <TBODY>
+        <TR>
+          <TD class=3Dheader>=E3=80=90=E3=83=A8=E3=83=89=E3=83=90=E3=82=B7=E3=82=AB=E3=83=A1=E3=83=A9=E3=80=91=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E3=81=94=E7=A2=BA=E8=AA=8D=E3=81=AE=E3=81=8A=E9=A1=98=E3=81=84</TD></TR>
+        <TR>
+          <TD class=3Dbody>
+            <P>=E5=B9=B3=E7=B4=A0=E3=82=88=E3=82=8A=E3=83=A8=E3=83=89=E3=83=90=E3=82=B7=E3=83=89=E3=83=83=E3=83=88=E3=82=B3=E3=83=A0=E3=82=92=E3=81=94=E5=88=A9=E7=94=A8=E3=81=84=E3=81=9F=E3=81=A0=E3=81=8D=E3=80=81=E8=AA=A0=E3=81=AB=E3=81=82=E3=82=8A=E3=81=8C=E3=81=A8=E3=81=86=E3=81=94=E3=81=96=E3=81=84=E3=81=BE=E3=81=99=E3=80=82</P>
+            <P>2026=E5=B9=B44=E6=9C=883=E6=97=A5=E6=99=82=E7=82=B9=E3=81=A7=E3=80=81=E3=81=8A=E5=AE=A2=E6=A7=98=E3=81=AE=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E3=81=AB=E3=81=8A=E3=81=84=E3=81=A6=E9=80=9A=E5=B8=B8=E3=81=A8=E3=81=AF=E7=95=B0=E3=81=AA=E3=82=8B=E3=82=A2=E3=82=AF=E3=82=BB=E3=82=B9=E3=82=92=E6=A4=9C=E5=87=BA=E3=81=84=E3=81=9F=E3=81=97=E3=81=BE=E3=81=97=E3=81=9F=E3=80=82</P>
+            <DIV=20
+            class=3Dalert>=E3=82=BB=E3=82=AD=E3=83=A5=E3=83=AA=E3=83=86=E3=82=A3=E4=BF=9D=E8=AD=B7=E3=81=AE=E3=81=9F=E3=82=81=E3=80=81=E4=BB=A5=E4=B8=8B=E3=82=88=E3=82=8A=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E6=83=85=E5=A0=B1=E3=81=AE=E3=81=94=E7=A2=BA=E8=AA=8D=E3=82=92=E3=81=8A=E9=A1=98=E3=81=84=E3=81=84=E3=81=9F=E3=81=97=E3=81=BE=E3=81=99=E3=80=82<BR>=E7=A2=BA=E8=AA=8D=E3=81=8C=E5=AE=8C=E4=BA=86=E3=81=99=E3=82=8B=E3=81=BE=E3=81=A7=E3=80=81=E4=B8=80=E9=83=A8=E6=A9=9F=E8=83=BD=E3=81=AE=E5=88=A9=E7=94=A8=E3=81=8C=E5=88=B6=E9=99=90=E3=81=95=E3=82=8C=E3=82=8B=E5=A0=B4=E5=90=88=E3=81=8C=E3=81=94=E3=81=96=E3=81=84=E3=81=BE=E3=81=99=E3=80=82=20
+            </DIV>
+            <TABLE class=3Dinfo-table>
+              <TBODY>
+              <TR>
+                <TH>=E5=AF=BE=E8=B1=A1=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88</TH>
+                <TD>penguin@whither.jp</TD></TR>
+              <TR>
+                <TH>=E6=A4=9C=E5=87=BA=E6=97=A5=E6=99=82</TH>
+                <TD>2026-04-21 04:56:29 </TD></TR>
+              <TR>
+                <TH>=E6=A4=9C=E5=87=BA=E5=86=85=E5=AE=B9</TH>
+                <TD>=E6=B5=B7=E5=A4=96IP=E3=81=8B=E3=82=89=E3=81=AE=E3=82=A2=E3=82=AF=E3=82=BB=E3=82=B9=E8=A9=A6=E8=A1=8C</TD></TR>
+              <TR>
+                <TH>=E7=8A=B6=E6=85=8B</TH>
+                <TD>=E7=A2=BA=E8=AA=8D=E5=BE=85=E3=81=A1</TD></TR></TBODY></TABLE>
+            <DIV class=3Dcta><A href=3D"https://yxspok.cn/GkJ2O338eg.yokohama.com">=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E3=82=92=E7=A2=BA=E8=AA=8D=E3=81=99=E3=82=8B</A> </DIV>
+            <P>72=E6=99=82=E9=96=93=E4=BB=A5=E5=86=85=E3=81=AB=E3=81=94=E5=AF=BE=E5=BF=9C=E3=81=84=E3=81=9F=E3=81=A0=E3=81=91=E3=81=AA=E3=81=84=E5=A0=B4=E5=90=88=E3=80=81=E5=AE=89=E5=85=A8=E6=80=A7=E3=82=92=E7=A2=BA=E4=BF=9D=E3=81=99=E3=82=8B=E3=81=9F=E3=82=81=E3=80=81=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E3=82=92=E4=B8=80=E6=99=82=E7=9A=84=E3=81=AB=E5=88=B6=E9=99=90=E3=81=95=E3=81=9B=E3=81=A6=E3=81=84=E3=81=9F=E3=81=A0=E3=81=8F=E5=A0=B4=E5=90=88=E3=81=8C=E3=81=94=E3=81=96=E3=81=84=E3=81=BE=E3=81=99=E3=80=82</P>
+            <DIV class=3Dnote><STRONG>=E3=81=8A=E5=95=8F=E3=81=84=E5=90=88=E3=82=8F=E3=81=9B=E5=85=88</STRONG><BR>=E3=83=A8=E3=83=89=E3=83=90=E3=82=B7=E3=82=AB=E3=83=A1=E3=83=A9=20
+            =E3=82=AB=E3=82=B9=E3=82=BF=E3=83=9E=E3=83=BC=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9<BR>=E3=83=A1=E3=83=BC=E3=83=AB=EF=BC=9A<A=20
+            href=3D"mailto:info@yodobashi.com">info@yodobashi.com</A><BR>=E9=9B=BB=E8=A9=B1=EF=BC=9A03-1226-6796=EF=BC=8810:00=EF=BD=9E20:00=20
+            =E5=B9=B4=E4=B8=AD=E7=84=A1=E4=BC=91=EF=BC=89 </DIV></TD></TR>
+        <TR>
+          <TD class=3Dfooter>
+            <P>=E6=9C=AC=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=AF=E9=80=81=E4=BF=A1=E5=B0=82=E7=94=A8=E3=82=A2=E3=83=89=E3=83=AC=E3=82=B9=E3=82=88=E3=82=8A=E8=87=AA=E5=8B=95=E9=85=8D=E4=BF=A1=E3=81=97=E3=81=A6=E3=81=84=E3=81=BE=E3=81=99=E3=80=82=E8=BF=94=E4=BF=A1=E3=81=AB=E3=81=AF=E5=AF=BE=E5=BF=9C=E3=81=97=E3=81=A6=E3=81=8A=E3=82=8A=E3=81=BE=E3=81=9B=E3=82=93=E3=80=82</P>
+            <P>=E6=9C=AC=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=AB=E5=BF=83=E5=BD=93=E3=81=9F=E3=82=8A=E3=81=8C=E3=81=AA=E3=81=84=E5=A0=B4=E5=90=88=E3=81=AF=E3=80=81=E7=A0=B4=E6=A3=84=E3=81=97=E3=81=A6=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82</P>
+            <P>=C2=A9 2026 =E3=83=A8=E3=83=89=E3=83=90=E3=82=B7=E3=82=AB=E3=83=A1=E3=83=A9=E6=A0=AA=E5=BC=8F=E4=BC=9A=E7=A4=BE All Rights=20
+  Reserved.</P></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></BODY></HTML>
+
