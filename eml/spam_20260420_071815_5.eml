@@ -1,0 +1,341 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:c058:0:b0:261:85fe:9a8 with SMTP id m24csp1368005eic;
+        Sun, 19 Apr 2026 15:18:22 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ+AVBOXLRlkHhXaZmgzt1qcGtiKaycV5sMfXaEDPrHuhGNdZczOc1Rm6a8HDMbPOlmJv9Yj43o2aT6wBiaKrA==@gmail.com
+X-Received: by 2002:a17:907:fd17:b0:ba7:7a1f:1095 with SMTP id a640c23a62f3a-ba77a1f5286mr96518366b.3.1776637102815;
+        Sun, 19 Apr 2026 15:18:22 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1776637102; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=LHuBWsmiOPI3yi10JQxBuEAX2fvCe+/c/paaa68Ut8z7GMYL8+CJsPcoi4eOszeoAm
+         o7eqz7k6dRdZtOQBgnAopgtkNQLzzPfLqjmHE5vB5Uynoy57Ku93r6p6n+u1Qk6hm6KW
+         NZdLPVO/qZKHPuXIqYE6v19zTLJH35nB+/CWuys4wVTUMKo/JJKDUQ+rbWwWOHCW3+tp
+         YUgb++m/V5IfONwjzo/XfYEF3k1igETd68EuGF3emkYYnn2twOZmmrWASDBLRGsaLMmZ
+         /3gfutQdo2hMv47gZ69Z935h3J7GlUSozx24h3i9XSg2J1BKqa6GNTt59PDZB8cks/Yd
+         f/QQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=message-id:date:subject:to:dkim-signature:from:mime-version
+         :feedback-id:dkim-signature:dkim-signature;
+        bh=yRVj1NNhilS2rpfcZnFbhQOH/tvcyAV0BLMw92ZycS8=;
+        fh=LnGVlAla77Gyfiw8zkzbOhaVlqYgEu27l8ujdfvsIGY=;
+        b=LIFkolpWpMN6kNrNPafxwbMDk3v6l46/ngySihpkv/ZYwdbSbXN+ps5XK6X4zVbLGs
+         pA166hjDx9a0mwp8O/ohJkltidLoea8d5VE0Ook1AIVjU7Bwc0Noby0yqXPiPDJrFJ9w
+         5kfBmHY2fyAHopUl4ewjs7LmGuwzL5ivllu8J4kDn5ULwHznMZliJqUIqDkbd22xJuiS
+         CSix7RVVVL622dYFgBlniGHN4ZGAN2Bo14iowtC9boFStk9oXmTuOsbEJvytXnteLWNo
+         vRTqkSyymCr+gzfZtns3BDdMn5XN7d61kEiNXGzB+WOCgMLwqktpqMM+oMj0idZHBZDC
+         FouA==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b="Lo/+vweT";
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=P2C3YGQO;
+       dkim=pass header.i=@refan.ohfpqfv.cn header.s=gaper header.b=niGrsiKp;
+       arc=pass (i=1 spf=pass spfdomain=refan.ohfpqfv.cn dkim=pass dkdomain=refan.ohfpqfv.cn dmarc=pass fromdomain=refan.ohfpqfv.cn);
+       spf=pass (google.com: domain of srs0=sjw1=sc=refan.ohfpqfv.cn=atsuosakurada.0407@whither.jp designates 104.30.10.80 as permitted sender) smtp.mailfrom="SRS0=sjw1=sc=refan.ohfpqfv.cn=atsuosakurada.0407@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ohfpqfv.cn
+Return-Path: <SRS0=sjw1=sc=refan.ohfpqfv.cn=atsuosakurada.0407@whither.jp>
+Received: from ba-ia.cloudflare-email.net (ba-ia.cloudflare-email.net. [104.30.10.80])
+        by mx.google.com with ESMTPS id a640c23a62f3a-ba4513094dbsi371768766b.9.2026.04.19.15.18.21
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 19 Apr 2026 15:18:22 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=sjw1=sc=refan.ohfpqfv.cn=atsuosakurada.0407@whither.jp designates 104.30.10.80 as permitted sender) client-ip=104.30.10.80;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b="Lo/+vweT";
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=P2C3YGQO;
+       dkim=pass header.i=@refan.ohfpqfv.cn header.s=gaper header.b=niGrsiKp;
+       arc=pass (i=1 spf=pass spfdomain=refan.ohfpqfv.cn dkim=pass dkdomain=refan.ohfpqfv.cn dmarc=pass fromdomain=refan.ohfpqfv.cn);
+       spf=pass (google.com: domain of srs0=sjw1=sc=refan.ohfpqfv.cn=atsuosakurada.0407@whither.jp designates 104.30.10.80 as permitted sender) smtp.mailfrom="SRS0=sjw1=sc=refan.ohfpqfv.cn=atsuosakurada.0407@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ohfpqfv.cn
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1776637101; x=1777241901; bh=yRVj1NNhilS2rpfcZn
+	FbhQOH/tvcyAV0BLMw92ZycS8=; b=Lo/+vweTQ/R3zafvFQbbbbywvROuFWrKsGDPbCd5Hv2Z2
+	Z5SA1bTTBaFZL3kfKbo6Ls2Q84TcxnxClbi6SW7El6rTUa/gHY9TbDP+PHKSfKji8omDjzvhQj3
+	YWgR+jWAsbkcEGm1VZmLSe9gZcSg8C8BpAEJrQpaI11CLWgSwNxmoG03pB9vRpr8x4V7ThbjNPK
+	7oGLzeKZeHUH8HtX+H3AKERT/IsCfHfUDbx/EsUJ75dHdFNz9yDaAOYN0sQk4TLtln+TKLRZTjT
+	0TLfV37muRm39ZEl7zwejsSga8R4+N4mwFFjcGzUjkhz68DAUMCAq7iyJ/EeqXjd+dMtqZrw==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1776637101; x=1777241901; bh=yRVj1NNhilS2rpfcZn
+	FbhQOH/tvcyAV0BLMw92ZycS8=; b=P2C3YGQOOAtq1pM7QIeOwVFghd+1iEt+ipdJ1Kq/IfxXW
+	9X1nnjbdW5aDQhW3y/HQiBpfqyeoAMPmbIIGsMegXthL7eAvU07eYGpLgGHHr6t3gvdUMfyZMri
+	Ob8fKz60yeUN5j2QCtjcktQQoArAbSiCWMPJo0Pt3wJ4K6EamkQyIMHwO7PQg+bIs/kbo3buxTC
+	fUSJYGmrOy6Jgoo0ah7FUpA/2bgi2cb+7/W86TPaTI9x5WgrXqxZtGdg2EeQOwOtDV9JZud1FDP
+	2HfxvOmPaks/MU7fBDJ0Lhx6yT5cMyq91kgGveH3ppElioZPx1sXyuUaaaJgmWSnVeF4d3qg==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: tnakahara@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from refan.ohfpqfv.cn (117.60.113.51)
+        by cloudflare-email.net (cloudflare) id 7Kxx15WBE1je
+        for <tnakahara@whither.jp>; Sun, 19 Apr 2026 22:18:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=LfpB0H07/3tmMcYHD2tAHd4VQe8uIJrhzWql9iyFtf1mL37vkVaULW3rcOv5dY7F3gyRabAJd
+	vIUfY1sl3KI2ekMT24ERLmvbnePIOHKQbfS7iBu4Ho/qejLT7mpOr8X4lUGoDRlHuxvFkoUNCc9
+	J5bohMZsKVnlHQULsNwfsFtx8A3xIX+E1XqI8X+3gAUPdJZqkz/A1DF8q4Y/WjTeeRGrzpQq4CH
+	EKmJ7UfMSPsTUebfLPgmAKdyQ7dxZEi+IydG022n1y0B6TiKwb/28N9GAk4yHhopnzl+hYQ5IBN
+	gblY1gG0VQ+AqhFZ2jm4EcZ9/LmS4rU+vaPDSXYVmFLg==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1776637100; x=1777241900; bh=yRVj1NNh
+	ilS2rpfcZnFbhQOH/tvcyAV0BLMw92ZycS8=; b=L9BD24L+y8dBsr6nvS/xJJMyrG6fm09mulX
+	BR3XzDSouML/XMpaKWrxlo3ohAE45eg1eoov4BO1oI/bHAjVHbanfAAds+f0I/g2pNIp6TVTDG1
+	oOx3A3D/z/uO6UpqCRSNIDFLZZCkDNf3s6osPrUjqTme2yR8gWzm9DHD+ksxeKX2JzjhwFwSeMP
+	yqU/1bHc/+DXlL6ejHqbdIQe0wQLy6JvZZTTPTvf5qZ6/yCo6MTEmlhi8BS1brw9qOVtZSyOcGQ
+	7eZxdGC1Kf+YocET4ZTS1bRezUDjivvgkhNjD8X/qBTOb4GlHMx4dmKqh84dIjWozbZ+p/9f0jd
+	Fvrbn+Q==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=@refan.ohfpqfv.cn header.s=gaper header.b=niGrsiKp;
+	dmarc=pass header.from=refan.ohfpqfv.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@refan.ohfpqfv.cn designates 117.60.113.51 as permitted sender) smtp.helo=refan.ohfpqfv.cn;
+	spf=pass (mx.cloudflare.net: domain of atsuosakurada.0407@refan.ohfpqfv.cn designates 117.60.113.51 as permitted sender) smtp.mailfrom=atsuosakurada.0407@refan.ohfpqfv.cn;
+	arc=none smtp.remote-ip=117.60.113.51
+Received-SPF: pass (mx.cloudflare.net: domain of atsuosakurada.0407@refan.ohfpqfv.cn designates 117.60.113.51 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=117.60.113.51; envelope-from="atsuosakurada.0407@refan.ohfpqfv.cn"; helo=refan.ohfpqfv.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=@refan.ohfpqfv.cn header.s=gaper header.b=niGrsiKp;
+	dmarc=pass header.from=refan.ohfpqfv.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@refan.ohfpqfv.cn designates 117.60.113.51 as permitted sender) smtp.helo=refan.ohfpqfv.cn;
+	spf=pass (mx.cloudflare.net: domain of atsuosakurada.0407@refan.ohfpqfv.cn designates 117.60.113.51 as permitted sender) smtp.mailfrom=atsuosakurada.0407@refan.ohfpqfv.cn;
+	arc=none smtp.remote-ip=117.60.113.51
+X-CF-SpamH-Score: 1
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="t1y2w652154i75i83tk11oc62945q19465468sfa7ffxpoelydf1s21k5m92"
+From: =?utf-8?b?5qW95aSp44Kr44O844OJ5qCq5byP5Lya56S+?= <atsuosakurada.0407@refan.ohfpqfv.cn>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=refan.ohfpqfv.cn;
+ i=@refan.ohfpqfv.cn; q=dns/txt; s=gaper; t=1776637095; h=from : to :
+ subject : date : message-id;
+ bh=yRVj1NNhilS2rpfcZnFbhQOH/tvcyAV0BLMw92ZycS8=;
+ b=niGrsiKp9K6h2JJMBm/8s6Xaaq8oCu9Z3pf1ots5I+HsUCf7F4pFwf8J19J8jFU+CTUIn
+ zVeVz3DAzdQSbPqxGXUW2LHXtWIkZy0p4gw28KGlBsO60x30+Sd9PIqS4GptiDsmjbQ3gj/
+ 3HzoOdh/QytQH4xp/5lw7/JQg9/HQl4xscD8p/z9/WFjceKwpQVKw8Z4F0myjBkhiZW/2vX
+ voLZBHE9p0HcDGTAPNxZmZT9Mlw6+uFh4JXAiNQTa81G4pp2oteww6b/oJP67p/RthXom64
+ yh5ruGVXR2Uh24lTS3W1d6nr3UQK4czYjbQWBDDf1trbf18Eipln49bZAL4g==
+To: <tnakahara@whither.jp>
+Subject: =?utf-8?b?44CQ6YeN6KaB44CR5qW95aSp44Kr44O844OJIDPmnIjliIbjgZToq4vmsYLph5HpoY3jga7jgYrnn6XjgonjgZsgLSDoh6rli5XlvJXokL3jgZflpLHmlZc=?=
+Date: Mon, 20 Apr 2026 07:18:15 +0900
+Message-ID: <1776637095099@refan.ohfpqfv.cn>
+X-DTI-Virus-Check: checked
+X-DTI-Recipient: <896d8f0b838b8e8a@refan.ohfpqfv.cn>
+X-Proofpoint-ORIG-GUID: Tl5q9NR15ALEGlmEQVMWCzlQQvblxfpJ
+X-Proofpoint-GUID: Tl5q9NR15ALEGlmEQVMWCzlQQvblxfpJ
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjE5MDE5MyBTYWx0ZWRfX3SUs1ZanG/tK 5mIlXRNFdySZI4qvH8y3YTCvWI0tnc/dCiYIm7C2s430DdYAoEMAw9UZrQ5w/PD4Kc23AicwkfU 9ZdbPZVeJ19hvaVot95JfnCoWwgaB8Rg6fxl7HK33U/rjqSD51w8N1ZyNaFVBGZQcb9Haw70zdT CcsQ4gfVRR7jG7vvLgjpab8X9xL5Lbm5dUbsRrp/8OlwJIVchgALCfktjDjN5hi/Ltc7wKoQVl1 IJvHvy+wZLkuXhpWotuPDUz00tpTm0E2Tz46E93LZ/gTx6VUeZB+cvmzhf9WjZoItNUt2hdi0=
+
+--t1y2w652154i75i83tk11oc62945q19465468sfa7ffxpoelydf1s21k5m92
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+
+楽天カード
+
+ご請求金額のお知らせ（2026年3月分）
+
+平素より楽天カードをご利用いただき、誠にありがとうございます。
+
+【重要なお知らせ】
+
+自動引落し（口座振替）が失敗いたしました。
+
+3月分のご請求金額が、指定の銀行口座より引き落とせませんでした。
+至急のお支払い手続きをお願いいたします。 
+
+ご請求金額合計
+
+¥17,980
+
+支払期限：2026年4月21日（月）
+
+お支払い方法について
+
+自動引落しに失敗したため、PayPayでのお支払いをお願いいたします。 
+
+ PayPayで今すぐ支払う 
+
+※このボタンをタップするとPayPay支払いページにジャンプします。
+※支払い期限を過ぎますと、遅延損害金が発生する場合がございます。
+※お支払い後、反映まで最大24時間かかる場合があります。 
+
+ご不明な点がございましたら、楽天カードコンタクトセンターまでお問い合わせください。
+電話番号：0570-66-6910（有料）
+
+--t1y2w652154i75i83tk11oc62945q19465468sfa7ffxpoelydf1s21k5m92
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+
+<HTML lang=ja><HEAD>
+<META charset="UTF-8">
+<META name=viewport content="width=device-width, initial-scale=1.0">
+<STYLE>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "Hiragino Sans", "Yu Gothic", sans-serif;
+            background: #f8f8f8;
+            margin: 0;
+            padding: 12px 8px;
+            color: #333;
+            line-height: 1.8;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+        .header {
+            background: #BF0000;
+            color: #fff;
+            padding: 35px 20px 28px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 700;
+        }
+        .content {
+            padding: 35px 25px;
+        }
+        .important {
+            background: #FFF0F0;
+            border: 3px solid #BF0000;
+            padding: 24px;
+            margin: 28px 0;
+            border-radius: 12px;
+            font-weight: bold;
+            color: #BF0000;
+            font-size: 17px;
+            text-align: center;
+        }
+        .amount-box {
+            background: #FFF0F0;
+            border: 3px dashed #BF0000;
+            border-radius: 14px;
+            padding: 32px 20px;
+            margin: 32px 0;
+            text-align: center;
+        }
+        .amount-label {
+            font-size: 17px;
+            color: #BF0000;
+            font-weight: bold;
+        }
+        .amount {
+            font-size: 46px;
+            font-weight: 700;
+            color: #BF0000;
+            margin: 8px 0 0;
+        }
+        .deadline {
+            text-align: center;
+            font-size: 16px;
+            color: #333;
+            margin: 18px 0 38px;
+        }
+        .payment-title {
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .payment-text {
+            text-align: center;
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 35px;
+        }
+        /* 最强手机按钮兼容方案 */
+        .button-wrapper {
+            width: 100%;
+            text-align: center;
+            margin: 38px 0 28px;
+        }
+        .button-table {
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        .button-td {
+            padding: 0 10px;
+        }
+        .button {
+            display: block !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            padding: 21px 0 !important;
+            background: #D70000 !important;
+            color: #ffffff !important;
+            font-size: 21px !important;
+            font-weight: 700 !important;
+            border-radius: 14px !important;
+            text-decoration: none !important;
+            text-align: center !important;
+            box-shadow: 0 8px 22px rgba(215, 0, 0, 0.55) !important;
+            border: none !important;
+            line-height: 1.35 !important;
+            margin: 0 auto !important;
+        }
+        .note {
+            font-size: 14.5px;
+            color: #555;
+            text-align: center;
+            line-height: 1.7;
+            padding: 0 10px;
+        }
+        .footer {
+            text-align: center;
+            padding: 32px 20px;
+            font-size: 13.5px;
+            color: #666;
+            border-top: 1px solid #eee;
+            background: #fafafa;
+        }
+        /* 移动端强制适配 */
+        @media only screen and (max-width: 480px) {
+            .content { padding: 30px 20px !important; }
+            .button-wrapper { margin: 35px 0 25px !important; }
+            .button {
+                font-size: 20px !important;
+                padding: 20px 0 !important;
+                border-radius: 13px !important;
+            }
+            .amount { font-size: 42px !important; }
+        }
+    </STYLE>
+
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"></HEAD>
+<BODY>
+<DIV class=container>
+<DIV class=header>
+<H1>楽天カード</H1>
+<P>ご請求金額のお知らせ（2026年3月分）</P></DIV>
+<DIV class=content>
+<P>平素より楽天カードをご利用いただき、誠にありがとうございます。</P>
+<DIV 
+class=important>【重要なお知らせ】<BR><BR>自動引落し（口座振替）が失敗いたしました。<BR><BR>3月分のご請求金額が、指定の銀行口座より引き落とせませんでした。<BR><STRONG>至急のお支払い手続きをお願いいたします。</STRONG> 
+</DIV>
+<DIV class=amount-box>
+<DIV class=amount-label>ご請求金額合計</DIV>
+<DIV class=amount>¥17,980</DIV></DIV>
+<P class=deadline>支払期限：2026年4月21日（月）</P>
+<H3 class=payment-title>お支払い方法について</H3>
+<P class=payment-text>自動引落しに失敗したため、<STRONG>PayPayでのお支払い</STRONG>をお願いいたします。 </P><!-- 最终手机按钮方案 -->
+<DIV class=button-wrapper>
+<TABLE class=button-table cellSpacing=0 cellPadding=0 align=center border=0>
+  <TBODY>
+  <TR>
+    <TD class=button-td><A class=button href="https://qr.paypay.ne.jp/p2p01_dwUxuXmagmFlXCI5" 
+      target=_blank>PayPayで今すぐ支払う </A></TD></TR></TBODY></TABLE></DIV>
+<DIV 
+class=note>※このボタンをタップするとPayPay支払いページにジャンプします。<BR>※支払い期限を過ぎますと、遅延損害金が発生する場合がございます。<BR>※お支払い後、反映まで最大24時間かかる場合があります。 
+</DIV></DIV>
+<DIV 
+class=footer>ご不明な点がございましたら、楽天カードコンタクトセンターまでお問い合わせください。<BR>電話番号：0570-66-6910（有料） 
+</DIV></DIV></BODY></HTML>
+
+--t1y2w652154i75i83tk11oc62945q19465468sfa7ffxpoelydf1s21k5m92--
+
