@@ -1,0 +1,681 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:c058:0:b0:261:85fe:9a8 with SMTP id m24csp3634688eic;
+        Wed, 22 Apr 2026 16:38:41 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ8XNth7m/JRzbHr7F2UmtFNnHcqtCXwEfRrgkpNY12qoGodmaSpRN5judYLsxSbNEkB42gYliJ9TLiQtNgYfA==@gmail.com
+X-Received: by 2002:a05:7301:1e8c:b0:2e2:4979:eb5 with SMTP id 5a478bee46e88-2e46c48a953mr13510955eec.10.1776901121071;
+        Wed, 22 Apr 2026 16:38:41 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1776901121; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=VzMwFFkLPjbEWC9WN89UXUdPJZQi4vy61vTtyDzSdTqmuvtR0SVANn0kuFMyH5z3xQ
+         5RfHgg/ePXQkB2rMfbWvxocxiZDBFkdMLpYNUxff6BFaOqRfRu2+Cf/fR6JQn3SUCbEm
+         JLvB+m2V3FoUGOoNUzuc/eevqloQOoTioYYmY26Kh3RUloCpcBf9UNyspIW5O3UbHGLK
+         S3EfYUhf576WGWbH4I1e8et85x9vmxYW5iQTCFCLA394RSpo0BqkAPknYuQUfU4eWwET
+         XcdgdGV+keES1m0JsDiKBZ0I2kYR3LR2gIBddhQUVfRhG59BKkDR3D/sVJymzp0iRbl7
+         8sug==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=message-id:date:subject:to:dkim-signature:from:mime-version
+         :content-transfer-encoding:feedback-id:dkim-signature:dkim-signature;
+        bh=RXvQzijmBNsXrUtmhRcK6uFq3rspOScLQ6CZHeg+j8I=;
+        fh=LnGVlAla77Gyfiw8zkzbOhaVlqYgEu27l8ujdfvsIGY=;
+        b=KrExGMC+DtTMe8Q/D8utVY6W/J3Fm2dYStwkQc5S2iMnUnw8H/ZioLyqo4vToIzaov
+         A2m6x9wAKV/8FmJNJIqNnhwmuAYxYLEr5bI7+SZcsLj71K6tLL1Rz95bxx+kw2g/nK97
+         4LFoeJZAKT7TrmaTXIzJ4VVXn2noa1a8ObopiDFY44Wa1vjfgpxiL7an1kXc9xP+x43a
+         CLd3P3ZXd0m7/2CHzTD1HoYrxYsYm9xjyNfYmB41VINnL5CiajKfJXXlTkpW1OtxHUDz
+         bXYbEOfX5V/0PQGM/UTmJb8jNTr6qT3mJsJBx3eVjOR5yhiJc55zakOdhZYEA5PBwGEp
+         wGKA==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=fWkTn8iD;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b="FJV/Crm+";
+       dkim=pass header.i=@unboy.cfcmqpo.cn header.s=ynjq header.b="M/m7n33b";
+       arc=pass (i=1 spf=pass spfdomain=unboy.cfcmqpo.cn dkim=pass dkdomain=unboy.cfcmqpo.cn dmarc=pass fromdomain=unboy.cfcmqpo.cn);
+       spf=pass (google.com: domain of srs0=asz1=vc=unboy.cfcmqpo.cn=fukudaatsushi_minami@whither.jp designates 104.30.8.35 as permitted sender) smtp.mailfrom="SRS0=AsZ1=vc=unboy.cfcmqpo.cn=fukudaatsushi_minami@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=cfcmqpo.cn
+Return-Path: <SRS0=AsZ1=vc=unboy.cfcmqpo.cn=fukudaatsushi_minami@whither.jp>
+Received: from i-df.cloudflare-email.net (i-df.cloudflare-email.net. [104.30.8.35])
+        by mx.google.com with ESMTPS id 5a478bee46e88-2e53a88e916si65265639eec.29.2026.04.22.16.38.39
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 22 Apr 2026 16:38:40 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=asz1=vc=unboy.cfcmqpo.cn=fukudaatsushi_minami@whither.jp designates 104.30.8.35 as permitted sender) client-ip=104.30.8.35;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=fWkTn8iD;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b="FJV/Crm+";
+       dkim=pass header.i=@unboy.cfcmqpo.cn header.s=ynjq header.b="M/m7n33b";
+       arc=pass (i=1 spf=pass spfdomain=unboy.cfcmqpo.cn dkim=pass dkdomain=unboy.cfcmqpo.cn dmarc=pass fromdomain=unboy.cfcmqpo.cn);
+       spf=pass (google.com: domain of srs0=asz1=vc=unboy.cfcmqpo.cn=fukudaatsushi_minami@whither.jp designates 104.30.8.35 as permitted sender) smtp.mailfrom="SRS0=AsZ1=vc=unboy.cfcmqpo.cn=fukudaatsushi_minami@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=cfcmqpo.cn
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1776901120; x=1777505920; bh=RXvQzijmBNsXrUtmhR
+	cK6uFq3rspOScLQ6CZHeg+j8I=; b=fWkTn8iDkxNpUUuACj9pXN/jZFbmAEqj6CtVe6beWerTZ
+	7tmIY6GGDWt+DXasxx2p7KNY8HTIgRikMzv2uAfPMZ7RrpEn4sj6xLGePRe1oQYkR+i+Q1a8I2m
+	ZlE+z+eHgMDjfdt3nxHaVaUE+scEciR22z6LsRkR7PZuuA1GXTzgFm9VnkzltTJgdGW7Mgad7XF
+	SYQOzYdLolR2nVlFDz1F5PZKki6d+qe7oCvsGqy+6tKJ1eUmrfBeHrTl8YCO77rsY5JNkQT8ksN
+	OPHQy5Z4h8sGk7py00qpsBLXOh2kvNYuVXzMcM7z8HvY9P9VFm56e+wlChp1B+LN/2ChLfHw==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1776901120; x=1777505920; bh=RXvQzijmBNsXrUtmhR
+	cK6uFq3rspOScLQ6CZHeg+j8I=; b=FJV/Crm+cze6IyfaZgUKYzYtR+4Yy2dqyM4zNZ0Sv/nJk
+	pmB9DMp9+SjLerk0twmVnj+b2Jr9bppWjNGjbxQbd0DNXZA4KbcRiq17gt2dKfdtvQEPXPE7Eh5
+	W5pxn16IiwDNPdEJgk/Jrekqnw5Pu41CsdBcFf6s43fjVTSmOHtBAqIJFnYzbrYGd+owSdXqKtb
+	cghatZgjHpcWQXKE2JFQzi4GiDzIKNxr7cgVpMRgjVCYvzYaoOgPFCfqeku+mdF6YkG3rNvx/8S
+	4WJRLe1r1TPL9R+pmVcLSfr4lZTVguvAE3EAjYZO8mTYolORujdlBO9EP+Hen8gU6hUdL2mQ==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: tnakahara@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from unboy.cfcmqpo.cn (42.57.211.221)
+        by cloudflare-email.net (cloudflare) id GYc1S1wELLRb
+        for <tnakahara@whither.jp>; Wed, 22 Apr 2026 23:38:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=IPjWSifPu/Npf0BIB+2AXhkpuaECP8EWdKn4NplddIYM3uwoLeHEhu6FlnrkwjgtwoGo76Ipm
+	rlpI2QSExkwVyFlorD0Zlap3ttncVV0MB/ZagbvPN3c6wr/z68zP9KQ41vvVwpXkxu3X5GZIrTh
+	3nXlMS6G1OmpiHkv77eFeT6R7ZW8q/klRgMnXGvLk1bqKuLVaq1MfH4tg9aAhHJcn7nwEX4rfOO
+	r55TF5xnBkNA9CuFWR+LeNA4qWXeIt/o+MmXGQixVPDfZKi/OelMikmeEl/Ptl8AdwWVe7LiCqe
+	pAVp8I2j1oPLaBlD1nkZh/WjQFDkQtJ3IJRzFD3dRrxw==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1776901118; x=1777505918; bh=RXvQzijm
+	BNsXrUtmhRcK6uFq3rspOScLQ6CZHeg+j8I=; b=higpDw0XprcohvOSoTUGPuGcZdKYtzl3+6+
+	R+P8TJx5FPMrbif08K2kQ5c6uTaZ+hNX8kUy7PRfGlvLeDMKZkcuIyEKuaA/qKCKEOGRVLQkMki
+	f3uQUEteUZ6E+E2MRPy7vMX2o+YgFBWuxxjTBhqGXJkcWhn/FwBwhD8frAHxphvetq00bSL6mO4
+	mVeKkU76KcQ5crt0vvPVq0wSjk/eiln1d1/COfZxPD5ikr/TaxLNugdcOTwlGeqlXcMvmcL6AlQ
+	nswNG6hhEROk90WJWFay+ogIt882YOyiF4ScSQmMw396JNBWPw5zrxotPDVeV9EaobWxezd4kbs
+	3MOB4rA==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=@unboy.cfcmqpo.cn header.s=ynjq header.b=M/m7n33b;
+	dmarc=pass header.from=unboy.cfcmqpo.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@unboy.cfcmqpo.cn designates 42.57.211.221 as permitted sender) smtp.helo=unboy.cfcmqpo.cn;
+	spf=pass (mx.cloudflare.net: domain of fukudaatsushi_minami@unboy.cfcmqpo.cn designates 42.57.211.221 as permitted sender) smtp.mailfrom=fukudaatsushi_minami@unboy.cfcmqpo.cn;
+	arc=none smtp.remote-ip=42.57.211.221
+Received-SPF: pass (mx.cloudflare.net: domain of fukudaatsushi_minami@unboy.cfcmqpo.cn designates 42.57.211.221 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=42.57.211.221; envelope-from="fukudaatsushi_minami@unboy.cfcmqpo.cn"; helo=unboy.cfcmqpo.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=@unboy.cfcmqpo.cn header.s=ynjq header.b=M/m7n33b;
+	dmarc=pass header.from=unboy.cfcmqpo.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@unboy.cfcmqpo.cn designates 42.57.211.221 as permitted sender) smtp.helo=unboy.cfcmqpo.cn;
+	spf=pass (mx.cloudflare.net: domain of fukudaatsushi_minami@unboy.cfcmqpo.cn designates 42.57.211.221 as permitted sender) smtp.mailfrom=fukudaatsushi_minami@unboy.cfcmqpo.cn;
+	arc=none smtp.remote-ip=42.57.211.221
+X-CF-SpamH-Score: 1
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+From: "Amazon.co.jp" <fukudaatsushi_minami@unboy.cfcmqpo.cn>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=unboy.cfcmqpo.cn;
+ i=@unboy.cfcmqpo.cn; q=dns/txt; s=ynjq; t=1776901113; h=from : to :
+ subject : date : message-id;
+ bh=RXvQzijmBNsXrUtmhRcK6uFq3rspOScLQ6CZHeg+j8I=;
+ b=M/m7n33bVx5xEHo8KnW5Gv3hPuZTRGu1s3ZC6E+Cy5kVIsPuG9TfNnc8K1n2NIlIyXkz7
+ yE/whOWVnZfQwdLjDgdQKkuxhmWVxmpXsFO05V605qd5iLTIteLP5D9r3ZLFtwIl5gMbCYT
+ Ei+OvRgAAksUKxASsC8WN+MOsSYMGv1ySzWn9PzBt4UkY8g+3BK1Or5AX3zqN3h7Pr0JKJz
+ 5eoBVwSYBnevrZI9yBlQoDb2P6XPlaiTVO6IhcVK5wVn3pSua30Y+RHA8LaprHAm35xtpuf
+ HVZFRURvS49M624Oqx90ecqORcnd0qxQeOMQ8g85atQF8nhKBB7KjLMA4jNA==
+To: <tnakahara@whither.jp>
+Subject: =?utf-8?b?44CQ5b+F6KaL44CRUHJpbWXjga7lrprmnJ/nmoTjgarmm7TmlrA=?=
+ =?utf-8?b?44Gu44GK55+l44KJ44Gb?=
+Date: Thu, 23 Apr 2026 08:38:33 +0900
+Message-ID: <NpGjIDvQVMiUZ5r0uJ9FmX@unboy.cfcmqpo.cn>
+X-SG-EID: =?utf-8?q?u001=2EiPiwfkv6GB07VwGVvJKzAzzicQ36YFDeMZW+Tb62MfiL+Q4?=
+ =?utf-8?q?SVVg0e50e9B/mR83qUDlKGNNrbxH3H4BNEsUSkUpKC5cQwjy7+lFQocUBbx03BT?=
+ =?utf-8?q?LpA4hlQJtqUk+/Pw4A9jiywKCZuXuC9+qVB8C+6w6uztePRX+qhTsoNyCy8IXlg?=
+ =?utf-8?q?timKX0SAX2AJifWct/XcbBBzj82gwb+AwDqY0K7GQ=3D=3D?=
+X-Entity-ID: u001.q78MRUku750AgXp24gynqA==
+X-OCN-SPAM-CHECK: 0.00%
+X-OCN-ANALYSIS: =?utf-8?q?gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdefkeeh?=
+ =?utf-8?q?vdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfpvffvvefqofenuce?=
+ =?utf-8?q?urghilhhouhhtmecufedttdenucfttghvugcuffgrthgvucgrnhhomhgrlhihuc?=
+ =?utf-8?q?dlvddumdenucfjughrpefgtgffhfggkffuvfeshhhqtddttddtjeenucfhrhhom?=
+ =?utf-8?q?hepjfhoshhhihhnoheshihinhhghigrnhhgughjrdgtohhmnecuggftrfgrthht?=
+ =?utf-8?q?vghrnhepvefhueekhefhfeeuffevgeekfeekieetudekfedukeekgfevheefhef?=
+ =?utf-8?q?htdekfeeinecukfhppeduheelrddukeefrddvvdegrddutdehnecuvehluhhsth?=
+ =?utf-8?q?gvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepudehledrudekfedrvddvg?=
+ =?utf-8?q?edruddthedphhgvlhhopehsrdiffhgsthiihhhsfidrohhuthgsohhunhguqdhm?=
+ =?utf-8?q?rghilhdrshgvnhgughhrihgurdhnvghtpdhmrghilhhfrhhomhepsghouhhntgg?=
+ =?utf-8?q?vshdoleejheejledvtddvqdekkeehledqghgttgdqihhnfhhopehluhgtkhdroh?=
+ =?utf-8?q?gtnhdrnhgvrdhjphesvghmjedvudefrdihihhnghihrghnghgujhdrtghomhdpm?=
+ =?utf-8?q?hhouggvpehsmhhtphdpmhgrgihmshhgshhiiigvpedutdegkeehjeeitddtpdhs?=
+ =?utf-8?q?phhfpefrtefuufdpnhgspghrtghpthhtohepuddprhgtphhtthhopehgtggtqdh?=
+ =?utf-8?q?inhhfoheslhhutghkrdhotghnrdhnvgdrjhhp?=
+
+
+<HTML lang=3Dja><HEAD><TITLE>=E6=9C=88=E9=A1=8D=E6=96=99=E9=87=91=E3=81=AE=
+=E3=81=8A=E6=94=AF=E6=89=95=E3=81=84=E3=81=AB=E9=96=A2=E3=81=99=E3=82=8B=E3=
+=81=8A=E7=9F=A5=E3=82=89=E3=81=9B</TITLE>
+<META charset=3D"UTF-8">
+<META name=3Dviewport content=3Dwidth=3Ddevice-width,initial-scale=3D1.0>
+<META name=3Dx-apple-disable-message-reformatting>
+<META name=3Dformat-detection content=3Dtelephone=3Dno,address=3Dno,email=
+=3Dno,date=3Dno>
+<META name=3Dcolor-scheme content=3Dlight>
+<META name=3Dsupported-color-schemes content=3Dlight>
+<STYLE>body,table,td,a{-webkit-text-size-adjust:100%;-ms-text-size-adjust:1=
+00%}table,td{mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:coll=
+apse!important}img{border:0;outline:none;text-decoration:none;-ms-interpola=
+tion-mode:bicubic;display:block}body{margin:0!important;padding:0!important=
+;width:100%!important;height:100%!important;background-color:#EAEDED!import=
+ant;font-family:'Noto Sans JP','Hiragino Sans','Yu Gothic',Arial,sans-serif=
+;color:#0F1111}.wrapper{width:100%;background-color:#EAEDED}.container{widt=
+h:680px;max-width:680px;background-color:#FFFFFF}.topbar{background-color:#=
+131921}.topbar-sub{background-color:#232F3E}.alert-banner{background-color:=
+#B12704}.body-pad{padding:28px 32px}.title{font-size:22px;line-height:30px;=
+font-weight:700;color:#0F1111;margin:0 0 6px 0}.sub{font-size:13px;line-hei=
+ght:20px;color:#565959;margin:0 0 20px 0}.text{font-size:14px;line-height:2=
+4px;color:#0F1111}.order-box{border:1px solid #D5D9D9;border-radius:8px}.or=
+der-head{background-color:#F0F2F2;border-bottom:1px solid #D5D9D9}.muted{fo=
+nt-size:12px;line-height:18px;color:#565959}.strong{font-size:13px;line-hei=
+ght:18px;color:#0F1111;font-weight:700}.badge{background-color:#FFF3CD;bord=
+er:1px solid #FBBF24;color:#92400E;font-size:11px;font-weight:700;line-heig=
+ht:16px;padding:4px 10px;border-radius:4px;display:inline-block}.product-na=
+me{font-size:13px;line-height:20px;font-weight:700;color:#007185}.product-d=
+etail{font-size:12px;line-height:20px;color:#565959}.price{font-size:18px;l=
+ine-height:24px;font-weight:700;color:#0F1111}.price-small{font-size:11px;l=
+ine-height:16px;color:#565959}.summary-row{font-size:13px;line-height:22px;=
+color:#565959}.summary-val{color:#0F1111;font-weight:500}.total-row{font-si=
+ze:16px;line-height:24px;color:#0F1111;font-weight:700}.total-val{color:#B1=
+2704;font-weight:700}.warning{background-color:#FFF8EE;border:1px solid #FF=
+B347;border-left:4px solid #FF9900;border-radius:6px}.warning-text{font-siz=
+e:13px;line-height:22px;color:#6B4C00}.btn-primary{background-color:#FFD814=
+;border:1px solid #FCD200;border-radius:8px}.btn-primary a{display:inline-b=
+lock;padding:12px 24px;font-size:14px;line-height:20px;font-weight:700;colo=
+r:#0F1111;text-decoration:none}.btn-secondary{background-color:#F0F2F2;bord=
+er:1px solid #D5D9D9;border-radius:8px}.btn-secondary a{display:inline-bloc=
+k;padding:12px 24px;font-size:14px;line-height:20px;font-weight:500;color:#=
+0F1111;text-decoration:none}.step-box{background-color:#F0F2F2;border:1px s=
+olid #D5D9D9;border-radius:8px}.step-num{width:26px;height:26px;background-=
+color:#232F3E;color:#FFFFFF;font-size:12px;font-weight:700;line-height:26px=
+;text-align:center;border-radius:13px;display:inline-block}.step-text{font-=
+size:12px;line-height:18px;color:#565959}.security{background-color:#F0FAF7=
+;border:1px solid #C3E6D8;border-radius:6px}.security-text{font-size:12px;l=
+ine-height:20px;color:#1D5C47}.footer{background-color:#F0F2F2;border-top:1=
+px solid #D5D9D9}.footer-link{font-size:12px;line-height:18px;color:#007185=
+;text-decoration:none}.footer-text{font-size:11px;line-height:20px;color:#5=
+65959}.orange-bar{height:4px;background-color:#FF9900}@media screen and (ma=
+x-width:700px){.container{width:100%!important;max-width:100%!important}.bo=
+dy-pad{padding:20px 16px!important}.mobile-block{display:block!important;wi=
+dth:100%!important}.mobile-center{text-align:center!important}.mobile-full{=
+width:100%!important}}</STYLE>
+
+<META name=3DGENERATOR content=3D"MSHTML 11.00.10570.1001"></HEAD>
+<BODY=20
+style=3D"PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: =
+0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: #eaeded">
+<TABLE role=3Dpresentation id=3D_cid0.09555271159053791=20
+style=3D"WIDTH: 100%; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: =
+0px; MARGIN: 0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: #eaeded"=20
+cellSpacing=3D0 cellPadding=3D0 width=3D"100%" bgColor=3D#eaeded border=3D0>
+  <TBODY>
+  <TR>
+    <TD=20
+    style=3D"PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; PADD=
+ING-RIGHT: 0px; BACKGROUND-COLOR: #eaeded"=20
+    bgColor=3D#eaeded align=3Dcenter>
+      <TABLE role=3Dpresentation id=3D_cid0.08179332014975405 class=3Dconta=
+iner=20
+      style=3D"MAX-WIDTH: 680px; WIDTH: 680px; MARGIN: 0px auto; BACKGROUND=
+-COLOR: #ffffff"=20
+      cellSpacing=3D0 cellPadding=3D0 width=3D680 bgColor=3D#ffffff border=
+=3D0>
+        <TBODY>
+        <TR>
+          <TD class=3Dtopbar=20
+          style=3D"PADDING-BOTTOM: 16px; TEXT-ALIGN: center; PADDING-TOP: 2=
+0px; PADDING-LEFT: 20px; PADDING-RIGHT: 20px; BACKGROUND-COLOR: #131921"=20
+          bgColor=3D#131921></TD></TR>
+        <TR>
+          <TD class=3Dtopbar-sub=20
+          style=3D"FONT-SIZE: 11px; COLOR: #cccccc; PADDING-BOTTOM: 6px; TE=
+XT-ALIGN: center; PADDING-TOP: 6px; PADDING-LEFT: 20px; LINE-HEIGHT: 16px; =
+PADDING-RIGHT: 20px; BACKGROUND-COLOR: #232f3e"=20
+          bgColor=3D#232f3e>amazon.co.jp &nbsp;|&nbsp; =E3=82=A2=E3=82=AB=
+=E3=82=A6=E3=83=B3=E3=83=88=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9 &nbsp;|&nbs=
+p;=20
+            =E6=B3=A8=E6=96=87=E5=B1=A5=E6=AD=B4 &nbsp;|&nbsp; =E3=82=AB=E3=
+=82=B9=E3=82=BF=E3=83=9E=E3=83=BC=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9 </TD>=
+</TR>
+        <TR>
+          <TD class=3Dalert-banner=20
+          style=3D"PADDING-BOTTOM: 14px; PADDING-TOP: 14px; PADDING-LEFT: 2=
+4px; PADDING-RIGHT: 24px; BACKGROUND-COLOR: #b12704"=20
+          bgColor=3D#b12704>
+            <TABLE role=3Dpresentation cellSpacing=3D0 cellPadding=3D0 widt=
+h=3D"100%"=20
+            border=3D0>
+              <TBODY>
+              <TR>
+                <TD vAlign=3Dtop width=3D40>
+                  <DIV=20
+                  style=3D"FONT-SIZE: 18px; HEIGHT: 32px; WIDTH: 32px; COLO=
+R: #ffffff; TEXT-ALIGN: center; LINE-HEIGHT: 32px; border-radius: 16px">!</=
+DIV></TD>
+                <TD=20
+                style=3D"FONT-SIZE: 14px; FONT-WEIGHT: 700; COLOR: #ffffff;=
+ LINE-HEIGHT: 20px"=20
+                vAlign=3Dtop>=E3=81=8A=E6=94=AF=E6=89=95=E3=81=84=E3=81=AE=
+=E5=87=A6=E7=90=86=E3=81=8C=E5=AE=8C=E4=BA=86=E3=81=97=E3=81=A6=E3=81=84=E3=
+=81=BE=E3=81=9B=E3=82=93<BR><SPAN=20
+                  style=3D"FONT-SIZE: 12px; FONT-WEIGHT: 400; COLOR: #f8e7e=
+2; LINE-HEIGHT: 18px">=E3=81=94=E5=88=A9=E7=94=A8=E3=82=92=E7=B6=99=E7=B6=
+=9A=E3=81=99=E3=82=8B=E3=81=AB=E3=81=AF=E3=80=81=E3=81=8A=E6=94=AF=E6=89=95=
+=E3=81=84=E6=96=B9=E6=B3=95=E3=81=AE=E3=81=94=E7=A2=BA=E8=AA=8D=E3=81=8C=E5=
+=BF=85=E8=A6=81=E3=81=A7=E3=81=99</SPAN></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD class=3Dbody-pad=20
+          style=3D"PADDING-BOTTOM: 28px; PADDING-TOP: 28px; PADDING-LEFT: 3=
+2px; PADDING-RIGHT: 32px">
+            <P class=3Dtitle=20
+            style=3D"FONT-SIZE: 22px; FONT-WEIGHT: 700; COLOR: #0f1111; MAR=
+GIN: 0px 0px 6px; LINE-HEIGHT: 30px">=E6=9C=88=E9=A1=8D=E6=96=99=E9=87=91=
+=E3=81=AE=E3=81=8A=E6=94=AF=E6=89=95=E3=81=84=E3=81=AB=E9=96=A2=E3=81=99=E3=
+=82=8B=E3=81=8A=E7=9F=A5=E3=82=89=E3=81=9B</P>
+            <P class=3Dsub=20
+            style=3D"FONT-SIZE: 13px; COLOR: #565959; MARGIN: 0px 0px 20px;=
+ LINE-HEIGHT: 20px">2026-04-23=20
+            &nbsp;=C2=B7&nbsp; =E9=87=8D=E8=A6=81=E3=81=AA=E3=81=8A=E7=9F=
+=A5=E3=82=89=E3=81=9B</P>
+            <P class=3Dtext=20
+            style=3D"FONT-SIZE: 14px; COLOR: #0f1111; MARGIN: 0px 0px 20px;=
+ LINE-HEIGHT: 24px"><STRONG>tnakahara@whither.jp=20
+            =E6=A7=98</STRONG><BR><BR>=E3=81=84=E3=81=A4=E3=82=82Amazon=E3=
+=82=92=E3=81=94=E5=88=A9=E7=94=A8=E3=81=84=E3=81=9F=E3=81=A0=E3=81=8D=E3=81=
+=82=E3=82=8A=E3=81=8C=E3=81=A8=E3=81=86=E3=81=94=E3=81=96=E3=81=84=E3=81=BE=
+=E3=81=99=E3=80=82<BR>=E7=8F=BE=E5=9C=A8=E3=81=94=E7=99=BB=E9=8C=B2=E3=81=
+=AE=E3=81=8A=E6=94=AF=E6=89=95=E3=81=84=E6=96=B9=E6=B3=95=E3=81=AB=E3=81=A6=
+=E6=9C=88=E9=A1=8D=E6=96=99=E9=87=91=E3=81=AE=E8=AB=8B=E6=B1=82=E3=82=92=E8=
+=A9=A6=E3=81=BF=E3=81=BE=E3=81=97=E3=81=9F=E3=81=8C=E3=80=81=E5=87=A6=E7=90=
+=86=E3=81=8C=E6=AD=A3=E5=B8=B8=E3=81=AB=E5=AE=8C=E4=BA=86=E3=81=97=E3=81=BE=
+=E3=81=9B=E3=82=93=E3=81=A7=E3=81=97=E3=81=9F=E3=80=82=E3=82=B5=E3=83=BC=E3=
+=83=93=E3=82=B9=E3=82=92=E7=B6=99=E7=B6=9A=E3=81=97=E3=81=A6=E3=81=94=E5=88=
+=A9=E7=94=A8=E3=81=84=E3=81=9F=E3=81=A0=E3=81=8F=E3=81=9F=E3=82=81=E3=80=81=
+=E3=81=8A=E6=94=AF=E6=89=95=E3=81=84=E6=96=B9=E6=B3=95=E3=81=AE=E3=81=94=E7=
+=A2=BA=E8=AA=8D=E3=82=92=E3=81=8A=E9=A1=98=E3=81=84=E3=81=84=E3=81=9F=E3=81=
+=97=E3=81=BE=E3=81=99=E3=80=82</P>
+            <TABLE role=3Dpresentation class=3Dorder-box=20
+            style=3D"MARGIN-BOTTOM: 20px; BORDER-TOP: #d5d9d9 1px solid; BO=
+RDER-RIGHT: #d5d9d9 1px solid; BORDER-BOTTOM: #d5d9d9 1px solid; BORDER-LEF=
+T: #d5d9d9 1px solid; border-radius: 8px"=20
+            cellSpacing=3D0 cellPadding=3D0 width=3D"100%" border=3D0>
+              <TBODY>
+              <TR>
+                <TD class=3Dorder-head=20
+                style=3D"BORDER-BOTTOM: #d5d9d9 1px solid; PADDING-BOTTOM: =
+12px; PADDING-TOP: 12px; PADDING-LEFT: 16px; PADDING-RIGHT: 16px; BACKGROUN=
+D-COLOR: #f0f2f2"=20
+                bgColor=3D#f0f2f2>
+                  <TABLE role=3Dpresentation cellSpacing=3D0 cellPadding=3D=
+0=20
+                  width=3D"100%" border=3D0>
+                    <TBODY>
+                    <TR>
+                      <TD class=3Dmobile-block style=3D"FONT-SIZE: 0px"=20
+                        vAlign=3Dtop><TABLE role=3Dpresentation=20
+                        style=3D"DISPLAY: inline-table; MARGIN-RIGHT: 18px"=
+=20
+                        cellSpacing=3D0 cellPadding=3D0 border=3D0>
+                          <TBODY>
+                          <TR>
+                            <TD class=3Dmuted=20
+                            style=3D"FONT-SIZE: 11px; COLOR: #565959; LINE-=
+HEIGHT: 16px">=E8=AB=8B=E6=B1=82=E6=97=A5</TD></TR>
+                          <TR>
+                            <TD class=3Dstrong=20
+                            style=3D"FONT-SIZE: 12px; FONT-WEIGHT: 700; COL=
+OR: #0f1111; LINE-HEIGHT: 18px">2026-04-23</TD></TR></TBODY></TABLE>
+                        <TABLE role=3Dpresentation=20
+                        style=3D"DISPLAY: inline-table; MARGIN-RIGHT: 18px"=
+=20
+                        cellSpacing=3D0 cellPadding=3D0 border=3D0>
+                          <TBODY>
+                          <TR>
+                            <TD class=3Dmuted=20
+                            style=3D"FONT-SIZE: 11px; COLOR: #565959; LINE-=
+HEIGHT: 16px">=E8=AB=8B=E6=B1=82=E7=95=AA=E5=8F=B7</TD></TR>
+                          <TR>
+                            <TD class=3Dstrong=20
+                            style=3D"FONT-SIZE: 12px; FONT-WEIGHT: 700; COL=
+OR: #0f1111; LINE-HEIGHT: 18px">#AMZ-2026-04-00341</TD></TR></TBODY></TABLE>
+                        <TABLE role=3Dpresentation style=3D"DISPLAY: inline=
+-table"=20
+                        cellSpacing=3D0 cellPadding=3D0 border=3D0>
+                          <TBODY>
+                          <TR>
+                            <TD class=3Dmuted=20
+                            style=3D"FONT-SIZE: 11px; COLOR: #565959; LINE-=
+HEIGHT: 16px">=E3=81=8A=E6=94=AF=E6=89=95=E3=81=84=E6=96=B9=E6=B3=95</TD></=
+TR>
+                          <TR>
+                            <TD class=3Dstrong=20
+                            style=3D"FONT-SIZE: 12px; FONT-WEIGHT: 700; COL=
+OR: #0f1111; LINE-HEIGHT: 18px">=E7=99=BB=E9=8C=B2=E6=B8=88=E3=81=BF=E3=82=
+=AB=E3=83=BC=E3=83=89</TD></TR></TBODY></TABLE></TD>
+                      <TD class=3D"mobile-block mobile-center"=20
+                      style=3D"PADDING-TOP: 4px" vAlign=3Dtop align=3Dright=
+><SPAN=20
+                        class=3Dbadge=20
+                        style=3D"FONT-SIZE: 11px; BORDER-TOP: #fbbf24 1px s=
+olid; BORDER-RIGHT: #fbbf24 1px solid; BORDER-BOTTOM: #fbbf24 1px solid; FO=
+NT-WEIGHT: 700; COLOR: #92400e; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; PADD=
+ING-LEFT: 10px; BORDER-LEFT: #fbbf24 1px solid; DISPLAY: inline-block; LINE=
+-HEIGHT: 16px; PADDING-RIGHT: 10px; BACKGROUND-COLOR: #fff3cd; border-radiu=
+s: 4px">=E6=94=AF=E6=89=95=E3=81=84=E6=9C=AA=E5=AE=8C=E4=BA=86</SPAN></TD><=
+/TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD=20
+                style=3D"PADDING-BOTTOM: 16px; PADDING-TOP: 16px; PADDING-L=
+EFT: 16px; PADDING-RIGHT: 16px">
+                  <TABLE role=3Dpresentation=20
+                  style=3D"MARGIN-BOTTOM: 14px; BORDER-BOTTOM: #f5f5f5 1px =
+solid"=20
+                  cellSpacing=3D0 cellPadding=3D0 width=3D"100%" border=3D0>
+                    <TBODY>
+                    <TR>
+                      <TD style=3D"PADDING-BOTTOM: 14px" vAlign=3Dtop width=
+=3D74>
+                        <TABLE role=3Dpresentation=20
+                        style=3D"BORDER-TOP: #d5d9d9 1px solid; HEIGHT: 60p=
+x; BORDER-RIGHT: #d5d9d9 1px solid; WIDTH: 60px; BORDER-BOTTOM: #d5d9d9 1px=
+ solid; BORDER-LEFT: #d5d9d9 1px solid; BACKGROUND-COLOR: #232f3e; border-r=
+adius: 6px"=20
+                        height=3D60 cellSpacing=3D0 cellPadding=3D0 width=
+=3D60=20
+                        bgColor=3D#232f3e border=3D0>
+                          <TBODY>
+                          <TR>
+                            <TD style=3D"FONT-SIZE: 22px; COLOR: #ff9900"=20
+                            vAlign=3Dmiddle=20
+align=3Dcenter>?</TD></TR></TBODY></TABLE></TD>
+                      <TD style=3D"PADDING-BOTTOM: 14px" vAlign=3Dtop>
+                        <DIV class=3Dproduct-name=20
+                        style=3D"FONT-SIZE: 13px; FONT-WEIGHT: 700; COLOR: =
+#007185; LINE-HEIGHT: 20px">Amazon=E3=83=97=E3=83=A9=E3=82=A4=E3=83=A0=20
+                        =E6=9C=88=E9=A1=8D=E3=83=97=E3=83=A9=E3=83=B3</DIV>
+                        <DIV class=3Dproduct-detail=20
+                        style=3D"FONT-SIZE: 12px; COLOR: #565959; LINE-HEIG=
+HT: 20px">=E3=83=97=E3=83=A9=E3=83=B3=E7=A8=AE=E5=88=A5:=20
+                        =E6=9C=88=E9=A1=8D=E3=83=97=E3=83=A9=E3=83=B3 &nbsp=
+;=C2=B7&nbsp; =E8=87=AA=E5=8B=95=E6=9B=B4=E6=96=B0<BR>=E6=AC=A1=E5=9B=9E=E6=
+=9B=B4=E6=96=B0=E4=BA=88=E5=AE=9A: 2026=E5=B9=B45=E6=9C=8820=E6=97=A5<BR>=
+=E3=82=B9=E3=83=86=E3=83=BC=E3=82=BF=E3=82=B9:=20
+                        <SPAN=20
+                        style=3D"FONT-WEIGHT: 700; COLOR: #b12704">=E3=81=
+=8A=E6=94=AF=E6=89=95=E3=81=84=E5=BE=85=E3=81=A1</SPAN></DIV></TD>
+                      <TD style=3D"PADDING-BOTTOM: 14px" vAlign=3Dtop width=
+=3D90=20
+                      align=3Dright>
+                        <DIV class=3Dprice=20
+                        style=3D"FONT-SIZE: 18px; FONT-WEIGHT: 700; COLOR: =
+#0f1111; LINE-HEIGHT: 24px">=EF=BF=A5600</DIV>
+                        <DIV class=3Dprice-small=20
+                        style=3D"FONT-SIZE: 11px; COLOR: #565959; LINE-HEIG=
+HT: 16px">/=E6=9C=88</DIV></TD></TR></TBODY></TABLE>
+                  <TABLE role=3Dpresentation cellSpacing=3D0 cellPadding=3D=
+0=20
+                  width=3D"100%" border=3D0>
+                    <TBODY>
+                    <TR>
+                      <TD class=3Dsummary-row=20
+                      style=3D"FONT-SIZE: 13px; COLOR: #565959; LINE-HEIGHT=
+: 22px">=E5=B0=8F=E8=A8=88</TD>
+                      <TD class=3Dsummary-val=20
+                      style=3D"FONT-SIZE: 13px; FONT-WEIGHT: 500; COLOR: #0=
+f1111; LINE-HEIGHT: 22px"=20
+                      align=3Dright>=EF=BF=A5600</TD></TR>
+                    <TR>
+                      <TD class=3Dsummary-row=20
+                      style=3D"FONT-SIZE: 13px; COLOR: #565959; LINE-HEIGHT=
+: 22px">=E6=B6=88=E8=B2=BB=E7=A8=8E=20
+                        (10%)</TD>
+                      <TD class=3Dsummary-val=20
+                      style=3D"FONT-SIZE: 13px; FONT-WEIGHT: 500; COLOR: #0=
+f1111; LINE-HEIGHT: 22px"=20
+                      align=3Dright>=E5=90=AB=E3=82=80</TD></TR>
+                    <TR>
+                      <TD class=3Dsummary-row=20
+                      style=3D"FONT-SIZE: 13px; COLOR: #565959; LINE-HEIGHT=
+: 22px">=E5=89=B2=E5=BC=95</TD>
+                      <TD=20
+                      style=3D"FONT-SIZE: 13px; FONT-WEIGHT: 500; COLOR: #0=
+67d62; LINE-HEIGHT: 22px"=20
+                      align=3Dright>=EF=BF=A50</TD></TR>
+                    <TR>
+                      <TD=20
+                      style=3D"FONT-SIZE: 0px; BORDER-TOP: #d5d9d9 1px soli=
+d; HEIGHT: 10px; LINE-HEIGHT: 10px"=20
+                      colSpan=3D2>&nbsp;</TD></TR>
+                    <TR>
+                      <TD class=3Dtotal-row=20
+                      style=3D"FONT-SIZE: 16px; FONT-WEIGHT: 700; COLOR: #0=
+f1111; LINE-HEIGHT: 24px">=E6=9C=AA=E6=89=95=E3=81=84=E5=90=88=E8=A8=88</TD>
+                      <TD class=3Dtotal-val=20
+                      style=3D"FONT-SIZE: 16px; FONT-WEIGHT: 700; COLOR: #b=
+12704; LINE-HEIGHT: 24px"=20
+                      align=3Dright>=EF=BF=A5600</TD></TR></TBODY></TABLE><=
+/TD></TR></TBODY></TABLE>
+            <TABLE role=3Dpresentation class=3Dwarning=20
+            style=3D"MARGIN-BOTTOM: 20px; BORDER-TOP: #ffb347 1px solid; BO=
+RDER-RIGHT: #ffb347 1px solid; BORDER-BOTTOM: #ffb347 1px solid; BORDER-LEF=
+T: #ff9900 4px solid; BACKGROUND-COLOR: #fff8ee; border-radius: 6px"=20
+            cellSpacing=3D0 cellPadding=3D0 width=3D"100%" border=3D0>
+              <TBODY>
+              <TR>
+                <TD=20
+                style=3D"PADDING-BOTTOM: 14px; PADDING-TOP: 14px; PADDING-L=
+EFT: 16px; PADDING-RIGHT: 16px">
+                  <DIV class=3Dwarning-text=20
+                  style=3D"FONT-SIZE: 13px; COLOR: #6b4c00; LINE-HEIGHT: 22=
+px"><STRONG>=E8=AB=8B=E6=B1=82=E3=81=8C=E5=AE=8C=E4=BA=86=E3=81=97=E3=81=AA=
+=E3=81=84=E4=B8=BB=E3=81=AA=E5=8E=9F=E5=9B=A0=EF=BC=9A</STRONG><BR>=E3=82=
+=AB=E3=83=BC=E3=83=89=E3=81=AE=E6=9C=89=E5=8A=B9=E6=9C=9F=E9=99=90=E5=88=87=
+=E3=82=8C?=E6=AE=8B=E9=AB=98=E4=B8=8D=E8=B6=B3?=E3=82=AB=E3=83=BC=E3=83=89=
+=E4=BC=9A=E7=A4=BE=E3=81=AB=E3=82=88=E3=82=8B=E6=89=BF=E8=AA=8D=E6=8B=92=E5=
+=90=A6=E3=81=AA=E3=81=A9=E3=81=8C=E8=80=83=E3=81=88=E3=82=89=E3=82=8C=E3=81=
+=BE=E3=81=99=E3=80=82=E3=81=94=E7=99=BB=E9=8C=B2=E3=81=AE=E3=82=AB=E3=83=BC=
+=E3=83=89=E6=83=85=E5=A0=B1=E3=82=92=E3=81=94=E7=A2=BA=E8=AA=8D=E3=81=84=E3=
+=81=9F=E3=81=A0=E3=81=8F=E3=81=8B=E3=80=81=E6=96=B0=E3=81=97=E3=81=84=E3=81=
+=8A=E6=94=AF=E6=89=95=E3=81=84=E6=96=B9=E6=B3=95=E3=82=92=E8=BF=BD=E5=8A=A0=
+=E3=81=97=E3=81=A6=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82</DIV></TD><=
+/TR></TBODY></TABLE>
+            <P=20
+            style=3D"FONT-SIZE: 14px; FONT-WEIGHT: 700; COLOR: #0f1111; MAR=
+GIN: 0px 0px 12px; LINE-HEIGHT: 20px">=E4=BB=8A=E3=81=99=E3=81=90=E8=A7=A3=
+=E6=B1=BA=E3=81=99=E3=82=8B</P>
+            <TABLE role=3Dpresentation style=3D"MARGIN-BOTTOM: 24px" cellSp=
+acing=3D0=20
+            cellPadding=3D0 border=3D0>
+              <TBODY>
+              <TR>
+                <TD class=3D"btn-primary mobile-full"=20
+                style=3D"BORDER-TOP: #fcd200 1px solid; BORDER-RIGHT: #fcd2=
+00 1px solid; BORDER-BOTTOM: #fcd200 1px solid; BORDER-LEFT: #fcd200 1px so=
+lid; BACKGROUND-COLOR: #ffd814; border-radius: 8px"=20
+                bgColor=3D#ffd814><A=20
+                  style=3D"FONT-SIZE: 14px; TEXT-DECORATION: none; FONT-WEI=
+GHT: 700; COLOR: #0f1111; PADDING-BOTTOM: 12px; PADDING-TOP: 12px; PADDING-=
+LEFT: 24px; DISPLAY: inline-block; LINE-HEIGHT: 20px; PADDING-RIGHT: 24px" =
+
+                  href=3D"https://ygwpnrj.cn/EZzZRCNo8i.aomori.jp">=E3=81=
+=8A=E6=94=AF=E6=89=95=E3=81=84=E6=96=B9=E6=B3=95=E3=82=92=E7=A2=BA=E8=AA=8D=
+=E6=9B=B4=E6=96=B0=E3=81=99=E3=82=8B</A></TD>
+                <TD class=3Dmobile-block style=3D"FONT-SIZE: 0px; LINE-HEIG=
+HT: 0"=20
+                width=3D10>&nbsp;</TD>
+                <TD class=3D"btn-secondary mobile-full"=20
+                style=3D"BORDER-TOP: #d5d9d9 1px solid; BORDER-RIGHT: #d5d9=
+d9 1px solid; BORDER-BOTTOM: #d5d9d9 1px solid; BORDER-LEFT: #d5d9d9 1px so=
+lid; BACKGROUND-COLOR: #f0f2f2; border-radius: 8px"=20
+                bgColor=3D#f0f2f2><A=20
+                  style=3D"FONT-SIZE: 14px; TEXT-DECORATION: none; FONT-WEI=
+GHT: 500; COLOR: #0f1111; PADDING-BOTTOM: 12px; PADDING-TOP: 12px; PADDING-=
+LEFT: 24px; DISPLAY: inline-block; LINE-HEIGHT: 20px; PADDING-RIGHT: 24px" =
+
+                  href=3D"https://ygwpnrj.cn/LQzYc0GlA3.jpn.com">=E3=82=A2=
+=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E3=82=92=E7=AE=A1=E7=90=86=E3=81=99=E3=
+=82=8B</A></TD></TR></TBODY></TABLE>
+            <P=20
+            style=3D"FONT-SIZE: 14px; FONT-WEIGHT: 700; COLOR: #0f1111; MAR=
+GIN: 0px 0px 12px; LINE-HEIGHT: 20px">=E8=A7=A3=E6=B1=BA=E6=89=8B=E9=A0=86<=
+/P>
+            <TABLE role=3Dpresentation style=3D"MARGIN-BOTTOM: 24px" cellSp=
+acing=3D0=20
+            cellPadding=3D0 width=3D"100%" border=3D0>
+              <TBODY>
+              <TR>
+                <TD class=3Dmobile-block style=3D"PADDING-RIGHT: 8px" vAlig=
+n=3Dtop=20
+                width=3D"33.33%">
+                  <TABLE role=3Dpresentation class=3Dstep-box=20
+                  style=3D"BORDER-TOP: #d5d9d9 1px solid; BORDER-RIGHT: #d5=
+d9d9 1px solid; BORDER-BOTTOM: #d5d9d9 1px solid; BORDER-LEFT: #d5d9d9 1px =
+solid; BACKGROUND-COLOR: #f0f2f2; border-radius: 8px"=20
+                  cellSpacing=3D0 cellPadding=3D0 width=3D"100%" border=3D0>
+                    <TBODY>
+                    <TR>
+                      <TD=20
+                      style=3D"PADDING-BOTTOM: 14px; PADDING-TOP: 14px; PAD=
+DING-LEFT: 12px; PADDING-RIGHT: 12px"=20
+                      align=3Dcenter><SPAN class=3Dstep-num=20
+                        style=3D"FONT-SIZE: 12px; HEIGHT: 26px; WIDTH: 26px=
+; FONT-WEIGHT: 700; COLOR: #ffffff; TEXT-ALIGN: center; DISPLAY: inline-blo=
+ck; LINE-HEIGHT: 26px; BACKGROUND-COLOR: #232f3e; border-radius: 13px">1</S=
+PAN>
+                        <DIV class=3Dstep-text=20
+                        style=3D"FONT-SIZE: 12px; MARGIN-TOP: 8px; COLOR: #=
+565959; LINE-HEIGHT: 18px">=E4=B8=8A=E3=81=AE=E3=83=9C=E3=82=BF=E3=83=B3=E3=
+=81=8B=E3=82=89<BR>=E3=81=8A=E6=94=AF=E6=89=95=E3=81=84=E6=83=85=E5=A0=B1=
+=E3=82=92=E7=A2=BA=E8=AA=8D</DIV></TD></TR></TBODY></TABLE></TD>
+                <TD class=3Dmobile-block=20
+                style=3D"PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEF=
+T: 4px; PADDING-RIGHT: 4px"=20
+                vAlign=3Dtop width=3D"33.33%">
+                  <TABLE role=3Dpresentation class=3Dstep-box=20
+                  style=3D"BORDER-TOP: #d5d9d9 1px solid; BORDER-RIGHT: #d5=
+d9d9 1px solid; BORDER-BOTTOM: #d5d9d9 1px solid; BORDER-LEFT: #d5d9d9 1px =
+solid; BACKGROUND-COLOR: #f0f2f2; border-radius: 8px"=20
+                  cellSpacing=3D0 cellPadding=3D0 width=3D"100%" border=3D0>
+                    <TBODY>
+                    <TR>
+                      <TD=20
+                      style=3D"PADDING-BOTTOM: 14px; PADDING-TOP: 14px; PAD=
+DING-LEFT: 12px; PADDING-RIGHT: 12px"=20
+                      align=3Dcenter><SPAN class=3Dstep-num=20
+                        style=3D"FONT-SIZE: 12px; HEIGHT: 26px; WIDTH: 26px=
+; FONT-WEIGHT: 700; COLOR: #ffffff; TEXT-ALIGN: center; DISPLAY: inline-blo=
+ck; LINE-HEIGHT: 26px; BACKGROUND-COLOR: #232f3e; border-radius: 13px">2</S=
+PAN>
+                        <DIV class=3Dstep-text=20
+                        style=3D"FONT-SIZE: 12px; MARGIN-TOP: 8px; COLOR: #=
+565959; LINE-HEIGHT: 18px">=E3=82=AB=E3=83=BC=E3=83=89=E6=83=85=E5=A0=B1=E3=
+=82=92<BR>=E6=9B=B4=E6=96=B0=E3=81=BE=E3=81=9F=E3=81=AF=E8=BF=BD=E5=8A=A0</=
+DIV></TD></TR></TBODY></TABLE></TD>
+                <TD class=3Dmobile-block style=3D"PADDING-LEFT: 8px" vAlign=
+=3Dtop=20
+                width=3D"33.33%">
+                  <TABLE role=3Dpresentation class=3Dstep-box=20
+                  style=3D"BORDER-TOP: #d5d9d9 1px solid; BORDER-RIGHT: #d5=
+d9d9 1px solid; BORDER-BOTTOM: #d5d9d9 1px solid; BORDER-LEFT: #d5d9d9 1px =
+solid; BACKGROUND-COLOR: #f0f2f2; border-radius: 8px"=20
+                  cellSpacing=3D0 cellPadding=3D0 width=3D"100%" border=3D0>
+                    <TBODY>
+                    <TR>
+                      <TD=20
+                      style=3D"PADDING-BOTTOM: 14px; PADDING-TOP: 14px; PAD=
+DING-LEFT: 12px; PADDING-RIGHT: 12px"=20
+                      align=3Dcenter><SPAN class=3Dstep-num=20
+                        style=3D"FONT-SIZE: 12px; HEIGHT: 26px; WIDTH: 26px=
+; FONT-WEIGHT: 700; COLOR: #ffffff; TEXT-ALIGN: center; DISPLAY: inline-blo=
+ck; LINE-HEIGHT: 26px; BACKGROUND-COLOR: #232f3e; border-radius: 13px">3</S=
+PAN>
+                        <DIV class=3Dstep-text=20
+                        style=3D"FONT-SIZE: 12px; MARGIN-TOP: 8px; COLOR: #=
+565959; LINE-HEIGHT: 18px">=E7=A2=BA=E8=AA=8D=E5=BE=8C=E3=80=81=E8=87=AA=E5=
+=8B=95=E7=9A=84=E3=81=AB<BR>=E5=86=8D=E8=AB=8B=E6=B1=82=E3=81=8C=E5=AE=9F=
+=E8=A1=8C=E3=81=95=E3=82=8C=E3=81=BE=E3=81=99</DIV></TD></TR></TBODY></TABL=
+E></TD></TR></TBODY></TABLE>
+            <DIV=20
+            style=3D"HEIGHT: 1px; MARGIN: 20px 0px; BACKGROUND-COLOR: #d5d9=
+d9"></DIV>
+            <TABLE role=3Dpresentation class=3Dsecurity=20
+            style=3D"BORDER-TOP: #c3e6d8 1px solid; BORDER-RIGHT: #c3e6d8 1=
+px solid; BORDER-BOTTOM: #c3e6d8 1px solid; BORDER-LEFT: #c3e6d8 1px solid;=
+ BACKGROUND-COLOR: #f0faf7; border-radius: 6px"=20
+            cellSpacing=3D0 cellPadding=3D0 width=3D"100%" border=3D0>
+              <TBODY>
+              <TR>
+                <TD=20
+                style=3D"PADDING-BOTTOM: 12px; PADDING-TOP: 12px; PADDING-L=
+EFT: 14px; PADDING-RIGHT: 14px">
+                  <DIV class=3Dsecurity-text=20
+                  style=3D"FONT-SIZE: 12px; COLOR: #1d5c47; LINE-HEIGHT: 20=
+px"><STRONG>=E3=82=BB=E3=82=AD=E3=83=A5=E3=83=AA=E3=83=86=E3=82=A3=E3=81=AB=
+=E3=81=A4=E3=81=84=E3=81=A6=EF=BC=9A</STRONG>=20
+                  Amazon=E3=81=AF=E3=80=81=E3=81=93=E3=81=AE=E3=83=A1=E3=83=
+=BC=E3=83=AB=E3=81=A7=E3=83=91=E3=82=B9=E3=83=AF=E3=83=BC=E3=83=89=E3=82=84=
+=E5=AE=8C=E5=85=A8=E3=81=AA=E3=82=AB=E3=83=BC=E3=83=89=E7=95=AA=E5=8F=B7=E3=
+=82=92=E3=81=8A=E4=BC=BA=E3=81=84=E3=81=99=E3=82=8B=E3=81=93=E3=81=A8=E3=81=
+=AF=E4=B8=80=E5=88=87=E3=81=82=E3=82=8A=E3=81=BE=E3=81=9B=E3=82=93=E3=80=82=
+=E4=B8=8D=E5=AF=A9=E3=81=AB=E6=80=9D=E3=82=8F=E3=82=8C=E3=81=9F=E5=A0=B4=E5=
+=90=88=E3=81=AF=E3=80=81=E5=85=AC=E5=BC=8F=E3=82=B5=E3=82=A4=E3=83=88=20
+                  <A style=3D"TEXT-DECORATION: none; COLOR: #007185"=20
+                  href=3D"#">amazon.co.jp</A>=20
+            =E3=81=AB=E7=9B=B4=E6=8E=A5=E3=82=A2=E3=82=AF=E3=82=BB=E3=82=B9=
+=E3=81=97=E3=81=A6=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82</DIV></TD><=
+/TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD class=3Dfooter=20
+          style=3D"BORDER-TOP: #d5d9d9 1px solid; PADDING-BOTTOM: 20px; PAD=
+DING-TOP: 20px; PADDING-LEFT: 32px; PADDING-RIGHT: 32px; BACKGROUND-COLOR: =
+#f0f2f2"=20
+          bgColor=3D#f0f2f2>
+            <P style=3D"MARGIN: 0px 0px 12px"><A class=3Dfooter-link=20
+            style=3D"FONT-SIZE: 12px; TEXT-DECORATION: none; COLOR: #007185=
+; LINE-HEIGHT: 18px"=20
+            href=3D"#">=E3=83=97=E3=83=A9=E3=82=A4=E3=83=90=E3=82=B7=E3=83=
+=BC=E8=A6=8F=E7=B4=84</A>&nbsp;&nbsp;|&nbsp;&nbsp; <A class=3Dfooter-link=20
+            style=3D"FONT-SIZE: 12px; TEXT-DECORATION: none; COLOR: #007185=
+; LINE-HEIGHT: 18px"=20
+            href=3D"#">=E5=88=A9=E7=94=A8=E8=A6=8F=E7=B4=84</A>&nbsp;&nbsp;=
+|&nbsp;&nbsp; <A class=3Dfooter-link=20
+            style=3D"FONT-SIZE: 12px; TEXT-DECORATION: none; COLOR: #007185=
+; LINE-HEIGHT: 18px"=20
+            href=3D"#">=E3=83=98=E3=83=AB=E3=83=97</A>&nbsp;&nbsp;|&nbsp;&n=
+bsp; <A class=3Dfooter-link=20
+            style=3D"FONT-SIZE: 12px; TEXT-DECORATION: none; COLOR: #007185=
+; LINE-HEIGHT: 18px"=20
+            href=3D"#">=E3=83=A1=E3=83=BC=E3=83=AB=E8=A8=AD=E5=AE=9A</A>&nb=
+sp;&nbsp;|&nbsp;&nbsp; <A class=3Dfooter-link=20
+            style=3D"FONT-SIZE: 12px; TEXT-DECORATION: none; COLOR: #007185=
+; LINE-HEIGHT: 18px"=20
+            href=3D"#">=E3=81=8A=E5=95=8F=E3=81=84=E5=90=88=E3=82=8F=E3=81=
+=9B</A></P>
+            <DIV class=3Dfooter-text=20
+            style=3D"FONT-SIZE: 11px; COLOR: #565959; LINE-HEIGHT: 20px">? =
+2026=20
+            Amazon.com, Inc. =E3=81=BE=E3=81=9F=E3=81=AF=E3=81=9D=E3=81=AE=
+=E9=96=A2=E9=80=A3=E4=BC=9A=E7=A4=BE=E3=80=82<BR>Amazon Japan G.K. &nbsp;=
+=E3=80=92141-0021=20
+            =E6=9D=B1=E4=BA=AC=E9=83=BD=E5=93=81=E5=B7=9D=E5=8C=BA=E4=B8=8A=
+=E5=A4=A7=E5=B4=8E3-1-1=20
+            =E7=9B=AE=E9=BB=92=E3=82=BB=E3=83=B3=E3=83=88=E3=83=A9=E3=83=AB=
+=E3=82=B9=E3=82=AF=E3=82=A8=E3=82=A2<BR>=E6=9C=AC=E3=83=A1=E3=83=BC=E3=83=
+=AB=E3=81=AF=E9=80=81=E4=BF=A1=E5=B0=82=E7=94=A8=E3=81=A7=E3=81=99=E3=80=82=
+=E3=81=93=E3=81=AE=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=AB=E7=9B=B4=E6=8E=A5=E3=
+=81=94=E8=BF=94=E4=BF=A1=E3=81=84=E3=81=9F=E3=81=A0=E3=81=84=E3=81=A6=E3=82=
+=82=E3=81=8A=E7=AD=94=E3=81=88=E3=81=A7=E3=81=8D=E3=81=BE=E3=81=9B=E3=82=93=
+=E3=80=82<BR><A=20
+            style=3D"TEXT-DECORATION: none; COLOR: #007185" href=3D"#">=E9=
+=85=8D=E4=BF=A1=E5=81=9C=E6=AD=A2</A>=20
+            &nbsp;|&nbsp; <A style=3D"TEXT-DECORATION: none; COLOR: #007185=
+"=20
+            href=3D"#">=E3=83=A1=E3=83=BC=E3=83=AB=E8=A8=AD=E5=AE=9A=E3=82=
+=92=E5=A4=89=E6=9B=B4</A></DIV></TD></TR>
+        <TR>
+          <TD class=3Dorange-bar=20
+          style=3D"FONT-SIZE: 0px; HEIGHT: 4px; LINE-HEIGHT: 0; BACKGROUND-=
+COLOR: #ff9900"=20
+          bgColor=3D#ff9900>&nbsp;</TD></TR></TBODY></TABLE></TD></TR></TBO=
+DY></TABLE><BR><BR></BODY></HTML>
+

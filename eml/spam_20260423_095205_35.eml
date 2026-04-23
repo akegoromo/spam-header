@@ -1,0 +1,65 @@
+Delivered-To: silver.firefox@gmail.com
+Received: by 2002:a98:c058:0:b0:261:85fe:9a8 with SMTP id m24csp3672183eic;
+        Wed, 22 Apr 2026 17:57:04 -0700 (PDT)
+X-Received: by 2002:a05:6214:f25:b0:8ac:a6c5:c7d1 with SMTP id 6a1803df08f44-8b027fd26a4mr401631646d6.8.1776905824715;
+        Wed, 22 Apr 2026 17:57:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1776905824; cv=none;
+        d=google.com; s=arc-20240605;
+        b=HL72VdjdmyFoFPKljmU4wY2ZPHWIuoMNoJVP5sxwHU3YKTm8AUWSayQiHUwx/GnKed
+         94MJYkbvkbbxSBZB3TA75HNJUP+W0tch/8aMa4n8XT/Uc4uBE2wafkSjayzTHNQPe7N7
+         nERBAx1CmzYNn86sy2pTcFh7Z0jgp2eNSLL8UcdcY9478R81zI1N2ZTj8wBgf03QfQa9
+         9l6yVxeyLxk0IYBzuojVVs9JBzvvXfpo0bKU7fLhm1aJGjXMoFQJ5ZsKZoR8nhaAemq0
+         aI1qUsX7V3WWGBMoIkXE4z+h7IEkKs7852NeDAplM/8NdXD+2bB97cwkkPcvB3DyGlox
+         gnKQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:message-id:subject:mime-version:from:to
+         :date:dkim-signature;
+        bh=KnVn5+twVdSv9YgUYnROcA3rU3mi4Z4zjvnef1H+Ybo=;
+        fh=30F+LetgEkDSNSp+uLeo/St8k5O2MuAL6jcfWOE8egk=;
+        b=W3s2/Q9T0wizp+m3LXBNGfIH77TA/4U/QJo2yBm2dGHjZazaD/KfqrQlpwYnM4rcHO
+         lRbOkdGPXxcytdyEbZUZIi6ijF1Q8z/9vqRBukNuv0L/lxPlHAczt7yt8tf8tpxC5fnx
+         hWknwQiE1FY2CD/rv6eXIcKh08h2bSZGwp5ekeYBLabxbs8LcRiH2MhTHR2IBcGrWnr0
+         EJVIJY2P74cQI0i4AJKejCq0YhocU/qhdwvrPBYGBT3VHkJhGTGU0lHOBwO+DfnNGYvO
+         go+j1rf8jTldux7bWBMGMnI3kJ0UZbS76VVkSENbkW/iecuNAxlJ8D7gR4RzuTWqS8tf
+         guAQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@grape-fifteen.com header.s=202604 header.b=bumCIRld;
+       spf=pass (google.com: domain of zi1lxpheytwlc5z@grape-fifteen.com designates 35.183.253.84 as permitted sender) smtp.mailfrom=ZI1lXPHeYtwLc5z@grape-fifteen.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=grape-fifteen.com
+Return-Path: <ZI1lXPHeYtwLc5z@grape-fifteen.com>
+Received: from [35.183.253.84] (ec2-35-183-253-84.ca-central-1.compute.amazonaws.com. [35.183.253.84])
+        by mx.google.com with ESMTP id 6a1803df08f44-8b1ecac5f16si108254916d6.618.2026.04.22.17.57.04
+        for <silver.firefox@gmail.com>;
+        Wed, 22 Apr 2026 17:57:04 -0700 (PDT)
+Received-SPF: pass (google.com: domain of zi1lxpheytwlc5z@grape-fifteen.com designates 35.183.253.84 as permitted sender) client-ip=35.183.253.84;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@grape-fifteen.com header.s=202604 header.b=bumCIRld;
+       spf=pass (google.com: domain of zi1lxpheytwlc5z@grape-fifteen.com designates 35.183.253.84 as permitted sender) smtp.mailfrom=ZI1lXPHeYtwLc5z@grape-fifteen.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=grape-fifteen.com
+Received: by x1vd4.jxv (Postfix, from userid 0)
+	id C21AF43E07; Thu, 23 Apr 2026 09:57:03 +0900 (JST)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=202604; d=grape-fifteen.com; t=1776905536; h=to:from:date:subject:
+ message-id; bh=KnVn5+twVdSv9YgUYnROcA3rU3mi4Z4zjvnef1H+Ybo=;
+ b=bumCIRld6IyBWufxtCgzmsP1+25Yp00UvbG3IpCT1weCcgFlDbtcFOo0KCF+NCmofdnkzN
+ obBLSKmBMVJJUWWlt1TuyTbwaOTzSiUIcqW43XA5ZIKq+k4AEIA3GWohfIZGuMQ98jfj80
+ EJihdnoxE4xEIbRb6QNFW7QF9ePtLcTVg+UEfuUFYr3kkMtWheFlC94nJkDWn7RslpcmKO
+ HMgKTFUPg8sn3hPwzB4pOHUv0lQT/guSuWQ3VuO1ZoUT0cANtvOYKm2Sj1yU6MdtQxU1BM
+ eDQqQw4E6gS8Vwr7ENGMjQvYI8xnqCJh7Ol7Und5Y6msJ+ClBaM50wvzBV4+gg==
+Date: Thu, 23 Apr 2026 09:52:05 +0900
+To: silver.firefox@gmail.com
+From: =?UTF-8?B?6YCA5Lya5biM5pyb44Gv44Kz44OB44Op44G4?= <RA9ectTuSO01v0DdE13@grape-fifteen.com>
+MIME-Version: 1.0
+Subject: =?UTF-8?B?4oC75LiN6KaB44Oh44O844Or6YWN5L+h5YGc5q2i4oC744GU5biM5pyb44Gu5aC05ZCI44Gv44GT44Gh44KJ?=
+Message-ID: <QHXSG3IE8LSW.STK10Z8SWPEVYJY@grape-fifteen.com>
+Content-Type: text/html; charset=ISO-2022-JP
+Content-Transfer-Encoding: 7bit
+
+<html>
+<body>
+--------------------------------&#13;<br>---------------------------------------------------------------<br>&#13;<br>&#13;<br>&#13;<br>&#13;<br> <a href="https://grape-fifteen.com/XXIZYIX2P31JYM41ZO50L45M02xZXI4YO16MIbUY1KGqj">リンク</a>&#13;<br><br>--------------------------------&#13;<br>---------------------------------------------------------------
+</body>
+</html>
+
+

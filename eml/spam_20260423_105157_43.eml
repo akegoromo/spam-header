@@ -1,0 +1,66 @@
+Delivered-To: silver.firefox@gmail.com
+Received: by 2002:a98:c058:0:b0:261:85fe:9a8 with SMTP id m24csp3701522eic;
+        Wed, 22 Apr 2026 18:54:07 -0700 (PDT)
+X-Received: by 2002:a05:620a:2a03:b0:8e5:b6a5:8d0a with SMTP id af79cd13be357-8e792b57788mr3614711185a.62.1776909246986;
+        Wed, 22 Apr 2026 18:54:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1776909246; cv=none;
+        d=google.com; s=arc-20240605;
+        b=aa71n0QMxiD43x0x2yzyK1eL7EodMzA7uo7Db1Ij5LnextBeX/xOCCIHWMqzxin3td
+         wBLhjdhvzgbSwqJr6Ahwos1YxhDRtAhR1dtI8s5++wOk45493DKzF6gtQNG3kJgX+lUF
+         gKFqq/ZoptvQVKml5uyFFk/B2Ksh/u+m32p0pFU+z9sUztw0FTPRuTbSqmKok/KzLk61
+         ZCwG/wQlQLP3cVviFTbfFEbp4nG8tA3cF3idmadcwavE3o3fwzXjzfHownSNJ+Ch/r+G
+         W/WxgUL0r3VdJMFPPqOJMEhK2AioGEhad/cZTjqzoKusJBfRz5JGq49hyVRxhu4VL1oM
+         5pWA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:message-id:subject:mime-version:from:to
+         :date:dkim-signature;
+        bh=K1kP6QH8Qlx9++HLW/VOPjVpUsY/DZDe/Llw1wd35bU=;
+        fh=30F+LetgEkDSNSp+uLeo/St8k5O2MuAL6jcfWOE8egk=;
+        b=hqMmh2AD8xzDn0QisFv9keAUeBUif0959byg+MiveaqCzsHpeoaiNoj108VLEpDMSu
+         wsdrVbwgqM50XSo0ctGB6ivIRYz97nF9DhO6r0ifZ4qUt1JUqdNUeArGNHED+k9OjP6I
+         2WhjfJ8Vaszd/wAYeATnmCAqHh9oQTJsTlCb6AvfsG0DdZVa8vyjMVEjkCkYFN492J3S
+         6Ijynn27091LNQbuQh/ZOlKik76uZtAcPZjtPms/IjlVP8bkeR6KAlfVP2bvi5YdyEhH
+         ksLevq6Ve3rqhOrtAaLIbSfsWaJJegGGnDdxYFfjOdmEDcyfkXUbqbKo62NmkJI26M9y
+         wPBg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@enigma-dimension.com header.s=202604 header.b=GKybHMzD;
+       spf=pass (google.com: domain of 9e5llqjs4ueiktnzm@enigma-dimension.com designates 3.96.253.219 as permitted sender) smtp.mailfrom=9e5llQjS4ueIKTNzM@enigma-dimension.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=enigma-dimension.com
+Return-Path: <9e5llQjS4ueIKTNzM@enigma-dimension.com>
+Received: from [3.96.253.219] (ec2-3-96-253-219.ca-central-1.compute.amazonaws.com. [3.96.253.219])
+        by mx.google.com with ESMTP id af79cd13be357-8e7d61dd136si1923426185a.94.2026.04.22.18.54.06
+        for <silver.firefox@gmail.com>;
+        Wed, 22 Apr 2026 18:54:06 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 9e5llqjs4ueiktnzm@enigma-dimension.com designates 3.96.253.219 as permitted sender) client-ip=3.96.253.219;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@enigma-dimension.com header.s=202604 header.b=GKybHMzD;
+       spf=pass (google.com: domain of 9e5llqjs4ueiktnzm@enigma-dimension.com designates 3.96.253.219 as permitted sender) smtp.mailfrom=9e5llQjS4ueIKTNzM@enigma-dimension.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=enigma-dimension.com
+Received: by gt53p.wwo (Postfix, from userid 0)
+	id 92AEA43E5D; Thu, 23 Apr 2026 10:54:06 +0900 (JST)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=202604; d=enigma-dimension.com; t=1776909133;
+  h=to:from:date:subject:message-id;
+ bh=K1kP6QH8Qlx9++HLW/VOPjVpUsY/DZDe/Llw1wd35bU=;
+ b=GKybHMzDZcE3uxYn1GUpEQ+7R/qyj9AWG4TzgH/QLnbo+nX2A12GPii8FopAjEPHtk7Zqu
+ 4yOoS5riME3fI4CsZTykz8/nG8dHJFhzzxXXhTkz0j1G52/1EIDdfRYqJ/JNWowQ1C80RZ
+ RzIAhkYGOMh4+KivSSW2psbj3RI9nizCGmefChjfAmIhhHzO2F+bQWzrd84CZDP7kAF1a4
+ ar2y8z9sHeZCfDRG6KL/qAuzBqycczWVcXlK8NbtBtv85bZSfRpxJdfvAOkeLDT64URg7S
+ Vj+J085JEppuVDnt91gYLl7WtM1GMUQvzUqgBqJ7Cw0cRJYcGEPGSfYMaBp+lQ==
+Date: Thu, 23 Apr 2026 10:51:57 +0900
+To: silver.firefox@gmail.com
+From: =?UTF-8?B?44GK6I2354mp44GM5bGK44GE44Gm44GK44KK44G+44GZ44CC?= <UWv5wOu8Za7@enigma-dimension.com>
+MIME-Version: 1.0
+Subject: =?UTF-8?B?44GK5a6i5qeY44G45ZWG5ZOB6YWN6YCB44GM5bGK44GE44Gm44GK44KK44G+44GZ44CC?=
+Message-ID: <XYN4PRKC35.5KDXNFTSV5AQ@enigma-dimension.com>
+Content-Type: text/html; charset=ISO-2022-JP
+Content-Transfer-Encoding: 7bit
+
+<html>
+<body>
+--------------------------------&#13;<br>---------------------------------------------------------------<br>&#13;<br>&#13;<br>&#13;<br>&#13;<br> <a href="https://enigma-dimension.com/VvqXwqVAx1zrXkM2DsZEqZyrZwfXvq2wwZEuGJCWzsp6">リンク</a>&#13;<br><br>--------------------------------&#13;<br>---------------------------------------------------------------
+</body>
+</html>
+
+
