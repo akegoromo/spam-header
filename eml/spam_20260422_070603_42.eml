@@ -1,0 +1,321 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:c058:0:b0:261:85fe:9a8 with SMTP id m24csp2822882eic;
+        Tue, 21 Apr 2026 15:06:12 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ+YEpQegxpK5MlRLstn+wnnoUxDh846YMRc/B0vJUUrx9cjlN1+UbP7Ae+fM7lVnO90Llovx8c494vV745WTQ==@gmail.com
+X-Received: by 2002:aa7:c3d9:0:b0:66e:6ac4:2c01 with SMTP id 4fb4d7f45d1cf-672bfd8b436mr6483825a12.2.1776809172750;
+        Tue, 21 Apr 2026 15:06:12 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1776809172; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=Ttgy5wb0iRG/0CZPUIeCjiV904c9OE9LVYPgBWDOzmvkewKS1VpoH1CmjOn+hjmUhi
+         8NGU+E2Mgs8URWCe+g3ooxttFRVmTPCeaS9AR/5K0KDsCxGlwfZzlljAOgLxHifQAQuw
+         02YJM3SIbFWM3NoWRTisdxylR98SexEWHMY2p6K+C5x3Od5OTNabkNMp/rPJd92qT3qC
+         wI0FWibg78QffdCbWrxGB3BnV6IZgKHfdMKsyCkISzwmPg1ViR/ASHZ16Ger8XxpRw1g
+         +AiAnoQhh9uaG6uK8+TUUKIsnyNwjL/Sfbk05D18Sc+R1XbYhp/6Vijefg/+eLn0OiD3
+         iWgA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=message-id:date:subject:to:dkim-signature:from:mime-version
+         :feedback-id:dkim-signature:dkim-signature;
+        bh=+47h0ilYXAv3zIlG1zbvPqA3XYQnx7sIvoitD/2kADM=;
+        fh=LnGVlAla77Gyfiw8zkzbOhaVlqYgEu27l8ujdfvsIGY=;
+        b=Bw+2GyypqucjCZkHY15O2WFC/WmWgejOLFP9UD+neOBVzlHW2qvIAtGoEWMh8wsTXN
+         NMgr0ePMZVqZojX3lF3NnN/Bsz8bO5/eQcYztETpsxl+SJ0+0NjM7aZKK87Hk71ZMOnr
+         MspQiJYaQBtgkAmijxq6z1i7meeyaoT1+L+AdI7rYxP/ZNmuGZ7hl1vuYeOX66D5ALV+
+         8jojfgmiWgu0ndrFRkFYNjDyc6PqG71g0IKtqzX6yUa/fRtENGNK+LySJ8WQPLygT6FG
+         9t0xTP8XMsKRYRrsKLZ0PDxiTPIa5U8h8dxnbVAJC5HL27i9LcFYo6FoWMsXE7y9pw+4
+         B9VQ==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b="UxW/Ga0U";
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=gzzjRHtX;
+       dkim=pass header.i=@jive.token-iol.cn header.s=caro header.b=3q91MXjP;
+       arc=pass (i=1 spf=pass spfdomain=jive.token-iol.cn dkim=pass dkdomain=jive.token-iol.cn dmarc=pass fromdomain=jive.token-iol.cn);
+       spf=pass (google.com: domain of srs0=f3hy=uc=jive.token-iol.cn=yasuokahiroshihayakawa@whither.jp designates 104.30.10.17 as permitted sender) smtp.mailfrom="SRS0=f3hy=uc=jive.token-iol.cn=yasuokahiroshihayakawa@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=token-iol.cn
+Return-Path: <SRS0=f3hy=uc=jive.token-iol.cn=yasuokahiroshihayakawa@whither.jp>
+Received: from ba-bh.cloudflare-email.net (ba-bh.cloudflare-email.net. [104.30.10.17])
+        by mx.google.com with ESMTPS id 4fb4d7f45d1cf-672c4e8f883si5991047a12.279.2026.04.21.15.06.10
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 21 Apr 2026 15:06:12 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=f3hy=uc=jive.token-iol.cn=yasuokahiroshihayakawa@whither.jp designates 104.30.10.17 as permitted sender) client-ip=104.30.10.17;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b="UxW/Ga0U";
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=gzzjRHtX;
+       dkim=pass header.i=@jive.token-iol.cn header.s=caro header.b=3q91MXjP;
+       arc=pass (i=1 spf=pass spfdomain=jive.token-iol.cn dkim=pass dkdomain=jive.token-iol.cn dmarc=pass fromdomain=jive.token-iol.cn);
+       spf=pass (google.com: domain of srs0=f3hy=uc=jive.token-iol.cn=yasuokahiroshihayakawa@whither.jp designates 104.30.10.17 as permitted sender) smtp.mailfrom="SRS0=f3hy=uc=jive.token-iol.cn=yasuokahiroshihayakawa@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=token-iol.cn
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1776809171; x=1777413971; bh=+47h0ilYXAv3zIlG1z
+	bvPqA3XYQnx7sIvoitD/2kADM=; b=UxW/Ga0UHc9dCV4te9xUEO1F7kzBHGJ6NFwKCVrLhQFo4
+	8kA7ypb8WlEipE9Bb8cTDktLEMYXh0ctJeO9ZD3xeH17jOAorvOT8YFSeJGNh9t8VZtiBHJnMxy
+	Sxk02xSlTRpulgytfwpo+RKzTkPkFBQFZ2A5eMFp5hgtwe+U1E3P3gDaWWhGbKNXzVtX1ZpgHWB
+	eoUS7C2Ji78om+fiPRd56X44VpsAtknFERLTFdUBlw3J/w6Ivvv4yuvDpLsfstlZThFWUr8CoWt
+	0uXIrcwg8O529ExT4xrZ8JNJDJmuuhr1QCJMCbbIgF+PHoHQD2dVhgO4TdKk0kngbtR9i8/Q==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1776809171; x=1777413971; bh=+47h0ilYXAv3zIlG1z
+	bvPqA3XYQnx7sIvoitD/2kADM=; b=gzzjRHtX33bSbhFstitQUAYilc1bIU4xAIPBTFBT8yG/t
+	c81fRylgi1BiHIyD5DQSlIgSw9oQAuoY/xcMtMdiTo1pYyrtvPGXTbl0UAb//qIKOiiF0AF4kc9
+	+U2duqFDUiekQaDo7fWways2ybgzmDkc9CE8H+EFPpGXqZXhIc2viTSMnvqUyyq6NIQsAfJADM0
+	aUe+61PfVrtdqNFFYVbnDqKZA+IDlChdBYEGVhKQGMSfNF8lhYpAE6sOsubGAuOvHGTRDz36uF/
+	y574xv0vsLAQ/t/B9EFk1XrdGyN9a7Je5Tj35tL3A04ziFUOREBlmlY7/ae+wPsH380KBvvA==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: tnakahara@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from jive.token-iol.cn (180.125.170.160)
+        by cloudflare-email.net (cloudflare) id VIxTXvEITQPm
+        for <tnakahara@whither.jp>; Tue, 21 Apr 2026 22:06:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=Z1RvouWDElCBt7iUE9Fvnp4q+az38GX1T1OkX+SD6/SHJ6wEOTINhzsjwZV4mwKwWMCr/OIhh
+	wxRxbBC5uI20wdiAnwr+4z1fqIT5uSlAu++IZCUc9XKhRrJZT2214FItEorePAAxd7oOTFjlJZw
+	f9xPZ1NKzXkXbehulQTScdOHFhytT9mPWaTa2kPO4eJn5T5sgYJkujalpNcI4P8wTAHq/B6Ii9a
+	SF1FGCjIur0Gdx/u3UPIjZQZAtH58AjZMNVRSToaSqpgsyOq8ngv8U/rVqViN1EyDCWIL42xS2D
+	ZC9DqAuXVGWRsp3fP+SRazlc8OLcpB9bNguvng3wiw2w==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1776809169; x=1777413969; bh=+47h0ilY
+	XAv3zIlG1zbvPqA3XYQnx7sIvoitD/2kADM=; b=NXi9eSBaYLYE4WyN2L+65uIZN0RFOXqBpO5
+	4AvqAT6PPNMecYouTkSw3hNmvgMeTaUjrKaFGs+HtRjpYb008qRxt6rJo+B4YUZ9EjqFDXU2Voy
+	+5efE+g9jy1+DCCHwI3nPLPQGBTdPQx4s5lD9WZc9w383WIzKP42wz6gpcSsFdCdQLZQoCwnFYE
+	LSSi65fmwNMQ3pD5YH2cXkle4taANlV6PbfwbGE8ZZlpayPhiu5655hHq1X0zrtAHXARV1rvpgy
+	+ShQhuKioUDA/oA45aQ/543Sb8OnyON8hECwGPD07CMv6CjGAoh5ZIFTlTLW8m9cCCXL2Map+eX
+	Dt9oOxw==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=@jive.token-iol.cn header.s=caro header.b=3q91MXjP;
+	dmarc=pass header.from=jive.token-iol.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@jive.token-iol.cn designates 180.125.170.160 as permitted sender) smtp.helo=jive.token-iol.cn;
+	spf=pass (mx.cloudflare.net: domain of yasuokahiroshihayakawa@jive.token-iol.cn designates 180.125.170.160 as permitted sender) smtp.mailfrom=yasuokahiroshihayakawa@jive.token-iol.cn;
+	arc=none smtp.remote-ip=180.125.170.160
+Received-SPF: pass (mx.cloudflare.net: domain of yasuokahiroshihayakawa@jive.token-iol.cn designates 180.125.170.160 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=180.125.170.160; envelope-from="yasuokahiroshihayakawa@jive.token-iol.cn"; helo=jive.token-iol.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=@jive.token-iol.cn header.s=caro header.b=3q91MXjP;
+	dmarc=pass header.from=jive.token-iol.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@jive.token-iol.cn designates 180.125.170.160 as permitted sender) smtp.helo=jive.token-iol.cn;
+	spf=pass (mx.cloudflare.net: domain of yasuokahiroshihayakawa@jive.token-iol.cn designates 180.125.170.160 as permitted sender) smtp.mailfrom=yasuokahiroshihayakawa@jive.token-iol.cn;
+	arc=none smtp.remote-ip=180.125.170.160
+X-CF-SpamH-Score: 2
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="78m6o726747w5ipa1776809163k271550917mo0qj2k88luiw52d69704313"
+From: =?utf-8?b?44Oo44OJ44OQ44K344O744OJ44OD44OI44O744Kz44Og?= <yasuokahiroshihayakawa@jive.token-iol.cn>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=jive.token-iol.cn; i=@jive.token-iol.cn; q=dns/txt; s=caro;
+ t=1776809163; h=from : to : subject : date : message-id;
+ bh=+47h0ilYXAv3zIlG1zbvPqA3XYQnx7sIvoitD/2kADM=;
+ b=3q91MXjPQCV354wzlxWz4Vh2Z3T374FA5rmFr7kLx2V3Ac/txWx635kjsJlCFzP2YpptA
+ MZ0eYK2jLbYkhMpLsmZcOyYLGC0NN5goW2VaNLTJ/y/VdOcEejEmcJemOw1QRifksCAkYQx
+ gwi1kTmYTFQwKuO/ckUfILDwQWlSqgV+mZJ/j1ZOlAVKicGiTVMxMYpfsw/kgHKbBM2I2jI
+ MSmo2LpU2piQ7Px6vyUi/t63l2jfk/YDBWjBP9uuSR2cHn9arseBIkU4NXy87WP6GoeOlDd
+ 2gIUPN83bSB1NQg2nZ6xHzgAnsdoJSI6AyrrBl7Av7oYYZ/tMxOhiM8pzioA==
+To: <tnakahara@whither.jp>
+Subject: =?utf-8?b?44Oo44OJ44OQ44K344OJ44OD44OI44Kz44Og77ya44CM44GK5a6i5qeY5oOF5aCx44CN5aSJ5pu05L6d6aC85Y+X5LuY44Gu44GU6YCj57Wh?=
+Date: Wed, 22 Apr 2026 07:06:03 +0900
+Message-ID: <1776809163682@jive.token-iol.cn>
+X-DTI-Virus-Check: checked
+X-DTI-Recipient: <90181d615c100207@jive.token-iol.cn>
+X-Proofpoint-ORIG-GUID: _CfP9dTt58xu7BfeSbp7_FgD6EEw_DzG
+X-Proofpoint-GUID: _CfP9dTt58xu7BfeSbp7_FgD6EEw_DzG
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDA0MDE3MCBTYWx0ZWRfX1aejO6kLpyKa dDrI67cJz5IOF1SwvTMpZF+b2mvnerT3xlVZGcxO4rL8TKITvafOf2sVqZiIxcTnsJ61o3I5+VV XgCGnXxctJjB8+kXNvm2EGrIVuT0quwcOiGGAkQ7Zwv1Q7xa3GzIT90N0DuVu8TLWhBQWWA7BHv QatZ0BARR1ALIPHOxIOQFYQLFABiVpnEbOubTv9H37cB0rLjc85/QuXscRNeH6Pel22z1VdAgI0 kY8Zs+JSJRB1D7nMSxaGpkBgYZe0M/emHIYyeR0lShGChuYaFkNw==
+
+--78m6o726747w5ipa1776809163k271550917mo0qj2k88luiw52d69704313
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+
+【ヨドバシカメラ】アカウントご確認のお願い
+
+ 【ヨドバシカメラ】アカウントご確認のお願い 
+
+ 平素よりヨドバシドットコムをご利用いただき、誠にありがとうございます。
+
+ 2026年4月3日時点で、お客様のアカウントにおいて通常とは異なるアクセスを検出いたしました。
+
+ セキュリティ保護のため、以下よりアカウント情報のご確認をお願いいたします。
+確認が完了するまで、一部機能の利用が制限される場合がございます。 
+
+ 対象アカウント 
+ tnakahara@whither.jp 
+
+ 検出日時 
+ 2026-04-22 06:06:03 
+
+ 検出内容 
+ 海外IPからのアクセス試行 
+
+ 状態 
+ 確認待ち 
+
+ アカウントを確認する 
+
+ 72時間以内にご対応いただけない場合、安全性を確保するため、アカウントを一時的に制限させていただく場合がございます。
+
+ お問い合わせ先
+ヨドバシカメラ 
+ カスタマーサービス
+メール：info@yodobashi.com
+電話：03-1226-6796（10:00～20:00 
+ 年中無休） 
+
+ 本メールは送信専用アドレスより自動配信しています。返信には対応しておりません。
+
+ 本メールに心当たりがない場合は、破棄してください。
+
+ © 2026 ヨドバシカメラ株式会社 All Rights 
+ Reserved.
+
+--78m6o726747w5ipa1776809163k271550917mo0qj2k88luiw52d69704313
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+
+<HTML lang=ja><HEAD><TITLE>【ヨドバシカメラ】アカウントご確認のお願い</TITLE>
+<META content="text/html; charset="UTF-8" http-equiv=Content-Type>
+<META name=viewport content="width=device-width, initial-scale=1.0">
+<STYLE type=text/css>
+ body {
+ margin: 0;
+ padding: 0;
+ background-color: #f2f3f5;
+ font-family: "Hiragino Kaku Gothic ProN","メイリオ",sans-serif;
+ color: #333333;
+ line-height: 1.8;
+ }
+ table {
+ border-collapse: collapse;
+ }
+ .mail-wrapper {
+ width: 100%;
+ padding: 40px 0;
+ background-color: #f2f3f5;
+ }
+ .mail-container {
+ width: 660px;
+ margin: 0 auto;
+ background-color: #ffffff;
+ border: 1px solid #d9d9d9;
+ }
+ .header {
+ background-color: #00499A;
+ color: #ffffff;
+ font-size: 18px;
+ font-weight: bold;
+ padding: 20px 30px;
+ }
+ .body {
+ padding: 32px 36px;
+ font-size: 14px;
+ }
+ .body p {
+ margin: 0 0 16px 0;
+ }
+ .alert {
+ background-color: #FFF5F5;
+ border-left: 4px solid #D93026;
+ padding: 14px 18px;
+ margin: 20px 0;
+ font-size: 13px;
+ }
+ .info-table {
+ width: 100%;
+ border: 1px solid #dddddd;
+ margin: 20px 0;
+ font-size: 13px;
+ }
+ .info-table th {
+ background-color: #F8F8F8;
+ text-align: left;
+ width: 35%;
+ padding: 8px 12px;
+ border-bottom: 1px solid #dddddd;
+ font-weight: normal;
+ color: #555;
+ }
+ .info-table td {
+ padding: 8px 12px;
+ border-bottom: 1px solid #dddddd;
+ }
+ .cta {
+ text-align: center;
+ margin: 30px 0;
+ }
+ .cta a {
+ background-color: #D93026;
+ color: #ffffff;
+ text-decoration: none;
+ font-weight: bold;
+ font-size: 14px;
+ padding: 12px 40px;
+ border-radius: 2px;
+ display: inline-block;
+ }
+ .note {
+ border-top: 1px solid #e0e0e0;
+ margin-top: 24px;
+ padding-top: 18px;
+ font-size: 13px;
+ }
+ .footer {
+ background-color: #f6f6f6;
+ border-top: 1px solid #cccccc;
+ padding: 20px 30px;
+ font-size: 12px;
+ color: #777777;
+ text-align: center;
+ }
+ .footer p {
+ margin: 4px 0;
+ }
+</STYLE>
+
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"></HEAD>
+<BODY>
+<TABLE class=mail-wrapper cellSpacing=0 cellPadding=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD align=center>
+      <TABLE class=mail-container cellSpacing=0 cellPadding=0 width=660>
+        <TBODY>
+        <TR>
+          <TD class=header>【ヨドバシカメラ】アカウントご確認のお願い</TD></TR>
+        <TR>
+          <TD class=body>
+            <P>平素よりヨドバシドットコムをご利用いただき、誠にありがとうございます。</P>
+            <P>2026年4月3日時点で、お客様のアカウントにおいて通常とは異なるアクセスを検出いたしました。</P>
+            <DIV 
+            class=alert>セキュリティ保護のため、以下よりアカウント情報のご確認をお願いいたします。<BR>確認が完了するまで、一部機能の利用が制限される場合がございます。 
+            </DIV>
+            <TABLE class=info-table>
+              <TBODY>
+              <TR>
+                <TH>対象アカウント</TH>
+                <TD>tnakahara@whither.jp</TD></TR>
+              <TR>
+                <TH>検出日時</TH>
+                <TD>2026-04-22 06:06:03 </TD></TR>
+              <TR>
+                <TH>検出内容</TH>
+                <TD>海外IPからのアクセス試行</TD></TR>
+              <TR>
+                <TH>状態</TH>
+                <TD>確認待ち</TD></TR></TBODY></TABLE>
+            <DIV class=cta><A href="https://yxspok.cn/Ay6g6SCTm8.cfml">アカウントを確認する</A> </DIV>
+            <P>72時間以内にご対応いただけない場合、安全性を確保するため、アカウントを一時的に制限させていただく場合がございます。</P>
+            <DIV class=note><STRONG>お問い合わせ先</STRONG><BR>ヨドバシカメラ 
+            カスタマーサービス<BR>メール：<A 
+            href="mailto:info@yodobashi.com">info@yodobashi.com</A><BR>電話：03-1226-6796（10:00～20:00 
+            年中無休） </DIV></TD></TR>
+        <TR>
+          <TD class=footer>
+            <P>本メールは送信専用アドレスより自動配信しています。返信には対応しておりません。</P>
+            <P>本メールに心当たりがない場合は、破棄してください。</P>
+            <P>© 2026 ヨドバシカメラ株式会社 All Rights 
+  Reserved.</P></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></BODY></HTML>
+
+--78m6o726747w5ipa1776809163k271550917mo0qj2k88luiw52d69704313--
+
