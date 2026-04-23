@@ -1,0 +1,65 @@
+Delivered-To: silver.firefox@gmail.com
+Received: by 2002:a98:c058:0:b0:261:85fe:9a8 with SMTP id m24csp4178071eic;
+        Thu, 23 Apr 2026 08:56:07 -0700 (PDT)
+X-Received: by 2002:a05:620a:4706:b0:8cb:394c:34ea with SMTP id af79cd13be357-8e7898745a5mr3463606985a.4.1776959767424;
+        Thu, 23 Apr 2026 08:56:07 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1776959767; cv=none;
+        d=google.com; s=arc-20240605;
+        b=ggacTL8SnwV1qkOmP64LBNjrbaq5Iigdbz0/Hr2fHpT4QMa+4FROj2MhYCoFwArF4H
+         SXNhE6n2/uDTuGBWTzKUIP/9w8uNUd3TgRaZgAgPCMt0HecyzzLpbHLXKtn5QnFJFmkT
+         b+L4mkammb34cbws6Kp7sAZFvXKRR+Ls4iNhy2Wt+eAx2t/kQPpm+YQS0jY9p2f6Vxgz
+         0rncT0qS/29RS5ZEFq4VvhLpyFqx9lfse7Pev2ifpyYhK3QbCROU53QijASHVaVvRQ74
+         Xzi7a+btNtPpim6avXuqR+oeSX1LCCkV+BLy5qcdh8+ZVAh24pTNPsc+7xkktvKXLyxj
+         TyLg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:message-id:subject:mime-version:from:to
+         :date:dkim-signature;
+        bh=gKrexSfnC9wjUyNbE8WJgZhR56iTAPV6xzLI3Hnl2g4=;
+        fh=30F+LetgEkDSNSp+uLeo/St8k5O2MuAL6jcfWOE8egk=;
+        b=Sf6yvRYxM6XP90X4jCt9XIRe/XnivVeaBRPBA2JUy/K6iv7jdEWmtNnW67NW89bG/x
+         IWh4XSLOqiK86sIWTaz1UzWaDda7UwrxJOqAJBgCNJZ5EDsIFktjtazCx4SxOa7LoH+p
+         RnMC5YjMyo5oVKP1SKP4KqLsHW795bHMo71yMkcmTMS3S7gN0GIqMVZVuS6OkkiFcPTs
+         Y9pjfdi9/fMDunj9BMr+cQqjhN3FbWuTYx4jZxNfS8DFQGS7n7F9QyoWjHJ879M7Tock
+         qFDr3hFWkqDpXmyUwGL6f3TicaQYxtIeSzvNQ2VY0rDjj+IU9nZ6cltU304ut5TU3WxV
+         0R7w==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=fail header.i=@guitar-father.com header.s=202604 header.b=OTY0eUiU;
+       spf=pass (google.com: domain of rqi5yh7qehouto1pfgvo@guitar-father.com designates 99.79.182.120 as permitted sender) smtp.mailfrom=RQI5YH7QehOUto1pfGVo@guitar-father.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=guitar-father.com
+Return-Path: <RQI5YH7QehOUto1pfGVo@guitar-father.com>
+Received: from [99.79.182.120] (ec2-99-79-182-120.ca-central-1.compute.amazonaws.com. [99.79.182.120])
+        by mx.google.com with ESMTP id af79cd13be357-8eef92e17f5si850061485a.371.2026.04.23.08.56.06
+        for <silver.firefox@gmail.com>;
+        Thu, 23 Apr 2026 08:56:06 -0700 (PDT)
+Received-SPF: pass (google.com: domain of rqi5yh7qehouto1pfgvo@guitar-father.com designates 99.79.182.120 as permitted sender) client-ip=99.79.182.120;
+Authentication-Results: mx.google.com;
+       dkim=fail header.i=@guitar-father.com header.s=202604 header.b=OTY0eUiU;
+       spf=pass (google.com: domain of rqi5yh7qehouto1pfgvo@guitar-father.com designates 99.79.182.120 as permitted sender) smtp.mailfrom=RQI5YH7QehOUto1pfGVo@guitar-father.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=guitar-father.com
+Received: by w05tcymv.btx (Postfix, from userid 0)
+	id 56EC6441D2; Fri, 24 Apr 2026 00:56:05 +0900 (JST)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=202604; d=guitar-father.com; t=1776959526; h=to:from:date:subject:
+ message-id; bh=gKrexSfnC9wjUyNbE8WJgZhR56iTAPV6xzLI3Hnl2g4=;
+ b=OTY0eUiUb1SQFVfePlxSnJO3bcq3l8yo8fg16nF9jFkdRxCRz4ayiYgRM/SGFCHwghqT7Q
+ 3UHMPi3tnRVq1v+Eu8vXnqtVfGlKXy8XD5jC2cwMuIX7cK5sf1DGLjODFL1FTNlh9x5uM6
+ uuIdrHDrlNSsaJ8k7m7YKK3O4aXPlGoVnpRMyHHDWrKmfV0K4AWuFnQqxPWn6YZYAvRnxl
+ /gPubJzp0VHvNHePZUwuu6b84MzonsNgMDY+iPzViGneMrfGK5FbDpP4eCEaNCu5m+6aIK
+ 8UMHze3qJcCDus0U4eWndSgw0vjHB80mnrsdcWJJng/ILQVoP7e216zOigPIZg==
+Date: Fri, 24 Apr 2026 00:51:52 +0900
+To: silver.firefox@gmail.com
+From: =?UTF-8?B?5pyA6auY5qip5Yip6ICF77ya6LWk5LqV?= <XYMfxUu9AChVWy@guitar-father.com>
+MIME-Version: 1.0
+Subject: =?UTF-8?B?5Y2z6YeR77yR77yQ77yQ5LiH5YaG44Gn44GZ44CC?=
+Message-ID: <DXU0O4DUUGV6BW.L9VQ7GAO3B1S4Z@guitar-father.com>
+Content-Type: text/html; charset=ISO-2022-JP
+Content-Transfer-Encoding: 7bit
+
+<html>
+<body>
+--------------------------------&#13;<br>---------------------------------------------------------------<br>&#13;<br>&#13;<br>&#13;<br>&#13;<br> <a href="https://guitar-father.com/Zyz1zzZDG5CA6nV5CH0FA2CDZFo1yz6zF3HDKML0CDJXh">リンク</a>&#13;<br><br>--------------------------------&#13;<br>---------------------------------------------------------------
+</body>
+</html>
+
+

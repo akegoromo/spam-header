@@ -1,0 +1,65 @@
+Delivered-To: silver.firefox@gmail.com
+Received: by 2002:a98:c058:0:b0:261:85fe:9a8 with SMTP id m24csp3949762eic;
+        Thu, 23 Apr 2026 03:54:05 -0700 (PDT)
+X-Received: by 2002:a05:620a:2847:b0:8e3:4182:6c4e with SMTP id af79cd13be357-8e79246c75amr3843416685a.49.1776941644992;
+        Thu, 23 Apr 2026 03:54:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1776941644; cv=none;
+        d=google.com; s=arc-20240605;
+        b=MhLl+Vke9TF0XmYBZUNEsPnJ8z/NgXMCYeugaOipAcuKULGAeRORwtNAex9EYhD/oo
+         +AftwPXpHgzOVsc6R2R9R/i2032UbRK2EmmVhSS4o95A3yUMBAZ1meqfvmRcxq2vZXIU
+         Pk882KXaSABm2yjwkHUMQDBsu5Y5Pa8Tt2IfjDZ23e7TLmWrLU52YM+wbi3Fn50xNt8Y
+         nVHWqZgfG+X+SGnOabmLq8uV/aqd2J31uZ1C40t2WDnQJ93CRu8dED4pns4K2agSJa1V
+         xxp0kEAI7gIX6m863zcmBemdhZy03YedWHoxAdZkrV0UrgSLTLBHY8zbZX4kwKCMFib3
+         wBEw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:message-id:subject:mime-version:from:to
+         :date:dkim-signature;
+        bh=5RGODNEP9llbuSPDf3jyLyaxiCaSMMeiuo0WrM95f/U=;
+        fh=30F+LetgEkDSNSp+uLeo/St8k5O2MuAL6jcfWOE8egk=;
+        b=fhDXrvQc9wXIPuW7B1fKihZ+qHEI+4n5RfaGxkrGoIcY3rhU3EF9R1k2bQh0PNsy4k
+         XLl9pdJODk6kTi49s/mA94iFj2JOCAvEl14Ey91lAAcajKupfzrwy4+MLIaYxs5dFKWL
+         GaJi8zEGfMKxXahkAVsBg+nfYDYk23Xl7EsHNk8fOhJUGHkVHa6GSnu0bFX0qZUIQrp0
+         WDDc7q3LFM3c/GAxBL6jw7xpvDfZhcxKa8iiysUy7Q2dEj9yjOmh3s8qKSSc3PpZkuAP
+         YK79hoPbAMBhJde9+nmrOn7iUdIwTMBvnzYJnwoWJ9l4Tl3axt8Tv5BCyOpak42R/OAI
+         nfxg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=fail header.i=@class-family.com header.s=202604 header.b=quQwR+nr;
+       spf=pass (google.com: domain of ugfe5cmv2ciuv7ekiq@class-family.com designates 16.54.161.85 as permitted sender) smtp.mailfrom=Ugfe5cmv2CIUV7eKiQ@class-family.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=class-family.com
+Return-Path: <Ugfe5cmv2CIUV7eKiQ@class-family.com>
+Received: from [16.54.161.85] (ec2-16-54-161-85.ca-central-1.compute.amazonaws.com. [16.54.161.85])
+        by mx.google.com with ESMTP id af79cd13be357-8e7d61dda5bsi1900534885a.4.2026.04.23.03.54.04
+        for <silver.firefox@gmail.com>;
+        Thu, 23 Apr 2026 03:54:04 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ugfe5cmv2ciuv7ekiq@class-family.com designates 16.54.161.85 as permitted sender) client-ip=16.54.161.85;
+Authentication-Results: mx.google.com;
+       dkim=fail header.i=@class-family.com header.s=202604 header.b=quQwR+nr;
+       spf=pass (google.com: domain of ugfe5cmv2ciuv7ekiq@class-family.com designates 16.54.161.85 as permitted sender) smtp.mailfrom=Ugfe5cmv2CIUV7eKiQ@class-family.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=class-family.com
+Received: by mcu5vys.uya (Postfix, from userid 0)
+	id 0FED144095; Thu, 23 Apr 2026 19:54:04 +0900 (JST)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=202604; d=class-family.com; t=1776941523; h=to:from:date:subject:
+ message-id; bh=5RGODNEP9llbuSPDf3jyLyaxiCaSMMeiuo0WrM95f/U=;
+ b=quQwR+nr3MhtRfzKkxJYKO7zOidFYwgnkbG9eISYrxDrB/ziUPl4IS3tGIlIv4CAFKb0nW
+ adWhBQ3wiRJS1ZAlxVNEMn2QgzkcMpsNJsNYRWNT1b0R2HMsUMrldtkwjVygXURTMaGLGu
+ arMMf+v8O0SNsqgeU2bw4qWZ8RCkPCM2s/ZJOggEckmmhA0KBiPqy5glzmxWvtg03e7XEI
+ TbC4fRtALmBk8xHZ/bsCU/+8K6qByFq8AZhiY8a2Eca2jPl7QGVoYN9rcWV1iQSP9W0szq
+ hG4Xtd7+dTZXBndQ3zfOmE9dGaPbk7ztc+mkUzVGQ+tRxB6uG6T6YBNdkHgpcg==
+Date: Thu, 23 Apr 2026 19:51:50 +0900
+To: silver.firefox@gmail.com
+From: =?UTF-8?B?55u46KuH56qT5Y+jKOWujOWFqOeEoeaWmeS/neiovCk=?= <PsGZa4omK9y2A0@class-family.com>
+MIME-Version: 1.0
+Subject: =?UTF-8?B?5Y+X5LuY44Gv44Kz44OB44OpKOWujOWFqOeEoeaWmSk=?=
+Message-ID: <UW4DC3RCARBUKK3.XD6GC4VFCJ848@class-family.com>
+Content-Type: text/html; charset=ISO-2022-JP
+Content-Transfer-Encoding: 7bit
+
+<html>
+<body>
+--------------------------------&#13;<br>---------------------------------------------------------------<br>&#13;<br>&#13;<br>&#13;<br>&#13;<br> <a href="https://class-family.com/HVMJWMH0TNZNMK8MVQNXOM1SPYBJVMOWSL4Qs9YIZJp">リンク</a>&#13;<br><br>--------------------------------&#13;<br>---------------------------------------------------------------
+</body>
+</html>
+
+
