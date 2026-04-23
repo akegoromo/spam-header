@@ -1,0 +1,402 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:c058:0:b0:261:85fe:9a8 with SMTP id m24csp2469733eic;
+        Tue, 21 Apr 2026 05:47:24 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ/40hCDlz3gr9yjm1Jii4QkmBG7fDbbU7bfbxlmZ57H6l8HjJe492jnlEvyY12C/hkC52Otxw4ztQPR8XEj0g==@gmail.com
+X-Received: by 2002:a05:6402:5485:b0:66f:76d7:56a4 with SMTP id 4fb4d7f45d1cf-672bfed8b0bmr7474897a12.26.1776775644194;
+        Tue, 21 Apr 2026 05:47:24 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1776775644; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=OmQXj+th6XHjJBmqYUpakprvL4Fx7y9YDTiC2mw+zxuz0ia2By5PvIib9DaWEza40R
+         O9dpDT2PLDj5rJKU3VhOdYDZGguCtuz4U/QPZNO819aB25XFB4IujwLGm2l909UyG3DL
+         wKDbxLZZIUHLuAmq251zRTfWILq/jxuurf4nrhfq2phmTsXeYIAZmSL/s9BM2wPR1wD6
+         87fRT7O9lPGOcFDeYC5YTZmrpO8s0MQ/WXgonG+vQqIm03DT8tAHKKCIxxzk+um21/yb
+         U1gncuDXXYDilScphfVj/LaGqI/mKSzE91VbJc0qQa4N5Xne54YxLxc7RHagA/iflfSn
+         cltg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=message-id:date:subject:to:dkim-signature:from:mime-version
+         :feedback-id:dkim-signature:dkim-signature;
+        bh=n0GyWLDh7imebHNg0vvsJeAxG+4DmnmkZrVvsI/QMpE=;
+        fh=LnGVlAla77Gyfiw8zkzbOhaVlqYgEu27l8ujdfvsIGY=;
+        b=Xv2eu90Umvdvy5uaAh7nGFm45svKD04+K9KfbGnBdwFpF66WJHKYZHYarxLtiYtT5O
+         8WcMF2fsn6NpNqyDrdXi5NNBMmEImkvm1MDYYaIIptVJqaWy3DxY1Pm2Mo3fE7aIXG0v
+         8OaVIyjfDED+deO9T08dO2iN7IekKYX3JkbQ26PzTZQbX2v78zNXDV9bhtXUD3F3Jz1r
+         407G3N69Iu9Zmt40QSauv5emxmkPJ0sc86oxNFN7Nrv+tQzqq7Du2akFSxK8VYwTtUXX
+         tx9Gmc01eUy+zAQ5LLZMh9i9qyyLI/XJPlvGUfoEutnYhc2RImcWUb36PoeQhKahf4M9
+         gliw==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=NFLJJg02;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=Leu7qGL6;
+       dkim=pass header.i=@weir.essuey.cn header.s=stink header.b=hE+bZnmN;
+       arc=pass (i=1 spf=pass spfdomain=weir.essuey.cn dkim=pass dkdomain=weir.essuey.cn dmarc=pass fromdomain=weir.essuey.cn);
+       spf=pass (google.com: domain of srs0=_bap=uc=weir.essuey.cn=takuyanishi.1979@whither.jp designates 104.30.10.112 as permitted sender) smtp.mailfrom="SRS0=_bAp=uc=weir.essuey.cn=takuyanishi.1979@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=essuey.cn
+Return-Path: <SRS0=_bAp=uc=weir.essuey.cn=takuyanishi.1979@whither.jp>
+Received: from ba-bbc.cloudflare-email.net (ba-bbc.cloudflare-email.net. [104.30.10.112])
+        by mx.google.com with ESMTPS id 4fb4d7f45d1cf-672c4e7c879si5283082a12.250.2026.04.21.05.47.22
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 21 Apr 2026 05:47:23 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=_bap=uc=weir.essuey.cn=takuyanishi.1979@whither.jp designates 104.30.10.112 as permitted sender) client-ip=104.30.10.112;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=NFLJJg02;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=Leu7qGL6;
+       dkim=pass header.i=@weir.essuey.cn header.s=stink header.b=hE+bZnmN;
+       arc=pass (i=1 spf=pass spfdomain=weir.essuey.cn dkim=pass dkdomain=weir.essuey.cn dmarc=pass fromdomain=weir.essuey.cn);
+       spf=pass (google.com: domain of srs0=_bap=uc=weir.essuey.cn=takuyanishi.1979@whither.jp designates 104.30.10.112 as permitted sender) smtp.mailfrom="SRS0=_bAp=uc=weir.essuey.cn=takuyanishi.1979@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=essuey.cn
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1776775643; x=1777380443; bh=n0GyWLDh7imebHNg0v
+	vsJeAxG+4DmnmkZrVvsI/QMpE=; b=NFLJJg02tF8zdj/w9zGWlIc21UGcukuZ2EXSgtMOMrqp6
+	GwD7kSU9kiC+bXgBMUAeNN9Vt2VtkTcE3uwluQu/KJcbBIn6FYtDgpg0qV9ddtZkohZ8u4ZWm1Z
+	EyQuwTDfwL3Xrad4ug7pnJwcsAO83R1cBwnc7mEY38zOVM7JdcV+1aOP5hn4VHE5XP/O79MKa8p
+	QqvuXmyFF2XwcQ98jRZ8kt3K4QmajnfKlzfp7MHSRAua1/OrUqGtVAcQLrF2KTAVVvvVvbe7Thy
+	Lp8bSjPp2KZ5fz6DtoU/uKc4307eMggbnvzvrcZQLgiOBKpZuUBmZj7czOEv4gstBdX8Ul8A==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1776775643; x=1777380443; bh=n0GyWLDh7imebHNg0v
+	vsJeAxG+4DmnmkZrVvsI/QMpE=; b=Leu7qGL6MhiIKm0MfwH84lSdXKP/yKuAo2PISXzNZf6wV
+	3hwLH9O6eusltI9pAm9PuIK3XFpJ7YE3SaI23cFrQkvGXgT7t9SQ1LVY5y5eeGPe90mBRJq8ORs
+	zbgV2OOjlX4ZMj73VfMaQy8ieAjSi9w9qpRU4oypZPcWS20IW9ehfZOdCCaHNxqGi4v+Ar/qy5c
+	QG6QeBollQEynsEq/OAGflio5e2Sn+bauxXuZWWL6vIDOI9wXeqZddYl4nmoZF37RCI1oib9Ckn
+	OfpGvG3vg+aNhPI9H3PBQy9OHmsLzXmVjAdALWTLcQcRm6a6w38POS9GzBs/t7kiHMVCN9kg==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: tnakahara@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from weir.essuey.cn (110.87.250.130)
+        by cloudflare-email.net (cloudflare) id TjwnRB2aIUIb
+        for <tnakahara@whither.jp>; Tue, 21 Apr 2026 12:47:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=EdWmACq1WWqRjb3S9ASvc3DTwagajqfD0SZ8DywpVtdVTc5LWXqBBCFVIFmVdeY81cb7hMnVG
+	vJhHl6gJ8Qp4wFwtMVPfnCGBDPDg/fHnPUgDtknuWs0cvmKCLMrrcFE5W5xlha/4HTvVZ9gLp5S
+	bTuS9aj1CrEwPQ+5uftFdJTSO7TL1JBy/ZoTT4txSBcXW7Jy2Yiq+vjS4T8whAIHDjAcBKKxt5a
+	izZVNmGnuP3mfnesD0ixCREfbkBfxaHAuooxQldAC8XlFj0C7UiOh2HnvCm0tm0TNw1dh2bhnsZ
+	ZIO2MqtKI/+CBVX68iRjy351AEbOwFefZjB42cWenVdg==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1776775642; x=1777380442; bh=n0GyWLDh
+	7imebHNg0vvsJeAxG+4DmnmkZrVvsI/QMpE=; b=HMSaT/P1PCF8sx+oaIccWKe4OrYiYDPqebz
+	P5gTfl/Dw0kTHbSsv/V1nPRgCulplBqRBlnVzxgVZWDkiAwv9FtMOFXdBUolyvScQJ++MPzl6VI
+	io8OC7Z7vcHlpUy1H08qtNhPgkOUv4N+8iYGvAhqnrOhOD92RuxK/uKsL2OVumL+J4HAwrSsOcF
+	/hO60SJHTNtfcp6+SMVT92gntIGf9Op7yDcZZ23X/BCQqtgOWbnQ+peK0+2jngQeszZoZg466Cr
+	zGlbzqfBuvaHj38CSYalv4ZB27AYO9rzMIPyjRhvSmxA2JMHgtYrergqyshqU7msZwZzgU0BiXC
+	IqfET9Q==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=@weir.essuey.cn header.s=stink header.b=hE+bZnmN;
+	dmarc=pass header.from=weir.essuey.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@weir.essuey.cn designates 110.87.250.130 as permitted sender) smtp.helo=weir.essuey.cn;
+	spf=pass (mx.cloudflare.net: domain of takuyanishi.1979@weir.essuey.cn designates 110.87.250.130 as permitted sender) smtp.mailfrom=takuyanishi.1979@weir.essuey.cn;
+	arc=none smtp.remote-ip=110.87.250.130
+Received-SPF: pass (mx.cloudflare.net: domain of takuyanishi.1979@weir.essuey.cn designates 110.87.250.130 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=110.87.250.130; envelope-from="takuyanishi.1979@weir.essuey.cn"; helo=weir.essuey.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=@weir.essuey.cn header.s=stink header.b=hE+bZnmN;
+	dmarc=pass header.from=weir.essuey.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@weir.essuey.cn designates 110.87.250.130 as permitted sender) smtp.helo=weir.essuey.cn;
+	spf=pass (mx.cloudflare.net: domain of takuyanishi.1979@weir.essuey.cn designates 110.87.250.130 as permitted sender) smtp.mailfrom=takuyanishi.1979@weir.essuey.cn;
+	arc=none smtp.remote-ip=110.87.250.130
+X-CF-SpamH-Score: 1
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="----=_852_83303338_=----"
+From: My-JCB <takuyanishi.1979@weir.essuey.cn>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=weir.essuey.cn;
+ i=@weir.essuey.cn; q=dns/txt; s=stink; t=1776775636; h=from : to :
+ subject : date : message-id;
+ bh=n0GyWLDh7imebHNg0vvsJeAxG+4DmnmkZrVvsI/QMpE=;
+ b=hE+bZnmNQ3pogg/2UPqizZxPUpEE+1KWkwCTfHUTaexdaX1dR7fgOj8zIxEmaSdoYR22/
+ uzGXGNAKfYyJIpgRc0O1IPe4uNJH9WpLCPhBe41NDE1u6JD9eqGbeXihDzuWfhyPjywSOcr
+ fAMpXMvMGWPyq39e8zY51w/0XiMdoz+WPzEuxR6GQKKMyMiyQf1gZ/rgGlJuxrS14GZll+W
+ 5/Ra+swFbfTPW3xhRCFN8P9kDiRKcLTl8J0CLm6zuYLdGONvemJaOfHvBIvGUhwnJkk/kif
+ WF2as07CYaDwMdeVcQ5LFvDnd5TksNAu1BTzqEBk6aD+l06C9pmiUGejM2GA==
+To: <tnakahara@whither.jp>
+Subject: =?utf-8?b?SkNC44Od44Kk44Oz44OIIOacieWKueacn+mZkOa6gOS6huOBrg==?=
+ =?utf-8?b?44GK55+l44KJ44Gb?=
+Date: Tue, 21 Apr 2026 21:47:16 +0900
+Message-ID: <5x115xq2-246c-9g7u-4636-56759bg8059s@weir.essuey.cn>
+
+
+------=_852_83303338_=----
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: base64
+
+SkNC44Od44Kk44Oz44OIIOacieWKueacn+mZkOa6gOS6huOBruOBiuefpeOCieOBmw0KDQog8J2Q
+ifCdkILwnZCB44Od44Kk44Oz44OIIA0KIOacieWKueacn+mZkOa6gOS6huOBruOBiuefpeOCieOB
+myANCg0KIEpDQuOCq+ODvOODieOCkuOBlOWIqeeUqOOBruOBiuWuouanmA0KDQog5bmz57Sg44KI
+44KKSkNC44Kr44O844OJ44KS44GU5oSb6aGn44GE44Gf44Gg44GN44CB6Kqg44Gr44GC44KK44GM
+44Go44GG44GU44GW44GE44G+44GZ44CCDQrmnKzjg6Hjg7zjg6vjga/jgIFKQ0LkvJrlk6Hmp5jj
+ga7jg53jgqTjg7Pjg4jnrqHnkIbmpa3li5njgavplqLjgZnjgovjgZTmoYjlhoXjgafjgZnjgIIg
+DQoNCiDjgYrlrqLmp5jjga4gDQogSkNC44Kr44O844OJ44Gr5LuY5LiO44GV44KM44Gm44GE44KL
+44Od44Kk44Oz44OI44Gu44GG44Gh44CBDQrmnInlirnmnJ/pmZDjga7liLDmnaXjgavjgojjgorl
+pLHlirnkuojlrprjgajjgarjgovjg53jgqTjg7Pjg4jjgYzjgZTjgZbjgYTjgb7jgZnjga7jgafj
+gIHjgZTmoYjlhoXnlLPjgZfkuIrjgZLjgb7jgZnjgIIgDQoNCiDilqAgDQog5a++6LGh44Kr44O8
+44OJ77yaSkNC5LiA6Iis44Kr44O844OJDQoNCiDilqAgDQog5aSx5Yq55LqI5a6a44Od44Kk44Oz
+44OI5pWw77yaMyw4NDbjg53jgqTjg7Pjg4gNCuKAuyANCiAx44Od44Kk44Oz44OI77ydMuWGhiAN
+Cg0KIOKWoCANCiDmnInlirnmnJ/pmZDvvJoyMDI2LTA0LTIxDQoNCiDjg53jgqTjg7Pjg4jjgpLn
+orroqo3jgZnjgosgDQoNCiDmnInlirnmnJ/pmZDjgpLpgY7jgY7jgZ/jg53jgqTjg7Pjg4jjga/j
+gIHjgYTjgYvjgarjgovnkIbnlLHjgavjgYrjgYTjgabjgoLjgZTliKnnlKjjgYTjgZ/jgaDjgZHj
+gb7jgZvjgpPjga7jgafjgIHmnJ/pmZDlhoXjga7jgZTliKnnlKjjgpLjgZTmpJzoqI7jgY/jgaDj
+gZXjgYTjgIIgDQoNCiDjg53jgqTjg7Pjg4jmrovpq5jjga7norroqo3jgoTkuqTmj5vmlrnms5Xj
+gavjgaTjgY3jgb7jgZfjgabjga/jgIFKQ0LkvJrlk6HlsILnlKjjg5rjg7zjgrjjgojjgorjgZTn
+orroqo3jgYTjgZ/jgaDjgZHjgb7jgZnjgIIgDQoNCiDku4rlvozjgajjgoJKQ0Ljgqvjg7zjg4nj
+gpLjgZTmhJvpoafos5zjgorjgb7jgZnjgojjgYbjgIHkvZXljZLjgojjgo3jgZfjgY/jgYrpoZjj
+gYTnlLPjgZfkuIrjgZLjgb7jgZnjgIIgDQoNCiDmnKzjg6Hjg7zjg6vjga/oh6rli5XpgIHkv6Hl
+sILnlKjjgafjgZnjgILjgZTov5Tkv6Hjgavjga/lr77lv5zjgZfjgabjgYrjgorjgb7jgZvjgpPj
+gIINCg0KIMKpIDIwMjYgSkNC5qCq5byP5Lya56S+LiBBbGwgUmlnaHRzIA0KIFJlc2VydmVkDQo=
+
+------=_852_83303338_=----
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<HTML lang=3Dja><HEAD><TITLE>JCB=E3=83=9D=E3=82=A4=E3=83=B3=E3=83=88 =E6=9C=
+=89=E5=8A=B9=E6=9C=9F=E9=99=90=E6=BA=80=E4=BA=86=E3=81=AE=E3=81=8A=E7=9F=A5=
+=E3=82=89=E3=81=9B</TITLE>
+<META charset=3D"UTF-8">
+<META name=3Dviewport content=3D"width=3Ddevice-width, initial-scale=3D1.0">
+<STYLE type=3Dtext/css>
+body { padding: 0; margin: 0; background: #e6f0fa; font-family: Arial, Meir=
+yo, sans-serif; }
+table { border-collapse: collapse; }
+</STYLE>
+
+<META name=3DGENERATOR content=3D"MSHTML 11.00.10570.1001">
+<STYLE type=3Dtext/css>body { padding: 0; margin: 0; background: rgba(255, =
+255, 255, 1); }::-webkit-scrollbar { width: 12px; height: 12px; background:=
+ transparent;}::-webkit-scrollbar-track { 	background: transparent;
+}::-webkit-scrollbar-thumb { background: transparent; border-radius: 4px;
+}:hover::-webkit-scrollbar { background: rgba(0, 0, 0, 0.05);
+}:hover::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.05);
+}:hover::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.2);
+}::-webkit-scrollbar:hover { background: rgba(0, 0, 0, 0.05);
+}::-webkit-scrollbar-track:hover { background: rgba(0, 0, 0, 0.05);} ::-web=
+kit-scrollbar-thumb:hover { background: rgba(0, 0, 0, 0.4);
+}::-webkit-scrollbar-thumb:active { background: rgba(0, 0, 0, 0.6);}</STYLE>
+
+<STYLE type=3Dtext/css>body { padding: 0; margin: 0; background: rgba(255, =
+255, 255, 1); }::-webkit-scrollbar { width: 12px; height: 12px; background:=
+ transparent;}::-webkit-scrollbar-track { 	background: transparent;
+}::-webkit-scrollbar-thumb { background: transparent; border-radius: 4px;
+}:hover::-webkit-scrollbar { background: rgba(0, 0, 0, 0.05);
+}:hover::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.05);
+}:hover::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.2);
+}::-webkit-scrollbar:hover { background: rgba(0, 0, 0, 0.05);
+}::-webkit-scrollbar-track:hover { background: rgba(0, 0, 0, 0.05);} ::-web=
+kit-scrollbar-thumb:hover { background: rgba(0, 0, 0, 0.4);
+}::-webkit-scrollbar-thumb:active { background: rgba(0, 0, 0, 0.6);}</STYLE>
+
+<STYLE type=3Dtext/css>body { padding: 0; margin: 0; background: rgba(255, =
+255, 255, 1); }::-webkit-scrollbar { width: 12px; height: 12px; background:=
+ transparent;}::-webkit-scrollbar-track { 	background: transparent;
+}::-webkit-scrollbar-thumb { background: transparent; border-radius: 4px;
+}:hover::-webkit-scrollbar { background: rgba(0, 0, 0, 0.05);
+}:hover::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.05);
+}:hover::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.2);
+}::-webkit-scrollbar:hover { background: rgba(0, 0, 0, 0.05);
+}::-webkit-scrollbar-track:hover { background: rgba(0, 0, 0, 0.05);} ::-web=
+kit-scrollbar-thumb:hover { background: rgba(0, 0, 0, 0.4);
+}::-webkit-scrollbar-thumb:active { background: rgba(0, 0, 0, 0.6);}</STYLE>
+
+<STYLE type=3Dtext/css>body { padding: 0; margin: 0; background: rgba(255, =
+255, 255, 1); }::-webkit-scrollbar { width: 12px; height: 12px; background:=
+ transparent;}::-webkit-scrollbar-track { 	background: transparent;
+}::-webkit-scrollbar-thumb { background: transparent; border-radius: 4px;
+}:hover::-webkit-scrollbar { background: rgba(0, 0, 0, 0.05);
+}:hover::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.05);
+}:hover::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.2);
+}::-webkit-scrollbar:hover { background: rgba(0, 0, 0, 0.05);
+}::-webkit-scrollbar-track:hover { background: rgba(0, 0, 0, 0.05);} ::-web=
+kit-scrollbar-thumb:hover { background: rgba(0, 0, 0, 0.4);
+}::-webkit-scrollbar-thumb:active { background: rgba(0, 0, 0, 0.6);}</STYLE>
+
+<STYLE type=3Dtext/css>body { padding: 0; margin: 0; background: rgba(255, =
+255, 255, 1); }::-webkit-scrollbar { width: 12px; height: 12px; background:=
+ transparent;}::-webkit-scrollbar-track { 	background: transparent;
+}::-webkit-scrollbar-thumb { background: transparent; border-radius: 4px;
+}:hover::-webkit-scrollbar { background: rgba(0, 0, 0, 0.05);
+}:hover::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.05);
+}:hover::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.2);
+}::-webkit-scrollbar:hover { background: rgba(0, 0, 0, 0.05);
+}::-webkit-scrollbar-track:hover { background: rgba(0, 0, 0, 0.05);} ::-web=
+kit-scrollbar-thumb:hover { background: rgba(0, 0, 0, 0.4);
+}::-webkit-scrollbar-thumb:active { background: rgba(0, 0, 0, 0.6);}</STYLE>
+
+<STYLE type=3Dtext/css>body { padding: 0; margin: 0; background: rgba(255, =
+255, 255, 1); }::-webkit-scrollbar { width: 12px; height: 12px; background:=
+ transparent;}::-webkit-scrollbar-track { =09
+background: transparent;}::-webkit-scrollbar-thumb { background: transparen=
+t; border-radius: 4px;}:hover::-webkit-scrollbar { background: rgba(0, 0, 0=
+, 0.05);}:hover::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.05);=
+}:hover::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.2);}::-webki=
+t-scrollbar:hover { background: rgba(0, 0, 0, 0.05);}::-webkit-scrollbar-tr=
+ack:hover { background: rgba(0, 0, 0, 0.05);} ::-webkit-scrollbar-thumb:hov=
+er { background: rgba(0, 0, 0, 0.4);}::-webkit-scrollbar-thumb:active { bac=
+kground: rgba(0, 0, 0, 0.6);}</STYLE>
+
+<STYLE type=3Dtext/css>body { padding: 0; margin: 0; background: rgba(255, =
+255, 255, 1); }::-webkit-scrollbar { width: 12px; height: 12px; background:=
+ transparent;}::-webkit-scrollbar-track { =09
+background: transparent;}::-webkit-scrollbar-thumb { background: transparen=
+t; border-radius: 4px;}:hover::-webkit-scrollbar { background: rgba(0, 0, 0=
+, 0.05);}:hover::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.05);=
+}:hover::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.2);}::-webki=
+t-scrollbar:hover { background: rgba(0, 0, 0, 0.05);}::-webkit-scrollbar-tr=
+ack:hover { background: rgba(0, 0, 0, 0.05);} ::-webkit-scrollbar-thumb:hov=
+er { background: rgba(0, 0, 0, 0.4);}::-webkit-scrollbar-thumb:active { bac=
+kground: rgba(0, 0, 0, 0.6);}</STYLE>
+
+<STYLE type=3Dtext/css>body { padding: 0; margin: 0; background: rgba(255, =
+255, 255, 1); }::-webkit-scrollbar { width: 12px; height: 12px; background:=
+ transparent;}::-webkit-scrollbar-track { =09
+background: transparent;}::-webkit-scrollbar-thumb { background: transparen=
+t; border-radius: 4px;}:hover::-webkit-scrollbar { background: rgba(0, 0, 0=
+, 0.05);}:hover::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.05);=
+}:hover::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.2);}::-webki=
+t-scrollbar:hover { background: rgba(0, 0, 0, 0.05);}::-webkit-scrollbar-tr=
+ack:hover { background: rgba(0, 0, 0, 0.05);} ::-webkit-scrollbar-thumb:hov=
+er { background: rgba(0, 0, 0, 0.4);}::-webkit-scrollbar-thumb:active { bac=
+kground: rgba(0, 0, 0, 0.6);}</STYLE>
+
+<STYLE type=3Dtext/css>body { padding: 0; margin: 0; background: rgba(255, =
+255, 255, 1); }::-webkit-scrollbar { width: 12px; height: 12px; background:=
+ transparent;}::-webkit-scrollbar-track { =09
+background: transparent;}::-webkit-scrollbar-thumb { background: transparen=
+t; border-radius: 4px;}:hover::-webkit-scrollbar { background: rgba(0, 0, 0=
+, 0.05);}:hover::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.05);=
+}:hover::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.2);}::-webki=
+t-scrollbar:hover { background: rgba(0, 0, 0, 0.05);}::-webkit-scrollbar-tr=
+ack:hover { background: rgba(0, 0, 0, 0.05);} ::-webkit-scrollbar-thumb:hov=
+er { background: rgba(0, 0, 0, 0.4);}::-webkit-scrollbar-thumb:active { bac=
+kground: rgba(0, 0, 0, 0.6);}</STYLE>
+</HEAD>
+<BODY style=3D"ZOOM: 1">
+<TABLE id=3D_cid0.8972129727512779=20
+style=3D"MAX-WIDTH: 600px; WIDTH: 100%; MARGIN: 10px auto; BACKGROUND-COLOR=
+: #ffffff; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05)">
+  <TBODY><!-- =E3=83=98=E3=83=83=E3=83=80=E3=83=BC -->
+  <TR>
+    <TD=20
+    style=3D"PADDING-BOTTOM: 14px; TEXT-ALIGN: center; PADDING-TOP: 14px; P=
+ADDING-LEFT: 14px; PADDING-RIGHT: 14px; BACKGROUND-COLOR: #005bac"><SPAN=20
+      style=3D"FONT-SIZE: 15px; FONT-WEIGHT: bold; COLOR: white">=F0=9D=90=
+=89=F0=9D=90=82=F0=9D=90=81=E3=83=9D=E3=82=A4=E3=83=B3=E3=83=88=20
+      =E6=9C=89=E5=8A=B9=E6=9C=9F=E9=99=90=E6=BA=80=E4=BA=86=E3=81=AE=E3=81=
+=8A=E7=9F=A5=E3=82=89=E3=81=9B</SPAN> </TD></TR><!-- =E3=82=B3=E3=83=B3=E3=
+=83=86=E3=83=B3=E3=83=84 -->
+  <TR>
+    <TD=20
+    style=3D"PADDING-BOTTOM: 20px; PADDING-TOP: 20px; PADDING-LEFT: 18px; P=
+ADDING-RIGHT: 18px">
+      <P style=3D"TEXT-ALIGN: center; MARGIN: 0px 0px 14px"><IMG=20
+      style=3D"MAX-WIDTH: 110px; HEIGHT: auto; MARGIN: 0px auto; DISPLAY: b=
+lock"=20
+      alt=3DJCB=E3=83=AD=E3=82=B4=20
+      src=3D"https://www.jcb.co.jp/common_new/images/header/header-logo.png=
+"> </P>
+      <P=20
+      style=3D"FONT-SIZE: 14px; MARGIN: 0px 0px 14px; LINE-HEIGHT: 1.45">JC=
+B=E3=82=AB=E3=83=BC=E3=83=89=E3=82=92=E3=81=94=E5=88=A9=E7=94=A8=E3=81=AE=
+=E3=81=8A=E5=AE=A2=E6=A7=98</P>
+      <P=20
+      style=3D"FONT-SIZE: 14px; MARGIN: 0px 0px 14px; LINE-HEIGHT: 1.45">=
+=E5=B9=B3=E7=B4=A0=E3=82=88=E3=82=8AJCB=E3=82=AB=E3=83=BC=E3=83=89=E3=82=92=
+=E3=81=94=E6=84=9B=E9=A1=A7=E3=81=84=E3=81=9F=E3=81=A0=E3=81=8D=E3=80=81=E8=
+=AA=A0=E3=81=AB=E3=81=82=E3=82=8A=E3=81=8C=E3=81=A8=E3=81=86=E3=81=94=E3=81=
+=96=E3=81=84=E3=81=BE=E3=81=99=E3=80=82<BR>=E6=9C=AC=E3=83=A1=E3=83=BC=E3=
+=83=AB=E3=81=AF=E3=80=81JCB=E4=BC=9A=E5=93=A1=E6=A7=98=E3=81=AE=E3=83=9D=E3=
+=82=A4=E3=83=B3=E3=83=88=E7=AE=A1=E7=90=86=E6=A5=AD=E5=8B=99=E3=81=AB=E9=96=
+=A2=E3=81=99=E3=82=8B=E3=81=94=E6=A1=88=E5=86=85=E3=81=A7=E3=81=99=E3=80=82=
+=20
+      </P>
+      <P=20
+      style=3D"FONT-SIZE: 14px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px; PA=
+DDING-LEFT: 10px; BORDER-LEFT: #005bac 4px solid; MARGIN: 0px 0px 14px; LIN=
+E-HEIGHT: 1.45; PADDING-RIGHT: 10px; BACKGROUND-COLOR: #f8f9fc; border-radi=
+us: 4px">=E3=81=8A=E5=AE=A2=E6=A7=98=E3=81=AE=20
+      JCB=E3=82=AB=E3=83=BC=E3=83=89=E3=81=AB=E4=BB=98=E4=B8=8E=E3=81=95=E3=
+=82=8C=E3=81=A6=E3=81=84=E3=82=8B=E3=83=9D=E3=82=A4=E3=83=B3=E3=83=88=E3=81=
+=AE=E3=81=86=E3=81=A1=E3=80=81<BR><STRONG=20
+      style=3D"COLOR: #d14343">=E6=9C=89=E5=8A=B9=E6=9C=9F=E9=99=90=E3=81=
+=AE=E5=88=B0=E6=9D=A5=E3=81=AB=E3=82=88=E3=82=8A=E5=A4=B1=E5=8A=B9=E4=BA=88=
+=E5=AE=9A</STRONG>=E3=81=A8=E3=81=AA=E3=82=8B=E3=83=9D=E3=82=A4=E3=83=B3=E3=
+=83=88=E3=81=8C=E3=81=94=E3=81=96=E3=81=84=E3=81=BE=E3=81=99=E3=81=AE=E3=81=
+=A7=E3=80=81=E3=81=94=E6=A1=88=E5=86=85=E7=94=B3=E3=81=97=E4=B8=8A=E3=81=92=
+=E3=81=BE=E3=81=99=E3=80=82=20
+      </P>
+      <DIV=20
+      style=3D"MARGIN-BOTTOM: 14px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px=
+; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; BACKGROUND-COLOR: #f8f9fc; borde=
+r-radius: 4px">
+      <P=20
+      style=3D"FONT-SIZE: 13px; FONT-WEIGHT: bold; COLOR: #005bac; MARGIN: =
+0px 0px 8px">=E2=96=A0=20
+      =E5=AF=BE=E8=B1=A1=E3=82=AB=E3=83=BC=E3=83=89=EF=BC=9AJCB=E4=B8=80=E8=
+=88=AC=E3=82=AB=E3=83=BC=E3=83=89</P>
+      <P=20
+      style=3D"FONT-SIZE: 13px; FONT-WEIGHT: bold; COLOR: #005bac; MARGIN: =
+0px 0px 8px">=E2=96=A0=20
+      =E5=A4=B1=E5=8A=B9=E4=BA=88=E5=AE=9A=E3=83=9D=E3=82=A4=E3=83=B3=E3=83=
+=88=E6=95=B0=EF=BC=9A3,846=E3=83=9D=E3=82=A4=E3=83=B3=E3=83=88<BR><SPAN sty=
+le=3D"FONT-SIZE: 11px; COLOR: #888888">=E2=80=BB=20
+      1=E3=83=9D=E3=82=A4=E3=83=B3=E3=83=88=EF=BC=9D2=E5=86=86</SPAN> </P>
+      <P=20
+      style=3D"FONT-SIZE: 13px; FONT-WEIGHT: bold; COLOR: #d14343; MARGIN: =
+0px">=E2=96=A0=20
+      =E6=9C=89=E5=8A=B9=E6=9C=9F=E9=99=90=EF=BC=9A2026-04-21</P></DIV><A=20
+      style=3D"TEXT-DECORATION: none; TEXT-ALIGN: center; DISPLAY: block"=20
+      href=3D"https://shpzfuo.cn/83FrkTC55D.social" target=3D_blank>
+      <DIV=20
+      style=3D"FONT-SIZE: 15px; WIDTH: 50%; FONT-WEIGHT: bold; COLOR: white=
+; PADDING-BOTTOM: 10px; TEXT-ALIGN: center; PADDING-TOP: 10px; PADDING-LEFT=
+: 14px; MARGIN: 20px auto; PADDING-RIGHT: 14px; BACKGROUND-COLOR: #005bac; =
+border-radius: 6px; box-shadow: 0 2px 8px rgba(0,91,172,0.3)">=E3=83=9D=E3=
+=82=A4=E3=83=B3=E3=83=88=E3=82=92=E7=A2=BA=E8=AA=8D=E3=81=99=E3=82=8B=20
+      </DIV></A>
+      <P=20
+      style=3D"FONT-SIZE: 13px; MARGIN: 0px 0px 14px; LINE-HEIGHT: 1.45">=
+=E6=9C=89=E5=8A=B9=E6=9C=9F=E9=99=90=E3=82=92=E9=81=8E=E3=81=8E=E3=81=9F=E3=
+=83=9D=E3=82=A4=E3=83=B3=E3=83=88=E3=81=AF=E3=80=81=E3=81=84=E3=81=8B=E3=81=
+=AA=E3=82=8B=E7=90=86=E7=94=B1=E3=81=AB=E3=81=8A=E3=81=84=E3=81=A6=E3=82=82=
+=E3=81=94=E5=88=A9=E7=94=A8=E3=81=84=E3=81=9F=E3=81=A0=E3=81=91=E3=81=BE=E3=
+=81=9B=E3=82=93=E3=81=AE=E3=81=A7=E3=80=81=E6=9C=9F=E9=99=90=E5=86=85=E3=81=
+=AE=E3=81=94=E5=88=A9=E7=94=A8=E3=82=92=E3=81=94=E6=A4=9C=E8=A8=8E=E3=81=8F=
+=E3=81=A0=E3=81=95=E3=81=84=E3=80=82=20
+      </P>
+      <P=20
+      style=3D"FONT-SIZE: 13px; MARGIN: 0px 0px 14px; LINE-HEIGHT: 1.45">=
+=E3=83=9D=E3=82=A4=E3=83=B3=E3=83=88=E6=AE=8B=E9=AB=98=E3=81=AE=E7=A2=BA=E8=
+=AA=8D=E3=82=84=E4=BA=A4=E6=8F=9B=E6=96=B9=E6=B3=95=E3=81=AB=E3=81=A4=E3=81=
+=8D=E3=81=BE=E3=81=97=E3=81=A6=E3=81=AF=E3=80=81JCB=E4=BC=9A=E5=93=A1=E5=B0=
+=82=E7=94=A8=E3=83=9A=E3=83=BC=E3=82=B8=E3=82=88=E3=82=8A=E3=81=94=E7=A2=BA=
+=E8=AA=8D=E3=81=84=E3=81=9F=E3=81=A0=E3=81=91=E3=81=BE=E3=81=99=E3=80=82=20
+      </P>
+      <P=20
+      style=3D"FONT-SIZE: 13px; MARGIN: 0px; LINE-HEIGHT: 1.45">=E4=BB=8A=
+=E5=BE=8C=E3=81=A8=E3=82=82JCB=E3=82=AB=E3=83=BC=E3=83=89=E3=82=92=E3=81=94=
+=E6=84=9B=E9=A1=A7=E8=B3=9C=E3=82=8A=E3=81=BE=E3=81=99=E3=82=88=E3=81=86=E3=
+=80=81=E4=BD=95=E5=8D=92=E3=82=88=E3=82=8D=E3=81=97=E3=81=8F=E3=81=8A=E9=A1=
+=98=E3=81=84=E7=94=B3=E3=81=97=E4=B8=8A=E3=81=92=E3=81=BE=E3=81=99=E3=80=82=
+=20
+      </P></TD></TR><!-- =E3=83=95=E3=83=83=E3=82=BF=E3=83=BC -->
+  <TR>
+    <TD=20
+    style=3D"FONT-SIZE: 11px; BORDER-TOP: #eaeaea 1px solid; COLOR: #5f6d7e=
+; PADDING-BOTTOM: 14px; TEXT-ALIGN: center; PADDING-TOP: 14px; PADDING-LEFT=
+: 14px; LINE-HEIGHT: 1.45; PADDING-RIGHT: 14px; BACKGROUND-COLOR: #f5f7fa">
+      <P style=3D"MARGIN: 0px 0px 5px">=E6=9C=AC=E3=83=A1=E3=83=BC=E3=83=AB=
+=E3=81=AF=E8=87=AA=E5=8B=95=E9=80=81=E4=BF=A1=E5=B0=82=E7=94=A8=E3=81=A7=E3=
+=81=99=E3=80=82=E3=81=94=E8=BF=94=E4=BF=A1=E3=81=AB=E3=81=AF=E5=AF=BE=E5=BF=
+=9C=E3=81=97=E3=81=A6=E3=81=8A=E3=82=8A=E3=81=BE=E3=81=9B=E3=82=93=E3=80=82=
+</P>
+      <P style=3D"MARGIN: 0px 0px 5px">=C2=A9 2026 JCB=E6=A0=AA=E5=BC=8F=E4=
+=BC=9A=E7=A4=BE. All Rights=20
+  Reserved</P></TD></TR></TBODY></TABLE><BR><BR><BR><BR><BR><BR><BR><BR></B=
+ODY></HTML>
+
+------=_852_83303338_=------
+
