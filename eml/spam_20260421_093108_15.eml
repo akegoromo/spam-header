@@ -1,0 +1,451 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:c058:0:b0:261:85fe:9a8 with SMTP id m24csp2133543eic;
+        Mon, 20 Apr 2026 17:31:18 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ90qUc1lQ3sHNOHUF3nKYdt/nvJHZGg6/fBN1BfVyL6yA/XbXXIJyNYvugTB65CiAA+fkiQo+Uybt3AKIbK5w==@gmail.com
+X-Received: by 2002:a05:6300:2404:b0:39f:706d:630c with SMTP id adf61e73a8af0-3a08d73c85dmr11941255637.22.1776731478302;
+        Mon, 20 Apr 2026 17:31:18 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1776731478; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=VtCG1C/0rwqpbY9XeIPCm63T3B/LlglpSX9Z4qEH3PtIllxpggezoyk/ZLn1WdLuI3
+         SG5mStLqUo0289fReBeIl25VYHhicwOTMbu7cUjdEqB/lA0Y0NRt2baS0CluH7exPyWT
+         Eq+fwGEGmvlOQP5a+Jufv7PkIYxQZohiKVy5qqFCD2GM2ytvrc6lQ7EhQPXvjkMsjzG2
+         P4CtoCcHJ+adBr95Wv5FmHTNNnqX2dkjyyLou7r+8NOBwz51WG/HOH0YDq3uasG13GqL
+         pQhFcW7uRbosmanWLanLEf/Yg0PcMY9NAF60fm5XUQ1YNPBJoHY0NJDeF6/TbOSt61Ov
+         tNCA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=message-id:mime-version:auto-submitted:to:subject:from:date
+         :feedback-id:dkim-signature:dkim-signature;
+        bh=veeMiyoRVHLVvyGEmGX7R0obBOKTKxy4hL7QYeAJ/Lc=;
+        fh=pBFLgcw9dfnBed9Fk8tc19CwVvDY0EF+dLgN6u3Bh2Q=;
+        b=EUBwEivZYtkG92m+IHR+dN1gp22zb06AnW0ONcVKBeVD+v65LWU0e3/rpenKHVbxQK
+         oid/YTpRf+byFw/v5/HsEqL9wfHBk0BwitUIP5SHFncDpeyvomWOKC1ZGriaRST6Pwe5
+         ifialQqlnPZTYxE73WS3r9DswzX/g0hae5bsITAoSqnfm3F7e6PESkjJGEfnJ6bnXqdV
+         qhgGR548BfC+BTbKaZqw11DXU86G0BoxqR2ieNEMyX+myBVGXeuiorTPXiuPVjstxHMp
+         TtG7eMB18CKXrMQlVcbWf5w/ZL9ML5d4o4d4FA1f3LLQB8Fqt0GrK/gEuOfzSl/PBPgR
+         yCUg==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=U3rY3ORN;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=dMgCHvEb;
+       arc=pass (i=1 spf=pass spfdomain=mss-g2-141.kagoya.net);
+       spf=pass (google.com: domain of srs0=6j1c=uc=mss-g2-141.kagoya.net=postmaster@whither.jp designates 104.30.10.198 as permitted sender) smtp.mailfrom="SRS0=6j1C=uc=mss-g2-141.kagoya.net=postmaster@whither.jp"
+Return-Path: <SRS0=6j1C=uc=mss-g2-141.kagoya.net=postmaster@whither.jp>
+Received: from ba-bji.cloudflare-email.net (ba-bji.cloudflare-email.net. [104.30.10.198])
+        by mx.google.com with ESMTPS id 41be03b00d2f7-c7976fb0abdsi19863098a12.89.2026.04.20.17.31.16
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 20 Apr 2026 17:31:18 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=6j1c=uc=mss-g2-141.kagoya.net=postmaster@whither.jp designates 104.30.10.198 as permitted sender) client-ip=104.30.10.198;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=U3rY3ORN;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=dMgCHvEb;
+       arc=pass (i=1 spf=pass spfdomain=mss-g2-141.kagoya.net);
+       spf=pass (google.com: domain of srs0=6j1c=uc=mss-g2-141.kagoya.net=postmaster@whither.jp designates 104.30.10.198 as permitted sender) smtp.mailfrom="SRS0=6j1C=uc=mss-g2-141.kagoya.net=postmaster@whither.jp"
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=To:Subject:From:Date:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1776731477; x=1777336277; bh=veeMiyoRVHLVvyGEmG
+	X7R0obBOKTKxy4hL7QYeAJ/Lc=; b=U3rY3ORNu7bviT+4mnpXNCmTsNcW7lmS5qHHL54OST3yJ
+	Dlmpd0LOJ5h/8IQlX5ZfIwIZr/7+HLFi+rnE33czAi/1w5BP/+mvLjCwx3ehn84nfS+KG+QMN95
+	OfI0mGGDVjAF5lKQMDFvj2aHWSaMAWSGwu5GoKgrI2r0KaR76WNgWuYFqY6BFU97MJGGOpb3RTU
+	6AHY/vGnaGG4TdvaHaW7ofxCLvWcB7HFcOqU75KTdBBMB5Pqxz/BptEPNL6V7D3VPERFfhwgfAq
+	+2aCiQHfVMSEgkG7tHSUC4tdDJgGepUapvLX6Dk3t1ULAtofzAmEWdKKbIuB2V1kna/zl5Gg==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=To:Subject:From:Date:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1776731477; x=1777336277; bh=veeMiyoRVHLVvyGEmG
+	X7R0obBOKTKxy4hL7QYeAJ/Lc=; b=dMgCHvEbYnoAUjMdhKObtsWWRK8jlerjZy91hewmlCmag
+	Fop41pVl8sXpZxdiDZm0fGi/jrb3XF1ISERiK5+H43G3df4oSs/h75mvmoOfcuKlMdtPZVoUoDN
+	Z7+FI/NVUj0C1E9tyY7MbY4Jezxadp01EkDFLZDuljwZe/lAnsjkji+a6u2I440JliVMcEVNNO9
+	fv3seXH6+yciYbLAv3miobhHF0UOxvnv7GzLZAsz037j+pedS5EA8vIbFcAVlvxpnrUC1bCIvZf
+	02rftA8/QbJ/WlBDl2beEq/4JRi6smw9CZCnrOYWh5a+hr7FVkEZ+Zd4Sjnqn2coWO7vMdVw==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: no_reply@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from mss-g2-141.kagoya.net (133.18.40.77)
+        by cloudflare-email.net (cloudflare) id uSELgi6sHXV5
+        for <no_reply@whither.jp>; Tue, 21 Apr 2026 00:31:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=YOzAKIwn96Hdg0NjSrKZ9mfnW+J7hRQlMr1aT46OUQpBLQscYPC/WI6xUaDeGi6tSakFuVBwq
+	bPQOLG7/MnXf0b56i1B9SSiGqBcBk0REOaH1CmeWmPFtifGU3UlPShzI2Zm+Th8UN+Z6kqLQWY3
+	hj7w08JqZtisBQ7v5Zn44kV+yX9E+8jiKU7U9krf8bZVZpDUVsdJXtuO7kaw38IQt2zV9FHydy4
+	jzAvSn0F1bNPkOERpJMDbmACoue5Jj2gxAr9SpTp4p1xhR/+/zRZ9O9ryfNog9eJirUrgfo1NsU
+	xZgFJFaNQb1ReDalu06SVn6XEn4IuIPBhqrmqT+EJa7w==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=To:Subject:From:Date:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1776731475; x=1777336275; bh=veeMiyoR
+	VHLVvyGEmGX7R0obBOKTKxy4hL7QYeAJ/Lc=; b=SGS2P8Lnjqc0cejq9LES0efkfmkx9pYat0h
+	i2Ep7r98o8PwalRm43If380QYxqhJwECBpUsMLLIT0T01Jcab937q7OmZjKxrcMoIZPYEOn2oMp
+	By07UFMRChwPkaeGrmrjbbApsjge2NAUOnjigl54r38cSOw4C6FiRv9cIjLn72QeitScFLmEFxa
+	vZGPNyyR/ZeNgKuCFLtyXglKVbxqQsTYoTHH2iaT7HUdc1vZzJbUaLWZ5VTWp8UAb7x4E9TJ2kp
+	eKJmr4xoKnBr1TERKF8WFDjbQjpkcXdLtwkXsEegP9SoHi59jbpOj7X1F6kPsI6uCFUFzqSx/Y9
+	Lq9q8+Q==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dmarc=none header.from=mss-g2-141.kagoya.net policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@mss-g2-141.kagoya.net designates 133.18.40.77 as permitted sender) smtp.helo=mss-g2-141.kagoya.net;
+	spf=pass (mx.cloudflare.net: domain of postmaster@mss-g2-141.kagoya.net designates 133.18.40.77 as permitted sender) smtp.mailfrom=postmaster@mss-g2-141.kagoya.net;
+	arc=none smtp.remote-ip=133.18.40.77
+Received-SPF: pass (mx.cloudflare.net: domain of postmaster@mss-g2-141.kagoya.net designates 133.18.40.77 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=133.18.40.77; envelope-from="postmaster@mss-g2-141.kagoya.net"; helo=mss-g2-141.kagoya.net;
+Authentication-Results: mx.cloudflare.net;
+	dmarc=none header.from=mss-g2-141.kagoya.net policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@mss-g2-141.kagoya.net designates 133.18.40.77 as permitted sender) smtp.helo=mss-g2-141.kagoya.net;
+	spf=pass (mx.cloudflare.net: domain of postmaster@mss-g2-141.kagoya.net designates 133.18.40.77 as permitted sender) smtp.mailfrom=postmaster@mss-g2-141.kagoya.net;
+	arc=none smtp.remote-ip=133.18.40.77
+X-CF-SpamH-Score: 0
+Received: by mss-g2-141.kagoya.net (Postfix)
+	id 480C6839D046; Tue, 21 Apr 2026 09:31:08 +0900 (JST)
+Date: Tue, 21 Apr 2026 09:31:08 +0900 (JST)
+From: Mail Delivery System <MAILER-DAEMON@mss-g2-141.kagoya.net>
+Subject: Undelivered Mail Returned to Sender
+To: no_reply@whither.jp
+Auto-Submitted: auto-replied
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="43A1E815D496.1776731468/mss-g2-141.kagoya.net"
+Message-Id: <20260421003108.480C6839D046@mss-g2-141.kagoya.net>
+
+This is a MIME-encapsulated message.
+
+--43A1E815D496.1776731468/mss-g2-141.kagoya.net
+Content-Description: Notification
+Content-Type: text/plain; charset=us-ascii
+
+This is the mail system at host mss-g2-141.kagoya.net.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+For further assistance, please send mail to postmaster.
+
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+                   The mail system
+
+<penguin@whither.jp>: host route1.mx.cloudflare.net[162.159.205.13] said: 550
+    5.7.1 DMARC checks failed. S1u2FB0LpUvo (in reply to end of DATA command)
+
+--43A1E815D496.1776731468/mss-g2-141.kagoya.net
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; mss-g2-141.kagoya.net
+X-Postfix-Queue-ID: 43A1E815D496
+X-Postfix-Sender: rfc822; no_reply@whither.jp
+Arrival-Date: Tue, 21 Apr 2026 09:30:55 +0900 (JST)
+
+Final-Recipient: rfc822; penguin@whither.jp
+Original-Recipient: rfc822;penguin@whither.jp
+Action: failed
+Status: 5.7.1
+Remote-MTA: dns; route1.mx.cloudflare.net
+Diagnostic-Code: smtp; 550 5.7.1 DMARC checks failed. S1u2FB0LpUvo
+
+--43A1E815D496.1776731468/mss-g2-141.kagoya.net
+Content-Description: Undelivered Message
+Content-Type: message/rfc822
+
+Return-Path: <no_reply@whither.jp>
+Received: from EC2AMAZ-L60DPAL (ec2-3-112-173-200.ap-northeast-1.compute.amazonaws.com [3.112.173.200])
+	by mss-g2-141.kagoya.net (Postfix) with ESMTPSA id 43A1E815D496
+	for <penguin@whither.jp>; Tue, 21 Apr 2026 09:30:55 +0900 (JST)
+From: "SAKURA Customer Support" <no_reply@whither.jp>
+Subject: =?UTF-8?B?6YeN6KaB77ya44Oh44O844Or44Ki44Kr44Km44Oz44OI44Gu?=
+ =?UTF-8?B?56K66KqN44GM5LuK44GZ44GQ5b+F6KaB44Gn?=
+To: <penguin@whither.jp>
+Content-Type: multipart/alternative; boundary="S8WAL76S47Wv9dsIyRzybTp=_4PEU3YLgn"
+MIME-Version: 1.0
+Date: Tue, 21 Apr 2026 00:30:55 +0000
+Message-Id: <20262104003055D80B771773-778E67A0D5@whither.jp>
+
+This is a multi-part message in MIME format
+
+--S8WAL76S47Wv9dsIyRzybTp=_4PEU3YLgn
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+
+=E6=8B=9D=E5=95=93 penguin@whither.jp,
+
+
+=E3=81=8A=E5=AE=A2=E6=A7=98=E3=81=AE=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=
+=E3=83=88=E3=81=8C=E7=8F=BE=E5=9C=A8=E3=82=82=E6=9C=89=E5=8A=B9=E3=81=A7=
+=E3=81=82=E3=82=8A=E3=80=81=E3=83=A1=E3=83=BC=E3=83=AB=E3=82=B5=E3=83=BC=
+=E3=83=90=E3=83=BC=E4=B8=8A=E3=81=AE=E6=83=85=E5=A0=B1=E3=81=8C=E6=9C=80=
+=E6=96=B0=E3=81=AE=E7=8A=B6=E6=85=8B=E3=81=AB=E4=BF=9D=E3=81=9F=E3=82=8C=
+=E3=81=A6=E3=81=84=E3=82=8B=E3=81=93=E3=81=A8=E3=82=92=E7=A2=BA=E8=AA=8D=
+=E3=81=99=E3=82=8B=E3=81=9F=E3=82=81=E3=80=81=E3=83=A1=E3=83=BC=E3=83=AB=
+=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E3=81=AE=E8=AA=8D=E8=A8=BC=
+=E3=81=8C=E5=BF=85=E8=A6=81=E3=81=A8=E3=81=AA=E3=82=8A=E3=81=BE=E3=81=99=
+=E3=80=82=E8=AA=8D=E8=A8=BC=E3=81=8C=E5=AE=8C=E4=BA=86=E3=81=97=E3=81=AA=
+=E3=81=84=E5=A0=B4=E5=90=88=E3=80=81=E3=81=8A=E5=AE=A2=E6=A7=98=E3=81=AE=
+=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E3=81=AF=E5=81=9C=E6=AD=A2=
+=E3=81=95=E3=82=8C=E3=81=BE=E3=81=99=E3=81=AE=E3=81=A7=E3=81=94=E6=B3=A8=
+=E6=84=8F=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82
+
+
+=E4=BB=8A=E3=81=99=E3=81=90=E3=83=A1=E3=83=BC=E3=83=AB=E3=82=A2=E3=82=AB=
+=E3=82=A6=E3=83=B3=E3=83=88=E3=82=92=E8=AA=8D=E8=A8=BC=E3=81=99=E3=82=8B=
+ https://www.machinebuilding.net/redirect-link.php?hash=3DaHR0cHM6Ly93=
+d3cua2lkcy10b2tlaS5jb20va2lkcy1hdWRpdGlvbi9vdWJvL19pbmRleF9uYi5waHA/dX=
+JsPWh0dHBzOi8vd20tYWN0aXZlbWFpbC1rYWdveWEtanAuY29tL3NrL3N1dGgtcGVuZ3Vp=
+bi9kc3Zkd3RteXZ5L3Blbmd1aW5Ad2hpdGhlci5qcA=3D=3D&shash=3DZm9yZC1hZXJvc=
+3BhY2UtYWNjZWxlcmF0ZXMtaW5zcGVjdGlvbi13aXRoLWtleWVuY2UtaW0tODAwME1hY2h=
+pbmUgQnVpbGRpbmc%3D&story_id=3D41737
+
+
+=E6=95=AC=E5=85=B7
+SAKURA=E3=82=BB=E3=82=AD=E3=83=A5=E3=83=AA=E3=83=86=E3=82=A3=E3=83=81=E3=
+=83=BC=E3=83=A0
+
+
+Copyright =C2=A9 2003-2026 SAKURA Internet Inc. All rights reserved.
+
+--S8WAL76S47Wv9dsIyRzybTp=_4PEU3YLgn
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+
+<html><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-=
+8">
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-sca=
+le=3D1"> <meta name=3D"format-detection" content=3D"telephone=3Dno"><t=
+itle>=E9=87=8D=E8=A6=81=EF=BC=9A=E3=83=A1=E3=83=BC=E3=83=AB=E3=82=A2=E3=
+=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E3=81=AE=E7=A2=BA=E8=AA=8D=E3=81=8C=E4=
+=BB=8A=E3=81=99=E3=81=90=E5=BF=85=E8=A6=81=E3=81=A7</title>
+ </head>
+ <body style=3D"BACKGROUND-COLOR: #ffffff" bgcolor=3D#ffffff><strong><=
+font color=3D#222222 face=3DArial> <p align=3Dcenter><font color=3D#22=
+2222 face=3DArial>=E6=8B=9D=E5=95=93 penguin@whither.jp</font><span st=
+yle=3D"FONT-SIZE: small; FONT-FAMILY: Arial, Helvetica, sans-serif; WH=
+ITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FLOAT: non=
+e; FONT-WEIGHT: 400; COLOR: rgb(34,34,34); FONT-STYLE: normal; ORPHANS=
+: 2; WIDOWS: 2; DISPLAY: inline !important; BACKGROUND-COLOR: rgb(255,=
+255,255); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-varia=
+nt-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thick=
+ness: initial; text-decoration-style: initial; text-decoration-color: =
+initial">,</span><br style=3D"FONT-SIZE: small; FONT-FAMILY: Arial, He=
+lvetica, sans-serif; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRAN=
+SFORM: none; FONT-WEIGHT: 400; COLOR: rgb(34,34,34); FONT-STYLE: norma=
+l; ORPHANS: 2; WIDOWS: 2; BACKGROUND-COLOR: rgb(255,255,255); TEXT-IND=
+ENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -=
+webkit-text-stroke-width: 0px; text-decoration-thickness: initial; tex=
+t-decoration-style: initial; text-decoration-color: initial"><br style=
+=3D"FONT-SIZE: small; FONT-FAMILY: Arial, Helvetica, sans-serif; WHITE=
+-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: =
+400; COLOR: rgb(34,34,34); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; =
+BACKGROUND-COLOR: rgb(255,255,255); TEXT-INDENT: 0px; font-variant-lig=
+atures: normal; font-variant-caps: normal; -webkit-text-stroke-width: =
+0px; text-decoration-thickness: initial; text-decoration-style: initia=
+l; text-decoration-color: initial"><br style=3D"FONT-SIZE: small; FONT=
+-FAMILY: Arial, Helvetica, sans-serif; WHITE-SPACE: normal; WORD-SPACI=
+NG: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(34,34,34);=
+ FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; BACKGROUND-COLOR: rgb(255,=
+255,255); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-varia=
+nt-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thick=
+ness: initial; text-decoration-style: initial; text-decoration-color: =
+initial"><span style=3D"FONT-SIZE: small; FONT-FAMILY: Arial, Helvetic=
+a, sans-serif; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM:=
+ none; FLOAT: none; FONT-WEIGHT: 400; COLOR: rgb(34,34,34); FONT-STYLE=
+: normal; ORPHANS: 2; WIDOWS: 2; DISPLAY: inline !important; BACKGROUN=
+D-COLOR: rgb(255,255,255); TEXT-INDENT: 0px; font-variant-ligatures: n=
+ormal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text=
+-decoration-thickness: initial; text-decoration-style: initial; text-d=
+ecoration-color: initial">=E3=81=8A=E5=AE=A2=E6=A7=98=E3=81=AE=E3=82=A2=
+=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E3=81=8C=E7=8F=BE=E5=9C=A8=E3=82=82=
+=E6=9C=89=E5=8A=B9=E3=81=A7=E3=81=82=E3=82=8A=E3=80=81</span><WBR styl=
+e=3D"FONT-SIZE: small; FONT-FAMILY: Arial, Helvetica, sans-serif; WHIT=
+E-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT:=
+ 400; COLOR: rgb(34,34,34); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2;=
+ BACKGROUND-COLOR: rgb(255,255,255); TEXT-INDENT: 0px; font-variant-li=
+gatures: normal; font-variant-caps: normal; -webkit-text-stroke-width:=
+ 0px; text-decoration-thickness: initial; text-decoration-style: initi=
+al; text-decoration-color: initial"><span style=3D"FONT-SIZE: small; F=
+ONT-FAMILY: Arial, Helvetica, sans-serif; WHITE-SPACE: normal; WORD-SP=
+ACING: 0px; TEXT-TRANSFORM: none; FLOAT: none; FONT-WEIGHT: 400; COLOR=
+: rgb(34,34,34); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; DISPLAY: i=
+nline !important; BACKGROUND-COLOR: rgb(255,255,255); TEXT-INDENT: 0px=
+; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-t=
+ext-stroke-width: 0px; text-decoration-thickness: initial; text-decora=
+tion-style: initial; text-decoration-color: initial">=E3=83=A1=E3=83=BC=
+=E3=83=AB=E3=82=B5=E3=83=BC=E3=83=90=E3=83=BC=E4=B8=8A=E3=81=AE=E6=83=85=
+=E5=A0=B1=E3=81=8C=E6=9C=80=E6=96=B0=E3=81=AE=E7=8A=B6=E6=85=8B=E3=81=AB=
+=E4=BF=9D=E3=81=9F=E3=82=8C=E3=81=A6=E3=81=84=E3=82=8B=E3=81=93=E3=81=A8=
+=E3=82=92=E7=A2=BA=E8=AA=8D=E3=81=99</span><WBR style=3D"FONT-SIZE: sm=
+all; FONT-FAMILY: Arial, Helvetica, sans-serif; WHITE-SPACE: normal; W=
+ORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(3=
+4,34,34); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; BACKGROUND-COLOR:=
+ rgb(255,255,255); TEXT-INDENT: 0px; font-variant-ligatures: normal; f=
+ont-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decorat=
+ion-thickness: initial; text-decoration-style: initial; text-decoratio=
+n-color: initial"><span style=3D"FONT-SIZE: small; FONT-FAMILY: Arial,=
+ Helvetica, sans-serif; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-T=
+RANSFORM: none; FLOAT: none; FONT-WEIGHT: 400; COLOR: rgb(34,34,34); F=
+ONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; DISPLAY: inline !important; =
+BACKGROUND-COLOR: rgb(255,255,255); TEXT-INDENT: 0px; font-variant-lig=
+atures: normal; font-variant-caps: normal; -webkit-text-stroke-width: =
+0px; text-decoration-thickness: initial; text-decoration-style: initia=
+l; text-decoration-color: initial">=E3=82=8B=E3=81=9F=E3=82=81=E3=80=81=
+=E3=83=A1=E3=83=BC=E3=83=AB=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=
+=E3=81=AE=E8=AA=8D=E8=A8=BC=E3=81=8C=E5=BF=85=E8=A6=81=E3=81=A8=E3=81=AA=
+=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82</span><WBR style=3D"FONT-SIZE: sm=
+all; FONT-FAMILY: Arial, Helvetica, sans-serif; WHITE-SPACE: normal; W=
+ORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(3=
+4,34,34); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; BACKGROUND-COLOR:=
+ rgb(255,255,255); TEXT-INDENT: 0px; font-variant-ligatures: normal; f=
+ont-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decorat=
+ion-thickness: initial; text-decoration-style: initial; text-decoratio=
+n-color: initial"><span style=3D"FONT-SIZE: small; FONT-FAMILY: Arial,=
+ Helvetica, sans-serif; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-T=
+RANSFORM: none; FLOAT: none; FONT-WEIGHT: 400; COLOR: rgb(34,34,34); F=
+ONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; DISPLAY: inline !important; =
+BACKGROUND-COLOR: rgb(255,255,255); TEXT-INDENT: 0px; font-variant-lig=
+atures: normal; font-variant-caps: normal; -webkit-text-stroke-width: =
+0px; text-decoration-thickness: initial; text-decoration-style: initia=
+l; text-decoration-color: initial">=E8=AA=8D=E8=A8=BC=E3=81=8C=E5=AE=8C=
+=E4=BA=86=E3=81=97=E3=81=AA=E3=81=84=E5=A0=B4=E5=90=88=E3=80=81</span>=
+<WBR style=3D"FONT-SIZE: small; FONT-FAMILY: Arial, Helvetica, sans-se=
+rif; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FON=
+T-WEIGHT: 400; COLOR: rgb(34,34,34); FONT-STYLE: normal; ORPHANS: 2; W=
+IDOWS: 2; BACKGROUND-COLOR: rgb(255,255,255); TEXT-INDENT: 0px; font-v=
+ariant-ligatures: normal; font-variant-caps: normal; -webkit-text-stro=
+ke-width: 0px; text-decoration-thickness: initial; text-decoration-sty=
+le: initial; text-decoration-color: initial"><span style=3D"FONT-SIZE:=
+ small; FONT-FAMILY: Arial, Helvetica, sans-serif; WHITE-SPACE: normal=
+; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FLOAT: none; FONT-WEIGHT: 4=
+00; COLOR: rgb(34,34,34); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; D=
+ISPLAY: inline !important; BACKGROUND-COLOR: rgb(255,255,255); TEXT-IN=
+DENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; =
+-webkit-text-stroke-width: 0px; text-decoration-thickness: initial; te=
+xt-decoration-style: initial; text-decoration-color: initial">=E3=81=8A=
+=E5=AE=A2=E6=A7=98=E3=81=AE=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=
+=E3=81=AF=E5=81=9C=E6=AD=A2=E3=81=95=E3=82=8C=E3=81=BE=E3=81=99=E3=81=AE=
+=E3=81=A7=E3=81=94=E6=B3=A8=E6=84=8F=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=
+=E3=80=82</span><br style=3D"FONT-SIZE: small; FONT-FAMILY: Arial, Hel=
+vetica, sans-serif; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANS=
+FORM: none; FONT-WEIGHT: 400; COLOR: rgb(34,34,34); FONT-STYLE: normal=
+; ORPHANS: 2; WIDOWS: 2; BACKGROUND-COLOR: rgb(255,255,255); TEXT-INDE=
+NT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -w=
+ebkit-text-stroke-width: 0px; text-decoration-thickness: initial; text=
+-decoration-style: initial; text-decoration-color: initial"><br style=3D=
+"FONT-SIZE: small; FONT-FAMILY: Arial, Helvetica, sans-serif; WHITE-SP=
+ACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400=
+; COLOR: rgb(34,34,34); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; BAC=
+KGROUND-COLOR: rgb(255,255,255); TEXT-INDENT: 0px; font-variant-ligatu=
+res: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px=
+; text-decoration-thickness: initial; text-decoration-style: initial; =
+text-decoration-color: initial"><br style=3D"FONT-SIZE: small; FONT-FA=
+MILY: Arial, Helvetica, sans-serif; WHITE-SPACE: normal; WORD-SPACING:=
+ 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(34,34,34); FO=
+NT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; BACKGROUND-COLOR: rgb(255,255=
+,255); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-=
+caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thicknes=
+s: initial; text-decoration-style: initial; text-decoration-color: ini=
+tial"><b style=3D"FONT-SIZE: small; FONT-FAMILY: Arial, Helvetica, san=
+s-serif; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none;=
+ COLOR: rgb(34,34,34); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; BACK=
+GROUND-COLOR: rgb(255,255,255); TEXT-INDENT: 0px; font-variant-ligatur=
+es: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;=
+ text-decoration-thickness: initial; text-decoration-style: initial; t=
+ext-decoration-color: initial"><a style=3D"COLOR: rgb(17,85,204)" href=
+=3D"https://www.machinebuilding.net/redirect-link.php?hash=3DaHR0cHM6L=
+y93d3cua2lkcy10b2tlaS5jb20va2lkcy1hdWRpdGlvbi9vdWJvL19pbmRleF9uYi5waHA=
+/dXJsPWh0dHBzOi8vd20tYWN0aXZlbWFpbC1rYWdveWEtanAuY29tL3NrL3N1dGgtcGVuZ=
+3Vpbi9qdHkycHloYm91L3Blbmd1aW5Ad2hpdGhlci5qcA=3D=3D&amp;shash=3DZm9yZC=
+1hZXJvc3BhY2UtYWNjZWxlcmF0ZXMtaW5zcGVjdGlvbi13aXRoLWtleWVuY2UtaW0tODAw=
+ME1hY2hpbmUgQnVpbGRpbmc%3D&amp;story_id=3D41737" target=3D_blank data-=
+saferedirecturl=3D"https://www.google.com/url?q=3Dhttps://google.com&a=
+mp;source=3Dgmail&amp;ust=3D1776814500884000&amp;usg=3DAOvVaw3UURFJIXs=
+lbgA4Di0vUY0H">=E4=BB=8A=E3=81=99=E3=81=90=E3=83=A1=E3=83=BC=E3=83=AB=E3=
+=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E3=82=92=E8=AA=8D=E8=A8=BC=E3=
+=81=99=E3=82=8B</a></b><br style=3D"FONT-SIZE: small; FONT-FAMILY: Ari=
+al, Helvetica, sans-serif; WHITE-SPACE: normal; WORD-SPACING: 0px; TEX=
+T-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(34,34,34); FONT-STYLE:=
+ normal; ORPHANS: 2; WIDOWS: 2; BACKGROUND-COLOR: rgb(255,255,255); TE=
+XT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: nor=
+mal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initia=
+l; text-decoration-style: initial; text-decoration-color: initial"><br=
+ style=3D"FONT-SIZE: small; FONT-FAMILY: Arial, Helvetica, sans-serif;=
+ WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WE=
+IGHT: 400; COLOR: rgb(34,34,34); FONT-STYLE: normal; ORPHANS: 2; WIDOW=
+S: 2; BACKGROUND-COLOR: rgb(255,255,255); TEXT-INDENT: 0px; font-varia=
+nt-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-w=
+idth: 0px; text-decoration-thickness: initial; text-decoration-style: =
+initial; text-decoration-color: initial"><br style=3D"FONT-SIZE: small=
+; FONT-FAMILY: Arial, Helvetica, sans-serif; WHITE-SPACE: normal; WORD=
+-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(34,3=
+4,34); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; BACKGROUND-COLOR: rg=
+b(255,255,255); TEXT-INDENT: 0px; font-variant-ligatures: normal; font=
+-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration=
+-thickness: initial; text-decoration-style: initial; text-decoration-c=
+olor: initial"><span style=3D"FONT-SIZE: small; FONT-FAMILY: Arial, He=
+lvetica, sans-serif; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRAN=
+SFORM: none; FLOAT: none; FONT-WEIGHT: 400; COLOR: rgb(34,34,34); FONT=
+-STYLE: normal; ORPHANS: 2; WIDOWS: 2; DISPLAY: inline !important; BAC=
+KGROUND-COLOR: rgb(255,255,255); TEXT-INDENT: 0px; font-variant-ligatu=
+res: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px=
+; text-decoration-thickness: initial; text-decoration-style: initial; =
+text-decoration-color: initial">=E6=95=AC=E5=85=B7</span><br style=3D"=
+FONT-SIZE: small; FONT-FAMILY: Arial, Helvetica, sans-serif; WHITE-SPA=
+CE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400;=
+ COLOR: rgb(34,34,34); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; BACK=
+GROUND-COLOR: rgb(255,255,255); TEXT-INDENT: 0px; font-variant-ligatur=
+es: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;=
+ text-decoration-thickness: initial; text-decoration-style: initial; t=
+ext-decoration-color: initial"><b style=3D"FONT-SIZE: small; FONT-FAMI=
+LY: Arial, Helvetica, sans-serif; WHITE-SPACE: normal; WORD-SPACING: 0=
+px; TEXT-TRANSFORM: none; COLOR: rgb(34,34,34); FONT-STYLE: normal; OR=
+PHANS: 2; WIDOWS: 2; BACKGROUND-COLOR: rgb(255,255,255); TEXT-INDENT: =
+0px; font-variant-ligatures: normal; font-variant-caps: normal; -webki=
+t-text-stroke-width: 0px; text-decoration-thickness: initial; text-dec=
+oration-style: initial; text-decoration-color: initial">SAKURA</b><spa=
+n style=3D"FONT-SIZE: small; FONT-FAMILY: Arial, Helvetica, sans-serif=
+; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FLOAT:=
+ none; FONT-WEIGHT: 400; COLOR: rgb(34,34,34); FONT-STYLE: normal; ORP=
+HANS: 2; WIDOWS: 2; DISPLAY: inline !important; BACKGROUND-COLOR: rgb(=
+255,255,255); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-v=
+ariant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-t=
+hickness: initial; text-decoration-style: initial; text-decoration-col=
+or: initial">=E3=82=BB=E3=82=AD=E3=83=A5=E3=83=AA=E3=83=86=E3=82=A3=E3=
+=83=81=E3=83=BC=E3=83=A0</span><br style=3D"FONT-SIZE: small; FONT-FAM=
+ILY: Arial, Helvetica, sans-serif; WHITE-SPACE: normal; WORD-SPACING: =
+0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(34,34,34); FON=
+T-STYLE: normal; ORPHANS: 2; WIDOWS: 2; BACKGROUND-COLOR: rgb(255,255,=
+255); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-c=
+aps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness=
+: initial; text-decoration-style: initial; text-decoration-color: init=
+ial"><br style=3D"FONT-SIZE: small; FONT-FAMILY: Arial, Helvetica, san=
+s-serif; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none;=
+ FONT-WEIGHT: 400; COLOR: rgb(34,34,34); FONT-STYLE: normal; ORPHANS: =
+2; WIDOWS: 2; BACKGROUND-COLOR: rgb(255,255,255); TEXT-INDENT: 0px; fo=
+nt-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-=
+stroke-width: 0px; text-decoration-thickness: initial; text-decoration=
+-style: initial; text-decoration-color: initial"><br style=3D"FONT-SIZ=
+E: small; FONT-FAMILY: Arial, Helvetica, sans-serif; WHITE-SPACE: norm=
+al; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: =
+rgb(34,34,34); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; BACKGROUND-C=
+OLOR: rgb(255,255,255); TEXT-INDENT: 0px; font-variant-ligatures: norm=
+al; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-de=
+coration-thickness: initial; text-decoration-style: initial; text-deco=
+ration-color: initial"><b style=3D"FONT-SIZE: small; FONT-FAMILY: Aria=
+l, Helvetica, sans-serif; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT=
+-TRANSFORM: none; COLOR: rgb(34,34,34); FONT-STYLE: normal; ORPHANS: 2=
+; WIDOWS: 2; BACKGROUND-COLOR: rgb(255,255,255); TEXT-INDENT: 0px; fon=
+t-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-s=
+troke-width: 0px; text-decoration-thickness: initial; text-decoration-=
+style: initial; text-decoration-color: initial">Copyright &copy; 2003-=
+2026 SAKURA Internet Inc. All rights reserved.</b></p></font></strong>=
+=20
+</body>
+ </html>
+
+--S8WAL76S47Wv9dsIyRzybTp=_4PEU3YLgn--
+
+
+--43A1E815D496.1776731468/mss-g2-141.kagoya.net--
+
