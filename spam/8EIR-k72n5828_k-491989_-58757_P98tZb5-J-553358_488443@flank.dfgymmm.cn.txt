@@ -1,0 +1,120 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:c058:0:b0:261:85fe:9a8 with SMTP id m24csp3754135eic;
+        Wed, 22 Apr 2026 21:01:19 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ+s05bNWWA51kERFxrBYP34+XdH+Oc3dXgv3IuiYTI5BIprv5muacZ8mD1RrcOBF7zoBZ+f8SGFXNZAXL1Bnw==@gmail.com
+X-Received: by 2002:a05:6402:42c9:b0:678:8f3e:2bbc with SMTP id 4fb4d7f45d1cf-6788f3e2fabmr145636a12.9.1776916879007;
+        Wed, 22 Apr 2026 21:01:19 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1776916879; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=Dun3dzTJTqnjMC0YrzegpHGHmNfnZ6UVMYuGkGGd7CWoj/B7E+OSEzBrrRldWjv4tz
+         HDGP8V0rW82Nesv89H4AKILOoXkrdfoCB1heQTj62wGbrcDkddzYP+G9JwDDIUQxGm0u
+         lnRrhjMUYlZXjT17WNuGLqlZ0uKSE3TYH6VJrdjUn/PPYnCsPrQDWgnDW/G4NX6TT8ED
+         MHpphpptWTV1zKz0HYx9O7wj4B4S9krNEVqr9Rmo5GNNrEN9nWg2Uoh2Od0KLDUOZBud
+         aXQ8I8QFKRGBE3aFq776V/7ThEQIEwnRnJXnrIFegjfDEV4YXnNsW1oHzWV2Q/gT94Tu
+         mehA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=message-id:date:subject:to:dkim-signature:from:mime-version
+         :feedback-id:dkim-signature:dkim-signature;
+        bh=tlQySwxOctF+cYe20YbFzp/Y4/xzUgjHwjmGBMUNrGk=;
+        fh=LnGVlAla77Gyfiw8zkzbOhaVlqYgEu27l8ujdfvsIGY=;
+        b=Z2kmrUkY99Wt4hbXcCsCvntbGN6f+rhoBmfFsjT37iV7BNGY+OykmAA7LHe11cTVZ/
+         +N0NJKIrUpsYKDE+NObLL2NcVeq6m2ndSi+343UCEx7jjJlfNQ4k4A6qoK/4XVzp/nCw
+         C3cPrBxg5IcEQfLx1NVJHmWWWTn/Ky9h1MCPuJTIPIQU4y/VHr/MBnaXoUFhdWEy14FC
+         gRH4giAcJUwV4qwvx6PRu405jKmNPyZsKrx07D04yP6Hyp1ux/IqwJvrVu6+IfnCgHnA
+         3AlO5x1GFnDmlSk6MasP/SKx36heHQtCefCJdPOET4q8q5qZuVwEzoBqln6x9WgZMofU
+         Csxg==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=R+LKyDua;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=ADrgpiCX;
+       dkim=pass header.i=@flank.dfgymmm.cn header.s=duroc header.b=KyhgwZKP;
+       arc=pass (i=1 spf=pass spfdomain=flank.dfgymmm.cn dkim=pass dkdomain=flank.dfgymmm.cn dmarc=pass fromdomain=flank.dfgymmm.cn);
+       spf=pass (google.com: domain of srs0=kubr=wc=flank.dfgymmm.cn=jiroeto-2013@whither.jp designates 104.30.10.149 as permitted sender) smtp.mailfrom="SRS0=KuBR=wc=flank.dfgymmm.cn=jiroeto-2013@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=dfgymmm.cn
+Return-Path: <SRS0=KuBR=wc=flank.dfgymmm.cn=jiroeto-2013@whither.jp>
+Received: from ba-bej.cloudflare-email.net (ba-bej.cloudflare-email.net. [104.30.10.149])
+        by mx.google.com with ESMTPS id 4fb4d7f45d1cf-672c4d70b39si7922017a12.193.2026.04.22.21.01.17
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 22 Apr 2026 21:01:18 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=kubr=wc=flank.dfgymmm.cn=jiroeto-2013@whither.jp designates 104.30.10.149 as permitted sender) client-ip=104.30.10.149;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=R+LKyDua;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=ADrgpiCX;
+       dkim=pass header.i=@flank.dfgymmm.cn header.s=duroc header.b=KyhgwZKP;
+       arc=pass (i=1 spf=pass spfdomain=flank.dfgymmm.cn dkim=pass dkdomain=flank.dfgymmm.cn dmarc=pass fromdomain=flank.dfgymmm.cn);
+       spf=pass (google.com: domain of srs0=kubr=wc=flank.dfgymmm.cn=jiroeto-2013@whither.jp designates 104.30.10.149 as permitted sender) smtp.mailfrom="SRS0=KuBR=wc=flank.dfgymmm.cn=jiroeto-2013@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=dfgymmm.cn
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1776916877; x=1777521677; bh=tlQySwxOctF+cYe20Y
+	bFzp/Y4/xzUgjHwjmGBMUNrGk=; b=R+LKyDuaTRJ4OS/tu0yjuUXtrogv8kPX2xgWUHUxGULdb
+	1/J6siFaU9rNqv1zveZcxlFoiw9OJaikSglsoacgFUpJ0nn3PUaom2R9bGta55wJh8r29E/Tit6
+	HKzBMPusEVfv0mVRSsgAUACU2V3MYaXgvAF4KSj+WQra+b7DmdqDW0n1fnKbCO22K7vM3p+ftsH
+	VexEnXcK7imVRJpfhvmFLqoW/bOaQ0futjP42+nHhaH83iHRoSMSopRW1kU0HHWw50vZyBqQXM8
+	rH1Se4+t2Yd/6BIn6rRw9f8GxoTp7gQG0rYDkPH9lMJy7mSd1lMpfhkyg6CtVl4kco1u4/QA==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1776916877; x=1777521677; bh=tlQySwxOctF+cYe20Y
+	bFzp/Y4/xzUgjHwjmGBMUNrGk=; b=ADrgpiCXFVt/3Uj18uCleVJ/oOA9MfsSa4B+A2QmT71ad
+	3X0a6csXkJVrZRCduOwt6h2HkbUIYjyUgn8dQJBwd47ox4ZedDiuFknqn3JRPzePYWolcruRchI
+	QzaSKJntGvi3jDtYXDtl033sUKQnwJ0BEr5Up+BppbzxVHKCQ9d1eEl1krOafyDuCpjUlrxEy7y
+	LMu0b1uJ/Dtswj1JWgG5r8l4A/LNS4ZHrOiCamPHhW63TJAyGyZLK26RkpasT2U2oRik/NC7qB1
+	C5KPLJ0zgEUCBPJu0XUix+B3OYM7KC4hfVTjCTw9F2i1mNuykPbMOwKHHZTLshkRIfYZJPEw==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: tnakahara@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from flank.dfgymmm.cn (49.71.158.16)
+        by cloudflare-email.net (cloudflare) id Ea0n4IMbyru0
+        for <tnakahara@whither.jp>; Thu, 23 Apr 2026 04:01:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=XpVv0MZJ20YZcTErZZFav2DBcHV2zJ0OifHetAP2lsAfHxUNNzPrkKYTgWg8LjSIOjZCEsRl1
+	9cE0M5i/CmAfOPLwXJWQrVAvUf/d27A29s+b/kjGNZqshtY0Bd8CQL1ElWFfLbuxYkQtMUW1TZ/
+	eQhbh27daDoyj/jQu7fKRJRl0ZYM4PcXFEFDT6QdvrGHJIE9jwnXYK+wJ9jZbpN/nxexxQl/k8C
+	nTf/DrTFPoX6oxECh7yE5o8dFltwNmFg+nEqJNdQx/K7/Xig8VwNAuHqTlxXxtSXahm0licQtem
+	8R5NG+lGai8nbC4e7LNEYSMrntO633+RqcdvzA2chPRQ==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1776916876; x=1777521676; bh=tlQySwxO
+	ctF+cYe20YbFzp/Y4/xzUgjHwjmGBMUNrGk=; b=FvrYwIqq4Vd9DuLT8aTexuH5qz+WeSFK0eR
+	bDIt2uU8rDyql8+jPk4323DtOLL50+3XrFvlzkEHuFCqjZ388MXnlt4/24v/c8F4NEkzWg/0JzJ
+	Hbx6MTQyA42Dr62nmXR2maT3Q973bCvqoLe5rWl7K3Fae9yVeasIKBj0khxSP/dSdvT/VURdCtg
+	KU65oCAUiDNKMfehci8I++kscaOUSRMXEuFsb4cy/Sbs0Zwkw3F5ErpEqQ4hNt6jESfvXL6bSVT
+	wuFywPCXzXl479X8C76Wwzlum2W02GsCAnzIZ5QoEMUQGil7qPBNqQR9ZDibYKjsgYZEfqVkBG2
+	V1BeCeg==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=@flank.dfgymmm.cn header.s=duroc header.b=KyhgwZKP;
+	dmarc=pass header.from=flank.dfgymmm.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@flank.dfgymmm.cn designates 49.71.158.16 as permitted sender) smtp.helo=flank.dfgymmm.cn;
+	spf=pass (mx.cloudflare.net: domain of jiroeto-2013@flank.dfgymmm.cn designates 49.71.158.16 as permitted sender) smtp.mailfrom=jiroeto-2013@flank.dfgymmm.cn;
+	arc=none smtp.remote-ip=49.71.158.16
+Received-SPF: pass (mx.cloudflare.net: domain of jiroeto-2013@flank.dfgymmm.cn designates 49.71.158.16 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=49.71.158.16; envelope-from="jiroeto-2013@flank.dfgymmm.cn"; helo=flank.dfgymmm.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=@flank.dfgymmm.cn header.s=duroc header.b=KyhgwZKP;
+	dmarc=pass header.from=flank.dfgymmm.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@flank.dfgymmm.cn designates 49.71.158.16 as permitted sender) smtp.helo=flank.dfgymmm.cn;
+	spf=pass (mx.cloudflare.net: domain of jiroeto-2013@flank.dfgymmm.cn designates 49.71.158.16 as permitted sender) smtp.mailfrom=jiroeto-2013@flank.dfgymmm.cn;
+	arc=none smtp.remote-ip=49.71.158.16
+X-CF-SpamH-Score: 1
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="25034g757o17769168693e90423t54a3"
+From: =?utf-8?b?5qW95aSp44Kr44O844OJ5qCq5byP5Lya56S+?= <jiroeto-2013@flank.dfgymmm.cn>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=flank.dfgymmm.cn;
+ i=@flank.dfgymmm.cn; q=dns/txt; s=duroc; t=1776916869; h=from : to :
+ subject : date : message-id;
+ bh=tlQySwxOctF+cYe20YbFzp/Y4/xzUgjHwjmGBMUNrGk=;
+ b=KyhgwZKPk9mHVqfEJ0FPaczszeamPmZNmYiDyI1k+809EtDRbR2Atqf3P+sZLiGd2ggLQ
+ LTwLV/YzEGwiXjtUCwEPE6LF3el/U+aSJ2FFKsITtXZp4cvyVguAFGdRST4d+XG7d9AsXnu
+ siJ2FvkJWTBtJ0EIxWSj9jbe6bqZWaC1U/aKWUcl8pXNs62hQd17gcUV25GNuhvbnOxPdUA
+ /lmJbYbWMC4JVMx10WQMh9c9KL5FwKIzs6jK6QQ6DL+HB5j2f9ugFQeueOlyQjyM3fHKCn2
+ 89sA4sXt5bVbaU15rTbbimEx6JjYp5KTUGqtocpoUtFNnUxfG7ZiDCR/xY2A==
+To: <tnakahara@whither.jp>
+Subject: =?utf-8?b?44CQ6YeN6KaB44CR5qW95aSp44Kr44O844OJIDPmnIjliIbjgZToq4vmsYLph5HpoY3jga7jgYrnn6XjgonjgZsgLSDoh6rli5XlvJXokL3jgZflpLHmlZc=?=
+Date: Thu, 23 Apr 2026 13:01:09 +0900
+Message-ID: <8EIR-k72n5828_k-491989_-58757_P98tZb5-J-553358_488443@flank.dfgymmm.cn>
