@@ -1,0 +1,277 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:c058:0:b0:261:85fe:9a8 with SMTP id m24csp5077392eic;
+        Fri, 24 Apr 2026 13:26:59 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ+JRUf0pNevurKQbff6d4JHRnRcpIaajq8Pko2tqmQDbXYqcDY9tr7UXdzgRf8QS7c+YkegaaThoX6q1kbjpg==@gmail.com
+X-Received: by 2002:a17:907:94c2:b0:bab:ba5a:fcb8 with SMTP id a640c23a62f3a-babba5afdb9mr623254266b.32.1777062419449;
+        Fri, 24 Apr 2026 13:26:59 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1777062419; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=ED6PAOzaw4bLAbFN7fTSo49eGtxGacNl4cCk3DFYUXJ1vOzZ0nrQTVISWW6DyxOuMr
+         ie1tVQqZSO6e4wX11EUXxCgpZicr1GxkiPWhymkqHWKuU2pYMsqxW86ll59A6507N9IP
+         SvHKB7NzuyzK1pwvTA2Wt00zjEAKRWCQJqAxHOzZR6KuCu5BSdDLO0yszGRmtVl3fzLG
+         xRjxGwXXeHbqVpmXBByyZ1fPTpbnNQg0kKuH33LmjOs7Zyh5trzoCDiTfMtCOJx+zNmA
+         FBU9IUqmA1IsQVMIBclSDTobfAnqDG70ZdsuwQn4cAG8Mbvl1azIikcXvbM5p4EOde0z
+         QQeQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=errors-to:message-id:date:subject:to:dkim-signature:from
+         :mime-version:feedback-id:dkim-signature:dkim-signature;
+        bh=Z7NXDt9gLdM+YybpnUVB0JlLx1DDuwcT/YcSE1BvY9M=;
+        fh=LnGVlAla77Gyfiw8zkzbOhaVlqYgEu27l8ujdfvsIGY=;
+        b=gBNb7Dz99G4/a9L6QmOulAJnsXYnmIXmjqhHzAGHZq01WzCdD4rT7WesNoJxHmkfXC
+         Vk4rk9+X866iigLU03VWJa5O64qe5Eit1QZoSQkMC9Lh7NP/8Peh2I+auWDO5NgXgfhr
+         53M/2XZdtH8ZVrGryZM+mthwM/lS2hMAJpvrjexzl78y/y7yqAVBiw8eKpSLhNGHHOtE
+         EG3RH/ierpHecZIZnt1phPoYiAbavhc7r6ozxRl20IOZ8Vgn9DVJneG5Vir7Ejjiy0/q
+         R4I3QQWA0/JpZfca0Je1mgFq5IaA4YvND+9tmfYG3PZvVZ9jnIqHJNzEUy0JowEBltQ+
+         baHA==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=SvvOKyi0;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=iYT9iXN2;
+       dkim=pass header.i=@cuffy.rbiresq.cn header.s=sma header.b="Rw/n+MW+";
+       arc=pass (i=1 spf=pass spfdomain=cuffy.rbiresq.cn dkim=pass dkdomain=cuffy.rbiresq.cn dmarc=pass fromdomain=cuffy.rbiresq.cn);
+       spf=pass (google.com: domain of srs0=hud6=xc=cuffy.rbiresq.cn=okuda.0609@whither.jp designates 104.30.8.163 as permitted sender) smtp.mailfrom="SRS0=HuD6=xc=cuffy.rbiresq.cn=okuda.0609@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=rbiresq.cn
+Return-Path: <SRS0=HuD6=xc=cuffy.rbiresq.cn=okuda.0609@whither.jp>
+Received: from i-bgd.cloudflare-email.net (i-bgd.cloudflare-email.net. [104.30.8.163])
+        by mx.google.com with ESMTPS id a640c23a62f3a-ba454b20015si1164502266b.127.2026.04.24.13.26.58
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 24 Apr 2026 13:26:58 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=hud6=xc=cuffy.rbiresq.cn=okuda.0609@whither.jp designates 104.30.8.163 as permitted sender) client-ip=104.30.8.163;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=SvvOKyi0;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=iYT9iXN2;
+       dkim=pass header.i=@cuffy.rbiresq.cn header.s=sma header.b="Rw/n+MW+";
+       arc=pass (i=1 spf=pass spfdomain=cuffy.rbiresq.cn dkim=pass dkdomain=cuffy.rbiresq.cn dmarc=pass fromdomain=cuffy.rbiresq.cn);
+       spf=pass (google.com: domain of srs0=hud6=xc=cuffy.rbiresq.cn=okuda.0609@whither.jp designates 104.30.8.163 as permitted sender) smtp.mailfrom="SRS0=HuD6=xc=cuffy.rbiresq.cn=okuda.0609@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=rbiresq.cn
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1777062418; x=1777667218; bh=Z7NXDt9gLdM+YybpnU
+	VB0JlLx1DDuwcT/YcSE1BvY9M=; b=SvvOKyi0mSEG6ICtuNB69oz2b21QG14VxuSWaeZBTDE3W
+	nc9cG9ApGRdvuGPtlTeEzlaRP1HdUBo5pEyANT39oDfPf+TbkWVRxYSxTmWALHOLcvOAVT1Jlt/
+	HcgIN3Sqb6edjVKqDg3O0GG07z3fiM6gyWbFErFKZ8U0cIqIGAu2puA01EraWdHF8gtKZF/Cd8a
+	N2PDeRaYtGbYrYpq6SyNFGoHilCY0SmguEx6CMqMl684Admk9jv7++ZskhGob30PGqPB1NbymvI
+	hxhuyevKXc8fJVwmpm+g/ptFz+oeJGEbUeN8mz/BatRdIKYxeU2b1lgzkL690/3EHpQ+IBKw==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1777062418; x=1777667218; bh=Z7NXDt9gLdM+YybpnU
+	VB0JlLx1DDuwcT/YcSE1BvY9M=; b=iYT9iXN2NTwzi8dPBP0daO5Tzkg0E1J0gzeFMR/+QykaU
+	Yg6CE1xo/bxQH2fqPJo5NIvJkFT3VSlULb8Hg1YoPSaLPoF6HShzl37kZFLOZDyFXwLNMLcB/ho
+	yjSciaAYibv3TMVqnHVcjil2NKP/xmdrQhB1ESG4/TEmMuzE9Pqozqf23UCQWU/GHqDlbQ0cp90
+	GTg3HOvaddArhGh8HfNmhHggCbsL04KrGlpCmMsiJZP1CLptA3sUIRIUgjTt0Pe+iuFbc9A+XTk
+	cMa9hrpg/Jz5LW/wRJL82cXuwgEdaiGTaWGhoOchVpxSaeciUVv3qxAoRbNJhjv0ae+7ZfUQ==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: tnakahara@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from cuffy.rbiresq.cn (60.167.7.67)
+        by cloudflare-email.net (cloudflare) id 2SMpMFONfh1Z
+        for <tnakahara@whither.jp>; Fri, 24 Apr 2026 20:26:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=RJLm441bbcHD8fou3irdsV9tsYzK0nIbApUgQui9l8NnAQFm4alPOt4LYwseHuB3342EF34vg
+	/hPE0ogLCsufJ1EimP0H+BSLZq5YFqMXB26r0BlZe50NPNNlPFHdRDP27yjRexKl6PQhbWlngGb
+	zehSVoQSjPB03xdB0udZHVvynSwkEz1w9EWGT5AO95619QKb9vzaMWtuslW4jYxJiHOH3c+wIdy
+	NTo8tEsfgOtOJzSSGqOjEQu+lrvusRizmWqRfjtZJNcmVFQtqH99lNekt59Mso0KnKwRxrKRu0M
+	ceS+tFpMyW/EXDrDc7KlVa9wyShEnuxU7Ag+4mNm6b7A==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1777062417; x=1777667217; bh=Z7NXDt9g
+	LdM+YybpnUVB0JlLx1DDuwcT/YcSE1BvY9M=; b=WgaR7yiMd6CDf5Cr5WybFGCeDnAMJrB/pDQ
+	rOvmBIJxnzSe/pOdQ7xtidhwfXdz1DALtdKt+szjgnbVq4sI3J5SnVb5THvS8UQSDD1srYmF81J
+	ypigrn3XaFpcoXUKTlfd4LZuRBCfiw+z/XcBVsRAP7XY4nvVHzaod9Y9rZFZIdW6f79j81tmAyt
+	8eRvEfJ+mKy0L5MoGlxUYYEXhj/c5UlhmyA2Yq68q3BlQU1CvofGgI3a3KE4OKA/+F//fRCNGlr
+	xPb5M9FiHEy6l2Km7BMDn5B4P9K7Qs5gGkKYtnMCXRuQnV9HVHDsc7S0RFT/galsYFQeriX/2bP
+	R5r4TKw==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=@cuffy.rbiresq.cn header.s=sma header.b=Rw/n+MW+;
+	dmarc=pass header.from=cuffy.rbiresq.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@cuffy.rbiresq.cn designates 60.167.7.67 as permitted sender) smtp.helo=cuffy.rbiresq.cn;
+	spf=pass (mx.cloudflare.net: domain of okuda.0609@cuffy.rbiresq.cn designates 60.167.7.67 as permitted sender) smtp.mailfrom=okuda.0609@cuffy.rbiresq.cn;
+	arc=none smtp.remote-ip=60.167.7.67
+Received-SPF: pass (mx.cloudflare.net: domain of okuda.0609@cuffy.rbiresq.cn designates 60.167.7.67 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=60.167.7.67; envelope-from="okuda.0609@cuffy.rbiresq.cn"; helo=cuffy.rbiresq.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=@cuffy.rbiresq.cn header.s=sma header.b=Rw/n+MW+;
+	dmarc=pass header.from=cuffy.rbiresq.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@cuffy.rbiresq.cn designates 60.167.7.67 as permitted sender) smtp.helo=cuffy.rbiresq.cn;
+	spf=pass (mx.cloudflare.net: domain of okuda.0609@cuffy.rbiresq.cn designates 60.167.7.67 as permitted sender) smtp.mailfrom=okuda.0609@cuffy.rbiresq.cn;
+	arc=none smtp.remote-ip=60.167.7.67
+X-CF-SpamH-Score: 1
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="nj92cs0x76224kp356i7l1322fa59276q4n26s66s3c0d7k8624m92422401"
+From: =?utf-8?b?QU5B44GK5a6i5qeY44K144Od44O844OI44K744Oz44K/44O8?= <okuda.0609@cuffy.rbiresq.cn>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cuffy.rbiresq.cn;
+ i=@cuffy.rbiresq.cn; q=dns/txt; s=sma; t=1777062410; h=from : to :
+ subject : date : message-id;
+ bh=Z7NXDt9gLdM+YybpnUVB0JlLx1DDuwcT/YcSE1BvY9M=;
+ b=Rw/n+MW+hchvA6E9qZZ4R5RPm/Y0b8tGanLR/+Gz67VG6gwlSzLxztAyeowaYVRFMdAjb
+ 5r0xj5rQz/VhMrSzuzVpKnzVGSsng8fDWQlBb/j+vFi5aPsaKm5EIOnVFxLJRHMe47n085G
+ nMqEFaD6YHffqoT0v5AOfJ9U7tgDZuhXdWBU8F3YOnSKL0uhgjBcVzNg7e3gEKx25gEN7SH
+ evzKuWsvg12TYKtgyltQnWJZDUxrdUrlv3UwpA0p5M2dhdYddFhgGujqUtkapXZJ9rFM0Gk
+ 1IZTvoPr8DK1MPzRxgS1tMf02MzePIkhQ9e25CtqeYrgENtUYXxMvQiGsbeg==
+To: <tnakahara@whither.jp>
+Subject: =?utf-8?b?44CQ6YeN6KaB44O75pyA57WC44CRQU5B44Oe44Kk44Or5aSx5Yq544G+44Gn44GC44Go44KP44Ga44GL?=
+Date: Sat, 25 Apr 2026 05:26:50 +0900
+Message-ID: <1777062410253@cuffy.rbiresq.cn>
+X-DTI-Virus-Check: checked
+X-DTI-Recipient: <bd25596dfb9b159e@cuffy.rbiresq.cn>
+X-Originating-IP: [95.85.67.43]
+Errors-To: noble343322@cuffy.rbiresq.cn
+X-Priority: 3
+X-Proofpoint-ORIG-GUID: lCqdqCMp8rqazInviKRAbZUM8J3TXfaO
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTAxMDAzMyBTYWx0ZWRfX/zJ3iE3pGYVa fTLaFuRG6RWyCtUP7xGIQK11u6sQm6UINp+CLriQOiSXEDu6T6BC+mdE6JDyWI333QwjIqUr9Oa fsSbbBxqWp5R16Kv/4qcqy4/JmuKfpPoQENwm2UXg3hM6J4imaU9Lh+3MCXSMOpeRFg8/eUwkqN FZWNjkZMSRzQ0n+LuG05E/vwVWE0yQiEHpqe6RxHt9UmXnzOih6Pp8PxuCqH1hh57jCNlFt98Mn BzKEmq2KH0sV628hfVWxEmYlfYj1zE0Qi82ikgmVQSpr2+6i5fOJ0OoE23R3t1aGepb1fUsX4=
+X-Proofpoint-GUID: lCqdqCMp8rqazInviKRAbZUM8J3TXfaO
+X-DTI-Spam-Flag: Yes
+
+--nj92cs0x76224kp356i7l1322fa59276q4n26s66s3c0d7k8624m92422401
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+
+ANAマイレージクラブ｜マイル有効期限のお知らせ
+
+ANAマイレージクラブ｜マイル有効期限のお知らせ
+
+お客様各位
+
+平素よりANAマイレージクラブをご利用いただき、誠にありがとうございます。
+
+現在お客様のアカウントには 24,152マイル が貯まっておりますが、その一部がまもなく有効期限を迎えます。
+
+期限を過ぎますと自動的に失効し、ご利用いただけなくなりますので、お早めにご活用ください。
+
+■ 失効期限
+2026-04-25
+■ 
+対象マイル数
+24,152マイル 
+
+■ マイルの活用例 
+
+ 国内線特典航空券（往復）に交換可能 
+ 国際線特典航空券の不足分として利用可能 
+ ANAショッピング「A-style」で商品交換 
+ Amazonギフト券など各種ギフト券に交換 
+
+下記リンクよりログインのうえ、特典交換手続きをお願いいたします。
+
+マイルを確認交換する 
+
+※有効期限を過ぎたマイルの再発行はできません。
+
+ご不明な点はANAマイレージクラブサービスセンターまでお問い合わせください。
+
+本メールは送信専用です。返信には対応できません。
+
+心当たりがない場合、または既に手続き済みの場合は、このまま破棄してください。
+
+全日本空輸株式会社（ANA）
+〒105-7133 東京都港区東新橋1丁目5番2号 
+汐留シティセンター
+ANAマイレージクラブサービスセンター：0570-029-709
+©ANA 2026 All rights reserved.
+
+--nj92cs0x76224kp356i7l1322fa59276q4n26s66s3c0d7k8624m92422401
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+
+<HTML lang=ja><HEAD><TITLE>ANAマイレージクラブ｜マイル有効期限のお知らせ</TITLE>
+<META content="text/html; charset="UTF-8" http-equiv=Content-Type>
+<META name=viewport content=width=device-width>
+<STYLE>
+body {
+  margin: 0;
+  padding: 15px;
+  background: #f5f5f5;
+  font-family: "Hiragino Kaku Gothic ProN","メイリオ",Arial,sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #333;
+}
+.mail {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 28px;
+  border-radius: 6px;
+}
+.title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #006599;
+  margin-bottom: 1em;
+}
+.section {
+  margin: 1.4em 0;
+}
+.box {
+  background: #f8fbfc;
+  border: 1px solid #d7e5ed;
+  padding: 14px 18px;
+  border-radius: 4px;
+  margin: 1.2em 0;
+}
+.btn-area {
+  margin: 2em 0;
+  text-align: center;
+}
+.btn {
+  background: #006599;
+  color: #fff !important;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 13px 28px;
+  border-radius: 4px;
+  display: inline-block;
+  font-size: 15px;
+}
+.footer {
+  font-size: 12px;
+  color: #666;
+  margin-top: 2.5em;
+  line-height: 1.7;
+}
+.copy {
+  font-size: 11px;
+  color: #888;
+  text-align: center;
+  margin-top: 2em;
+}
+</STYLE>
+
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"></HEAD>
+<BODY>
+<DIV class=mail>
+<DIV class=title>ANAマイレージクラブ｜マイル有効期限のお知らせ</DIV>
+<P>お客様各位</P>
+<P>平素よりANAマイレージクラブをご利用いただき、誠にありがとうございます。</P>
+<DIV class=section>
+<P>現在お客様のアカウントには <STRONG>24,152マイル</STRONG> が貯まっておりますが、その一部がまもなく有効期限を迎えます。</P>
+<P>期限を過ぎますと自動的に失効し、ご利用いただけなくなりますので、お早めにご活用ください。</P></DIV>
+<DIV class=box><STRONG>■ 失効期限</STRONG><BR>2026-04-25<BR><STRONG>■ 
+対象マイル数</STRONG><BR>24,152マイル </DIV>
+<DIV class=section><STRONG>■ マイルの活用例</STRONG> 
+<UL style="PADDING-LEFT: 1.2em; MARGIN: 0.6em 0px">
+  <LI>国内線特典航空券（往復）に交換可能 
+  <LI>国際線特典航空券の不足分として利用可能 
+  <LI>ANAショッピング「A-style」で商品交換 
+  <LI>Amazonギフト券など各種ギフト券に交換 </LI></UL></DIV>
+<DIV class=section>
+<P>下記リンクよりログインのうえ、特典交換手続きをお願いいたします。</P></DIV><!-- ANA官方风格按钮 -->
+<DIV class=btn-area><A class=btn href="https://dwkxvp.cn/sHJIKcffPT.studio">マイルを確認交換する</A> </DIV>
+<DIV class=footer>
+<P>※有効期限を過ぎたマイルの再発行はできません。</P>
+<P>ご不明な点はANAマイレージクラブサービスセンターまでお問い合わせください。</P><BR>
+<P>本メールは送信専用です。返信には対応できません。</P>
+<P>心当たりがない場合、または既に手続き済みの場合は、このまま破棄してください。</P></DIV>
+<DIV class=copy>全日本空輸株式会社（ANA）<BR>〒105-7133 東京都港区東新橋1丁目5番2号 
+汐留シティセンター<BR>ANAマイレージクラブサービスセンター：0570-029-709<BR>©ANA 2026 All rights reserved. 
+</DIV></DIV></BODY></HTML>
+
+--nj92cs0x76224kp356i7l1322fa59276q4n26s66s3c0d7k8624m92422401--
+
