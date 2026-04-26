@@ -1,0 +1,259 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:c058:0:b0:261:85fe:9a8 with SMTP id m24csp5495705eic;
+        Sat, 25 Apr 2026 07:54:20 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ/zWR0CYtIykRC/ZLODTsF2FfwsiRc8zcvq5hZsUOiCl3m4cXJ7LS/bJAutOevILDgJQEEuqEdFrIRyZLDs4g==@gmail.com
+X-Received: by 2002:a17:907:6a16:b0:ba3:a8ef:3597 with SMTP id a640c23a62f3a-ba41aa1613bmr1998271066b.25.1777128859975;
+        Sat, 25 Apr 2026 07:54:19 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1777128859; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=gnygjFKk90R1HNimpTFD3bSSzVszuzSckjWuCuhsUVHxmWvaoK1A6095CG7yRY3JKd
+         DOzJLYebLI/Bd/VwJ+SJyyk2d5C8+j/NvGugsEtibaTdGg2JXA07uTLXiiREJLOhcxo1
+         DY6Y/RxF9nj2eNxDkxQjnV8JYRDSJ1PjwMTBCcYA0HGmNh0gnG6sg2FkVc9XMm/WibBY
+         ErgoPM4a73fpyAkcommhXcP+o+7/3rK+I0Xev38T1xb4oA7AaECbOdu9CmYsUTl+55bU
+         ePCtqTrImgmHbrkiDDvpUewzj0wNhL47yaigRMo2gvhfi9NgfEsO43kyby8cv5aUKbGy
+         LVwQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=errors-to:message-id:date:subject:to:dkim-signature:from
+         :mime-version:feedback-id:dkim-signature:dkim-signature;
+        bh=nwdMUTF1MDZnYutlF/iW6EtzZnZ8aMvDO3LAnXYHC6c=;
+        fh=ENXOhFKW7CT4pn4Lz1vO6o5YQQdiV/Ih3E4yEdfzxpY=;
+        b=AXShYEzjo0wY88qj10imZwEFgYNAdSfy3XrInBrYOW2zL/JouzkCqDv68OP1gyz4fl
+         2S7rs6nZXgORPHFSY055E8L0Spccnms5LnN+owXmgF0FqhjkhcY3j5uAKaRGUK/kSRxV
+         18YrIH4nuW/PjmIIiwwfEHxb4vhlV+KNeomIdU4rBpJ3K1VNfN3C5AEgfx2nWQDiiPVv
+         7bABEJmKX6R5t/KcYU8PCHWJbzU+08w6FQw6h5EOt5aDraSeKW8HbE2h6ChiVKv1re6P
+         /n7dszjSJVVQkBj2OfaGtS+OnpCUPd28GDEY1U/jk6zwywuiLszmnJYksGlXJQTamJvx
+         LMxQ==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=TLFb0TGF;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b="B/ijzCZi";
+       dkim=pass header.i=@jilt.obcrgrg.cn header.s=ahsan header.b=VJAmUFma;
+       arc=pass (i=1 spf=pass spfdomain=jilt.obcrgrg.cn dkim=pass dkdomain=jilt.obcrgrg.cn dmarc=pass fromdomain=jilt.obcrgrg.cn);
+       spf=pass (google.com: domain of srs0=5cji=yc=jilt.obcrgrg.cn=kumemasaru.mitaka@whither.jp designates 104.30.10.103 as permitted sender) smtp.mailfrom="SRS0=5CJI=yc=jilt.obcrgrg.cn=kumemasaru.mitaka@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=obcrgrg.cn
+Return-Path: <SRS0=5CJI=yc=jilt.obcrgrg.cn=kumemasaru.mitaka@whither.jp>
+Received: from ba-bad.cloudflare-email.net (ba-bad.cloudflare-email.net. [104.30.10.103])
+        by mx.google.com with ESMTPS id a640c23a62f3a-ba455c28573si1261975266b.312.2026.04.25.07.54.18
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 25 Apr 2026 07:54:19 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=5cji=yc=jilt.obcrgrg.cn=kumemasaru.mitaka@whither.jp designates 104.30.10.103 as permitted sender) client-ip=104.30.10.103;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=TLFb0TGF;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b="B/ijzCZi";
+       dkim=pass header.i=@jilt.obcrgrg.cn header.s=ahsan header.b=VJAmUFma;
+       arc=pass (i=1 spf=pass spfdomain=jilt.obcrgrg.cn dkim=pass dkdomain=jilt.obcrgrg.cn dmarc=pass fromdomain=jilt.obcrgrg.cn);
+       spf=pass (google.com: domain of srs0=5cji=yc=jilt.obcrgrg.cn=kumemasaru.mitaka@whither.jp designates 104.30.10.103 as permitted sender) smtp.mailfrom="SRS0=5CJI=yc=jilt.obcrgrg.cn=kumemasaru.mitaka@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=obcrgrg.cn
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1777128859; x=1777733659; bh=nwdMUTF1MDZnYutlF/
+	iW6EtzZnZ8aMvDO3LAnXYHC6c=; b=TLFb0TGFXxXTRBTlf03o49N487Ql0oR/3NOFQIhnStxM9
+	omlISjKAnLIeHJRCBL7ARNxp1PeaPPtFzUich43mbac8zYLYRHFoxg8hOqSk9uIHDqfp+0rF5A7
+	sjBxNrxzjpoUGJD9yfJlrs8zF0r35Y66Iimc8pxslYL1aaSiWL20Jw3lo+hDOMrCMjl22lgHukn
+	vf3JY2CA24AB95JtnRVOjintpFIgWPUR6akxxIrY71KRNuVfsGIU6QhsRfg344ah9163jTNBjGJ
+	KyvqCT4pOQUlcXXLvBXHruDfXOiZkTqOsugLo2cFdVOf/rq0tMLfvZC8jqtdfyM324NwXT5Q==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1777128859; x=1777733659; bh=nwdMUTF1MDZnYutlF/
+	iW6EtzZnZ8aMvDO3LAnXYHC6c=; b=B/ijzCZinJa6L7fcKhgqc8AWYtdn7xDSMud0TlGCS+KCT
+	awLJ08gKUVmTXiywVh611lL745aq7DOEbHc6EHy6NSDrwBr5hD9cXeuFBbZeNYtY8nJ1obLEmgb
+	feUf73FLFce9i7q7NQY4dsI6qyqNo+d4NxycSij/gFTdadrsNZyMwd6ochvzDTob93awLV2DKHh
+	9NaKAGc0kzXlv5T+/CavYE/KlLMw1KWfjEtPHyCJhhnfE8sgiHzEdEcrPv6UDpoAKBff1Ric3aU
+	u0Zde5wHfrUF8KJ3GIf5aZqOk2Wi+QSW52fO8hCmtPnRuWP6T0k00/9OlCgwcvkdsa8P6J6Q==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: penguin@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from jilt.obcrgrg.cn (114.97.93.221)
+        by cloudflare-email.net (cloudflare) id OxV4xyppnxyc
+        for <penguin@whither.jp>; Sat, 25 Apr 2026 14:54:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=EnfRQMtPJ5S9O1Lsgq/H1L6EPEDHO7jsFRbaW4fBteHCQ2NcOiPZYOxjMzZi6ZWi6NYagW6mJ
+	dd2Qguv8ZTIGqYZBTiURod5gZZZlBixl31KFyaTkubniLU1WrtjcHEYC6iOjyCPFASeb5nbMWm8
+	982XW4J5Bx2ly8X4zIlwybkIIZNuWfG0X00Co64yyxgraHM3fUaHvhW4Nwjryass3r7VaoCmwOE
+	RvSGkhiBpivcVuZBlEZ7mvazVt7+hd5X3h/NutUabr2HZYfgMOFbfj3FDD2peyojCyu89FzRgsn
+	ScUk3WkD1MX4HMVOMGOUxu35fPyaGVKYs+OXCZP7Ix9A==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1777128857; x=1777733657; bh=nwdMUTF1
+	MDZnYutlF/iW6EtzZnZ8aMvDO3LAnXYHC6c=; b=GwfNiDYCYC/WyrqNoEHto6MBunTpE9bIldV
+	CJna6A/cK7jdYNIXaLh/bJY4I6jKIjZ3Q1Pw/GTKh9060eqhSCYh4HXb2OyGdlq3MEP3SiQtg5d
+	AjIWAp9fyd2NWQtmp+kU0D2mLgb58QhuvDxADH8Vou0mKLYPE7tg4dcgx5JaY9nHCl+3gq17Bse
+	xBxbwLUevq3Lhtj4tth/QerdEYjsniC97OOTf6h68VIP4b4qa3/hYzuv4n8rUQvwHouZMNU53tz
+	MLahvb2UFSm5U9kg0NA0NR3e3f6u4a0H+EQetJbSA1k+N/CUZ7RqXRpquDO5kScUv4wAAJuqxAt
+	wqzVSTA==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=@jilt.obcrgrg.cn header.s=ahsan header.b=VJAmUFma;
+	dmarc=pass header.from=jilt.obcrgrg.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@jilt.obcrgrg.cn designates 114.97.93.221 as permitted sender) smtp.helo=jilt.obcrgrg.cn;
+	spf=pass (mx.cloudflare.net: domain of kumemasaru.mitaka@jilt.obcrgrg.cn designates 114.97.93.221 as permitted sender) smtp.mailfrom=kumemasaru.mitaka@jilt.obcrgrg.cn;
+	arc=none smtp.remote-ip=114.97.93.221
+Received-SPF: pass (mx.cloudflare.net: domain of kumemasaru.mitaka@jilt.obcrgrg.cn designates 114.97.93.221 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=114.97.93.221; envelope-from="kumemasaru.mitaka@jilt.obcrgrg.cn"; helo=jilt.obcrgrg.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=@jilt.obcrgrg.cn header.s=ahsan header.b=VJAmUFma;
+	dmarc=pass header.from=jilt.obcrgrg.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@jilt.obcrgrg.cn designates 114.97.93.221 as permitted sender) smtp.helo=jilt.obcrgrg.cn;
+	spf=pass (mx.cloudflare.net: domain of kumemasaru.mitaka@jilt.obcrgrg.cn designates 114.97.93.221 as permitted sender) smtp.mailfrom=kumemasaru.mitaka@jilt.obcrgrg.cn;
+	arc=none smtp.remote-ip=114.97.93.221
+X-CF-SpamH-Score: 2
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="wwg73d991dc70978hx649t343ll8ihl8227e026bcs978acg811m84tk7317"
+From: "Amazon.co.jp" <kumemasaru.mitaka@jilt.obcrgrg.cn>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jilt.obcrgrg.cn;
+ i=@jilt.obcrgrg.cn; q=dns/txt; s=ahsan; t=1777128846; h=from : to :
+ subject : date : message-id;
+ bh=nwdMUTF1MDZnYutlF/iW6EtzZnZ8aMvDO3LAnXYHC6c=;
+ b=VJAmUFma+HExfk5nkqUEllMLDs2kwi1AuWwVkGQvbZgmeu/DhtHCQSiSBS1PGC4WDKjOR
+ uhudyeR8ORlfhn6wJNw6AaV0y6RsfrEeVtOuh8tf8XErIt3XZnbO/PwJIRhsZlgEw98oB+Q
+ LV9/58Fc0yxhggJfQxaBkkXDes3hkQOCFd0AR7vW4mgJwZepivN/DCLgghUmoc4v+2YOMSE
+ 5Qm5CkpE2PvKOv6JjXLr+Qbggob7CYK1asvSqqYW3aVY3mV0UOnwnxqzF54WOVa+5g2X0BU
+ qchwfTb0WKusGDce2gRQc43rRc55CYomYrhamg46Q8hvGknIiqNpWA2Arl3w==
+To: <penguin@whither.jp>
+Subject: =?utf-8?b?44CQ6YeN6KaB44CRUHJpbWXjga7lrprmnJ/jgqLjg4Pjg5fjg4fjg7zjg4jjgavjgaTjgYTjgabjga7jgYrnn6XjgonjgZs=?=
+Date: Sat, 25 Apr 2026 23:54:06 +0900
+Message-ID: <1777128846116@jilt.obcrgrg.cn>
+X-DTI-Virus-Check: checked
+X-DTI-Recipient: <bda3578e1806f1@jilt.obcrgrg.cn>
+X-Priority: 3
+X-Originating-IP: [99.77.243.81]
+Errors-To: three211796@jilt.obcrgrg.cn
+X-Proofpoint-ORIG-GUID: pKgxMFuMxWOQ5D4hIbRgJLbPMTqapbPf
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjI0MDAxNSBTYWx0ZWRfXwFXYPxF2zMz1 iy5lhxy/vg3E1P1IgZRZvZEEsDbLFxc2X6qqudrwJ1S9IPQ4ugGtW6ZKZM+nGulOgO/bQHYwyNZ yobqCpMDFzUAajr4wtr+JqLU0ziz3HiwErA4EQfAkfzbzftWX0PjDZasaYqhUhYkE/lyGzF79E4 cp2lAnPHg223Gxc3IlaDD1MdtQeIo8/W2scaSByI11hpRieMpWqUAKmIoK7vGHnaiu883Xht3Jn 4PPaq+7aFnHatXi/PHljtlIlLtwCs4UJKYNqChB3eiXtjslMXBAQ==
+X-Proofpoint-GUID: pKgxMFuMxWOQ5D4hIbRgJLbPMTqapbPf
+
+--wwg73d991dc70978hx649t343ll8ihl8227e026bcs978acg811m84tk7317
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+
+Amazonプライム お支払い方法の確認
+
+Amazonプライム お支払い方法の確認
+
+プライム会員資格の確認について
+
+現在、お客様のアカウントにてプライム会費の決済が確認できなかったため、プライム特典が一時的に利用停止となっております。
+
+引き続きプライム特典をご利用いただくため、お支払い方法の確認・更新をお願いいたします。
+
+お支払い情報の確認が完了し次第、会員資格は自動的に再開されます。 
+
+お支払い方法を確認更新する 
+
+ご不明な点はカスタマーサービスまでお問い合わせください。
+
+送信者：アマゾンジャパン合同会社
+
+会社情報 | プライバシー規約
+
+© 2025 Amazon.com, Inc. All rights 
+reserved.
+Amazon、Amazon.co.jp は Amazon.com, Inc. またはその関連会社の商標です。
+
+--wwg73d991dc70978hx649t343ll8ihl8227e026bcs978acg811m84tk7317
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+
+<HTML lang=ja><HEAD><TITLE>Amazonプライム お支払い方法の確認</TITLE>
+<META charset="UTF-8">
+<META name=viewport content=width=device-width,initial-scale=1.0>
+<STYLE>
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #f3f3f3;
+    font-family: "Hiragino Kaku Gothic ProN", "メイリオ", Verdana, sans-serif;
+    color: #333;
+  }
+  .page {
+    max-width: 600px;
+    margin: 20px auto;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .header {
+    background-color: #131921;
+    color: #fff;
+    padding: 16px 24px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .content {
+    padding: 30px 26px;
+  }
+  .content h2 {
+    font-size: 16px;
+    color: #111;
+    margin-bottom: 16px;
+  }
+  .content p {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 14px;
+  }
+  .btn-area {
+    margin: 28px 0;
+  }
+  .btn {
+    display: inline-block;
+    background-color: #ff9900;
+    color: #111 !important;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  .info-box {
+    background: #f7f7f7;
+    border-left: 4px solid #ff9900;
+    padding: 14px 16px;
+    font-size: 13px;
+    margin: 20px 0;
+  }
+  .footer {
+    background: #f7f7f7;
+    padding: 22px 26px;
+    font-size: 12px;
+    color: #555;
+    border-top: 1px solid #eee;
+  }
+  .footer a {
+    color: #0066c0;
+    text-decoration: none;
+  }
+  .copyright {
+    padding: 16px;
+    text-align: center;
+    font-size: 11px;
+    color: #777;
+  }
+</STYLE>
+
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"></HEAD>
+<BODY>
+<DIV class=page>
+<DIV class=header>Amazonプライム お支払い方法の確認</DIV>
+<DIV class=content>
+<H2>プライム会員資格の確認について</H2>
+<P>現在、お客様のアカウントにてプライム会費の決済が確認できなかったため、プライム特典が一時的に利用停止となっております。</P>
+<P>引き続きプライム特典をご利用いただくため、お支払い方法の確認・更新をお願いいたします。</P>
+<DIV class=info-box>お支払い情報の確認が完了し次第、会員資格は自動的に再開されます。 </DIV>
+<DIV class=btn-area><A class=btn href="https://pvexiro.cn/a3SrwDu71r.promo">お支払い方法を確認更新する</A> </DIV>
+<P>ご不明な点は<A href="https://pvexiro.cn/kIOaYxwhtt.japan.com">カスタマーサービス</A>までお問い合わせください。</P></DIV>
+<DIV class=footer>
+<P>送信者：アマゾンジャパン合同会社</P>
+<P><A href="https://ygwpnrj.cn/HBBAQGPyuL.education">会社情報</A> | <A href="https://pvexiro.cn/Fi4XZFbdDW.co.jp">プライバシー規約</A></P></DIV>
+<DIV class=copyright>© 2025 Amazon.com, Inc. All rights 
+reserved.<BR>Amazon、Amazon.co.jp は Amazon.com, Inc. またはその関連会社の商標です。 
+</DIV></DIV></BODY></HTML>
+
+--wwg73d991dc70978hx649t343ll8ihl8227e026bcs978acg811m84tk7317--
+
