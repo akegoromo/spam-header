@@ -1,0 +1,272 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:c058:0:b0:261:85fe:9a8 with SMTP id m24csp5311122eic;
+        Sat, 25 Apr 2026 00:13:23 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ/CEqyenF+2xjpzY4dmnAhJ8bOtT+ZIc5PZIM8FG+xdKZmpT1yrLMrCt+wLgsL7WuytSsRIuI3U0y4BTdKPRg==@gmail.com
+X-Received: by 2002:a05:6402:1cc2:b0:670:13a3:646a with SMTP id 4fb4d7f45d1cf-672bfdd2090mr15651878a12.15.1777101203008;
+        Sat, 25 Apr 2026 00:13:23 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1777101203; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=CmUv+dSsetceILF21VSSnv28auRNm6GoFr4J5AU1QYbasiij4qtMKyqDn39bdFSstV
+         0ioAaIn9ES9foJhCMV5Su7sgZdkmeJebId1lZ5lM3mBfjO6Is3VFZEEZe3P9+xvC+h+p
+         3kQcw7jeUts6LWX5ccljqXbxIhuA09Ff234e1qQygZ8fq1P0M/kBr0hrIs0s9Tr8rDHg
+         id+FWE5ZVB/qDkXPKrLQxEnfYCigeQSURg1bFcuD/mrID48qfBBBHtoLHGJLH+bGY2LI
+         AdDpNQfMfnRx2BSADH10I23ROElOvCvmAgeZbnUIxbu35zDFRldgAccV/vIpnIc5fZLE
+         PQKw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=message-id:date:subject:to:dkim-signature:from:mime-version
+         :content-transfer-encoding:feedback-id:dkim-signature:dkim-signature;
+        bh=Kv7boajvJE8tLsbMtPCFsj9PX1qy3q8Vk5jwITHCrQc=;
+        fh=LnGVlAla77Gyfiw8zkzbOhaVlqYgEu27l8ujdfvsIGY=;
+        b=KdCsbrKdc6h4ZTWVSyRma4hPbZ6k7cTFMFVcGijFzKKk5guQw8BvqTCzmbEsavnhob
+         peT4LGjDZIyieQMTDv6Bfdt0Sag0d5ou6XCqM0knVPtEPGC/Z5nuty0xAk/drkG24WlQ
+         RhR95xBeDkFyw3fMAOYkS/mqnqtqfnIt9/3k3ZBEEAiXbVckuwZI/xk/oRZjJ+cY2+ZS
+         KuOk242BRAjWw01xOK5orjeAdGbP34i/+oWDKCmke0tdJ15H74/9abbUXKJfc0tmrK0I
+         SFO8pTFf+0YxteB6pW3yl6QXBTcx8u+DiDeYr39uFsp2lgru1iqrftm1EgZAagkL4w+p
+         RPOg==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=UeDxDbZu;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=NaAauojK;
+       dkim=pass header.i=@echo.token-iol.cn header.s=garse header.b=Tb2UfcK+;
+       arc=pass (i=1 spf=pass spfdomain=echo.token-iol.cn dkim=pass dkdomain=echo.token-iol.cn dmarc=pass fromdomain=echo.token-iol.cn);
+       spf=pass (google.com: domain of srs0=plr_=yc=echo.token-iol.cn=akiratoyonaga_2019@whither.jp designates 104.30.8.43 as permitted sender) smtp.mailfrom="SRS0=PLr_=yc=echo.token-iol.cn=akiratoyonaga_2019@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=token-iol.cn
+Return-Path: <SRS0=PLr_=yc=echo.token-iol.cn=akiratoyonaga_2019@whither.jp>
+Received: from i-ed.cloudflare-email.net (i-ed.cloudflare-email.net. [104.30.8.43])
+        by mx.google.com with ESMTPS id 4fb4d7f45d1cf-672c4d706fdsi11130532a12.178.2026.04.25.00.13.21
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 25 Apr 2026 00:13:21 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=plr_=yc=echo.token-iol.cn=akiratoyonaga_2019@whither.jp designates 104.30.8.43 as permitted sender) client-ip=104.30.8.43;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=UeDxDbZu;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=NaAauojK;
+       dkim=pass header.i=@echo.token-iol.cn header.s=garse header.b=Tb2UfcK+;
+       arc=pass (i=1 spf=pass spfdomain=echo.token-iol.cn dkim=pass dkdomain=echo.token-iol.cn dmarc=pass fromdomain=echo.token-iol.cn);
+       spf=pass (google.com: domain of srs0=plr_=yc=echo.token-iol.cn=akiratoyonaga_2019@whither.jp designates 104.30.8.43 as permitted sender) smtp.mailfrom="SRS0=PLr_=yc=echo.token-iol.cn=akiratoyonaga_2019@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=token-iol.cn
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1777101201; x=1777706001; bh=Kv7boajvJE8tLsbMtP
+	CFsj9PX1qy3q8Vk5jwITHCrQc=; b=UeDxDbZuVLMCA8Cd1g6psam96PNXVtLwAWpsndgd8TUSL
+	euIjTdw5zOWkvRPZ2S2Cofn4A50/zn1MeEuBY+hXP6VUIoTDpCCVo+UOq4hWLR2N+LVFJvHmWCW
+	j8ILyoYjwRboOqk3VmNhZ7P/zigZYp/UubyvKSqtE6XcEERjZV9ZjTUT+jmF6AHZvvjuSVoq1Nt
+	RX5JX/6lONosSjXigR9v+z+cTDF/rJ/wNKMijCIZA6ZYdzoPPxsRngG06b80VCXr/psqsRRP28q
+	Tfcjyi20v39hspDjvy02RIe2aSkAI5rSp2kkNSv19+JTEhKPurXd1n/nkqpdI+q9LXSaMdzw==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1777101201; x=1777706001; bh=Kv7boajvJE8tLsbMtP
+	CFsj9PX1qy3q8Vk5jwITHCrQc=; b=NaAauojKvQ5E10iTTzZBoZ/keqeaE7WNXebdFVy++sfs2
+	jjMm+dA9l0MWkzGeRj/fv2N7XFcvAKoftNAtn/XRFvi+u69qyvihvkAafMJG5hepx6vPdjpsSA5
+	NjzvXXCnUjU/vw8Qvhn1pmOTKvyr00apTpo/9SwxNvM0GAEn6CSUCZLHTlzeBT3V9Zrn3QA5+9U
+	DQcAodiq5A3Wuokslr/U0m3a6qDIX2B1qxlrC7OhHx6ENlF84vf7nXcKZPavwHnwlbCNLxNL9we
+	nh/Q+tit3tZ43hQWzL/pEr/ID40ZoOlskmFWfVHb0smlG47rTBxehSJCpaMu76zC86m8O+Iw==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: tnakahara@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from echo.token-iol.cn (218.86.66.172)
+        by cloudflare-email.net (cloudflare) id UqrKZggSGUgB
+        for <tnakahara@whither.jp>; Sat, 25 Apr 2026 07:13:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=cm+6NWPemqP8jfledIiiB2dJoMmW9sUaz1OH9e3aq6qvQdWGBVI6e49OfJllrhPs53UWgTht6
+	lwBm+KKuRckiYD71PEtVEwOCZv/nlOkTnjyl0FhdzCIbUkQSy8gblp8fwvZGNgUdn5P/efHSozq
+	zp5DEYJnaSWS62VcafvvyQ30+07W6NjU5OxIoVa4JjVeUXrPhce9YFPyrjVqUW6ttGDbPAQUk98
+	a/S5B6MIyZbObQEjR3Flw7lohoj+/+UpBkoP4xshy4za7J434+OVbsuyAMCeFF3wJLVzr8MVteX
+	86SLnlES6k0b2VlqjnnkBJf1XKfxYGukzPzC8Uc2J6rw==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1777101201; x=1777706001; bh=Kv7boajv
+	JE8tLsbMtPCFsj9PX1qy3q8Vk5jwITHCrQc=; b=ddux1G1q3nCRmuNBNLHHCnUU5vPmAWEtuWV
+	0NCsO3xYKkrbyVUSfxgqIUqPyFsG7mwtFWj0qZ5QKOegcEmdyfFlshdzXUT2aZ6euL9/HwsGi6g
+	bf0yJYkPTzda96eu7ai6lCrVpR1abZl0RTl+en46ukefNUgc6qWmOCixWJb04+SkLYzOGZPqxIT
+	vLkWlfBpD2F8MySNaekNe42VAhZIsgZzc/AAdhdIlSUa5JUGn4pl9v78C1lZLTWPlZEc3KSUjbW
+	bQoe3ewhP4LI65DD3l4xnrR+9mCgzqFlJTpbeZ+D3RUfNJ4SBD9IR/lBD48OkqVxwWEZjQVhC7F
+	D2rG9HA==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=@echo.token-iol.cn header.s=garse header.b=Tb2UfcK+;
+	dmarc=pass header.from=echo.token-iol.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@echo.token-iol.cn designates 218.86.66.172 as permitted sender) smtp.helo=echo.token-iol.cn;
+	spf=pass (mx.cloudflare.net: domain of akiratoyonaga_2019@echo.token-iol.cn designates 218.86.66.172 as permitted sender) smtp.mailfrom=akiratoyonaga_2019@echo.token-iol.cn;
+	arc=none smtp.remote-ip=218.86.66.172
+Received-SPF: pass (mx.cloudflare.net: domain of akiratoyonaga_2019@echo.token-iol.cn designates 218.86.66.172 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=218.86.66.172; envelope-from="akiratoyonaga_2019@echo.token-iol.cn"; helo=echo.token-iol.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=@echo.token-iol.cn header.s=garse header.b=Tb2UfcK+;
+	dmarc=pass header.from=echo.token-iol.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@echo.token-iol.cn designates 218.86.66.172 as permitted sender) smtp.helo=echo.token-iol.cn;
+	spf=pass (mx.cloudflare.net: domain of akiratoyonaga_2019@echo.token-iol.cn designates 218.86.66.172 as permitted sender) smtp.mailfrom=akiratoyonaga_2019@echo.token-iol.cn;
+	arc=none smtp.remote-ip=218.86.66.172
+X-CF-SpamH-Score: 2
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+From: =?utf-8?b?44Oo44OJ44OQ44K344O744OJ44OD44OI44O744Kz44Og?= <akiratoyonaga_2019@echo.token-iol.cn>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=echo.token-iol.cn; i=@echo.token-iol.cn; q=dns/txt; s=garse;
+ t=1777101193; h=from : to : subject : date : message-id;
+ bh=Kv7boajvJE8tLsbMtPCFsj9PX1qy3q8Vk5jwITHCrQc=;
+ b=Tb2UfcK+tk+s8v1shs51taeEW3PVh+s4P8hydLKg5dIvhFv/30EvGZvV+7q0NVlAKST6D
+ aP9SmzEJP+wXpzfMH7QIQPfUTVZe0U1xXJn5uIBUgNedIttbnkQKVwzWiI+v9q8MVuz6Esz
+ 74EXJLBdqQ/sDjtZgIcXROhudupD2KUGMUH3GzigaBjsPTQvi0DFYg4WFZqdTjHfdFl8khP
+ DjeCEGhVnVySbc+cDWMgWkJeA1k+LU3F8ytR0AiZZooAiuJyVQx/3H5d3AOlIjZf/2J1lBX
+ JVVh7JfP0PgRAYd21jcXMoiexOYTk96ptEqSYCELpYSiyDW5Hn6TMALD3TtA==
+To: <tnakahara@whither.jp>
+Subject: =?utf-8?b?44Oo44OJ44OQ44K344OJ44OD44OI44Kz44Og77ya44CM44GK5a6i5qeY5oOF5aCx44CN5aSJ5pu05L6d6aC85Y+X5LuY44Gu44GU6YCj57Wh?=
+Date: Sat, 25 Apr 2026 16:13:13 +0900
+Message-ID: <17717a5g623b0yffe1z94e9h2gum740h@echo.token-iol.cn>
+X-Mailer: Gqaxddz Ofdsyhrew 2.5
+X-DTI-Virus-Check: checked
+X-DTI-Recipient: <038ee6f7h@echo.token-iol.cn>
+X-Priority: 3
+X-Proofpoint-GUID: ghB1b3ke-HuJ8gh5NXwvHL_JrjIh_484
+X-Proofpoint-ORIG-GUID: ghB1b3ke-HuJ8gh5NXwvHL_JrjIh_484
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDE3MDE4NCBTYWx0ZWRfX8MrYh9D0vwic gAiqMYMXYlfwDRkXEbZ44ZvFSJO8YbJgF+74ZkGgJBMu/r1fB+TqVyrYrIjBRe4dcxId5hGmTTb JwfeWWJOL+9p3vXQys8reZAY0Id20lH5uEI5FN9iqYO8JIJFcaYxgLttawnP1tHYPV7043WEeQj /lyP1w3xv1lPTUJMrlSsrhBFthnReJUxyWtKUz+f28+6doxSyG9YS82UGCPpNLJNJA8zG7iyZF5 OwrEy5kpkx2JR96iIqBExKQ+bm8Nqhy2Wu34AFHyPE6tjg0ZRDaA==
+
+<HTML lang=3Dja><HEAD><TITLE>=E3=80=90=E3=83=A8=E3=83=89=E3=83=90=E3=82=B7=E3=82=AB=E3=83=A1=E3=83=A9=E3=80=91=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E3=81=94=E7=A2=BA=E8=AA=8D=E3=81=AE=E3=81=8A=E9=A1=98=E3=81=84</TITLE>
+<META content=3D"text/html; charset=3D"UTF-8" http-equiv=3DContent-Type>
+<META name=3Dviewport content=3D"width=3Ddevice-width, initial-scale=3D1.0">
+<STYLE type=3Dtext/css>
+ body {
+ margin: 0;
+ padding: 0;
+ background-color: #f2f3f5;
+ font-family: "Hiragino Kaku Gothic ProN","=E3=83=A1=E3=82=A4=E3=83=AA=E3=82=AA",sans-serif;
+ color: #333333;
+ line-height: 1.8;
+ }
+ table {
+ border-collapse: collapse;
+ }
+ .mail-wrapper {
+ width: 100%;
+ padding: 40px 0;
+ background-color: #f2f3f5;
+ }
+ .mail-container {
+ width: 660px;
+ margin: 0 auto;
+ background-color: #ffffff;
+ border: 1px solid #d9d9d9;
+ }
+ .header {
+ background-color: #00499A;
+ color: #ffffff;
+ font-size: 18px;
+ font-weight: bold;
+ padding: 20px 30px;
+ }
+ .body {
+ padding: 32px 36px;
+ font-size: 14px;
+ }
+ .body p {
+ margin: 0 0 16px 0;
+ }
+ .alert {
+ background-color: #FFF5F5;
+ border-left: 4px solid #D93026;
+ padding: 14px 18px;
+ margin: 20px 0;
+ font-size: 13px;
+ }
+ .info-table {
+ width: 100%;
+ border: 1px solid #dddddd;
+ margin: 20px 0;
+ font-size: 13px;
+ }
+ .info-table th {
+ background-color: #F8F8F8;
+ text-align: left;
+ width: 35%;
+ padding: 8px 12px;
+ border-bottom: 1px solid #dddddd;
+ font-weight: normal;
+ color: #555;
+ }
+ .info-table td {
+ padding: 8px 12px;
+ border-bottom: 1px solid #dddddd;
+ }
+ .cta {
+ text-align: center;
+ margin: 30px 0;
+ }
+ .cta a {
+ background-color: #D93026;
+ color: #ffffff;
+ text-decoration: none;
+ font-weight: bold;
+ font-size: 14px;
+ padding: 12px 40px;
+ border-radius: 2px;
+ display: inline-block;
+ }
+ .note {
+ border-top: 1px solid #e0e0e0;
+ margin-top: 24px;
+ padding-top: 18px;
+ font-size: 13px;
+ }
+ .footer {
+ background-color: #f6f6f6;
+ border-top: 1px solid #cccccc;
+ padding: 20px 30px;
+ font-size: 12px;
+ color: #777777;
+ text-align: center;
+ }
+ .footer p {
+ margin: 4px 0;
+ }
+</STYLE>
+
+<META name=3DGENERATOR content=3D"MSHTML 11.00.10570.1001"></HEAD>
+<BODY>
+<TABLE class=3Dmail-wrapper cellSpacing=3D0 cellPadding=3D0 width=3D"100%">
+  <TBODY>
+  <TR>
+    <TD align=3Dcenter>
+      <TABLE class=3Dmail-container cellSpacing=3D0 cellPadding=3D0 width=3D660>
+        <TBODY>
+        <TR>
+          <TD class=3Dheader>=E3=80=90=E3=83=A8=E3=83=89=E3=83=90=E3=82=B7=E3=82=AB=E3=83=A1=E3=83=A9=E3=80=91=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E3=81=94=E7=A2=BA=E8=AA=8D=E3=81=AE=E3=81=8A=E9=A1=98=E3=81=84</TD></TR>
+        <TR>
+          <TD class=3Dbody>
+            <P>=E5=B9=B3=E7=B4=A0=E3=82=88=E3=82=8A=E3=83=A8=E3=83=89=E3=83=90=E3=82=B7=E3=83=89=E3=83=83=E3=83=88=E3=82=B3=E3=83=A0=E3=82=92=E3=81=94=E5=88=A9=E7=94=A8=E3=81=84=E3=81=9F=E3=81=A0=E3=81=8D=E3=80=81=E8=AA=A0=E3=81=AB=E3=81=82=E3=82=8A=E3=81=8C=E3=81=A8=E3=81=86=E3=81=94=E3=81=96=E3=81=84=E3=81=BE=E3=81=99=E3=80=82</P>
+            <P>2026=E5=B9=B44=E6=9C=883=E6=97=A5=E6=99=82=E7=82=B9=E3=81=A7=E3=80=81=E3=81=8A=E5=AE=A2=E6=A7=98=E3=81=AE=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E3=81=AB=E3=81=8A=E3=81=84=E3=81=A6=E9=80=9A=E5=B8=B8=E3=81=A8=E3=81=AF=E7=95=B0=E3=81=AA=E3=82=8B=E3=82=A2=E3=82=AF=E3=82=BB=E3=82=B9=E3=82=92=E6=A4=9C=E5=87=BA=E3=81=84=E3=81=9F=E3=81=97=E3=81=BE=E3=81=97=E3=81=9F=E3=80=82</P>
+            <DIV=20
+            class=3Dalert>=E3=82=BB=E3=82=AD=E3=83=A5=E3=83=AA=E3=83=86=E3=82=A3=E4=BF=9D=E8=AD=B7=E3=81=AE=E3=81=9F=E3=82=81=E3=80=81=E4=BB=A5=E4=B8=8B=E3=82=88=E3=82=8A=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E6=83=85=E5=A0=B1=E3=81=AE=E3=81=94=E7=A2=BA=E8=AA=8D=E3=82=92=E3=81=8A=E9=A1=98=E3=81=84=E3=81=84=E3=81=9F=E3=81=97=E3=81=BE=E3=81=99=E3=80=82<BR>=E7=A2=BA=E8=AA=8D=E3=81=8C=E5=AE=8C=E4=BA=86=E3=81=99=E3=82=8B=E3=81=BE=E3=81=A7=E3=80=81=E4=B8=80=E9=83=A8=E6=A9=9F=E8=83=BD=E3=81=AE=E5=88=A9=E7=94=A8=E3=81=8C=E5=88=B6=E9=99=90=E3=81=95=E3=82=8C=E3=82=8B=E5=A0=B4=E5=90=88=E3=81=8C=E3=81=94=E3=81=96=E3=81=84=E3=81=BE=E3=81=99=E3=80=82=20
+            </DIV>
+            <TABLE class=3Dinfo-table>
+              <TBODY>
+              <TR>
+                <TH>=E5=AF=BE=E8=B1=A1=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88</TH>
+                <TD>tnakahara@whither.jp</TD></TR>
+              <TR>
+                <TH>=E6=A4=9C=E5=87=BA=E6=97=A5=E6=99=82</TH>
+                <TD>2026-04-25 15:13:13 </TD></TR>
+              <TR>
+                <TH>=E6=A4=9C=E5=87=BA=E5=86=85=E5=AE=B9</TH>
+                <TD>=E6=B5=B7=E5=A4=96IP=E3=81=8B=E3=82=89=E3=81=AE=E3=82=A2=E3=82=AF=E3=82=BB=E3=82=B9=E8=A9=A6=E8=A1=8C</TD></TR>
+              <TR>
+                <TH>=E7=8A=B6=E6=85=8B</TH>
+                <TD>=E7=A2=BA=E8=AA=8D=E5=BE=85=E3=81=A1</TD></TR></TBODY></TABLE>
+            <DIV class=3Dcta><A href=3D"https://dzenrc.cn/ABTflcVxeO.osaka.com">=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E3=82=92=E7=A2=BA=E8=AA=8D=E3=81=99=E3=82=8B</A> </DIV>
+            <P>72=E6=99=82=E9=96=93=E4=BB=A5=E5=86=85=E3=81=AB=E3=81=94=E5=AF=BE=E5=BF=9C=E3=81=84=E3=81=9F=E3=81=A0=E3=81=91=E3=81=AA=E3=81=84=E5=A0=B4=E5=90=88=E3=80=81=E5=AE=89=E5=85=A8=E6=80=A7=E3=82=92=E7=A2=BA=E4=BF=9D=E3=81=99=E3=82=8B=E3=81=9F=E3=82=81=E3=80=81=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E3=82=92=E4=B8=80=E6=99=82=E7=9A=84=E3=81=AB=E5=88=B6=E9=99=90=E3=81=95=E3=81=9B=E3=81=A6=E3=81=84=E3=81=9F=E3=81=A0=E3=81=8F=E5=A0=B4=E5=90=88=E3=81=8C=E3=81=94=E3=81=96=E3=81=84=E3=81=BE=E3=81=99=E3=80=82</P>
+            <DIV class=3Dnote><STRONG>=E3=81=8A=E5=95=8F=E3=81=84=E5=90=88=E3=82=8F=E3=81=9B=E5=85=88</STRONG><BR>=E3=83=A8=E3=83=89=E3=83=90=E3=82=B7=E3=82=AB=E3=83=A1=E3=83=A9=20
+            =E3=82=AB=E3=82=B9=E3=82=BF=E3=83=9E=E3=83=BC=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9<BR>=E3=83=A1=E3=83=BC=E3=83=AB=EF=BC=9A<A=20
+            href=3D"mailto:info@yodobashi.com">info@yodobashi.com</A><BR>=E9=9B=BB=E8=A9=B1=EF=BC=9A03-1226-6796=EF=BC=8810:00=EF=BD=9E20:00=20
+            =E5=B9=B4=E4=B8=AD=E7=84=A1=E4=BC=91=EF=BC=89 </DIV></TD></TR>
+        <TR>
+          <TD class=3Dfooter>
+            <P>=E6=9C=AC=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=AF=E9=80=81=E4=BF=A1=E5=B0=82=E7=94=A8=E3=82=A2=E3=83=89=E3=83=AC=E3=82=B9=E3=82=88=E3=82=8A=E8=87=AA=E5=8B=95=E9=85=8D=E4=BF=A1=E3=81=97=E3=81=A6=E3=81=84=E3=81=BE=E3=81=99=E3=80=82=E8=BF=94=E4=BF=A1=E3=81=AB=E3=81=AF=E5=AF=BE=E5=BF=9C=E3=81=97=E3=81=A6=E3=81=8A=E3=82=8A=E3=81=BE=E3=81=9B=E3=82=93=E3=80=82</P>
+            <P>=E6=9C=AC=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=AB=E5=BF=83=E5=BD=93=E3=81=9F=E3=82=8A=E3=81=8C=E3=81=AA=E3=81=84=E5=A0=B4=E5=90=88=E3=81=AF=E3=80=81=E7=A0=B4=E6=A3=84=E3=81=97=E3=81=A6=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82</P>
+            <P>=C2=A9 2026 =E3=83=A8=E3=83=89=E3=83=90=E3=82=B7=E3=82=AB=E3=83=A1=E3=83=A9=E6=A0=AA=E5=BC=8F=E4=BC=9A=E7=A4=BE All Rights=20
+  Reserved.</P></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></BODY></HTML>
+
