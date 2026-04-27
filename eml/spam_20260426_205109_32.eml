@@ -1,0 +1,353 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:c058:0:b0:261:85fe:9a8 with SMTP id m24csp5881381eic;
+        Sun, 26 Apr 2026 04:51:35 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ8vZlPhKlLmn9B2uAP9oG3cjYu7cSTXaMGLMvg8hyjS9+ojvSu2uzY3i5+M9qlzMlq1Ik/1k4NFFSQac6V/oA==@gmail.com
+X-Received: by 2002:a17:906:9fd1:b0:ba7:b198:7d25 with SMTP id a640c23a62f3a-ba7b19881a3mr1581313566b.21.1777204294985;
+        Sun, 26 Apr 2026 04:51:34 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1777204294; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=HxijP4Zv5VIlpSbiGUxcm1Zf/pw++pyvXAlglYDmbMqVRGe34oc0IyE8HWUBkdqnKi
+         k7xs/cEhX+gJnzbtc1gHYlha6a2XOi7mqSLxIGgGZBhAnvEurvYo+zbhyGsq5ddwXCbk
+         X27+NGd0f5NBPMiUgElKJdUVVjmp5T1Axjl6RsjIkfuwRRbAWgRhlIRnxqmu+PGrnpBv
+         VvMwqKarsSTpNydUnK9XQDfuHphdesgQP+KW+FRLFNWpqfaJcu67WF7+jS2mEVSZz4JQ
+         AM+gnkqgRplPlOSCF6ClStAzw/JFDosgJ0IdUAHhA+HX5qN4q37UQW5YowQpIRk51NRQ
+         yacA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:mime-version:from:date:dkim-signature
+         :feedback-id:dkim-signature:dkim-signature;
+        bh=h41xbSpK110wx/2dnc8siLT6r6hRTWW5X+g+U3a39jU=;
+        fh=qiMXRaPi1E4B7pNYHv0kY8kKvWMH6z5Z6bF+8QXduDY=;
+        b=JheMF1WjXggSrDXMxI+BEFwG0LyH7e75YFdRJxy9LHnChQ8jr//XHkDq3l2BIklOXt
+         me6DaiWclEaHGa82ZQfvr7otsii6B9ItERgQe1PgUZLAfA+bsc2lEfVmqhERoYa9SQ8l
+         hqn0+Bx5rvIwwaGSPSqrvPqOefTpDtjvkGWZHC3/bMrx0axl+Qp8N0InuC/Jzhm56dnR
+         PaCG7uh8PHTEFSFwFvAERTvDy1oM211dvhd/IIQToSAYSrSGE0ZJn+i4DAwGXqup84sP
+         kc8UO0EObBFc2H42SPDAnp0EV3fSLNtll2CBHSXnBjZ8x/EMrppNKo07fr2d8nI1TfNY
+         uGjQ==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=QZr+vOgv;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=LurYyoM2;
+       dkim=pass header.i=@allegisgoup.com header.s=s1 header.b=MBJGfRTK;
+       arc=pass (i=1 spf=pass spfdomain=em9785.allegisgoup.com dkim=pass dkdomain=allegisgoup.com dmarc=pass fromdomain=allegisgoup.com);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.31 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=allegisgoup.com
+Return-Path: <cfbounces+ndrdrop@whither.jp>
+Received: from ba-db.cloudflare-email.net (ba-db.cloudflare-email.net. [104.30.10.31])
+        by mx.google.com with ESMTPS id a640c23a62f3a-ba456507332si1354234566b.374.2026.04.26.04.51.34
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 26 Apr 2026 04:51:34 -0700 (PDT)
+Received-SPF: pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.31 as permitted sender) client-ip=104.30.10.31;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=QZr+vOgv;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=LurYyoM2;
+       dkim=pass header.i=@allegisgoup.com header.s=s1 header.b=MBJGfRTK;
+       arc=pass (i=1 spf=pass spfdomain=em9785.allegisgoup.com dkim=pass dkdomain=allegisgoup.com dmarc=pass fromdomain=allegisgoup.com);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.31 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=allegisgoup.com
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=To:Subject:From:Date:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1777204294; x=1777809094; bh=h41xbSpK110wx/2dnc
+	8siLT6r6hRTWW5X+g+U3a39jU=; b=QZr+vOgvuTVZjpeUxzW8l6//EBpYgvgS7ao7tCc9ZV9kf
+	a1DVSc31aQBKwWvPL0NZ/eLbZz8W4+ikjZvKzUIvoVaxU7dGdutFRqWhatEmgGiEZ1+LZ4dHXj4
+	KjPinzm0cYZs4q3GUen9ju3CK1XW3LdYf91tXPzSmmEkfCCrBdZhlxlY5ou5NA2ZLVKf1VmRUNM
+	jeNQ9or5/9hkoBEgin5MVE39wcDGYTxuw9ibYkS97QdmaobMlL45LPHe7GYQqSMaY+JZl5eYISl
+	YIZ1VyuDZwtb5JHFTUVwGOIn6uXvQ3ULDbMbq19CYeVWzJ+mIhcgGc/Uscc846Hz5las8Ysg==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=To:Subject:From:Date:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1777204294; x=1777809094; bh=h41xbSpK110wx/2dnc
+	8siLT6r6hRTWW5X+g+U3a39jU=; b=LurYyoM2J1zWVsTq1rAwsEKi4g78ghEzTtKx36c83jv2c
+	gj5wmBUPVLFn6WWH01woI5RRZj47Wb/8uXKYZGfUytTGrL2Sz6FFTbv0OBZDv7tVEqGWT+CSHZ8
+	LSaYALzVjDbQ2QmOALOKBFzW+8z7MorDRYxgr7e3rY4BTfYsp1S1onKtlsKyvevmC+mYFF7InmT
+	wGM68KIojON2pBprI4KcnhnIAYkhWhNlroor02hWoufKGT3Sxpw2WQg57ygf3mekHkS1uJTUrP7
+	MA6JshnLwRNF+N2rbUhpfXeiW85Tfc9iL2FCEPMEddtl8Cgf9w0YycmoWtm2VAIWry3lnWzg==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: penguin@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from s.wfbtzhsw.outbound-mail.sendgrid.net (159.183.224.105)
+        by cloudflare-email.net (cloudflare) id nRYxZox4PcKe
+        for <penguin@whither.jp>; Sun, 26 Apr 2026 11:51:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=Ica1fzucpBrFSQ2fAWRPGNO4lfRZKsWx26sMmoZH0drDM2tXaVtFRPrD8YGe6yewNOPQjZGcv
+	WafyTD96XyuzE4kE+cfjOIg6j3maGIYi8Aml4snUA/Z9afDdU2+ubzYH/UrC2mvYir4Ba1pKnZm
+	7zrGDENlBaiNL3iIZw3BJCTnFdXDWtPzgLNDFA7cUGLKJv/EElAqJl5LtEvrwem2e8Rd7QEZEiw
+	yMjSd9FtAeEmAqv4vau3gvmTohiPbDLhmonpvJkN7Kx6TBXEBPPiCXUZN2YNGb5aso1sqmRCvYl
+	SbLeDror7cihAc76GMlzV6dgvUqfUrlkCI/k+TRqPElg==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=To:Subject:From:Date:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1777204294; x=1777809094; bh=h41xbSpK
+	110wx/2dnc8siLT6r6hRTWW5X+g+U3a39jU=; b=Zf/TRP6pTzCXmpQDX5eYQd/7GNaIsdHBlt6
+	6dcOuc98dKOTG8CvnTE6BJnWe4N//9C1bjEpbAIqUqlucSXZdGBTEJPA8SzbD5UU2Yg8h1g94Hs
+	WrRWbA0YS0ueaXIRuxwiglTVgXt0y0Dkf08hkKxxMfDc747AuW9XR7CLBBk2kqBl0RLV7oDbiDO
+	bnjje8qjHF6ytIThN84SGGyAiirEWlkL1+7TB4+FQz5x514LWkAr9fizFF2EdLmb4dRHq47ME4c
+	fO43id471zVeJm4lvRW2LBhnbTZ4sePMrtr7h98HM8ysk6zP8i1SxlF6EGU8IDc90WssXFMKO3R
+	e2GfeOg==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.d=allegisgoup.com header.s=s1 header.b=MBJGfRTK;
+	dmarc=pass header.from=allegisgoup.com policy.dmarc=none;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@s.wfbtzhsw.outbound-mail.sendgrid.net) smtp.helo=s.wfbtzhsw.outbound-mail.sendgrid.net;
+	spf=pass (mx.cloudflare.net: domain of bounces+106242801-2115-penguin=whither.jp@em9785.allegisgoup.com designates 159.183.224.105 as permitted sender) smtp.mailfrom=bounces+106242801-2115-penguin=whither.jp@em9785.allegisgoup.com;
+	arc=none smtp.remote-ip=159.183.224.105
+Received-SPF: pass (mx.cloudflare.net: domain of bounces+106242801-2115-penguin=whither.jp@em9785.allegisgoup.com designates 159.183.224.105 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=159.183.224.105; envelope-from="bounces+106242801-2115-penguin=whither.jp@em9785.allegisgoup.com"; helo=s.wfbtzhsw.outbound-mail.sendgrid.net;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.d=allegisgoup.com header.s=s1 header.b=MBJGfRTK;
+	dmarc=pass header.from=allegisgoup.com policy.dmarc=none;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@s.wfbtzhsw.outbound-mail.sendgrid.net) smtp.helo=s.wfbtzhsw.outbound-mail.sendgrid.net;
+	spf=pass (mx.cloudflare.net: domain of bounces+106242801-2115-penguin=whither.jp@em9785.allegisgoup.com designates 159.183.224.105 as permitted sender) smtp.mailfrom=bounces+106242801-2115-penguin=whither.jp@em9785.allegisgoup.com;
+	arc=none smtp.remote-ip=159.183.224.105
+X-CF-SpamH-Score: 0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=allegisgoup.com;
+	h=content-type:date:from:mime-version:subject:to:cc:content-type:date:
+	from:subject:to;
+	s=s1; t=1777204269; bh=h41xbSpK110wx/2dnc8siLT6r6hRTWW5X+g+U3a39jU=;
+	b=MBJGfRTKkuZonsjkUiUwv+/Fbh/ZaLmvEWusmFl6ZW+kxucAfDy3frssyoryy7ixvbdC
+	RYrXcggaZa4kpdtDdgpZfMnoVgyK0gI43YgaxxOF2tI/5z+xSCpl9Qk0coSbgoLOMvvQDr
+	zgrnxhfgyPEQBfEmyMVv9Xx13BhajEiyDeg3EYsUM7biBQpgilNWa2EkW826bu3nP+vPiu
+	BO79hbUieiu9Do2KAIiI4+gGDGK+bG4i/28usoTSUHlj+uMPr4V+MFYs5hUfuiI6/kIZWN
+	q5nUz0/+buCdLozcV8svThx4iMSjpwpy83KmHlJ0DMjhU+1Ljwq14TRh13X7Tqaw==
+Received: by recvd-78b8c7bc6b-f2k4z with SMTP id recvd-78b8c7bc6b-f2k4z-1-69EDFC2D-13
+	2026-04-26 11:51:09.233768146 +0000 UTC m=+396457.627428480
+Received: from MTA2MjQyODAx (unknown)
+	by geopod-ismtpd-canary-0 (SG)
+	with HTTP
+	id Xw9AAN6AS_2m2ESQRAnAAw
+	Sun, 26 Apr 2026 11:51:09.120 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=7d23e490e3a8e95d73b379bd282a03916cabe64eb46c174ed9437292db90
+Date: Sun, 26 Apr 2026 11:51:09 +0000 (UTC)
+From: =?UTF-8?b?44CQQW1lcmljYW4gRXhwcmVzc+OAkQ==?= <imfo@allegisgoup.com>
+Mime-Version: 1.0
+Message-ID: <Xw9AAN6AS_2m2ESQRAnAAw@geopod-ismtpd-canary-0>
+Subject: =?UTF-8?B?44CQQW1lcmljYW4=?=
+ =?UTF-8?B?IEV4cHJlc3PjgJHjgZTnmbvpjLLmg4XloLHjga7mm7TmlrDjgavjgaTjgYTjgaZOby4xNDcyNzc0Mjc=?=
+X-SG-EID: 
+ =?us-ascii?Q?u001=2EPOCcuC98tTzaAU2cy44CAOBB+vBEG2hvhEOqDRTwGt=2FMPpzo9Q7utGvN6?=
+ =?us-ascii?Q?v2tl3ahNtx3dooPZ4we0VoIP9l8XfbLVgAM09=2FZ?=
+ =?us-ascii?Q?7AUQGK6jp6sL9E6OvFtpgUuPhLXuqF9yjtEtn5s?=
+ =?us-ascii?Q?PO+afWU4kfJzSb=2F8wX9t8CAA0TThpTX9Rm0m7cs?=
+ =?us-ascii?Q?50dAijLntLCAc4fHeIqHGTvmB0iGErQ0FYf6cwv?=
+ =?us-ascii?Q?RogbD4LdorrIyV1vNdzMq1EvNH8qpCA9=2FWCYbiW?= =?us-ascii?Q?AhCF?=
+To: penguin@whither.jp
+X-Entity-ID: u001.Ce/qlriThqlk4y5CAdjUuw==
+
+--7d23e490e3a8e95d73b379bd282a03916cabe64eb46c174ed9437292db90
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Mime-Version: 1.0
+
+&#37325;&#35201;&#12394;&#12362;&#30693;&#12425;&#12379;
+
+American Express &#37325;&#35201;&#12394;&#12362;&#30693;&#12425;&#12379;
+
+&#12362;&#23458;&#27096;&#21508;&#20301;
+
+&#24179;&#32032;&#12424;&#12426;American Express&#12434;&#12372;&#21033;&#2=
+9992;&#12356;&#12383;&#12384;&#12365;&#12289;&#35488;&#12395;&#12354;&#1242=
+6;&#12364;&#12392;&#12358;&#12372;&#12374;&#12356;&#12414;&#12377;&#12290;
+
+&#12371;&#12398;&#12383;&#12403;&#12289;&#27861;&#20196;&#12395;&#22522;&#1=
+2389;&#12365;&#12362;&#23458;&#27096;&#12398;&#12372;&#30331;&#37682;&#2477=
+3;&#22577;&#12398;&#30906;&#35469;&#12364;&#24517;&#35201;&#12392;&#12394;&=
+#12426;&#12414;&#12375;&#12383;&#12290;
+
+&#12372;&#30331;&#37682;&#12356;&#12383;&#12384;&#12356;&#12390;&#12356;&#1=
+2427;&#26412;&#20154;&#30906;&#35469;&#26360;&#39006;&#12398;&#26377;&#2117=
+7;&#26399;&#38480;&#12364;&#36817;&#12389;&#12356;&#12390;&#12356;&#12427;&=
+#21487;&#33021;&#24615;&#12364;&#12354;&#12426;&#12414;&#12377;&#12290;
+
+&#9632; &#12372;&#30906;&#35469;&#12356;&#12383;&#12384;&#12367;&#38917;&#3=
+0446;
+
+&#12372;&#21033;&#29992;&#20013;&#12398;&#12463;&#12524;&#12472;&#12483;&#1=
+2488;&#12459;&#12540;&#12489;&#24773;&#22577;&#65288;&#26377;&#21177;&#2639=
+9;&#38480;&#12539;&#30331;&#37682;&#20869;&#23481;&#12394;&#12393;&#65289;
+&#12362;&#38651;&#35441;&#30058;&#21495;&#12289;&#12513;&#12540;&#12523;&#1=
+2450;&#12489;&#12524;&#12473;
+
+&#9632; &#12362;&#25163;&#32154;&#12365;&#26041;&#27861;
+
+&#20197;&#19979;&#12398;&#20844;&#24335;&#12469;&#12452;&#12488;&#12395;&#1=
+2525;&#12464;&#12452;&#12531;&#24460;&#12289;&#12300;&#12362;&#23458;&#2709=
+6;&#24773;&#22577;&#35373;&#23450;&#12301;&#12424;&#12426;&#12362;&#25163;&=
+#32154;&#12365;&#12367;&#12384;&#12373;&#12356;&#12290;
+
+&#20844;&#24335;&#12469;&#12452;&#12488;&#12399;&#12371;&#12385;&#12425;
+
+&#8251;American Express&#12450;&#12503;&#12522;&#12363;&#12425;&#12418;&#21=
+516;&#27096;&#12395;&#12362;&#25163;&#32154;&#12365;&#12356;&#12383;&#12384=
+;&#12369;&#12414;&#12377;
+
+&#8251;&#24215;&#38957;&#12391;&#12398;&#12362;&#25163;&#32154;&#12365;&#12=
+418;&#25215;&#12387;&#12390;&#12362;&#12426;&#12414;&#12377;
+
+&#9632; &#12362;&#25163;&#32154;&#12365;&#26399;&#38480;
+
+2026&#24180;4&#26376;27&#26085;23:59
+
+&#26399;&#38480;&#12414;&#12391;&#12395;&#12362;&#25163;&#32154;&#12365;&#1=
+2364;&#12394;&#12356;&#22580;&#21512;&#12289;&#19968;&#37096;&#12398;&#1236=
+2;&#21462;&#24341;&#12395;&#21046;&#38480;&#12364;&#12363;&#12363;&#12427;&=
+#12371;&#12392;&#12364;&#12372;&#12374;&#12356;&#12414;&#12377;&#12290;
+
+&#12372;&#19981;&#26126;&#12394;&#28857;&#12399;&#12467;&#12540;&#12523;&#1=
+2475;&#12531;&#12479;&#12540;&#65288;0120-546-513&#65289;&#12414;&#12391;&#=
+12362;&#21839;&#12356;&#21512;&#12431;&#12379;&#12367;&#12384;&#12373;&#123=
+56;&#12290;
+
+American Express
+--7d23e490e3a8e95d73b379bd282a03916cabe64eb46c174ed9437292db90
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=us-ascii
+Mime-Version: 1.0
+
+<!DOCTYPE html>
+
+<html lang=3D"ja"><head>
+<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+<meta charset=3D"UTF-8">
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1.=
+0">
+<title>&#37325;&#35201;&#12394;&#12362;&#30693;&#12425;&#12379;</title>
+</head>
+
+<body style=3D"margin: 0px; padding: 0px; font-family: Arial, Helvetica, sa=
+ns-serif; background-color: rgb(244, 244, 244);">
+
+<table width=3D"100%" bgcolor=3D"#f4f4f4" cellspacing=3D"0" cellpadding=3D"=
+0">
+<tbody><tr>
+<td align=3D"center">
+
+<table width=3D"600" style=3D"background: rgb(255, 255, 255); margin: 20px =
+auto; border-radius: 8px; overflow: hidden;" cellspacing=3D"0" cellpadding=
+=3D"0">
+
+<!-- Header -->
+<tbody><tr>
+<td style=3D"background: rgb(46, 119, 187); padding: 20px; text-align: cent=
+er; color: rgb(255, 255, 255); font-size: 20px; font-weight: bold;">
+American Express &#37325;&#35201;&#12394;&#12362;&#30693;&#12425;&#12379;
+</td>
+</tr>
+
+<!-- Content -->
+<tr>
+<td style=3D"padding: 30px; color: rgb(51, 51, 51); line-height: 1.8; font-=
+size: 14px;">
+
+<p>&#12362;&#23458;&#27096;&#21508;&#20301;</p>
+
+<p>&#24179;&#32032;&#12424;&#12426;American Express&#12434;&#12372;&#21033;=
+&#29992;&#12356;&#12383;&#12384;&#12365;&#12289;&#35488;&#12395;&#12354;&#1=
+2426;&#12364;&#12392;&#12358;&#12372;&#12374;&#12356;&#12414;&#12377;&#1229=
+0;</p>
+
+<p>
+&#12371;&#12398;&#12383;&#12403;&#12289;&#27861;&#20196;&#12395;&#22522;&#1=
+2389;&#12365;&#12362;&#23458;&#27096;&#12398;&#12372;&#30331;&#37682;&#2477=
+3;&#22577;&#12398;&#30906;&#35469;&#12364;&#24517;&#35201;&#12392;&#12394;&=
+#12426;&#12414;&#12375;&#12383;&#12290;<br>
+&#12372;&#30331;&#37682;&#12356;&#12383;&#12384;&#12356;&#12390;&#12356;&#1=
+2427;&#26412;&#20154;&#30906;&#35469;&#26360;&#39006;&#12398;&#26377;&#2117=
+7;&#26399;&#38480;&#12364;&#36817;&#12389;&#12356;&#12390;&#12356;&#12427;&=
+#21487;&#33021;&#24615;&#12364;&#12354;&#12426;&#12414;&#12377;&#12290;
+</p>
+
+<hr style=3D"border-width: 1px medium medium; border-style: solid none none=
+; border-color: rgb(238, 238, 238) currentColor currentColor; margin: 20px =
+0px; border-image: none;">
+
+<p style=3D"font-weight: bold;">&#9632; &#12372;&#30906;&#35469;&#12356;&#1=
+2383;&#12384;&#12367;&#38917;&#30446;</p>
+<ul style=3D"padding-left: 20px;">
+<li>&#12372;&#21033;&#29992;&#20013;&#12398;&#12463;&#12524;&#12472;&#12483=
+;&#12488;&#12459;&#12540;&#12489;&#24773;&#22577;&#65288;&#26377;&#21177;&#=
+26399;&#38480;&#12539;&#30331;&#37682;&#20869;&#23481;&#12394;&#12393;&#652=
+89;</li>
+<li>&#12362;&#38651;&#35441;&#30058;&#21495;&#12289;&#12513;&#12540;&#12523=
+;&#12450;&#12489;&#12524;&#12473;</li>
+</ul>
+
+<hr style=3D"border-width: 1px medium medium; border-style: solid none none=
+; border-color: rgb(238, 238, 238) currentColor currentColor; margin: 20px =
+0px; border-image: none;">
+
+<p style=3D"font-weight: bold;">&#9632; &#12362;&#25163;&#32154;&#12365;&#2=
+6041;&#27861;</p>
+
+<p>
+&#20197;&#19979;&#12398;&#20844;&#24335;&#12469;&#12452;&#12488;&#12395;&#1=
+2525;&#12464;&#12452;&#12531;&#24460;&#12289;&#12300;&#12362;&#23458;&#2709=
+6;&#24773;&#22577;&#35373;&#23450;&#12301;&#12424;&#12426;&#12362;&#25163;&=
+#32154;&#12365;&#12367;&#12384;&#12373;&#12356;&#12290;
+</p>
+
+<p style=3D"margin: 25px 0px; text-align: center;">
+<a style=3D"background: rgb(0, 112, 201); padding: 12px 25px; border-radius=
+: 5px; color: rgb(255, 255, 255); font-weight: bold; text-decoration: none;=
+ display: inline-block;" href=3D"https://nuhousehotel.com/ppelem">
+&#20844;&#24335;&#12469;&#12452;&#12488;&#12399;&#12371;&#12385;&#12425;
+</a>
+</p>
+
+<p style=3D"color: rgb(102, 102, 102); font-size: 12px;">
+&#8251;American Express&#12450;&#12503;&#12522;&#12363;&#12425;&#12418;&#21=
+516;&#27096;&#12395;&#12362;&#25163;&#32154;&#12365;&#12356;&#12383;&#12384=
+;&#12369;&#12414;&#12377;<br>
+&#8251;&#24215;&#38957;&#12391;&#12398;&#12362;&#25163;&#32154;&#12365;&#12=
+418;&#25215;&#12387;&#12390;&#12362;&#12426;&#12414;&#12377;
+</p>
+
+<hr style=3D"border-width: 1px medium medium; border-style: solid none none=
+; border-color: rgb(238, 238, 238) currentColor currentColor; margin: 20px =
+0px; border-image: none;">
+
+<p style=3D"font-weight: bold;">&#9632; &#12362;&#25163;&#32154;&#12365;&#2=
+6399;&#38480;</p>
+<p style=3D"color: rgb(217, 83, 79); font-weight: bold;">2026&#24180;4&#263=
+76;27&#26085;23:59</p>
+
+<p>
+&#26399;&#38480;&#12414;&#12391;&#12395;&#12362;&#25163;&#32154;&#12365;&#1=
+2364;&#12394;&#12356;&#22580;&#21512;&#12289;&#19968;&#37096;&#12398;&#1236=
+2;&#21462;&#24341;&#12395;&#21046;&#38480;&#12364;&#12363;&#12363;&#12427;&=
+#12371;&#12392;&#12364;&#12372;&#12374;&#12356;&#12414;&#12377;&#12290;
+</p>
+
+<hr style=3D"border-width: 1px medium medium; border-style: solid none none=
+; border-color: rgb(238, 238, 238) currentColor currentColor; margin: 20px =
+0px; border-image: none;">
+
+<p>
+&#12372;&#19981;&#26126;&#12394;&#28857;&#12399;&#12467;&#12540;&#12523;&#1=
+2475;&#12531;&#12479;&#12540;&#65288;0120-546-513&#65289;&#12414;&#12391;&#=
+12362;&#21839;&#12356;&#21512;&#12431;&#12379;&#12367;&#12384;&#12373;&#123=
+56;&#12290;
+</p>
+
+</td>
+</tr>
+
+<!-- Footer -->
+<tr>
+<td style=3D"background: rgb(249, 249, 249); padding: 20px; text-align: cen=
+ter; color: rgb(136, 136, 136); font-size: 12px;">
+<p>American Express</p>
+</td>
+</tr>
+
+</tbody></table>
+
+</td>
+</tr>
+</tbody></table>
+
+
+</body></html>
+--7d23e490e3a8e95d73b379bd282a03916cabe64eb46c174ed9437292db90--
+
