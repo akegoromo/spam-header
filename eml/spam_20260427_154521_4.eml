@@ -1,0 +1,270 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:c058:0:b0:261:85fe:9a8 with SMTP id m24csp6284208eic;
+        Sun, 26 Apr 2026 23:45:26 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ+/ewhuKMWQUPmINAJXunj0t+aGFBI+6xmgENjVQkEhQRkoYNbbPKE8SxM/IDZhZFVKOQbHUMLRcX6GM8NWvg==@gmail.com
+X-Received: by 2002:a17:907:980b:b0:bad:f032:fc78 with SMTP id a640c23a62f3a-badf032fd51mr579649366b.1.1777272326218;
+        Sun, 26 Apr 2026 23:45:26 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1777272326; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=LnRcX1/7KymnYvJKDW77HfRxjPeUabzuyeTCLyaWoMy0r4Rr9yd5Wmp27JofFGgnAb
+         YgIWYMTBGiuIun0naTv3SfZzbfYIWmj/E2jR8hCNYKmExBcX1V+l3DzNBYJ/bvmHl7gP
+         wR+BH3pIhFmAZlSB5o7X0HiPrrbDdk95M6tu7VmFRnURXW21k20cUMIrGIEwRWdZckWZ
+         eqjh7NZ1lty4+fOm0gbv2vroOG4NP19vDC2lUCmg3xQgVwO36WBlA2ZK4D74nNSjwXKZ
+         Q6WQz8sThhkN7dH3pTRbsFfkQfFf9MYt5qeJoRvjSNE/iT6KVLcYyxz69/fJs0/JzARm
+         MDnA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=message-id:date:subject:to:from:mime-version
+         :content-transfer-encoding:dkim-signature:feedback-id:dkim-signature
+         :dkim-signature;
+        bh=/ArG9VDBN4Eum++KI5LitvA7TU9QuOIFee6I0m9IcLA=;
+        fh=AmwUtjvAn7++NEBttiaVEnyCAVA5youKb81rEHZT4FM=;
+        b=jqBKAE8RiHFblp9OAih6WhJKhBxCUdplCggHAggzewSVf6zB5CnH1H4+bZiFBIyg/0
+         zorDhjMsGLqf3sKhY3/+Czk0+qvjQikBcVOA9uglZETf5Q9ZLddFi1q+rrTtV8BuhTTi
+         YZyzknSjGrgM8Mbbv4yso8Ki/cPeyP6sMACvtAc9iGxa6yKeTyfA0sAffgAYcp0muhqT
+         YySpq/sfPQ5hmTGI4q5GwUC0TeT3NePbPI3+D+Bh7bu/ZF30Q0PeaTDwtVF7gki2asgS
+         LIgX+X1yvjDWNyJ6Nq1J4qUh6mwdWo9BIbQ4518QzsTeAN56R6rryFVUM1kLDpFZaZll
+         508g==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=WNSofJWZ;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=P91CGhFr;
+       dkim=pass header.i=@kombu.qymllqg.cn header.s=qubba header.b="omp/vgak";
+       arc=pass (i=1 spf=pass spfdomain=kombu.qymllqg.cn dkim=pass dkdomain=kombu.qymllqg.cn dmarc=pass fromdomain=kombu.qymllqg.cn);
+       spf=pass (google.com: domain of srs0=f9op=2c=kombu.qymllqg.cn=nishiokamichio1992@whither.jp designates 104.30.10.83 as permitted sender) smtp.mailfrom="SRS0=F9oP=2c=kombu.qymllqg.cn=nishiokamichio1992@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=qymllqg.cn
+Return-Path: <SRS0=F9oP=2c=kombu.qymllqg.cn=nishiokamichio1992@whither.jp>
+Received: from ba-id.cloudflare-email.net (ba-id.cloudflare-email.net. [104.30.10.83])
+        by mx.google.com with ESMTPS id a640c23a62f3a-ba4513095c6si1489855566b.25.2026.04.26.23.45.25
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 26 Apr 2026 23:45:25 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=f9op=2c=kombu.qymllqg.cn=nishiokamichio1992@whither.jp designates 104.30.10.83 as permitted sender) client-ip=104.30.10.83;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=WNSofJWZ;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=P91CGhFr;
+       dkim=pass header.i=@kombu.qymllqg.cn header.s=qubba header.b="omp/vgak";
+       arc=pass (i=1 spf=pass spfdomain=kombu.qymllqg.cn dkim=pass dkdomain=kombu.qymllqg.cn dmarc=pass fromdomain=kombu.qymllqg.cn);
+       spf=pass (google.com: domain of srs0=f9op=2c=kombu.qymllqg.cn=nishiokamichio1992@whither.jp designates 104.30.10.83 as permitted sender) smtp.mailfrom="SRS0=F9oP=2c=kombu.qymllqg.cn=nishiokamichio1992@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=qymllqg.cn
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1777272325; x=1777877125; bh=/ArG9VDBN4Eum++KI5
+	LitvA7TU9QuOIFee6I0m9IcLA=; b=WNSofJWZDAFr3y0VXhOCWH+S0a6bZymugkhN7SNRFdVP/
+	HqsQr4HmgnhZeL8Jzveyg42fACq5YHbWxePogQj2Z4Ar0a9PED3KhL4MUk6Db6m+vcgK34FLCvD
+	VcICAJxkn5Vm+m34ZHziT/IESnG1md6nFSHDKeQRkZrsvh0V5S7vDkYTxKV4r522Zce5YWTi9sD
+	DlkRhbGtVXSYxIvCxmoSNU+NwZ0uqgGanqB+v667xXmgTXoijTrOgSWU3wux0Mye+PXmU6kHB0Z
+	jMGV7t1UfLc7ULb9EoWdks7t/7WiNVCbAy1xzB77l976L6Cjq15RavA4by0y+OhgrgYjLSvw==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1777272325; x=1777877125; bh=/ArG9VDBN4Eum++KI5
+	LitvA7TU9QuOIFee6I0m9IcLA=; b=P91CGhFrIPeveceIEUu4GhNPP0BPTAzm7Ojo+ct6mjV7+
+	iYriqX8VhkzQES19wvthgydMs6mA/bpVy8Mpw4mZyvwEtTS/6gAdWM0d5dkZOaUeI7hBHIgAK09
+	AKdXMWyBH9NOLdN1smb8tewkUBRRoenTPrAOHkj86sJPlgb+2oXvQo4yDI4Cl0KMpgoFwVeKmy/
+	QJRjfnqyZJo/XW5Tk2fVEZbvSRtSLIF2GttoGwRrykH1m2wReN7WIAFKMrNHntfNiQN3kqPWc54
+	Kc2tH4K021g1jd3RvUlHvVBOZazTwmueJ1gCtjwMJuI0LfSnNaYqKJUwQ+6x9AAmDTrc3rLQ==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: tnakahara@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from kombu.qymllqg.cn (49.88.254.209)
+        by cloudflare-email.net (cloudflare) id sHmPKAyigzpP
+        for <tnakahara@whither.jp>; Mon, 27 Apr 2026 06:45:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=VZTs8G5/bVCOdsY5UdhRiN+MUmhEy+ytJlk77sImLyjgdbDxSf5HR1+6XMEmY4QUEFFqywr38
+	t5ijUrYY8E+KodHaX+OhHiOTI3LsffM3slKMEvOB0NwMUgq8AEv1VYI8wYzruhlJPHobO9zkN3O
+	QvnGH+A9syfyaVF0/Puj4/j1+7R89hEz5XknBdnxWrMU8lj9aujIb8xfUZEnm+ZDEUsCm2CeZsg
+	ZnfadsxPlvbdcbMMOF6YYmkCYf+WoG2cI7KsBauxBk6WQ2IGczFqkgkZGI6qQgYGazWAFCUnQjb
+	QKCmMIV9dOmSOlorQSRYPKQU0gtsmXN7uObc4abcSdIQ==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1777272325; x=1777877125; bh=/ArG9VDB
+	N4Eum++KI5LitvA7TU9QuOIFee6I0m9IcLA=; b=ZyKyiUb7+HSAVXNBjvG9rBdHnKcDdcytj4S
+	vsROcowKlqRRebQcaaMhg4owNHYPAR6K3veHQPpcfI22DLdVCAJYAqKzk+MCWpEw2tL9dGLxUWO
+	eRH+dXI6UZ4Cv8/yhejdXm5+d86cdkAGsXdfF7i05xqaFJ+Nd84OPA3Yfkgj/4KyGfuSDKb+p6K
+	6NiuaM+sAXm3H3L4m63i6jPeJOnlPy8XrAMP5MC1XMO5ndfsXEEVBrYSiTVaIn2oYY7i3lc9OyP
+	0jwrH/GxUPZRAWeWWDbkp74VFFCAqoXo0IF2simvWqsOTIFSHbVatu1qgTyJb+9HdIZDU5auqZn
+	vFJQZ6w==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=@kombu.qymllqg.cn header.s=qubba header.b=omp/vgak;
+	dmarc=pass header.from=kombu.qymllqg.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@kombu.qymllqg.cn designates 49.88.254.209 as permitted sender) smtp.helo=kombu.qymllqg.cn;
+	spf=pass (mx.cloudflare.net: domain of nishiokamichio1992@kombu.qymllqg.cn designates 49.88.254.209 as permitted sender) smtp.mailfrom=nishiokamichio1992@kombu.qymllqg.cn;
+	arc=none smtp.remote-ip=49.88.254.209
+Received-SPF: pass (mx.cloudflare.net: domain of nishiokamichio1992@kombu.qymllqg.cn designates 49.88.254.209 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=49.88.254.209; envelope-from="nishiokamichio1992@kombu.qymllqg.cn"; helo=kombu.qymllqg.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=@kombu.qymllqg.cn header.s=qubba header.b=omp/vgak;
+	dmarc=pass header.from=kombu.qymllqg.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@kombu.qymllqg.cn designates 49.88.254.209 as permitted sender) smtp.helo=kombu.qymllqg.cn;
+	spf=pass (mx.cloudflare.net: domain of nishiokamichio1992@kombu.qymllqg.cn designates 49.88.254.209 as permitted sender) smtp.mailfrom=nishiokamichio1992@kombu.qymllqg.cn;
+	arc=none smtp.remote-ip=49.88.254.209
+X-CF-SpamH-Score: 1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kombu.qymllqg.cn;
+ i=@kombu.qymllqg.cn; q=dns/txt; s=qubba; t=1777272321; h=from : to :
+ subject : date : message-id;
+ bh=/ArG9VDBN4Eum++KI5LitvA7TU9QuOIFee6I0m9IcLA=;
+ b=omp/vgakbcyww5i1PuTvBLAdV3V6EA3qULHeXTMZPtesaASygI7Ra9pIo0OW2nAQlII1m
+ h4fESeDhHfkWlNm4/reJ/ri349sklZICgJjMyNjvBxaO8lnq3M8//ok445D2CxAtG++CbdE
+ Vvikbdh1LA5VVFRLXhnm5XdJ+kS6QobPR/TKtADpa3oT/Lq2G/u6MA+W1e0ZPukHnK6AyX+
+ pMqUyyKD+bqV0iBNHug7ZB5SzyQ0gCJy6yhbWXtVxNmjOE9fL2i9e89FWsNT83RtQZXyxLA
+ Hyak+Dz0EnthijRR0kAEMbw0kWX7SFI5tXbIIJieqQ/tSuc03p2IbhjPhFSw==
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+From: =?utf-8?b?5Zu95rCR5YGl5bq35L+d6Zm65LqL5YuZ44K744Oz44K/44O8?= <nishiokamichio1992@kombu.qymllqg.cn>
+To: tnakahara@whither.jp
+Subject: =?utf-8?b?5Zu95rCR5YGl5bq35L+d6Zm65paZ5beu6aGN77yI5pyq57SN5YiG77yJ?=
+ =?utf-8?b?44Gu44GK55+l44KJ44Gb77yI5YKs5ZGK77yJ?=
+Date: Mon, 27 Apr 2026 15:45:21 +0900
+Message-ID: <04959x03r803mx83773q494273e75021@kombu.qymllqg.cn>
+
+<html lang=3D"ja"><head><title>=E5=9B=BD=E6=B0=91=E5=81=A5=E5=BA=B7=E4=BF=9D=
+=E9=99=BA=E6=96=99 =E6=9C=AA=E7=B4=8D=E5=B7=AE=E9=A1=8D=E3=81=AB=E4=BF=82=E3=
+=82=8B=E7=B4=8D=E4=BB=98=E7=9D=A3=E4=BF=83=E3=81=AE=E3=81=8A=E7=9F=A5=E3=82=
+=89=E3=81=9B</title>
+<meta content=3D"text/html; charset=3D" iso-2022-jp"=3D"" http-equiv=3D"Conte=
+nt-Type">
+<meta name=3D"viewport" content=3D"width=3Ddevice-width">
+<style type=3D"text/css">
+BODY {
+ font-family: "Hiragino Mincho ProN", "MS Mincho", "=E6=B8=B8=E6=98=8E=E6=9C=
+=9D", serif;
+ font-size: 14px;
+ line-height: 1.9;
+ color: #222;
+ margin: 2.5em;
+}
+P {
+ margin: 0 0 1.4em 0;
+}
+.heading {
+ font-size: 15px;
+ font-weight: bold;
+ text-align: center;
+ margin: 1em 0 2.5em 0;
+ letter-spacing: 0.1em;
+}
+.ref {
+ font-size: 13px;
+ text-align: right;
+ margin-bottom: 1em;
+}
+.important {
+ font-weight: bold;
+ color: #D83030;
+}
+.box {
+ border: 1px solid #999;
+ padding: 1.2em;
+ margin: 1.8em 0;
+}
+.small {
+ font-size: 12px;
+ color: #555;
+}
+.center {
+ text-align: center;
+ margin: 2.5em 0;
+}
+</style>
+
+</head>
+<body>
+<p class=3D"ref">=E7=85=A7=E4=BC=9A=E7=95=AA=E5=8F=B7=EF=BC=9Aid52684491</p>
+<p class=3D"heading">=E5=9B=BD=E6=B0=91=E5=81=A5=E5=BA=B7=E4=BF=9D=E9=99=BA=
+=E6=96=99 =E6=9C=AA=E7=B4=8D=E5=B7=AE=E9=A1=8D=E3=81=AB=E4=BF=82=E3=82=8B=E7=
+=B4=8D=E4=BB=98=E7=9D=A3=E4=BF=83=E3=81=AE=E3=81=8A=E7=9F=A5=E3=82=89=E3=81=
+=9B</p>
+<p>fuu-chan@f7.dion.ne.jp =E6=A7=98</p>
+<p>=E6=8B=9D=E5=95=93=E3=80=80=E6=99=82=E4=B8=8B=E3=80=81=E3=81=BE=E3=81=99=
+=E3=81=BE=E3=81=99=E3=81=94=E6=B8=85=E6=A0=84=E3=81=AE=E3=81=93=E3=81=A8=E3=
+=81=A8=E3=81=8A=E6=85=B6=E3=81=B3=E7=94=B3=E3=81=97=E4=B8=8A=E3=81=92=E3=81=
+=BE=E3=81=99=E3=80=82</p>
+<p>=E5=B9=B3=E7=B4=A0=E3=82=88=E3=82=8A=E3=80=81=E5=9B=BD=E6=B0=91=E5=81=A5=
+=E5=BA=B7=E4=BF=9D=E9=99=BA=E4=BA=8B=E5=8B=99=E3=81=AB=E3=81=94=E7=90=86=E8=
+=A7=A3=E3=81=A8=E3=81=94=E5=8D=94=E5=8A=9B=E3=82=92=E8=B3=9C=E3=82=8A=E3=80=
+=81=E8=AA=A0=E3=81=AB=E3=81=82=E3=82=8A=E3=81=8C=E3=81=A8=E3=81=86=E3=81=94=
+=E3=81=96=E3=81=84=E3=81=BE=E3=81=99=E3=80=82</p>
+<p>=E3=81=95=E3=81=A6=E3=80=81=E8=B2=B4=E6=AE=BF=E3=81=AE=E4=BB=A4=E5=92=8C6=
+=E5=B9=B4=E5=BA=A6=E3=81=8A=E3=82=88=E3=81=B3=E4=BB=A4=E5=92=8C7=E5=B9=B4=E5=
+=BA=A6=E3=81=AB=E4=BF=82=E3=82=8B=E5=9B=BD=E6=B0=91=E5=81=A5=E5=BA=B7=E4=BF=
+=9D=E9=99=BA=E6=96=99=E3=81=AB=E3=81=A4=E3=81=8D=E3=81=BE=E3=81=97=E3=81=A6=
+=E3=80=81=E6=9C=AA=E7=B4=8D=E5=B7=AE=E9=A1=8D=E3=81=8C=E7=A2=BA=E8=AA=8D=E3=
+=81=95=E3=82=8C=E3=81=A6=E3=81=8A=E3=82=8A=E3=80=81=E7=8F=BE=E5=9C=A8=E3=81=
+=BE=E3=81=A7=E7=B4=8D=E4=BB=98=E3=81=8C=E7=A2=BA=E8=AA=8D=E3=81=A7=E3=81=8D=
+=E3=81=A6=E3=81=8A=E3=82=8A=E3=81=BE=E3=81=9B=E3=82=93=E3=80=82</p>
+<p>=E5=9B=BD=E6=B0=91=E5=81=A5=E5=BA=B7=E4=BF=9D=E9=99=BA=E3=81=AF=E3=80=81=
+=E5=8A=A0=E5=85=A5=E8=80=85=E3=81=AE=E7=9A=86=E6=A7=98=E3=81=8B=E3=82=89=E3=
+=81=AE=E4=BF=9D=E9=99=BA=E6=96=99=E3=81=AB=E3=82=88=E3=82=8A=E9=81=8B=E7=94=
+=A8=E3=81=95=E3=82=8C=E3=82=8B=E4=BA=92=E5=8A=A9=E5=88=B6=E5=BA=A6=E3=81=A7=
+=E3=81=82=E3=82=8A=E3=80=81=E7=B4=8D=E6=9C=9F=E9=99=90=E3=81=BE=E3=81=A7=E3=
+=81=AB=E4=BF=9D=E9=99=BA=E6=96=99=E3=82=92=E3=81=8A=E7=B4=8D=E3=82=81=E3=81=
+=84=E3=81=9F=E3=81=A0=E3=81=8F=E3=81=93=E3=81=A8=E3=81=A7=E3=80=81=E5=8C=BB=
+=E7=99=82=E8=B2=BB=E7=B5=A6=E4=BB=98=E3=82=92=E3=81=AF=E3=81=98=E3=82=81=E3=
+=81=A8=E3=81=99=E3=82=8B=E5=90=84=E7=A8=AE=E7=B5=A6=E4=BB=98=E3=82=92=E5=8F=
+=97=E3=81=91=E3=82=8B=E3=81=93=E3=81=A8=E3=81=8C=E3=81=A7=E3=81=8D=E3=81=BE=
+=E3=81=99=E3=80=82</p>
+<div class=3D"box">
+<p><strong>=E3=80=90=E8=A8=98=E3=80=91</strong></p>
+<p>=EF=BC=91=EF=BC=8E=E5=AF=BE=E8=B1=A1=E6=9C=9F=E9=96=93=E3=80=80=EF=BC=9A=
+=E4=BB=A4=E5=92=8C6=E5=B9=B4=E5=BA=A6=EF=BC=882024=E5=B9=B4=E5=BA=A6=EF=BC=89=
+=E4=BB=A4=E5=92=8C7=E5=B9=B4=E5=BA=A6=EF=BC=882025=E5=B9=B4=E5=BA=A6=EF=BC=89=
+=E5=B7=AE=E9=A1=8D=E5=88=86</p>
+<p>=EF=BC=92=EF=BC=8E=E6=9C=AA=E7=B4=8D=E9=87=91=E9=A1=8D=E3=80=80=EF=BC=9A<s=
+pan class=3D"important">19,890=E5=86=86</span></p>
+<p>=EF=BC=93=EF=BC=8E=E7=B4=8D=E4=BB=98=E6=9C=9F=E9=99=90=E3=80=80=EF=BC=9A<s=
+pan class=3D"important">2026-04-27</span></p></div>
+<p>=E4=B8=8A=E8=A8=98=E6=9C=9F=E9=99=90=E3=81=BE=E3=81=A7=E3=81=AB=E3=80=81=
+=E4=B8=8B=E8=A8=98=E3=83=AA=E3=83=B3=E3=82=AF=E3=82=88=E3=82=8A=E3=81=8A=E6=
+=94=AF=E6=89=95=E3=81=84=E6=89=8B=E7=B6=9A=E3=81=8D=E3=82=92=E3=81=8A=E9=A1=
+=98=E3=81=84=E3=81=84=E3=81=9F=E3=81=97=E3=81=BE=E3=81=99=E3=80=82</p>
+<p class=3D"small">=E2=80=BB=E6=9C=AC=E4=BB=B6=E3=81=AF=E5=B7=AE=E9=A1=8D=E8=
+=BF=BD=E7=B4=8D=E3=81=AE=E3=81=9F=E3=82=81=E3=80=81PayPay=E3=81=AB=E3=82=88=
+=E3=82=8B=E3=81=8A=E6=94=AF=E6=89=95=E3=81=84=E3=81=A7=E5=8F=97=E3=81=91=E4=
+=BB=98=E3=81=91=E3=81=A6=E3=81=8A=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82<br>=E2=
+=80=BB=E9=87=91=E8=9E=8D=E6=A9=9F=E9=96=A2=E7=AA=93=E5=8F=A3?=E3=82=B3=E3=83=
+=B3=E3=83=93=E3=83=8B=E3=82=A8=E3=83=B3=E3=82=B9=E3=82=B9=E3=83=88=E3=82=A2=
+=E3=81=A7=E3=81=AF=E3=81=8A=E5=8F=96=E3=82=8A=E6=89=B1=E3=81=84=E3=81=A7=E3=
+=81=8D=E3=81=AA=E3=81=84=E5=A0=B4=E5=90=88=E3=81=8C=E3=81=82=E3=82=8A=E3=81=
+=BE=E3=81=99=E3=81=AE=E3=81=A7=E3=81=94=E7=95=99=E6=84=8F=E3=81=8F=E3=81=A0=
+=E3=81=95=E3=81=84=E3=80=82 </p>
+<p class=3D"center"><font size=3D"4"><a style=3D"FONT-WEIGHT: bold; COLOR: #d=
+83030" href=3D"https://qr.paypay.ne.jp/p2p01_8TzIyqXYSPSlGtLU">=E7=B4=8D=E4=
+=BB=98=E6=89=8B=E7=B6=9A=E3=81=8D=EF=BC=88PayPay=EF=BC=89=E3=81=AF=E3=81=93=
+=E3=81=A1=E3=82=89 </a></font></p>
+<p><strong>=E3=80=90=E7=B4=8D=E4=BB=98=E3=81=8C=E7=A2=BA=E8=AA=8D=E3=81=A7=E3=
+=81=8D=E3=81=AA=E3=81=84=E5=A0=B4=E5=90=88=E3=81=AE=E6=8E=AA=E7=BD=AE=E3=81=
+=AB=E3=81=A4=E3=81=84=E3=81=A6=E3=80=91</strong></p>
+<p>=E7=B4=8D=E6=9C=9F=E9=99=90=E3=82=92=E9=81=8E=E3=81=8E=E3=81=A6=E3=82=82=
+=E7=B4=8D=E4=BB=98=E3=81=8C=E7=A2=BA=E8=AA=8D=E3=81=A7=E3=81=8D=E3=81=AA=E3=
+=81=84=E5=A0=B4=E5=90=88=E3=80=81=E4=BB=A5=E4=B8=8B=E3=81=AE=E6=8E=AA=E7=BD=
+=AE=E3=81=8C=E8=A1=8C=E3=82=8F=E3=82=8C=E3=82=8B=E3=81=93=E3=81=A8=E3=81=8C=
+=E3=81=82=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82</p>
+<p>=E5=BB=B6=E6=BB=9E=E9=87=91=E3=81=AE=E5=8A=A0=E7=AE=97=EF=BC=88=E6=9D=A1=
+=E4=BE=8B=E3=81=AB=E5=9F=BA=E3=81=A5=E3=81=8D=E6=97=A5=E5=89=B2=E3=82=8A=E3=
+=81=A7=E8=A8=88=E7=AE=97=EF=BC=89</p>
+<p>=E7=9D=A3=E4=BF=83=E7=8A=B6=E5=82=AC=E5=91=8A=E6=9B=B8=E3=81=AE=E7=99=BA=
+=E9=80=81</p>
+<p>=E4=BF=9D=E9=99=BA=E7=B5=A6=E4=BB=98=E3=81=AE=E5=88=A9=E7=94=A8=E5=88=B6=
+=E9=99=90=E3=80=81=E4=BF=9D=E9=99=BA=E8=A8=BC=E3=81=AE=E5=8F=96=E6=89=B1=E3=
+=81=84=E3=81=AB=E9=96=A2=E3=81=99=E3=82=8B=E6=8E=AA=E7=BD=AE</p>
+<p>=E5=9C=B0=E6=96=B9=E7=A8=8E=E6=B3=95=E3=81=AB=E5=9F=BA=E3=81=A5=E3=81=8F=
+=E8=B2=A1=E7=94=A3=E5=B7=AE=E6=8A=BC=E3=81=88=E7=AD=89=E3=81=AE=E5=85=AC=E6=
+=B3=95=E4=B8=8A=E3=81=AE=E5=BE=B4=E5=8F=8E</p>
+<p class=3D"small">=E2=80=BB=E5=BB=B6=E6=BB=9E=E9=87=91=E3=81=AE=E5=88=A9=E7=
+=8E=87=E3=80=81=E7=9D=A3=E4=BF=83=E3=81=AE=E6=AE=B5=E9=9A=8E=E3=80=81=E4=BF=
+=9D=E9=99=BA=E8=A8=BC=E3=81=AE=E5=8F=96=E6=89=B1=E3=81=84=E7=AD=89=E3=81=AF=
+=E3=80=81=E5=B8=82=E7=94=BA=E6=9D=91=E3=81=94=E3=81=A8=E3=81=AE=E6=9D=A1=E4=
+=BE=8B=E3=81=AB=E3=82=88=E3=82=8A=E7=95=B0=E3=81=AA=E3=82=8A=E3=81=BE=E3=81=
+=99=E3=80=82<br>=E2=80=BB=E6=9C=AC=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=AF=E9=80=
+=81=E4=BF=A1=E5=B0=82=E7=94=A8=E3=81=AE=E3=81=9F=E3=82=81=E3=80=81=E8=BF=94=
+=E4=BF=A1=E3=81=AB=E3=82=88=E3=82=8B=E3=81=8A=E5=95=8F=E3=81=84=E5=90=88=E3=
+=82=8F=E3=81=9B=E3=81=AB=E3=81=AF=E5=AF=BE=E5=BF=9C=E3=81=A7=E3=81=8D=E3=81=
+=BE=E3=81=9B=E3=82=93=E3=80=82 </p>
+<p style=3D"MARGIN-TOP: 3em">&nbsp;</p><br><br>
+</body></html>
+
