@@ -1,0 +1,375 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:c058:0:b0:261:85fe:9a8 with SMTP id m24csp6428608eic;
+        Mon, 27 Apr 2026 04:55:50 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ9uHQFrNDWO63OeS805+H6chDZClBCaJsgQbQr4biDgbrYPcQV1rghsiKekURta0b9fzQBHUPifdARKApAgBQ==@gmail.com
+X-Received: by 2002:a05:6830:668a:b0:7d7:bf59:16df with SMTP id 46e09a7af769-7dc951d79f8mr27718170a34.17.1777290950734;
+        Mon, 27 Apr 2026 04:55:50 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1777290950; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=S0a4T3pKBPRQI9YdrPoVbubG5PAfGJRIegGbkXpM23Brd8s6VaITc4C6YbNDMzVt/A
+         oNxv0b4Rh6sZ3hiEoBzIaLeWMStZ4BIeB8cQW2c/mYZwjwKCBU4LDHMgClXbAPbsf9kG
+         tOfKKJODczrMatNuXzs+d3Qfmm+vjzPfJYF/IpnRJ5k9VjLcc2sNIoxyC1YPDm2ThKVz
+         IrbKORqjEw6TfquTrZyNyLTJ57WwoVF9sS7dAhmqUHavAhBP3Qp6yXmNa/bLxDNRiJVk
+         xDJD4rwx4qWnPQS/aDG0dZltvuCxC/ca173yxzHVA2mnbSA4T2xGN2FL1ItbCGdOQT0N
+         g5DA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:mime-version:from:date:dkim-signature
+         :feedback-id:dkim-signature:dkim-signature;
+        bh=ZKr40WTxdZx6zeyRiqTRyvPjfeysRhoCyzAkdwycxmA=;
+        fh=qiMXRaPi1E4B7pNYHv0kY8kKvWMH6z5Z6bF+8QXduDY=;
+        b=QTNHe3S5y/f40SW5AZjUoFjoIZ6nAwbfBQdAMh5S/U2Tsn5hGa6F5U4yIhhAyv0pUO
+         WgKCKKliK304HCAvUKS+TQwH3AYEkYBxzSaPB7w87dUdsfBBeV5uBk20XVHKHBZ/AU+8
+         XFaCNYyaYL0J3IpQDRMG5vt2CK6PWUsiIC7/5Skptkwh8iiQvkD8N8jawcMEcN/jKDiG
+         FEIM3jAjT1uCMgf2gN6DVxnBD9KBpJhrCaz2rnWw7cuNLGzKtd0QGSeaKpsoU9W+s8nU
+         a6oyiv+KRfw9ylLWgv+lQo+T1HzamsuU0pkyjU0ztQ7o4/uE7FkPvL1DF7qqT3aBL0CU
+         57Vg==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=bUt+Leml;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=hMDLQzAv;
+       dkim=pass header.i=@hbkjx.com header.s=s1 header.b=JBgjYtJq;
+       arc=pass (i=1 spf=pass spfdomain=em8333.hbkjx.com dkim=pass dkdomain=hbkjx.com dmarc=pass fromdomain=hbkjx.com);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.144 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=hbkjx.com
+Return-Path: <cfbounces+ndrdrop@whither.jp>
+Received: from ba-bee.cloudflare-email.net (ba-bee.cloudflare-email.net. [104.30.10.144])
+        by mx.google.com with ESMTPS id 46e09a7af769-7dcc4fecc1asi15417171a34.136.2026.04.27.04.55.50
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 27 Apr 2026 04:55:50 -0700 (PDT)
+Received-SPF: pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.144 as permitted sender) client-ip=104.30.10.144;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=bUt+Leml;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=hMDLQzAv;
+       dkim=pass header.i=@hbkjx.com header.s=s1 header.b=JBgjYtJq;
+       arc=pass (i=1 spf=pass spfdomain=em8333.hbkjx.com dkim=pass dkdomain=hbkjx.com dmarc=pass fromdomain=hbkjx.com);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.144 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=hbkjx.com
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=To:Subject:From:Date:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1777290950; x=1777895750; bh=ZKr40WTxdZx6zeyRiq
+	TRyvPjfeysRhoCyzAkdwycxmA=; b=bUt+Lemll7OBFGgIusX28J6W2zYnI+GzWfa/EwCJnwTVF
+	cbgwUikT+b5W6QSQlx+IPBR3lu3pF7CLtxr7ujQgIOoKS1w+QO+ukm3TBwUzR6kTMX4BO2RhJoi
+	82sYe9wmohmS/JbyVzi0KBaMvM0o6W4wQ35nXeEKmCFC5Q7D9VdSYE6upZVmmuPufi632KXdLdR
+	fOiELAf1UyRpLcGo53XU15H1zHYLAidEXBATlrEZcsxAuBKIPKsI9r2Ep/EFmJo0vlJHlmzfCwf
+	92UKZ8y1Kxdn8zLEkb2ozFxa50qrrBQtzGGtwF0z3Qa823pIK0qI5hPisOtIqgqYDFp/NfAQ==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=To:Subject:From:Date:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1777290950; x=1777895750; bh=ZKr40WTxdZx6zeyRiq
+	TRyvPjfeysRhoCyzAkdwycxmA=; b=hMDLQzAvH6QdJU9JTe+D4CW3f2UN83qTza1W5POJMNHAu
+	uzXfLENDDA/jdI2w9IKhP/uZQqgXrxV7IIwg9eJ4eBDlZWEjfrpb96f8YG1eFpmHrln4UoLgH2J
+	IhQc76if3DQ1xydrA3lV43yAsshr+1N/+Nj6oXqcHI5BmrWwPrHjt3tqr1sLRlp0m49+7fN+347
+	vLLjYqXdvZIgrPr4MUWvH7mrrcKRxy5yoFgLvN1BBAmlBiuZbXmIqHfDMwbRhD11INZFMio9LYE
+	tEm2axNN4qRtRjdZvqAK3nnOmeml5nZcHugzds2sy8h9g+CZmDcdTqli8nZU7YWBh7HqM3lg==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: penguin@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from s.wrqvtbkv.outbound-mail.sendgrid.net (149.72.123.24)
+        by cloudflare-email.net (cloudflare) id uVn5ysbYNpEA
+        for <penguin@whither.jp>; Mon, 27 Apr 2026 11:55:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=N8elujWLmMQ4wAKDmqZtXcB7CadhGdq/HdEzl+QV3uM9805CBXda7j29PsRBrn0kV2zCQJZtE
+	uoQI9baPjc0ULZ4JfyJ+Go08sonFcwTMimKTxtm6U7gCrX6tjNhetnVIrkoK9voDFseDkPsCcrf
+	nWaMsWfQWfT6rf1TbFKZgOylQ1F/DfytBd6pfUghx8o0a4Sjef0JClCIXJLlJB3HmpwhNxbVaKv
+	fnDyTQI0HRgJadYDo6LHrGqOJb2eb5pJNxE+u91KMVQGhX5kpM5oFyG7cquM6+VyabS+x7/mc5B
+	NCj7XwvXsMPqy6x52JZBog5ZzmpcbDvKNPp++qcwdbCw==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=To:Subject:From:Date:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1777290949; x=1777895749; bh=ZKr40WTx
+	dZx6zeyRiqTRyvPjfeysRhoCyzAkdwycxmA=; b=PWRzLL0cQJQl6jp+4u33v3dFfRpnHty+CKp
+	MOq88EZ4T68M5xzCm0DWLpxnlweuoGg84UgGCPpz6ujFFIZ45boEpVxqUb1MA7rCEp57VCRCaMo
+	IwK3J9Lae99ox7nwAz8GucccpqS4itxBJN4AvGw4IkXB4vIvyUvjh+vpwz3ytViQC6gt9ih9zeK
+	lUtEAXqAG4cpj8grJjBXSQKXKTo0bx3c9Y99hiJGyy/nAzhKRTJDmFA1cUgN4E8rroWqX7YdCwE
+	9YO+2G59d2YJRyfRdWRsRfHqCfwTpFUHXKhHm0ie0ITJuG+Pp170kNY3KzHOiHO+NC4netpek45
+	Y0cFm8g==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.d=hbkjx.com header.s=s1 header.b=JBgjYtJq;
+	dmarc=pass header.from=hbkjx.com policy.dmarc=none;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@s.wrqvtbkv.outbound-mail.sendgrid.net) smtp.helo=s.wrqvtbkv.outbound-mail.sendgrid.net;
+	spf=pass (mx.cloudflare.net: domain of bounces+106243856-0f41-penguin=whither.jp@em8333.hbkjx.com designates 149.72.123.24 as permitted sender) smtp.mailfrom=bounces+106243856-0f41-penguin=whither.jp@em8333.hbkjx.com;
+	arc=none smtp.remote-ip=149.72.123.24
+Received-SPF: pass (mx.cloudflare.net: domain of bounces+106243856-0f41-penguin=whither.jp@em8333.hbkjx.com designates 149.72.123.24 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=149.72.123.24; envelope-from="bounces+106243856-0f41-penguin=whither.jp@em8333.hbkjx.com"; helo=s.wrqvtbkv.outbound-mail.sendgrid.net;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.d=hbkjx.com header.s=s1 header.b=JBgjYtJq;
+	dmarc=pass header.from=hbkjx.com policy.dmarc=none;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@s.wrqvtbkv.outbound-mail.sendgrid.net) smtp.helo=s.wrqvtbkv.outbound-mail.sendgrid.net;
+	spf=pass (mx.cloudflare.net: domain of bounces+106243856-0f41-penguin=whither.jp@em8333.hbkjx.com designates 149.72.123.24 as permitted sender) smtp.mailfrom=bounces+106243856-0f41-penguin=whither.jp@em8333.hbkjx.com;
+	arc=none smtp.remote-ip=149.72.123.24
+X-CF-SpamH-Score: 1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hbkjx.com;
+	h=content-type:date:from:mime-version:subject:to:cc:content-type:date:
+	from:subject:to;
+	s=s1; t=1777290949; bh=ZKr40WTxdZx6zeyRiqTRyvPjfeysRhoCyzAkdwycxmA=;
+	b=JBgjYtJq+nZB6qQaN7P0+5fGNXWHtgeL2DhC/vj/85Dq+PHJT5g4JB+VZKCdZzksyOlX
+	PgbnKrtLc6SA1MYGxsTGJRVLTKycjrQ0SG7u4oyFPpIQp2zdJNTQVzbT77GLO2h2jWPXMD
+	ol5cgXlb75opE58P09fD/2v8HnlQER1RUKHhVY7mee6iet8X0Zd7GPfbcdC6Fs7MttOaLU
+	kzu5a4HkWQhvmcwTNiUtwiwP0yYrWixZzn14FA2DfWGJUplZ06fwhUKwWCgfD5M4GHJBaP
+	KHJejHZ9ITsFupvb36cs/7xiKDs1yImgXWcm5f4nvOMNB1gNuaZ0lxaKU4ZgPHpA==
+Received: by recvd-b7544cc98-snmz7 with SMTP id recvd-b7544cc98-snmz7-1-69EF4EC4-C6
+	2026-04-27 11:55:48.984445739 +0000 UTC m=+482749.969522096
+Received: from MTA2MjQzODU2 (unknown)
+	by geopod-ismtpd-15 (SG) with HTTP
+	id Nkt-SXYORwCcNd3RNjpOuA
+	Mon, 27 Apr 2026 11:55:48.904 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=d2e20a85ed5d20b9871d28a4e1a689a298a8ec994ca40b9b5890d2cc68c9
+Date: Mon, 27 Apr 2026 11:55:49 +0000 (UTC)
+From: =?UTF-8?b?44CQTiBIIEvlj5fkv6Hmlpnjgrvjg7Pjgr/jg7zjgJE=?=
+	<info@hbkjx.com>
+Mime-Version: 1.0
+Message-ID: <Nkt-SXYORwCcNd3RNjpOuA@geopod-ismtpd-15>
+Subject: =?UTF-8?B?44CQTg==?= H
+ =?UTF-8?B?S+OAkeaWmemHkeaUr+aJleOBhOaJi+e2muOBjeOBq+mWouOBmeOCi+OBlOahiOWGhQ==?=
+X-SG-EID: 
+ =?us-ascii?Q?u001=2EgPLoP4kkaGSpwy3fdzVxF6IAJrao+RRcuiDQ5rl233hNZntabw4gV9XAm?=
+ =?us-ascii?Q?uUL4nHmLj4Q220Gzlb3PIh75fsktUR4ZXBM+AD6?=
+ =?us-ascii?Q?fYdNr4UtMDU1zvkr6n1Wo5s9fZycDzuZXkT1scs?=
+ =?us-ascii?Q?6YV1fS+Bbar0IvboQYdOYyp2LUq9asoYuobCRt2?=
+ =?us-ascii?Q?Oay91AYbYF1fffKsoV3hcIqqELwGACinOyaNy0Z?=
+ =?us-ascii?Q?NHysHHr3v1canHakU1EhtZIZF4QNIIjDfRB+G7q?= =?us-ascii?Q?okRE?=
+To: penguin@whither.jp
+X-Entity-ID: u001.WzaJUTZr9mQ4fuBeOLhJzg==
+
+--d2e20a85ed5d20b9871d28a4e1a689a298a8ec994ca40b9b5890d2cc68c9
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Mime-Version: 1.0
+
+&#12304;NHK&#12305;&#21463;&#20449;&#26009;&#12463;&#12524;&#12472;&#12483;=
+&#12488;&#12459;&#12540;&#12489;&#27770;&#28168;&#12395;&#38306;&#12377;&#1=
+2427;&#37325;&#35201;&#12394;&#12362;&#30693;&#12425;&#12379;
+
+&#12371;&#12398;&#12513;&#12540;&#12523;&#12399;&#12289;N H K&#21463;&#2044=
+9;&#26009;&#12398;&#23450;&#26399;&#12463;&#12524;&#12472;&#12483;&#12488;&=
+#12459;&#12540;&#12489;&#27770;&#28168;&#12395;&#38306;&#12377;&#12427;&#37=
+325;&#35201;&#12394;&#12362;&#30693;&#12425;&#12379;&#12391;&#12377;&#12290=
+;
+&#12362;&#24515;&#24403;&#12383;&#12426;&#12364;&#12394;&#12356;&#22580;&#2=
+1512;&#12420;&#19981;&#26126;&#28857;&#12364;&#12372;&#12374;&#12356;&#1241=
+4;&#12375;&#12383;&#12425;&#12289;&#19979;&#35352;&#12362;&#21839;&#12356;&=
+#21512;&#12431;&#12379;&#20808;&#12414;&#12391;&#12372;&#36899;&#32097;&#12=
+367;&#12384;&#12373;&#12356;&#12290;&#65288;&#26412;&#12513;&#12540;&#12523=
+;&#12408;&#12399;&#36820;&#20449;&#12391;&#12365;&#12414;&#12379;&#12435;&#=
+65289;=20
+
+&#21463;&#20449;&#26009;&#12463;&#12524;&#12472;&#12483;&#12488;&#12459;&#1=
+2540;&#12489;&#27770;&#28168;&#12395;&#12388;&#12356;&#12390;&#12398;&#1237=
+2;&#26696;&#20869;
+&#24179;&#32032;&#12424;&#12426;N H K&#12398;&#25918;&#36865;&#12469;&#1254=
+0;&#12499;&#12473;&#12434;&#12372;&#21033;&#29992;&#12356;&#12383;&#12384;&=
+#12365;&#12289;&#35488;&#12395;&#12354;&#12426;&#12364;&#12392;&#12358;&#12=
+372;&#12374;&#12356;&#12414;&#12377;&#12290;
+
+&#12371;&#12398;&#24230;&#12289;&#12362;&#23458;&#27096;&#12398;N H K&#2146=
+3;&#20449;&#26009;&#12398;&#23450;&#26399;&#12463;&#12524;&#12472;&#12483;&=
+#12488;&#12459;&#12540;&#12489;&#27770;&#28168;&#12364;&#27491;&#24120;&#12=
+395;&#20966;&#29702;&#12391;&#12365;&#12414;&#12379;&#12435;&#12391;&#12375=
+;&#12383;&#12290;
+
+&#20027;&#12394;&#21407;&#22240;&#12392;&#12375;&#12390;&#12289;&#20197;&#1=
+9979;&#12398;&#21487;&#33021;&#24615;&#12364;&#32771;&#12360;&#12425;&#1242=
+8;&#12414;&#12377;&#65306;
+
+  &#12463;&#12524;&#12472;&#12483;&#12488;&#12459;&#12540;&#12489;&#12398;&=
+#26377;&#21177;&#26399;&#38480;&#20999;&#12428;=20
+  &#12459;&#12540;&#12489;&#20250;&#31038;&#12395;&#12424;&#12427;&#21033;&=
+#29992;&#21046;&#38480;=20
+  &#27531;&#39640;&#19981;&#36275;&#12414;&#12383;&#12399;&#19968;&#26178;&=
+#30340;&#12394;&#27770;&#28168;&#12456;&#12521;&#12540;=20
+&#12304;&#12362;&#25903;&#25173;&#12356;&#24773;&#22577;&#12398;&#20877;&#3=
+0331;&#37682;&#12398;&#12362;&#39000;&#12356;&#12305;
+
+&#12362;&#25163;&#25968;&#12391;&#12377;&#12364;&#12289;&#20197;&#19979;&#1=
+2398;&#12506;&#12540;&#12472;&#12424;&#12426;&#26032;&#12375;&#12356;&#1246=
+3;&#12524;&#12472;&#12483;&#12488;&#12459;&#12540;&#12489;&#24773;&#22577;&=
+#12398;&#12372;&#30331;&#37682;&#12434;&#12362;&#39000;&#12356;&#12356;&#12=
+383;&#12375;&#12414;&#12377;&#12290;
+
+&#12371;&#12371;&#12434;&#12463;&#12522;&#12483;&#12463;&#12375;&#12390;&#2=
+5163;&#32154;&#12365;&#12408;&#36914;&#12416;=20
+
+&#12304;&#12362;&#25163;&#32154;&#12365;&#26399;&#38480;&#12305;
+2026-04-28 23:59=20
+&#12414;&#12391;&#12395;&#25163;&#32154;&#12365;&#12398;&#23436;&#20102;&#1=
+2434;&#12362;&#39000;&#12356;&#12356;&#12383;&#12375;&#12414;&#12377;&#1229=
+0;
+&#26399;&#38480;&#12434;&#36942;&#12366;&#12383;&#22580;&#21512;&#12289;&#2=
+1463;&#20449;&#26009;&#22865;&#32004;&#12398;&#32153;&#32154;&#12395;&#2443=
+3;&#38911;&#12364;&#29983;&#12376;&#12427;&#21487;&#33021;&#24615;&#12364;&=
+#12354;&#12426;&#12414;&#12377;&#12398;&#12391;&#12289;&#26089;&#12417;&#12=
+398;&#12372;&#23550;&#24540;&#12434;&#12362;&#39000;&#12356;&#12356;&#12383=
+;&#12375;&#12414;&#12377;&#12290;=20
+
+&#12304;&#12490;&#12499;&#12480;&#12452;&#12516;&#12523;&#65288;&#21463;&#2=
+0449;&#22865;&#32004;&#38306;&#36899;&#65289;&#12305;
+0570-077-077
+&#12490;&#12499;&#12480;&#12452;&#12516;&#12523;&#12434;&#12372;&#21033;&#2=
+9992;&#12395;&#12394;&#12428;&#12394;&#12356;&#22580;&#21512;&#65306;050-37=
+86-5003
+&#21463;&#20184;&#26178;&#38291;&#65306;&#21320;&#21069;9&#26178;&#65374;&#=
+21320;&#24460;6&#26178;&#65288;&#22303;&#26085;&#31069;&#21547;&#12416;&#65=
+289;
+
+Copyright &copy; N H K (Japan Broadcasting Corporation) All rights=20
+reserved.
+--d2e20a85ed5d20b9871d28a4e1a689a298a8ec994ca40b9b5890d2cc68c9
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=us-ascii
+Mime-Version: 1.0
+
+<html lang=3D"ja"><head>
+<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+<title>&#12304;NHK&#12305;&#21463;&#20449;&#26009;&#12463;&#12524;&#12472;&=
+#12483;&#12488;&#12459;&#12540;&#12489;&#27770;&#28168;&#12395;&#38306;&#12=
+377;&#12427;&#37325;&#35201;&#12394;&#12362;&#30693;&#12425;&#12379;</title=
+>
+<meta charset=3D"UTF-8">
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1.=
+0">
+<style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "&#12513;&#12452;&#12522;&#12458;", "&#12498;&#12521;&#1=
+2462;&#12494;&#35282;&#12468; ProN", sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    .notice-box {
+      background-color: #eaf4ff;
+      border-left: 6px solid #0078d7;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+      font-size: 15px;
+    }
+    h1 {
+      font-size: 20px;
+      color: #0078d7;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 15px;
+      line-height: 1.7;
+      margin: 12px 0;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    .button-box {
+      text-align: center;
+      margin: 30px 0;
+    }
+    .cta-button {
+      display: inline-block;
+      background-color: #0078d7;
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 4px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .footer {
+      font-size: 12px;
+      color: #666;
+      border-top: 1px dashed #ccc;
+      margin-top: 30px;
+      padding-top: 20px;
+    }
+  </style>
+
+</head>
+<body>
+<div class=3D"container">
+<div class=3D"notice-box">&#12371;&#12398;&#12513;&#12540;&#12523;&#12399;&=
+#12289;N H K&#21463;&#20449;&#26009;&#12398;&#23450;&#26399;&#12463;&#12524=
+;&#12472;&#12483;&#12488;&#12459;&#12540;&#12489;&#27770;&#28168;&#12395;&#=
+38306;&#12377;&#12427;&#37325;&#35201;&#12394;&#12362;&#30693;&#12425;&#123=
+79;&#12391;&#12377;&#12290;<br>&#12362;&#24515;&#24403;&#12383;&#12426;&#12=
+364;&#12394;&#12356;&#22580;&#21512;&#12420;&#19981;&#26126;&#28857;&#12364=
+;&#12372;&#12374;&#12356;&#12414;&#12375;&#12383;&#12425;&#12289;&#19979;&#=
+35352;&#12362;&#21839;&#12356;&#21512;&#12431;&#12379;&#20808;&#12414;&#123=
+91;&#12372;&#36899;&#32097;&#12367;&#12384;&#12373;&#12356;&#12290;&#65288;=
+&#26412;&#12513;&#12540;&#12523;&#12408;&#12399;&#36820;&#20449;&#12391;&#1=
+2365;&#12414;&#12379;&#12435;&#65289;=20
+</div>
+<h1>&#21463;&#20449;&#26009;&#12463;&#12524;&#12472;&#12483;&#12488;&#12459=
+;&#12540;&#12489;&#27770;&#28168;&#12395;&#12388;&#12356;&#12390;&#12398;&#=
+12372;&#26696;&#20869;</h1>
+<p style=3D"bottom: auto;">&#24179;&#32032;&#12424;&#12426;N H K&#12398;&#2=
+5918;&#36865;&#12469;&#12540;&#12499;&#12473;&#12434;&#12372;&#21033;&#2999=
+2;&#12356;&#12383;&#12384;&#12365;&#12289;&#35488;&#12395;&#12354;&#12426;&=
+#12364;&#12392;&#12358;&#12372;&#12374;&#12356;&#12414;&#12377;&#12290;</p>
+<p>&#12371;&#12398;&#24230;&#12289;&#12362;&#23458;&#27096;&#12398;N H K&#2=
+1463;&#20449;&#26009;&#12398;&#23450;&#26399;&#12463;&#12524;&#12472;&#1248=
+3;&#12488;&#12459;&#12540;&#12489;&#27770;&#28168;&#12364;&#27491;&#24120;&=
+#12395;&#20966;&#29702;&#12391;&#12365;&#12414;&#12379;&#12435;&#12391;&#12=
+375;&#12383;&#12290;</p>
+<p>&#20027;&#12394;&#21407;&#22240;&#12392;&#12375;&#12390;&#12289;&#20197;=
+&#19979;&#12398;&#21487;&#33021;&#24615;&#12364;&#32771;&#12360;&#12425;&#1=
+2428;&#12414;&#12377;&#65306;</p>
+<ul>
+  <li>&#12463;&#12524;&#12472;&#12483;&#12488;&#12459;&#12540;&#12489;&#123=
+98;&#26377;&#21177;&#26399;&#38480;&#20999;&#12428;=20
+  <li>&#12459;&#12540;&#12489;&#20250;&#31038;&#12395;&#12424;&#12427;&#210=
+33;&#29992;&#21046;&#38480;=20
+  <li>&#27531;&#39640;&#19981;&#36275;&#12414;&#12383;&#12399;&#19968;&#261=
+78;&#30340;&#12394;&#27770;&#28168;&#12456;&#12521;&#12540; </li></ul>
+<p><strong>&#12304;&#12362;&#25903;&#25173;&#12356;&#24773;&#22577;&#12398;=
+&#20877;&#30331;&#37682;&#12398;&#12362;&#39000;&#12356;&#12305;</strong></=
+p>
+<p style=3D"display: inline;">&#12362;&#25163;&#25968;&#12391;&#12377;&#123=
+64;&#12289;&#20197;&#19979;&#12398;&#12506;&#12540;&#12472;&#12424;&#12426;=
+&#26032;&#12375;&#12356;&#12463;&#12524;&#12472;&#12483;&#12488;&#12459;&#1=
+2540;&#12489;&#24773;&#22577;&#12398;&#12372;&#30331;&#37682;&#12434;&#1236=
+2;&#39000;&#12356;&#12356;&#12383;&#12375;&#12414;&#12377;&#12290;</p>
+<div class=3D"button-box"><a class=3D"cta-button" style=3D"text-decoration:=
+ none;" href=3D"https://wendingappstore.com/ldcesx">&#12371;&#12371;&#12434=
+;&#12463;&#12522;&#12483;&#12463;&#12375;&#12390;&#25163;&#32154;&#12365;&#=
+12408;&#36914;&#12416;</a>=20
+</div>
+<p><strong>&#12304;&#12362;&#25163;&#32154;&#12365;&#26399;&#38480;&#12305;=
+</strong><br>2026-04-28&nbsp;23:59=20
+&#12414;&#12391;&#12395;&#25163;&#32154;&#12365;&#12398;&#23436;&#20102;&#1=
+2434;&#12362;&#39000;&#12356;&#12356;&#12383;&#12375;&#12414;&#12377;&#1229=
+0;<br>&#26399;&#38480;&#12434;&#36942;&#12366;&#12383;&#22580;&#21512;&#122=
+89;&#21463;&#20449;&#26009;&#22865;&#32004;&#12398;&#32153;&#32154;&#12395;=
+&#24433;&#38911;&#12364;&#29983;&#12376;&#12427;&#21487;&#33021;&#24615;&#1=
+2364;&#12354;&#12426;&#12414;&#12377;&#12398;&#12391;&#12289;&#26089;&#1241=
+7;&#12398;&#12372;&#23550;&#24540;&#12434;&#12362;&#39000;&#12356;&#12356;&=
+#12383;&#12375;&#12414;&#12377;&#12290; </p>
+<div class=3D"footer">
+<p style=3D"backface-visibility: visible;"><strong>&#12304;&#12490;&#12499;=
+&#12480;&#12452;&#12516;&#12523;&#65288;&#21463;&#20449;&#22865;&#32004;&#3=
+8306;&#36899;&#65289;&#12305;</strong><br>0570-077-077<br>&#12490;&#12499;&=
+#12480;&#12452;&#12516;&#12523;&#12434;&#12372;&#21033;&#29992;&#12395;&#12=
+394;&#12428;&#12394;&#12356;&#22580;&#21512;&#65306;050-3786-5003<br>&#2146=
+3;&#20184;&#26178;&#38291;&#65306;&#21320;&#21069;9&#26178;&#65374;&#21320;=
+&#24460;6&#26178;&#65288;&#22303;&#26085;&#31069;&#21547;&#12416;&#65289;<b=
+r>
+</p>
+<p>Copyright &copy; N H K (Japan Broadcasting Corporation) All rights=20
+reserved.</p></div></div>
+
+<img width=3D"1" height=3D"1" style=3D"border-width: 0px !important; margin=
+: 0px !important; padding: 0px !important; width: 1px !important; height: 1=
+px !important;" alt=3D"" src=3D"https://u57355421.ct.sendgrid.net/wf/open?u=
+pn=3Du001.jJRf-2BKk4jd-2F5-2Fn-2FCLwrQNz3c-2BeOfPMpTyeIMMKwfWE-2FJPzYymE43j=
+ynl05UceAi8Vz5YdVGJwNOF4HV-2Fa2XrpqsxLkWO0eEitr41l71zsMor4tu8Hb0l0Q4hOkUiPg=
+WV7PtQ-2F1K4Vy4-2B2lSKvHHHGFlZejfJfyjgtr0KyHDl1Hd1Fgi6yfXz3ZRMnsMSmQniXFpbI=
+b1Jw67MpwSGfOejyORxrqkaHwRFd65Dw-2BFcKAw-3D" border=3D"0"></body></html>
+--d2e20a85ed5d20b9871d28a4e1a689a298a8ec994ca40b9b5890d2cc68c9--
+
