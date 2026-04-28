@@ -1,0 +1,337 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:a0d8:0:b0:261:85fe:9a8 with SMTP id n24csp536283eib;
+        Tue, 28 Apr 2026 08:41:09 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ9uWjkEFVW7PY4Jalzt6oQarZVR3rWhYPS5GSue94l0hWV/nWjxjGQaromYZDRZdt+eJkaKTaApPjCMCmNG/g==@gmail.com
+X-Received: by 2002:a05:6000:26d2:b0:43d:300b:2285 with SMTP id ffacd0b85a97d-44648b50d01mr6635759f8f.11.1777390869002;
+        Tue, 28 Apr 2026 08:41:09 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1777390868; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=fIpPTb1nwPphzPHrwlacJ+TbslcLPQSQnp8yLE6sAFJ8N/xyspMMTUz50AyQW5tG8+
+         cAFWBIB/LdSaomxJnXsc8ujckC6xmJXI4e+TN0zYi23m2WZC5TNoz0Ip5+YycFHiXOIQ
+         Bz4cZPPIusbKpVgyfnEr7Cw/1Et+HuHXeJ6ueq2m/QdV8GGU0ZZc3NmuvM/1neFVOHCZ
+         YZ2UlRhOZZP4yuAV/6hXnMUC8dqyvmh7zt4ths0v8Xaf7UNddmlE+nK412TJfAHGtHCT
+         C5HlFMEQ8USgigvijzfmKRDoOC4KqmQfxC4wyv0gnnYWV0ThCIkp+Pu6wYwStsdBsVRt
+         l9ww==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=message-id:date:subject:to:dkim-signature:from:mime-version
+         :feedback-id:dkim-signature:dkim-signature;
+        bh=7Vfjy6b9qmWYp4VlTN4NFSXa5DevlvgegPgMZ+/ksI0=;
+        fh=ENXOhFKW7CT4pn4Lz1vO6o5YQQdiV/Ih3E4yEdfzxpY=;
+        b=F/jKb7UXsfJpWFc2KmWt1/cROrnkrrrsHwnM/BHxcfp+PLYecnTsQUFQZT7mdi+fC1
+         kc9+FQ1qlhgG4RvU0pFL12qjgyI+YT9pefBJXX1f6LpHB6XCgGwaqfikkM9nsXBSwLWj
+         +zDxLT1QRHI6CbMPS3umY1MK2WbENqGHbIEBGXm1V1e7d45/HjSN4j4nQHUVnP1rRIBb
+         5Eim66hLFld4z1K0UDwn0w7eY0DYC446PZduBz9stzL2677BnL8ErUytMe+CmKF+QrvV
+         yuAVg0Z81j/bshvv0abQZX6A3YXEzbf2QYIvKwzFdPxwzKxFK4Ei+BsJl5K4m94zk+BJ
+         JWyA==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=Od7RHP7E;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=F8txkyCF;
+       dkim=pass header.i=@wootz.znlclxg.cn header.s=moony header.b=ZoQpixKa;
+       arc=pass (i=1 spf=pass spfdomain=wootz.znlclxg.cn dkim=pass dkdomain=wootz.znlclxg.cn dmarc=pass fromdomain=wootz.znlclxg.cn);
+       spf=pass (google.com: domain of srs0=n9id=3c=wootz.znlclxg.cn=itogoichi_1989@whither.jp designates 104.30.8.231 as permitted sender) smtp.mailfrom="SRS0=n9Id=3c=wootz.znlclxg.cn=itogoichi_1989@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=znlclxg.cn
+Return-Path: <SRS0=n9Id=3c=wootz.znlclxg.cn=itogoichi_1989@whither.jp>
+Received: from i-cdb.cloudflare-email.net (i-cdb.cloudflare-email.net. [104.30.8.231])
+        by mx.google.com with ESMTPS id ffacd0b85a97d-4464167f472si4862930f8f.393.2026.04.28.08.41.04
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 28 Apr 2026 08:41:06 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=n9id=3c=wootz.znlclxg.cn=itogoichi_1989@whither.jp designates 104.30.8.231 as permitted sender) client-ip=104.30.8.231;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=Od7RHP7E;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=F8txkyCF;
+       dkim=pass header.i=@wootz.znlclxg.cn header.s=moony header.b=ZoQpixKa;
+       arc=pass (i=1 spf=pass spfdomain=wootz.znlclxg.cn dkim=pass dkdomain=wootz.znlclxg.cn dmarc=pass fromdomain=wootz.znlclxg.cn);
+       spf=pass (google.com: domain of srs0=n9id=3c=wootz.znlclxg.cn=itogoichi_1989@whither.jp designates 104.30.8.231 as permitted sender) smtp.mailfrom="SRS0=n9Id=3c=wootz.znlclxg.cn=itogoichi_1989@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=znlclxg.cn
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1777390865; x=1777995665; bh=7Vfjy6b9qmWYp4VlTN
+	4NFSXa5DevlvgegPgMZ+/ksI0=; b=Od7RHP7EAbuzdmvpIFpI+q7ramLobcconDd8910p1GxO8
+	wRFJuyqq7osNMhibR6ogS61+8kqPef0rypeJ38BzaX1aghnXq3WyZ7dNkkFL2jPm+8CMRjbsjVW
+	3c2qVxecF/CQVdEBs8spZXHwLRxFQEf7OMII/uFOqaZ6XsPPvsQ0Q9xoG+kkP3glF3QZ2IzxSN6
+	Fsym4kuJ7KK4x6qCFUjIVADX06Q0oMZJ1WHqPRaSD6EjVoj8rQXmce4I7aoSbEvRRfvb1SNhF8R
+	6nhUb6xr6s0bxImheMCRKk4X44jry34KkpLO/FB+ylnAsTbjkKDVuvazSQzbsHUDg5ku3N7A==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1777390865; x=1777995665; bh=7Vfjy6b9qmWYp4VlTN
+	4NFSXa5DevlvgegPgMZ+/ksI0=; b=F8txkyCFd1ViEQEWRI9ujJBQhV0yYWda8t49X5kiXqGj4
+	x0QoRicdAuBq6HnQ7BxOGRuMV4HkZ09v8CUXvwr2znRd0ut/BPpvyLBIWqqYx+0z6qCxXU9TdEF
+	v1J48qyv571Rk3OmZse0JMqEzBXXT3Q5zebmeKVVvRFASJYROOpu6hSUEPXNm5S+FxDyZ/U+7sc
+	KApe1OukpvIC6u3RaHBsiNd5jf3LwPI+7gCTWMVWfZWkL8nUfVPLLZNGhTzlCGCkzJMpa+r8R1K
+	kl3uJWwdSwdU+Ja4TCkTJoeN1FkdAJyItpdXrtHpMEHT2IdUMGRDNqhmFwphRCM1zZa8VnVw==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: penguin@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from wootz.znlclxg.cn (120.37.63.190)
+        by cloudflare-email.net (cloudflare) id P75SEAIUtmES
+        for <penguin@whither.jp>; Tue, 28 Apr 2026 15:40:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=GD/T0mq1Zf6biYVn7rx3sXGGSwTTyofwq1KgemXJPjpqn0MF6RQik4pQ68zR3eR6kEy2uj9R+
+	X1KmDCVkO75x27B8Q+1+qtd29J8Yo19Ze+OL1ET+E+JlFj+12h+k3hmDRjypnesfogO5uwRJ7hE
+	n58WGbDkdL6toCwDBVKdMeHIItveHivkL0ew70v0Rsv3I8pBJrvEAO85Z7i/ze+sekyK/BwF491
+	xJG6nFfXhXBH+xTYYDfTfLHW+62K/h9CLQ9zi3DDsJ5pKX/osvQCDJWTy+KFAWN83ctYiL8OFSp
+	Fx+k7Fqe6yHFiNNfbhH4Z5MjbUgadZupXw1mEYRnQZvQ==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1777390862; x=1777995662; bh=7Vfjy6b9
+	qmWYp4VlTN4NFSXa5DevlvgegPgMZ+/ksI0=; b=ZLxeAz63DjJFcgEZWiq72BQmB6nAHtxBBQc
+	AAv147HxE4EJxcqmqVp5U/+q06U4Lfuojll7CI474hYLNFXPyQ0zSjpiubgR4CNBP9kVzNAF2yB
+	nTu8jBLa4VIQwesJ6eGdUtpNME+2MnP2lT3lJJol1jRUN0YvUJc7hW3OplMK0B1DQTsZVh1cG5t
+	jsjjXB0jlNvplj1Z3QDVEDyGplET+2MZNFQYvtP+9eRWsnc3zd4d5jNsjAP3nTDieP2hOcPdaa/
+	jxfJiKN/t6aU4w2mkyHtFq61FutwY1SILtgTjv/iVYDFmWyaxZ/4mmRZGFhVzEDaI6PizZnTrnP
+	FfOx5GQ==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=@wootz.znlclxg.cn header.s=moony header.b=ZoQpixKa;
+	dmarc=pass header.from=wootz.znlclxg.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@wootz.znlclxg.cn designates 120.37.63.190 as permitted sender) smtp.helo=wootz.znlclxg.cn;
+	spf=pass (mx.cloudflare.net: domain of itogoichi_1989@wootz.znlclxg.cn designates 120.37.63.190 as permitted sender) smtp.mailfrom=itogoichi_1989@wootz.znlclxg.cn;
+	arc=none smtp.remote-ip=120.37.63.190
+Received-SPF: pass (mx.cloudflare.net: domain of itogoichi_1989@wootz.znlclxg.cn designates 120.37.63.190 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=120.37.63.190; envelope-from="itogoichi_1989@wootz.znlclxg.cn"; helo=wootz.znlclxg.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=@wootz.znlclxg.cn header.s=moony header.b=ZoQpixKa;
+	dmarc=pass header.from=wootz.znlclxg.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@wootz.znlclxg.cn designates 120.37.63.190 as permitted sender) smtp.helo=wootz.znlclxg.cn;
+	spf=pass (mx.cloudflare.net: domain of itogoichi_1989@wootz.znlclxg.cn designates 120.37.63.190 as permitted sender) smtp.mailfrom=itogoichi_1989@wootz.znlclxg.cn;
+	arc=none smtp.remote-ip=120.37.63.190
+X-CF-SpamH-Score: 2
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="----=_GmciVuqn_021_JU658_67EWJ4BA.280K3AF5"
+From: =?utf-8?b?5qW95aSp44Kr44O844OJ5qCq5byP5Lya56S+?= <itogoichi_1989@wootz.znlclxg.cn>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wootz.znlclxg.cn;
+ i=@wootz.znlclxg.cn; q=dns/txt; s=moony; t=1777390854; h=from : to :
+ subject : date : message-id;
+ bh=7Vfjy6b9qmWYp4VlTN4NFSXa5DevlvgegPgMZ+/ksI0=;
+ b=ZoQpixKaPQndzUql1MeaICyPDtEyQON3DhpD6N8sEgOdA+5Ad+hLF5vZY5BAieFSr8IMD
+ Ywy0NjatqtZYVz+oaqcGXKOG95HnS8hgxqtr6PJRajK29hXlNgJQvLJTNNShFKaxRdxvkRT
+ HdDjDPCoEFOg0gQg+H+yQxTpJEqi3ywsiI17jgxU1iO5VEUpkZStT9+u91BK7nYSdWsvk09
+ mejneauM8ETelaL0BsXXVOCjJGKbdea+Bd+i9qr9cnwY3TTpwB1MOM/c1HH/htIXMr/I+J+
+ 866cgxCAubENH8SOU/HI87pYqn3LBqpxGBmjDH4efNUad0dwODLzqlfp+w9w==
+To: <penguin@whither.jp>
+Subject: =?utf-8?b?44CQ6YeN6KaB44CR5qW95aSp44Kr44O844OJIDPmnIjliIbjgZToq4vmsYLph5HpoY3jga7jgYrnn6XjgonjgZsgLSDoh6rli5XlvJXokL3jgZflpLHmlZc=?=
+Date: Wed, 29 Apr 2026 00:40:54 +0900
+Message-ID: <1777390854563@wootz.znlclxg.cn>
+X-mailer: LeE2f 7
+
+------=_GmciVuqn_021_JU658_67EWJ4BA.280K3AF5
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+
+楽天カード
+
+ご請求金額のお知らせ（2026年3月分）
+
+平素より楽天カードをご利用いただき、誠にありがとうございます。
+
+【重要なお知らせ】
+
+自動引落し（口座振替）が失敗いたしました。
+
+3月分のご請求金額が、指定の銀行口座より引き落とせませんでした。
+至急のお支払い手続きをお願いいたします。 
+
+ご請求金額合計
+
+¥19,890
+
+支払期限：メール確認後、3 日以内
+
+お支払い方法について
+
+自動引落しに失敗したため、PayPayでのお支払いをお願いいたします。 
+
+ PayPayで今すぐ支払う 
+
+※このボタンをタップするとPayPay支払いページにジャンプします。
+※支払い期限を過ぎますと、遅延損害金が発生する場合がございます。
+※お支払い後、反映まで最大24時間かかる場合があります。 
+
+ご不明な点がございましたら、楽天カードコンタクトセンターまでお問い合わせください。
+電話番号：0570-66-6910（有料）
+
+------=_GmciVuqn_021_JU658_67EWJ4BA.280K3AF5
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+
+<HTML lang=ja><HEAD>
+<META charset="UTF-8">
+<META name=viewport content="width=device-width, initial-scale=1.0">
+<STYLE>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "Hiragino Sans", "Yu Gothic", sans-serif;
+            background: #f8f8f8;
+            margin: 0;
+            padding: 12px 8px;
+            color: #333;
+            line-height: 1.8;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+        .header {
+            background: #BF0000;
+            color: #fff;
+            padding: 35px 20px 28px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 700;
+        }
+        .content {
+            padding: 35px 25px;
+        }
+        .important {
+            background: #FFF0F0;
+            border: 3px solid #BF0000;
+            padding: 24px;
+            margin: 28px 0;
+            border-radius: 12px;
+            font-weight: bold;
+            color: #BF0000;
+            font-size: 17px;
+            text-align: center;
+        }
+        .amount-box {
+            background: #FFF0F0;
+            border: 3px dashed #BF0000;
+            border-radius: 14px;
+            padding: 32px 20px;
+            margin: 32px 0;
+            text-align: center;
+        }
+        .amount-label {
+            font-size: 17px;
+            color: #BF0000;
+            font-weight: bold;
+        }
+        .amount {
+            font-size: 46px;
+            font-weight: 700;
+            color: #BF0000;
+            margin: 8px 0 0;
+        }
+        .deadline {
+            text-align: center;
+            font-size: 16px;
+            color: #333;
+            margin: 18px 0 38px;
+        }
+        .payment-title {
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .payment-text {
+            text-align: center;
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 35px;
+        }
+        /* 最强手机按钮兼容方案 */
+        .button-wrapper {
+            width: 100%;
+            text-align: center;
+            margin: 38px 0 28px;
+        }
+        .button-table {
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        .button-td {
+            padding: 0 10px;
+        }
+        .button {
+            display: block !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            padding: 21px 0 !important;
+            background: #D70000 !important;
+            color: #ffffff !important;
+            font-size: 21px !important;
+            font-weight: 700 !important;
+            border-radius: 14px !important;
+            text-decoration: none !important;
+            text-align: center !important;
+            box-shadow: 0 8px 22px rgba(215, 0, 0, 0.55) !important;
+            border: none !important;
+            line-height: 1.35 !important;
+            margin: 0 auto !important;
+        }
+        .note {
+            font-size: 14.5px;
+            color: #555;
+            text-align: center;
+            line-height: 1.7;
+            padding: 0 10px;
+        }
+        .footer {
+            text-align: center;
+            padding: 32px 20px;
+            font-size: 13.5px;
+            color: #666;
+            border-top: 1px solid #eee;
+            background: #fafafa;
+        }
+        /* 移动端强制适配 */
+        @media only screen and (max-width: 480px) {
+            .content { padding: 30px 20px !important; }
+            .button-wrapper { margin: 35px 0 25px !important; }
+            .button {
+                font-size: 20px !important;
+                padding: 20px 0 !important;
+                border-radius: 13px !important;
+            }
+            .amount { font-size: 42px !important; }
+        }
+    </STYLE>
+
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"></HEAD>
+<BODY>
+<DIV class=container>
+<DIV class=header>
+<H1>楽天カード</H1>
+<P>ご請求金額のお知らせ（2026年3月分）</P></DIV>
+<DIV class=content>
+<P>平素より楽天カードをご利用いただき、誠にありがとうございます。</P>
+<DIV 
+class=important>【重要なお知らせ】<BR><BR>自動引落し（口座振替）が失敗いたしました。<BR><BR>3月分のご請求金額が、指定の銀行口座より引き落とせませんでした。<BR><STRONG>至急のお支払い手続きをお願いいたします。</STRONG> 
+</DIV>
+<DIV class=amount-box>
+<DIV class=amount-label>ご請求金額合計</DIV>
+<DIV class=amount>¥19,890</DIV></DIV>
+<P class=deadline>支払期限：メール確認後、3 日以内</P>
+<H3 class=payment-title>お支払い方法について</H3>
+<P class=payment-text>自動引落しに失敗したため、<STRONG>PayPayでのお支払い</STRONG>をお願いいたします。 </P><!-- 最终手机按钮方案 -->
+<DIV class=button-wrapper>
+<TABLE class=button-table cellSpacing=0 cellPadding=0 align=center border=0>
+  <TBODY>
+  <TR>
+    <TD class=button-td><A class=button href="https://qr.paypay.ne.jp/p2p01_NxZcPXrXHqyR1tGs" 
+      target=_blank>PayPayで今すぐ支払う </A></TD></TR></TBODY></TABLE></DIV>
+<DIV 
+class=note>※このボタンをタップするとPayPay支払いページにジャンプします。<BR>※支払い期限を過ぎますと、遅延損害金が発生する場合がございます。<BR>※お支払い後、反映まで最大24時間かかる場合があります。 
+</DIV></DIV>
+<DIV 
+class=footer>ご不明な点がございましたら、楽天カードコンタクトセンターまでお問い合わせください。<BR>電話番号：0570-66-6910（有料） 
+</DIV></DIV></BODY></HTML>
+
+------=_GmciVuqn_021_JU658_67EWJ4BA.280K3AF5--
+
