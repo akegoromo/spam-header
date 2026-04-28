@@ -1,0 +1,250 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:a0d8:0:b0:261:85fe:9a8 with SMTP id n24csp54307eib;
+        Mon, 27 Apr 2026 16:15:25 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ/OzFzPuJr279uasNczgY0R12Fhldc0yh9j7eb4uM/EXY3cGyQSHbIE2hY7Z6sOQkonkEoqe46pmKowlBL0PQ==@gmail.com
+X-Received: by 2002:a17:907:97cb:b0:ba5:216c:56e6 with SMTP id a640c23a62f3a-bb7ff35965emr42683166b.0.1777331724984;
+        Mon, 27 Apr 2026 16:15:24 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1777331724; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=c+WlGlYcX7JjcuvWfUcZyWwiv0KShYZrzseWbuAawbE0fmR/QsmvEyLtxLVjk4OG+1
+         US8jqIKfvmUi+m5D1cnF/m3L6V+5ArYtl16ztEz657Q1ySrBPHzLkaFrEi9vP1++pw1u
+         jdSAR515w4OxivOM6V0KyNCWRqHloNcgTAlP9V2i4qkHkjpvkKFxtwUpCg3SWdLMoVu6
+         gwtqmoCOYjupDy2Fv40tf7/Acp9N7T7/UrLaW0TZ9ptDnLKjK6J4GCcpH3nbZq17uKgl
+         4I71wxGVjYvKMbE0GRzAkBCEtcxKjMQFDEgaQ/PcoQUc5IXW7RsG1O71fGviyuvflYfo
+         0HOw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=message-id:date:subject:to:dkim-signature:from:mime-version
+         :feedback-id:dkim-signature:dkim-signature;
+        bh=57PVBHHxpUIfwpCgbw/VKZQNOjHOEn5m9tZM3DFs2SI=;
+        fh=LnGVlAla77Gyfiw8zkzbOhaVlqYgEu27l8ujdfvsIGY=;
+        b=fggYMHPCGp/J/yCILCkXZSgJOQpan0q2eTXk0a+Z7tyuHtM+SQrnzN/R2B13qBA06h
+         KPCEu91inPF+p7YugoQKy6njgX+zIwD24ZFm3vj0dPN9sPHlOaZecvWIqDHYnYrLfxiE
+         Dbq6/qfYIvdfv5+pN+YSy3YkvFHtg67I6oKQY1KqHOWTpYE7bcBR3UWK+OdYqNVaguQw
+         NwgKjCjmIavMKcBs3HjH8c5RcZ9vqw1PqUAd3qRpQRaiY2Q7264sWta198a4dJ5OubDX
+         mAgtc1dsA/TaZ8bkMYsqfBRyxK8mXQMT4moeeBFmLbT0zictM5gXwmDmueyNbBHSz5zb
+         H6bw==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=D8dtFedH;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=TO2kW4zM;
+       dkim=pass header.i=@acid.njysnfv.cn header.s=hipe header.b=TpyMLrL6;
+       arc=pass (i=1 spf=pass spfdomain=acid.njysnfv.cn dkim=pass dkdomain=acid.njysnfv.cn dmarc=pass fromdomain=acid.njysnfv.cn);
+       spf=pass (google.com: domain of srs0=cm-n=2c=acid.njysnfv.cn=kawai2017@whither.jp designates 104.30.10.216 as permitted sender) smtp.mailfrom="SRS0=cM-n=2c=acid.njysnfv.cn=kawai2017@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=njysnfv.cn
+Return-Path: <SRS0=cM-n=2c=acid.njysnfv.cn=kawai2017@whither.jp>
+Received: from ba-cbg.cloudflare-email.net (ba-cbg.cloudflare-email.net. [104.30.10.216])
+        by mx.google.com with ESMTPS id a640c23a62f3a-bb808c29e99si27757766b.93.2026.04.27.16.15.23
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 27 Apr 2026 16:15:24 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=cm-n=2c=acid.njysnfv.cn=kawai2017@whither.jp designates 104.30.10.216 as permitted sender) client-ip=104.30.10.216;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=D8dtFedH;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=TO2kW4zM;
+       dkim=pass header.i=@acid.njysnfv.cn header.s=hipe header.b=TpyMLrL6;
+       arc=pass (i=1 spf=pass spfdomain=acid.njysnfv.cn dkim=pass dkdomain=acid.njysnfv.cn dmarc=pass fromdomain=acid.njysnfv.cn);
+       spf=pass (google.com: domain of srs0=cm-n=2c=acid.njysnfv.cn=kawai2017@whither.jp designates 104.30.10.216 as permitted sender) smtp.mailfrom="SRS0=cM-n=2c=acid.njysnfv.cn=kawai2017@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=njysnfv.cn
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1777331724; x=1777936524; bh=57PVBHHxpUIfwpCgbw
+	/VKZQNOjHOEn5m9tZM3DFs2SI=; b=D8dtFedHHgwjfTvOI088pemciYVhKstuoXXCGF5/kiDYH
+	5ZbcWeJkcphRo/VS02mbcwEZAH6IbNB7peqnJ6NFhZYkLdoCdwr7BXGrpn37k5nAXgOWwf+dN6V
+	1Jbt7MdHAV7sPqEGShFotDfErJUOfhkRCxZqBiIPIGsE5q1yHVT9xlSTfhsyJlANB4Epdyhz34z
+	Y+GTZVAugOvvw/gTltg4uwIlDv9Bj2p0n+Dnqo+p6cYNQ6aup79b8ar2D7r1o/41gYjV8krUQAi
+	xoBcdNICQ/9pbgT3Gl5jSs9//fIKW412obtzSsvdXYbD0w8+gXBPOIy0JWLdx/W0PPoyc9Zg==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1777331724; x=1777936524; bh=57PVBHHxpUIfwpCgbw
+	/VKZQNOjHOEn5m9tZM3DFs2SI=; b=TO2kW4zMi2bRocfh7kX7ApPUvEfgioJ7QXRoSAd4fSfFL
+	mLegnslllof646oJmG2xWe7ycNZCSHsP46g9xfGrfOS7icxqzEGH7TLi4S8q2Pds2WFgCSpHakC
+	HO/xbuaw4fFntysUw9jxJPvnqr6CzZu9PGJwT9mG7vToLxH0pndKKUDvCuv+eYEEnx9p0ZkrZVm
+	I9HgIY0xxCx5IaeC2F3fMU1YSzq+4iX2qouqpjCklmgTPO6MDTexpeWCV40y+FY6tJ8inf4eglA
+	1WBLjwcz/HuZqGsa0dvpyGhsFyEZf6UdfURhG7zmMcMQNZ6uWhGGQUdG6yMtYz9AKgl6I2YA==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: tnakahara@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from acid.njysnfv.cn (125.79.234.63)
+        by cloudflare-email.net (cloudflare) id krpikBIYsUx1
+        for <tnakahara@whither.jp>; Mon, 27 Apr 2026 23:15:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=W/Zc8Vm5LxUfkHR4+Y/1iEGC3V9+Mh/S9myEuD7CHHoEQPTef+95QPLLWYhV7+tAeEgP9GnLH
+	x6tFaVMTXuGCIUdunhlJE2fMsZMI8RbjiTupM8rQkwveCTHOHgc0IiS5jcwMuON7/sQtXUzuvBr
+	BlxH9TiWGcCABe6QXX763WPb8pcThKlrVlmnhAGFDhH1E1ppqRT0MPlxqWqllqO4I/8MBV6C+0G
+	Yg4bk3WWsmtwcuH/PQLCCpqlL5cH8+gyh/zB7rX70XsQNxIP46h/rlQfIHZgOj8YjFV6mSFLx+7
+	klr6TjzI11HHqeeASKuR5WLfMCXaZU3Yin/Abwvgbl/A==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1777331722; x=1777936522; bh=57PVBHHx
+	pUIfwpCgbw/VKZQNOjHOEn5m9tZM3DFs2SI=; b=V+iFkR75RtfBb96BPHtDZqaa0W79F4jTPEQ
+	SbU9zKedu/TfedLlIKEWYcmZsEH3zCrwa1yDxdL0YVc+/zupc5Qub97vr9abVEGJjZg3TAV/Ybg
+	BKok1EKgK8fKx89rLD298POtmtG7LpQZJawWckAUIXApfwNLNvRTM1EGC1FAdOvXqeowpdz//Hz
+	rNR10iaElDW8S4N733h8oTylkkzbKUxB5geLUC6cBVuFFqzAU7tqH/HOQWlHm2fRxUdyX2e9bAD
+	bWwRFiS3HOIk9ctn1Lj5uHgB5F9kZftajrD4mEYUmjUucSoBdBfp/Jmw5ddvBEecPh+hCC4fnXq
+	rJx1cRQ==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=@acid.njysnfv.cn header.s=hipe header.b=TpyMLrL6;
+	dmarc=pass header.from=acid.njysnfv.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@acid.njysnfv.cn designates 125.79.234.63 as permitted sender) smtp.helo=acid.njysnfv.cn;
+	spf=pass (mx.cloudflare.net: domain of kawai2017@acid.njysnfv.cn designates 125.79.234.63 as permitted sender) smtp.mailfrom=kawai2017@acid.njysnfv.cn;
+	arc=none smtp.remote-ip=125.79.234.63
+Received-SPF: pass (mx.cloudflare.net: domain of kawai2017@acid.njysnfv.cn designates 125.79.234.63 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=125.79.234.63; envelope-from="kawai2017@acid.njysnfv.cn"; helo=acid.njysnfv.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=@acid.njysnfv.cn header.s=hipe header.b=TpyMLrL6;
+	dmarc=pass header.from=acid.njysnfv.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@acid.njysnfv.cn designates 125.79.234.63 as permitted sender) smtp.helo=acid.njysnfv.cn;
+	spf=pass (mx.cloudflare.net: domain of kawai2017@acid.njysnfv.cn designates 125.79.234.63 as permitted sender) smtp.mailfrom=kawai2017@acid.njysnfv.cn;
+	arc=none smtp.remote-ip=125.79.234.63
+X-CF-SpamH-Score: 1
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="===============1777331714946=="
+From: =?utf-8?b?5Zu95rCR5YGl5bq35L+d6Zm65LqL5YuZ44K744Oz44K/44O8?= <kawai2017@acid.njysnfv.cn>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acid.njysnfv.cn;
+ i=@acid.njysnfv.cn; q=dns/txt; s=hipe; t=1777331715; h=from : to :
+ subject : date : message-id;
+ bh=57PVBHHxpUIfwpCgbw/VKZQNOjHOEn5m9tZM3DFs2SI=;
+ b=TpyMLrL62RtXXkSo6Gv3XnUQRLUlCJTbv/kFgvD2fYfzqS5k8qgRU2GgTPHpriqbPVrJJ
+ PvIEpDzIT8JN2RMhLR5fhPpQPeLfDeA4v4XrbHpw9c2ZzISYZdjBbKPZCCeFIR3Q4A72gL0
+ zThtChn8dX+a3AQcrqIEOOtGFE6itq541RJvoABjsMMITMwySoXIaKVgc0fh4W65JnI1ryh
+ DAiK0+9+etKWyJhWBZOlZ+qBdHRI6j3mHkdT07O7vBkRcuMZLaMY5PuSRyLdGOoreLESd+s
+ i9RsHXpXk36GIxyusxRZvr+rDPF4FQRHmA+woigAs/b0LD60FBVGd+VV0ZDw==
+To: <tnakahara@whither.jp>
+Subject: =?utf-8?b?5Zu95rCR5YGl5bq35L+d6Zm65paZ5beu6aGN77yI5pyq57SN5YiG77yJ44Gu44GK55+l44KJ44Gb77yI5YKs5ZGK77yJ?=
+Date: Tue, 28 Apr 2026 08:15:14 +0900
+Message-ID: <1777331714947.60486I3464M0@acid.njysnfv.cn>
+
+--===============1777331714946==
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+
+国民健康保険料 未納差額に係る納付督促のお知らせ
+
+照会番号：id64763
+
+国民健康保険料 未納差額に係る納付督促のお知らせ
+
+fuu-chan@f7.dion.ne.jp 様
+
+拝啓　時下、ますますご清栄のこととお慶び申し上げます。
+
+平素より、国民健康保険事務にご理解とご協力を賜り、誠にありがとうございます。
+
+さて、貴殿の令和6年度および令和7年度に係る国民健康保険料につきまして、未納差額が確認されており、現在まで納付が確認できておりません。
+
+国民健康保険は、加入者の皆様からの保険料により運用される互助制度であり、納期限までに保険料をお納めいただくことで、医療費給付をはじめとする各種給付を受けることができます。
+
+【記】
+
+１．対象期間　：令和6年度（2024年度）令和7年度（2025年度）差額分
+
+２．未納金額　：19,890円
+
+３．納付期限　：2026-04-28
+
+上記期限までに、下記リンクよりお支払い手続きをお願いいたします。
+
+※本件は差額追納のため、PayPayによるお支払いで受け付けております。
+※金融機関窓口?コンビニエンスストアではお取り扱いできない場合がありますのでご留意ください。 
+
+納付手続き（PayPay）はこちら 
+
+【納付が確認できない場合の措置について】
+
+納期限を過ぎても納付が確認できない場合、以下の措置が行われることがあります。
+
+延滞金の加算（条例に基づき日割りで計算）
+
+督促状催告書の発送
+
+保険給付の利用制限、保険証の取扱いに関する措置
+
+地方税法に基づく財産差押え等の公法上の徴収
+
+※延滞金の利率、督促の段階、保険証の取扱い等は、市町村ごとの条例により異なります。
+※本メールは送信専用のため、返信によるお問い合わせには対応できません。
+
+--===============1777331714946==
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+
+<html lang="ja"><head><title>国民健康保険料 未納差額に係る納付督促のお知らせ</title>
+<meta content="text/html; charset="UTF-8" iso-2022-jp"="" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width">
+<style type="text/css">
+BODY {
+ font-family: "Hiragino Mincho ProN", "MS Mincho", "游明朝", serif;
+ font-size: 14px;
+ line-height: 1.9;
+ color: #222;
+ margin: 2.5em;
+}
+P {
+ margin: 0 0 1.4em 0;
+}
+.heading {
+ font-size: 15px;
+ font-weight: bold;
+ text-align: center;
+ margin: 1em 0 2.5em 0;
+ letter-spacing: 0.1em;
+}
+.ref {
+ font-size: 13px;
+ text-align: right;
+ margin-bottom: 1em;
+}
+.important {
+ font-weight: bold;
+ color: #D83030;
+}
+.box {
+ border: 1px solid #999;
+ padding: 1.2em;
+ margin: 1.8em 0;
+}
+.small {
+ font-size: 12px;
+ color: #555;
+}
+.center {
+ text-align: center;
+ margin: 2.5em 0;
+}
+</style>
+
+</head>
+<body>
+<p class="ref">照会番号：id64763</p>
+<p class="heading">国民健康保険料 未納差額に係る納付督促のお知らせ</p>
+<p>fuu-chan@f7.dion.ne.jp 様</p>
+<p>拝啓　時下、ますますご清栄のこととお慶び申し上げます。</p>
+<p>平素より、国民健康保険事務にご理解とご協力を賜り、誠にありがとうございます。</p>
+<p>さて、貴殿の令和6年度および令和7年度に係る国民健康保険料につきまして、未納差額が確認されており、現在まで納付が確認できておりません。</p>
+<p>国民健康保険は、加入者の皆様からの保険料により運用される互助制度であり、納期限までに保険料をお納めいただくことで、医療費給付をはじめとする各種給付を受けることができます。</p>
+<div class="box">
+<p><strong>【記】</strong></p>
+<p>１．対象期間　：令和6年度（2024年度）令和7年度（2025年度）差額分</p>
+<p>２．未納金額　：<span class="important">19,890円</span></p>
+<p>３．納付期限　：<span class="important">2026-04-28</span></p></div>
+<p>上記期限までに、下記リンクよりお支払い手続きをお願いいたします。</p>
+<p class="small">※本件は差額追納のため、PayPayによるお支払いで受け付けております。<br>※金融機関窓口?コンビニエンスストアではお取り扱いできない場合がありますのでご留意ください。 </p>
+<p class="center"><font size="4"><a style="FONT-WEIGHT: bold; COLOR: #d83030" href="https://qr.paypay.ne.jp/p2p01_L5y6Rogpob8XHoIB">納付手続き（PayPay）はこちら </a></font></p>
+<p><strong>【納付が確認できない場合の措置について】</strong></p>
+<p>納期限を過ぎても納付が確認できない場合、以下の措置が行われることがあります。</p>
+<p>延滞金の加算（条例に基づき日割りで計算）</p>
+<p>督促状催告書の発送</p>
+<p>保険給付の利用制限、保険証の取扱いに関する措置</p>
+<p>地方税法に基づく財産差押え等の公法上の徴収</p>
+<p class="small">※延滞金の利率、督促の段階、保険証の取扱い等は、市町村ごとの条例により異なります。<br>※本メールは送信専用のため、返信によるお問い合わせには対応できません。 </p>
+<p style="MARGIN-TOP: 3em">&nbsp;</p><br><br>
+</body></html>
+
+--===============1777331714946==--
+
