@@ -1,0 +1,423 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:a0d8:0:b0:261:85fe:9a8 with SMTP id n24csp841072eib;
+        Tue, 28 Apr 2026 19:10:14 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ+UYxBZdHHS5X/+8I/b+Ao1KknBy7kZIdzqt59rDpmhEJOkB6JB8ncjNBEapCn4A8SOBCUzhB/CugykS2rPGA==@gmail.com
+X-Received: by 2002:a05:6a20:e211:b0:3a2:d68d:9e6c with SMTP id adf61e73a8af0-3a39c32e8d2mr6635131637.56.1777428613972;
+        Tue, 28 Apr 2026 19:10:13 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1777428613; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=dl8rTMS+5K/jQdypCvcGjOyN51IZ1Jcrprc+DV1msBQGDObc8rPbgjasbCl4MpnalP
+         2W7RUxb3rMc4pi2yLNOeFqNVPjo4JoijWlgq0nSMa6sLr8FNO/9h4Ja7ngGC8PHOu57Q
+         7q11yDVTcJeEi8LMVUZ2DAFTDDVvpk03KM/g6M+iH2lz57nd7HAFXdFl3E7HUSX1WsmH
+         dYeQOsSPcPLISGp3kInls7wU9NU/2K+0qhpbKbEBBdDeobfTcHkANN4Ie+1/NeTqpoxC
+         bgV7sMlFc06VVmwPCX3vlLjbXtL4mpDoLgPWcDbj7jUU5tAJttT3tEIJB+zqPXG2J8sB
+         MYQg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=mime-version:date:subject:to:from:message-id:dkim-signature
+         :feedback-id:dkim-signature:dkim-signature;
+        bh=58XufHjaMHl77N/RE+FJe/6/QvJf77QtKmB7Ot5R1ko=;
+        fh=ENXOhFKW7CT4pn4Lz1vO6o5YQQdiV/Ih3E4yEdfzxpY=;
+        b=Jk9xPCN8dryriBO0VZaMSorwVjjER1NvStAkRuIYRMHMzBL0D15tMNc0L9ROid16cm
+         7rPKNr9pwXj56zKJp/t7pUKroVtnzRaJDUP9/RMndhaFu1ISpJfAMm1M2w9I1MkI4QzK
+         RX1DBZAtOn2mHOnU70zJCcsC9RXmH7Ba9SBg6U6II/7v7vb0rUfdOtWAuB2Sfv1XC2dv
+         utGiq1j0fGlydSMLwKRxGsl5AVzMccKKNv3KcOw7WfLw2J/4ViCnIBwszLtuM8cQ450I
+         ny9HUl3GyNca6vjDqT43enuYZzOcAyv6b+4+ZHQLPYQ74cCjBYfRp23WG4qHtHAwnsJg
+         LLnw==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=gRCqSHdv;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=UBkNkQ7U;
+       dkim=pass header.i=@ki95k.cn header.s=default header.b=dvFwEc5A;
+       arc=pass (i=1 spf=pass spfdomain=ki95k.cn dkim=pass dkdomain=ki95k.cn dmarc=pass fromdomain=ki95k.cn);
+       spf=pass (google.com: domain of srs0=aqtv=4c=ki95k.cn=info@whither.jp designates 104.30.10.59 as permitted sender) smtp.mailfrom="SRS0=aQtV=4c=ki95k.cn=info@whither.jp";
+       dmarc=pass (p=REJECT sp=NONE dis=NONE) header.from=ki95k.cn
+Return-Path: <SRS0=aQtV=4c=ki95k.cn=info@whither.jp>
+Received: from ba-fj.cloudflare-email.net (ba-fj.cloudflare-email.net. [104.30.10.59])
+        by mx.google.com with ESMTPS id 41be03b00d2f7-c7fd64f6694si1285774a12.192.2026.04.28.19.10.11
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 28 Apr 2026 19:10:13 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=aqtv=4c=ki95k.cn=info@whither.jp designates 104.30.10.59 as permitted sender) client-ip=104.30.10.59;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=gRCqSHdv;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=UBkNkQ7U;
+       dkim=pass header.i=@ki95k.cn header.s=default header.b=dvFwEc5A;
+       arc=pass (i=1 spf=pass spfdomain=ki95k.cn dkim=pass dkdomain=ki95k.cn dmarc=pass fromdomain=ki95k.cn);
+       spf=pass (google.com: domain of srs0=aqtv=4c=ki95k.cn=info@whither.jp designates 104.30.10.59 as permitted sender) smtp.mailfrom="SRS0=aQtV=4c=ki95k.cn=info@whither.jp";
+       dmarc=pass (p=REJECT sp=NONE dis=NONE) header.from=ki95k.cn
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1777428613; x=1778033413; bh=58XufHjaMHl77N/RE+
+	FJe/6/QvJf77QtKmB7Ot5R1ko=; b=gRCqSHdvoyyrTShgG8Yfp1Z8AIGEH2fNbeP3ESz2z+URV
+	l7vXtNAThn6PcfRb5jEX9QdScCxQeoV3yjQFG53VCjdhEAWCWi4MZrofGEGLb0TxGWbQLHxsaNr
+	jJhZCCSGNtLMD408/ZtM+mD6G5ehqeA0GW2B62dNbUGeJppN2Q0pmOZ9S9PKkGu/9pfIW45yr2m
+	QlCOZLUYW1PaAFdXBXHO2Dz8vPUKwXqYWQIsI54GhFQbNN4M6e5JaDEABUobCgE5T7WCNCTvzZ6
+	k/RzMYnvf03d4zbV6YY4qYQYT+4aigBkZcjZGZTrjqL9sVatPaFCStW/qFK9e+FP+tOvGcSg==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1777428613; x=1778033413; bh=58XufHjaMHl77N/RE+
+	FJe/6/QvJf77QtKmB7Ot5R1ko=; b=UBkNkQ7U+k2VwojBkDdTLCHv5HH3xtCT+TxPyf54JkfTn
+	/c213wGCI4348OJlr9duBCjI33jYXXLIa+Or2roPReFUrs7KBrGhKbdCUz27iSULX9jm63qjygl
+	snQxvuUYQx3Ske/ENh0ZKNbplV9STDMsoiwy8S7a7kUop45MypyRe7lJO0FJVIydxXn0Ving86t
+	Cvrm9yf7hxV4ZNUl9b2YR5JScz3xS2XgpvuTfsC2g5evuKI8mt/HeN4ibivu7NUq+mXwd9UbMmV
+	x9Iy57k6+jXmXF3QFGPxs9HcJ5+5+8YC6uI+LHwFyE9vfX3/QjHyd44vCphGvbnfIEFKkF3Q==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: penguin@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from mail.ki95k.cn (34.64.137.127)
+        by cloudflare-email.net (cloudflare) id upD8Oyb9Qp5l
+        for <penguin@whither.jp>; Wed, 29 Apr 2026 02:10:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=Vebk19zS1+qT5XeHicARiW6X2lEs1ezJ1iUJXJmH8KMoprBf7aLLMCZVwiZkgnf5pw7WTx1Fn
+	9TAm6vN9dxgQUMh4d3bzjr4P1wg7lOQh7n6p9IZTjHyYbU1VHAwlebAf9rpDTPEmvMfmbuNPYP0
+	mIGbYVJiDuPQthHAylzWI0QfhHclxPhRJ9c7qE2zUenZoHJmK3eJDlMDQMAWH/0R6YOTbkrFQDe
+	IUWxhZh2DlmKpY7PAvvpJuA3YyybVDEPVYaDdR6ehaEe+wHbCCzpovYR34XaHe2C4wFloVNgVTv
+	ctOc/eclOA90YKz9nWHD+wsw0Z5Ys/V1DjuvIB3wxGDQ==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1777428609; x=1778033409; bh=58XufHja
+	MHl77N/RE+FJe/6/QvJf77QtKmB7Ot5R1ko=; b=PJb5BH8fMaP/w0Tc90xBgX5hmWeHzPZfggH
+	D0zB2gUwkSbCgFM2PtuF2SkRVWcg3CitF1VlG39VxzSIgYWZMGTXLctnvpuCjj/jyJNg7GY0ERK
+	RIo9+kQC/xdSWKnae/sRp7QI1oxIxW2791PdoOqZYt/IUWW1M1SkD/7vqbqpTjEknXkU8zglkem
+	4hRiodgZUWv/XMAP77SM4bCjYI9mHdjKNnFJ6Sou9EiaRsS0PeN+SngaoI59PsRntuVoqQ3r4Xl
+	PYbgQ/Upeji1CA8nwm0YOA5DaRvP+MYl83v/B1SKCOLkpCxN3lfOIf5EfJert85HaNO/Tjo8rft
+	5no/KZQ==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=info@ki95k.cn header.s=default header.b=dvFwEc5A;
+	dmarc=pass header.from=ki95k.cn policy.dmarc=reject;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@mail.ki95k.cn) smtp.helo=mail.ki95k.cn;
+	spf=pass (mx.cloudflare.net: domain of info@ki95k.cn designates 34.64.137.127 as permitted sender) smtp.mailfrom=info@ki95k.cn;
+	arc=none smtp.remote-ip=34.64.137.127
+Received-SPF: pass (mx.cloudflare.net: domain of info@ki95k.cn designates 34.64.137.127 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=34.64.137.127; envelope-from="info@ki95k.cn"; helo=mail.ki95k.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=info@ki95k.cn header.s=default header.b=dvFwEc5A;
+	dmarc=pass header.from=ki95k.cn policy.dmarc=reject;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@mail.ki95k.cn) smtp.helo=mail.ki95k.cn;
+	spf=pass (mx.cloudflare.net: domain of info@ki95k.cn designates 34.64.137.127 as permitted sender) smtp.mailfrom=info@ki95k.cn;
+	arc=none smtp.remote-ip=34.64.137.127
+X-CF-SpamH-Score: 3
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=default; d=ki95k.cn;
+ h=Message-ID:From:To:Subject:Date:MIME-Version:Content-Type; i=info@ki95k.cn;
+ bh=58XufHjaMHl77N/RE+FJe/6/QvJf77QtKmB7Ot5R1ko=;
+ b=dvFwEc5AHIDSbsaIpz8U1nZ1dqCHvQr1FFWeCadhVGOtA0x9xHTI/Gl+o0K4v1sVejfMabGOgJJ5
+   KED/AUcDvqsEmDzsBM6VBJEPE8D07VdHLjEPPHaXBqjdPlFwy0+Hu5sLXwTH2OJ9iNei8DXhXbH+
+   4+35yToijhDZpRKnzK4=
+Message-ID: <09a3b3705b7d9fc068e6cea61b68e9f2@ki95k.cn>
+From: =?utf-8?B?VuODneOCpOODs+ODiOOCreODo+ODs+ODmuODvOODsw==?= <info@ki95k.cn>
+To: <penguin@whither.jp>
+Subject: =?utf-8?B?44CQ44Kt44Oj44Oz44Oa44O844Oz44CRVuODneOCpOODsw==?=
+	=?utf-8?B?44OIMSw4MDBwdOODl+ODrOOCvOODs+ODiO+8iOWFiOedgOmghuODuw==?=
+	=?utf-8?B?44Gq44GP44Gq44KK5qyh56ys57WC5LqG77yJ?=
+Date: Wed, 29 Apr 2026 11:07:22 +0900
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+	boundary="92a71fbb137e4c755744991b0006c191"
+
+This is a multi-part message in MIME format.
+
+--92a71fbb137e4c755744991b0006c191
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+V=E3=83=9D=E3=82=A4=E3=83=B3=E3=83=88=EF=BD=9C=E6=9C=9F=E9=96=93=E9=99=90=
+=E5=AE=9A=E3=82=AD=E3=83=A3=E3=83=B3=E3=83=9A=E3=83=BC=E3=83=B3=E3=81=AE=E3=
+=81=94=E6=A1=88=E5=86=85* {margin: 0;padding: 0;box-sizing: border-box;}bod=
+y {background-color: #f2f6f9;/* =E3=82=84=E3=82=8F=E3=82=89=E3=81=8B=E3=81=
+=84=E9=9C=A7=E3=81=AE=E3=82=88=E3=81=86=E3=81=AA=E7=81=B0=E9=9D=92=E8=89=B2=
+ */font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helv=
+etica, Arial, sans-serif;line-height: 1.5;padding: 42px 20px;}.email-contai=
+ner {max-width: 560px;margin: 0 auto;background-color: #ffffff;border-radiu=
+s: 28px;box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02), 0 4px 12px rgba(0, 0, 0=
+, 0.03);overflow: hidden;}.inner-padding {padding: 38px 34px 44px 34px;}/* =
+=E6=B7=A1=E3=81=84=E3=82=A2=E3=82=AF=E3=82=BB=E3=83=B3=E3=83=88=EF=BC=88=E3=
+=83=A9=E3=82=A4=E3=83=B3=EF=BC=89 */.gentle-accent {width: 68px;height: 3px=
+;background: #cbdde6;border-radius: 6px;margin-bottom: 28px;}/* =E8=A6=8B=
+=E5=87=BA=E3=81=97 / =E3=83=86=E3=82=AD=E3=82=B9=E3=83=88 */.greeting {font=
+-size: 15px;color: #2d4b5c;margin-bottom: 18px;font-weight: 450;letter-spac=
+ing: 0.2px;}.main-text {color: #2d3e48;font-size: 15px;margin-bottom: 24px;=
+line-height: 1.55;}/* =E3=82=AD=E3=83=A3=E3=83=B3=E3=83=9A=E3=83=BC=E3=83=
+=B3=E5=86=85=E5=AE=B9=E3=82=AB=E3=83=BC=E3=83=89=EF=BC=88=E6=9F=94=E3=82=89=
+=E3=81=8B=E8=83=8C=E6=99=AF=EF=BC=89 */.campaign-card {background-color: #f=
+afcfd;border-radius: 24px;border: 1px solid #e8f0f4;padding: 24px 26px;marg=
+in: 18px 0 22px 0;box-shadow: 0 1px 2px rgba(0,0,0,0.02);}.section-caption =
+{font-size: 15px;font-weight: 600;color: #2e6b5e;margin-bottom: 16px;letter=
+-spacing: -0.2px;display: inline-block;border-left: 3px solid #b7cfdb;paddi=
+ng-left: 12px;}.point-highlight {background: linear-gradient(120deg, #f9fff=
+c 0%, #ffffff 100%);padding: 12px 0 8px 0;}.big-point {font-size: 38px;font=
+-weight: 700;color: #2e6a5c;letter-spacing: -0.5px;display: inline-block;ma=
+rgin-right: 8px;}.point-unit {font-size: 18px;font-weight: 500;color: #578b=
+7c;}.badge-urgent {background-color: #fef6e3;color: #b26b2e;font-size: 13px=
+;font-weight: 600;padding: 6px 14px;border-radius: 40px;display: inline-blo=
+ck;margin-top: 8px;border: 1px solid #f3e5ce;}.info-list {list-style: none;=
+padding-left: 0;margin: 14px 0 0 0;}.info-list li {font-size: 15px;color: #=
+2b4a58;margin-bottom: 14px;display: flex;align-items: flex-start;gap: 10px;=
+}.list-marker {font-weight: 500;color: #7b9cac;min-width: 28px;}.step-metho=
+d {margin: 10px 0 6px 0;background: #ffffff;border-radius: 20px;}.btn-prima=
+ry {display: inline-flex;align-items: center;justify-content: center;backgr=
+ound-color: #eef3f2;color: #2b6b5a;text-decoration: none;padding: 14px 28px=
+;border-radius: 60px;font-weight: 560;font-size: 16px;margin: 12px 0 16px 0=
+;transition: all 0.2s ease;border: 1px solid #cfe0e8;background-color: #f6f=
+afc;width: auto;}.btn-primary:hover {background-color: #ecf3f0;border-color=
+: #bfd3dd;text-decoration: none;}.link-url {word-break: break-all;font-size=
+: 13px;color: #6f93a3;text-decoration: none;border-bottom: 1px dotted #c1d6=
+e0;}.link-url:hover {color: #2c7360;}.footnote-box {background: #f8fafc;bor=
+der-radius: 18px;padding: 18px 22px;margin: 24px 0 16px 0;font-size: 13px;c=
+olor: #527684;border-left: 2px solid #cfe0e8;}.caution-item {font-size: 13p=
+x;color: #65818f;margin-bottom: 8px;display: flex;gap: 8px;}.footer {margin=
+-top: 32px;padding-top: 22px;border-top: 1px solid #e7eef3;font-size: 12px;=
+color: #8da4b0;line-height: 1.5;}.support-text {margin: 8px 0 12px 0;font-s=
+ize: 13px;color: #2d5e6e;}@media (max-width: 550px) {.inner-padding {paddin=
+g: 28px 22px 36px 22px;}.campaign-card {padding: 18px 20px;}.big-point {fon=
+t-size: 32px;}}=E3=81=84=E3=81=A4=E3=82=82V=E3=83=9D=E3=82=A4=E3=83=B3=E3=
+=83=88=E3=82=92=E3=81=94=E5=88=A9=E7=94=A8=E3=81=84=E3=81=9F=E3=81=A0=E3=81=
+=8D=E3=80=81=E8=AA=A0=E3=81=AB=E3=81=82=E3=82=8A=E3=81=8C=E3=81=A8=E3=81=86=
+=E3=81=94=E3=81=96=E3=81=84=E3=81=BE=E3=81=99=E3=80=82 =E3=81=93=E3=81=AE=
+=E3=81=9F=E3=81=B3=E3=80=81=E6=97=A5=E9=A0=83=E3=81=AE=E3=81=94=E6=84=9B=E9=
+=A1=A7=E3=81=AB=E6=84=9F=E8=AC=9D=E3=82=92=E8=BE=BC=E3=82=81=E3=81=BE=E3=81=
+=97=E3=81=A6=E3=80=81=E6=9C=9F=E9=96=93=E9=99=90=E5=AE=9A=E3=82=AD=E3=83=A3=
+=E3=83=B3=E3=83=9A=E3=83=BC=E3=83=B3=E3=82=92=E5=AE=9F=E6=96=BD=E3=81=99=E3=
+=82=8B=E3=81=93=E3=81=A8=E3=81=A8=E3=81=84=E3=81=9F=E3=81=97=E3=81=BE=E3=81=
+=97=E3=81=9F=E3=80=82 =E2=96=BC =E3=82=AD=E3=83=A3=E3=83=B3=E3=83=9A=E3=83=
+=BC=E3=83=B3=E5=86=85=E5=AE=B9=E5=AF=BE=E8=B1=A1=E3=81=AE=E6=B4=BB=E5=8B=95=
+=E3=83=9A=E3=83=BC=E3=82=B8=E3=81=AB=E3=83=AD=E3=82=B0=E3=82=A4=E3=83=B3=E3=
+=81=84=E3=81=9F=E3=81=A0=E3=81=84=E3=81=9F=E3=81=8A=E5=AE=A2=E6=A7=98=E3=81=
+=AE=E4=B8=AD=E3=81=8B=E3=82=89=E3=80=81=E5=85=88=E7=9D=80=E9=A0=86=E3=81=A7=
+ 1,800 V=E3=83=9D=E3=82=A4=E3=83=B3=E3=83=88 =E3=82=92=E3=83=97=E3=83=AC=E3=
+=82=BC=E3=83=B3=E3=83=88=E3=81=84=E3=81=9F=E3=81=97=E3=81=BE=E3=81=99=E3=80=
+=82 1,800=E3=83=9D=E3=82=A4=E3=83=B3=E3=83=88 =E9=80=9A=E5=B8=B8=E3=82=88=
+=E3=82=8A=E3=81=8A=E5=BE=97=E3=81=A7=E3=81=99 =E2=96=A0 =E5=8F=97=E3=81=91=
+=E5=8F=96=E3=82=8A=E6=96=B9=E6=B3=95=E4=BB=A5=E4=B8=8B=E3=81=AE=E3=83=AA=E3=
+=83=B3=E3=82=AF=E3=82=88=E3=82=8A=E3=83=AD=E3=82=B0=E3=82=A4=E3=83=B3=E3=81=
+=97=E3=81=A6=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82=E3=83=AD=E3=82=B0=
+=E3=82=A4=E3=83=B3=E5=AE=8C=E4=BA=86=E5=BE=8C=E3=80=81=E8=87=AA=E5=8B=95=E7=
+=9A=84=E3=81=AB=E3=83=9D=E3=82=A4=E3=83=B3=E3=83=88=E3=81=8C=E4=BB=98=E4=B8=
+=8E=E3=81=95=E3=82=8C=E3=81=BE=E3=81=99=E3=80=82 =F0=9F=94=90 =E4=BB=8A=E3=
+=81=99=E3=81=90=E3=83=AD=E3=82=B0=E3=82=A4=E3=83=B3=E3=81=97=E3=81=A6=E5=8F=
+=97=E3=81=91=E5=8F=96=E3=82=8B =E2=80=BB =E5=85=88=E7=9D=80=E9=A0=86=E3=83=
+=BB=E3=81=8A=E6=97=A9=E3=82=81=E3=81=AB =E2=80=BB =E3=83=AD=E3=82=B0=E3=82=
+=A4=E3=83=B3=E5=BE=8C=E3=80=81=E8=87=AA=E5=8B=95=E3=81=A7=E4=BB=98=E4=B8=8E=
+=E3=81=95=E3=82=8C=E3=81=BE=E3=81=99 =E2=80=BB =E3=81=94=E5=BF=9C=E5=8B=9F=
+=E3=81=AB=E3=81=AFV=E3=83=9D=E3=82=A4=E3=83=B3=E3=83=88=E3=82=A2=E3=82=AB=
+=E3=82=A6=E3=83=B3=E3=83=88=E3=81=8C=E5=BF=85=E8=A6=81=E3=81=A7=E3=81=99 =
+=E2=96=BC =E6=B3=A8=E6=84=8F=E4=BA=8B=E9=A0=85=E3=83=BB =E6=95=B0=E9=87=8F=
+=E3=81=AB=E9=99=90=E3=82=8A=E3=81=8C=E3=81=94=E3=81=96=E3=81=84=E3=81=BE=E3=
+=81=99=EF=BC=88=E3=81=AA=E3=81=8F=E3=81=AA=E3=82=8A=E6=AC=A1=E7=AC=AC=E3=80=
+=81=E5=8D=B3=E7=B5=82=E4=BA=86=EF=BC=89 =E3=83=BB =E3=81=8A=E4=B8=80=E4=BA=
+=BA=E6=A7=981=E5=9B=9E=E9=99=90=E3=82=8A=E6=9C=89=E5=8A=B9 =E3=83=BB =E4=BA=
+=8B=E5=89=8D=E3=81=AE=E4=BA=88=E5=91=8A=E3=81=AA=E3=81=8F=E7=B5=82=E4=BA=86=
+=E3=81=99=E3=82=8B=E5=A0=B4=E5=90=88=E3=81=8C=E3=81=94=E3=81=96=E3=81=84=E3=
+=81=BE=E3=81=99 =E4=BD=95=E3=81=8B=E3=81=94=E4=B8=8D=E6=98=8E=E3=81=AA=E7=
+=82=B9=E3=81=8C=E3=81=94=E3=81=96=E3=81=84=E3=81=BE=E3=81=97=E3=81=9F=E3=82=
+=89=E3=80=81=E3=81=94=E9=81=A0=E6=85=AE=E3=81=AA=E3=81=8F=E3=82=B5=E3=83=9D=
+=E3=83=BC=E3=83=88=E3=82=BB=E3=83=B3=E3=82=BF=E3=83=BC=E3=81=BE=E3=81=A7=E3=
+=81=8A=E5=95=8F=E3=81=84=E5=90=88=E3=82=8F=E3=81=9B=E3=81=8F=E3=81=A0=E3=81=
+=95=E3=81=84=E3=80=82 V=E3=83=9D=E3=82=A4=E3=83=B3=E3=83=88=E4=BA=8B=E5=8B=
+=99=E5=B1=80=E2=80=BB=E3=81=93=E3=81=AE=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=AF=
+=E9=80=81=E4=BF=A1=E5=B0=82=E7=94=A8=E3=81=A7=E3=81=99=E3=80=82=E3=81=94=E8=
+=BF=94=E4=BF=A1=E3=81=84=E3=81=9F=E3=81=A0=E3=81=91=E3=81=BE=E3=81=9B=E3=82=
+=93=E3=80=82 =E6=9C=AC=E3=82=AD=E3=83=A3=E3=83=B3=E3=83=9A=E3=83=BC=E3=83=
+=B3=E3=81=AF=E4=BA=88=E5=91=8A=E3=81=AA=E3=81=8F=E5=A4=89=E6=9B=B4=E3=83=BB=
+=E7=B5=82=E4=BA=86=E3=81=99=E3=82=8B=E5=A0=B4=E5=90=88=E3=81=8C=E3=81=82=E3=
+=82=8A=E3=81=BE=E3=81=99=E3=80=82 
+--92a71fbb137e4c755744991b0006c191
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">=0D=0A<HTML l=
+ang=3Dja><HEAD><TITLE>V=E3=83=9D=E3=82=A4=E3=83=B3=E3=83=88=EF=BD=9C=E6=9C=
+=9F=E9=96=93=E9=99=90=E5=AE=9A=E3=82=AD=E3=83=A3=E3=83=B3=E3=83=9A=E3=83=BC=
+=E3=83=B3=E3=81=AE=E3=81=94=E6=A1=88=E5=86=85</TITLE>=0D=0A<META charset=3D=
+UTF-8>=0D=0A<META name=3Dviewport =0D=0Acontent=3D"width=3Ddevice-width, in=
+itial-scale=3D1.0, maximum-scale=3D1.0, user-scalable=3Dyes">=0D=0A<STYLE>=
+=0D=0A        * {=0D=0A            margin: 0;=0D=0A            padding: 0;=
+=0D=0A            box-sizing: border-box;=0D=0A        }=0D=0A        body =
+{=0D=0A            background-color: #f2f6f9;  /* =E3=82=84=E3=82=8F=E3=82=
+=89=E3=81=8B=E3=81=84=E9=9C=A7=E3=81=AE=E3=82=88=E3=81=86=E3=81=AA=E7=81=B0=
+=E9=9D=92=E8=89=B2 */=0D=0A            font-family: -apple-system, BlinkMac=
+SystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;=0D=0A        =
+    line-height: 1.5;=0D=0A            padding: 42px 20px;=0D=0A        }=
+=0D=0A        .email-container {=0D=0A            max-width: 560px;=0D=0A  =
+          margin: 0 auto;=0D=0A            background-color: #ffffff;=0D=0A=
+            border-radius: 28px;=0D=0A            box-shadow: 0 8px 20px rg=
+ba(0, 0, 0, 0.02), 0 4px 12px rgba(0, 0, 0, 0.03);=0D=0A            overflo=
+w: hidden;=0D=0A        }=0D=0A        .inner-padding {=0D=0A            pa=
+dding: 38px 34px 44px 34px;=0D=0A        }=0D=0A        /* =E6=B7=A1=E3=81=
+=84=E3=82=A2=E3=82=AF=E3=82=BB=E3=83=B3=E3=83=88=EF=BC=88=E3=83=A9=E3=82=A4=
+=E3=83=B3=EF=BC=89 */=0D=0A        .gentle-accent {=0D=0A            width:=
+ 68px;=0D=0A            height: 3px;=0D=0A            background: #cbdde6;=
+=0D=0A            border-radius: 6px;=0D=0A            margin-bottom: 28px;=
+=0D=0A        }=0D=0A        /* =E8=A6=8B=E5=87=BA=E3=81=97 / =E3=83=86=E3=
+=82=AD=E3=82=B9=E3=83=88 */=0D=0A        .greeting {=0D=0A            font-=
+size: 15px;=0D=0A            color: #2d4b5c;=0D=0A            margin-bottom=
+: 18px;=0D=0A            font-weight: 450;=0D=0A            letter-spacing:=
+ 0.2px;=0D=0A        }=0D=0A        .main-text {=0D=0A            color: #2=
+d3e48;=0D=0A            font-size: 15px;=0D=0A            margin-bottom: 24=
+px;=0D=0A            line-height: 1.55;=0D=0A        }=0D=0A        /* =E3=
+=82=AD=E3=83=A3=E3=83=B3=E3=83=9A=E3=83=BC=E3=83=B3=E5=86=85=E5=AE=B9=E3=82=
+=AB=E3=83=BC=E3=83=89=EF=BC=88=E6=9F=94=E3=82=89=E3=81=8B=E8=83=8C=E6=99=AF=
+=EF=BC=89 */=0D=0A        .campaign-card {=0D=0A            background-colo=
+r: #fafcfd;=0D=0A            border-radius: 24px;=0D=0A            border: =
+1px solid #e8f0f4;=0D=0A            padding: 24px 26px;=0D=0A            ma=
+rgin: 18px 0 22px 0;=0D=0A            box-shadow: 0 1px 2px rgba(0,0,0,0.02=
+);=0D=0A        }=0D=0A        .section-caption {=0D=0A            font-siz=
+e: 15px;=0D=0A            font-weight: 600;=0D=0A            color: #2e6b5e=
+;=0D=0A            margin-bottom: 16px;=0D=0A            letter-spacing: -0=
+.2px;=0D=0A            display: inline-block;=0D=0A            border-left:=
+ 3px solid #b7cfdb;=0D=0A            padding-left: 12px;=0D=0A        }=0D=
+=0A        .point-highlight {=0D=0A            background: linear-gradient(=
+120deg, #f9fffc 0%, #ffffff 100%);=0D=0A            padding: 12px 0 8px 0;=
+=0D=0A        }=0D=0A        .big-point {=0D=0A            font-size: 38px;=
+=0D=0A            font-weight: 700;=0D=0A            color: #2e6a5c;=0D=0A =
+           letter-spacing: -0.5px;=0D=0A            display: inline-block;=
+=0D=0A            margin-right: 8px;=0D=0A        }=0D=0A        .point-uni=
+t {=0D=0A            font-size: 18px;=0D=0A            font-weight: 500;=0D=
+=0A            color: #578b7c;=0D=0A        }=0D=0A        .badge-urgent {=
+=0D=0A            background-color: #fef6e3;=0D=0A            color: #b26b2=
+e;=0D=0A            font-size: 13px;=0D=0A            font-weight: 600;=0D=
+=0A            padding: 6px 14px;=0D=0A            border-radius: 40px;=0D=
+=0A            display: inline-block;=0D=0A            margin-top: 8px;=0D=
+=0A            border: 1px solid #f3e5ce;=0D=0A        }=0D=0A        .info=
+-list {=0D=0A            list-style: none;=0D=0A            padding-left: 0=
+;=0D=0A            margin: 14px 0 0 0;=0D=0A        }=0D=0A        .info-li=
+st li {=0D=0A            font-size: 15px;=0D=0A            color: #2b4a58;=
+=0D=0A            margin-bottom: 14px;=0D=0A            display: flex;=0D=
+=0A            align-items: flex-start;=0D=0A            gap: 10px;=0D=0A  =
+      }=0D=0A        .list-marker {=0D=0A            font-weight: 500;=0D=
+=0A            color: #7b9cac;=0D=0A            min-width: 28px;=0D=0A     =
+   }=0D=0A        .step-method {=0D=0A            margin: 10px 0 6px 0;=0D=
+=0A            background: #ffffff;=0D=0A            border-radius: 20px;=
+=0D=0A        }=0D=0A        .btn-primary {=0D=0A            display: inlin=
+e-flex;=0D=0A            align-items: center;=0D=0A            justify-cont=
+ent: center;=0D=0A            background-color: #eef3f2;=0D=0A            c=
+olor: #2b6b5a;=0D=0A            text-decoration: none;=0D=0A            pad=
+ding: 14px 28px;=0D=0A            border-radius: 60px;=0D=0A            fon=
+t-weight: 560;=0D=0A            font-size: 16px;=0D=0A            margin: 1=
+2px 0 16px 0;=0D=0A            transition: all 0.2s ease;=0D=0A            =
+border: 1px solid #cfe0e8;=0D=0A            background-color: #f6fafc;=0D=
+=0A            width: auto;=0D=0A        }=0D=0A        .btn-primary:hover =
+{=0D=0A            background-color: #ecf3f0;=0D=0A            border-color=
+: #bfd3dd;=0D=0A            text-decoration: none;=0D=0A        }=0D=0A    =
+    .link-url {=0D=0A            word-break: break-all;=0D=0A            fo=
+nt-size: 13px;=0D=0A            color: #6f93a3;=0D=0A            text-decor=
+ation: none;=0D=0A            border-bottom: 1px dotted #c1d6e0;=0D=0A     =
+   }=0D=0A        .link-url:hover {=0D=0A            color: #2c7360;=0D=0A =
+       }=0D=0A        .footnote-box {=0D=0A            background: #f8fafc;=
+=0D=0A            border-radius: 18px;=0D=0A            padding: 18px 22px;=
+=0D=0A            margin: 24px 0 16px 0;=0D=0A            font-size: 13px;=
+=0D=0A            color: #527684;=0D=0A            border-left: 2px solid #=
+cfe0e8;=0D=0A        }=0D=0A        .caution-item {=0D=0A            font-s=
+ize: 13px;=0D=0A            color: #65818f;=0D=0A            margin-bottom:=
+ 8px;=0D=0A            display: flex;=0D=0A            gap: 8px;=0D=0A     =
+   }=0D=0A        .footer {=0D=0A            margin-top: 32px;=0D=0A       =
+     padding-top: 22px;=0D=0A            border-top: 1px solid #e7eef3;=0D=
+=0A            font-size: 12px;=0D=0A            color: #8da4b0;=0D=0A     =
+       line-height: 1.5;=0D=0A        }=0D=0A        .support-text {=0D=0A =
+           margin: 8px 0 12px 0;=0D=0A            font-size: 13px;=0D=0A   =
+         color: #2d5e6e;=0D=0A        }=0D=0A        @media (max-width: 550=
+px) {=0D=0A            .inner-padding {=0D=0A                padding: 28px =
+22px 36px 22px;=0D=0A            }=0D=0A            .campaign-card {=0D=0A =
+               padding: 18px 20px;=0D=0A            }=0D=0A            .big=
+-point {=0D=0A                font-size: 32px;=0D=0A            }=0D=0A    =
+    }=0D=0A    </STYLE>=0D=0A=0D=0A<META name=3DGENERATOR content=3D"MSHTML=
+ 11.00.10570.1001"></HEAD>=0D=0A<BODY>=0D=0A<DIV class=3Demail-container>=
+=0D=0A<DIV class=3Dinner-padding><!-- =E3=81=95=E3=82=8A=E3=81=92=E3=81=AA=
+=E3=81=84=E3=82=A2=E3=82=AF=E3=82=BB=E3=83=B3=E3=83=88 -->=0D=0A<DIV class=
+=3Dgentle-accent></DIV><!-- =E6=84=9F=E8=AC=9D + =E6=8C=A8=E6=8B=B6 -->=0D=
+=0A<DIV class=3Dgreeting>=E3=81=84=E3=81=A4=E3=82=82V=E3=83=9D=E3=82=A4=E3=
+=83=B3=E3=83=88=E3=82=92=E3=81=94=E5=88=A9=E7=94=A8=E3=81=84=E3=81=9F=E3=81=
+=A0=E3=81=8D=E3=80=81=E8=AA=A0=E3=81=AB=E3=81=82=E3=82=8A=E3=81=8C=E3=81=A8=
+=E3=81=86=E3=81=94=E3=81=96=E3=81=84=E3=81=BE=E3=81=99=E3=80=82 </DIV>=0D=
+=0A<DIV class=3Dmain-text>=E3=81=93=E3=81=AE=E3=81=9F=E3=81=B3=E3=80=81=E6=
+=97=A5=E9=A0=83=E3=81=AE=E3=81=94=E6=84=9B=E9=A1=A7=E3=81=AB=E6=84=9F=E8=AC=
+=9D=E3=82=92=E8=BE=BC=E3=82=81=E3=81=BE=E3=81=97=E3=81=A6=E3=80=81<BR>=E6=
+=9C=9F=E9=96=93=E9=99=90=E5=AE=9A=E3=82=AD=E3=83=A3=E3=83=B3=E3=83=9A=E3=83=
+=BC=E3=83=B3=E3=82=92=E5=AE=9F=E6=96=BD=E3=81=99=E3=82=8B=E3=81=93=E3=81=A8=
+=E3=81=A8=E3=81=84=E3=81=9F=E3=81=97=E3=81=BE=E3=81=97=E3=81=9F=E3=80=82 </=
+DIV><!-- =E3=82=AD=E3=83=A3=E3=83=B3=E3=83=9A=E3=83=BC=E3=83=B3=E3=82=AB=E3=
+=83=BC=E3=83=89=EF=BC=88=E9=87=8D=E7=82=B9=E3=82=A8=E3=83=AA=E3=82=A2=EF=BC=
+=89 -->=0D=0A<DIV class=3Dcampaign-card>=0D=0A<DIV class=3Dsection-caption>=
+=E2=96=BC =E3=82=AD=E3=83=A3=E3=83=B3=E3=83=9A=E3=83=BC=E3=83=B3=E5=86=85=
+=E5=AE=B9</DIV>=0D=0A<DIV class=3Dmain-text =0D=0Astyle=3D"MARGIN-BOTTOM: 8=
+px">=E5=AF=BE=E8=B1=A1=E3=81=AE=E6=B4=BB=E5=8B=95=E3=83=9A=E3=83=BC=E3=82=
+=B8=E3=81=AB=E3=83=AD=E3=82=B0=E3=82=A4=E3=83=B3=E3=81=84=E3=81=9F=E3=81=A0=
+=E3=81=84=E3=81=9F=E3=81=8A=E5=AE=A2=E6=A7=98=E3=81=AE=E4=B8=AD=E3=81=8B=E3=
+=82=89=E3=80=81<BR><STRONG =0D=0Astyle=3D"COLOR: #2c6b5a">=E5=85=88=E7=9D=
+=80=E9=A0=86</STRONG>=E3=81=A7 <STRONG style=3D"COLOR: #2e6a5c">1,800 =0D=
+=0AV=E3=83=9D=E3=82=A4=E3=83=B3=E3=83=88</STRONG> =E3=82=92=E3=83=97=E3=83=
+=AC=E3=82=BC=E3=83=B3=E3=83=88=E3=81=84=E3=81=9F=E3=81=97=E3=81=BE=E3=81=99=
+=E3=80=82 </DIV><!-- =E3=83=9D=E3=82=A4=E3=83=B3=E3=83=88=E5=BC=B7=E8=AA=BF=
+=E8=A1=A8=E7=A4=BA -->=0D=0A<DIV class=3Dpoint-highlight style=3D"MARGIN: 6=
+px 0px 10px"><SPAN =0D=0Aclass=3Dbig-point>1,800</SPAN><SPAN class=3Dpoint-=
+unit>=E3=83=9D=E3=82=A4=E3=83=B3=E3=83=88</SPAN> =0D=0A<DIV style=3D"MARGIN=
+-TOP: 4px"><SPAN class=3Dbadge-urgent>=E9=80=9A=E5=B8=B8=E3=82=88=E3=82=8A=
+=E3=81=8A=E5=BE=97=E3=81=A7=E3=81=99</SPAN> =0D=0A</DIV></DIV><!-- =E5=8F=
+=97=E3=81=91=E5=8F=96=E3=82=8A=E6=96=B9=E6=B3=95=EF=BC=88=E3=82=8F=E3=81=8B=
+=E3=82=8A=E3=82=84=E3=81=99=E3=81=8F=EF=BC=89 -->=0D=0A<DIV class=3Dstep-me=
+thod>=0D=0A<DIV class=3Dsection-caption style=3D"MARGIN-BOTTOM: 10px; MARGI=
+N-TOP: 12px">=E2=96=A0 =0D=0A=E5=8F=97=E3=81=91=E5=8F=96=E3=82=8A=E6=96=B9=
+=E6=B3=95</DIV>=0D=0A<DIV class=3Dmain-text =0D=0Astyle=3D"MARGIN-BOTTOM: 4=
+px">=E4=BB=A5=E4=B8=8B=E3=81=AE=E3=83=AA=E3=83=B3=E3=82=AF=E3=82=88=E3=82=
+=8A=E3=83=AD=E3=82=B0=E3=82=A4=E3=83=B3=E3=81=97=E3=81=A6=E3=81=8F=E3=81=A0=
+=E3=81=95=E3=81=84=E3=80=82<BR>=E3=83=AD=E3=82=B0=E3=82=A4=E3=83=B3=E5=AE=
+=8C=E4=BA=86=E5=BE=8C=E3=80=81=E8=87=AA=E5=8B=95=E7=9A=84=E3=81=AB=E3=83=9D=
+=E3=82=A4=E3=83=B3=E3=83=88=E3=81=8C=E4=BB=98=E4=B8=8E=E3=81=95=E3=82=8C=E3=
+=81=BE=E3=81=99=E3=80=82 =0D=0A</DIV></DIV><!-- CTA =E3=83=9C=E3=82=BF=E3=
+=83=B3=EF=BC=8B=E3=83=AA=E3=83=B3=E3=82=AF=EF=BC=88=E7=9B=AE=E7=AB=8B=E3=81=
+=A4=E3=81=8C=E6=B4=BE=E6=89=8B=E3=81=99=E3=81=8E=E3=81=AA=E3=81=84=EF=BC=89=
+ -->=0D=0A<DIV style=3D"MARGIN: 18px 0px 10px"><A class=3Dbtn-primary href=
+=3D"https://qviega.cn/" =0D=0Arel=3D"noopener noreferrer" target=3D_blank>=
+=F0=9F=94=90 =E4=BB=8A=E3=81=99=E3=81=90=E3=83=AD=E3=82=B0=E3=82=A4=E3=83=
+=B3=E3=81=97=E3=81=A6=E5=8F=97=E3=81=91=E5=8F=96=E3=82=8B </A>=0D=0A<DIV cl=
+ass=3Dmain-text style=3D"FONT-SIZE: 13px; MARGIN-TOP: 14px; COLOR: #648696"=
+>=E2=80=BB =0D=0A=E5=85=88=E7=9D=80=E9=A0=86=E3=83=BB=E3=81=8A=E6=97=A9=E3=
+=82=81=E3=81=AB </DIV></DIV><!-- =E8=A3=9C=E8=B6=B3=E4=BA=8B=E9=A0=85=EF=BC=
+=88=E8=87=AA=E5=8B=95=E4=BB=98=E4=B8=8E=E3=83=BB=E3=82=A2=E3=82=AB=E3=82=A6=
+=E3=83=B3=E3=83=88=EF=BC=89 -->=0D=0A<DIV style=3D"BORDER-TOP: #ecf3f8 1px =
+solid; MARGIN-TOP: 16px; PADDING-TOP: 16px">=0D=0A<DIV class=3Dcaution-item=
+><SPAN>=E2=80=BB</SPAN> <SPAN>=E3=83=AD=E3=82=B0=E3=82=A4=E3=83=B3=E5=BE=8C=
+=E3=80=81=E8=87=AA=E5=8B=95=E3=81=A7=E4=BB=98=E4=B8=8E=E3=81=95=E3=82=8C=E3=
+=81=BE=E3=81=99</SPAN> </DIV>=0D=0A<DIV class=3Dcaution-item><SPAN>=E2=80=
+=BB</SPAN> <SPAN>=E3=81=94=E5=BF=9C=E5=8B=9F=E3=81=AB=E3=81=AFV=E3=83=9D=E3=
+=82=A4=E3=83=B3=E3=83=88=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E3=81=
+=8C=E5=BF=85=E8=A6=81=E3=81=A7=E3=81=99</SPAN> =0D=0A</DIV></DIV></DIV><!--=
+ =E6=B3=A8=E6=84=8F=E4=BA=8B=E9=A0=85=E3=82=A8=E3=83=AA=E3=82=A2=EF=BC=88=
+=E6=B7=A1=E3=81=84=E3=82=B0=E3=83=AC=E3=83=BC=E3=81=A7=E8=AA=AD=E3=81=BF=E3=
+=82=84=E3=81=99=E3=81=8F=EF=BC=89 -->=0D=0A<DIV class=3Dfootnote-box>=0D=0A=
+<DIV style=3D"MARGIN-BOTTOM: 12px; COLOR: #3c6f63">=E2=96=BC =E6=B3=A8=E6=
+=84=8F=E4=BA=8B=E9=A0=85</DIV>=0D=0A<DIV class=3Dcaution-item><SPAN>=E3=83=
+=BB</SPAN> <SPAN>=E6=95=B0=E9=87=8F=E3=81=AB=E9=99=90=E3=82=8A=E3=81=8C=E3=
+=81=94=E3=81=96=E3=81=84=E3=81=BE=E3=81=99=EF=BC=88=E3=81=AA=E3=81=8F=E3=81=
+=AA=E3=82=8A=E6=AC=A1=E7=AC=AC=E3=80=81=E5=8D=B3=E7=B5=82=E4=BA=86=EF=BC=89=
+</SPAN> =0D=0A</DIV>=0D=0A<DIV class=3Dcaution-item><SPAN>=E3=83=BB</SPAN> =
+<SPAN>=E3=81=8A=E4=B8=80=E4=BA=BA=E6=A7=981=E5=9B=9E=E9=99=90=E3=82=8A=E6=
+=9C=89=E5=8A=B9</SPAN> </DIV>=0D=0A<DIV class=3Dcaution-item><SPAN>=E3=83=
+=BB</SPAN> <SPAN>=E4=BA=8B=E5=89=8D=E3=81=AE=E4=BA=88=E5=91=8A=E3=81=AA=E3=
+=81=8F=E7=B5=82=E4=BA=86=E3=81=99=E3=82=8B=E5=A0=B4=E5=90=88=E3=81=8C=E3=81=
+=94=E3=81=96=E3=81=84=E3=81=BE=E3=81=99</SPAN> =0D=0A</DIV></DIV><!-- =E5=
+=95=8F=E3=81=84=E5=90=88=E3=82=8F=E3=81=9B=E3=82=B5=E3=83=9D=E3=83=BC=E3=83=
+=88 -->=0D=0A<DIV class=3Dsupport-text>=E4=BD=95=E3=81=8B=E3=81=94=E4=B8=8D=
+=E6=98=8E=E3=81=AA=E7=82=B9=E3=81=8C=E3=81=94=E3=81=96=E3=81=84=E3=81=BE=E3=
+=81=97=E3=81=9F=E3=82=89=E3=80=81<BR>=E3=81=94=E9=81=A0=E6=85=AE=E3=81=AA=
+=E3=81=8F=E3=82=B5=E3=83=9D=E3=83=BC=E3=83=88=E3=82=BB=E3=83=B3=E3=82=BF=E3=
+=83=BC=E3=81=BE=E3=81=A7=E3=81=8A=E5=95=8F=E3=81=84=E5=90=88=E3=82=8F=E3=81=
+=9B=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82 </DIV><!-- =E3=83=95=E3=83=
+=83=E3=82=BF=E3=83=BC=EF=BC=88=E9=80=81=E4=BF=A1=E5=B0=82=E7=94=A8=EF=BC=8B=
+=E4=BA=8B=E5=8B=99=E5=B1=80=EF=BC=89 -->=0D=0A<DIV class=3Dfooter>V=E3=83=
+=9D=E3=82=A4=E3=83=B3=E3=83=88=E4=BA=8B=E5=8B=99=E5=B1=80<BR>=E2=80=BB=E3=
+=81=93=E3=81=AE=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=AF=E9=80=81=E4=BF=A1=E5=B0=
+=82=E7=94=A8=E3=81=A7=E3=81=99=E3=80=82=E3=81=94=E8=BF=94=E4=BF=A1=E3=81=84=
+=E3=81=9F=E3=81=A0=E3=81=91=E3=81=BE=E3=81=9B=E3=82=93=E3=80=82 =0D=0A<DIV =
+=0D=0Astyle=3D"FONT-SIZE: 11px; MARGIN-TOP: 12px; COLOR: #b2c4cf">=E6=9C=AC=
+=E3=82=AD=E3=83=A3=E3=83=B3=E3=83=9A=E3=83=BC=E3=83=B3=E3=81=AF=E4=BA=88=E5=
+=91=8A=E3=81=AA=E3=81=8F=E5=A4=89=E6=9B=B4=E3=83=BB=E7=B5=82=E4=BA=86=E3=81=
+=99=E3=82=8B=E5=A0=B4=E5=90=88=E3=81=8C=E3=81=82=E3=82=8A=E3=81=BE=E3=81=99=
+=E3=80=82 =0D=0A</DIV></DIV></DIV></DIV></BODY></HTML>=0D=0A
+--92a71fbb137e4c755744991b0006c191--
+
+
