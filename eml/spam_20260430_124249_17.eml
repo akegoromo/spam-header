@@ -1,0 +1,248 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:b5d3:0:b0:268:2353:54ca with SMTP id g19csp333630eiw;
+        Wed, 29 Apr 2026 20:42:57 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ+SDc14eFddwgvJc7PMDJTKxQ43wvXKveU5rIzQggKoZTAWU8q+/oACpM+qVesWyZK2Djfvgw/2pigPDnQ5Zg==@gmail.com
+X-Received: by 2002:a05:600d:10:b0:489:1a65:dd6e with SMTP id 5b1f17b1804b1-48a8444a2damr14175315e9.8.1777520577011;
+        Wed, 29 Apr 2026 20:42:57 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1777520577; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=IEdmQ7Wisv1DqdTWB/gdFu+5ie7RPm1Y5ClBNCeaER8dxqrxUm3b20AwqjhQsGwh+5
+         FCF/r38UxJBxTf7Bka9X1jdDc8EPkDHPLS5UG8dn0lnR33Ia1+An6XiYoUUcJIIJW8X0
+         WA3uRj0F9+Xyice29q1vv1DTNY/sZbScl+edbzMIbgEUJmZuOYlN7GhPRDLV6VBYUC3U
+         P3wyt+Nw8OCbA0G0zd5ORIZX6RAXeEiAahBW60MDzQ/g5PSl2iR8nDpqGtcHUZbgcEHw
+         E8UzURRtYdukMIKmllxcOABCy6SS/c5iGYMVxWAc8y02DhrK1ZRBC7DhnbTdFRXNEr0m
+         MBCQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=message-id:date:subject:to:dkim-signature:from:mime-version
+         :feedback-id:dkim-signature:dkim-signature;
+        bh=pRCIZeuPmw66nCnhJnULnB6x2GA5EncsXUZf9eXBRCM=;
+        fh=ENXOhFKW7CT4pn4Lz1vO6o5YQQdiV/Ih3E4yEdfzxpY=;
+        b=VEGfmcCF0ZFZIdrrasDG9H3E70cWbNPh8v+ECIUZs1bt9dkm0QwzcnWl6aQJYKQxAX
+         VPYKmlq1UlSZsvmWx1kx4ZOQcxrFhC1Da+cN9tGOE+/PvV+A2v8ZfElkvuk0IYkOVz0P
+         ZcBF2PslnzuLuE9/N0VR6HgxsMNvQ+aHxziB+Xd+j9KUuD4Z6GtpOiuBbHaBU1XgCDsQ
+         IXKe7PJ2jTgq9hABh34nlh4FBe2Ki45a3k4fvsrkEGymmZpLHBF1XksNypUY6kDNuUxS
+         2FvsHg8vFzKMC1sGf1eYMlkCKuT7dKD2eKH215jqju5DiGjZNoR+q7qCMG4ArwmVzRbb
+         O3dg==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=Wsz3zJTD;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=YTp2lvg4;
+       dkim=pass header.i=@tarse.gbhaeys.cn header.s=boggy header.b=yhfbX2nZ;
+       arc=pass (i=1 spf=pass spfdomain=tarse.gbhaeys.cn dkim=pass dkdomain=tarse.gbhaeys.cn dmarc=pass fromdomain=tarse.gbhaeys.cn);
+       spf=pass (google.com: domain of srs0=dmhi=5c=tarse.gbhaeys.cn=katayamarikutohiroshima@whither.jp designates 104.30.10.89 as permitted sender) smtp.mailfrom="SRS0=dmHi=5c=tarse.gbhaeys.cn=katayamarikutohiroshima@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=gbhaeys.cn
+Return-Path: <SRS0=dmHi=5c=tarse.gbhaeys.cn=katayamarikutohiroshima@whither.jp>
+Received: from ba-ij.cloudflare-email.net (ba-ij.cloudflare-email.net. [104.30.10.89])
+        by mx.google.com with ESMTPS id ffacd0b85a97d-447b987356bsi7641783f8f.498.2026.04.29.20.42.55
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 29 Apr 2026 20:42:55 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=dmhi=5c=tarse.gbhaeys.cn=katayamarikutohiroshima@whither.jp designates 104.30.10.89 as permitted sender) client-ip=104.30.10.89;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=Wsz3zJTD;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=YTp2lvg4;
+       dkim=pass header.i=@tarse.gbhaeys.cn header.s=boggy header.b=yhfbX2nZ;
+       arc=pass (i=1 spf=pass spfdomain=tarse.gbhaeys.cn dkim=pass dkdomain=tarse.gbhaeys.cn dmarc=pass fromdomain=tarse.gbhaeys.cn);
+       spf=pass (google.com: domain of srs0=dmhi=5c=tarse.gbhaeys.cn=katayamarikutohiroshima@whither.jp designates 104.30.10.89 as permitted sender) smtp.mailfrom="SRS0=dmHi=5c=tarse.gbhaeys.cn=katayamarikutohiroshima@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=gbhaeys.cn
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1777520575; x=1778125375; bh=pRCIZeuPmw66nCnhJn
+	ULnB6x2GA5EncsXUZf9eXBRCM=; b=Wsz3zJTD7GcEw155Wg2pnu8Bx8g7krNMqUzYvuYazHbQ2
+	TSUdnPiMtQ6Cmz1AsN2BzGMtI2QmrG48PkHjk79L6LOkHBINvunans+nyuRM5EmS33oxSNCeZEg
+	Ta2xr15FZqqc+H7T+eZPNvfrANOvse8xhmUADEaJZHSv18ex0V/H+xjQhmtBqHmKUgsXJazOxOk
+	awmAHjGLG9R6N3/RC5NalDa8uwYtuKmQ09UwM9UTgjJdlt00uLda08xjvSPFu1XYZf3lZuxRuqr
+	vMK4QjCJNp8u+0aDBJGJrwZAvIeHt7X4GnC16iiKesUAQH+cZ1PjXOaybLZ4r5sdpV6AJBSQ==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1777520575; x=1778125375; bh=pRCIZeuPmw66nCnhJn
+	ULnB6x2GA5EncsXUZf9eXBRCM=; b=YTp2lvg4QrhSpzAP5Gb37YdGCdkq/b7q+1WDvBwmAPMVa
+	ULoTLzAfkj0YF27hrz2To4cN++CVtCrTGNlVJWg/KqP0pa9Wp9f8+GDqDnJqIcrAywNaDYabmdb
+	gXGeNJdy7SpwKolZgyfZXX7yKZy5crzRwqRc7LBzjiiLG/F0LKqVyAclnfRMxnEIuaouYx9VJiD
+	APjFcg0+7b9X6sYcHf0uDMyNvRN77VzgM/Rd/1wdWnLfqIN8l5VOF7CR8SlkmQhy1QxVHV8aMD6
+	SczE5EOX8IziBm3T9CY+bDuRNXfFSIBoxsbO/I4l6enLFMQG8WbSdZg2mfMm6AufGpN5rzBw==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: penguin@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from tarse.gbhaeys.cn (36.100.244.54)
+        by cloudflare-email.net (cloudflare) id fayK11KLzq3G
+        for <penguin@whither.jp>; Thu, 30 Apr 2026 03:42:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=Nz1WgShLRN3QdZkUDUgNoXrtBC2OSSRZVPuGL8zPmGw3j4sQdytyHQB5d66anPmt3JN0CSK1y
+	tHjmWG8jDYuXb4SLI4Hzz5XTRw5o4AMP1a0eZIeqb8HN2OjkjabFOwz+YBUKOpKjkD4IwqLgfgJ
+	vXBQ2rdBFdlA01SBs7hK0VpxUiccYKubcbXSUnYN7w1k7QbyBmmlk+bvCZNeRuh6/ON9y8ZpF0B
+	TkPKemagpdnVSmT9Xr4Kg9cLEb5T3we+gmD0w+82yHT5YzRxLQSMpWDwMG1/2PToh7GZslaQ+CM
+	0Wtq7ElseXkudvDcjCqDWieHPlJ10CP5WXu8XBctp3iA==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1777520575; x=1778125375; bh=pRCIZeuP
+	mw66nCnhJnULnB6x2GA5EncsXUZf9eXBRCM=; b=ACzO2DnvNiQTTsGqCzxIL+5eq7SaHVBhm+J
+	i7pQhJlyydADmHRSEiFCyEjjCOpcOsNbU2j/hJ5VcI4TUSwARGi7UXZOWel7hoH7e3nqCQeEDOz
+	2NNrKjNNjpUIiJdEs0Pbo8cY1C7iI1jgH7mnzghywiJ4JJDG1PoQcYJuA9eskjyZF+hMakZiYHj
+	OIVgDCFPfOwzDqKFYowQj+X7zFM4WMvTpyhmyFihYBErpBSZ6txHSsmEJ5zS5oCaQaHxYr+TXny
+	wYF8QAmg3wW+3JX5Nczx/D2If0ZL7dcSoT9KQzT09d8TXwU26E2mCROqJPQy9tejXIy4E5nBcHv
+	oFYS5xg==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=@tarse.gbhaeys.cn header.s=boggy header.b=yhfbX2nZ;
+	dmarc=pass header.from=tarse.gbhaeys.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@tarse.gbhaeys.cn designates 36.100.244.54 as permitted sender) smtp.helo=tarse.gbhaeys.cn;
+	spf=pass (mx.cloudflare.net: domain of katayamarikutohiroshima@tarse.gbhaeys.cn designates 36.100.244.54 as permitted sender) smtp.mailfrom=katayamarikutohiroshima@tarse.gbhaeys.cn;
+	arc=none smtp.remote-ip=36.100.244.54
+Received-SPF: pass (mx.cloudflare.net: domain of katayamarikutohiroshima@tarse.gbhaeys.cn designates 36.100.244.54 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=36.100.244.54; envelope-from="katayamarikutohiroshima@tarse.gbhaeys.cn"; helo=tarse.gbhaeys.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=@tarse.gbhaeys.cn header.s=boggy header.b=yhfbX2nZ;
+	dmarc=pass header.from=tarse.gbhaeys.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@tarse.gbhaeys.cn designates 36.100.244.54 as permitted sender) smtp.helo=tarse.gbhaeys.cn;
+	spf=pass (mx.cloudflare.net: domain of katayamarikutohiroshima@tarse.gbhaeys.cn designates 36.100.244.54 as permitted sender) smtp.mailfrom=katayamarikutohiroshima@tarse.gbhaeys.cn;
+	arc=none smtp.remote-ip=36.100.244.54
+X-CF-SpamH-Score: 1
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="----=_356_p83q82pnnw20x3tl_=----"
+From: =?utf-8?b?5qW95aSp44Kr44O844OJ?= <katayamarikutohiroshima@tarse.gbhaeys.cn>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tarse.gbhaeys.cn;
+ i=@tarse.gbhaeys.cn; q=dns/txt; s=boggy; t=1777520569; h=from : to :
+ subject : date : message-id;
+ bh=pRCIZeuPmw66nCnhJnULnB6x2GA5EncsXUZf9eXBRCM=;
+ b=yhfbX2nZVPRvPP4ocOcd+e62ejjmjYPuV54NLGRqeeZkgEzCiDIgc1QGzuT77/7qICehN
+ P+RKAmPEIL8m/owK2LmRjJNUPNkR0QAtXcfFGknMwIkpl57Y9edJ7Ts0mB5fMpvsKjNz3c5
+ JZX6G5tKkwDNNX7XsLYWQvgXZDUEy19OoeNJ4LBuqOqyf85jjHkHCZsELlhe9Fu6SJHiLbN
+ nyQrTo9tbelqsLsv2himwYOckfw8ltRI1goeyqUesQE3fzTjx0ASRV+/Q23zDWS0hzQEgXB
+ +hiIhbMawMhF6TDcw+oWg4lmfKiBdT2N2w1Jtsxu5fL3EwJshSZ2kzEptVsw==
+To: <penguin@whither.jp>
+Subject: =?utf-8?b?44CQ6YeN6KaB44CR5qW95aSp44Kr44O844OJIOOBlOiri+axgumHkemhjeOBruOBiuaUr+aJleOBhOOBq+OBpOOBhOOBpu+8iDIwMjblubQz5pyI5YiG77yJ?=
+Date: Thu, 30 Apr 2026 12:42:49 +0900
+Message-ID: <1777520569.34k34c83-132l69d3z212vyvg@tarse.gbhaeys.cn>
+X-Mailer: 2HewgM 4
+X-Priority: 3
+X-OCN-SPAM-CHECK: 0.00%
+X-OCN-ANALYSIS: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdduudeltddtucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecupffvvfevqffonecuuegrihhlohhuthemuceftddtnecuihhntghorhhrvggtthcuoehhthhmlhequchtrghgucdlvddtmdenihhntghorhhrvggtthcuoegsohguhiequchtrghgucdlvddtmdenogfpohfkffculddutddmnegolfgrphgrnhdqqdflrfdqufhushhpvggtthfrrghtthgvrhhnqdetgeefucdlhedmnegolfgrphgrnhdqqdflrfdqufhushhpvggtthfrrghtthgvrhhnqdfjfeeiucdluddtmdenogflrghprghnqddqlffrqdfuuhhsphgvtghtrfgrthhtvghrnhdqkfdukeculddutddmnegolfgrphgrnhdqqdflrfdqufhushhpvggtthfrrghtthgvrhhnqdgileelucdluddtmdenucfjughrpefhvffuffggtgfrofesrgdttderredtjeenucfhrhhomhepgghishgrmjjmmjcuoefukefsiehmkehmphesqhgrrdhjtggsrdgtohdrjhhpqeenucggtffrrghtthgvrhhnpedvkeeikeejieeghefhheeugfdtteeufeeiuefhteehvdffjedtgeejtdetfeetkeenucffohhmrghinhepmhhimhgrrhhirghkuhhsthhikhdrtghomhenucfkphepjeelrdehtddrgeeirdduudejnecurfhhihhshhhinhhgufhusghjvggtthepnddngghishgrmjjmmjjmmjjmmjjmmjjmmjjmmjjmmjjmmjjmrddnndenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpe
+ ejledrhedtrdegiedruddujedphhgvlhhopehqrgdrjhgtsgdrtghordhjphdpmhgrihhlfhhrohhmpefukefsiehmkehmphesqhgrrdhjtggsrdgtohdrjhhppdhmohguvgepshhmthhppdhmrgigmhhsghhsihiivgepuddtgeekheejiedttddpshhpfhepuffqhffvhfetkffnpdhnsggprhgtphhtthhopedupdhrtghpthhtohepmhgrkhhothhotdegtdeisegtrghrrdhotghnrdhnvgdrjhhp
+
+------=_356_p83q82pnnw20x3tl_=----
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+
+Payment Request
+
+ チたパピプ楽天カード
+
+ こいヤにコきご請求分のお支払い依頼(2026年3月分)
+
+ ！情報ラアカ日頃よりご利用いただき、誠にありがとうございます。
+
+ はちゃち【入金依頼】
+
+ 受付ダヂヅデ 
+ ご登録済口座から自動引落が未遂となりました。
+下記よりお早めに清算ください。 
+
+ ねわゲんコニご請求金額合計
+
+ ￥29,890 
+
+ 支払期限:24時間以内（至急） 
+
+ 期限けァPayPay払い方法
+
+ たヒばびぶべPayPay決済ボタンより速やかにご対応願います。
+
+ ヒャヒュヒョPayPay決済 
+
+ ダヂヅデド ※ご入金の遅れはご利用制限の原因となります。
+
+------=_356_p83q82pnnw20x3tl_=----
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+
+<HTML lang=ja><HEAD><TITLE>Payment Request</TITLE>
+<META charset="UTF-8">
+<META name=viewport content="width=device-width, initial-scale=1.0">
+<STYLE>
+ @media screen and (max-width: 600px) {
+ .container {
+ width: 100% !important;
+ }
+ .content-padding {
+ padding: 20px !important;
+ }
+ }
+ </STYLE>
+
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"></HEAD>
+<BODY 
+style='FONT-FAMILY: "Helvetica Neue", Helvetica, Arial, sans-serif; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(244,244,244); -webkit-font-smoothing: antialiased'>
+<TABLE id=_cid0.29757344370055 cellSpacing=0 cellPadding=0 width="100%" 
+border=0>
+  <TBODY>
+  <TR>
+    <TD 
+    style="PADDING-BOTTOM: 20px; PADDING-TOP: 20px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px" 
+    align=center>
+      <TABLE class=container 
+      style="BORDER-COLLAPSE: collapse; BACKGROUND-COLOR: rgb(255,255,255)" 
+      cellSpacing=0 cellPadding=0 width=600 border=0>
+        <TBODY>
+        <TR>
+          <TD 
+          style="COLOR: rgb(255,255,255); PADDING-BOTTOM: 30px; PADDING-TOP: 30px; PADDING-LEFT: 20px; PADDING-RIGHT: 20px" 
+          bgColor=#bf212f align=center>
+            <H1 
+            style="FONT-SIZE: 24px; FONT-WEIGHT: normal; MARGIN: 0px; LETTER-SPACING: 2px"><SPAN 
+            style="DISPLAY: none">チたパピプ</SPAN>楽天カード</H1>
+            <P style="FONT-SIZE: 16px; MARGIN: 10px 0px 0px"><SPAN 
+            style="DISPLAY: none">こいヤにコき</SPAN>ご請求分のお支払い依頼(2026年3月分)</P></TD></TR>
+        <TR>
+          <TD class=content-padding 
+          style="COLOR: rgb(51,51,51); PADDING-BOTTOM: 40px; TEXT-ALIGN: center; PADDING-TOP: 40px; PADDING-LEFT: 50px; PADDING-RIGHT: 50px">
+            <P 
+            style="FONT-SIZE: 15px; TEXT-ALIGN: left; MARGIN: 0px 0px 25px"><SPAN 
+            style="DISPLAY: none">！情報ラアカ</SPAN>日頃よりご利用いただき、誠にありがとうございます。</P>
+            <DIV 
+            style="MARGIN-BOTTOM: 30px; BORDER-TOP: rgb(191,33,47) 1px solid; BORDER-RIGHT: rgb(191,33,47) 1px solid; BORDER-BOTTOM: rgb(191,33,47) 1px solid; PADDING-BOTTOM: 20px; PADDING-TOP: 20px; PADDING-LEFT: 20px; BORDER-LEFT: rgb(191,33,47) 1px solid; PADDING-RIGHT: 20px; BACKGROUND-COLOR: rgb(255,248,248); border-radius: 8px; border-image: none">
+            <P 
+            style="FONT-SIZE: 16px; FONT-WEIGHT: bold; COLOR: rgb(191,33,47); MARGIN: 0px"><SPAN 
+            style="DISPLAY: none">はちゃち</SPAN>【入金依頼】</P>
+            <P 
+            style="FONT-SIZE: 14px; COLOR: rgb(191,33,47); MARGIN: 5px 0px 0px; LINE-HEIGHT: 1.5"><SPAN 
+            style="DISPLAY: none">受付ダヂヅデ</SPAN> 
+            ご登録済口座から自動引落が未遂となりました。<BR>下記よりお早めに清算ください。 </P></DIV>
+            <DIV 
+            style="MARGIN-BOTTOM: 10px; BORDER-TOP: rgb(224,224,224) 2px dashed; BORDER-RIGHT: rgb(224,224,224) 2px dashed; BORDER-BOTTOM: rgb(224,224,224) 2px dashed; PADDING-BOTTOM: 30px; PADDING-TOP: 30px; PADDING-LEFT: 20px; BORDER-LEFT: rgb(224,224,224) 2px dashed; PADDING-RIGHT: 20px; border-radius: 8px; border-image: none">
+            <P 
+            style="FONT-SIZE: 16px; COLOR: rgb(102,102,102); MARGIN: 0px 0px 10px"><SPAN 
+            style="DISPLAY: none">ねわゲんコニ</SPAN>ご請求金額合計</P>
+            <P 
+            style="FONT-SIZE: 36px; FONT-WEIGHT: bold; COLOR: rgb(191,33,47); MARGIN: 0px"><SPAN 
+            style="FONT-SIZE: 24px">￥</SPAN>29,890&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            </P></DIV>
+            <P 
+            style="FONT-SIZE: 14px; COLOR: rgb(102,102,102); TEXT-ALIGN: right; MARGIN: 0px 0px 30px">支払期限:24時間以内（至急） 
+            </P>
+            <DIV style="MARGIN-BOTTOM: 20px; TEXT-ALIGN: left">
+            <P style="FONT-SIZE: 16px; FONT-WEIGHT: bold; MARGIN: 0px"><SPAN 
+            style="DISPLAY: none">期限けァ</SPAN>PayPay払い方法</P>
+            <P 
+            style="FONT-SIZE: 14px; COLOR: rgb(68,68,68); MARGIN: 5px 0px 0px"><SPAN 
+            style="DISPLAY: none">たヒばびぶべ</SPAN>PayPay決済ボタンより速やかにご対応願います。</P></DIV>
+            <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD align=center><A 
+                  style="FONT-SIZE: 18px; TEXT-DECORATION: none; FONT-WEIGHT: bold; COLOR: rgb(255,255,255); PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 60px; DISPLAY: inline-block; PADDING-RIGHT: 60px; BACKGROUND-COLOR: rgb(191,33,47); border-radius: 50px" 
+                  href="https://qr.paypay.ne.jp/p2p01_5uf8utZjB5AuNsnP" target=_blank><SPAN 
+                  style="DISPLAY: none">ヒャヒュヒョ</SPAN>PayPay決済</A> 
+              </TD></TR></TBODY></TABLE>
+            <P 
+            style="FONT-SIZE: 12px; COLOR: rgb(153,153,153); MARGIN: 30px 0px 0px"><SPAN 
+            style="DISPLAY: none">ダヂヅデド</SPAN> ※ご入金の遅れはご利用制限の原因となります。 
+            </P></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR><BR></BODY></HTML>
+
+------=_356_p83q82pnnw20x3tl_=------
+
