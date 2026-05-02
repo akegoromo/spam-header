@@ -1,0 +1,244 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:b5d3:0:b0:268:2353:54ca with SMTP id g19csp991037eiw;
+        Thu, 30 Apr 2026 20:35:54 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ914SjVH0BrypzIsPvIceGhWEP63YJ5QugZr5o7eBl3SK3VGb1njrShiALf0F/ZTteI0MItl1Gp/PBttwNSlA==@gmail.com
+X-Received: by 2002:a05:6000:26c8:b0:43d:7a97:78c0 with SMTP id ffacd0b85a97d-44a8880f990mr1719829f8f.36.1777606554588;
+        Thu, 30 Apr 2026 20:35:54 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1777606554; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=CcTjZus70bxpnmHKSDakwO721h3A2vzIQnA1zP2V9TICRXeRhoqK5fB5ErQO8rXXkc
+         IIz9jRp8LvFuOF6gxiG8xqmvxwzbAZWxHHY2/evYXYmFffpG1fp5JW5c8qzslrbKOj1j
+         CGTgTplUgbQdOKzWCzYx8k6bwVdL/4miw95CM+r+kKlJe10NdjJDqE58jRgneRdRVBEY
+         z2Mb+thOEHAgNU45H1qNxXjG/M/DYgizQ52x3tQG4t4dbmsyPaSfuqOr9gOUmP6/c7nu
+         qF/KYLaGeW0VFCREwz3FrOE9V4qtJoZhDg7Ei4V8aYAHuQKNk5I0kIClIJzr3X0Tls2a
+         M53w==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=message-id:date:subject:to:dkim-signature:from:mime-version
+         :feedback-id:dkim-signature:dkim-signature;
+        bh=Ld5r7fqHQsSvttfLC0rQB0WQnEgwnTp/+od+YvdeJi8=;
+        fh=LnGVlAla77Gyfiw8zkzbOhaVlqYgEu27l8ujdfvsIGY=;
+        b=b17QMahtp9sneT9smxPwCcutiXrwKhSySna1WRnq7Ub/kyYtsNuwh7I9oaPssqZ93y
+         bgf35EGTK8ben53UOo+TQHQWeaH0b25/hQ4UfNMfPW/t71I1hqfJGV3udZksFt3cdmyB
+         UnGx5TJc85Wsq87tZW3DcV/a/CKFYTulI/gV6q4Du9AUTDqSicRAmK/M2ubzKd/G0LpE
+         HzVlFQhg2N+uMpZWVfzaLJqSCTlueCy3rIG7/mYJ55TgX4/nhOMJ8YHDiaYMvXXlYuSJ
+         Cf4qicVJSUfnZ7EZpBHPLGayD+RxSeCqCFHR8tacs0C1SEGkE4FhJuenpTAp1G0B4dtC
+         u0GA==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=MKcUS2EE;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=g5lraExY;
+       dkim=pass header.i=@se.gjpgntq.cn header.s=gorse header.b=mAn7ilcD;
+       arc=pass (i=1 spf=pass spfdomain=se.gjpgntq.cn dkim=pass dkdomain=se.gjpgntq.cn dmarc=pass fromdomain=se.gjpgntq.cn);
+       spf=pass (google.com: domain of srs0=f8qc=6c=se.gjpgntq.cn=tashiro.saku@whither.jp designates 104.30.10.142 as permitted sender) smtp.mailfrom="SRS0=f8QC=6c=se.gjpgntq.cn=tashiro.saku@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=gjpgntq.cn
+Return-Path: <SRS0=f8QC=6c=se.gjpgntq.cn=tashiro.saku@whither.jp>
+Received: from ba-bec.cloudflare-email.net (ba-bec.cloudflare-email.net. [104.30.10.142])
+        by mx.google.com with ESMTPS id ffacd0b85a97d-44a9904625esi1423758f8f.350.2026.04.30.20.35.52
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 30 Apr 2026 20:35:53 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=f8qc=6c=se.gjpgntq.cn=tashiro.saku@whither.jp designates 104.30.10.142 as permitted sender) client-ip=104.30.10.142;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=MKcUS2EE;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=g5lraExY;
+       dkim=pass header.i=@se.gjpgntq.cn header.s=gorse header.b=mAn7ilcD;
+       arc=pass (i=1 spf=pass spfdomain=se.gjpgntq.cn dkim=pass dkdomain=se.gjpgntq.cn dmarc=pass fromdomain=se.gjpgntq.cn);
+       spf=pass (google.com: domain of srs0=f8qc=6c=se.gjpgntq.cn=tashiro.saku@whither.jp designates 104.30.10.142 as permitted sender) smtp.mailfrom="SRS0=f8QC=6c=se.gjpgntq.cn=tashiro.saku@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=gjpgntq.cn
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1777606553; x=1778211353; bh=Ld5r7fqHQsSvttfLC0
+	rQB0WQnEgwnTp/+od+YvdeJi8=; b=MKcUS2EE8DLZu+oqr6k+YdKnlTGS6wY6k+WXGAy7ZBSaE
+	Ov7yuBVwoc7ZWLqfdfJCz4Lt1t2T4Fw5q2BNp8OOUMmbNaCcSju4MIhVDSjozB74rcOS6CkrAKC
+	um84A8lRC4etU/GLII81T1UqVfoxrWzPyW4rbqB8rtbYv6OBIDghWgcN8L5wl4PNWkbwt7ti7SM
+	zL0he056KQl67cOxfmYUlcfNvX0mkidwRFRMixrsTZ5eriNHrpSUp4i1UnT9zEbX0nVBFc/T2Ra
+	s2o0A2aAkJFBrEo7F116PVFazii7JVdVo2h1wRoqDs07b5Xnw1iMNbF5NTb+ULZtI43qYmpA==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1777606553; x=1778211353; bh=Ld5r7fqHQsSvttfLC0
+	rQB0WQnEgwnTp/+od+YvdeJi8=; b=g5lraExYqBszYplGrqLV0bSHfR8v0DwpR1/TI9ajMH6UZ
+	FCppv/Fv59UJ0lWv2CqNeG1P52Al5WOKb+fgKMR+BoIOOP2FGtGrByhZviyot9TBwIEP1+toPNg
+	3t3lwl3nhYXyLr1eJ5bO7bsIGRHybiuog9f+rKqwRwK4BusYU8LdxIG6fGRRMo49+bpmlmD6tQj
+	SGRXo6JfNBMxp7pzP0x1GdUQN/I6jpyXY2V8ewXk9ctV0qKVyZKR7l1/tvkba4CJAbjcRoxN9JS
+	OgU9e7/R6w1nLFN3O+lCqcsD5dtX8khw2SyI4KAVgFdShJzPS8pjZCddpgVYvFv5yJZ2TLxQ==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: tnakahara@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from se.gjpgntq.cn (171.213.216.161)
+        by cloudflare-email.net (cloudflare) id BvmNGNMG23FC
+        for <tnakahara@whither.jp>; Fri, 01 May 2026 03:35:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=hNk/CybwxZ/ylrLjYIWFmoIGGVuTK302JndkfHq70TQpVVmksQOTX0PvAvpd1CP6T0UoQssso
+	x7PjYJ7UL+W0FdMuugnGde9gbN+SV8BmU5DKcb/VgjFN9yaV20btN2BdFYMxWcGfsK/Ttwzp4j6
+	EniVXJYU2qb128x6VVEBfkv5P10x+Pa+Z1sUxuGJTE4zwlRoyhXPpMpJVejftrl/e4ELX8iXg5y
+	wzm8pK5EV9HRXPKAilIIioc27MLOUjdl5JaH5BjEAv4J0KNK37bmSxkksn9+HCaMYN17swI0/yc
+	4Cus+DYVxE5Pz17AlI0W8YPZ0bE+T5+0sB9AFjkWf5og==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1777606551; x=1778211351; bh=Ld5r7fqH
+	QsSvttfLC0rQB0WQnEgwnTp/+od+YvdeJi8=; b=P5Kl17OvdPsE8tG+9pUTyohfgz9xQ1md4rK
+	ooNZ7LOoNcIjUC41Ihfp+HdiUpBY940O+9/tHfr7/wQsPgEEor9jdHV2vL5gobABrwjoveleCqn
+	szQ3o/jOuQAJD1c7nzoPvjbLASDjdfQevUNjZ9mZ7J3TKsfFEH1qOiajLLBM8nyfFHMG6f8VjEG
+	oHty5bcaMPq3SrxobhG3ZCPOn8QtNumZP+P51cEYVmw17efPX4+K12E7S5+tuoEU3cHr/URd0uz
+	I0D+tqICLgmjiiP4f3ytI3DpqretDTCd1eOvNPIBbXg+vPEvaLrJ6w+h5rOyLV3KJ6W9RZSbels
+	lqf482Q==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=@se.gjpgntq.cn header.s=gorse header.b=mAn7ilcD;
+	dmarc=pass header.from=se.gjpgntq.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@se.gjpgntq.cn designates 171.213.216.161 as permitted sender) smtp.helo=se.gjpgntq.cn;
+	spf=pass (mx.cloudflare.net: domain of tashiro.saku@se.gjpgntq.cn designates 171.213.216.161 as permitted sender) smtp.mailfrom=tashiro.saku@se.gjpgntq.cn;
+	arc=none smtp.remote-ip=171.213.216.161
+Received-SPF: pass (mx.cloudflare.net: domain of tashiro.saku@se.gjpgntq.cn designates 171.213.216.161 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=171.213.216.161; envelope-from="tashiro.saku@se.gjpgntq.cn"; helo=se.gjpgntq.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=@se.gjpgntq.cn header.s=gorse header.b=mAn7ilcD;
+	dmarc=pass header.from=se.gjpgntq.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@se.gjpgntq.cn designates 171.213.216.161 as permitted sender) smtp.helo=se.gjpgntq.cn;
+	spf=pass (mx.cloudflare.net: domain of tashiro.saku@se.gjpgntq.cn designates 171.213.216.161 as permitted sender) smtp.mailfrom=tashiro.saku@se.gjpgntq.cn;
+	arc=none smtp.remote-ip=171.213.216.161
+X-CF-SpamH-Score: 2
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="----=_HoilOefx_023_907J0_37D9767V.934O6UC0"
+From: =?utf-8?b?5qW95aSp44Kr44O844OJ?= <tashiro.saku@se.gjpgntq.cn>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=se.gjpgntq.cn;
+ i=@se.gjpgntq.cn; q=dns/txt; s=gorse; t=1777606546; h=from : to :
+ subject : date : message-id;
+ bh=Ld5r7fqHQsSvttfLC0rQB0WQnEgwnTp/+od+YvdeJi8=;
+ b=mAn7ilcDI72sUOZP/CYN0ULXOpPydqnJftR3YPFJp9psQUwaiBeWG+Ol2AfUYeSe0RCa7
+ 7oMlibhkQjJmJIaIv4PEQkPkiPCOvr190Dj8x9LFij7NWkCLR3tcY3zJWTwSrL29+i47bo0
+ 5m//lLgG1Fn/rM5b80cFY4wdIS/YJbfdh4rQa7mfP2gtPIA297Zl/WQ02r1ULmMvzTTd1zN
+ AfgFM45JMh394flB4FGfFooLpiVfzNZlqk/y69Oqk3rVnEMtaDB5eXrz9e9e9OiwuEUIc53
+ 9IeVuPQ09OqtMFkzWPG9bAjqYA0Q8WCa9p+L64m1SXjes6m++9xdbgG7j4Xw==
+To: <tnakahara@whither.jp>
+Subject: =?utf-8?b?44CQ6YeN6KaB44CR5qW95aSp44Kr44O844OJIOOBlOiri+axgumHkemhjeOBruOBiuaUr+aJleOBhOOBq+OBpOOBhOOBpu+8iDIwMjblubQz5pyI5YiG77yJ?=
+Date: Fri, 01 May 2026 12:35:46 +0900
+Message-ID: <1777606546420@se.gjpgntq.cn>
+X-mailer: U2m7K 5
+
+------=_HoilOefx_023_907J0_37D9767V.934O6UC0
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+
+Payment Request
+
+ スとシステ楽天カード
+
+ 改善サポートご請求分のお支払い依頼(2026年3月分)
+
+ 完了だぢづ日頃よりご利用いただき、誠にありがとうございます。
+
+ ユテヒご利用【入金依頼】
+
+ サ情報ざじず 
+ ご登録済口座から自動引落が未遂となりました。
+下記よりお早めに清算ください。 
+
+ ねわゲんコニご請求金額合計
+
+ ￥29,890 
+
+ 支払期限:24時間以内（至急） 
+
+ ナニヌネノPayPay払い方法
+
+ モヰきトラブPayPay決済ボタンより速やかにご対応願います。
+
+ しちゃちゅPayPay決済 
+
+ アカウントマ ※ご入金の遅れはご利用制限の原因となります。
+
+------=_HoilOefx_023_907J0_37D9767V.934O6UC0
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+
+<HTML lang=ja><HEAD><TITLE>Payment Request</TITLE>
+<META charset="UTF-8">
+<META name=viewport content="width=device-width, initial-scale=1.0">
+<STYLE>
+ @media screen and (max-width: 600px) {
+ .container {
+ width: 100% !important;
+ }
+ .content-padding {
+ padding: 20px !important;
+ }
+ }
+ </STYLE>
+
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"></HEAD>
+<BODY 
+style='FONT-FAMILY: "Helvetica Neue", Helvetica, Arial, sans-serif; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(244,244,244); -webkit-font-smoothing: antialiased'>
+<TABLE id=_cid0.3481365250058 cellSpacing=0 cellPadding=0 width="100%" 
+border=0>
+  <TBODY>
+  <TR>
+    <TD 
+    style="PADDING-BOTTOM: 20px; PADDING-TOP: 20px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px" 
+    align=center>
+      <TABLE class=container 
+      style="BORDER-COLLAPSE: collapse; BACKGROUND-COLOR: rgb(255,255,255)" 
+      cellSpacing=0 cellPadding=0 width=600 border=0>
+        <TBODY>
+        <TR>
+          <TD 
+          style="COLOR: rgb(255,255,255); PADDING-BOTTOM: 30px; PADDING-TOP: 30px; PADDING-LEFT: 20px; PADDING-RIGHT: 20px" 
+          bgColor=#bf212f align=center>
+            <H1 
+            style="FONT-SIZE: 24px; FONT-WEIGHT: normal; MARGIN: 0px; LETTER-SPACING: 2px"><SPAN 
+            style="DISPLAY: none">スとシステ</SPAN>楽天カード</H1>
+            <P style="FONT-SIZE: 16px; MARGIN: 10px 0px 0px"><SPAN 
+            style="DISPLAY: none">改善サポート</SPAN>ご請求分のお支払い依頼(2026年3月分)</P></TD></TR>
+        <TR>
+          <TD class=content-padding 
+          style="COLOR: rgb(51,51,51); PADDING-BOTTOM: 40px; TEXT-ALIGN: center; PADDING-TOP: 40px; PADDING-LEFT: 50px; PADDING-RIGHT: 50px">
+            <P 
+            style="FONT-SIZE: 15px; TEXT-ALIGN: left; MARGIN: 0px 0px 25px"><SPAN 
+            style="DISPLAY: none">完了だぢづ</SPAN>日頃よりご利用いただき、誠にありがとうございます。</P>
+            <DIV 
+            style="MARGIN-BOTTOM: 30px; BORDER-TOP: rgb(191,33,47) 1px solid; BORDER-RIGHT: rgb(191,33,47) 1px solid; BORDER-BOTTOM: rgb(191,33,47) 1px solid; PADDING-BOTTOM: 20px; PADDING-TOP: 20px; PADDING-LEFT: 20px; BORDER-LEFT: rgb(191,33,47) 1px solid; PADDING-RIGHT: 20px; BACKGROUND-COLOR: rgb(255,248,248); border-radius: 8px; border-image: none">
+            <P 
+            style="FONT-SIZE: 16px; FONT-WEIGHT: bold; COLOR: rgb(191,33,47); MARGIN: 0px"><SPAN 
+            style="DISPLAY: none">ユテヒご利用</SPAN>【入金依頼】</P>
+            <P 
+            style="FONT-SIZE: 14px; COLOR: rgb(191,33,47); MARGIN: 5px 0px 0px; LINE-HEIGHT: 1.5"><SPAN 
+            style="DISPLAY: none">サ情報ざじず</SPAN> 
+            ご登録済口座から自動引落が未遂となりました。<BR>下記よりお早めに清算ください。 </P></DIV>
+            <DIV 
+            style="MARGIN-BOTTOM: 10px; BORDER-TOP: rgb(224,224,224) 2px dashed; BORDER-RIGHT: rgb(224,224,224) 2px dashed; BORDER-BOTTOM: rgb(224,224,224) 2px dashed; PADDING-BOTTOM: 30px; PADDING-TOP: 30px; PADDING-LEFT: 20px; BORDER-LEFT: rgb(224,224,224) 2px dashed; PADDING-RIGHT: 20px; border-radius: 8px; border-image: none">
+            <P 
+            style="FONT-SIZE: 16px; COLOR: rgb(102,102,102); MARGIN: 0px 0px 10px"><SPAN 
+            style="DISPLAY: none">ねわゲんコニ</SPAN>ご請求金額合計</P>
+            <P 
+            style="FONT-SIZE: 36px; FONT-WEIGHT: bold; COLOR: rgb(191,33,47); MARGIN: 0px"><SPAN 
+            style="FONT-SIZE: 24px">￥</SPAN>29,890&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            </P></DIV>
+            <P 
+            style="FONT-SIZE: 14px; COLOR: rgb(102,102,102); TEXT-ALIGN: right; MARGIN: 0px 0px 30px">支払期限:24時間以内（至急） 
+            </P>
+            <DIV style="MARGIN-BOTTOM: 20px; TEXT-ALIGN: left">
+            <P style="FONT-SIZE: 16px; FONT-WEIGHT: bold; MARGIN: 0px"><SPAN 
+            style="DISPLAY: none">ナニヌネノ</SPAN>PayPay払い方法</P>
+            <P 
+            style="FONT-SIZE: 14px; COLOR: rgb(68,68,68); MARGIN: 5px 0px 0px"><SPAN 
+            style="DISPLAY: none">モヰきトラブ</SPAN>PayPay決済ボタンより速やかにご対応願います。</P></DIV>
+            <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD align=center><A 
+                  style="FONT-SIZE: 18px; TEXT-DECORATION: none; FONT-WEIGHT: bold; COLOR: rgb(255,255,255); PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 60px; DISPLAY: inline-block; PADDING-RIGHT: 60px; BACKGROUND-COLOR: rgb(191,33,47); border-radius: 50px" 
+                  href="https://qr.paypay.ne.jp/p2p01_5uf8utZjB5AuNsnP" target=_blank><SPAN 
+                  style="DISPLAY: none">しちゃちゅ</SPAN>PayPay決済</A> 
+              </TD></TR></TBODY></TABLE>
+            <P 
+            style="FONT-SIZE: 12px; COLOR: rgb(153,153,153); MARGIN: 30px 0px 0px"><SPAN 
+            style="DISPLAY: none">アカウントマ</SPAN> ※ご入金の遅れはご利用制限の原因となります。 
+            </P></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR><BR></BODY></HTML>
+
+------=_HoilOefx_023_907J0_37D9767V.934O6UC0--
+
