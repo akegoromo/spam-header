@@ -1,0 +1,85 @@
+Delivered-To: silver.firefox@gmail.com
+Received: by 2002:a98:8807:0:b0:268:5349:97b2 with SMTP id k7csp406254eik;
+        Sat, 2 May 2026 22:53:07 -0700 (PDT)
+X-Received: by 2002:a05:6000:3108:b0:43d:77c6:be78 with SMTP id ffacd0b85a97d-44bb67cd31emr8113349f8f.39.1777787587386;
+        Sat, 02 May 2026 22:53:07 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1777787587; cv=none;
+        d=google.com; s=arc-20240605;
+        b=UaHgVIxUCZvOUyt+VeVOMxGloEHxJrlwNanlNV7rTkUt6FS2EZrHDSHL9X+LlGicgh
+         CHfw+PbqgcuO27Ev2uf0S2m75CqNWJs7+wLHh3GaekEOjshi4+4KY2w94P6yNGWysYkh
+         cPZHjdiVcNOLCi9GJqFtb+A0FTpFmO3Z+qtZvbBrXuoU7XELe3/ddEoOfTvR1YKguXJD
+         3Oe0k+rOSMSLMXxvue7ranDJJjlnOp/CJoPb+pOcxkQ7nziR9Io5XA3glxquNcgIEgAE
+         /uXl7FervEfi8xRhSs7aRK7MsgndNkRZVP3uClLDPj3aJwz4xI4WYe1kzfq7RLUX5MBi
+         LzIg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:message-id:subject:mime-version:from:to
+         :date:dkim-signature;
+        bh=4yy5NazQGPic1oEhkWD3l3+P+TaOquHOtg/zpJbYeDY=;
+        fh=30F+LetgEkDSNSp+uLeo/St8k5O2MuAL6jcfWOE8egk=;
+        b=BOFqO04s3Xgwp15XaxsuY5jBcSfuiZ007+ORkAG7oVaj4fGpNc/P1i0WfiriJahpIK
+         vGpRNAg25H6s6vDXlFM22+qE0hRURzLzF3LAOmKMjyyGEIqpbiCVT+f1djxNTwfl2EKt
+         1z3HejCbgNOKSzwAT0/INDtoKqYiKQBBL3OGTPlG09L6PDiB2rTQaOC+VRzrtsvP5Qoo
+         s6idkl0FUrArtSpPQmzsj8hoke6dko5SwqLshsM2V/ghXPWs92SFGdyRNkwCiXns1R1V
+         CcY0UD1OJjj6jPk+TMVfUtwN/mPwY7RGHV9LSjxpkmV1tmWbqGpb0mr4XSsbjn7p10kV
+         n6Dw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@28fv7mzmti2.com header.s=202605 header.b=m0U+Ke0U;
+       spf=pass (google.com: domain of k90tgq6sd._p_orzb@yott2.28fv7mzmti2.com designates 54.76.6.216 as permitted sender) smtp.mailfrom=K90tGQ6Sd._P_OrZB@yott2.28fv7mzmti2.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=28fv7mzmti2.com
+Return-Path: <K90tGQ6Sd._P_OrZB@yott2.28fv7mzmti2.com>
+Received: from [54.76.6.216] (ec2-54-76-6-216.eu-west-1.compute.amazonaws.com. [54.76.6.216])
+        by mx.google.com with ESMTP id ffacd0b85a97d-44d304c3275si2238086f8f.311.2026.05.02.22.53.06
+        for <silver.firefox@gmail.com>;
+        Sat, 02 May 2026 22:53:06 -0700 (PDT)
+Received-SPF: pass (google.com: domain of k90tgq6sd._p_orzb@yott2.28fv7mzmti2.com designates 54.76.6.216 as permitted sender) client-ip=54.76.6.216;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@28fv7mzmti2.com header.s=202605 header.b=m0U+Ke0U;
+       spf=pass (google.com: domain of k90tgq6sd._p_orzb@yott2.28fv7mzmti2.com designates 54.76.6.216 as permitted sender) smtp.mailfrom=K90tGQ6Sd._P_OrZB@yott2.28fv7mzmti2.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=28fv7mzmti2.com
+Received: by yftbmdc.cxz (Postfix, from userid 0)
+	id DD19346006; Sun,  3 May 2026 14:53:04 +0900 (JST)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=202605; d=28fv7mzmti2.com; t=1777786978; h=to:from:date:subject:
+ message-id; bh=4yy5NazQGPic1oEhkWD3l3+P+TaOquHOtg/zpJbYeDY=;
+ b=m0U+Ke0UibctTcZz8szvNBwcWU8uE86IdEo/N0e1xq45F0wNi6zGL5n2dI69EronEqQCnU
+ G1t8vvKXxI3bWQ3HbTiJ07Lxld1yu9GvjRcKH5eCRTWe9x5pxHUG6ROl7cuEf+8zEUMqVR
+ tv2ZWnVQkLG6OTCnt7am4fpWclW5nZd/tRbCq/IhTXzR9J+rQif/WlwtOXIjfFiV29Wmmx
+ hzY+xeAddGOgWfLW2G1T6dYSnDNIcLxey2JM5D8eDR8RJjPGTosNq+XeIcevvBsWWdBzZQ
+ L9GlGxeshKBaROORthPnhJppPkc5ViN2SIHfL/2MJ3cZY6r3UhH76ErNKrmjbg==
+Date: Sun, 3 May 2026 14:42:26 +0900
+To: silver.firefox@gmail.com
+From: =?ISO-2022-JP?B?GyRCNS82SCROJTklOSVhGyhC?= <Anj.YKdtP_CxafaKfq@4bk63d.28fv7mzmti2.com>
+MIME-Version: 1.0
+Subject: =?ISO-2022-JP?B?GyRCOFtNUSQ1JGwkazxjPFQhIjUvNkgkOSRrOWJOcDxUIUM9PDxCRVkkTk9DGyhC?=
+Message-ID: <20260503144233.13D89148D41A@4bk63d.28fv7mzmti2.com>
+Content-Type: text/html; charset=ISO-2022-JP
+Content-Transfer-Encoding: Quoted-Printable
+
+<html>
+<head><meta charset=3D"ISO-2022-JP"></head>
+<body>
+=1B$B8[MQ$5$l$k<c<T!"5/6H$9$k9bNp<T!C=3D<<BEY$NOC=1B(B&#13;<br>&#13;<br>=1B=
+$B5/6H$N%9%9%aMM$h$j=1B(BSpecial=1B$B%a%C%;!<%8=1B(B&#13;<br>=1B$B!\=1B(B..=
+...........................=1B$B!\=1B(B&#13;<br>&#13;<br>=1B$B2<5-$+$iFbMF$=
+r3NG'=1B(B&#13;<br><a href=3D"https://www-a4q2zs.28fv7mzmti2.com/HzLoGAH1zC=
+dYtfZTo3UR">URL=1B$B$O$3$A$i=1B(B</a>&#13;<br>=1B$B!\=1B(B.................=
+............=1B$B!\=1B(B&#13;<br>&#13;<br>&#13;<br>MAIL BOX&#13;<br><a href=
+=3D"https://www-x36f.28fv7mzmti2.com/1ICLi3VoRKS5lScBcJjd">URL=1B$B$O$3$A$i=
+=1B(B</a>&#13;<br>=1B$B!\=1B(B.............................=1B$B!\=1B(B&#13=
+;<br>&#13;<br>&#13;<br>&#13;<br>=1B$B"#>e5-$+$i3+Iu$7$F$4O"Mm$/$@$5$$=1B(B&=
+#13;<br>&#13;<br>&#13;<br>=1B$B!\=1B(B.............................=1B$B!\=
+=1B(B&#13;<br>&#13;<br>=1B$B"#=1B(BMY=1B$B%Z!<%8=1B(B&#13;<br><a href=3D"ht=
+tps://www-4p4x2m9k.28fv7mzmti2.com/a8hq8T3Cxbu51OyiFBuX">URL=1B$B$O$3$A$i=
+=1B(B</a>&#13;<br>=1B$B!\=1B(B.............................=1B$B!\=1B(B&#13=
+;<br>&#13;<br>=1B$B"#3F<o$*Ld$$9g$o$;=1B(B&#13;<br>=1B$B>e5-$N=1B(BURL=1B$B=
+$K%m%0%$%s8e!"%5%]!<%HAk8}$^$G$*Ld$$9g$o$;$/$@$5$$!#=1B(B&#13;<br>&#13;<br>=
+-=1B$B!\=1B(B-----------------------------------=1B$B!\=1B(B&#13;<br>&#13;<=
+br>=1B$BLBOG%a!<%k%U%)%k%@$KF~$k>l9g$,8f:B$$$^$9!#=1B(B&#13;<br>=1B$BDj4|E*=
+$KHVAH$K%m%0%$%s$7!"O"Mm$r$43NG'$/$@$5$$!#=1B(B&#13;<br>=1B$B!\=1B(B-------=
+-------------------------=1B$B!\=1B(B&#13;<br>=1B$B!\=1B(B-----------------=
+----------------------------------------------=1B$B!\=1B(B
+</body>
+</html>
+
+
