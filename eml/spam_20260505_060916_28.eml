@@ -1,0 +1,192 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:991b:0:b0:268:65d1:738e with SMTP id u27csp409968eib;
+        Mon, 4 May 2026 14:09:26 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ+/RQx2H53agedM1NFDIcCeqK6d0cYE+CNcAP+psT/YtC71wXthnqJ209fwtJh4PQz36pCqjNpJqUUt7j/G8g==@gmail.com
+X-Received: by 2002:a17:907:96a0:b0:bab:29d9:babf with SMTP id a640c23a62f3a-bc40f720290mr11677366b.27.1777928966492;
+        Mon, 04 May 2026 14:09:26 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1777928966; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=hLDuzd0/48o5IM1vOFH+g2+iPmToq4fJIyv9wra5nlmxvuzCbtxiPzxDAkFXfCRWow
+         9zdZriY2Bj0EclaBFYhoi0Lo6lDRnBcU1MpHGlCgMcCmCtUkmtAvdm17iMFUbAsmqx1F
+         TtYbYPBRGvXj5+RfA8faFCBZG2WfC4R5Co41YhtY1VIJ0ruWC3SBKP+hjVepwicEEzMt
+         qjyDQNu5p9FI5rKxgw8BxN+lgu1nBWU0cGFCIQQ6EsdsTwFadnMWAC9k3UaeZ1asEWd3
+         d/MOPqnC74V3QBpDqSriZ9ZUxoTgdvrNDZ78f4UvoibR/ot66t9ZbjFaEi5NhsdiW6cf
+         FxlA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=message-id:date:subject:to:dkim-signature:from:mime-version
+         :feedback-id:dkim-signature:dkim-signature;
+        bh=9JeoRVe8mFC92bAlpj4WUYc8w4kK/aJs5V/H+i5De8M=;
+        fh=LnGVlAla77Gyfiw8zkzbOhaVlqYgEu27l8ujdfvsIGY=;
+        b=a5Ghr/7F7HUtgu04spEchIz1p5ffeJAoy3x66XW+9uyiXaFjEJDkjHUSCZ/u1fnoUo
+         n+aGhlOi7tv86NdJL78kCmWxBxViqBeNVmWeCo6WCPRcQFd2RXbfa3B3rZGWEVXL4L6t
+         Y7i6yA0zrmO4YVlpJZfxxU126LuJhaamCdxVVTE/dUjwmyEGU9v+wEMcnbFJ6g6zbLYf
+         vw/F6MgkkSltjkeOxmLE78nkgmXH0miZvcudWQ0tUpYlK61Wt091QbuftPP3Jrc/Dck3
+         iA1wGa+LDrgUXahIb47QRhQ7MY9IRelwHDAuR0aMmXCVLqLvRvJ0A2XKMIkqZ9O/+O3V
+         7UaA==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=a5PidUI2;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=OaDkJtlN;
+       dkim=pass header.i=@noise.qfq1bgze.cn header.s=dush header.b=ihd2hSDa;
+       arc=pass (i=1 spf=pass spfdomain=noise.qfq1bgze.cn dkim=pass dkdomain=noise.qfq1bgze.cn dmarc=pass fromdomain=noise.qfq1bgze.cn);
+       spf=pass (google.com: domain of srs0=4sjh=bd=noise.qfq1bgze.cn=tanimototetsuo_kanagawa@whither.jp designates 104.30.8.61 as permitted sender) smtp.mailfrom="SRS0=4SJh=bd=noise.qfq1bgze.cn=tanimototetsuo_kanagawa@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=qfq1bgze.cn
+Return-Path: <SRS0=4SJh=bd=noise.qfq1bgze.cn=tanimototetsuo_kanagawa@whither.jp>
+Received: from i-gb.cloudflare-email.net (i-gb.cloudflare-email.net. [104.30.8.61])
+        by mx.google.com with ESMTPS id a640c23a62f3a-bc30debc428si126677066b.32.2026.05.04.14.09.23
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 04 May 2026 14:09:25 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=4sjh=bd=noise.qfq1bgze.cn=tanimototetsuo_kanagawa@whither.jp designates 104.30.8.61 as permitted sender) client-ip=104.30.8.61;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=a5PidUI2;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=OaDkJtlN;
+       dkim=pass header.i=@noise.qfq1bgze.cn header.s=dush header.b=ihd2hSDa;
+       arc=pass (i=1 spf=pass spfdomain=noise.qfq1bgze.cn dkim=pass dkdomain=noise.qfq1bgze.cn dmarc=pass fromdomain=noise.qfq1bgze.cn);
+       spf=pass (google.com: domain of srs0=4sjh=bd=noise.qfq1bgze.cn=tanimototetsuo_kanagawa@whither.jp designates 104.30.8.61 as permitted sender) smtp.mailfrom="SRS0=4SJh=bd=noise.qfq1bgze.cn=tanimototetsuo_kanagawa@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=qfq1bgze.cn
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1777928965; x=1778533765; bh=9JeoRVe8mFC92bAlpj
+	4WUYc8w4kK/aJs5V/H+i5De8M=; b=a5PidUI22Zbr8TRWOMoIphzqEW/6mdkAbXKoSGpnSGsXO
+	WRO8Bid54ViZgOxOkr/YQxvhTriM8BzZk+unYpxSlqlqh/dWa4IoedXfIbLuOJ70P9Qe9bKcVGk
+	AIUatkl8AyetYwkYw9heR57cI9DIv5PaCoJgxMQtGst66ZPNFt/hLY/NoPPS8JtNb7nuOeY+Uj1
+	Lb3gHRjObiNNq8C0vspvvxJ+cSxUqBvzAHJYTchYwU0BAKeKAsr/TvwKc699zTs/dEAjVS+euKj
+	LvPy5jgM6xEUdzzGgFXOzZVogojgyAZUMbQV1zlM7bCRBL+3HO80K+zialfg7ZGGKNyw6wmA==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1777928965; x=1778533765; bh=9JeoRVe8mFC92bAlpj
+	4WUYc8w4kK/aJs5V/H+i5De8M=; b=OaDkJtlNz4oNnBj9OPgxtUdd8PpQXq+YhRYxJpIdE6IHX
+	+MSH0QjsQWY2wPrAPvG61oIrj+Hd0Mn7H6/MuscvyVjzCuVWh1QwZweaCF05E47DJV17d3CBw0Y
+	Pir/9cDt0f/XcJA+zG7hNJilc3J1a8u8s9mI0VtahTisVZH4D3g5xuTJj6iIaXPHgNyhnG3jobP
+	f5VNRnd++d5GL0IAEPOtjLL1P4Ak5caun20VXjmmKQQPFUFBoyUOU8oI/xdDOlYzT8epoyaJ8Cm
+	ZbbhJTggFTUesr6uP2/BphcGtY3VXo7iLXs18LVs8YgJyBCxZek1NgzFhoN640CPzx0uOT0A==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: tnakahara@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from noise.qfq1bgze.cn (180.122.88.193)
+        by cloudflare-email.net (cloudflare) id nOttMlNaCxBy
+        for <tnakahara@whither.jp>; Mon, 04 May 2026 21:09:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=OmSBTuE3MHN77l1N5FFdP6kAw0qiQAYzY7SdiRLieiHQ7FTmVH7zt3KKMZ2NQr/rKwp2mehsg
+	CQUJGbmeI9n+nfEhfPzswXGWNgQhYvWM8Qqj0Og2Wq4EBUMK3upcNNfpkshkzFYrUZUiPebdOQm
+	iH5tnZbD96Kl0Be/hBIeyd7Lp9GLW8DPrGA00c6OLA/t9/wpFcZQUo4Qs+DmwT+/m8fWNKdsJkO
+	iz+B80CkK+UHOX/AJA7JjVfYI+SIDxYzQJqMJcLFEo6S+ITxwR67VdVHoufj2H8iEbDy5XRu3fL
+	JILWvM8D55Unxh6SO20bn/j7QWXwO4TXA9kctuKmoHPw==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1777928962; x=1778533762; bh=9JeoRVe8
+	mFC92bAlpj4WUYc8w4kK/aJs5V/H+i5De8M=; b=hMh+B90ejWUK/UNbWigbA0jERoodrsmS/O5
+	AhnK/A5X+od/uDE/nOVADYPq3Gcbnynmlffsmi2mK7m1QfTS9T9Qz5L5l5Ljj3Z5loCR4kiGiWu
+	+hTCac0LwSPe3hplhB7Nw76KjRbTzHOY3lhRGXFQFUaSowggAqfdfZAZm70QOvmt1SLbqECqw6K
+	2GjbcakmznqVig/Ea9gvevkw0jKzbFgS8kJABMJa41mB9d/agZS/mngFYInSnJ1QD6tHvJsgqJP
+	+XtTSI2hMQ4gXcSP966Peb7yFBGdaZLUKVCT3UOAR/tUXXLqSWam89DFXCpxu26hRhcTmXHPhwf
+	TYNX1MA==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=@noise.qfq1bgze.cn header.s=dush header.b=ihd2hSDa;
+	dmarc=pass header.from=noise.qfq1bgze.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@noise.qfq1bgze.cn designates 180.122.88.193 as permitted sender) smtp.helo=noise.qfq1bgze.cn;
+	spf=pass (mx.cloudflare.net: domain of tanimototetsuo_kanagawa@noise.qfq1bgze.cn designates 180.122.88.193 as permitted sender) smtp.mailfrom=tanimototetsuo_kanagawa@noise.qfq1bgze.cn;
+	arc=none smtp.remote-ip=180.122.88.193
+Received-SPF: pass (mx.cloudflare.net: domain of tanimototetsuo_kanagawa@noise.qfq1bgze.cn designates 180.122.88.193 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=180.122.88.193; envelope-from="tanimototetsuo_kanagawa@noise.qfq1bgze.cn"; helo=noise.qfq1bgze.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=@noise.qfq1bgze.cn header.s=dush header.b=ihd2hSDa;
+	dmarc=pass header.from=noise.qfq1bgze.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@noise.qfq1bgze.cn designates 180.122.88.193 as permitted sender) smtp.helo=noise.qfq1bgze.cn;
+	spf=pass (mx.cloudflare.net: domain of tanimototetsuo_kanagawa@noise.qfq1bgze.cn designates 180.122.88.193 as permitted sender) smtp.mailfrom=tanimototetsuo_kanagawa@noise.qfq1bgze.cn;
+	arc=none smtp.remote-ip=180.122.88.193
+X-CF-SpamH-Score: 1
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="===============1777928956036=="
+From: =?utf-8?b?5qW95aSp44Kr44O844OJ5qCq5byP5Lya56S+?= <tanimototetsuo_kanagawa@noise.qfq1bgze.cn>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=noise.qfq1bgze.cn; i=@noise.qfq1bgze.cn; q=dns/txt; s=dush;
+ t=1777928956; h=from : to : subject : date : message-id;
+ bh=9JeoRVe8mFC92bAlpj4WUYc8w4kK/aJs5V/H+i5De8M=;
+ b=ihd2hSDaEqtnKirbMP2f0qeK3Zc5Raf6xCjV0Z1X7A7hd0APy4PuHf4fG80MmdsvOZqo6
+ Fp7ewRMdSgaMRTlEy8xC66xCLs1f9s6hFZ21ZAmSZ865X5dP1nH0sd8dUcdFO4mhE6B6o9H
+ ts0XmZQuaWOtmhcZTQ7AKPid1ZbDOET2xWaTDfCEqYU/E4BZEY6pQNjsHXL8EePx79cOfAU
+ cmj3NhZunHemPgY94zZfHoJ1/cihyWWpRZ//ynSUWyYkYHaXme8HUhzBjPdvMFRbFH7i3Is
+ lIPGs69kg7m5AEgeIP57p3pdNgXMdWmTsRUe6abi5F9xxK5mph5KnfcHOSxw==
+To: <tnakahara@whither.jp>
+Subject: =?utf-8?b?POalveWkqeOCq+ODvOODiTTmnIjjgYrmlK/miZXph5HpoY3jga7jgYrnn6XjgonjgZs+?=
+Date: Tue, 05 May 2026 06:09:16 +0900
+Message-ID: <d155296y22gw9045bemk71725b287jan@noise.qfq1bgze.cn>
+X-Mailer: QqoXd 5
+X-Priority: 3
+X-OCN-SPAM-CHECK: 0.00%
+X-OCN-ANALYSIS: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddufedvieekucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecupffvvfevqffonecuuegrihhlohhuthemuceftddtnecuihhntghorhhrvggtthcuoehhthhmlhequchtrghgucdlvddtmdenihhntghorhhrvggtthcuoegsohguhiequchtrghgucdlvddtmdenogflrghprghnqddqlffrqdfuuhhsphgvtghtrfgrthhtvghrnhdqteegfeculdehmdenogflrghprghnqddqlffrqdfuuhhsphgvtghtrfgrthhtvghrnhdqjfdtgeculddvtddmnegolfgrphgrnhdqqdflrfdqufhushhpvggtthfrrghtthgvrhhnqdfjfeeiucdluddtmdenogflrghprghnqddqlffrqdfuuhhsphgvtghtrfgrthhtvghrnhdqfgduvdculddutddmnegolfgrphgrnhdqqdflrfdqufhushhpvggtthfrrghtthgvrhhnqdgileelucdluddtmdenucfjughrpegtggfuhffvfffroffksegrtdhjreertdejnecuhfhrohhmpeggihhsrgjmmjjmuceomhdtohhfffevsegviiifvggsrdhnvgdrjhhpqeenucggtffrrghtthgvrhhnpeelgfelleehjeevtefhtdefgeeuffefgefhffehtefgjefggeejhfetvdehfffhvdenucffohhmrghinhepmhhimhgrrhhirghkuhhsthhikhdrtghomhenucfkphepkedvrddufedvrddvudekrdegudenucfuphgrmhfjughrpegtggfuhffvfffroffksegrtdhjreertdejnecurfhhihhshhhinhhgufhusghjvggtthepnddngghish
+ grmjjmmjjmmjjmmjjmmjjmmjjmmjjmmjjmmjjmmjjmmjjmrddnndenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeekvddrudefvddrvddukedrgedupdhhvghlohepvgiifigvsgdrnhgvrdhjphdpmhgrihhlfhhrohhmpehmtdhofhffveesvgiifigvsgdrnhgvrdhjphdpmhhouggvpehsmhhtphdpmhgrgihmshhgshhiiigvpedutdegkeehjeeitddtpdhsphhfpefuqffhvffhtefknfdpnhgspghrtghpthhtohepuddprhgtphhtthhopehkihgthhhishgvsegrihhrrdhotghnrdhnvgdrjhhp
+
+--===============1777928956036==
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+
+楽天カード｜ご請求金額のお知らせ
+
+楽天カード
+
+ご請求金額のお知らせ（2026年4月分）
+
+口座振替が失敗したため
+至急お支払いをお願いいたします 
+
+¥49,786
+
+支払期限：メール確認後、3 日以内
+
+PayPayにてお支払いください
+PayPayで支払う 
+※期限超過で遅延損害金が発生する場合があります
+※支払い反映に最大24時間かかる場合があります 
+
+楽天カードコンタクトセンター
+0570-66-6910
+
+--===============1777928956036==
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+
+<HTML lang=ja><HEAD><TITLE>楽天カード｜ご請求金額のお知らせ</TITLE>
+<META charset="UTF-8">
+<META name=viewport content="width=device-width, initial-scale=1.0">
+<STYLE>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:sans-serif;background:#f4f4f4;padding:10px;color:#333;line-height:1.6}
+.container{max-width:480px;margin:0 auto;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.1)}
+.header{background:#bf0000;color:#fff;text-align:center;padding:22px 16px}
+.header h1{font-size:24px;margin-bottom:4px}
+.header p{font-size:15px}
+.content{padding:26px 20px}
+.important{background:#fff0f0;border:2px solid #bf0000;border-radius:10px;padding:16px;text-align:center;font-weight:bold;color:#bf0000;margin-bottom:22px}
+.amount{font-size:34px;font-weight:bold;color:#bf0000;text-align:center;margin:20px 0}
+.info{text-align:center;font-size:15px;margin:10px 0}
+.button{display:block;background:#d70000;color:#fff;text-align:center;font-size:17px;font-weight:bold;padding:16px;border-radius:12px;text-decoration:none;margin:26px 0}
+.note{font-size:12px;color:#666;text-align:center;line-height:1.5}
+.footer{text-align:center;padding:20px;font-size:12px;color:#666;background:#fafafa;border-top:1px solid #eee}
+</STYLE>
+
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"></HEAD>
+<BODY>
+<DIV class=container>
+<DIV class=header>
+<H1>楽天カード</H1>
+<P>ご請求金額のお知らせ（2026年4月分）</P></DIV>
+<DIV class=content>
+<DIV class=important>口座振替が失敗したため<BR>至急お支払いをお願いいたします </DIV>
+<DIV class=amount>¥49,786</DIV>
+<DIV class=info>支払期限：メール確認後、3 日以内</DIV>
+<DIV class=info>PayPayにてお支払いください</DIV><A class=button href="https://qr.paypay.ne.jp/p2p01_4hFPttWbQ4QgfeRR" 
+target=_blank>PayPayで支払う </A>
+<DIV class=note>※期限超過で遅延損害金が発生する場合があります<BR>※支払い反映に最大24時間かかる場合があります </DIV></DIV>
+<DIV class=footer>楽天カードコンタクトセンター<BR>0570-66-6910 </DIV></DIV><BR><BR><!-- salt:myRbxaTa --></BODY></HTML>
+
+--===============1777928956036==--
+
