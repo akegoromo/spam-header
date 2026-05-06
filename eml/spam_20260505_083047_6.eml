@@ -1,0 +1,229 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:991b:0:b0:268:65d1:738e with SMTP id u27csp476495eib;
+        Mon, 4 May 2026 16:30:57 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ8J9+kBA7CpneqDkrkmtMiX3Ze4K9N+t+yawO0QRYx7CsNGcJl55P6Lp+A5ivRAg8u6h611z2LGlkH9b02z8Q==@gmail.com
+X-Received: by 2002:a17:907:e106:b0:ba8:e7d5:6a7a with SMTP id a640c23a62f3a-bbffbf85aebmr385926666b.40.1777937457857;
+        Mon, 04 May 2026 16:30:57 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1777937457; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=bdStIZb7Fk6d0+BCBWWHq73IQZYVIeaw/GprSfm23xvTtPCBKC2s0ASvy1/mWUnnfx
+         5IqhB4iQqAWscvxcX1SuGJJK6J2f6BRNs8wJoMq625cqTSwAHfzE5W9DEZCosLSgBKaN
+         8E8UFxWjkO29QfDmbeR2H30FbUU5eQIjbC27/6gtne2iiANb1foPhnTnHq//2LALoohW
+         E3CHBaoOG9SnGbpPEjz8mwP4A8aQaypdXAINd9T7HSscLSycf6JJC7c2VhsU9YdDb5tt
+         F7tetSs2FMx8bcOpACj6n6Lng5x6QshiAyIT5sbX7z2TTuLEqPhCwElCg1kHWcsL1GFr
+         Xw6g==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=message-id:date:subject:to:dkim-signature:from:mime-version
+         :feedback-id:dkim-signature:dkim-signature;
+        bh=3KR3tUXhouslfgSwiNb8OzuGaqN+hIn9D7gktnueVnI=;
+        fh=ENXOhFKW7CT4pn4Lz1vO6o5YQQdiV/Ih3E4yEdfzxpY=;
+        b=AWaH7oxrMFpGkY+n+AwwYbmwFRo6DvkNXu26d/VcVPbAYzaX0OV/wzrzB6IDDrMaUb
+         35q96qsNgk9wpbP0dRofi5jmvjpcBiB/JQJpMrnRMMgK/FPZGZ5+c2RZS0D4Q3HIbq7c
+         jmDKdhgwYBzlPNAkAqnvVWb1e6p1SBsGs2zuC08scAb+HYtlrDK9elzbdZEFP7ccJ+Re
+         6l2g7v7JVJyIAvfxQfJ7fDI08tFemHtc4PE5LmQaSSKnhEQITbV+h0ewmhBsF72Sm4N2
+         u19Lq3NhxCBROxfXiO5HR5eGn1DMjIEfkk8HH5QdJblMy/g5Mfgnx9FgzMnEon7SpmoS
+         619w==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=GIjJcF2Y;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=J0eqN4Qf;
+       dkim=pass header.i=@serin.weknnr.cn header.s=ax header.b=hHWO8Cgo;
+       arc=pass (i=1 spf=pass spfdomain=serin.weknnr.cn dkim=pass dkdomain=serin.weknnr.cn dmarc=pass fromdomain=serin.weknnr.cn);
+       spf=pass (google.com: domain of srs0=2i8w=bd=serin.weknnr.cn=umenai-1976@whither.jp designates 104.30.10.219 as permitted sender) smtp.mailfrom="SRS0=2i8w=bd=serin.weknnr.cn=umenai-1976@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=weknnr.cn
+Return-Path: <SRS0=2i8w=bd=serin.weknnr.cn=umenai-1976@whither.jp>
+Received: from ba-cbj.cloudflare-email.net (ba-cbj.cloudflare-email.net. [104.30.10.219])
+        by mx.google.com with ESMTPS id 4fb4d7f45d1cf-67cd90da1d4si10220a12.26.2026.05.04.16.30.56
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 04 May 2026 16:30:57 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=2i8w=bd=serin.weknnr.cn=umenai-1976@whither.jp designates 104.30.10.219 as permitted sender) client-ip=104.30.10.219;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=GIjJcF2Y;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=J0eqN4Qf;
+       dkim=pass header.i=@serin.weknnr.cn header.s=ax header.b=hHWO8Cgo;
+       arc=pass (i=1 spf=pass spfdomain=serin.weknnr.cn dkim=pass dkdomain=serin.weknnr.cn dmarc=pass fromdomain=serin.weknnr.cn);
+       spf=pass (google.com: domain of srs0=2i8w=bd=serin.weknnr.cn=umenai-1976@whither.jp designates 104.30.10.219 as permitted sender) smtp.mailfrom="SRS0=2i8w=bd=serin.weknnr.cn=umenai-1976@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=weknnr.cn
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1777937457; x=1778542257; bh=3KR3tUXhouslfgSwiN
+	b8OzuGaqN+hIn9D7gktnueVnI=; b=GIjJcF2YtUzccpiICYWctbqqAWALFN+6p+EFUiKsr6uJS
+	5akRf91XRVWtAMpJjfr2GaojIKUj1KH84DL55NBMVgpGf9JIuyJO80KiEdSnap0TC55ucAo7e8H
+	owuWqlp6lzZ6F+ZHVMB/an3TM8bv4jtFnBTc60MyD5FMzBlGn0D6nbyyAXsuceLh8VJH7ytQvch
+	jdohE2KkNG7bKnp94HShIlocgSOG+QutPfsyTB95KhM6fNtEbQNkY1eJMO4eGkSVGSFbGGndGlO
+	k4dkP3o8fwgGlqw/GJhvSL5hoGAlysN+6gl92JBE349oQvx7RxmUaKunEAdc9ALIJbW8bFcg==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1777937457; x=1778542257; bh=3KR3tUXhouslfgSwiN
+	b8OzuGaqN+hIn9D7gktnueVnI=; b=J0eqN4QfcRxf7gAtfuORaMxu5oE2fnwRpcZ9j0CKB2Elt
+	C6Sf2oIZYP5M1WmsokgPCvoMp3+ooLEX1I9y//zSdF99f+LnkmCjW4CVxz+3N13hNW13YXst4Qu
+	uPzHo9JuGdK1VxFDZ8GtbBBpzLEYlWZxw60t1uVnhZap6+8MXzqAzMmQMdwXwMjA+ZnPt8jnxQs
+	3wRGr2HKqqSPxCi7whtdFVVsvSewN3VtP7gP2wZ6HP48yupW1kD/+WKbp+U5JU0N75vQGTNOkgI
+	lrnrCIV1O3nGwTQNCMfkApb7+l4+faaF/VPr6+X4rbMvyDqX1AkqxQ78YR6ugukXTIr5OXcg==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: penguin@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from serin.weknnr.cn (180.126.230.252)
+        by cloudflare-email.net (cloudflare) id NhxpZlwS1PGC
+        for <penguin@whither.jp>; Mon, 04 May 2026 23:30:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=BJNx/uSeihbJIxdABBTnZFBOoP5/+qKXtEKwh6/l3nSSMlROZ4bD/xdJb9H3eTfVip7t5jYUH
+	LZhdOw9ZZ5RFD54ZQp761B6/z0TS/04eRRFVVhyhS4zJ6SjVbsgMWP+8mwQDgzaICsYDx/SBbjW
+	549zlyOjw2mkQxFuGUK1QbG3UHoX3GqB5zghZ3aeQV6z7Zsy0Wq6tYWoTDMCCRb+ER/vCFfgOIH
+	6hPuETFP1HSHRwWiHPIrt/EvIodkKX837cL9hmrmVzuv+i6u5iili1Q99gzB6u06yIgCEKK+IzB
+	+NCYNq5Soj8JHInh849MCK/0UKF//1Pk+v5AuEfuxEkA==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1777937456; x=1778542256; bh=3KR3tUXh
+	ouslfgSwiNb8OzuGaqN+hIn9D7gktnueVnI=; b=dzzZrFIkjSb/3qwDjIlNot1ATrij2TANyl4
+	nrzWBuOtNE42NpfZQNT66TqQRTFKx6cZsap1AhQuJKdecX+jA8T8PsLjm4BxHZMJK6PMHGyDnFw
+	KQN+Z5TafkiiR/arnIYccbRN4Y8jyVXjCbLnEpJ4AC0Wencsfprmy6GlNCvjiJAbavvMDPrGmGh
+	VtcItTvlDyvyFXhSn0O88sgWc6wkV6tZjY6qp0vinVzVFzYnjiqpnV8jWNJGPRqSyBLIXi3l8j4
+	C2S+NSmST8JxyZBbqMz8NxHLxHGgokTfb4VwDVNmYoL+iYlJ6tYw6WlRWLFlf4As34TAuWGJUAG
+	5/28aSA==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=@serin.weknnr.cn header.s=ax header.b=hHWO8Cgo;
+	dmarc=pass header.from=serin.weknnr.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@serin.weknnr.cn designates 180.126.230.252 as permitted sender) smtp.helo=serin.weknnr.cn;
+	spf=pass (mx.cloudflare.net: domain of umenai-1976@serin.weknnr.cn designates 180.126.230.252 as permitted sender) smtp.mailfrom=umenai-1976@serin.weknnr.cn;
+	arc=none smtp.remote-ip=180.126.230.252
+Received-SPF: pass (mx.cloudflare.net: domain of umenai-1976@serin.weknnr.cn designates 180.126.230.252 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=180.126.230.252; envelope-from="umenai-1976@serin.weknnr.cn"; helo=serin.weknnr.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=@serin.weknnr.cn header.s=ax header.b=hHWO8Cgo;
+	dmarc=pass header.from=serin.weknnr.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@serin.weknnr.cn designates 180.126.230.252 as permitted sender) smtp.helo=serin.weknnr.cn;
+	spf=pass (mx.cloudflare.net: domain of umenai-1976@serin.weknnr.cn designates 180.126.230.252 as permitted sender) smtp.mailfrom=umenai-1976@serin.weknnr.cn;
+	arc=none smtp.remote-ip=180.126.230.252
+X-CF-SpamH-Score: 1
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="----=_MprzSpvj_003_2JM1L_24MN49I6.37J45GN5"
+From: =?utf-8?b?UGF5cGF544Kr44O844OJ5qCq5byP5Lya56S+?= <umenai-1976@serin.weknnr.cn>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=serin.weknnr.cn;
+ i=@serin.weknnr.cn; q=dns/txt; s=ax; t=1777937447; h=from : to :
+ subject : date : message-id;
+ bh=3KR3tUXhouslfgSwiNb8OzuGaqN+hIn9D7gktnueVnI=;
+ b=hHWO8CgogLW7qd6Eg7qwVc7kYgZ/Co4wtRC0wE0wmTI/shfZgZdv1UXJJtqNvr4gL7a9s
+ +9lwWVHhbok1kfumVCHFGbRoDcYo0uwYGjY8v5EmaqkEnQBBN/m+gLUYRjWo4FXgQZ7xmMv
+ O944KQBbgGW4Mo+Az+ypjyD6l5C/RTda9VczRRLjbQPLs7vuiI8bjIVUBhVKW5/YQIjMs5A
+ aa0FXEI80vzSOwoEZkDkIyQyljy0derHpNwhGVBctNfzfRX3/Ir5OYLFd16GSTA8rvjRjpt
+ iC5x1zpl79dDC4seiLbrjIskZXsbmEGwELaGYoxdBt1fUAoxLAWH5k0rJdcw==
+To: <penguin@whither.jp>
+Subject: =?utf-8?b?NOaciOOBruiri+axguS6iOWumumHkemhjeOBruOBiuefpeOCieOBmw==?=
+Date: Tue, 05 May 2026 08:30:47 +0900
+Message-ID: <1777937447431@serin.weknnr.cn>
+X-mailer: WJtcx 5
+X-OCN-SPAM-CHECK: 0.00%
+X-OCN-ANALYSIS: v=2.4 cv=a7lTSWeF c=1 sm=1 tr=0 ts=68dd31e6 a=NX2fjm8Gbw0DecNeSWEuuA==:117 a=x6icFKpwvdMA:10 a=5KLPUuaC_9wA:10 a=r77TgQKjGQsHNAKrUKIA:9 a=gAaRP-AgqRnTm3-mDLkA:9 a=QEXdDO2ut3YA:10 a=LMkPRMK6AAAA:8 a=I5L6KMAlfBXrf82ctD8A:9 a=_W_S_7VecoQA:10 a=L8FHxgo5b2AA:10 a=XE0frL_Y3xIP11FyK4pk:22 a=fkqBw3BD5RLjSgApC7jY:22 a=jtIFr_1wcArsCjfTh4mA:22
+
+------=_MprzSpvj_003_2JM1L_24MN49I6.37J45GN5
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+
+PayPay 請求予定金額のお知らせ
+
+2026年4月
+PayPay 請求予定金額のお知らせ
+
+仮確定 
+金額
+
+19,890円
+
+金額の調整期限：メール確認後、3 日以内
+
+3日以内に 
+PayPay でご決済をお願いいたします
+
+PayPayで今すぐ支払う
+
+いつもPayPayをご利用いただき、誠にありがとうございます。
+
+この度は、2026年4月のご利用分に関する請求予定金額をお知らせ申し上げます。
+弊社システムにて確認したところ、以下の金額が仮確定となりました。
+
+お支払いが確認できない場合、追加の手数料や遅延金が発生する可能性がございますので、お早めのお手続きをお願いいたします。
+
+■ 
+お支払いに関するご注意
+・PayPayアプリから簡単に決済いただけます
+・ご利用のPayPayカードまたは関連サービスのご請求となります・ご不明な点がございましたら、PayPayアプリ内のお問い合わせよりご連絡ください
+
+今後とも安心・安全なPayPayサービスをご利用いただけますよう努めてまいります。
+
+ご注意
+・このメールは送信専用のため、返信には対応しておりません。
+・お心あたりのない請求の場合は、必ずPayPayアプリまたは公式サイトよりご確認ください。
+・アプリのリンクを開くには、最新版のPayPayアプリが必要です。
+
+本メールはPayPayカード株式会社より自動送信されています。
+ご利用に関するお問い合わせは、以下のサポート窓口までお願いいたします。 
+
+PayPayカード株式会社
+〒160-0004 
+東京都新宿区四谷一丁目6番1号
+電話：0120-889-123（平日9:00～18:00）
+
+------=_MprzSpvj_003_2JM1L_24MN49I6.37J45GN5
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+
+<HTML lang=ja><HEAD><TITLE>PayPay 請求予定金額のお知らせ</TITLE>
+<META charset="UTF-8">
+<META name=viewport content=width=device-width,initial-scale=1.0>
+<STYLE>body{margin:0;padding:30px 20px;background:#f8f9fa;
+font-family:system-ui,Arial,sans-serif}.notice{max-width:420px;margin:0 auto;background:#ffffff;border:4px solid #ffcc00;border-radius:16px;
+overflow:hidden;box-shadow:0 8px 25px rgba(0,0,0,
+0.08)}.header{background:linear-gradient(90deg,#ffcc00,#ffb300);
+padding:24px 0;text-align:center;color:#333;font-size:19px;
+font-weight:bold}.amount-box{padding:28px 20px;text-align:center;
+background:#fffdf0}.amount{font-size:38px;font-weight:700;
+color:#e63939}.pay-area{padding:20px 25px 25px;
+text-align:center}.footer-info{padding:25px 25px 30px;font-size:13.8px;
+line-height:1.68;color:#444;background:#f9f9f9;border-top:1px solid #eee}</STYLE>
+
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"></HEAD>
+<BODY>
+<DIV class=notice>
+<DIV class=header>2026年4月<BR><SPAN 
+style="FONT-SIZE: 16px; FONT-WEIGHT: normal">PayPay 請求予定金額のお知らせ</SPAN></DIV>
+<DIV class=amount-box>
+<DIV style="MARGIN-BOTTOM: 14px"><SPAN 
+style="FONT-SIZE: 14px; BACKGROUND: #ffcc00; FONT-WEIGHT: bold; COLOR: #333; PADDING-BOTTOM: 7px; PADDING-TOP: 7px; PADDING-LEFT: 22px; PADDING-RIGHT: 22px; border-radius: 25px">仮確定 
+金額</SPAN></DIV>
+<DIV style="MARGIN: 18px 0px 8px"><SPAN class=amount>19,890</SPAN><SPAN 
+style="FONT-SIZE: 24px; VERTICAL-ALIGN: middle; MARGIN-LEFT: 6px">円</SPAN></DIV>
+<DIV style="FONT-SIZE: 14px; COLOR: #666">金額の調整期限：メール確認後、3 日以内</DIV></DIV>
+<DIV class=pay-area>
+<DIV 
+style="BORDER-TOP: #0077ff 2px solid; BORDER-RIGHT: #0077ff 2px solid; BACKGROUND: #eaf6ff; BORDER-BOTTOM: #0077ff 2px solid; PADDING-BOTTOM: 22px; PADDING-TOP: 22px; PADDING-LEFT: 15px; BORDER-LEFT: #0077ff 2px solid; PADDING-RIGHT: 15px; border-radius: 12px">
+<P 
+style="FONT-SIZE: 15px; FONT-WEIGHT: bold; COLOR: #0077ff; MARGIN: 0px 0px 16px">3日以内に 
+PayPay でご決済をお願いいたします</P><A 
+style="FONT-SIZE: 16px; TEXT-DECORATION: none; BACKGROUND: #0077ff; FONT-WEIGHT: bold; COLOR: white; PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 48px; DISPLAY: inline-block; PADDING-RIGHT: 48px; border-radius: 8px" 
+href="https://qr.paypay.ne.jp/p2p01_NxZcPXrXHqyR1tGs">PayPayで今すぐ支払う</A></DIV></DIV>
+<DIV 
+class=footer-info>いつもPayPayをご利用いただき、誠にありがとうございます。<BR><BR>この度は、2026年4月のご利用分に関する請求予定金額をお知らせ申し上げます。<BR>弊社システムにて確認したところ、以下の金額が仮確定となりました。<BR><BR>お支払いが確認できない場合、追加の手数料や遅延金が発生する可能性がございますので、お早めのお手続きをお願いいたします。<BR><BR>■ 
+お支払いに関するご注意<BR>・PayPayアプリから簡単に決済いただけます<BR>・ご利用のPayPayカードまたは関連サービスのご請求となります<B 
+r="">・ご不明な点がございましたら、PayPayアプリ内のお問い合わせよりご連絡ください<BR><BR>今後とも安心・安全なPayPayサービスをご利用いただけますよう努めてまいります。</B></DIV><B 
+r="">
+<DIV 
+style="FONT-SIZE: 13px; BORDER-TOP: #ddd 1px solid; BACKGROUND: #f5f5f5; COLOR: #555; PADDING-BOTTOM: 28px; PADDING-TOP: 22px; PADDING-LEFT: 25px; LINE-HEIGHT: 1.7; PADDING-RIGHT: 25px">
+<DIV 
+style="MARGIN-BOTTOM: 16px"><STRONG>ご注意</STRONG><BR>・このメールは送信専用のため、返信には対応しておりません。<BR>・お心あたりのない請求の場合は、必ずPayPayアプリまたは公式サイトよりご確認ください。<BR>・アプリのリンクを開くには、最新版のPayPayアプリが必要です。</DIV>
+<DIV 
+style="MARGIN-BOTTOM: 18px">本メールはPayPayカード株式会社より自動送信されています。<BR>ご利用に関するお問い合わせは、以下のサポート窓口までお願いいたします。 
+</DIV>
+<DIV><STRONG>PayPayカード株式会社</STRONG><BR>〒160-0004 
+東京都新宿区四谷一丁目6番1号<BR>電話：0120-889-123（平日9:00～18:00）</DIV></DIV></B></DIV><B 
+r=""><BR><BR></B></BODY></HTML>
+
+------=_MprzSpvj_003_2JM1L_24MN49I6.37J45GN5--
+
