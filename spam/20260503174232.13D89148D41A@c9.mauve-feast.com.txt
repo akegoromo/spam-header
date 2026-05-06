@@ -1,0 +1,55 @@
+Delivered-To: silver.firefox@gmail.com
+Received: by 2002:a98:8807:0:b0:268:5349:97b2 with SMTP id k7csp453822eik;
+        Sun, 3 May 2026 01:50:13 -0700 (PDT)
+X-Received: by 2002:a17:902:c406:b0:2b2:6df1:1112 with SMTP id d9443c01a7336-2b9f2830796mr57048225ad.40.1777798213368;
+        Sun, 03 May 2026 01:50:13 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1777798213; cv=none;
+        d=google.com; s=arc-20240605;
+        b=cBk7KduV419MP7qgf/ZSmov8x6xOWVITt8va/YkyySYbE/bDZoq+KRsfVKKmW17IIp
+         JZyZpG0SRfQRnPVMnsDktj/7rMWTb13gmvMFnIq9mkLa+lfcYaZiea7W59il9bb8BBCk
+         cghdDUD5fdDDl3qJoXvC+ibWSfgCZWI8NPuTocDPUrnGnNvJQQVTuI6SOOcjs7AodnVE
+         kG/qbU6thb28oO5xnis9hWohg/4gZ+HvNrbKfDJyDUKWkQrGTifVe7wKd4cmyr/MP0gj
+         y7DvH4P+is6Q24LnQIOT28K8iRk7aC5qEOEkcuxBuj/118U/I5aC4GEwc8O8S5xphW+I
+         154w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:message-id:subject:mime-version:from:to
+         :date:dkim-signature;
+        bh=5huFcmd7u/m3QRylMDAsXjjECju9vroqzQyocudkJyw=;
+        fh=30F+LetgEkDSNSp+uLeo/St8k5O2MuAL6jcfWOE8egk=;
+        b=kyIolJ3juWAhaHjf8fI0A4kfpkT+cQ9m3g4POjdlGQ76xlgao+jvIHV323rTeNbGq0
+         4RsNDzvYn+XjHuYcSTQNlDXgwx5ZVHOxkGktCJEIvOIAyQXBioJmV/oANjTvreAHFBnL
+         YMOP2atom301ff8YhBJxlD7YkRD5mVGvwvBhKttw2h08wI6FplsEpltKV/IA1SswT3sW
+         j8TSlPCsJDBfG2siT3ETNr5xApfu66GzH2mZ2hEIpGABXJWcdFJDt2M+g5wWM86j9UIb
+         IegITe4q9qV6y7sApFHfUWdFQnqiGFic5/VNPRTL6Z2AVJ7hcGJRVbzNhC/AFpBRHq0/
+         6lWA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@mauve-feast.com header.s=202605 header.b=Ht1+lV8O;
+       spf=pass (google.com: domain of wr1rpa_ntptp-w@yz5.mauve-feast.com designates 52.63.77.5 as permitted sender) smtp.mailfrom=wr1rpa_ntptP-w@yz5.mauve-feast.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=mauve-feast.com
+Return-Path: <wr1rpa_ntptP-w@yz5.mauve-feast.com>
+Received: from [52.63.77.5] (ec2-52-63-77-5.ap-southeast-2.compute.amazonaws.com. [52.63.77.5])
+        by mx.google.com with ESMTP id d9443c01a7336-2b9caae97adsi139704295ad.25.2026.05.03.01.50.12
+        for <silver.firefox@gmail.com>;
+        Sun, 03 May 2026 01:50:13 -0700 (PDT)
+Received-SPF: pass (google.com: domain of wr1rpa_ntptp-w@yz5.mauve-feast.com designates 52.63.77.5 as permitted sender) client-ip=52.63.77.5;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@mauve-feast.com header.s=202605 header.b=Ht1+lV8O;
+       spf=pass (google.com: domain of wr1rpa_ntptp-w@yz5.mauve-feast.com designates 52.63.77.5 as permitted sender) smtp.mailfrom=wr1rpa_ntptP-w@yz5.mauve-feast.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=mauve-feast.com
+Received: by 35tl4f.mkc (Postfix, from userid 0)
+	id 500A24600D; Sun,  3 May 2026 17:50:05 +0900 (JST)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=202605; d=mauve-feast.com; t=1777797754; h=to:from:date:subject:
+ message-id; bh=5huFcmd7u/m3QRylMDAsXjjECju9vroqzQyocudkJyw=;
+ b=Ht1+lV8OGL7/zls7w1gWGNH8l4t3b7SfG3peuF33g8S/uywaZSyYY4K1om0ERBK/XFS94h
+ KeQmwmiiCe0O7o8JjMtH/JgMN7RYM9670uf5FHr4MPAErH9HJUAbSZhVLTgbEsEbW73kK0
+ zePfG3P1E8S8mIMKWRVTvNlus8MkUIhrNbJwuQL7JADkYhkOMI803m7uptpKpNlw3+2wjn
+ 0nXVqp52WbJtwc8mONEQ5sHHwGv/nk6mgrGjtuFrkSf3T25KbocpuZ7HaelAg0GTfEMOfU
+ EtHbSmuKLBFQQwcO9UACFQ0+Hlc+XQi2gY45CFP13FJKizbIyeb/vUp/y3pedg==
+Date: Sun, 3 May 2026 17:42:24 +0900
+To: silver.firefox@gmail.com
+From: =?ISO-2022-JP?B?GyRCOSwxPyROMmokcjBpJGAbKEI=?= <NfyQPQr.wshmHrqPLA@c9.mauve-feast.com>
+MIME-Version: 1.0
+Subject: =?ISO-2022-JP?B?GyRCQSpCciRySlEkKCRsJFBAJDMmJCxKUSRvJGshIyQzJE5AJCRPQSpCciRHPVBNaCRGJCQkayEjGyhC?=
+Message-ID: <20260503174232.13D89148D41A@c9.mauve-feast.com>

@@ -1,0 +1,121 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:991b:0:b0:268:65d1:738e with SMTP id u27csp678530eib;
+        Tue, 5 May 2026 01:32:01 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ89QnbHDhjhLwTWgYaAveqs07AKrx720DnGBfcK1rdmgbMDVL9oay8wPSz8Rm6CYSA1UoEszj+lv6MJ719+fw==@gmail.com
+X-Received: by 2002:a17:907:9455:b0:ba9:709b:3cda with SMTP id a640c23a62f3a-bbffa02b82fmr760965966b.9.1777969921421;
+        Tue, 05 May 2026 01:32:01 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1777969921; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=ID5Ln1vKpSl+fdKpndo6Lhw6BoJwaigsUsQkADsFP+oigzMn2Nv0k1pjV4X73oxCJq
+         NnYeJPwvDTL8nNNGLnpo9WpaGRE+Q5bCY+0+z45dBstRdZGICx7l+tTiWf+jqVp54ugy
+         2crbxNnhijLxQqorUCm33mBeRM6Eb4brQ+cspciS17X865HNie/RS9+7G5AZZNu4uRwG
+         IOLqLbRrvveiUlOhNDmQ91Lzd/QHPDqYOd1JtHfKNEpbMPq+Gsk7L4TpSvS1qYiFci4X
+         f/tIJht95DPluK/6BUQYVt0CGBI+//BFPLcOopkRqGTCqb2p2bzuAediDQ3iEYou/IZK
+         EoOw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=message-id:date:subject:to:dkim-signature:from:mime-version
+         :content-transfer-encoding:feedback-id:dkim-signature:dkim-signature;
+        bh=uh74yh9p4nVzQzt75fP4tvf5zj2njWFnqUX4GsFJGM0=;
+        fh=LnGVlAla77Gyfiw8zkzbOhaVlqYgEu27l8ujdfvsIGY=;
+        b=CnYP5+PttgQTtf5nFCDP3PSUtYQNm/5L+lsLARGkx2v+IUEQi9HKL1dgxhvY2rX1xO
+         HBEWPMINUc0DeodEtEoJCXKyD/fZhZLZS5axo4uvvyf1FZllTOfjdXJ+g4jgfdPj2E8n
+         JvLe4t7/U9aRSh0nHwRp/L9GcH00oktGy1IP+ofiAh/RP1hyfxWD3QRdh/IQGQ3+URSt
+         nWd8Tmmks47eiQm2OQeKI6YYHxBMKTpAU/BW/m1XPG3vkLnJkGFcupdCtWFC2NIbCyVV
+         aynCw7QElFAUWi01K/KowgwdqEUCaOW49vkG+GrcJHhLXFu735o9Elhq103hoXS+yvYx
+         ZW7w==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b="BV/Yhh58";
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=a2njdpw6;
+       dkim=pass header.i=@warri.fxbnorp.cn header.s=chao header.b=PBhXCV4O;
+       arc=pass (i=1 spf=pass spfdomain=warri.fxbnorp.cn dkim=pass dkdomain=warri.fxbnorp.cn dmarc=pass fromdomain=warri.fxbnorp.cn);
+       spf=pass (google.com: domain of srs0=yaeu=cd=warri.fxbnorp.cn=kameyama.2012@whither.jp designates 104.30.10.8 as permitted sender) smtp.mailfrom="SRS0=YaEu=cd=warri.fxbnorp.cn=kameyama.2012@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=fxbnorp.cn
+Return-Path: <SRS0=YaEu=cd=warri.fxbnorp.cn=kameyama.2012@whither.jp>
+Received: from ba-i.cloudflare-email.net (ba-i.cloudflare-email.net. [104.30.10.8])
+        by mx.google.com with ESMTPS id a640c23a62f3a-bc383d1e3f4si144494566b.124.2026.05.05.01.31.58
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 05 May 2026 01:32:00 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=yaeu=cd=warri.fxbnorp.cn=kameyama.2012@whither.jp designates 104.30.10.8 as permitted sender) client-ip=104.30.10.8;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b="BV/Yhh58";
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=a2njdpw6;
+       dkim=pass header.i=@warri.fxbnorp.cn header.s=chao header.b=PBhXCV4O;
+       arc=pass (i=1 spf=pass spfdomain=warri.fxbnorp.cn dkim=pass dkdomain=warri.fxbnorp.cn dmarc=pass fromdomain=warri.fxbnorp.cn);
+       spf=pass (google.com: domain of srs0=yaeu=cd=warri.fxbnorp.cn=kameyama.2012@whither.jp designates 104.30.10.8 as permitted sender) smtp.mailfrom="SRS0=YaEu=cd=warri.fxbnorp.cn=kameyama.2012@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=fxbnorp.cn
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1777969919; x=1778574719; bh=uh74yh9p4nVzQzt75f
+	P4tvf5zj2njWFnqUX4GsFJGM0=; b=BV/Yhh5861qFFMtYQA0a5RRqKTKsSlXcRt0oWG7r2k/5n
+	lPTBBRCfaMf9Nkxixx6afQiDrNVssEhhtXplffSI0ihe/EmeGsdCJ7Lw0ZJinXifT1MY6EcZlkG
+	oLjMULYGDogaPxaYQEdRL+PPmD9/MBM0OJfygNLayf0MDkiBFCUIH8oJGsqzeM5n/UZ43MnCq07
+	eeUbAj02OjkU4FKizAsEEHgLcrf1xQ0iA50pFpyGgOjpg/3IWnIximgPTIKZpDj303AR9zk0Q2O
+	TlGSloCw54PfJ8Uv0J/1VYkCsJ12YohA38gzqadPqBJJW2NIzfolPIT/XG/FFFLHaXGDD+zw==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1777969919; x=1778574719; bh=uh74yh9p4nVzQzt75f
+	P4tvf5zj2njWFnqUX4GsFJGM0=; b=a2njdpw6a2iIHA6woG68sYKdWG7R6311eI95oZq3Zrd7G
+	9KtD/eEwio0tiUfSpAk/3aO/4fnGqL7nX8OYWGq9LRc/WY2yUWX/8DeZOlK67S/OvJiNId48F7c
+	6+W9NftERHaUzc4DQyJl0bk3AB9K0TNQ9RngjbazL4LlITRPrDWAPRhAlmESk6FwBs7b2sVVaWV
+	qywniL3VIL49im6AI2S012t+/XBsr9u/HKoCqvlWDspUriYAtRzgthEXPTOdqvsIaw7LFJh1348
+	v5seuZdfrdXHl1aWIDPBJalqxu1UHfH6Je3244cG2oAO7qwQvwmI8f2c+T8sM94A/68yxU1g==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: tnakahara@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from warri.fxbnorp.cn (180.125.134.249)
+        by cloudflare-email.net (cloudflare) id B8Xo8ZYJejtf
+        for <tnakahara@whither.jp>; Tue, 05 May 2026 08:31:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=WpF46+fCbI2ZkqTrpl9Z+ssS6ymC92WgLD6C3PoEA/1e1NSDbTkKeIXZs4dmCJeXoDHwMY8ox
+	LBYR+LAHdnUIuWZPDj6/Z292MGxewLJQtPSWsyvJx7+gXFM9TLk/DM7ko+ZWhh7bgspQQE6dshI
+	w6a51WEeaOertatwPhD7rTHDwHxQjbaA9C/Ry3Urw0yAd5uJp9ZZtXZcXSkyNSkH8l+zlmijwID
+	1dC5/LnIlc4mxaZNMHBPNwma3+fp3G/tLuaqYiiql+venx5Kk8c/U96EI3OI9TBRaxNuNl4YoOW
+	YvFSLwHL4r7VGtrWeyev7W48/2t34PfVXaluvx+78eAA==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1777969916; x=1778574716; bh=uh74yh9p
+	4nVzQzt75fP4tvf5zj2njWFnqUX4GsFJGM0=; b=BxmRxNQ6LdDHytlWJsNkM12MHj4FwviE395
+	Q3dIO6p5lNG560DaqvP/lGJ4xW/cC6RsOdlc0Y33hJ5AR4BLnOlI6g4R/sJIqDa6EKsJvoOtXVq
+	wnfqjDlOelET3F+KqIH5e3iiWmFktrwY4tCjwKFCSXXV+jlXwEmjGaf2NvYma6dIQTahpsy7A54
+	ebxlXZJJBg91dSZg0U61LG07rXGAEeKc2Wvtmn/W07F7x/igBY5mktgTbJMZu2XuMX1cwsP8HlS
+	FOaGFxK4VMq/q8zTf9AIKgMjIwLutzPNaSU/sqvjTdr5sLOopWVvQ8DG1LCvnZMuzVBbb3mkz6I
+	yN9clSQ==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=@warri.fxbnorp.cn header.s=chao header.b=PBhXCV4O;
+	dmarc=pass header.from=warri.fxbnorp.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@warri.fxbnorp.cn designates 180.125.134.249 as permitted sender) smtp.helo=warri.fxbnorp.cn;
+	spf=pass (mx.cloudflare.net: domain of kameyama.2012@warri.fxbnorp.cn designates 180.125.134.249 as permitted sender) smtp.mailfrom=kameyama.2012@warri.fxbnorp.cn;
+	arc=none smtp.remote-ip=180.125.134.249
+Received-SPF: pass (mx.cloudflare.net: domain of kameyama.2012@warri.fxbnorp.cn designates 180.125.134.249 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=180.125.134.249; envelope-from="kameyama.2012@warri.fxbnorp.cn"; helo=warri.fxbnorp.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=@warri.fxbnorp.cn header.s=chao header.b=PBhXCV4O;
+	dmarc=pass header.from=warri.fxbnorp.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@warri.fxbnorp.cn designates 180.125.134.249 as permitted sender) smtp.helo=warri.fxbnorp.cn;
+	spf=pass (mx.cloudflare.net: domain of kameyama.2012@warri.fxbnorp.cn designates 180.125.134.249 as permitted sender) smtp.mailfrom=kameyama.2012@warri.fxbnorp.cn;
+	arc=none smtp.remote-ip=180.125.134.249
+X-CF-SpamH-Score: 1
+Content-Type: text/html; charset="GBK"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+From: =?utf-8?b?5qW95aSp44Kr44O844OJ5qCq5byP5Lya56S+?= <kameyama.2012@warri.fxbnorp.cn>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=warri.fxbnorp.cn;
+ i=@warri.fxbnorp.cn; q=dns/txt; s=chao; t=1777969910; h=from : to :
+ subject : date : message-id;
+ bh=uh74yh9p4nVzQzt75fP4tvf5zj2njWFnqUX4GsFJGM0=;
+ b=PBhXCV4Ocyg6TQ+O8SrWS7trU3VdzZKVxf2MqimaGBkDkNNyfDa6Zm34VNrcS51UA0Q1Z
+ vIMgay1soRncj6Fqj4M89zePwKW7WcAy3x7VXv8+rpurFAuxqlymzNx/bXIe3yY7Um9Mo8N
+ y4pZdRXzRuCj4r9Au4xkoF4anLzSVvj82zsQy6itNA4EmbjdA9bF1Sr0xBA+AFYQiI0Dph6
+ PGzCqRXHtrGRedG0ENqQ/npPeftxRN6+IC+CGJiKVplkOFWqUKfjEgzX0MtnyfRPwVRyjm/
+ 1GyIUrjxxu+J5YyUX28KgtdEC3B3U3nD3wensBywKRNesA7FKLJtYpE1WrgA==
+To: <tnakahara@whither.jp>
+Subject: =?utf-8?b?44CQ6YeN6KaB44CR5qW95aSp44Kr44O844OJIDPmnIjliIbjgZToq4vmsYLph5HpoY3jga7jgYrnn6XjgonjgZsgLSDoh6rli5XlvJXokL3jgZflpLHmlZc=?=
+Date: Tue, 05 May 2026 17:31:50 +0900
+Message-ID: <76x041n2e02jo8r9586ehn684184f2fv@warri.fxbnorp.cn>
