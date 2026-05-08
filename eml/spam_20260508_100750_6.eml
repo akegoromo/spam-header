@@ -1,0 +1,366 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:991b:0:b0:268:65d1:738e with SMTP id u27csp2786354eib;
+        Thu, 7 May 2026 18:07:58 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ8ghISaUim2wx9yHLSFpUSaPb/6/56pIwDqA/a1AqpT8wVKRhmeJzU1xbEAi/nPlNnmHiAEP1IWo1/LU/Ubrg==@gmail.com
+X-Received: by 2002:a17:90b:278c:b0:364:7467:53e5 with SMTP id 98e67ed59e1d1-365ab9af866mr11151441a91.2.1778202477828;
+        Thu, 07 May 2026 18:07:57 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1778202477; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=LkreHswncfurP09+AlQIHBFw2cyMgvylnrFdg/QouHDBuJ9+lqhqSEzoqwB2zBdVM3
+         R8aYy3k2jbSoCnUdyBhPwOAcco9GuXhx5uQKNl6eHtVuGluSJSHATIhmJWUj9e3BsH/4
+         j2d+X1vjuO+hzaRDg2Wmq5yws9pvAIrZWxl5He1LTzq8J5/jjKai9S9JseKzx+rXt1CJ
+         x0ccKhzXfSAYyY0pB4wF4SjAz5/xowymU5tAjS/pNk9u6xvcgqXc7z4DILLGabY7jmgt
+         Z/E9NEjTHWlP8E37CKsBvC5T7LQRuPFrdKnraQMR2WCNk0HrAmw5i8i1BFrtIa4S4r1k
+         hY/w==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=mime-version:date:subject:to:from:message-id:dkim-signature
+         :feedback-id:dkim-signature:dkim-signature;
+        bh=tEGAdn9/gorqQILDkr1vXSAoKIZp0cnQBTzLZ1/03Z8=;
+        fh=LnGVlAla77Gyfiw8zkzbOhaVlqYgEu27l8ujdfvsIGY=;
+        b=UQdrkkdvANKG91FHKbeJnnmMAamLKqKETbpcWyCq//bV1ZN5bNtpVXe5veQnuM6USu
+         n166l2yu3sxjBTgCB4fytNAT09WbZIkApz9Q1VZIndf11ZQteZ1e+RnW12dj4q2GgI87
+         pIfRanqvGl6LAo2fcefQhu9rjIqpT7ousptOoxtST6dKUuute4MasqgzlNef1h7+jvrd
+         uDHM7Y7MRx/u/DRJga1gQ0ITFrGDKnrt2TY+2qX6+nOR8O+SudWjBcDM6PFqevmmmCaa
+         ZfnGhkkdqA0Z+Tyc0jzGdkQP8kLCI8K4h02YY0Z0eSC8qYe+/IdL1mVPhlJzEcQDGYjS
+         A7LQ==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=HIVAwiS1;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=Su3wqL+c;
+       dkim=pass header.i=@rhtmall.com header.s=default header.b=tO98FiP7;
+       arc=pass (i=1 spf=pass spfdomain=rhtmall.com dkim=pass dkdomain=rhtmall.com dmarc=pass fromdomain=rhtmall.com);
+       spf=pass (google.com: domain of srs0=fyd3=fd=rhtmall.com=info@whither.jp designates 104.30.8.61 as permitted sender) smtp.mailfrom="SRS0=fyd3=fd=rhtmall.com=info@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=rhtmall.com
+Return-Path: <SRS0=fyd3=fd=rhtmall.com=info@whither.jp>
+Received: from i-gb.cloudflare-email.net (i-gb.cloudflare-email.net. [104.30.8.61])
+        by mx.google.com with ESMTPS id 98e67ed59e1d1-3664db83b91si317078a91.14.2026.05.07.18.07.55
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 07 May 2026 18:07:57 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=fyd3=fd=rhtmall.com=info@whither.jp designates 104.30.8.61 as permitted sender) client-ip=104.30.8.61;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=HIVAwiS1;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=Su3wqL+c;
+       dkim=pass header.i=@rhtmall.com header.s=default header.b=tO98FiP7;
+       arc=pass (i=1 spf=pass spfdomain=rhtmall.com dkim=pass dkdomain=rhtmall.com dmarc=pass fromdomain=rhtmall.com);
+       spf=pass (google.com: domain of srs0=fyd3=fd=rhtmall.com=info@whither.jp designates 104.30.8.61 as permitted sender) smtp.mailfrom="SRS0=fyd3=fd=rhtmall.com=info@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=rhtmall.com
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1778202477; x=1778807277; bh=tEGAdn9/gorqQILDkr
+	1vXSAoKIZp0cnQBTzLZ1/03Z8=; b=HIVAwiS1apA0BHm05+zlha+GlWVQW04OATw+JTT++5hy4
+	2XNmCFwIT6ONINAmzmAEsP1KdnxngkiR9FQWo0Dvnf1WyIRzhh4rRzzWBEukzVeb2wNU1IU/i5M
+	4KX5IHNNXSnpDCz84WlDSGNpSptbblz0+UJ2Pfw8VpVyBCCkc4UfeUXV4COuhIsqJeFighFCZTe
+	VtZ7PPe+xoS+Iojb3nJhUbIEzOlWVkxr+Up/255cQ+M6Iq5a6HGuluLUUPZ+xXRkpsN5guVlIf5
+	PHoEa1i2zHKOaHT4X8MyddOyALJlScCKXYXd9yW1CE7Jj6qZoC5c9oq9P24OC6cSyEJATq/g==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1778202477; x=1778807277; bh=tEGAdn9/gorqQILDkr
+	1vXSAoKIZp0cnQBTzLZ1/03Z8=; b=Su3wqL+cuIZEgU5m42tzNk9a9txUyvm/R1AL0fGMXpWXq
+	BvLA/9ORCYJBsnyfNWcPd8uGuW1Jc7AE2/NGz+znx4OCvB11lCRkesvoqi9kxKHfGckDcqfdQeP
+	EsfXcAPyw+IE+hcM1KckdXwfSCxU5kHsNEIoFD9UGjUiotyX1xAuJ7taHI+y8A3UjrBci7hmY5H
+	71hjd28qleJ7lLMCyfmw3chULR8tPuphf03pjRygOMlnnlrvtcYFArh4xhUZRp6zbfAnM6z086B
+	QjunFyP18UkPFxC3GeXd2eQFOfoAtgHAAJT63CDLELKqO6qDIpEOnH5mJ2C5VlxTndu1dPdA==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: tnakahara@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from mail.rhtmall.com (34.47.105.145)
+        by cloudflare-email.net (cloudflare) id v0V7CWnHHqcg
+        for <tnakahara@whither.jp>; Fri, 08 May 2026 01:07:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=FJBy49/PGASwrFeU3Hb16PoD0IFqN3NiW72lj3U55WH/KV3XucxmLSaciqUomwpMnfpDYiEIK
+	z66HEgAzO8QWjbzuBmnAvv/U4oX1KXXy48J5Ve9KkbZRSrN5S39ndMdozYxvAacG8We5ek2IYmU
+	y4p28EbaYX52RPpul+cg4KCIVDh8qtgbO6GeIMhwYSWNLcDczAg4BV0ybjh09NI/Erbli/1GFms
+	HVR/yWuD6F4Y/4t8KxdkuVY0h1VoPmR2nF3kr3ClMukE264bhX5djh1xClxx0y6D1nVO7KSAht5
+	wn5jUyZzAAqPW293AN0TG2G4xokG0LKBla9fS9UZYPtQ==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1778202474; x=1778807274; bh=tEGAdn9/
+	gorqQILDkr1vXSAoKIZp0cnQBTzLZ1/03Z8=; b=bfRw78nyfkYhnUswROua4xEfkGPWpQfKL4j
+	Ki4Ni5R0riF03ZRMT1MBBaw2cwWz4ld5f2YfWqHBUcOcltE4htWiWO+iUfugY0RQBLOVvSTWxlm
+	A4Ew64GKANYqP0bo6BzwG3C6h6GZc7ZLn2JKa+uNIwz7M/83iumbfGBAmFLz0RskOrx831q3XTa
+	BBO4cFV2AcUegGTA8qzG4793xKTwtiKUJ4IRVB03uwyJi1UUmmHsGR/Ug66nl2QedLEQzF69zu1
+	X1m8wrKgKDdc82q6gQcruFpD1ovBbF24i63tXaaPqBJpKjyQQt4Z59DQ+gpKCafjkE5KWQPMJdL
+	D4h53HQ==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=info@rhtmall.com header.s=default header.b=tO98FiP7;
+	dmarc=pass header.from=rhtmall.com policy.dmarc=none;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@mail.rhtmall.com) smtp.helo=mail.rhtmall.com;
+	spf=pass (mx.cloudflare.net: domain of info@rhtmall.com designates 34.47.105.145 as permitted sender) smtp.mailfrom=info@rhtmall.com;
+	arc=none smtp.remote-ip=34.47.105.145
+Received-SPF: pass (mx.cloudflare.net: domain of info@rhtmall.com designates 34.47.105.145 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=34.47.105.145; envelope-from="info@rhtmall.com"; helo=mail.rhtmall.com;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=info@rhtmall.com header.s=default header.b=tO98FiP7;
+	dmarc=pass header.from=rhtmall.com policy.dmarc=none;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@mail.rhtmall.com) smtp.helo=mail.rhtmall.com;
+	spf=pass (mx.cloudflare.net: domain of info@rhtmall.com designates 34.47.105.145 as permitted sender) smtp.mailfrom=info@rhtmall.com;
+	arc=none smtp.remote-ip=34.47.105.145
+X-CF-SpamH-Score: 4
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=default; d=rhtmall.com;
+ h=Message-ID:From:To:Subject:Date:MIME-Version:Content-Type;
+ i=info@rhtmall.com;
+ bh=tEGAdn9/gorqQILDkr1vXSAoKIZp0cnQBTzLZ1/03Z8=;
+ b=tO98FiP7wv1CGGPAnYju6dqk/sMZTCKI+biDBcC8Q7tmkCFA6QHO/cb9KNIeIm/ZgNvgN9rs74AB
+   VjlPzV7sRo76mUaFicXHWOhE1AE2J1e7XONJX3swO9ywa0TpAcuXJRBUFkD52mlV+J0fjaL4LY9A
+   1Kvm8HCcJQ1MPkngCa8=
+Message-ID: <c3084fca7aea0a79afe838740c18f0cd@rhtmall.com>
+From: =?utf-8?B?UGF5UGF5?= <info@rhtmall.com>
+To: <tnakahara@whither.jp>
+Subject: =?utf-8?B?44CQUGF5UGF56YqA6KGM44CRUGF5UGF544Od44Kk44Oz44OI?=
+	=?utf-8?B?44OX44Os44K844Oz44OI77yB5pyA5aSnMTAsMDAw5YaG5YiG44OB44Oj?=
+	=?utf-8?B?44Oz44K5?=
+Date: Fri, 08 May 2026 09:07:50 +0800
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+	boundary="8fea8a9eac418e4f9b73ce35000a34b1"
+
+This is a multi-part message in MIME format.
+
+--8fea8a9eac418e4f9b73ce35000a34b1
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+PayPay=E9=8A=80=E8=A1=8C=EF=BD=9C=E9=A0=90=E9=87=91=E3=82=AD=E3=83=A3=E3=83=
+=B3=E3=83=9A=E3=83=BC=E3=83=B3=E3=81=AE=E3=81=94=E6=A1=88=E5=86=85* {margin=
+: 0;padding: 0;box-sizing: border-box;}body {background-color: #f4f7fb;/* =
+=E6=9F=94=E3=82=89=E3=81=8B=E3=81=AA=E7=81=B0=E9=9D=92=E3=81=AE=E8=83=8C=E6=
+=99=AF */font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto=
+, Helvetica, Arial, sans-serif;line-height: 1.5;padding: 40px 20px;}.email-=
+container {max-width: 560px;margin: 0 auto;background-color: #ffffff;border=
+-radius: 28px;box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02), 0 2px 6px rgba(0,=
+ 0, 0, 0.03);overflow: hidden;}.inner-padding {padding: 36px 32px 42px 32px=
+;}/* =E3=83=98=E3=83=83=E3=83=80=E3=83=BC=E8=A3=85=E9=A3=BE=E3=83=A9=E3=82=
+=A4=E3=83=B3=EF=BC=88=E6=BF=83=E3=81=99=E3=81=8E=E3=81=AA=E3=81=84=E3=82=A2=
+=E3=82=AF=E3=82=BB=E3=83=B3=E3=83=88=EF=BC=89 */.soft-accent {height: 4px;b=
+ackground: linear-gradient(90deg, #cbdde6 0%, #d9e4ec 100%);width: 60px;mar=
+gin-bottom: 28px;border-radius: 4px;}.greeting {font-size: 15px;color: #3c4=
+b55;margin-bottom: 20px;font-weight: 400;letter-spacing: 0.3px;text-align: =
+left;}.main-text {color: #2e3a43;font-size: 15px;margin-bottom: 24px;line-h=
+eight: 1.55;text-align: left;}.highlight-box {background-color: #f9fbfd;bor=
+der-left: 4px solid #a7c0cd;padding: 20px 22px;margin: 28px 0 24px 0;border=
+-radius: 18px;text-align: left;}.section-title {font-size: 16px;font-weight=
+: 600;color: #2b4b5c;margin-bottom: 12px;letter-spacing: -0.2px;display: in=
+line-block;text-align: left;}.bullet-list {list-style: none;padding-left: 0=
+;margin: 12px 0 0 0;text-align: left;}.bullet-list li {font-size: 15px;colo=
+r: #2c3e47;margin-bottom: 12px;padding-left: 4px;display: flex;align-items:=
+ flex-start;gap: 8px;text-align: left;}.bullet-marker {display: inline-bloc=
+k;font-weight: 500;color: #6f8f9f;min-width: 24px;}.info-line {margin: 12px=
+ 0;font-size: 15px;color: #2e3a43;display: flex;align-items: baseline;flex-=
+wrap: wrap;gap: 6px;text-align: left;}.info-label {font-weight: 500;color: =
+#4f6f7e;min-width: 100px;text-align: left;}.info-value {color: #1f2e36;text=
+-align: left;}.btn-primary {display: inline-block;background-color: #eef3f7=
+;color: #2d6a4f;text-decoration: none;padding: 12px 28px;border-radius: 48p=
+x;font-weight: 500;font-size: 15px;margin: 20px 0 8px 0;transition: all 0.2=
+s ease;border: 1px solid #dce6ec;background-color: #f5f9fc;color: #2c6e5c;}=
+.btn-primary:hover {background-color: #e5eef4;border-color: #bdd1dc;text-de=
+coration: none;}.link-wrapper {margin: 18px 0 10px 0;text-align: left;}.tex=
+t-link {word-break: break-all;font-size: 14px;color: #5f8b9c;text-decoratio=
+n: none;border-bottom: 1px dotted #cbdae2;}.text-link:hover {color: #2c6b5c=
+;border-bottom-color: #92b3c2;}.footer {margin-top: 36px;padding-top: 20px;=
+border-top: 1px solid #e6edf2;font-size: 12px;color: #8ea1ac;text-align: le=
+ft;line-height: 1.5;}.footer-address {margin-bottom: 6px;text-align: left;}=
+.footer-tel {margin-top: 4px;text-align: left;}.small-note {font-size: 12px=
+;color: #9bb0bb;margin-top: 20px;text-align: left;}@media (max-width: 520px=
+) {.inner-padding {padding: 28px 20px 32px 20px;}.info-label {min-width: 85=
+px;}.highlight-box {padding: 16px 18px;}}=E3=81=84=E3=81=A4=E3=82=82PayPay=
+=E9=8A=80=E8=A1=8C=E3=82=92=E3=81=94=E5=88=A9=E7=94=A8=E3=81=84=E3=81=9F=E3=
+=81=A0=E3=81=8D=E3=80=81=E3=81=82=E3=82=8A=E3=81=8C=E3=81=A8=E3=81=86=E3=81=
+=94=E3=81=96=E3=81=84=E3=81=BE=E3=81=99=E3=80=82 =E3=81=93=E3=81=AE=E3=81=
+=9F=E3=81=B3=E3=80=81=E9=A0=90=E9=87=91=E3=82=AD=E3=83=A3=E3=83=B3=E3=83=9A=
+=E3=83=BC=E3=83=B3=E3=82=92=E5=AE=9F=E6=96=BD=E3=81=84=E3=81=9F=E3=81=97=E3=
+=81=BE=E3=81=99=E3=80=82=E6=9C=9F=E9=96=93=E4=B8=AD=E3=80=81=E5=AF=BE=E8=B1=
+=A1=E5=8F=A3=E5=BA=A7=E3=81=AB10=E4=B8=87=E5=86=86=E4=BB=A5=E4=B8=8A=E3=82=
+=92=E3=81=8A=E9=A0=90=E3=81=91=E5=85=A5=E3=82=8C=E3=81=84=E3=81=9F=E3=81=A0=
+=E3=81=84=E3=81=9F=E3=81=8A=E5=AE=A2=E6=A7=98=E5=85=A8=E5=93=A1=E3=81=AB=E3=
+=80=81PayPay=E3=83=9D=E3=82=A4=E3=83=B3=E3=83=88=E3=82=92=E3=83=97=E3=83=AC=
+=E3=82=BC=E3=83=B3=E3=83=88=E3=81=84=E3=81=9F=E3=81=97=E3=81=BE=E3=81=99=E3=
+=80=82 =E2=96=BC =E7=89=B9=E5=85=B8=E5=86=85=E5=AE=B9=E2=80=BB =E5=85=A8=E5=
+=93=A1=E3=83=97=E3=83=AC=E3=82=BC=E3=83=B3=E3=83=88=EF=BC=9A1,000=E5=86=86=
+=E5=88=86=E3=81=AEPayPay=E3=83=9D=E3=82=A4=E3=83=B3=E3=83=88 =E2=80=BB =E6=
+=8A=BD=E9=81=B8=E3=81=A7=E3=81=95=E3=82=89=E3=81=AB=EF=BC=9A10,000=E5=86=86=
+=E5=88=86=E3=81=AEPayPay=E3=83=9D=E3=82=A4=E3=83=B3=E3=83=88=EF=BC=88=E5=BD=
+=93=E9=81=B8=E8=80=85=E3=81=AE=E3=81=BF=EF=BC=89 =E2=96=A0 =E6=B4=BB=E5=8B=
+=95=E6=9C=9F=E9=96=93=EF=BC=9A 2026=E5=B9=B44=E6=9C=881=E6=97=A5 =EF=BD=9E =
+2026=E5=B9=B45=E6=9C=8831=E6=97=A5 =E2=96=A0 =E3=83=9D=E3=82=A4=E3=83=B3=E3=
+=83=88=E4=BB=98=E4=B8=8E=EF=BC=9A 2026=E5=B9=B46=E6=9C=88=E4=B8=AD=E6=97=AC=
+=E4=BB=A5=E9=99=8D=E3=80=81=E9=A0=86=E6=AC=A1 =E8=A9=B3=E7=B4=B0=E3=83=BB=
+=E3=81=8A=E7=94=B3=E3=81=97=E8=BE=BC=E3=81=BF=E3=81=AF=E3=81=93=E3=81=A1=E3=
+=82=89 =E3=81=93=E3=81=AE=E6=A9=9F=E4=BC=9A=E3=81=AB=E3=81=9C=E3=81=B2=E3=
+=81=94=E5=88=A9=E7=94=A8=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82=E3=81=
+=94=E4=B8=8D=E6=98=8E=E3=81=AA=E7=82=B9=E3=81=8C=E3=81=94=E3=81=96=E3=81=84=
+=E3=81=BE=E3=81=97=E3=81=9F=E3=82=89=E3=80=81=E3=81=8A=E6=B0=97=E8=BB=BD=E3=
+=81=AB=E6=8B=85=E5=BD=93=E3=81=BE=E3=81=A7=E3=81=94=E9=80=A3=E7=B5=A1=E3=81=
+=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82 PayPay=E9=8A=80=E8=A1=8C=E6=A0=AA=
+=E5=BC=8F=E4=BC=9A=E7=A4=BE =E6=9C=AC=E7=A4=BE=E3=83=BB=E6=9C=AC=E5=BA=97=
+=E5=96=B6=E6=A5=AD=E9=83=A8=E3=83=BB=E5=90=84=E6=94=AF=E5=BA=97 =E6=9D=B1=
+=E4=BA=AC=E9=83=BD=E6=96=B0=E5=AE=BF=E5=8C=BA=E5=9B=9B=E8=B0=B71-6-1 =E3=81=
+=93=E3=81=AE=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=AF=E9=80=81=E4=BF=A1=E5=B0=82=
+=E7=94=A8=E3=81=A7=E3=81=99=E3=80=82=E3=81=94=E8=BF=94=E4=BF=A1=E3=81=84=E3=
+=81=9F=E3=81=A0=E3=81=84=E3=81=A6=E3=82=82=E3=81=8A=E5=BF=9C=E3=81=88=E3=81=
+=A7=E3=81=8D=E3=81=BE=E3=81=9B=E3=82=93=E3=80=82 
+--8fea8a9eac418e4f9b73ce35000a34b1
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">=0D=0A<HTML l=
+ang=3Dja><HEAD><TITLE>PayPay=E9=8A=80=E8=A1=8C=EF=BD=9C=E9=A0=90=E9=87=91=
+=E3=82=AD=E3=83=A3=E3=83=B3=E3=83=9A=E3=83=BC=E3=83=B3=E3=81=AE=E3=81=94=E6=
+=A1=88=E5=86=85</TITLE>=0D=0A<META charset=3DUTF-8>=0D=0A<META name=3Dviewp=
+ort =0D=0Acontent=3D"width=3Ddevice-width, initial-scale=3D1.0, maximum-sca=
+le=3D1.0, user-scalable=3Dyes">=0D=0A<STYLE>=0D=0A        * {=0D=0A        =
+    margin: 0;=0D=0A            padding: 0;=0D=0A            box-sizing: bo=
+rder-box;=0D=0A        }=0D=0A        body {=0D=0A            background-co=
+lor: #f4f7fb;  /* =E6=9F=94=E3=82=89=E3=81=8B=E3=81=AA=E7=81=B0=E9=9D=92=E3=
+=81=AE=E8=83=8C=E6=99=AF */=0D=0A            font-family: -apple-system, Bl=
+inkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;=0D=0A  =
+          line-height: 1.5;=0D=0A            padding: 40px 20px;=0D=0A     =
+   }=0D=0A        .email-container {=0D=0A            max-width: 560px;=0D=
+=0A            margin: 0 auto;=0D=0A            background-color: #ffffff;=
+=0D=0A            border-radius: 28px;=0D=0A            box-shadow: 0 8px 2=
+0px rgba(0, 0, 0, 0.02), 0 2px 6px rgba(0, 0, 0, 0.03);=0D=0A            ov=
+erflow: hidden;=0D=0A        }=0D=0A        .inner-padding {=0D=0A         =
+   padding: 36px 32px 42px 32px;=0D=0A        }=0D=0A        /* =E3=83=98=
+=E3=83=83=E3=83=80=E3=83=BC=E8=A3=85=E9=A3=BE=E3=83=A9=E3=82=A4=E3=83=B3=EF=
+=BC=88=E6=BF=83=E3=81=99=E3=81=8E=E3=81=AA=E3=81=84=E3=82=A2=E3=82=AF=E3=82=
+=BB=E3=83=B3=E3=83=88=EF=BC=89 */=0D=0A        .soft-accent {=0D=0A        =
+    height: 4px;=0D=0A            background: linear-gradient(90deg, #cbdde=
+6 0%, #d9e4ec 100%);=0D=0A            width: 60px;=0D=0A            margin-=
+bottom: 28px;=0D=0A            border-radius: 4px;=0D=0A        }=0D=0A    =
+    .greeting {=0D=0A            font-size: 15px;=0D=0A            color: #=
+3c4b55;=0D=0A            margin-bottom: 20px;=0D=0A            font-weight:=
+ 400;=0D=0A            letter-spacing: 0.3px;=0D=0A            text-align: =
+left;=0D=0A        }=0D=0A        .main-text {=0D=0A            color: #2e3=
+a43;=0D=0A            font-size: 15px;=0D=0A            margin-bottom: 24px=
+;=0D=0A            line-height: 1.55;=0D=0A            text-align: left;=0D=
+=0A        }=0D=0A        .highlight-box {=0D=0A            background-colo=
+r: #f9fbfd;=0D=0A            border-left: 4px solid #a7c0cd;=0D=0A         =
+   padding: 20px 22px;=0D=0A            margin: 28px 0 24px 0;=0D=0A       =
+     border-radius: 18px;=0D=0A            text-align: left;=0D=0A        }=
+=0D=0A        .section-title {=0D=0A            font-size: 16px;=0D=0A     =
+       font-weight: 600;=0D=0A            color: #2b4b5c;=0D=0A            =
+margin-bottom: 12px;=0D=0A            letter-spacing: -0.2px;=0D=0A        =
+    display: inline-block;=0D=0A            text-align: left;=0D=0A        =
+}=0D=0A        .bullet-list {=0D=0A            list-style: none;=0D=0A     =
+       padding-left: 0;=0D=0A            margin: 12px 0 0 0;=0D=0A         =
+   text-align: left;=0D=0A        }=0D=0A        .bullet-list li {=0D=0A   =
+         font-size: 15px;=0D=0A            color: #2c3e47;=0D=0A           =
+ margin-bottom: 12px;=0D=0A            padding-left: 4px;=0D=0A            =
+display: flex;=0D=0A            align-items: flex-start;=0D=0A            g=
+ap: 8px;=0D=0A            text-align: left;=0D=0A        }=0D=0A        .bu=
+llet-marker {=0D=0A            display: inline-block;=0D=0A            font=
+-weight: 500;=0D=0A            color: #6f8f9f;=0D=0A            min-width: =
+24px;=0D=0A        }=0D=0A        .info-line {=0D=0A            margin: 12p=
+x 0;=0D=0A            font-size: 15px;=0D=0A            color: #2e3a43;=0D=
+=0A            display: flex;=0D=0A            align-items: baseline;=0D=0A=
+            flex-wrap: wrap;=0D=0A            gap: 6px;=0D=0A            te=
+xt-align: left;=0D=0A        }=0D=0A        .info-label {=0D=0A            =
+font-weight: 500;=0D=0A            color: #4f6f7e;=0D=0A            min-wid=
+th: 100px;=0D=0A            text-align: left;=0D=0A        }=0D=0A        .=
+info-value {=0D=0A            color: #1f2e36;=0D=0A            text-align: =
+left;=0D=0A        }=0D=0A        .btn-primary {=0D=0A            display: =
+inline-block;=0D=0A            background-color: #eef3f7;=0D=0A            =
+color: #2d6a4f;=0D=0A            text-decoration: none;=0D=0A            pa=
+dding: 12px 28px;=0D=0A            border-radius: 48px;=0D=0A            fo=
+nt-weight: 500;=0D=0A            font-size: 15px;=0D=0A            margin: =
+20px 0 8px 0;=0D=0A            transition: all 0.2s ease;=0D=0A            =
+border: 1px solid #dce6ec;=0D=0A            background-color: #f5f9fc;=0D=
+=0A            color: #2c6e5c;=0D=0A        }=0D=0A        .btn-primary:hov=
+er {=0D=0A            background-color: #e5eef4;=0D=0A            border-co=
+lor: #bdd1dc;=0D=0A            text-decoration: none;=0D=0A        }=0D=0A =
+       .link-wrapper {=0D=0A            margin: 18px 0 10px 0;=0D=0A       =
+     text-align: left;=0D=0A        }=0D=0A        .text-link {=0D=0A      =
+      word-break: break-all;=0D=0A            font-size: 14px;=0D=0A       =
+     color: #5f8b9c;=0D=0A            text-decoration: none;=0D=0A         =
+   border-bottom: 1px dotted #cbdae2;=0D=0A        }=0D=0A        .text-lin=
+k:hover {=0D=0A            color: #2c6b5c;=0D=0A            border-bottom-c=
+olor: #92b3c2;=0D=0A        }=0D=0A        .footer {=0D=0A            margi=
+n-top: 36px;=0D=0A            padding-top: 20px;=0D=0A            border-to=
+p: 1px solid #e6edf2;=0D=0A            font-size: 12px;=0D=0A            co=
+lor: #8ea1ac;=0D=0A            text-align: left;=0D=0A            line-heig=
+ht: 1.5;=0D=0A        }=0D=0A        .footer-address {=0D=0A            mar=
+gin-bottom: 6px;=0D=0A            text-align: left;=0D=0A        }=0D=0A   =
+     .footer-tel {=0D=0A            margin-top: 4px;=0D=0A            text-=
+align: left;=0D=0A        }=0D=0A        .small-note {=0D=0A            fon=
+t-size: 12px;=0D=0A            color: #9bb0bb;=0D=0A            margin-top:=
+ 20px;=0D=0A            text-align: left;=0D=0A        }=0D=0A        @medi=
+a (max-width: 520px) {=0D=0A            .inner-padding {=0D=0A             =
+   padding: 28px 20px 32px 20px;=0D=0A            }=0D=0A            .info-=
+label {=0D=0A                min-width: 85px;=0D=0A            }=0D=0A     =
+       .highlight-box {=0D=0A                padding: 16px 18px;=0D=0A     =
+       }=0D=0A        }=0D=0A    </STYLE>=0D=0A=0D=0A<META name=3DGENERATOR=
+ content=3D"MSHTML 11.00.10570.1001"></HEAD>=0D=0A<BODY>=0D=0A<DIV class=3D=
+email-container>=0D=0A<DIV class=3Dinner-padding><!-- =E6=9C=AC=E5=BD=93=E3=
+=81=AB=E8=96=84=E3=81=84=E3=82=A2=E3=82=AF=E3=82=BB=E3=83=B3=E3=83=88=EF=BC=
+=88=E6=8E=A7=E3=81=88=E3=82=81=EF=BC=89 -->=0D=0A<DIV class=3Dsoft-accent><=
+/DIV><!-- =E3=81=84=E3=81=A4=E3=82=82=E3=81=AE=E6=84=9F=E8=AC=9D=E3=81=AE=
+=E6=8C=A8=E6=8B=B6 -->=0D=0A<DIV class=3Dgreeting>=E3=81=84=E3=81=A4=E3=82=
+=82PayPay=E9=8A=80=E8=A1=8C=E3=82=92=E3=81=94=E5=88=A9=E7=94=A8=E3=81=84=E3=
+=81=9F=E3=81=A0=E3=81=8D=E3=80=81=E3=81=82=E3=82=8A=E3=81=8C=E3=81=A8=E3=81=
+=86=E3=81=94=E3=81=96=E3=81=84=E3=81=BE=E3=81=99=E3=80=82 </DIV><!-- =E6=9C=
+=AC=E6=96=87 -->=0D=0A<DIV =0D=0Aclass=3Dmain-text>=E3=81=93=E3=81=AE=E3=81=
+=9F=E3=81=B3=E3=80=81=E9=A0=90=E9=87=91=E3=82=AD=E3=83=A3=E3=83=B3=E3=83=9A=
+=E3=83=BC=E3=83=B3=E3=82=92=E5=AE=9F=E6=96=BD=E3=81=84=E3=81=9F=E3=81=97=E3=
+=81=BE=E3=81=99=E3=80=82<BR>=E6=9C=9F=E9=96=93=E4=B8=AD=E3=80=81=E5=AF=BE=
+=E8=B1=A1=E5=8F=A3=E5=BA=A7=E3=81=AB10=E4=B8=87=E5=86=86=E4=BB=A5=E4=B8=8A=
+=E3=82=92=E3=81=8A=E9=A0=90=E3=81=91=E5=85=A5=E3=82=8C=E3=81=84=E3=81=9F=E3=
+=81=A0=E3=81=84=E3=81=9F=E3=81=8A=E5=AE=A2=E6=A7=98=E5=85=A8=E5=93=A1=E3=81=
+=AB=E3=80=81<BR>PayPay=E3=83=9D=E3=82=A4=E3=83=B3=E3=83=88=E3=82=92=E3=83=
+=97=E3=83=AC=E3=82=BC=E3=83=B3=E3=83=88=E3=81=84=E3=81=9F=E3=81=97=E3=81=BE=
+=E3=81=99=E3=80=82 =0D=0A</DIV><!-- =E7=89=B9=E5=85=B8=E3=83=9C=E3=83=83=E3=
+=82=AF=E3=82=B9 (=E6=B8=85=E7=88=BD=E3=83=BB=E6=B7=A1=E9=9B=85) -->=0D=0A<D=
+IV class=3Dhighlight-box>=0D=0A<DIV class=3Dsection-title>=E2=96=BC =E7=89=
+=B9=E5=85=B8=E5=86=85=E5=AE=B9</DIV>=0D=0A<UL class=3Dbullet-list>=0D=0A  <=
+LI><SPAN class=3Dbullet-marker>=E2=80=BB</SPAN> =0D=0A  <SPAN>=E5=85=A8=E5=
+=93=A1=E3=83=97=E3=83=AC=E3=82=BC=E3=83=B3=E3=83=88=EF=BC=9A<STRONG>1,000=
+=E5=86=86=E5=88=86</STRONG>=E3=81=AEPayPay=E3=83=9D=E3=82=A4=E3=83=B3=E3=83=
+=88</SPAN> =0D=0A  <LI><SPAN class=3Dbullet-marker>=E2=80=BB</SPAN> =0D=0A =
+ <SPAN>=E6=8A=BD=E9=81=B8=E3=81=A7=E3=81=95=E3=82=89=E3=81=AB=EF=BC=9A<STRO=
+NG>10,000=E5=86=86=E5=88=86</STRONG>=E3=81=AEPayPay=E3=83=9D=E3=82=A4=E3=83=
+=B3=E3=83=88=EF=BC=88=E5=BD=93=E9=81=B8=E8=80=85=E3=81=AE=E3=81=BF=EF=BC=89=
+</SPAN> </LI></UL></DIV><!-- =E6=9C=9F=E9=96=93=E3=81=A8=E4=BB=98=E4=B8=8E=
+=E6=99=82=E6=9C=9F=EF=BC=88=E3=82=AF=E3=83=AA=E3=83=BC=E3=83=B3=E3=81=AA=E6=
+=A8=AA=E4=B8=A6=E3=81=B3=E3=83=BB=E3=82=B9=E3=83=9E=E3=83=9B=E3=81=A7=E7=B8=
+=A6=E3=81=AB=E5=88=87=E3=82=8C=E3=81=A6=E3=82=82=E8=A6=8B=E3=82=84=E3=81=99=
+=E3=81=84=EF=BC=89 -->=0D=0A<DIV class=3Dinfo-line><SPAN class=3Dinfo-label=
+>=E2=96=A0 =E6=B4=BB=E5=8B=95=E6=9C=9F=E9=96=93=EF=BC=9A</SPAN> <SPAN =0D=
+=0Aclass=3Dinfo-value>2026=E5=B9=B44=E6=9C=881=E6=97=A5 =EF=BD=9E 2026=E5=
+=B9=B45=E6=9C=8831=E6=97=A5</SPAN> </DIV>=0D=0A<DIV class=3Dinfo-line style=
+=3D"MARGIN-BOTTOM: 18px"><SPAN class=3Dinfo-label>=E2=96=A0 =0D=0A=E3=83=9D=
+=E3=82=A4=E3=83=B3=E3=83=88=E4=BB=98=E4=B8=8E=EF=BC=9A</SPAN> <SPAN class=
+=3Dinfo-value>2026=E5=B9=B46=E6=9C=88=E4=B8=AD=E6=97=AC=E4=BB=A5=E9=99=8D=
+=E3=80=81=E9=A0=86=E6=AC=A1</SPAN> </DIV><!-- =E7=94=B3=E3=81=97=E8=BE=BC=
+=E3=81=BF=E3=83=AA=E3=83=B3=E3=82=AF / =E8=A9=B3=E7=B4=B0=E3=83=AA=E3=83=B3=
+=E3=82=AF=EF=BC=88=E5=84=AA=E3=81=97=E3=81=84=E3=83=9C=E3=82=BF=E3=83=B3=EF=
+=BC=8BURL=EF=BC=89 -->=0D=0A<DIV class=3Dlink-wrapper><A class=3Dbtn-primar=
+y href=3D"https://jighkb.cn/" =0D=0Arel=3D"noopener noreferrer" target=3D_b=
+lank>=E8=A9=B3=E7=B4=B0=E3=83=BB=E3=81=8A=E7=94=B3=E3=81=97=E8=BE=BC=E3=81=
+=BF=E3=81=AF=E3=81=93=E3=81=A1=E3=82=89 </A></DIV><!-- =E3=82=AF=E3=83=AD=
+=E3=83=BC=E3=82=B8=E3=83=B3=E3=82=B0=E3=83=A1=E3=83=83=E3=82=BB=E3=83=BC=E3=
+=82=B8 -->=0D=0A<DIV class=3Dmain-text =0D=0Astyle=3D"MARGIN-BOTTOM: 0px">=
+=E3=81=93=E3=81=AE=E6=A9=9F=E4=BC=9A=E3=81=AB=E3=81=9C=E3=81=B2=E3=81=94=E5=
+=88=A9=E7=94=A8=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82<BR>=E3=81=94=
+=E4=B8=8D=E6=98=8E=E3=81=AA=E7=82=B9=E3=81=8C=E3=81=94=E3=81=96=E3=81=84=E3=
+=81=BE=E3=81=97=E3=81=9F=E3=82=89=E3=80=81=E3=81=8A=E6=B0=97=E8=BB=BD=E3=81=
+=AB=E6=8B=85=E5=BD=93=E3=81=BE=E3=81=A7=E3=81=94=E9=80=A3=E7=B5=A1=E3=81=8F=
+=E3=81=A0=E3=81=95=E3=81=84=E3=80=82 =0D=0A</DIV><!-- =E3=83=95=E3=83=83=E3=
+=82=BF=E3=83=BC (=E4=BC=9A=E7=A4=BE=E6=83=85=E5=A0=B1) -->=0D=0A<DIV class=
+=3Dfooter>=0D=0A<DIV class=3Dfooter-address>PayPay=E9=8A=80=E8=A1=8C=E6=A0=
+=AA=E5=BC=8F=E4=BC=9A=E7=A4=BE </DIV>=0D=0A<DIV class=3Dfooter-address>=E6=
+=9C=AC=E7=A4=BE=E3=83=BB=E6=9C=AC=E5=BA=97=E5=96=B6=E6=A5=AD=E9=83=A8=E3=83=
+=BB=E5=90=84=E6=94=AF=E5=BA=97 </DIV>=0D=0A<DIV class=3Dfooter-tel>=E6=9D=
+=B1=E4=BA=AC=E9=83=BD=E6=96=B0=E5=AE=BF=E5=8C=BA=E5=9B=9B=E8=B0=B71-6-1 </D=
+IV>=0D=0A<DIV class=3Dsmall-note>=E3=81=93=E3=81=AE=E3=83=A1=E3=83=BC=E3=83=
+=AB=E3=81=AF=E9=80=81=E4=BF=A1=E5=B0=82=E7=94=A8=E3=81=A7=E3=81=99=E3=80=82=
+=E3=81=94=E8=BF=94=E4=BF=A1=E3=81=84=E3=81=9F=E3=81=A0=E3=81=84=E3=81=A6=E3=
+=82=82=E3=81=8A=E5=BF=9C=E3=81=88=E3=81=A7=E3=81=8D=E3=81=BE=E3=81=9B=E3=82=
+=93=E3=80=82 </DIV></DIV></DIV><!-- end inner-padding --></DIV><!-- end ema=
+il-container --></BODY></HTML>=0D=0A
+--8fea8a9eac418e4f9b73ce35000a34b1--
+
+

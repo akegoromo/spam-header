@@ -1,0 +1,258 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:991b:0:b0:268:65d1:738e with SMTP id u27csp2810145eib;
+        Thu, 7 May 2026 19:05:08 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ/gzGffPfwuZXbzJUa3rJn21vPLv8fYmwPI7rG65jusaa5Bq5EFdvGwqI5NJnYmebFlcc4YPiW1HmnLf+uMMA==@gmail.com
+X-Received: by 2002:adf:ed87:0:b0:454:9655:43af with SMTP id ffacd0b85a97d-4549655460dmr190635f8f.0.1778205907804;
+        Thu, 07 May 2026 19:05:07 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1778205907; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=HdTg87LtgUrJcoDMhCzAuttOeM7nDTqLd+YTKTvyiOdeED4e+fd+NSH9O7zZ9lkBcw
+         ekmIjRI14ICK12At1ZocOpBi6E27redg4CLEcaCzzRj/vdPHopPfNCUKPHKtC9Bv8eD2
+         ARjSklrWBVRZv5gmBXshmE476Vkzlx1tjfqbH/F5pO6xpaTOXAEUpkubjGts+GGhAg14
+         QAGFIQhg4NwL8vkOUV+VYScselawIZRJKNaNtRTmKqIvp+2eywnSeJtReeBWgWCEdCAq
+         Q1++daT8qJjgYAnfbHN8aeAQGu5DWYj7jUnYUIslSi451WJN+tdOEWOxRIGXgjeoqnDS
+         y9Ag==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=message-id:date:subject:to:dkim-signature:from:mime-version
+         :feedback-id:dkim-signature:dkim-signature;
+        bh=8vtyZzNpW/Nb+9LU+uaWnarsYgvg9/xajxNJQF3YaxU=;
+        fh=LnGVlAla77Gyfiw8zkzbOhaVlqYgEu27l8ujdfvsIGY=;
+        b=apmx2IffhRBDVcatDVN7h/XNhFYGVGEK9NvGgG/B3zp4+NJAJnVXmMmjPNnwkbmJYo
+         mTl2v7nNvgBwmgbEGSXNE60kgbRfp91nj0KdT3L+0vo0lD8HH9l+LI48lEQ21FNq/XiH
+         zqZJQ9vI2J3ZzcBAJ+udKO2hEzkG7WG2dFmRBwElu5qjCd2FpuRhWxWEhcuGyJ8r2kX4
+         B0dD24BITfiup3oY+XkEXBj3PqGV5a0tOQv2AWBk6Xm2jDuizULXTULSQgYSPtAdHsDL
+         +3ozQ+RXaL/Z3r2THgQiNIfOA/fkdyj3WgR/SDNyULE1n9MjS7H2FwAYar0gqEv2OGUE
+         HVmQ==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=QOT0sQWe;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=Ce6PDte6;
+       dkim=pass header.i=@flaky.lahmuoi.cn header.s=molpe header.b=dot1KohY;
+       arc=pass (i=1 spf=pass spfdomain=flaky.lahmuoi.cn dkim=pass dkdomain=flaky.lahmuoi.cn dmarc=pass fromdomain=flaky.lahmuoi.cn);
+       spf=pass (google.com: domain of srs0=demf=fd=flaky.lahmuoi.cn=furukawa1981@whither.jp designates 104.30.10.39 as permitted sender) smtp.mailfrom="SRS0=DEMf=fd=flaky.lahmuoi.cn=furukawa1981@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=lahmuoi.cn
+Return-Path: <SRS0=DEMf=fd=flaky.lahmuoi.cn=furukawa1981@whither.jp>
+Received: from ba-dj.cloudflare-email.net (ba-dj.cloudflare-email.net. [104.30.10.39])
+        by mx.google.com with ESMTPS id ffacd0b85a97d-4549293f9b5si363158f8f.256.2026.05.07.19.05.07
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 07 May 2026 19:05:07 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=demf=fd=flaky.lahmuoi.cn=furukawa1981@whither.jp designates 104.30.10.39 as permitted sender) client-ip=104.30.10.39;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=QOT0sQWe;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=Ce6PDte6;
+       dkim=pass header.i=@flaky.lahmuoi.cn header.s=molpe header.b=dot1KohY;
+       arc=pass (i=1 spf=pass spfdomain=flaky.lahmuoi.cn dkim=pass dkdomain=flaky.lahmuoi.cn dmarc=pass fromdomain=flaky.lahmuoi.cn);
+       spf=pass (google.com: domain of srs0=demf=fd=flaky.lahmuoi.cn=furukawa1981@whither.jp designates 104.30.10.39 as permitted sender) smtp.mailfrom="SRS0=DEMf=fd=flaky.lahmuoi.cn=furukawa1981@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=lahmuoi.cn
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1778205907; x=1778810707; bh=8vtyZzNpW/Nb+9LU+u
+	aWnarsYgvg9/xajxNJQF3YaxU=; b=QOT0sQWeDgLO4KMUzqcxPsXOyaLHai7xtDhDFjfEy9Sgy
+	vWCxfMZYfKz0yRXokKpvn+Vho2y2Buzujp4WBvv8M5jr83F/a6ctPuItSOmILihjXSB5ZuzWIr3
+	WV5W7CQKVTdW2Bm4Wucs67SkoH5fsLvxOKF3PkNeuTBrAHm2gExytpyOfEESnq9A1qLc6KfX3a2
+	n9o2nhSUwpOdtxV4WdJgZ9jHXkxRAfI36DiAp8OWvs/4X9ZG6o9hmHit3H/RkTbCiYqsVVUU7F9
+	igjeWbARiG4qSbIlK6tGL8deAKcxIF2MTMe0D+Uo4Zj613iCi0d5b1phVnuqqLqq6M8duCOQ==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1778205907; x=1778810707; bh=8vtyZzNpW/Nb+9LU+u
+	aWnarsYgvg9/xajxNJQF3YaxU=; b=Ce6PDte6fKKr2GWYUL2sydX0kq8xLNzD/uih/LP5DT2HP
+	03/y8/Vd4B9SuNawDXex0QumHM5eAWhla6jK/LLZFy4qfaPG2fNfjQ9/g5bsAuIOvb63l973oNr
+	n50unVbcl/ggDI26mBGRRB/vxT4pfdOTXMK0s1dbXEfZ9u9eVIGwlNRipvzdBvu+2vzeUc8/47a
+	dxwv9qPOnPq7Mo1wvX0DPJP1ioRaoQcvfwG17dBxsdgk3lxDbq2iew+On86rt8F4oZJS2IuyICL
+	SwvaKYRJolGiPg90MsJDilX65vSH3G8kXE5H+75Xyt5KSsmVXFlFEdxASLtIO7/vlcR6aRJA==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: tnakahara@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from flaky.lahmuoi.cn (222.95.242.107)
+        by cloudflare-email.net (cloudflare) id NyUh8hs2eW0e
+        for <tnakahara@whither.jp>; Fri, 08 May 2026 02:05:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=c7QhgFBO9bhePN6BDq6fMRB9rDMlV5HQYtWguJAopMWZAGbIqzkLUpBt1EGSZYabTobccp/dF
+	3M9tiyzaWbJn1shJM1SlAsIoDy6NFJA95ixkmC5WfjDWP68G4S/yzOkA6eu7PdsCgMVwyfeUIHL
+	SRQLRCpT7SIJC2BGfTrqsqVowLkaaWKojpmv6OwYVfc4+pf7sLtKPDhK1x9A7+vCtlc1cHfG9Y/
+	P/ORAYO4GKUOw9C5AcTHAjAxniZ46D6H9As9OrEvib/MHlKwO7G72DEjquv+xQxM/qsd7b+v0g7
+	QoSyFtqgR/V7EVZA2JmJjhU9qB+edmLbb5UdMorc9Z3g==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1778205906; x=1778810706; bh=8vtyZzNp
+	W/Nb+9LU+uaWnarsYgvg9/xajxNJQF3YaxU=; b=VG5BcqyNnl7VMUPifR3/yh7o1GVtSLbtx44
+	feDyZoJ10fKlVpo5cZwiCw9OqZWK1jJwzHU4AyDcUkHe7mOFpvOP6qsODtRISLumMKk2eImjfvj
+	blvH32SvE2TAxbT9OMbwcGroj7KtKKIoFi34f9iFVvMe8diMfdIkjTxDkh9Lg90KWSICFPzxsqZ
+	zgaCWc5DMKcP03oIC/h9/DY8mIQ5+M/6pF/onA+SZU3ixIlFuomigcA9ZMhACU0O6SBiHZNBDSy
+	3alCOhkknq05ru004QaAl70aNGlrffhDCVptppKOCZaN9gu2+/nWs5MEk7Fl2w7WkLaJYeDyJlT
+	3B1Vefw==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=@flaky.lahmuoi.cn header.s=molpe header.b=dot1KohY;
+	dmarc=pass header.from=flaky.lahmuoi.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@flaky.lahmuoi.cn designates 222.95.242.107 as permitted sender) smtp.helo=flaky.lahmuoi.cn;
+	spf=pass (mx.cloudflare.net: domain of furukawa1981@flaky.lahmuoi.cn designates 222.95.242.107 as permitted sender) smtp.mailfrom=furukawa1981@flaky.lahmuoi.cn;
+	arc=none smtp.remote-ip=222.95.242.107
+Received-SPF: pass (mx.cloudflare.net: domain of furukawa1981@flaky.lahmuoi.cn designates 222.95.242.107 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=222.95.242.107; envelope-from="furukawa1981@flaky.lahmuoi.cn"; helo=flaky.lahmuoi.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=@flaky.lahmuoi.cn header.s=molpe header.b=dot1KohY;
+	dmarc=pass header.from=flaky.lahmuoi.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@flaky.lahmuoi.cn designates 222.95.242.107 as permitted sender) smtp.helo=flaky.lahmuoi.cn;
+	spf=pass (mx.cloudflare.net: domain of furukawa1981@flaky.lahmuoi.cn designates 222.95.242.107 as permitted sender) smtp.mailfrom=furukawa1981@flaky.lahmuoi.cn;
+	arc=none smtp.remote-ip=222.95.242.107
+X-CF-SpamH-Score: 1
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="----=_TwonFyyu_787_Q27N5_97L1OIB4.8K16W9FH"
+From: =?utf-8?b?5qW94oCE5aSp4oCE44Kr4oCE44O84oCE44OJ?= <furukawa1981@flaky.lahmuoi.cn>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=flaky.lahmuoi.cn;
+ i=@flaky.lahmuoi.cn; q=dns/txt; s=molpe; t=1778205902; h=from : to :
+ subject : date : message-id;
+ bh=8vtyZzNpW/Nb+9LU+uaWnarsYgvg9/xajxNJQF3YaxU=;
+ b=dot1KohYa+Ao/FUi8cfK1l45GEvIuh2yq5K/svjt1j8EP8etRBElFnY3i2x4KcWFTI/Q7
+ unX3Kyk0tedievTfRNo9F5w806MSB0XLiQp1DatFMIObpQ1fcqkczSdv2rH5gcsE7ENggQ1
+ tNnQvmPD0LeHDIUmFH6zgmcD2s2/n9ioC6xW7Ya2K/NEkVzIReV/UJT1MKjkM7GpMdmErRa
+ uM8aMIoI68JGtBBH0iPiEXD/eiS9K5kIV0N12NuuNXWIHDABYfM/2HDVdRPNWdBUvX69j7J
+ 1TqLYwcXJLU5GIW7ffWMCylV3SQHpRLEzpdsMnzINzY2c+2Slu4dmaQffogQ==
+To: <tnakahara@whither.jp>
+Subject: =?utf-8?b?44CQ6YeN6KaB44CR5qW95aSp44Kr44O844OJIOOBlOiri+axgumHkemhjeOBruOBiuaUr+aJleOBhOOBq+OBpOOBhOOBpu+8iDIwMjblubQ05pyI5YiG77yJ?=
+Date: Fri, 08 May 2026 11:05:02 +0900
+Message-ID: <1778205902730@flaky.lahmuoi.cn>
+X-mailer: B15cA 7
+X-OCN-SPAM-CHECK: 0.00%
+X-OCN-ANALYSIS: v=2.4 cv=M4culw8s c=1 sm=1 tr=0 ts=68d7cffd a=JJJxvqH6cOAN1LKTlH+59w==:117 a=yJojWOMRYYMA:10 a=5KLPUuaC_9wA:10 a=r77TgQKjGQsHNAKrUKIA:9 a=IY5uUw_MX8Q6p0VM1xsA:9 a=QEXdDO2ut3YA:10 a=aQKKBxGJAAAA:8 a=5_kJHvwLDfqWp1TI7rcA:9 a=_W_S_7VecoQA:10 a=piT3QaCefd4A:10 a=fkqBw3BD5RLjSgApC7jY:22 a=f3TpStbywLYrL2eV6l-F:22
+
+------=_TwonFyyu_787_Q27N5_97L1OIB4.8K16W9FH
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+
+ちパりヂ啱哣え駭ィトぜ蹤餂むよンヴくかィ
+
+ フづ暺ぴそ品薓ヺ楽天カード 
+
+筅メ魳ぷヌご請求分のお支払い依頼(2026年4月分) 
+
+ ヨヰ潊ぴゐ駖ェ跚日頃よりご利用いただき、誠にありがとうございます。 
+
+ 摝ク餑碢銭【入金依頼】 
+
+ そぺ鋴ぱご登録済口座から自動引落が未遂となりました。
+下記よりお早めに清算ください。 
+
+ 储撷孭べやご請求金額合計： 
+ ￥29,857 
+
+ とき熃ヨ境鼁ムケ支払期限:メール確認後、1 日以内 
+
+ らぜ鞧PayPay払い方法 
+
+ メゴピ鸆PayPay決済ボタンより速やかにご対応願います。 
+
+ め譽ブ恹犛ざ刊PayPay決済 
+
+ 薽デ秋榵ソポ※ご入金の遅れはご利用制限の原因となります。
+
+------=_TwonFyyu_787_Q27N5_97L1OIB4.8K16W9FH
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+
+<!doctype html>
+<html lang="und" data-mode="fixture">
+<head>
+  <!-- SECURITY_TEST_SAMPLE: parser compatibility fixture -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset="UTF-8">
+  <title>ちパりヂ啱哣え駭ィトぜ蹤餂むよンヴくかィ</title>
+
+<STYLE>
+@media screen and (max-width: 600px) {
+.fatahafa_vimihano {width: 100% !important;}
+.colamibe-vibealen-78 {padding: 20px !important;}
+}
+</STYLE><style media="all">
+  /* C27: suppress stacked borders inside mail root */
+  .tarano_befa table, .tarano_befa table td, .tarano_befa table th { border: 0 !important; mso-border-alt: none !important; }
+  .tarano_befa div, .tarano_befa p, .tarano_befa section, .tarano_befa article { border: none !important; border-width: 0 !important; border-style: none !important; border-image: none !important; }
+</style>
+  <meta name="x-apple-disable-message-reformatting">
+</head>
+<body>
+<TABLE id=_cid0.6412529120115 cellSpacing=0 cellPadding=0 width="100%" 
+  border=0><TBODY>
+  <TR>
+    <TD 
+    style="PADDING-BOTTOM: 20px; PADDING-TOP: 20px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px" 
+    align=center>
+      <TABLE id=_cid0.692799315 class=container 
+      style="BORDER-COLLAPSE: collapse; BACKGROUND-COLOR: rgb(255,255,255)" 
+      cellSpacing=0 cellPadding=0 width=600 border=0>
+        <TBODY>
+        <TR>
+          <TD 
+          style="COLOR: rgb(255,255,255); PADDING-BOTTOM: 30px; PADDING-TOP: 30px; PADDING-LEFT: 20px; PADDING-RIGHT: 20px" 
+          bgColor=#bf212f align=center>
+            <H1 
+            style="FONT-SIZE: 24px; FONT-WEIGHT: normal; MARGIN: 0px; LETTER-SPACING: 2px"><SPAN 
+            style="DISPLAY: none">フづ暺ぴそ品薓ヺ</SPAN>楽天カード </H1>
+            
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><article role="presentation"><header></header><section></section></article></div>
+<P style="FONT-SIZE: 16px; MARGIN: 10px 0px 0px"><SPAN 
+            style="DISPLAY: none">筅メ魳ぷヌ</SPAN>ご請求分のお支払い依頼(2026年4月分) 
+          </P>
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><nav role="presentation"><ul><li></li></ul></nav></div>
+</TD>
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><article role="presentation"><header></header><section></section></article></div>
+</TR>
+        <TR>
+          <TD class=content-padding 
+          style="COLOR: rgb(51,51,51); PADDING-BOTTOM: 40px; TEXT-ALIGN: center; PADDING-TOP: 40px; PADDING-LEFT: 50px; PADDING-RIGHT: 50px">
+            <P 
+            style="FONT-SIZE: 15px; TEXT-ALIGN: left; MARGIN: 0px 0px 25px"><SPAN 
+            style="DISPLAY: none">ヨヰ潊ぴゐ駖ェ跚</SPAN>日頃よりご利用いただき、誠にありがとうございます。 
+            </P>
+            <DIV 
+            style="MARGIN-BOTTOM: 30px; BORDER-TOP: rgb(191,33,47) 1px solid; BORDER-RIGHT: rgb(191,33,47) 1px solid; BORDER-BOTTOM: rgb(191,33,47) 1px solid; PADDING-BOTTOM: 20px; PADDING-TOP: 20px; PADDING-LEFT: 20px; BORDER-LEFT: rgb(191,33,47) 1px solid; PADDING-RIGHT: 20px; BACKGROUND-COLOR: rgb(255,248,248); border-radius: 8px; border-image: none">
+            <P 
+            style="FONT-SIZE: 16px; FONT-WEIGHT: bold; COLOR: rgb(191,33,47); MARGIN: 0px"><SPAN 
+            style="DISPLAY: none">摝ク餑碢銭</SPAN>【入金依頼】 </P>
+            <P 
+            style="FONT-SIZE: 14px; COLOR: rgb(191,33,47); MARGIN: 5px 0px 0px; LINE-HEIGHT: 1.5"><SPAN 
+            style="DISPLAY: none">そぺ鋴ぱ</SPAN>ご登録済口座から自動引落が未遂となりました。<BR>下記よりお早めに清算ください。 
+            </P>
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><article role="presentation"><header></header><section></section></article></div>
+</DIV>
+            <DIV 
+            style="MARGIN-BOTTOM: 10px; BORDER-TOP: rgb(224,224,224) 2px dashed; BORDER-RIGHT: rgb(224,224,224) 2px dashed; BORDER-BOTTOM: rgb(224,224,224) 2px dashed; PADDING-BOTTOM: 30px; PADDING-TOP: 30px; PADDING-LEFT: 20px; BORDER-LEFT: rgb(224,224,224) 2px dashed; PADDING-RIGHT: 20px; border-radius: 8px; border-image: none">
+            <P 
+            style="FONT-SIZE: 36px; FONT-WEIGHT: bold; COLOR: rgb(191,33,47); MARGIN: 0px; LINE-HEIGHT: 1.2"><SPAN 
+            style="FONT-SIZE: 16px; FONT-WEIGHT: normal; COLOR: rgb(102,102,102); MARGIN-RIGHT: 10px"><SPAN 
+            style="DISPLAY: none">储撷孭べや</SPAN>ご請求金額合計：</SPAN> 
+            <SPAN style="FONT-SIZE: 24px">￥</SPAN>29,857 </P></DIV>
+            <P 
+            style="FONT-SIZE: 14px; COLOR: rgb(102,102,102); TEXT-ALIGN: right; MARGIN: 0px 0px 30px"><SPAN 
+            style="DISPLAY: none">とき熃ヨ境鼁ムケ</SPAN>支払期限:メール確認後、1 日以内 </P>
+            <DIV style="MARGIN-BOTTOM: 20px; TEXT-ALIGN: left">
+            <P style="FONT-SIZE: 16px; FONT-WEIGHT: bold; MARGIN: 0px"><SPAN 
+            style="DISPLAY: none">らぜ鞧</SPAN>PayPay払い方法 </P>
+            <P 
+            style="FONT-SIZE: 14px; COLOR: rgb(68,68,68); MARGIN: 5px 0px 0px"><SPAN 
+            style="DISPLAY: none">メゴピ鸆</SPAN>PayPay決済ボタンより速やかにご対応願います。 
+            </P></DIV>
+            <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD align=center><A 
+                  style="FONT-SIZE: 18px; TEXT-DECORATION: none; FONT-WEIGHT: bold; COLOR: rgb(255,255,255); PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 60px; DISPLAY: inline-block; PADDING-RIGHT: 60px; BACKGROUND-COLOR: rgb(191,33,47); border-radius: 50px" 
+                  href="https://qr.paypay.ne.jp/p2p01_fFnTJKbDTirb6cVl" target=_blank><SPAN 
+                  style="DISPLAY: none">め譽ブ恹犛ざ刊</SPAN>PayPay決済 
+              </A></TD></TR></TBODY></TABLE>
+            <P 
+            style="FONT-SIZE: 12px; COLOR: rgb(153,153,153); MARGIN: 30px 0px 0px"><SPAN 
+            style="DISPLAY: none">薽デ秋榵ソポ</SPAN>※ご入金の遅れはご利用制限の原因となります。 
+          </P></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR><BR>
+</body>
+</html>
+
+------=_TwonFyyu_787_Q27N5_97L1OIB4.8K16W9FH--
+
