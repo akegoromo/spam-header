@@ -1,0 +1,121 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:991b:0:b0:268:65d1:738e with SMTP id u27csp2049151eib;
+        Wed, 6 May 2026 19:59:10 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ9IaVEdk54HRfiOtxXeL33RvGKb/FWYPHeQKb0mjzlER8qSPhfd/xBqIOB6wMVia1DdBuvX3V8MaOXpl0oRww==@gmail.com
+X-Received: by 2002:a17:907:da16:b0:b9c:3d56:e4ec with SMTP id a640c23a62f3a-bc56dd155abmr325317966b.24.1778122750227;
+        Wed, 06 May 2026 19:59:10 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1778122750; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=AQANLOXe71JM9hNnlTcymhy1NBtBGPG26VOpSjhgvvBwj++PVLhN7vDGfTNhc8hOGp
+         zHIEEpQPKulYILH8oH4XRjSDAyVZl6W/hG1FUuoEmcliWecf4H+ihrvJpDvlSDv8UbpT
+         tcg3eZEQHiXZJTQjMB5aRW7iN7uQRWBYTAXZ6y83DM1LBV+yDtyt83qTPeIPVbTpFeMj
+         yI5kXVSYRBDEqdrMyNxz2H7CLPH/lm+0F6xAa+EwD+0/OQg3lXviIclJP9FHBg86S70U
+         McaUIuMG/4MevhzY9ber6vgaNlM3UFMHyc1YifanFnsNe/xBAH+XF55dwoeKIB9vZ06O
+         Hg5g==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=message-id:date:subject:to:dkim-signature:from:mime-version
+         :content-transfer-encoding:feedback-id:dkim-signature:dkim-signature;
+        bh=PAVgJLV7upzH4uyHdVjiDU1hktwFCflszSuHIdZVGjA=;
+        fh=ENXOhFKW7CT4pn4Lz1vO6o5YQQdiV/Ih3E4yEdfzxpY=;
+        b=eq4Ct7k34fqoaYsl8jNoWrZdxSg0C9+9BjKMuuWAXdfCFOJJVMsJfqSjYDgP3MWP6M
+         rQVksJqSoDqvqDlB/8JhV6DOUFtudPJmaij6VNv57YHE/cYxkYGARazLEsza1go1w+BE
+         LGFTUntomICSG3VtSvJ8vwCfcraW+lhLeY8OF0BGbJtGuw6ACA/DfsVgQuZgKf4KpOnu
+         UKy8jAvGHNI9baYCBdYBSLc+zJnqK54W9K7gKYeWnCFGiR+LIcgJebkDXcLt8gqWgibG
+         dO2Zz68d6YT1AzPwooDJ4qlxM22Jae++w935C0p8qID2JDvRyT7T9bLaL9SXzvgeaT/6
+         y4gg==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=NbfKPh1i;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=MwSLb0vP;
+       dkim=pass header.i=@bogie.dbwilzt.cn header.s=boris header.b="EBfd/3iH";
+       arc=pass (i=1 spf=pass spfdomain=bogie.dbwilzt.cn dkim=pass dkdomain=bogie.dbwilzt.cn dmarc=pass fromdomain=bogie.dbwilzt.cn);
+       spf=pass (google.com: domain of srs0=qid8=ed=bogie.dbwilzt.cn=imai-0115@whither.jp designates 104.30.10.8 as permitted sender) smtp.mailfrom="SRS0=QID8=ed=bogie.dbwilzt.cn=imai-0115@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=dbwilzt.cn
+Return-Path: <SRS0=QID8=ed=bogie.dbwilzt.cn=imai-0115@whither.jp>
+Received: from ba-i.cloudflare-email.net (ba-i.cloudflare-email.net. [104.30.10.8])
+        by mx.google.com with ESMTPS id 4fb4d7f45d1cf-67cd91ecdd6si3288253a12.309.2026.05.06.19.59.07
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 06 May 2026 19:59:09 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=qid8=ed=bogie.dbwilzt.cn=imai-0115@whither.jp designates 104.30.10.8 as permitted sender) client-ip=104.30.10.8;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=NbfKPh1i;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=MwSLb0vP;
+       dkim=pass header.i=@bogie.dbwilzt.cn header.s=boris header.b="EBfd/3iH";
+       arc=pass (i=1 spf=pass spfdomain=bogie.dbwilzt.cn dkim=pass dkdomain=bogie.dbwilzt.cn dmarc=pass fromdomain=bogie.dbwilzt.cn);
+       spf=pass (google.com: domain of srs0=qid8=ed=bogie.dbwilzt.cn=imai-0115@whither.jp designates 104.30.10.8 as permitted sender) smtp.mailfrom="SRS0=QID8=ed=bogie.dbwilzt.cn=imai-0115@whither.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=dbwilzt.cn
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1778122748; x=1778727548; bh=PAVgJLV7upzH4uyHdV
+	jiDU1hktwFCflszSuHIdZVGjA=; b=NbfKPh1iRJxbnIx4Py8rkUA5BP4WOqtRdLG04kxXni9gE
+	07nIHI6CLZ4ZTZaIdyPEWjZJSSI5wWfvoG8GX/GlC6ruBQm/9JLFzRzyTfocrR1TCKb/anjlQd9
+	EwU16GC1qlE5qvW/QUY/NgypL2qhsIDwzoqKyTs7rIftC4zPoodmqKDd3KIWQRlDm6HVHDXhRbf
+	2Ogb0IXDM7hwCZqkzGglSUZXBGHI0iatMFGr32sqmwamKztfd9sYjDovyJK0pL1/fUaUkqh6hQW
+	DAQUwLP0nsU5qfT2HMN6RNp2Zis0aEsZQBb1cwYY6A7Gmbm3AHLTAudoDGdOQRZ6odbl+qXw==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1778122748; x=1778727548; bh=PAVgJLV7upzH4uyHdV
+	jiDU1hktwFCflszSuHIdZVGjA=; b=MwSLb0vPeTG/lTT0Nn3rXqQvcFT+rAKi5izjENr/aNq9x
+	TCzP2uuP2N+tykcJQA1dYYZiSe9WeJd0uMraJrH0M0EvMyVLB6dArbG+HgXuZ8kFMwtdaZikyjx
+	opnVfZDz3uDYDMt95jJ0pZJ4eQXzveAz1+B+addNypxJj8lG4yBJLfxGAU0bcHmHxQdu2MML6L7
+	Zohe4O6yGxZLNXnLy+bNljVbVLTtE9C9Ge9gk7NCS8SRhuTss5G95N8bcSrvMJPbMDKAQ63Dsuv
+	2uw9o/FVdE1Msm4fW1qtEIgf0jU1BMaiADRvhfQSWfHy4a7sDRZw2W7lRbB/XEDA1d5VYiwQ==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: penguin@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from bogie.dbwilzt.cn (113.95.147.76)
+        by cloudflare-email.net (cloudflare) id dhtfbrO7FcVr
+        for <penguin@whither.jp>; Thu, 07 May 2026 02:58:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=K10vrSoaajXatT4VmPwYRcaGR6fjqNstcpGVRCDDx3GgraXlK822d7qfP7hhhz+M4n6wAeBFw
+	U5WUjOHJ5R2DDXoHuAO1jqhWDCg88PbB7zPba544csYOtTmM84RYhRwAkDZnDQec72vIlZAPjQW
+	JAb+lTtAnLrLl9ezrZTFTqIOcg88HsnOxOseOzZtDV8Vi8mJ1e68+NLA142RnMNxHU3qR5j6gCE
+	Mptasp33ufyvJyYqPT2/VuY7KhuauWnjhyvIwuyBsaxTSLr0sE8/p5C2x0ynDjWEbo5jwb4WOfo
+	sBOvx9VemBJEGwWTXf3spU5RybHNof+R6m/l56k6YNfg==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1778122745; x=1778727545; bh=PAVgJLV7
+	upzH4uyHdVjiDU1hktwFCflszSuHIdZVGjA=; b=PUkTwF76wT3XfzHHj6QsNiIBH56GtZHHsyw
+	3LCvVWYXejduyDs0J/xCOioA4HqcI5Lyaja4AIrZoqUSsjsI3ZpfpMjctC9DYCgtGhwTNtFT6Ey
+	w6jNvfsTH3XmhVbfgtM8D8IeXIZKNcjLnVl8/jT7jnhqpWN96thbpQSuHxJ5uUzPINmI2AMaDuH
+	W9ICkdqBoFark52FfFsnwscxHY65I8xt4lWmV4A+dpID8Bt5Fis0WntkP6EN5pn3/U9ChQFcHeS
+	7uAxBMQ7Sc/ZCTmq7bCSXJY+VjS/vlrewhOXPiA1MZYoo/1/sbuosgglFux3npWxT3aEl3NQ/9R
+	cnWPCsg==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=@bogie.dbwilzt.cn header.s=boris header.b=EBfd/3iH;
+	dmarc=pass header.from=bogie.dbwilzt.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@bogie.dbwilzt.cn designates 113.95.147.76 as permitted sender) smtp.helo=bogie.dbwilzt.cn;
+	spf=pass (mx.cloudflare.net: domain of imai-0115@bogie.dbwilzt.cn designates 113.95.147.76 as permitted sender) smtp.mailfrom=imai-0115@bogie.dbwilzt.cn;
+	arc=none smtp.remote-ip=113.95.147.76
+Received-SPF: pass (mx.cloudflare.net: domain of imai-0115@bogie.dbwilzt.cn designates 113.95.147.76 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=113.95.147.76; envelope-from="imai-0115@bogie.dbwilzt.cn"; helo=bogie.dbwilzt.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=@bogie.dbwilzt.cn header.s=boris header.b=EBfd/3iH;
+	dmarc=pass header.from=bogie.dbwilzt.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@bogie.dbwilzt.cn designates 113.95.147.76 as permitted sender) smtp.helo=bogie.dbwilzt.cn;
+	spf=pass (mx.cloudflare.net: domain of imai-0115@bogie.dbwilzt.cn designates 113.95.147.76 as permitted sender) smtp.mailfrom=imai-0115@bogie.dbwilzt.cn;
+	arc=none smtp.remote-ip=113.95.147.76
+X-CF-SpamH-Score: 1
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: =?utf-8?b?UGF5cGF544Kr44O844OJ5qCq5byP5Lya56S+?= <imai-0115@bogie.dbwilzt.cn>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bogie.dbwilzt.cn;
+ i=@bogie.dbwilzt.cn; q=dns/txt; s=boris; t=1778122739; h=from : to :
+ subject : date : message-id;
+ bh=PAVgJLV7upzH4uyHdVjiDU1hktwFCflszSuHIdZVGjA=;
+ b=EBfd/3iHa7Y+et1161KqtPXjKXeluA4ECPEIowvriZmAe21MLWSNzrWQTuUe5rT/iei+j
+ 040QI1asKfFKbnwvLq/XAoI4rUoMvt0XdFfQARVuWVXJXedlnHVW5UfEUidIgJOnwPwuWqz
+ IaF0UQX5pAW7mAkbRzBMqM12XI3+UYApJh4AFjfyAkCdODaotHpVpFjpiWJKfLwGUYCQw9Q
+ zqi90j/wXmu0sS3GBA0+K30hGWLTyTV3LljaHypviuuZc/KtU+LDIGzIef8TP1P19Y3waxn
+ 3OQPJ59pnxIQt6MKPkv5uHsVIXCP+UhpOgBXTrNZj3QZApjSpc+yat6+qXng==
+To: <penguin@whither.jp>
+Subject: =?utf-8?b?NOaciOOBruiri+axguS6iOWumumHkemhjeOBruOBiuefpeOCieOBmw==?=
+Date: Thu, 07 May 2026 11:58:59 +0900
+Message-ID: <1778122739792.404p3o39b261@bogie.dbwilzt.cn>
