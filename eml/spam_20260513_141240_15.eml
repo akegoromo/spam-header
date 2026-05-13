@@ -1,0 +1,432 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:a1d0:0:b0:268:a1b5:d49e with SMTP id z16csp2498138eid;
+        Tue, 12 May 2026 22:12:58 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ9hwjUk+07EmYIh7eGb1/NtjXSc9nQWmBAz+3G1qwG7sqUDKUVIQQh2dD3jVnQ74ZicPSWnu9/DRB0Op5yjNw==@gmail.com
+X-Received: by 2002:a05:6a00:3315:b0:83e:e05d:ebb with SMTP id d2e1a72fcca58-83f0427425fmr1722035b3a.25.1778649177868;
+        Tue, 12 May 2026 22:12:57 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1778649177; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=bWXRIMEC6HkpfJmzh5mrgIovIIZfWtvWHE02H06Mm2aEppFX0jiPtQajRPHIU3NsWv
+         BHYB0jGvdkhOQzyGZeEmiviQUvF+IQdT3hwA+Ugk8Sd9paB7Q7kuKwmkUgsMlIyniCUT
+         6kGLzX9+IwY4fGVVgYDLOAQIjGK9Oy6OmX+mdB97nA1hZ8vqEK8NVapSCdI4fTUoe/6o
+         W//pLxu4qWxB0isT4hV2zT9jLtp1kMUwdCyziZsldSlqFmimhTGDcXwAmcFrRdPucU0P
+         pEX+KQlnVFy83AaBCDDC4gL8Ortlypb+do2qxzNpU65jG1wbOccYOGr8+1KDkhwhwtsf
+         bzSg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=mime-version:date:subject:to:from:message-id:dkim-signature
+         :feedback-id:dkim-signature:dkim-signature;
+        bh=JfWf4L3s/sKKfcvOQrB6XMKtPRlLI+f/MLy/0u5350g=;
+        fh=L/mqRzNub5R2bMKI7TvGOkxMXZabbiNdt/p9Xu+c20U=;
+        b=Fmvxfr+lvnT3nJDq6euGtq0oqicNgh5xN/G/CIZz2L6DDL5/pg+n59Uwx2V0xY+n9B
+         oJCJxUxibzPXpMEKts3VDySOeaMTqE5T0blyFeEK/inw/lxkyKpmswKj/aUxcL5MBOFl
+         3LqBdzhWDhlwOjweG4o8Xx4tEzH7KGuja2gukIMw2PNVOLGYH/9BamjEt3Jridq2T+/a
+         ywwyBe7O9AZtvB9HrlibAzxqkYgRWhKztI5dNlfohrrcDcvZ+Y7df3Z5BRDWkQ+77q3V
+         I82HlkHD+DYCWjIWScO/SZJytkbadWT/vkY+WIsJ8iZZnVhGsBKn5JM9LfVqLJV6EDWY
+         PK0Q==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=AT37658k;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=Aboj3M24;
+       dkim=fail header.i=@suvinfot.com header.s=mail header.b=MdYv+vd3;
+       arc=pass (i=1 spf=pass spfdomain=suvinfot.com dmarc=pass fromdomain=suvinfot.com);
+       spf=pass (google.com: domain of srs0=outq=kd=suvinfot.com=admin@whither.jp designates 104.30.10.39 as permitted sender) smtp.mailfrom="SRS0=oUTQ=kd=suvinfot.com=admin@whither.jp";
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=suvinfot.com
+Return-Path: <SRS0=oUTQ=kd=suvinfot.com=admin@whither.jp>
+Received: from ba-dj.cloudflare-email.net (ba-dj.cloudflare-email.net. [104.30.10.39])
+        by mx.google.com with ESMTPS id d2e1a72fcca58-83ec1c7e3f8si17990552b3a.206.2026.05.12.22.12.55
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 12 May 2026 22:12:57 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=outq=kd=suvinfot.com=admin@whither.jp designates 104.30.10.39 as permitted sender) client-ip=104.30.10.39;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=AT37658k;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=Aboj3M24;
+       dkim=fail header.i=@suvinfot.com header.s=mail header.b=MdYv+vd3;
+       arc=pass (i=1 spf=pass spfdomain=suvinfot.com dmarc=pass fromdomain=suvinfot.com);
+       spf=pass (google.com: domain of srs0=outq=kd=suvinfot.com=admin@whither.jp designates 104.30.10.39 as permitted sender) smtp.mailfrom="SRS0=oUTQ=kd=suvinfot.com=admin@whither.jp";
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=suvinfot.com
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1778649177; x=1779253977; bh=JfWf4L3s/sKKfcvOQr
+	B6XMKtPRlLI+f/MLy/0u5350g=; b=AT37658kxSTIqJ3D1vdCs6HJcGtK2pDBU4Qr95UtKwCtM
+	9+IPyVjpI/OBeG0y6+iKep4sdh6ddDFw49hys4CstLQQcfIzs8qJ3dRIvj+kmhX7RjttDHz1sEu
+	fshgSTFW2OtU11VNcI0ZvyLjR57NW/CoJ58hCbu+fVKwjwrTy4T7bGcPmrNWgLlfnvJHmetL20E
+	oTQxUdB2N9yx3N7lVh+gdcSIRCxYQR0fWgfgUTUog/dDNpGDhMV1QxesubI3pp1bi6JUgcNdGjc
+	q49uiX/Qrp8jYdZ5cIKta7GmtBOMnDzqjvUjv4vhZtt7oxhW7Rx/Vr5k0vXadkTUz9Wkm2mQ==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1778649177; x=1779253977; bh=JfWf4L3s/sKKfcvOQr
+	B6XMKtPRlLI+f/MLy/0u5350g=; b=Aboj3M242BSJu8t7vktm/lqe+UwP/jw1pLR7avYJBZueb
+	cl93DGqVys2Zvwa+ySMg3ex1ACz3PU24p5iTdj6SKb96LkHeX9Z/bIJj7P71Jpk/gkGa2QyOMkp
+	yn7+R1W4We7fv11T2FmG+addnzf8W1rwuENZP2mBzT9lYBrzU09/wkdEQUeScOhTUKYPPpLF+5m
+	WmvvWBYW/FXyct3lzXz2wqg9WosSWbqwffQxuStG+wgbZnz8R9kSrvSf5Zwy3PuW6AHzSUTUFX5
+	s+4rO5kp692i5Gi1svjv1ukjycqzt8ZmHuOEPxwrRoRaQh+EoZ8XOUPj2RHt4/FA9KqoCwLg==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: info@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from suvinfot.com (153.120.129.71)
+        by cloudflare-email.net (cloudflare) id c5sTzQOC38Gx
+        for <info@whither.jp>; Wed, 13 May 2026 05:12:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=P87K9aiaq7hgB2K2WeRfgzpHIw3azwPhWkujpiHmnVZZ9xf1gNPmimOUIVl15191Oo1EdmSwl
+	hKVHpVm7Uja5ue7RHjNeWCc+BTWo8r5Emf4t1anKWPzA2zXuBAd+x0l+c/OjlikQ5hyopW6N/Pl
+	V6uX0GK33RPoirJBnrEFcjobwtaPeUMZrZimupa6KC9UMKGKceZlpepPUr9RRguU/2MLZorsgnk
+	3oBxjvqYHSC7lY1SZr5ATtxUaBM2OenoiujeVqP5xdYUgDmaAcGl+s7y9Sr5iGo5q+2NBySdnRM
+	WCgbx1CqfwZhw83nAy5ngXBAbhf7F/ie68c/fYQ2PlMA==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1778649173; x=1779253973; bh=JfWf4L3s
+	/sKKfcvOQrB6XMKtPRlLI+f/MLy/0u5350g=; b=GFAbRZxLWg83X/qoeYW/SgEX81hq6KOfO+l
+	6+VC72k2MTUr6PfoBp4X8grMyK58PloXe1tvCJKAJDnPYf1pkxjDOpTsqjgGHyyXapzwN0g5m8e
+	rQmrKKvR6l4LM1b6aC9yjsXNFN74g9+H+EIpG1uTDeGxVkrNRmqjQgtDi9W09mwRqXXhNQAf/qa
+	gZ8oNUu90T9gD6WLVGv+Y8hQLF6/JOn17QXE9dPJkf4AjPQvsdEPzaAMXlQVmy9dEae9HbxiKps
+	j4IbaNIalobz9im6WljUV5hxXYux3mMA65aKyhg66U3Wr9oeeXpctRLw1KHGaGCRuutgek8W81K
+	ct86cXQ==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=fail (verification failed) header.i=admin@suvinfot.com header.s=mail header.b=MdYv+vd3;
+	dmarc=pass header.from=suvinfot.com policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@suvinfot.com designates 153.120.129.71 as permitted sender) smtp.helo=suvinfot.com;
+	spf=pass (mx.cloudflare.net: domain of admin@suvinfot.com designates 153.120.129.71 as permitted sender) smtp.mailfrom=admin@suvinfot.com;
+	arc=none smtp.remote-ip=153.120.129.71
+Received-SPF: pass (mx.cloudflare.net: domain of admin@suvinfot.com designates 153.120.129.71 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=153.120.129.71; envelope-from="admin@suvinfot.com"; helo=suvinfot.com;
+Authentication-Results: mx.cloudflare.net;
+	dkim=fail (verification failed) header.i=admin@suvinfot.com header.s=mail header.b=MdYv+vd3;
+	dmarc=pass header.from=suvinfot.com policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@suvinfot.com designates 153.120.129.71 as permitted sender) smtp.helo=suvinfot.com;
+	spf=pass (mx.cloudflare.net: domain of admin@suvinfot.com designates 153.120.129.71 as permitted sender) smtp.mailfrom=admin@suvinfot.com;
+	arc=none smtp.remote-ip=153.120.129.71
+X-CF-SpamH-Score: 2
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=mail; d=suvinfot.com;
+ h=Message-ID:From:To:Subject:Date:MIME-Version:Content-Type;
+ i=admin@suvinfot.com;
+ bh=JfWf4L3s/sKKfcvOQrB6XMKtPRlLI+f/MLy/0u5350g=;
+ b=MdYv+vd3DLPOSOCABi267KG3piGQ5VCHwfAt7/Q3pvij2yWs26XRnTV7qpzgkx37xx2cI9fLPOME
+   4/D66EwJKYT1D7hUBVho0Aok79q4MSO14M7N8qoAxzMEyKBwSbJOTyFtksoAOt779PkzsYkEmSf8
+   LPdSlbYxpyj31gyLBTI=
+Message-ID: <68781691D499A35B86631CEDA7405DE6@wakateku.jp>
+From: American Express <admin@suvinfot.com>
+To: info <info@whither.jp>
+Subject: =?UTF-8?Q?=E9=87=8D=E8=A6=81=EF=BC=9A=E3=82=BB=E3=83=B3=E3=83=81=E3=83=A5=E3=83=AA=E3=82=AA=E3=83=B3=E3=83=BB=E3=82=A6=E3=82=A7=E3=82=A2=E3=83=A9=E3=83=96=E3=83=AB=E4=BC=9A=E5=93=A1=E3=81=B8?=
+	=?UTF-8?Q?=E3=81=AE=E3=82=A2=E3=83=83=E3=83=97=E3=82=B0=E3=83=AC=E3=83=BC=E3=83=89=E3=83=BB=E3=82=A2=E3=82=AF=E3=83=86=E3=82=A3=E3=83=99=E3=83=BC=E3=82=B7=E3=83=A7=E3=83=B3=E3=81=AE=E3=81=94?=
+	=?UTF-8?Q?=E6=A1=88=E5=86=85?=
+Date: Wed, 13 May 2026 14:12:40 +0900
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+	boundary="----=_001_ca5438f2cf6a2849_=----"
+X-Priority: 3
+X-Mailer: Supmailer 47.0.1
+
+This is a multi-part message in MIME format.
+
+------=_001_ca5438f2cf6a2849_=----
+Content-Type: text/plain;
+	charset="UTF-8"
+Content-Transfer-Encoding: Quoted-Printable
+
+The Centurion=C2=AE Card Invitation body { margin: 0; padding: 0; back=
+ground-color: #000000; -webkit-text-size-adjust: 100%; } table { borde=
+r-spacing: 0; border-collapse: collapse; } .wrapper { width: 100%; bac=
+kground-color: #000000; padding-bottom: 80px; } .main-table { width: 1=
+00%; max-width: 600px; margin: 0 auto; background-color: #000000; } .s=
+erif { font-family: "Times New Roman", "YuMincho", "Hiragino Mincho Pr=
+oN", serif; } .sans-serif { font-family: "Arial", "Helvetica Neue", He=
+lvetica, sans-serif; } .hero-gradient { background: radial-gradient(ci=
+rcle at center, #151515 0%, #000000 75%); padding: 70px 20px; text-ali=
+gn: center; } .centurion-card { width: 100%; max-width: 400px; height:=
+ auto; filter: drop-shadow(0 0 25px rgba(255,255,255,0.1)); } .benefit=
+-box { background-color: #0a0a0a; border: 1px solid #1a1a1a; padding: =
+30px; margin: 40px 0; } .cta-button { border: 1px solid #ffffff; color=
+: #ffffff !important; padding: 18px 50px; text-decoration: none; font-=
+size: 13px; letter-spacing: 5px; display: inline-block; background-col=
+or: transparent; } @media screen and (max-width: 600px) { .content-pad=
+ding { padding: 40px 30px !important; } .hero-title { font-size: 22px =
+!important; } }AMERICAN EXPRESS
+
+PRIVATE INVITATION
+=20
+
+=E3=82=A2=E3=83=A1=E3=83=AA=E3=82=AB=E3=83=B3=E3=83=BB=E3=82=A8=E3=82=AD=
+=E3=82=B9=E3=83=97=E3=83=AC=E3=82=B9=C2=AE=E3=83=BB=E3=82=AB=E3=83=BC=E3=
+=83=89=E4=BC=9A=E5=93=A1=E6=A7=98
+=E9=81=B8=E3=81=B0=E3=82=8C=E3=81=9F=E6=96=B9=E3=81=AB=E3=80=81
+=E7=A9=B6=E6=A5=B5=E3=81=AE=E8=B1=A1=E5=BE=B4=E3=82=92=E3=80=82 =E5=B9=
+=B3=E7=B4=A0=E3=81=AF=E6=A0=BC=E5=88=A5=E3=81=AA=E3=82=8B=E3=81=8A=E5=BC=
+=95=E3=81=8D=E7=AB=8B=E3=81=A6=E3=82=92=E8=B3=9C=E3=82=8A=E3=80=81=E5=8E=
+=9A=E3=81=8F=E5=BE=A1=E7=A4=BC=E7=94=B3=E3=81=97=E4=B8=8A=E3=81=92=E3=81=
+=BE=E3=81=99=E3=80=82
+
+=E3=81=93=E3=81=AE=E5=BA=A6=E3=80=81=E4=BC=9A=E5=93=A1=E6=A7=98=E3=81=AE=
+=E6=8F=BA=E3=82=8B=E3=81=8E=E3=81=AA=E3=81=84=E3=81=94=E4=BF=A1=E9=A0=BC=
+=E3=81=B8=E3=81=AE=E6=84=9F=E8=AC=9D=E3=82=92=E8=BE=BC=E3=82=81=E3=81=BE=
+=E3=81=97=E3=81=A6=E3=80=81=E3=82=BB=E3=83=B3=E3=83=81=E3=83=A5=E3=83=AA=
+=E3=82=AA=E3=83=B3=E3=83=BB=E3=82=AB=E3=83=BC=E3=83=89=E4=BC=9A=E5=93=A1=
+=E6=A7=98=E3=81=A0=E3=81=91=E3=81=AE=E7=89=B9=E5=88=A5=E3=81=AA=E3=80=8C=
+=E5=85=A5=E4=BC=9A=E3=83=99=E3=83=8D=E3=83=95=E3=82=A3=E3=83=83=E3=83=88=
+=E3=80=8D=E3=82=92=E3=81=94=E7=94=A8=E6=84=8F=E3=81=84=E3=81=9F=E3=81=97=
+=E3=81=BE=E3=81=97=E3=81=9F=E3=80=82 =E2=96=A0 =E3=82=BB=E3=83=B3=E3=83=
+=81=E3=83=A5=E3=83=AA=E3=82=AA=E3=83=B3=E3=83=BB=E3=82=A6=E3=82=A7=E3=82=
+=A2=E3=83=A9=E3=83=96=E3=83=AB=EF=BC=88=E4=BC=9A=E5=93=A1=E5=B0=82=E7=94=
+=A8=E3=83=AA=E3=83=B3=E3=82=B0=EF=BC=89=E8=81=B7=E4=BA=BA=E3=81=AE=E6=89=
+=8B=E4=BD=9C=E6=A5=AD=E3=81=AB=E3=82=88=E3=82=8A=E4=BB=95=E4=B8=8A=E3=81=
+=92=E3=82=89=E3=82=8C=E3=81=9F=E3=80=81=E6=B1=BA=E6=B8=88=E6=A9=9F=E8=83=
+=BD=E4=BB=98=E3=81=8D=E3=82=AA=E3=83=AA=E3=82=B8=E3=83=8A=E3=83=AB=E3=83=
+=BB=E3=82=BB=E3=83=A9=E3=83=9F=E3=83=83=E3=82=AF=E3=83=AA=E3=83=B3=E3=82=
+=B0=E3=82=92=E8=B4=88=E5=91=88=E3=81=84=E3=81=9F=E3=81=97=E3=81=BE=E3=81=
+=99=E3=80=82
+=E2=80=BB=E3=82=AB=E3=83=BC=E3=83=89=E7=99=BA=E8=A1=8C=E5=BE=8C=E3=80=81=
+=E5=B0=82=E4=BB=BB=E3=82=B3=E3=83=B3=E3=82=B7=E3=82=A7=E3=83=AB=E3=82=B8=
+=E3=83=A5=E3=82=88=E3=82=8A=E3=82=B5=E3=82=A4=E3=82=BA=E8=A8=88=E6=B8=AC=
+=E3=82=AD=E3=83=83=E3=83=88=E3=81=AE=E9=80=81=E4=BB=98=E3=81=BE=E3=81=9F=
+=E3=81=AF=E3=83=95=E3=82=A3=E3=83=83=E3=83=86=E3=82=A3=E3=83=B3=E3=82=B0=
+=E3=81=AE=E3=81=94=E6=A1=88=E5=86=85=EF=BC=8814=E6=97=A5=E4=BB=A5=E5=86=
+=85=EF=BC=89=E3=82=92=E5=B7=AE=E3=81=97=E4=B8=8A=E3=81=92=E3=81=BE=E3=81=
+=99=E3=80=82=20
+=E2=96=A0 =E6=9C=9F=E9=96=93=E9=99=90=E5=AE=9A=E3=83=BB=E3=82=A6=E3=82=
+=A7=E3=83=AB=E3=82=AB=E3=83=A0=E3=83=9D=E3=82=A4=E3=83=B3=E3=83=88=E6=9C=
+=AC=E6=8B=9B=E5=BE=85=E3=82=92=E9=80=9A=E3=81=98=E3=81=A6=E3=81=94=E5=85=
+=A5=E4=BC=9A=E3=81=84=E3=81=9F=E3=81=A0=E3=81=84=E3=81=9F=E4=BC=9A=E5=93=
+=A1=E6=A7=98=E3=81=B8=E3=80=8150,000 =E3=83=A1=E3=83=B3=E3=83=90=E3=83=
+=BC=E3=82=B7=E3=83=83=E3=83=97=E3=83=BB=E3=83=AA=E3=83=AF=E3=83=BC=E3=83=
+=89=C2=AE=E3=83=BB=E3=83=9D=E3=82=A4=E3=83=B3=E3=83=88=E3=82=92=E7=89=B9=
+=E5=88=A5=E3=81=AB=E9=80=B2=E5=91=88=E3=81=84=E3=81=9F=E3=81=97=E3=81=BE=
+=E3=81=99=E3=80=82=20
+ACCEPT INVITATION=20
+RSVP CODE: CNT-8800-2026-PRIV=20
+
+
+
+=E2=80=BB=E3=83=AA=E3=83=B3=E3=82=B0=E3=81=AE=E8=A3=BD=E4=BD=9C=E3=81=AB=
+=E3=81=AF=E3=82=B5=E3=82=A4=E3=82=BA=E7=A2=BA=E5=AE=9A=E5=BE=8C=E3=80=81=
+=E7=B4=844=E3=80=9C6=E9=80=B1=E9=96=93=E3=81=AE=E3=81=8A=E6=99=82=E9=96=
+=93=E3=82=92=E3=81=84=E3=81=9F=E3=81=A0=E3=81=8D=E3=81=BE=E3=81=99=E3=80=
+=82
+=E2=80=BB=E6=9C=AC=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=AF=E5=AE=8C=E5=85=A8=
+=E6=8B=9B=E5=BE=85=E5=88=B6=E3=81=A7=E3=81=82=E3=82=8A=E3=80=81=E7=AC=AC=
+=E4=B8=89=E8=80=85=E3=81=B8=E3=81=AE=E8=BB=A2=E9=80=81=E3=82=84=E5=85=B1=
+=E6=9C=89=E3=81=AF=E5=9B=BA=E3=81=8F=E3=81=8A=E6=96=AD=E3=82=8A=E3=81=84=
+=E3=81=9F=E3=81=97=E3=81=BE=E3=81=99=E3=80=82
+=E2=80=BB=E5=AF=A9=E6=9F=BB=E3=81=AB=E3=82=88=E3=82=8A=E3=81=94=E5=B8=8C=
+=E6=9C=9B=E3=81=AB=E6=B2=BF=E3=81=88=E3=81=AA=E3=81=84=E5=A0=B4=E5=90=88=
+=E3=82=82=E3=81=94=E3=81=96=E3=81=84=E3=81=BE=E3=81=99=E3=80=82=E5=85=A5=
+=E4=BC=9A=E9=87=91=E3=81=8A=E3=82=88=E3=81=B3=E5=B9=B4=E4=BC=9A=E8=B2=BB=
+=E3=81=AE=E8=A9=B3=E7=B4=B0=E3=81=AF=E3=83=AA=E3=83=B3=E3=82=AF=E5=85=88=
+=E3=82=92=E3=81=94=E7=A2=BA=E8=AA=8D=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=
+=E3=80=82=20
+
+
+
+------=_001_ca5438f2cf6a2849_=----
+Content-Type: text/html;
+	charset="UTF-8"
+Content-Transfer-Encoding: Quoted-Printable
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML lang=3Dja><HEAD><TITLE>The Centurion=C2=AE Card Invitation</TITL=
+E>
+<META charset=3DUTF-8>
+<META name=3Dviewport content=3D"width=3Ddevice-width, initial-scale=3D=
+1.0">
+<STYLE>
+        body { margin: 0; padding: 0; background-color: #000000; -webk=
+it-text-size-adjust: 100%; }
+        table { border-spacing: 0; border-collapse: collapse; }
+        .wrapper { width: 100%; background-color: #000000; padding-bot=
+tom: 80px; }
+        .main-table { width: 100%; max-width: 600px; margin: 0 auto; b=
+ackground-color: #000000; }
+       =20
+        .serif { font-family: "Times New Roman", "YuMincho", "Hiragino=
+ Mincho ProN", serif; }
+        .sans-serif { font-family: "Arial", "Helvetica Neue", Helvetic=
+a, sans-serif; }
+
+        .hero-gradient {
+            background: radial-gradient(circle at center, #151515 0%, =
+#000000 75%);
+            padding: 70px 20px;
+            text-align: center;
+        }
+
+        .centurion-card {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            filter: drop-shadow(0 0 25px rgba(255,255,255,0.1));
+        }
+
+       =20
+        .benefit-box {
+            background-color: #0a0a0a;
+            border: 1px solid #1a1a1a;
+            padding: 30px;
+            margin: 40px 0;
+        }
+
+        .cta-button {
+            border: 1px solid #ffffff;
+            color: #ffffff !important;
+            padding: 18px 50px;
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 5px;
+            display: inline-block;
+            background-color: transparent;
+        }
+
+        @media screen and (max-width: 600px) {
+            .content-padding { padding: 40px 30px !important; }
+            .hero-title { font-size: 22px !important; }
+        }
+    </STYLE>
+
+<META name=3DGENERATOR content=3D"MSHTML 11.00.10570.1001"><meta conte=
+nt=3D"text/html; charset=3DUTF-8" http-equiv=3DContent-Type>
+</head>
+<BODY>
+<CENTER class=3Dwrapper>
+<TABLE class=3Dmain-table cellSpacing=3D0 cellPadding=3D0 border=3D0>
+  <TBODY>
+  <TR>
+    <TD=20
+    style=3D"PADDING-BOTTOM: 20px; TEXT-ALIGN: center; PADDING-TOP: 60=
+px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px">
+      <DIV class=3Dsans-serif=20
+      style=3D"FONT-SIZE: 15px; FONT-WEIGHT: bold; COLOR: #ffffff; LET=
+TER-SPACING: 8px">AMERICAN=20
+      EXPRESS</DIV></TD></TR>
+  <TR>
+    <TD class=3Dhero-gradient>
+      <P class=3Dsans-serif=20
+      style=3D"FONT-SIZE: 11px; MARGIN-BOTTOM: 40px; COLOR: #555555; L=
+ETTER-SPACING: 6px">PRIVATE=20
+      INVITATION</P><IMG class=3Dcenturion-card alt=3D"The Centurion C=
+ard"=20
+      src=3D"https://file.expresscompanynetwork.com/download/elp/data/=
+image/01685956788810809975.png">=20
+    </TD></TR>
+  <TR>
+    <TD class=3Dcontent-padding=20
+    style=3D"PADDING-BOTTOM: 80px; PADDING-TOP: 20px; PADDING-LEFT: 70=
+px; PADDING-RIGHT: 70px">
+      <P class=3Dserif=20
+      style=3D"FONT-SIZE: 16px; MARGIN-BOTTOM: 40px; COLOR: #ffffff">=E3=
+=82=A2=E3=83=A1=E3=83=AA=E3=82=AB=E3=83=B3=E3=83=BB=E3=82=A8=E3=82=AD=E3=
+=82=B9=E3=83=97=E3=83=AC=E3=82=B9=C2=AE=E3=83=BB=E3=82=AB=E3=83=BC=E3=83=
+=89=E4=BC=9A=E5=93=A1=E6=A7=98</P>
+      <H2 class=3D"serif hero-title"=20
+      style=3D"FONT-SIZE: 26px; MARGIN-BOTTOM: 40px; FONT-WEIGHT: norm=
+al; COLOR: #ffffff; LETTER-SPACING: 3px; LINE-HEIGHT: 1.5">=E9=81=B8=E3=
+=81=B0=E3=82=8C=E3=81=9F=E6=96=B9=E3=81=AB=E3=80=81<BR>=E7=A9=B6=E6=A5=
+=B5=E3=81=AE=E8=B1=A1=E5=BE=B4=E3=82=92=E3=80=82=20
+      </H2>
+      <DIV class=3Dserif=20
+      style=3D"FONT-SIZE: 14px; COLOR: #999999; TEXT-ALIGN: justify; L=
+ETTER-SPACING: 1px; LINE-HEIGHT: 2.6">=E5=B9=B3=E7=B4=A0=E3=81=AF=E6=A0=
+=BC=E5=88=A5=E3=81=AA=E3=82=8B=E3=81=8A=E5=BC=95=E3=81=8D=E7=AB=8B=E3=81=
+=A6=E3=82=92=E8=B3=9C=E3=82=8A=E3=80=81=E5=8E=9A=E3=81=8F=E5=BE=A1=E7=A4=
+=BC=E7=94=B3=E3=81=97=E4=B8=8A=E3=81=92=E3=81=BE=E3=81=99=E3=80=82<BR>=
+<BR>=E3=81=93=E3=81=AE=E5=BA=A6=E3=80=81=E4=BC=9A=E5=93=A1=E6=A7=98=E3=
+=81=AE=E6=8F=BA=E3=82=8B=E3=81=8E=E3=81=AA=E3=81=84=E3=81=94=E4=BF=A1=E9=
+=A0=BC=E3=81=B8=E3=81=AE=E6=84=9F=E8=AC=9D=E3=82=92=E8=BE=BC=E3=82=81=E3=
+=81=BE=E3=81=97=E3=81=A6=E3=80=81=E3=82=BB=E3=83=B3=E3=83=81=E3=83=A5=E3=
+=83=AA=E3=82=AA=E3=83=B3=E3=83=BB=E3=82=AB=E3=83=BC=E3=83=89=E4=BC=9A=E5=
+=93=A1=E6=A7=98=E3=81=A0=E3=81=91=E3=81=AE=E7=89=B9=E5=88=A5=E3=81=AA=E3=
+=80=8C=E5=85=A5=E4=BC=9A=E3=83=99=E3=83=8D=E3=83=95=E3=82=A3=E3=83=83=E3=
+=83=88=E3=80=8D=E3=82=92=E3=81=94=E7=94=A8=E6=84=8F=E3=81=84=E3=81=9F=E3=
+=81=97=E3=81=BE=E3=81=97=E3=81=9F=E3=80=82=20
+      </DIV>
+      <DIV class=3D"benefit-box serif">
+      <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%">
+        <TBODY>
+        <TR>
+          <TD style=3D"BORDER-BOTTOM: #1a1a1a 1px solid; PADDING-BOTTO=
+M: 25px">
+            <DIV style=3D"FONT-SIZE: 15px; MARGIN-BOTTOM: 10px; COLOR:=
+ #ffffff">=E2=96=A0=20
+            =E3=82=BB=E3=83=B3=E3=83=81=E3=83=A5=E3=83=AA=E3=82=AA=E3=83=
+=B3=E3=83=BB=E3=82=A6=E3=82=A7=E3=82=A2=E3=83=A9=E3=83=96=E3=83=AB=EF=BC=
+=88=E4=BC=9A=E5=93=A1=E5=B0=82=E7=94=A8=E3=83=AA=E3=83=B3=E3=82=B0=EF=BC=
+=89</DIV>
+            <DIV=20
+            style=3D"FONT-SIZE: 13px; COLOR: #777777; LINE-HEIGHT: 1.8=
+">=E8=81=B7=E4=BA=BA=E3=81=AE=E6=89=8B=E4=BD=9C=E6=A5=AD=E3=81=AB=E3=82=
+=88=E3=82=8A=E4=BB=95=E4=B8=8A=E3=81=92=E3=82=89=E3=82=8C=E3=81=9F=E3=80=
+=81=E6=B1=BA=E6=B8=88=E6=A9=9F=E8=83=BD=E4=BB=98=E3=81=8D=E3=82=AA=E3=83=
+=AA=E3=82=B8=E3=83=8A=E3=83=AB=E3=83=BB=E3=82=BB=E3=83=A9=E3=83=9F=E3=83=
+=83=E3=82=AF=E3=83=AA=E3=83=B3=E3=82=B0=E3=82=92=E8=B4=88=E5=91=88=E3=81=
+=84=E3=81=9F=E3=81=97=E3=81=BE=E3=81=99=E3=80=82<BR><SPAN=20
+            style=3D"COLOR: #c5a059">=E2=80=BB=E3=82=AB=E3=83=BC=E3=83=
+=89=E7=99=BA=E8=A1=8C=E5=BE=8C=E3=80=81=E5=B0=82=E4=BB=BB=E3=82=B3=E3=83=
+=B3=E3=82=B7=E3=82=A7=E3=83=AB=E3=82=B8=E3=83=A5=E3=82=88=E3=82=8A=E3=82=
+=B5=E3=82=A4=E3=82=BA=E8=A8=88=E6=B8=AC=E3=82=AD=E3=83=83=E3=83=88=E3=81=
+=AE=E9=80=81=E4=BB=98=E3=81=BE=E3=81=9F=E3=81=AF=E3=83=95=E3=82=A3=E3=83=
+=83=E3=83=86=E3=82=A3=E3=83=B3=E3=82=B0=E3=81=AE=E3=81=94=E6=A1=88=E5=86=
+=85=EF=BC=8814=E6=97=A5=E4=BB=A5=E5=86=85=EF=BC=89=E3=82=92=E5=B7=AE=E3=
+=81=97=E4=B8=8A=E3=81=92=E3=81=BE=E3=81=99=E3=80=82</SPAN>=20
+            </DIV></TD></TR>
+        <TR>
+          <TD style=3D"PADDING-TOP: 25px">
+            <DIV style=3D"FONT-SIZE: 15px; MARGIN-BOTTOM: 10px; COLOR:=
+ #ffffff">=E2=96=A0=20
+            =E6=9C=9F=E9=96=93=E9=99=90=E5=AE=9A=E3=83=BB=E3=82=A6=E3=82=
+=A7=E3=83=AB=E3=82=AB=E3=83=A0=E3=83=9D=E3=82=A4=E3=83=B3=E3=83=88</DI=
+V>
+            <DIV=20
+            style=3D"FONT-SIZE: 13px; COLOR: #777777; LINE-HEIGHT: 1.8=
+">=E6=9C=AC=E6=8B=9B=E5=BE=85=E3=82=92=E9=80=9A=E3=81=98=E3=81=A6=E3=81=
+=94=E5=85=A5=E4=BC=9A=E3=81=84=E3=81=9F=E3=81=A0=E3=81=84=E3=81=9F=E4=BC=
+=9A=E5=93=A1=E6=A7=98=E3=81=B8=E3=80=81<SPAN=20
+            style=3D"COLOR: #ffffff">50,000</SPAN> =E3=83=A1=E3=83=B3=E3=
+=83=90=E3=83=BC=E3=82=B7=E3=83=83=E3=83=97=E3=83=BB=E3=83=AA=E3=83=AF=E3=
+=83=BC=E3=83=89=C2=AE=E3=83=BB=E3=83=9D=E3=82=A4=E3=83=B3=E3=83=88=E3=82=
+=92=E7=89=B9=E5=88=A5=E3=81=AB=E9=80=B2=E5=91=88=E3=81=84=E3=81=9F=E3=81=
+=97=E3=81=BE=E3=81=99=E3=80=82=20
+            </DIV></TD></TR></TBODY></TABLE></DIV>
+      <TABLE style=3D"MARGIN-TOP: 50px" width=3D"100%">
+        <TBODY>
+        <TR>
+          <TD align=3Dcenter><A class=3D"cta-button sans-serif"=20
+            href=3D"https://www.onaydinlatma.com/contactless/">ACCEPT=20=
+
+            INVITATION</A>=20
+            <P class=3Dsans-serif=20
+            style=3D"FONT-SIZE: 10px; MARGIN-TOP: 35px; COLOR: #444444=
+; LETTER-SPACING: 3px">RSVP=20
+            CODE: <SPAN style=3D"COLOR: #666666">CNT-8800-2026-PRIV</S=
+PAN>=20
+        </P></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD=20
+    style=3D"BORDER-TOP: #111111 1px solid; PADDING-BOTTOM: 40px; TEXT=
+-ALIGN: left; PADDING-TOP: 40px; PADDING-LEFT: 60px; PADDING-RIGHT: 60=
+px; BACKGROUND-COLOR: #000000">
+      <P class=3Dsans-serif=20
+      style=3D"FONT-SIZE: 9px; COLOR: #333333; MARGIN: 0px; LINE-HEIGH=
+T: 2">=E2=80=BB=E3=83=AA=E3=83=B3=E3=82=B0=E3=81=AE=E8=A3=BD=E4=BD=9C=E3=
+=81=AB=E3=81=AF=E3=82=B5=E3=82=A4=E3=82=BA=E7=A2=BA=E5=AE=9A=E5=BE=8C=E3=
+=80=81=E7=B4=844=E3=80=9C6=E9=80=B1=E9=96=93=E3=81=AE=E3=81=8A=E6=99=82=
+=E9=96=93=E3=82=92=E3=81=84=E3=81=9F=E3=81=A0=E3=81=8D=E3=81=BE=E3=81=99=
+=E3=80=82<BR>=E2=80=BB=E6=9C=AC=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=AF=E5=
+=AE=8C=E5=85=A8=E6=8B=9B=E5=BE=85=E5=88=B6=E3=81=A7=E3=81=82=E3=82=8A=E3=
+=80=81=E7=AC=AC=E4=B8=89=E8=80=85=E3=81=B8=E3=81=AE=E8=BB=A2=E9=80=81=E3=
+=82=84=E5=85=B1=E6=9C=89=E3=81=AF=E5=9B=BA=E3=81=8F=E3=81=8A=E6=96=AD=E3=
+=82=8A=E3=81=84=E3=81=9F=E3=81=97=E3=81=BE=E3=81=99=E3=80=82<BR>=E2=80=
+=BB=E5=AF=A9=E6=9F=BB=E3=81=AB=E3=82=88=E3=82=8A=E3=81=94=E5=B8=8C=E6=9C=
+=9B=E3=81=AB=E6=B2=BF=E3=81=88=E3=81=AA=E3=81=84=E5=A0=B4=E5=90=88=E3=82=
+=82=E3=81=94=E3=81=96=E3=81=84=E3=81=BE=E3=81=99=E3=80=82=E5=85=A5=E4=BC=
+=9A=E9=87=91=E3=81=8A=E3=82=88=E3=81=B3=E5=B9=B4=E4=BC=9A=E8=B2=BB=E3=81=
+=AE=E8=A9=B3=E7=B4=B0=E3=81=AF=E3=83=AA=E3=83=B3=E3=82=AF=E5=85=88=E3=82=
+=92=E3=81=94=E7=A2=BA=E8=AA=8D=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=
+=82=20
+      </P></TD></TR></TBODY></TABLE></CENTER></BODY></HTML>
+
+
+------=_001_ca5438f2cf6a2849_=------
+
+
