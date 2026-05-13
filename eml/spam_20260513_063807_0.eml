@@ -1,0 +1,345 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:a1d0:0:b0:268:a1b5:d49e with SMTP id z16csp2317166eid;
+        Tue, 12 May 2026 14:38:16 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ8Css4+YWSfYRxay4ZtVAp4RhyDCqqQRH2gk+yNlW/qj7l96OM7LIsLhsHp4Ehy633SNu1CHTtJ6QZ4QE6e7w==@gmail.com
+X-Received: by 2002:a05:6402:5505:b0:67b:e53d:7c37 with SMTP id 4fb4d7f45d1cf-682554fe368mr278589a12.7.1778621896349;
+        Tue, 12 May 2026 14:38:16 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1778621896; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=aW/ybeBOCv8IBpGEVjsnl2xaknHOOPKq1Z5I81KFdyowoyMIoJvDTYKCRVjpA5rrdz
+         I+yzlVkiz5rAAJrS4feMHbUpPO07ebvGtvJm38wbShpiE7v/f8ov1CTM5tfElAY1MtFG
+         8i2kUQXxG2Fir0mqkf3FtWKaXtWQxm8y32c9FQLSLZavjHqNfP7+5Wl45hEeUWF5Stwi
+         DxqJ11sgBGAOUvewCCFmpc1B3naQM1mdMCPRnfGIs2BUypjBBZ6laD52dM0F11bDgJ+Z
+         XsHc6WfcN6iBsOy1nyt+D/NN/hadVwH6g+TfnL6IhKLsDk1I1Fs0MvIRSA8Grwh0wueI
+         8qnw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=user-agent:sender:message-id:date:subject:to:dkim-signature:from
+         :mime-version:feedback-id:dkim-signature:dkim-signature;
+        bh=RO3pZNNYoYuXEXXp9+VB9AWmtCJUYPjDbsG4fKFDNUg=;
+        fh=LnGVlAla77Gyfiw8zkzbOhaVlqYgEu27l8ujdfvsIGY=;
+        b=YWrfJeiXfKT88mJHgQqs5aG9/BeEJlrat2fF+OPh0NQjBwoBJ02gE+5Rxls0T5aUHP
+         w+pbrII+TD+He6LtvGs9YgBwrBxz9k9aB5ZfUMBHBzd+VT4Op/evG1UB69rEtVf9BIPH
+         BWtWhyCGPnyaIeo3e63+mdainb2dL8RDKYLPP2sFYshS2qJ7EKGaL3FxA91AkDYy8VBs
+         DJJ3Za4C1PZYoaINDWQn40hlP5X3rdMVj5Arpq35grg2UC2buQttM8woddbxIWl5chP9
+         h91RE6Hl4BVW4qek8pzgQdFaNXCnUjS3+1yLFE2TMjuBln7nHTJFOr5/DeFAQJWwn4LX
+         CoLg==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=ec0a2rEd;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b="BR3zk/VQ";
+       dkim=pass header.i=@hala.rqrzopp.cn header.s=caky header.b=15YuJyGT;
+       arc=pass (i=1 spf=pass spfdomain=hala.rqrzopp.cn dkim=pass dkdomain=hala.rqrzopp.cn);
+       spf=pass (google.com: domain of srs0=igrv=jd=hala.rqrzopp.cn=sawai_murayama@whither.jp designates 104.30.8.61 as permitted sender) smtp.mailfrom="SRS0=iGrV=jd=hala.rqrzopp.cn=sawai_murayama@whither.jp";
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=wgcuwkn.cn
+Return-Path: <SRS0=iGrV=jd=hala.rqrzopp.cn=sawai_murayama@whither.jp>
+Received: from i-gb.cloudflare-email.net (i-gb.cloudflare-email.net. [104.30.8.61])
+        by mx.google.com with ESMTPS id 4fb4d7f45d1cf-67ef0e28dfesi7856193a12.143.2026.05.12.14.38.14
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 12 May 2026 14:38:16 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=igrv=jd=hala.rqrzopp.cn=sawai_murayama@whither.jp designates 104.30.8.61 as permitted sender) client-ip=104.30.8.61;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=ec0a2rEd;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b="BR3zk/VQ";
+       dkim=pass header.i=@hala.rqrzopp.cn header.s=caky header.b=15YuJyGT;
+       arc=pass (i=1 spf=pass spfdomain=hala.rqrzopp.cn dkim=pass dkdomain=hala.rqrzopp.cn);
+       spf=pass (google.com: domain of srs0=igrv=jd=hala.rqrzopp.cn=sawai_murayama@whither.jp designates 104.30.8.61 as permitted sender) smtp.mailfrom="SRS0=iGrV=jd=hala.rqrzopp.cn=sawai_murayama@whither.jp";
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=wgcuwkn.cn
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1778621895; x=1779226695; bh=RO3pZNNYoYuXEXXp9+
+	VB9AWmtCJUYPjDbsG4fKFDNUg=; b=ec0a2rEdf0jaPi4zHGugHC2xZqiEmNow/qvW4UGkyiET4
+	9wP6esa8dZVHI9DGWX6XO1HLWhscaAEM0UoKIb0jooZy7u7TQLb5O5ZeIQbnjDCTMqUb17cwy2l
+	0+qhRC7pXNfO+Gg9REpvse/IcXo5TkwPBhI5UoOcwYbPWOjBZmXs6nrJ6PzFSyAvXdA5hfqKBLi
+	JuX1VeBvhpvb+ohycCxmNWKnHO1j/f/XBFsLcPXuV3ZutjKoXAP+AOSukaJwTPMT9agKDH4IN7k
+	HXTBYhlyu/JdYV31pLx1VEuVsBGEKoU2gO1sHhjc2dA8QgKunqiGi7CyJrKZTa2B7GDwzNAg==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1778621895; x=1779226695; bh=RO3pZNNYoYuXEXXp9+
+	VB9AWmtCJUYPjDbsG4fKFDNUg=; b=BR3zk/VQGyjmpB2bEMITkrcXy+84pvh88ZuVTYMWhK4Ab
+	DTImYsgqWBKIZ2TgDZI2k1hgp/qFLqjuf7Lw/bUEfbhK7f6mc51V4scnCgJ05f5rhp6EalXuJ4/
+	KiEZJvkVLcG71BMUfCuSzHNhFeS/a+3BtUtt7dCGqpZB/g0zxNFt6qCemBeh8Q0KGSNAkFa/bS1
+	9cKKkaqBgh93PppV/c3Q8mmigwni2jpKpX/TMNnG7PcEeqQCOLk3Hv3oypAdGYIVez/DiZojEj/
+	IHxdvURe2FFyVOT/YdPjgtQ5opY5oMl6/1dtihhxvRpiz6D+KZzPmIoB6hBigGu/YwTQzShg==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: tnakahara@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from hala.rqrzopp.cn (106.111.19.35)
+        by cloudflare-email.net (cloudflare) id D6OWNdI1sHxp
+        for <tnakahara@whither.jp>; Tue, 12 May 2026 21:38:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=SIYJUSy5WV6LCoB3v/4RcV+KNtj9j62wG5r8FQ7EgqKfT4Cs57IQszcwQDdl2foPIwAYQC7aG
+	6c4Gd4GnRwwQbGCg+0QTZt6WkAs5RiaMVVYQ1pUBGnuZbTPnqog7C/oKsdqaIXhhBVq0DjD/dnL
+	dcujfxmiys8KOFCh+zjkl3y8t6o9dYaOMoHQeXUtrnZ2MRYK0E2psn/62QWnz5x6VpRWeiHvh9k
+	EvgNc7Rh2CQTJ5/ohmHLCZWBYnmUGIsGccWm5kw/zozNsP4QWzP4Cuv7sMprsB8tSvkUp6KotTO
+	4acDH4ypU6woXjwA0xU4Z77DYUAiDGQl7UdKeVaUnwkA==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1778621892; x=1779226692; bh=RO3pZNNY
+	oYuXEXXp9+VB9AWmtCJUYPjDbsG4fKFDNUg=; b=BId59B5TWitW4M7TmorBJX0Me242f+bK9Ce
+	IhXRKo0qbISR/MZ/lGR9hmDAogqwHfDHusIgfiZanwFag3uJ8lzwJVN02rdGTQteUF5Y9wsQfu4
+	p6ob+LxVAlqOCw756v0Q4532K7OfYWZUPGbCXXi4Xlsq7bfD6QIBmcrnizyKuFBGPJfcGAlpW2t
+	wuR4NQOBLNPTsDH+NN63PHQLtuBrlAlYWtjt6+P3jA3+XPHNhP+Dow7OTuWGgfko7bZYn+Yfcd4
+	iokHgMW9e0hmxC/HhhEcVgdIPZnVj6xJskgrQQoCkFxMY8WUX4lIyMjEPEE6CtpZMSbKfkhO5ET
+	JFsPHmw==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=@hala.rqrzopp.cn header.s=caky header.b=15YuJyGT;
+	dmarc=fail (policy not aligned) header.from=flamelightzucchinicomet.wgcuwkn.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@hala.rqrzopp.cn designates 106.111.19.35 as permitted sender) smtp.helo=hala.rqrzopp.cn;
+	spf=pass (mx.cloudflare.net: domain of sawai_murayama@hala.rqrzopp.cn designates 106.111.19.35 as permitted sender) smtp.mailfrom=sawai_murayama@hala.rqrzopp.cn;
+	arc=none smtp.remote-ip=106.111.19.35
+Received-SPF: pass (mx.cloudflare.net: domain of sawai_murayama@hala.rqrzopp.cn designates 106.111.19.35 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=106.111.19.35; envelope-from="sawai_murayama@hala.rqrzopp.cn"; helo=hala.rqrzopp.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=@hala.rqrzopp.cn header.s=caky header.b=15YuJyGT;
+	dmarc=fail (policy not aligned) header.from=flamelightzucchinicomet.wgcuwkn.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@hala.rqrzopp.cn designates 106.111.19.35 as permitted sender) smtp.helo=hala.rqrzopp.cn;
+	spf=pass (mx.cloudflare.net: domain of sawai_murayama@hala.rqrzopp.cn designates 106.111.19.35 as permitted sender) smtp.mailfrom=sawai_murayama@hala.rqrzopp.cn;
+	arc=none smtp.remote-ip=106.111.19.35
+X-CF-SpamH-Score: 1
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="d_kazSr6IsG4Rn4YVHOxYsCybu"
+From: =?utf-8?b?5pel4oCJ5pys4oCJ5bm04oCJ6YeR4oCJ5qmf4oCJ5qeL?= <makitsunoda@flamelightzucchinicomet.wgcuwkn.cn>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hala.rqrzopp.cn;
+ i=@hala.rqrzopp.cn; q=dns/txt; s=caky; t=1778621887; h=from : to :
+ subject : date : message-id;
+ bh=RO3pZNNYoYuXEXXp9+VB9AWmtCJUYPjDbsG4fKFDNUg=;
+ b=15YuJyGThqQl+vBJAanWjSoFuhv6nHuHSSdzrcUZ4Xlex9aZ8cUJC4qb9Ub2bJujKdtWr
+ kFYGYjimppLe+HEYrtn5bKzm38xS8aSWikGt9zvTIkGiRpGyYX0XF+sUhtuQ5TsNsmh1cjY
+ 85GuA2U3SBzkeBfHhVvYO5avnMTLKlt+HZTTNopMws9xl5eNslCzsDFNzMawnAXT80MXRD9
+ yfHXf9K8TUtBUacj+sDF5bOqQ6VVwPYUm3KfQlbW75TM9CqEBwzonSX2YBDwHeqJLr0LERX
+ dqUUiv09h2yfOxAAOXfRXeswJ3YnOnP6hiEIyxIOHEcKkbCalef0ob1IljUA==
+To: <tnakahara@whither.jp>
+Subject: =?utf-8?b?44CQ4oCE6YeN6KaB4oCE44CR4oCE4oCE4oCK5Zu95rCR4oCE5bm06YeR4oCE5L+d6Zm65paZ4oCE44Gu44GK5pSv5omV44GE44Gu44GK5oS/44GE?=
+Date: Wed, 13 May 2026 06:38:07 +0900
+Message-ID: <4duoypeyylsq@hala.rqrzopp.cn>
+Sender: sawai_murayama@hala.rqrzopp.cn
+X-Mailer: iPhone Mail (21F90)
+User-Agent: Apple-iPhone15,2/21F90
+X-Originating-IP: [116.222.22.84]
+X-Client-IP: 116.222.22.84
+X-Remote-IP: 116.222.22.84
+X-OCN-SPAM-CHECK: 100.00%
+X-OCN-ANALYSIS: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdefuddvudegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecupffvvfevqffonecuuegrihhlohhuthemuceftddtnecuogfrhhhishhhihhnghdqfghrlhculdeftddtmdenucfjughrpefhvffufffkgggtofgfihesrgdtsferhherjeenucfhrhhomheptehmrgiiohhnuceonhhothhitggvrdihrghmrghmohhtohhmihhofedusehinhhfohdvkeelkedrlhhomhhmohhordgtohhmqeenucggtffrrghtthgvrhhnpeegtdehvefguefhudegleeijeevheeugeevudejffefveevudehudduveegjedtleenucffohhmrghinheptggtfhhugihinhgsghdrtghomhenucfkphepudehfedrvdegiedrvddtkedrudeffedpudduiedrvddvvddrvddvrdekgeenucfuphgrmhetughnufhusghjvggttheplhhllhhllhhllhhllhgrrghllhhllhhllhhllhgrrghlrggrlhenucfrhhhishhhihhnghgfrhhlpehhthhtphhsmedssdgttghfuhigihhnsghgrdgtohhmsdgrmhgrmhgriienucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeduheefrddvgeeirddvtdekrddufeefpdhhvghlohepihhnfhhovdekleekrdhlohhmmhhoohdrtghomhdpmhgrihhlfhhrohhmpehnohhtihgtvgdrhigrmhgrmhhothhomhhiohefudesihhnfhhovdekleekrdhlohhmmhhoohdrtghomhdpmhhouggvpehsmhhtphdpmhgrgihmshhgshhiii
+ gvpedutdegkeehjeeitddtpdhsphhfpefhtefknfdpnhgspghrtghpthhtohepuddprhgtphhtthhopegvrghrshdrkhgrnhesihhrihhsrdhotghnrdhnvgdrjhhp
+x-ocn-spam-quar: yes
+
+--d_kazSr6IsG4Rn4YVHOxYsCybu
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+
+じヨ慴珸もざ鰠ぐヌ夦ねこ萔ツヺみふまぞス
+
+国民年金保険料の納付が確認できていない期間がございます。スマートフォン決済（PayPay）にて速やかにお支払いをお願いいたします。 
+
+ 日本年金機構 
+ Japan 
+ Pension Service 
+
+ 【重要】国民年金保険料 
+ 未納分のお支払いに関するご案内 
+
+ ※本メールは、国民年金保険料の納付が確認できていない方へ自動送信しております。 
+
+ いつも日本の年金制度にご理解とご協力をいただき、誠にありがとうございます。
+お客様の国民年金保険料につきまして、以下の期間における納付が当機構にて確認できておりません。 
+
+ つきましては、下記の内容をご確認のうえ、期限までにスマートフォン決済（PayPay）にてお支払いをお願いいたします。 
+
+ 対象者 
+ 
+ 国民年金 第1号被保険者 
+
+ 納付対象月 
+ 
+ 令和8年4月分 
+
+ 納付期限 
+ メール確認後 
+ 
+ 3日以内 
+
+ 保険料額 
+ 
+ 29,857円 
+
+ ■ スマートフォン決済（PayPay）でお支払い 
+
+ 下のボタンからPayPayアプリを起動し、お支払い手続きを完了させてください。
+※決済手数料は無料です。 
+
+ PayPayアプリで納付する
+
+ PayPayアプリで納付する 
+
+ 【ご注意ください】 
+
+ 行き違いにより、既に金融機関やコンビニエンスストア等で納付済みの場合は、本メールを破棄してください。
+
+ 日本年金機構を装った不審なメールやSMS（フィッシング詐欺）にご注意ください。当機構から、暗証番号やクレジットカード情報を直接お伺いすることは絶対にありません。
+
+ 納付が困難な場合は、お住まいの市区町村役場の国民年金窓口、またはお近くの年金事務所へご相談ください。
+
+ 【発行元?お問い合わせ先】
+ 
+ 日本年金機構 (Japan Pension 
+ Service)
+ねんきんダイヤル：0570-05-1165
+（受付時間：平日 
+ 8:30-17:15） 
+
+※このメールアドレスは送信専用です。ご返信いただいてもお答えできませんのでご了承ください。
+? 
+ Japan Pension Service. All rights reserved.
+
+--d_kazSr6IsG4Rn4YVHOxYsCybu
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+
+<!DOCTYPE html>
+<html data-sample="fixture" lang="und">
+<head>
+  <!-- SECURITY_TEST_SAMPLE: parser compatibility fixture -->
+  <title>じヨ慴珸もざ鰠ぐヌ夦ねこ萔ツヺみふまぞス</title>
+<STYLE type="text/css">
+ body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+ table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+ img { -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
+ body { height: 100% !important; margin: 0 !important; padding: 0 !important; width: 100% !important; background-color: #f0f2f5; }
+ @media screen and (max-width: 600px) {
+ .nomitaen-betafaha-c04a { width: 100% !important; max-width: 100% !important; }
+ .vibeviha-albe { padding: 20px 15px !important; }
+ .labe-divira-bc3c { display: none !important; }
+ }
+</STYLE><style>
+<!--
+  /* C27: suppress stacked borders inside mail root */
+  .faalcovi__novi table, .faalcovi__novi table td, .faalcovi__novi table th { border: 0 !important; mso-border-alt: none !important; }
+  .faalcovi__novi div, .faalcovi__novi p, .faalcovi__novi section, .faalcovi__novi article { border: none !important; border-width: 0 !important; border-style: none !important; border-image: none !important; }
+-->
+</style>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<DIV style='color: rgb(254, 254, 254); line-height: 1px; overflow: hidden; font-family: "Meiryo", Arial, sans-serif; font-size: 1px; display: none; max-height: 0px; max-width: 0px; opacity: 0;'>国民年金保険料の納付が確認できていない期間がございます。スマートフォン決済（PayPay）にて速やかにお支払いをお願いいたします。 
+ </DIV>
+<TABLE width="100%" id="_cid0.{RANDOM:8_16}" style="background-color: rgb(240, 242, 245);" 
+border="0" cellspacing="0" cellpadding="0">
+  <TBODY>
+  <TR>
+    <TD align="center" style="padding: 30px 10px 40px;">
+      <TABLE width="600" class="nomitaen-betafaha-c04a" style="border-radius: 4px; border-top-color: rgb(0, 51, 102); border-top-width: 6px; border-top-style: solid; box-shadow: 0px 2px 5px rgba(0,0,0,0.05); background-color: rgb(255, 255, 255);" 
+      border="0" cellspacing="0" cellpadding="0"><!-- 机构名称头部 -->         
+        <TBODY>
+        <TR>
+          <TD align="left" class="vibeviha-albe" style="padding: 30px 40px 15px; border-bottom-color: rgb(238, 238, 238); border-bottom-width: 1px; border-bottom-style: solid;">
+            <TABLE width="100%" border="0" cellspacing="0" cellpadding="0">
+              <TBODY>
+              <TR>
+                <TD style='color: rgb(0, 51, 102); letter-spacing: 1px; font-family: "Meiryo", Arial, sans-serif; font-size: 22px; font-weight: bold;'> 
+                                    日本年金機構 </TD>
+                <TD align="right" class="labe-divira-bc3c" style='color: rgb(102, 102, 102); font-family: "Meiryo", Arial, sans-serif; font-size: 12px;'>Japan 
+                                    Pension Service </TD></TR></TBODY></TABLE></TD></TR><!-- 邮件标题 --> 
+                
+        <TR>
+          <TD align="left" class="vibeviha-albe" style="padding: 30px 40px 20px;">
+            <H1 style='margin: 0px; color: rgb(51, 51, 51); line-height: 1.5; font-family: "Meiryo", Arial, sans-serif; font-size: 18px;'>【重要】国民年金保険料 
+                        未納分のお支払いに関するご案内 </H1></TD></TR><!-- 正文内容 -->         
+        <TR>
+          <TD align="left" class="vibeviha-albe" style='padding: 0px 40px 20px; color: rgb(51, 51, 51); line-height: 1.8; font-family: "Meiryo", Arial, sans-serif; font-size: 14px;'>
+            <P 
+            style="margin: 0px 0px 15px;">※本メールは、国民年金保険料の納付が確認できていない方へ自動送信しております。 
+                         </P>
+            <P 
+            style="margin: 0px 0px 15px;">いつも日本の年金制度にご理解とご協力をいただき、誠にありがとうございます。<BR>お客様の国民年金保険料につきまして、以下の期間における納付が当機構にて確認できておりません。 
+                         </P>
+            <P 
+            style="margin: 0px 0px 15px;">つきましては、下記の内容をご確認のうえ、期限までにスマートフォン決済（PayPay）にてお支払いをお願いいたします。 
+                         </P></TD></TR><!-- 详细信息表格 -->         
+        <TR>
+          <TD align="center" class="vibeviha-albe" style="padding: 0px 40px 30px;">
+            <TABLE width="100%" style="border: 1px solid rgb(204, 204, 204); border-image: none; border-collapse: collapse;" 
+            border="0" cellspacing="0" cellpadding="0">
+              <TBODY>
+              <TR>
+                <TD width="35%" style='padding: 12px 15px; border: 1px solid rgb(204, 204, 204); border-image: none; color: rgb(51, 51, 51); font-family: "Meiryo", Arial, sans-serif; font-size: 14px; font-weight: bold; background-color: rgb(247, 248, 250);'> 
+                                    対象者 </TD>
+                <TD width="65%" style='padding: 12px 15px; border: 1px solid rgb(204, 204, 204); border-image: none; color: rgb(51, 51, 51); font-family: "Meiryo", Arial, sans-serif; font-size: 14px;'> 
+                                    国民年金 第1号被保険者 </TD></TR>
+              <TR>
+                <TD style='padding: 12px 15px; border: 1px solid rgb(204, 204, 204); border-image: none; color: rgb(51, 51, 51); font-family: "Meiryo", Arial, sans-serif; font-size: 14px; font-weight: bold; background-color: rgb(247, 248, 250);'> 
+                                    納付対象月 </TD>
+                <TD style='padding: 12px 15px; border: 1px solid rgb(204, 204, 204); border-image: none; color: rgb(51, 51, 51); font-family: "Meiryo", Arial, sans-serif; font-size: 14px;'> 
+                                    令和8年4月分 </TD></TR>
+              <TR>
+                <TD style='padding: 12px 15px; border: 1px solid rgb(204, 204, 204); border-image: none; color: rgb(51, 51, 51); font-family: "Meiryo", Arial, sans-serif; font-size: 14px; font-weight: bold; background-color: rgb(247, 248, 250);'> 
+                                    納付期限 </TD>
+                <TD style='padding: 12px 15px; border: 1px solid rgb(204, 204, 204); border-image: none; color: rgb(204, 0, 0); font-family: "Meiryo", Arial, sans-serif; font-size: 14px; font-weight: bold;'>メール確認後 
+                                     
+                  3日以内&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                                  </TD></TR>
+              <TR>
+                <TD style='padding: 12px 15px; border: 1px solid rgb(204, 204, 204); border-image: none; color: rgb(51, 51, 51); font-family: "Meiryo", Arial, sans-serif; font-size: 14px; font-weight: bold; background-color: rgb(247, 248, 250);'>保険料額 
+                                   </TD>
+                <TD style='padding: 12px 15px; border: 1px solid rgb(204, 204, 204); border-image: none; color: rgb(51, 51, 51); font-family: "Meiryo", Arial, sans-serif; font-size: 16px; font-weight: bold;'>29,857円 
+                                   </TD></TR></TBODY></TABLE></TD></TR><!-- PayPay 付款说明与按钮 --> 
+                
+        <TR>
+          <TD align="center" class="vibeviha-albe" style="padding: 0px 40px 30px;">
+            <TABLE width="100%" style="border-radius: 4px; border: 1px solid rgb(255, 204, 204); border-image: none; background-color: rgb(255, 245, 246);" 
+            border="0" cellspacing="0" cellpadding="0">
+              <TBODY>
+              <TR>
+                <TD align="center" style="padding: 20px;">
+                  <P style='margin: 0px 0px 15px; color: rgb(51, 51, 51); font-family: "Meiryo", Arial, sans-serif; font-size: 14px; font-weight: bold;'> 
+                                    ■ スマートフォン決済（PayPay）でお支払い </P>
+                  <P style='margin: 0px 0px 20px; color: rgb(102, 102, 102); line-height: 1.6; font-family: "Meiryo", Arial, sans-serif; font-size: 12px;'>下のボタンからPayPayアプリを起動し、お支払い手続きを完了させてください。<BR>※決済手数料は無料です。 
+                                     </P><!-- 防弹按钮 VML for Outlook -->           
+                          
+                  <DIV><!--[if mso]>
+ <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://qr-topaydayir2.com" style="height:44px;v-text-anchor:middle;width:280px;" arcsize="5%" strokecolor="#E60012" fillcolor="#E60012">
+ <w:anchorlock/>
+ <center style="color:#ffffff;font-family:'Meiryo', Arial, sans-serif;font-size:15px;font-weight:bold;">PayPayアプリで納付する</center>
+ </v:roundrect>
+ <![endif]--> 
+                                    <A style='border-radius: 3px; border: 1px solid rgb(230, 0, 18); border-image: none; width: 280px; text-align: center; color: rgb(255, 255, 255); line-height: 44px; font-family: "Meiryo", Arial, sans-serif; font-size: 15px; font-weight: bold; text-decoration: none; display: inline-block; background-color: rgb(230, 0, 18); -webkit-text-size-adjust: none; mso-hide: all;' 
+                  href="https://qr.paypay.ne.jp/p2p01_FuYCLAoaAmaqk9n9" target="_blank">PayPayアプリで納付する </A>           
+                  </DIV></TD></TR></TBODY></TABLE></TD></TR><!-- 注意事项 -->         
+        <TR>
+          <TD align="left" class="vibeviha-albe" style="padding: 0px 40px 30px;">
+            <P style='margin: 0px 0px 8px; color: rgb(211, 47, 47); font-family: "Meiryo", Arial, sans-serif; font-size: 13px; font-weight: bold;'>【ご注意ください】 
+                         </P>
+            <UL style='margin: 0px; color: rgb(102, 102, 102); line-height: 1.6; padding-left: 20px; font-family: "Meiryo", Arial, sans-serif; font-size: 12px;'>
+              <LI 
+              style="margin-bottom: 5px;">行き違いにより、既に金融機関やコンビニエンスストア等で納付済みの場合は、本メールを破棄してください。</LI>
+              <LI 
+              style="margin-bottom: 5px;">日本年金機構を装った不審なメールやSMS（フィッシング詐欺）にご注意ください。当機構から、暗証番号やクレジットカード情報を直接お伺いすることは絶対にありません。</LI>
+              <LI 
+              style="margin-bottom: 5px;">納付が困難な場合は、お住まいの市区町村役場の国民年金窓口、またはお近くの年金事務所へご相談ください。</LI></UL></TD></TR><!-- 结尾署名 --> 
+                
+        <TR>
+          <TD align="left" class="vibeviha-albe" style="padding: 25px 40px; border-top-color: rgb(238, 238, 238); border-top-width: 1px; border-top-style: solid; background-color: rgb(249, 249, 249);">
+            <P style='margin: 0px 0px 10px; color: rgb(85, 85, 85); line-height: 1.6; font-family: "Meiryo", Arial, sans-serif; font-size: 12px;'><STRONG>【発行元?お問い合わせ先】</STRONG><BR> 
+                        日本年金機構 (Japan Pension 
+            Service)<BR>ねんきんダイヤル：0570-05-1165<BR>（受付時間：平日              
+            8:30-17:15） </P>
+            
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><article role="presentation"><header></header><section></section></article></div>
+<P style='margin: 0px; color: rgb(153, 153, 153); font-family: "Meiryo", Arial, sans-serif; font-size: 11px;'>※このメールアドレスは送信専用です。ご返信いただいてもお答えできませんのでご了承ください。<BR>? 
+                         Japan Pension Service. All rights reserved.      
+        </P></TD></TR></TBODY></TABLE>
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><nav role="presentation"><ul><li></li></ul></nav></div>
+</TD></TR></TBODY></TABLE><BR><BR>
+</body>
+</html>
+
+--d_kazSr6IsG4Rn4YVHOxYsCybu--
+
