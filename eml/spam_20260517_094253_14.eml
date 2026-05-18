@@ -1,0 +1,504 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a05:640c:3214:b0:26a:2114:7ab with SMTP id g20csp1124219eia;
+        Sat, 16 May 2026 17:43:06 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ8Gi670JmK1uKy5EgrjaPp92/MUN7itaMTdQxHb5c/5Ju2rvobM72nWljEzRj0zSJC39dx3jtnO3JFmqmC23Q==@gmail.com
+X-Received: by 2002:aa7:d5d6:0:b0:67b:7a8f:3e2c with SMTP id 4fb4d7f45d1cf-683bd38d8b7mr3520841a12.25.1778978586407;
+        Sat, 16 May 2026 17:43:06 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1778978586; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=VBA8gftC41jbr1xTsbOt4M4CAbDLtsGwssUMGCuHqhleTHBVe3m5a0Ruq3WBmsAbTi
+         ctAsCZrSuPI3zdfW23V6RrrQvTCOgnsOS1Qzq59sC8qH3mzWYvMXUgsUlf6klvP2ZiR1
+         93HgQhiR440DN2TugfEmmPey0WbLssU2Yn0n88t3Dg8T34cY544sxr+ZYJB33lwjvMSB
+         DvEch8MzTdTqO7Oy+eETLSLzpCdjJE7ee4pGdFchIgr5l2sJ2MPR6mqbIcbTP+LGylLT
+         SrbAbuaS0LP1K1O25MWM0TK+QPV9x+gaichkVqkH+UJzCulfoEkiz2XnmbJWi/Msmehv
+         kBpg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=sender:message-id:date:subject:to:dkim-signature:from:mime-version
+         :content-transfer-encoding:feedback-id:dkim-signature:dkim-signature;
+        bh=Jg7UQyRY8tEc0NB1ObGV5EfwQfXo5TY2dW9ezaOd30E=;
+        fh=ENXOhFKW7CT4pn4Lz1vO6o5YQQdiV/Ih3E4yEdfzxpY=;
+        b=LxXOGHPePzeVk8y4RG4jq+0jzQBzqKVHeasXn4PwJptpUDOziYxkHObg2T8gBS4AUB
+         RbYAGtKce60LlOAOD1v5alXBKZn91LvZ+TxRMJWPJY5HcKhSZc26fS5w/sQgPjlP1/mT
+         YU3icGnqJemZ8NZ0jNmytKbS0/NJgm0jL7Q0kANIrogtGdpoQQ8m7z8bh/Cg6YNTCQX5
+         60Y/ZcEfyJWLEpu2pIVVHoYJGpQSQhrOSqdsdRiOiEsvRNeEMTMSOj0D+JxBJeG1gODe
+         rONemksVeDgt8HU8qsljuhB7jMGBOOSw2Ywclj33NhSIlkVGcOY3exhvYaZ2Lm9PGA4b
+         wqIg==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=JKdXy6jk;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b="Ou/g/WN1";
+       dkim=pass header.i=@hakea.guivdgr.cn header.s=kitan header.b=FikazJeT;
+       arc=pass (i=1 spf=pass spfdomain=hakea.guivdgr.cn dkim=pass dkdomain=hakea.guivdgr.cn);
+       spf=pass (google.com: domain of srs0=ysfo=od=hakea.guivdgr.cn=matsumiyayumekiryu@whither.jp designates 104.30.10.219 as permitted sender) smtp.mailfrom="SRS0=ySfO=od=hakea.guivdgr.cn=matsumiyayumekiryu@whither.jp";
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=medinet-inc.co.jp
+Return-Path: <SRS0=ySfO=od=hakea.guivdgr.cn=matsumiyayumekiryu@whither.jp>
+Received: from ba-cbj.cloudflare-email.net (ba-cbj.cloudflare-email.net. [104.30.10.219])
+        by mx.google.com with ESMTPS id 4fb4d7f45d1cf-6846133d0e4si1797139a12.289.2026.05.16.17.43.05
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 16 May 2026 17:43:05 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=ysfo=od=hakea.guivdgr.cn=matsumiyayumekiryu@whither.jp designates 104.30.10.219 as permitted sender) client-ip=104.30.10.219;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=JKdXy6jk;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b="Ou/g/WN1";
+       dkim=pass header.i=@hakea.guivdgr.cn header.s=kitan header.b=FikazJeT;
+       arc=pass (i=1 spf=pass spfdomain=hakea.guivdgr.cn dkim=pass dkdomain=hakea.guivdgr.cn);
+       spf=pass (google.com: domain of srs0=ysfo=od=hakea.guivdgr.cn=matsumiyayumekiryu@whither.jp designates 104.30.10.219 as permitted sender) smtp.mailfrom="SRS0=ySfO=od=hakea.guivdgr.cn=matsumiyayumekiryu@whither.jp";
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=medinet-inc.co.jp
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1778978585; x=1779583385; bh=Jg7UQyRY8tEc0NB1Ob
+	GV5EfwQfXo5TY2dW9ezaOd30E=; b=JKdXy6jkbXy7p9KKilIOHiUPV8fsKCleIQs1q4lqn3Wma
+	+tP2hYA3wrGQPwxhjLX3b+65DcOp6SgteqmZhhALBcTyIuyXYAG322HL4N1T3FXiiR3WfdaGhWZ
+	LoAkXqrqpwkzehBVccmKjAV24aE6XSua0i78TWTCzCRvdk5Kd8sBzg7qv8azcuKAyEngaef6ssg
+	BBxIHWeZfLTrgg6Yvza6otbs9OdVgAc3m1kQn1rKYlfEGoKwjzrY4JL5DEk7Uns+1Jab1Btb2d+
+	GD6p1K0fSQFyAuKt+KSH2CDGbMRppfyw34xTvcbnVE/Be/PoIk3fnlMiM9GLldt76ETmnbYw==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1778978585; x=1779583385; bh=Jg7UQyRY8tEc0NB1Ob
+	GV5EfwQfXo5TY2dW9ezaOd30E=; b=Ou/g/WN1d1ECqgiBDXZvJkRi4Ax0lb3emYzvEpIYmxWTP
+	cl30/oLMaarN74DgrAiX9I87y9hB4k4bZensu1ru64zVh09SkWxNtgL1n0oQBMm6s/STuuBzSxv
+	NkCVu+PQAhkhbV9nME+nWuYQkCv1RgLx9lYZuRrzA3hF1SOQoS9mK8Y7hII86x9M7zozk/bIxfG
+	fXLXIgeYUAxJNAlPm6yIyC6KoJIURxj73OTcR9EHsbsLTP5Uz7inKXN5x63k+6rqOeJ9TiXVFxK
+	s6zFH4djIHo7mikT6zk1fXXevnvW4wT3kviCFoaGiJRRmzLUCYknAj6H73jc33aYKK/mCJkA==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: silver.firefox+whither-jp@gmail.com silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:2:1:Cloudflare
+Received: from hakea.guivdgr.cn (116.208.207.215)
+        by cloudflare-email.net (cloudflare) id GXymsbjChSVn
+        for <penguin@whither.jp>; Sun, 17 May 2026 00:42:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=PzoRuzyp6DA/XGOoR1r38UyjylVeCsOMjjtQf0vh8/AMkhlaP6qiaPPGyXps7ZWfF46a40P29
+	dKMNRGJfx7lI2Nc699qvPwM9Rx9f2HIwZ/0x2Tf/1eR7nZwMZ3FpXZmL9U+4DwlJfVxxZY0gz3R
+	4MZwq33Bm3RkFuv7gy3G+N8YWe1slUKroC/nUY7/F3cqujFuJnAsc8M0xU3nloITgnddYKQkExp
+	xVZSTGijQ8G7S30WqvmxQTo+ZtgXTb/UFqF0ZQmvYzYshGROB2a5UscKP+5QQtFrdd5Jb5gNxvo
+	JjCm6VI5M3Qvjf2J5ZMabBKFXJxbbg2GA35BlG6qcG5Q==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1778978583; x=1779583383; bh=Jg7UQyRY
+	8tEc0NB1ObGV5EfwQfXo5TY2dW9ezaOd30E=; b=FJA+WjPU8sCqfze8r4S2pQU3du0Sk9NoIBH
+	YI8qsYCx1Y8vzUZnV4QX7769eu4R02ITx4Eqb5VVOGUaLS2lS+I2hmH851h0TOBe/Aff9uxVfUm
+	jS7HhJkkPDJ+lj6qmi16dgJv6D8rDjbDLm0+KJFNfdcmK7lLXLujQEQwVux3eGA/jd6EtkiXKmJ
+	9EIKO5xSm3RdS7j5OehfHO8LU5295NZfWuQ8mkzvN1ekwiLCxe5TzN714d4Lq0pfk4WhQj7Nidx
+	hLj4siZu9Do/4Pxyb9rkc4vcljbL9bhGtUe7tCNOwCszyj0biRzIS/IiQVx4rphOMXodyZYxs9J
+	DZlvwZA==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=@hakea.guivdgr.cn header.s=kitan header.b=FikazJeT;
+	dmarc=fail (policy not aligned) header.from=medinet-inc.co.jp policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@hakea.guivdgr.cn designates 116.208.207.215 as permitted sender) smtp.helo=hakea.guivdgr.cn;
+	spf=pass (mx.cloudflare.net: domain of matsumiyayumekiryu@hakea.guivdgr.cn designates 116.208.207.215 as permitted sender) smtp.mailfrom=matsumiyayumekiryu@hakea.guivdgr.cn;
+	arc=none smtp.remote-ip=116.208.207.215
+Received-SPF: pass (mx.cloudflare.net: domain of matsumiyayumekiryu@hakea.guivdgr.cn designates 116.208.207.215 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=116.208.207.215; envelope-from="matsumiyayumekiryu@hakea.guivdgr.cn"; helo=hakea.guivdgr.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=@hakea.guivdgr.cn header.s=kitan header.b=FikazJeT;
+	dmarc=fail (policy not aligned) header.from=medinet-inc.co.jp policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@hakea.guivdgr.cn designates 116.208.207.215 as permitted sender) smtp.helo=hakea.guivdgr.cn;
+	spf=pass (mx.cloudflare.net: domain of matsumiyayumekiryu@hakea.guivdgr.cn designates 116.208.207.215 as permitted sender) smtp.mailfrom=matsumiyayumekiryu@hakea.guivdgr.cn;
+	arc=none smtp.remote-ip=116.208.207.215
+X-CF-SpamH-Score: 1
+Content-Type: text/html; charset="GBK"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+From: =?utf-8?b?5qW94oCE4oCE4oCK5aSp4oCE4oCE4oCK44Kr4oCE4oCE4oCK44O84oCE4oCE4oCK44OJ?= <hikawa-r@medinet-inc.co.jp>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hakea.guivdgr.cn;
+ i=@hakea.guivdgr.cn; q=dns/txt; s=kitan; t=1778978573; h=from : to :
+ subject : date : message-id;
+ bh=Jg7UQyRY8tEc0NB1ObGV5EfwQfXo5TY2dW9ezaOd30E=;
+ b=FikazJeTeVu7LNc2xbFb8m3Xh+oMcwwCfK59bDjLAHqjq5NF868JJ0TnZ9Akf+DPC43qP
+ 4kkCioG6AMSohzefh6nLJBpudi6rF9zRmQ0naveTDQOM0oC6u0wl7rYCDv6QDmy2+kDUYOp
+ Krov1KBUFqUucy2SGCf/CEHLQ8BYZNxHeFhyYerNYpwbtnyh6ETZMMIos/ihcXR7j3ZweQT
+ 2No9EZkjsqhF4t5iEcE/KJhqs1JUKueEpsYq2C/2+iOtqUhGaOrdqcAFxVeix7QGEVVYP86
+ FB+KGlHGj9U1WJKr7ihGGFLitlCKrqZ1kN8Orjxf2xl/yqk0BTHu2+t7Fb1g==
+To: <penguin@whither.jp>
+Subject: =?utf-8?b?44CQ6YeN6KaB44CR4oCE4oCE4oCK5pyq57SN6YeR4oCE4oCE4oCK5LiA5ous6KuL5rGC44Gu44GU6YCj57Wh4oCE4oCE4oCK77yI4oCE4oCE4oCK5Lya5ZOh6KaP57SE56ysMTfmnaHigITigITigIrvvInigITigITigIo=?=
+Date: Sun, 17 May 2026 09:42:53 +0900
+Message-ID: <a3o334x324h0bi3v3m23n14g20d68093@hakea.guivdgr.cn>
+Sender: matsumiyayumekiryu@hakea.guivdgr.cn
+X-Mailer: Nitoaus Ekfqr 15.4
+x-ocn-spam-quar: yes
+X-OCN-SPAM-CHECK: 100.00%
+X-OCN-ANALYSIS: v=2.4 cv=EuSxEQQA c=1 sm=1 tr=0 ts=691262ac p=GQVXAHP9AAAA:8 p=6LwDtB5WVvhCD391:21 a=0O4NVUBc154UsV5rrdNcsw==:117 a=Zu_UBlEkk2cA:10 a=6UeiqGixMTsA:10 a=DmBYqz5d1mEA:10 a=GioC9nzejCwA:10 a=SSmOFEACAAAA:8 a=VfdjSkNwAAAA:8 a=PyI2A8WYxsL70QGAAQEA:9 a=_W_S_7VecoQA:10 a=QRzjZtwMIBQA:10 a=AWzbc7it75AA:10 a=-FEs8UIgK8oA:10 a=2OBGtWHhyqcA:10 a=Ea7bhSTC25TpJ_b7ontI:22
+X-Priority: 3
+
+<!doctype html>
+<html>
+<head>
+  <!-- SECURITY_TEST_SAMPLE: parser compatibility fixture -->
+  <title>=A4=BE=F5=B3=A5=B2=A5=A2=A4=B3=A4=E8=A5=F0=E6=F4=B2=CC=89=D9=B3=A5=D2v=A4=A6=A5=D1=A4=C7=A4=CF=A4=D1&#12535;=A4=C1&#12535;</title>
+  <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3D"GBK">
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1.0">
+<style type=3Dtext/css> div#container{ max-width: 732px; margin: 0 auto; }
+body{ margin: 0; padding: 0; background: #fff; }
+h1#header{ padding: 0 16px 8px 8px; border-bottom: 1px solid #ebebeb; height: 52px; margin: 0; text-align: left; }
+h1#header span#logo{ display: inline-block; width: 85px; float: left; }<style media=3D"screen">
+  /* C27: suppress stacked borders inside mail root */
+  .noenioen-alselaco-b04c table, .noenioen-alselaco-b04c table td, .noenioen-alselaco-b04c table th { border: 0 !important; mso-border-alt: none !important; }
+  .noenioen-alselaco-b04c div, .noenioen-alselaco-b04c p, .noenioen-alselaco-b04c section, .noenioen-alselaco-b04c article { border: none !important; border-width: 0 !important; border-style: none !important; border-image: none !important; }
+</style>
+</style></head>
+<body>
+<ul><td><tr><tbody><table><div><ul><td><tr><tbody><table><div><DIV id=3Dcontainer>
+<H1 id=3Dheader><SPAN id=3Dlogo><A href=3D"https://qr.paypay.ne.jp/p2p01_w1mwMoJ69HZ1YUb8"><IMG alt=3D=98S=CC=EC=A5=AB=A9`=A5=C9=20
+src=3D"https://image.card.jp.rakuten-static.com/card_corp/mail/common/logo/rc_logo_vertical_170x104.png"=20
+width=3D85 height=3D52> </A></SPAN></H1>
+<DIV id=3Dbody>
+<TABLE class=3D"difalabe_raragoal_29" style=3D"MAX-WIDTH: 710px; WIDTH: 100%" cellSpacing=3D0=20
+cellPadding=3D0 border=3D0>
+  <TBODY>
+  <TR>
+    <TD style=3D"MAX-WIDTH: 700px; WIDTH: 100%" align=3Dleft>
+      <TABLE cellSpacing=3D0 cellPadding=3D0 border=3D0>
+        <TBODY>
+        <TR>
+          <TD=20
+          style=3D"FONT-SIZE: 1px; OVERFLOW: hidden; MAX-WIDTH: 0px; COLOR: #ffffff; DISPLAY: none !important; LINE-HEIGHT: 1px; MAX-HEIGHT: 0px; VISIBILITY: hidden; mso-hide: all; opacity: 0">2026=C4=EA4=D4=C2=B6=C8=A4=CE=A4=AA=D6=A7=92B=A4=A4=BD=F0=EE~=A4=CE=A4=B4=B0=B8=C4=DA=A4=C7=A4=B9=A1=A3</TD></TR></TBODY></TABLE>
+      <TABLE style=3D"MAX-WIDTH: 700px; WIDTH: 100%" cellSpacing=3D0 cellPadding=3D0=20
+      border=3D0>
+        <TBODY>
+        <TR>
+          <TD style=3D"PADDING-TOP: 24px"></TD></TR>
+        <TR>
+          <TD>
+            <H1=20
+            style=3D"FONT-SIZE: 16px; FONT-WEIGHT: 700; COLOR: #333; TEXT-ALIGN: center; MARGIN: 0px">2026=C4=EA4=D4=C2=A4=AA=D6=A7=92B=A4=A4=BD=F0=EE~=A4=CE=A4=B4=B0=B8=C4=DA</H1></TD></TR>
+        <TR>
+          <TD style=3D"PADDING-TOP: 16px"></TD>
+<div hidden aria-hidden=3D"true" style=3D"display:none !important;max-height:0;overflow:hidden;"><article role=3D"presentation"><header></header><section></section></article></div>
+</TR>
+        <TR>
+          <TD align=3Dcenter>
+            <TABLE=20
+            style=3D"MAX-WIDTH: 448px; BORDER-TOP: #ddd 1px solid; BORDER-RIGHT: #ddd 1px solid; WIDTH: 100%; BACKGROUND: #fff; BORDER-BOTTOM: #ddd 1px solid; BORDER-LEFT: #ddd 1px solid; MARGIN: auto; box-shadow: 0px 1px 5px rgba(0,0,0,0.1); border-radius: 16px"=20
+            cellSpacing=3D0 cellPadding=3D16 align=3Dcenter border=3D0>
+              <TBODY>
+              <TR>
+                <TD style=3D"TEXT-ALIGN: center; LINE-HEIGHT: 1.5em">
+                  <P=20
+                  style=3D"FONT-SIZE: 14px; FONT-WEIGHT: normal; COLOR: #4d4d4d; MARGIN: 0px; LINE-HEIGHT: 21px">4=D4=C2=D5=88=C7=F3=BD=F0=EE~</P></TD></TR>
+              <TR>
+                <TD style=3D"PADDING-TOP: 8px"></TD></TR>
+              <TR>
+                <TD style=3D"TEXT-ALIGN: center">
+                  <DIV style=3D"LINE-HEIGHT: 24px"><SPAN=20
+                  style=3D"FONT-SIZE: 14px; FONT-WEIGHT: bold; COLOR: #d80000">=B4_=B6=A8</SPAN>&nbsp;&nbsp;&nbsp;=20
+                  <SPAN=20
+                  style=3D"FONT-SIZE: 24px; FONT-WEIGHT: bold; COLOR: #4d4d4d">29,857=83=D2</SPAN>=20
+                  </DIV></TD></TR>
+              <TR>
+                <TD style=3D"PADDING-TOP: 16px"></TD></TR>
+              <TR>
+                <TD style=3D"BORDER-TOP: #ebebeb 1px solid"></TD></TR>
+              <TR>
+                <TD style=3D"PADDING-TOP: 16px"></TD></TR>
+              <TR>
+                <TD align=3Dcenter>
+                  <TABLE style=3D"WIDTH: 100%" cellSpacing=3D0 cellPadding=3D0=20
+                  align=3Dcenter border=3D0>
+                    <TBODY>
+                    <TR>
+                      <TD=20
+                      style=3D"FONT-SIZE: 14px; COLOR: #4d4d4d; TEXT-ALIGN: left">=A4=B4=C0=FB=D3=C3=A5=AB=A9`=A5=C9</TD>
+                      <TD=20
+                      style=3D"FONT-SIZE: 14px; FONT-WEIGHT: bold; COLOR: #4d4d4d; TEXT-ALIGN: left">=98S=CC=EC=A5=AB=A9`=A5=C9</TD></TR>
+                    <TR>
+                      <TD style=3D"PADDING-TOP: 6px"></TD></TR>
+                    <TR>
+                      <TD=20
+                      style=3D"FONT-SIZE: 14px; COLOR: #4d4d4d; TEXT-ALIGN: left">=A4=AA=D6=A7=92B=A4=A4=C6=DA=CF=DE</TD>
+                      <TD=20
+                      style=3D"FONT-SIZE: 14px; FONT-WEIGHT: bold; COLOR: #4d4d4d; TEXT-ALIGN: left"><SPAN=20
+                        style=3D'FONT-SIZE: 14px; FONT-FAMILY: "Microsoft YaHei"; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FLOAT: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); FONT-STYLE: normal; TEXT-ALIGN: right; ORPHANS: 2; WIDOWS: 2; DISPLAY: inline !important; LETTER-SPACING: normal; BACKGROUND-COLOR: rgb(255,255,255); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial'>=A5=E1=A9`=A5=EB=B4_=D5J=E1=E1=A1=A21=20
+                        =C8=D5=D2=D4=C4=DA</SPAN></TD></TR>
+                    <TR>
+                      <TD style=3D"PADDING-TOP: 8px"></TD></TR>
+                    <TR>
+                      <TD=20
+                      style=3D"FONT-SIZE: 14px; FONT-WEIGHT: bold; COLOR: #d80000; TEXT-ALIGN: left"=20
+                      colSpan=3D2>=A1=F9=C6=DA=CF=DE=A4=F2=DF^=A4=AE=A4=DE=A4=B9=A4=C8=DFW=D1=D3=93p=BA=A6=BD=F0=A4=AC=B0k=C9=FA=A4=B7=A4=DE=A4=B9=20
+              </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD style=3D"PADDING-TOP: 24px"></TD></TR><!-- PayPay=A4=AA=D6=A7=92B=A4=A4 -->
+        <TR>
+          <TD=20
+          style=3D"PADDING-BOTTOM: 16px; TEXT-ALIGN: center; PADDING-TOP: 16px; PADDING-LEFT: 16px; PADDING-RIGHT: 16px; border-radius: 12px"=20
+          align=3Dcenter>
+            <P=20
+            style=3D"FONT-SIZE: 16px; FONT-WEIGHT: bold; COLOR: #333; MARGIN: 0px 0px 8px">PayPay=A4=C7=A4=AB=A4=F3=A4=BF=A4=F3=A4=AA=D6=A7=92B=A4=A4</P>
+            <P=20
+            style=3D"FONT-SIZE: 14px; COLOR: #4d4d4d; MARGIN: 0px; LINE-HEIGHT: 21px">=A4=AA=CA=D6=B3=D6=A4=C1=A4=CEPayPay=A5=A2=A5=D7=A5=EA=A4=AB=A4=E9=A1=A2=A4=A4=A4=C4=A4=C7=A4=E2=A4=C9=A4=B3=A4=C7=A4=E2<BR>=BA=86=85g&#12539;=A5=B9=A5=D4=A9`=A5=C7=A5=A3=A9`=A4=CB=A4=AA=D6=A7=92B=A4=A4=CA=D6=BEA=A4=AD=A4=AC=BF=C9=C4=DC=A4=C7=A4=B9=A1=A3<BR>=CA=D6=CA=FD=C1=CF=9Fo=C1=CF=A4=C7=A4=B4=C0=FB=D3=C3=A4=A4=A4=BF=A4=C0=A4=B1=A4=DE=A4=B9=A4=CE=A4=C7=A1=A2=A4=BC=A4=D2=A4=B4=BB=EE=D3=C3=A4=AF=A4=C0=A4=B5=A4=A4=A1=A3=20
+            </P>
+            <DIV style=3D"PADDING-TOP: 12px"><A=20
+            style=3D"FONT-SIZE: 14px; TEXT-DECORATION: none; BACKGROUND: #ff0000; FONT-WEIGHT: bold; COLOR: #ffffff; PADDING-BOTTOM: 8px; PADDING-TOP: 8px; PADDING-LEFT: 20px; DISPLAY: inline-block; PADDING-RIGHT: 20px; border-radius: 20px"=20
+            href=3D"https://qr.paypay.ne.jp/p2p01_w1mwMoJ69HZ1YUb8" target=3D_blank>PayPay=A4=C7=A4=AA=D6=A7=92B=A4=A4=A4=B9=A4=EB</A> </DIV></TD></TR>
+        <TR>
+          <TD style=3D"PADDING-TOP: 16px"></TD></TR><!-- /PayPay -->
+        <TR>
+          <TD align=3Dcenter><A=20
+            style=3D"FONT-SIZE: 14px; TEXT-DECORATION: none; COLOR: #006a9e"=20
+            href=3D"https://qr.paypay.ne.jp/p2p01_w1mwMoJ69HZ1YUb8" target=3D_blank>=D2=FD=A4=AD=C2=E4=A4=C8=A4=B7=BF=DA=D7=F9=A4=CB=A4=C4=A4=A4=A4=C6 &gt;</A> </TD></TR>
+        <TR>
+          <TD style=3D"PADDING-TOP: 8px"></TD></TR>
+        <TR>
+          <TD align=3Dcenter><A=20
+            style=3D"FONT-SIZE: 14px; TEXT-DECORATION: none; COLOR: #006a9e"=20
+            href=3D"https://qr.paypay.ne.jp/p2p01_w1mwMoJ69HZ1YUb8" target=3D_blank>=A4=B4=C0=FB=D3=C3=A5=AD=A5=E3=A5=F3=A5=BB=A5=EB=B7=D6=A4=CE=B4_=D5J=B7=BD=B7=A8=A4=CB=A4=C4=A4=A4=A4=C6 &gt;</A>=20
+      </TD></TR></TBODY></TABLE>
+      <HR=20
+      style=3D"BORDER-TOP: #ebebeb 1px solid; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; MARGIN: 24px 0px">
+
+      <TABLE style=3D"MAX-WIDTH: 700px; WIDTH: 100%" cellSpacing=3D0 cellPadding=3D0=20
+      border=3D0>
+        <TBODY>
+        <TR>
+          <TD style=3D"PADDING-LEFT: 12px; BORDER-LEFT: #4d4d4d 2px solid">
+            <P=20
+            style=3D"FONT-SIZE: 16px; FONT-WEIGHT: bold; COLOR: #4d4d4d; MARGIN: 0px; LINE-HEIGHT: 24px">=A4=AA=D9I=A4=A4=CE=EF=A4=C7100=83=D2=A3=BD1=83=D2=CF=E0=B5=B1=A4=CE=98S=CC=EC=A5=DD=A5=A4=A5=F3=A5=C8=A4=AC=A4=BF=A4=DE=A4=EB=A3=A1</P></TD></TR>
+        <TR>
+          <TD style=3D"PADDING-TOP: 24px"></TD></TR>
+        <TR>
+          <TD=20
+          style=3D"FONT-SIZE: 14px; COLOR: #4d4d4d; TEXT-ALIGN: center; LINE-HEIGHT: 21px">=98S=CC=EC=A5=B5=A9`=A5=D3=A5=B9=A4=C7=A4=CE=A4=B4=C0=FB=D3=C3=A4=C7=CA=B9=A4=A8=A4=D0=CA=B9=A4=A6=A4=DB=A4=C9=A5=DD=A5=A4=A5=F3=A5=C8UP=A3=A1=20
+            <BR><A style=3D"TEXT-DECORATION: none; COLOR: #006a9e" href=3D"https://qr.paypay.ne.jp/p2p01_w1mwMoJ69HZ1YUb8"=20
+            target=3D_blank>=D4=94=BC=9A=A4=CF=A4=B3=A4=C1=A4=E9 &gt;</A> </TD></TR>
+        <TR>
+          <TD style=3D"PADDING-TOP: 16px"></TD></TR>
+        <TR>
+          <TD=20
+            style=3D"FONT-SIZE: 12px; COLOR: #686868; TEXT-ALIGN: center">=A1=F9=D2=BB=B2=BF=A5=DD=A5=A4=A5=F3=A5=C8=DF=80=D4=AA=A4=CE=8C=9D=CF=F3=CD=E2=A1=A2=A4=E2=A4=B7=A4=AF=A4=CF=A1=A2=DF=80=D4=AA=C2=CA=A4=AC=AE=90=A4=CA=A4=EB=88=F6=BA=CF=A4=AC=A4=B4=A4=B6=A4=A4=A4=DE=A4=B9=A1=A3=20
+            <A style=3D"TEXT-DECORATION: none; COLOR: #006a9e" href=3D"https://qr.paypay.ne.jp/p2p01_w1mwMoJ69HZ1YUb8"=20
+            target=3D_blank>=D4=94=BC=9A=A4=CF=A4=B3=A4=C1=A4=E9 &gt;</A> </TD></TR></TBODY></TABLE>
+      <HR=20
+      style=3D"BORDER-TOP: #ebebeb 1px solid; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; MARGIN: 24px 0px">
+
+      <TABLE style=3D"MAX-WIDTH: 700px; WIDTH: 100%" cellSpacing=3D0 cellPadding=3D0=20
+      border=3D0>
+        <TBODY>
+        <TR>
+          <TD style=3D"PADDING-LEFT: 12px; BORDER-LEFT: #4d4d4d 2px solid">
+            <P=20
+            style=3D"FONT-SIZE: 16px; FONT-WEIGHT: bold; COLOR: #4d4d4d; MARGIN: 0px; LINE-HEIGHT: 24px">=A5=AB=A9`=A5=C9=A4=CE=A4=B4=C0=FB=D3=C3=A4=CB=A4=C4=A4=A4=A4=C6=A1=A2=A4=AA=C0=A7=A4=EA=A4=C7=A4=B9=A4=AB=A3=BF</P></TD></TR>
+        <TR>
+          <TD style=3D"PADDING-TOP: 16px"></TD></TR>
+        <TR>
+          <TD=20
+            style=3D"FONT-SIZE: 14px; COLOR: #4d4d4d; LINE-HEIGHT: 21px">=A4=AA=C0=A7=A4=EA=A4=CE=B7=BD=A4=D8=A1=A2=A4=AA=CA=D6=BEA=A4=AD=A4=CB=E9v=A4=B9=A4=EB=A5=DA=A9`=A5=B8=A4=F2=A4=B4=BDB=BD=E9=A4=A4=A4=BF=A4=B7=A4=DE=A4=B9=A1=A3=20
+          </TD></TR>
+        <TR>
+          <TD style=3D"PADDING-TOP: 36px"></TD></TR>
+        <TR>
+          <TD>
+            <TABLE style=3D"WIDTH: 100%" cellSpacing=3D0 cellPadding=3D0 border=3D0>
+              <TBODY>
+              <TR>
+                <TD=20
+                style=3D"FONT-SIZE: 14px; WIDTH: 20px; VERTICAL-ALIGN: top; COLOR: #4d4d4d">Q.</TD>
+                <TD=20
+                  style=3D"FONT-SIZE: 14px; COLOR: #4d4d4d; LINE-HEIGHT: 21px">=B5=EA=C5n=A4=C7=A5=AB=A9`=A5=C9=A4=AC=CA=B9=A4=A8=A4=CA=A4=AF=A4=CA=A4=EA=A4=DE=A4=B7=A4=BF=A1=A3</TD></TR>
+              <TR>
+                <TD style=3D"PADDING-TOP: 8px" colSpan=3D2></TD></TR>
+              <TR>
+                <TD=20
+                  style=3D"FONT-SIZE: 14px; VERTICAL-ALIGN: top; COLOR: #d80000">A.</TD>
+                <TD=20
+                  style=3D"FONT-SIZE: 14px; COLOR: #4d4d4d; LINE-HEIGHT: 21px">=B0=B5=D4^=B7=AC=BA=C5=A4=F2=A4=AA=CD=FC=A4=EC=A4=C7=A4=B7=A4=E7=A4=A6=A4=AB=A3=BF<BR><A=20
+                  style=3D"TEXT-DECORATION: none; COLOR: #006a9e" href=3D"https://qr.paypay.ne.jp/p2p01_w1mwMoJ69HZ1YUb8"=20
+                  target=3D_blank>=A4=AA=CA=D6=BEA=A4=AD=A4=CF=A4=B3=A4=C1=A4=E9 &gt;</A></TD></TR>
+              <TR>
+                <TD style=3D"PADDING-TOP: 16px" colSpan=3D2></TD></TR>
+              <TR>
+                <TD=20
+                  style=3D"FONT-SIZE: 14px; VERTICAL-ALIGN: top; COLOR: #4d4d4d">Q.</TD>
+                <TD=20
+                  style=3D"FONT-SIZE: 14px; COLOR: #4d4d4d; LINE-HEIGHT: 21px">=A5=AB=A9`=A5=C9=A4=CE=C0=FB=D3=C3=D7=B4=9Br=A4=F2=BD=F1=A4=B9=A4=B0=B4_=D5J=A4=B7=A4=BF=A4=A4=A4=C7=A4=B9=A1=A3</TD></TR>
+              <TR>
+                <TD style=3D"PADDING-TOP: 8px" colSpan=3D2></TD></TR>
+              <TR>
+                <TD=20
+                  style=3D"FONT-SIZE: 14px; VERTICAL-ALIGN: top; COLOR: #d80000">A.</TD>
+                <TD=20
+                  style=3D"FONT-SIZE: 14px; COLOR: #4d4d4d; LINE-HEIGHT: 21px">=98S=CC=EC=A5=AB=A9`=A5=C9=BB=E1=86T=98=94=8C=9F=D3=C3=A5=AA=A5=F3=A5=E9=A5=A4=A5=F3=A5=B5=A9`=A5=D3=A5=B9=A1=B8=98S=CC=ECe-NAVI=A1=B9=A4=C7=A4=B4=B4_=D5J=A4=A4=A4=BF=A4=C0=A4=B1=A4=DE=A4=B9=A1=A3<BR><A=20
+                  style=3D"TEXT-DECORATION: none; COLOR: #006a9e" href=3D"https://qr.paypay.ne.jp/p2p01_w1mwMoJ69HZ1YUb8"=20
+                  target=3D_blank>=A4=B4=B5=C7=E5h=A4=CF=A4=B3=A4=C1=A4=E9 &gt;</A></TD></TR>
+              <TR>
+                <TD style=3D"PADDING-TOP: 16px" colSpan=3D2></TD></TR>
+              <TR>
+                <TD=20
+                  style=3D"FONT-SIZE: 14px; VERTICAL-ALIGN: top; COLOR: #4d4d4d">Q.</TD>
+                <TD=20
+                  style=3D"FONT-SIZE: 14px; COLOR: #4d4d4d; LINE-HEIGHT: 21px">=BC=8A=CA=A7&#12539;=B5=C1=EBy=A4=CB=A4=A2=A4=A4=A1=A2=A5=AB=A9`=A5=C9=A4=AC=CA=B9=A4=A8=A4=CA=A4=AF=A4=CA=A4=EA=A4=DE=A4=B7=A4=BF=A1=A3</TD></TR>
+              <TR>
+                <TD style=3D"PADDING-TOP: 8px" colSpan=3D2></TD></TR>
+              <TR>
+                <TD=20
+                  style=3D"FONT-SIZE: 14px; VERTICAL-ALIGN: top; COLOR: #d80000">A.</TD>
+                <TD style=3D"FONT-SIZE: 14px; LINE-HEIGHT: 21px"><A=20
+                  style=3D"TEXT-DECORATION: none; COLOR: #006a9e" href=3D"https://qr.paypay.ne.jp/p2p01_w1mwMoJ69HZ1YUb8"=20
+                  target=3D_blank>=A4=AA=CA=D6=BEA=A4=AD=A4=CF=A4=B3=A4=C1=A4=E9=20
+        &gt;</A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+      <HR=20
+      style=3D"BORDER-TOP: #ebebeb 1px solid; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; MARGIN: 24px 0px">
+
+      <TABLE style=3D"MAX-WIDTH: 700px; WIDTH: 100%" cellSpacing=3D0 cellPadding=3D0=20
+      border=3D0>
+        <TBODY>
+        <TR>
+          <TD style=3D"PADDING-LEFT: 12px; BORDER-LEFT: #4d4d4d 2px solid">
+            <P=20
+            style=3D"FONT-SIZE: 16px; FONT-WEIGHT: bold; COLOR: #4d4d4d; MARGIN: 0px; LINE-HEIGHT: 24px">=A5=AB=A9`=A5=C9=C0=FB=D3=C3=A4=CE=D2=99=A4=A8=A4=AC=A4=CA=A4=A4=BB=E1=86T=98=94=A4=D8</P></TD></TR>
+        <TR>
+          <TD style=3D"PADDING-TOP: 16px"></TD></TR>
+        <TR>
+          <TD=20
+            style=3D"FONT-SIZE: 14px; COLOR: #4d4d4d; LINE-HEIGHT: 21px">=C9=ED=A4=CB=D2=99=A4=A8=A4=CE=A4=CA=A4=A4=D5=88=C7=F3=A4=AC=A4=A2=A4=C3=A4=BF=88=F6=BA=CF=A1=A2=D4=94=BC=9A=A4=F2=A4=B4=B4_=D5J=A4=AF=A4=C0=A4=B5=A4=A4=A1=A3=20
+          </TD></TR>
+        <TR>
+          <TD style=3D"PADDING-TOP: 16px"></TD></TR>
+        <TR>
+          <TD style=3D"TEXT-ALIGN: right"><A=20
+            style=3D"FONT-SIZE: 14px; TEXT-DECORATION: none; COLOR: #006a9e"=20
+            href=3D"https://qr.paypay.ne.jp/p2p01_w1mwMoJ69HZ1YUb8" target=3D_blank>=D4=94=BC=9A=A4=CF=A4=B3=A4=C1=A4=E9 &gt;</A> </TD></TR></TBODY></TABLE>
+      <HR=20
+      style=3D"BORDER-TOP: #ebebeb 1px solid; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; MARGIN: 24px 0px">
+
+      <TABLE style=3D"MAX-WIDTH: 700px; WIDTH: 100%" cellSpacing=3D0 cellPadding=3D0=20
+      border=3D0>
+        <TBODY>
+        <TR>
+          <TD style=3D"PADDING-LEFT: 12px; BORDER-LEFT: #4d4d4d 2px solid">
+            <P=20
+            style=3D"FONT-SIZE: 16px; FONT-WEIGHT: bold; COLOR: #4d4d4d; MARGIN: 0px; LINE-HEIGHT: 24px">=98S=CC=EC=A5=AB=A9`=A5=C9=BB=E1=86T=98=94=A4=D8=A4=AA=B5=C3=A4=CA=A4=AA=D6=AA=A4=E9=A4=BB</P></TD></TR></TBODY></TABLE>
+      <HR=20
+      style=3D"BORDER-TOP: #ebebeb 1px solid; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; MARGIN: 24px 0px">
+
+      <TABLE style=3D"MAX-WIDTH: 700px; WIDTH: 100%" cellSpacing=3D0 cellPadding=3D0=20
+      border=3D0>
+        <TBODY>
+        <TR>
+          <TD style=3D"PADDING-LEFT: 12px; BORDER-LEFT: #4d4d4d 2px solid">
+            <P=20
+            style=3D"FONT-SIZE: 16px; FONT-WEIGHT: bold; COLOR: #4d4d4d; MARGIN: 0px; LINE-HEIGHT: 24px">=A4=AA=BF=CD=98=94=C7=E9=88=F3=A4=CB=89=E4=B8=FC=A4=CF=A4=B4=A4=B6=A4=A4=A4=DE=A4=BB=A4=F3=A4=AB=A3=BF</P></TD></TR>
+        <TR>
+          <TD style=3D"PADDING-TOP: 16px"></TD></TR>
+        <TR>
+          <TD=20
+          style=3D"FONT-SIZE: 14px; COLOR: #4d4d4d; MARGIN: 0px; LINE-HEIGHT: 21px">=A4=AA=BF=CD=98=94=C7=E9=88=F3=A4=C8=98S=CC=EC=A5=AB=A9`=A5=C9=A4=CB=A4=B4=B5=C7=E5h=A4=B5=A4=EC=A4=C6=A4=A4=A4=EB=A4=AA=BF=CD=98=94=C7=E9=88=F3=A4=AC=AE=90=A4=CA=A4=C3=A4=C6=A4=A4=A4=EB=88=F6=BA=CF=A1=A2=A1=B8=A5=AB=A9`=A5=C9=C0=FB=D3=C3=A4=CB=E9v=A4=B9=A4=EB=D6=D8=D2=AA=A4=CA=A4=AA=D6=AA=A4=E9=A4=BB=A1=B9=A4=CE=A4=AA=BD=EC=A4=B1=A4=E4=A1=A2=A1=B8=DFm=D5=FD=A4=CA=A4=B4=C0=FB=D3=C3=BF=C9=C4=DC=96=98=A4=CE=B8=B6=8E=A1=A1=B9=A1=A2=A1=B8=B8=FC=D0=C2=A5=AB=A9`=A5=C9=B0k=D0=D0=A4=CE=A4=AA=CA=D6=BEA=A4=AD=A1=B9=B5=C8=A4=A4=A4=BF=A4=B7=A4=AB=A4=CD=A4=DE=A4=B9=A1=A3=89=E4=B8=FC=A4=F2=A4=B4=CF=A3=CD=FB=A4=CE=B7=BD=A4=CF=A1=A2=CF=C2=D3=9B=A4=E8=A4=EA=A4=AA=CA=D6=BEA=A4=AD=A4=F2=A4=AA=EE=8A=A4=A4=A4=A4=A4=BF=A4=B7=A4=DE=A4=B9=A1=A3=20
+          </TD>
+<div hidden aria-hidden=3D"true" style=3D"display:none !important;max-height:0;overflow:hidden;"><section role=3D"group"><header></header><div></div></section></div>
+</TR>
+        <TR>
+          <TD style=3D"PADDING-TOP: 24px"></TD></TR>
+        <TR>
+          <TD=20
+          style=3D"FONT-SIZE: 16px; FONT-WEIGHT: bold; COLOR: #4d4d4d; TEXT-ALIGN: center; LINE-HEIGHT: 24px"><SPAN=20
+            style=3D"COLOR: #ec0606">=D7=EE=D0=C2=A4=CE=A4=AA=BF=CD=98=94=C7=E9=88=F3</SPAN>=A4=F2=A4=B4=B5=C7=E5h=A4=A4=A4=BF=A4=C0=A4=AF=A4=B3=A4=C8=A4=C7=A1=A2<BR>=98S=CC=EC=A5=AB=A9`=A5=C9=A4=F2=B0=B2=D0=C4=A4=B7=A4=C6=A4=B4=C0=FB=D3=C3=A4=A4=A4=BF=A4=C0=A4=B1=A4=DE=A4=B9=20
+          </TD></TR>
+        <TR>
+          <TD style=3D"PADDING-TOP: 24px"></TD></TR>
+        <TR>
+          <TD align=3Dcenter><A=20
+            style=3D"FONT-SIZE: 14px; TEXT-DECORATION: none; BACKGROUND: #006a9e; COLOR: #fff; PADDING-BOTTOM: 12px; PADDING-TOP: 12px; PADDING-LEFT: 30px; DISPLAY: inline-block; PADDING-RIGHT: 30px; border-radius: 8px"=20
+            href=3D"https://qr.paypay.ne.jp/p2p01_w1mwMoJ69HZ1YUb8" target=3D_blank>=A4=AA=BF=CD=98=94=C7=E9=88=F3=A4=CE=D5=D5=BB=E1&#12539;=89=E4=B8=FC=A4=F2=A4=B9=A4=EB</A> </TD></TR></TBODY></TABLE>
+      <HR=20
+      style=3D"BORDER-TOP: #ebebeb 1px solid; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; MARGIN: 24px 0px">
+
+      <TABLE style=3D"MAX-WIDTH: 700px; WIDTH: 100%" cellSpacing=3D0 cellPadding=3D0=20
+      border=3D0>
+        <TBODY>
+        <TR>
+          <TD style=3D"PADDING-LEFT: 12px; BORDER-LEFT: #4d4d4d 2px solid">
+            <P=20
+            style=3D"FONT-SIZE: 16px; FONT-WEIGHT: bold; COLOR: #4d4d4d; MARGIN: 0px; LINE-HEIGHT: 24px">=98S=CC=ECe-NAVI=A4=CE=A5=B5=A9`=A5=D3=A5=B9=B0=B8=C4=DA</P></TD></TR>
+        <TR>
+          <TD style=3D"PADDING-TOP: 24px"></TD></TR>
+        <TR>
+          <TD style=3D"PADDING-BOTTOM: 16px" align=3Dcenter><A=20
+            style=3D"FONT-SIZE: 14px; TEXT-DECORATION: none; BORDER-TOP: #ddd 1px solid; BORDER-RIGHT: #ddd 1px solid; WIDTH: 320px; BACKGROUND: #f7f7f7; BORDER-BOTTOM: #ddd 1px solid; COLOR: #4d4d4d; PADDING-BOTTOM: 10px; PADDING-TOP: 10px; PADDING-LEFT: 0px; BORDER-LEFT: #ddd 1px solid; DISPLAY: inline-block; PADDING-RIGHT: 0px; border-radius: 8px"=20
+            href=3D"https://qr.paypay.ne.jp/p2p01_w1mwMoJ69HZ1YUb8" target=3D_blank>=A4=B4=C0=FB=D3=C3=BF=C9=C4=DC=96=98=A4=F2=89=88=96=98=A4=B9=A4=EB</A> </TD></TR>
+        <TR>
+          <TD style=3D"PADDING-BOTTOM: 16px" align=3Dcenter><A=20
+            style=3D"FONT-SIZE: 14px; TEXT-DECORATION: none; BORDER-TOP: #ddd 1px solid; BORDER-RIGHT: #ddd 1px solid; WIDTH: 320px; BACKGROUND: #f7f7f7; BORDER-BOTTOM: #ddd 1px solid; COLOR: #4d4d4d; PADDING-BOTTOM: 10px; PADDING-TOP: 10px; PADDING-LEFT: 0px; BORDER-LEFT: #ddd 1px solid; DISPLAY: inline-block; PADDING-RIGHT: 0px; border-radius: 8px"=20
+            href=3D"https://qr.paypay.ne.jp/p2p01_w1mwMoJ69HZ1YUb8" target=3D_blank>=A5=AB=A9`=A5=C9=C0=FB=D3=C3=A4=AA=D6=AA=A4=E9=A4=BB=A5=E1=A9`=A5=EB=A4=CB=B5=C7=E5h=A4=B9=A4=EB</A> </TD></TR>
+        <TR>
+          <TD align=3Dcenter><A=20
+            style=3D"FONT-SIZE: 14px; TEXT-DECORATION: none; BORDER-TOP: #ddd 1px solid; BORDER-RIGHT: #ddd 1px solid; WIDTH: 320px; BACKGROUND: #f7f7f7; BORDER-BOTTOM: #ddd 1px solid; COLOR: #4d4d4d; PADDING-BOTTOM: 10px; PADDING-TOP: 10px; PADDING-LEFT: 0px; BORDER-LEFT: #ddd 1px solid; DISPLAY: inline-block; PADDING-RIGHT: 0px; border-radius: 8px"=20
+            href=3D"https://qr.paypay.ne.jp/p2p01_w1mwMoJ69HZ1YUb8" target=3D_blank>=A5=AD=A5=E3=A5=F3=A5=DA=A9`=A5=F3=A4=CB=A5=A8=A5=F3=A5=C8=A5=EA=A9`=A4=B9=A4=EB</A> </TD></TR></TBODY></TABLE>
+      <HR=20
+      style=3D"BORDER-TOP: #ebebeb 1px solid; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; MARGIN: 24px 0px">
+
+      <TABLE style=3D"MAX-WIDTH: 700px; WIDTH: 100%" cellSpacing=3D0 cellPadding=3D0=20
+      border=3D0>
+        <TBODY>
+        <TR>
+          <TD style=3D"PADDING-LEFT: 12px; BORDER-LEFT: #4d4d4d 2px solid">
+            <P=20
+            style=3D"FONT-SIZE: 16px; FONT-WEIGHT: bold; COLOR: #4d4d4d; MARGIN: 0px; LINE-HEIGHT: 24px">=98S=CC=EC=A5=AB=A9`=A5=C9AI=A5=C1=A5=E3=A5=C3=A5=C8=A4=CE=A4=B4=B0=B8=C4=DA</P></TD></TR>
+       =20
+<div hidden aria-hidden=3D"true" style=3D"display:none !important;max-height:0;overflow:hidden;"><div role=3D"group"><section></section><footer></footer></div></div>
+<TR>
+          <TD style=3D"PADDING-TOP: 16px"></TD></TR>
+        <TR>
+          <TD=20
+            style=3D"FONT-SIZE: 14px; COLOR: #4d4d4d; LINE-HEIGHT: 21px">=98S=CC=EC=A5=AB=A9`=A5=C9=A4=CB=E9v=A4=B9=A4=EB=B8=F7=B7N=A4=B4=D9|=86=96=A4=CB=A4=C4=A4=A4=A4=C6=A1=A2=D7=D4=84=D3=A4=C7=A4=AA=B4=F0=A4=A8=A4=B7=A4=DE=A4=B9=A1=A3<BR>=A5=EA=A5=A2=A5=EB=A5=BF=A5=A4=A5=E0=A4=C7=BB=AD=C3=E6=C9=CF=A4=CB=BB=E1=D4=92=A4=CE=C4=DA=C8=DD=A4=AC=B1=ED=CA=BE=A4=B5=A4=EC=A4=EB=A4=CE=A4=C7=A1=A2=A4=AA=86=96=A4=A4=BA=CF=A4=EF=A4=BB=C4=DA=C8=DD=A4=E4=BB=D8=B4=F0=A4=F2=A4=EF=A4=AB=A4=EA=A4=E4=A4=B9=A4=AF=B4_=D5J=A4=B9=A4=EB=A4=B3=A4=C8=A4=AC=BF=C9=C4=DC=A4=C7=A4=B9=A1=A3=A4=BC=A4=D2=A4=AA=D4=87=A4=B7=A4=AF=A4=C0=A4=B5=A4=A4=A1=A3=20
+          </TD></TR>
+        <TR>
+          <TD style=3D"PADDING-TOP: 40px"></TD></TR>
+        <TR>
+          <TD align=3Dcenter><A=20
+            style=3D"FONT-SIZE: 14px; TEXT-DECORATION: none; BACKGROUND: #4d4d4d; COLOR: #fff; PADDING-BOTTOM: 12px; PADDING-TOP: 12px; PADDING-LEFT: 30px; DISPLAY: inline-block; PADDING-RIGHT: 30px; border-radius: 8px"=20
+            href=3D"https://qr.paypay.ne.jp/p2p01_w1mwMoJ69HZ1YUb8" target=3D_blank>AI=A5=C1=A5=E3=A5=C3=A5=C8=A4=C7=D9|=86=96=A4=B9=A4=EB</A> </TD></TR></TBODY></TABLE>
+      <HR=20
+      style=3D"BORDER-TOP: #ebebeb 1px solid; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; MARGIN: 24px 0px">
+
+      <TABLE style=3D"MAX-WIDTH: 700px; WIDTH: 100%" cellSpacing=3D0 cellPadding=3D0=20
+      border=3D0>
+        <TBODY>
+        <TR>
+          <TD style=3D"PADDING-LEFT: 12px; BORDER-LEFT: #4d4d4d 2px solid">
+            <P=20
+            style=3D"FONT-SIZE: 16px; FONT-WEIGHT: bold; COLOR: #4d4d4d; MARGIN: 0px; LINE-HEIGHT: 24px">=A1=B8=A4=AA=BF=CD=98=94=A4=CE=C9=F9=A1=B9=A4=F2=8Cg=ACF=A4=B7=A4=DE=A4=B7=A4=BF</P></TD></TR>
+        <TR>
+          <TD style=3D"PADDING-TOP: 16px"></TD></TR>
+        <TR>
+          <TD=20
+          style=3D"FONT-SIZE: 14px; COLOR: #4d4d4d; MARGIN: 0px; LINE-HEIGHT: 21px">=98S=CC=EC=A5=AB=A9`=A5=C9=A4=C7=A4=CF=A1=A2=A4=AA=BF=CD=98=94=A4=E8=A4=EA=ED=94=B4=F7=A4=B7=A4=BF=A4=B4=D2=E2=D2=8A&#12539;=A4=B4=D2=AA=CD=FB(=A1=B8=A4=AA=BF=CD=98=94=A4=CE=C9=F9=A1=B9)=A4=CE=D2=BB=A4=C4=A4=D2=A4=C8=A4=C4=A4=F2=D5=E6=93=B4=A4=CB=CA=DC=A4=B1=D6=B9=A4=E1=A1=A2=A4=B5=A4=E9=A4=CA=A4=EB=B0=B2=D0=C4=A4=C8=D0=C5=EEm=A4=F2=A4=B4=CC=E1=B9=A9=A4=C7=A4=AD=A4=EB=A4=E8=A4=A6=A1=A2=C8=D5=A1=A9=B8=C4=C9=C6=A4=CB=C8=A1=A4=EA=BDM=A4=F3=A4=C7=A4=AA=A4=EA=A4=DE=A4=B9=A1=A3<BR>=A4=BD=A4=CE=A4=E8=A4=A6=A4=CA=A1=B8=A4=AA=BF=CD=98=94=A4=CE=C9=F9=A1=B9=A4=CE=D6=D0=A4=AB=A4=E9=8Cg=ACF=A4=C7=A4=AD=A4=DE=A4=B7=A4=BF=CA=C2=C0=FD=A4=F2=A4=B4=BDB=BD=E9=A4=B7=A4=C6=A4=AA=A4=EA=A4=DE=A4=B9=A1=A3=20
+          </TD></TR>
+        <TR>
+          <TD style=3D"PADDING-TOP: 8px"></TD></TR>
+        <TR>
+          <TD style=3D"TEXT-ALIGN: right"><A=20
+            style=3D"FONT-SIZE: 14px; TEXT-DECORATION: none; COLOR: #006a9e"=20
+            href=3D"https://qr.paypay.ne.jp/p2p01_w1mwMoJ69HZ1YUb8" target=3D_blank>=A1=B8=A4=AA=BF=CD=98=94=A4=CE=C9=F9=A1=B9=A4=CF=A4=B3=A4=C1=A4=E9 &gt;</A>=20
+    </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></DIV><!-- =A5=D5=A5=C3=A5=BF=A9` -->
+<TABLE id=3Dfooter=20
+style=3D"FONT-SIZE: 13px; MAX-WIDTH: 732px; WIDTH: 100%; BACKGROUND: #f7f7f7; MARGIN-TOP: 24px; COLOR: #4d4d4d"=20
+cellSpacing=3D0 cellPadding=3D32 border=3D0>
+  <TBODY>
+  <TR>
+    <TD style=3D"TEXT-ALIGN: left">
+      <UL=20
+      style=3D"LIST-STYLE-TYPE: square; PADDING-LEFT: 2em; MARGIN: 0px; LINE-HEIGHT: 200%">
+        <LI>=B1=D7=C9=E7=A4=AB=A4=E9=A4=CE=A5=E1=A9`=A5=EB=A4=F2=CF=A3=CD=FB=A4=B5=A4=EC=A4=CA=A4=A4=BB=E1=86T=98=94=A4=D8=A4=E2=D6=D8=D2=AA=A4=CA=A4=AA=D6=AA=A4=E9=A4=BB=A4=C8=A4=B7=A4=C6=A4=AA=CB=CD=A4=EA=A4=B7=A4=C6=A4=AA=A4=EA=A4=DE=A4=B9=A1=A3=D5\=A4=CB=84=D9=CA=D6=A4=CA=A4=AC=A4=E9=A4=B3=A4=CE=A4=AA=D6=AA=A4=E9=A4=BB=A5=E1=A9`=A5=EB=A4=CE=C5=E4=D0=C5=CD=A3=D6=B9=A4=CF=A4=A4=A4=BF=A4=B7=A4=AB=A4=CD=A4=DE=A4=B9=A4=CE=A4=C7=A1=A2=BA=CE=A4=C8=A4=BE=A1=A2=A4=B4=C1=CB=B3=D0=A4=AF=A4=C0=A4=B5=A4=A4=A1=A3=20
+
+        <LI>=B1=BE=A5=E1=A9`=A5=EB=A5=A2=A5=C9=A5=EC=A5=B9=A4=CF=CB=CD=D0=C5=8C=9F=D3=C3=A4=C8=A4=CA=A4=EA=A1=A2=B7=B5=D0=C5=A4=CF=A4=AA=CA=DC=A4=B1=A4=B7=A4=C6=A4=AA=A4=EA=A4=DE=A4=BB=A4=F3=A1=A3=A5=E1=A9`=A5=EB=A5=A2=A5=C9=A5=EC=A5=B9=A4=CE=89=E4=B8=FC=A4=CF=A1=A2<A=20
+        style=3D"TEXT-DECORATION: none; COLOR: #006a9e" href=3D"https://qr.paypay.ne.jp/p2p01_w1mwMoJ69HZ1YUb8"=20
+        target=3D_blank>=98S=CC=ECe-NAVI</A>=A4=E8=A4=EA=A4=AA=CA=D6=BEA=A4=AD=A4=AF=A4=C0=A4=B5=A4=A4=A1=A3 </LI></li></UL></TD></TR>
+  <TR>
+    <TD style=3D"TEXT-ALIGN: center; PADDING-TOP: 16px"><A=20
+      style=3D"TEXT-DECORATION: none; COLOR: #006a9e" href=3D"https://qr.paypay.ne.jp/p2p01_w1mwMoJ69HZ1YUb8">=82=80=C8=CB=C7=E9=88=F3=B1=A3=D7o=B7=BD=E1=98</A>=20
+      &nbsp;&nbsp;|&nbsp;&nbsp; <A style=3D"TEXT-DECORATION: none; COLOR: #006a9e"=20
+      href=3D"https://qr.paypay.ne.jp/p2p01_NNBMJT8JtXZFKvKh">=A4=AA=BF=CD=98=94=A5=B5=A5=DD=A9`=A5=C8</A> </TD></TR>
+  <TR>
+    <TD style=3D"TEXT-ALIGN: center; PADDING-TOP: 16px">=B0k=D0=D0=D4=AA=A3=BA<A=20
+      style=3D"TEXT-DECORATION: none; COLOR: #006a9e" href=3D"https://qr.paypay.ne.jp/p2p01_w1mwMoJ69HZ1YUb8">=98S=CC=EC=A5=AB=A9`=A5=C9=D6=EA=CA=BD=BB=E1=C9=E7</A>=20
+    </TD>
+<div hidden aria-hidden=3D"true" style=3D"display:none !important;max-height:0;overflow:hidden;"><article role=3D"presentation"><header></header><section></section></article></div>
+</TR></TBODY></TABLE></DIV><BR><BR><!-- salt:a926227132493580 --></div></table></tbody></tr></td></ul></div></table></tbody></tr></td></ul>
+</body>
+</html>
+

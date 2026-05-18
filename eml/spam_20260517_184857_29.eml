@@ -1,0 +1,368 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a05:640c:3214:b0:26a:2114:7ab with SMTP id g20csp1266968eia;
+        Sun, 17 May 2026 02:49:00 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ8yklQgjvsjqZiwIh6VNzfPrAPYM/iSVkjPkZIqDIZorglkiL5CFdKT2VMa7ipXrXndjCuIPtaxJgW4AKO/zg==@gmail.com
+X-Received: by 2002:a05:6402:504d:b0:684:17b5:da63 with SMTP id 4fb4d7f45d1cf-68417b5daccmr3524077a12.9.1779011340156;
+        Sun, 17 May 2026 02:49:00 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1779011340; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=CBFQGtjiLKUEWKcTgMBqHFFIIZmreIN0SJ6KZHAcVoZIC9hVapxc68O9zmKnQRbPEs
+         tK0H2ImSHsY2iWxiajEWWI3ukU7W4zRxFHkmwzwPOm11tGYiAiNBCohJyb8lfj/LefoN
+         m3Mi3hESW+3h5WUqa9ItpMkuWGp+E4bpIXFjPWKSW3Cot1jmF0BjeGBXTt1Ylx9v+dJO
+         rxbD6SD4O5L96w+Kr9ayT7yRJa7mD4Pt9DoFn/0zgYXra2DiLm1KAR20w8otRfBHQYB/
+         uhNkKn9uHYuumGKQl6xXZKQ+9k/qGHiPetwNzkCc4RiKp1Oq5ju94QO8enLkQ+TRmtzL
+         apPQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:mime-version:from:date:dkim-signature
+         :feedback-id:dkim-signature:dkim-signature;
+        bh=wIH8kbjWmBqVvplN9RN75JlqTMKuhFmjl8WhV9PWhjM=;
+        fh=qiMXRaPi1E4B7pNYHv0kY8kKvWMH6z5Z6bF+8QXduDY=;
+        b=KzOme6lXiAW2GngKtYhpBno0pfZjf1GL3CtkpFFeIQSIDX+TCpV4+DS1e4HQy6lvSd
+         OwX8ClqrflRvO8dF+409oDrAwcZxjKDoumHdG7n/fw3txBdMtoOYqxPGA16srDP848Uu
+         ntcdLAI273kHmPn5pzruL3eMnKFrnd3Gtj5n89Fd51smiw1KPCDJlz1Z5i0SVxXmx7eT
+         2ePgxm5lpQuS7SuUUzzS+1kd1dA515KEQ/2qscSEQwbh52uhibWNW3/sR3WnGrbTzxYL
+         Mr4aFjbsUj1GTm2t0c5azLRqYAi3+cD3+6tACJu5Hg2CahMZqctOr0pelIjnS3pXRXzC
+         ncHw==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=bH40bAFW;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=By+DnNhY;
+       dkim=pass header.i=@gxrdmq.com header.s=s1 header.b=kB0NpUF+;
+       arc=pass (i=1 spf=pass spfdomain=em6992.gxrdmq.com dkim=pass dkdomain=gxrdmq.com dmarc=pass fromdomain=gxrdmq.com);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.39 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=gxrdmq.com
+Return-Path: <cfbounces+ndrdrop@whither.jp>
+Received: from ba-dj.cloudflare-email.net (ba-dj.cloudflare-email.net. [104.30.10.39])
+        by mx.google.com with ESMTPS id 4fb4d7f45d1cf-6831126b710si6019205a12.136.2026.05.17.02.49.00
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 17 May 2026 02:49:00 -0700 (PDT)
+Received-SPF: pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.39 as permitted sender) client-ip=104.30.10.39;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=bH40bAFW;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=By+DnNhY;
+       dkim=pass header.i=@gxrdmq.com header.s=s1 header.b=kB0NpUF+;
+       arc=pass (i=1 spf=pass spfdomain=em6992.gxrdmq.com dkim=pass dkdomain=gxrdmq.com dmarc=pass fromdomain=gxrdmq.com);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.39 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=gxrdmq.com
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=To:Subject:From:Date:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1779011340; x=1779616140; bh=wIH8kbjWmBqVvplN9R
+	N75JlqTMKuhFmjl8WhV9PWhjM=; b=bH40bAFWsQwXQ+sqJJRKMAeTDRjzJBtST0AuQRHlFIOx6
+	e3pMfUNNXgS4FcDGlezJV2PE5xpGelsueTZEjleV0qj/ku4i8eQP0oF8KVwx1dk3gSUnqqmK7z+
+	44cIcduIxOB2JL/Shx2iWiis9ybfXir7c4ahGv7UxH1dq2aTdsl7f/SlPnG97jsaWsFkLeO40Pc
+	Yrt43N1jvnK0iHt1/499h8THSPQXbv6rq4VqmJhxugkO7OzHBgF0uO8mpDt1035/BbMVUgxz4u9
+	N3LPwbt+CoemVLaKbasALp9N7AtigdrVaBrDsiRLEVC1G2rMW3sHtDuAZslGD7GSIWg6GImQ==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=To:Subject:From:Date:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1779011340; x=1779616140; bh=wIH8kbjWmBqVvplN9R
+	N75JlqTMKuhFmjl8WhV9PWhjM=; b=By+DnNhYGXR7i0DAvgSyNRBSxxQYZ0tksDXJy3FHBjvwt
+	5e3CTIOvLiTo+c5S4/LACKrEo+KC+Vw6becWQIdwwYnsBPp+XDU5oTMjuhEOfFA1/7aNGbA7RN1
+	En7PeMUwXIKSzhSXvHlYb3a7Pm7Zv0QFyAHLw69Z0YG9WlQG3acWatLp/uQ7Ft5wQc/tELUHrPr
+	pTJLT/WOrU0xnpZkDtgErN1GFX1ikEaqNMsOWlxZUigiPKPkp6c+foL18aP/UF1hjfYyur6ZoeP
+	OHjUYBUI4n4k+RKC9j8jF+1XuV7ze5nU8Rhtz1MbqXDSnfMEO9w+VtfZw63rte223X9OM+RQ==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: silver.firefox+whither-jp@gmail.com silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:2:1:Cloudflare
+Received: from s.wfbtzbpn.outbound-mail.sendgrid.net (159.183.235.50)
+        by cloudflare-email.net (cloudflare) id ayvyiW3UnVXA
+        for <penguin@whither.jp>; Sun, 17 May 2026 09:48:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=Yv4qMtSulIv4TNFQFa2Fp4v5tmlLOpsk2r6RKbR+IIcjPO5uMn30oxdyYjvLBkOT7rToLN3Lq
+	5830a0C4WWbH+lxyG4eUC61C4hlh2dWYVohE4X26ndcG3d1mZuwy0tQizrooFoLGMiST/qbu0id
+	PkEm186vBSEHWt2kgRtylLfOIu5QGER5J1OjvHyoDAvBJ7jzmHLfWvB2oW5ljbd6qSkNlbhG1Is
+	Nb2Cwq+k/EwyAQqaCGLnPWcjII8arOo+S8MECLRhr99/q4jZv0px6+ciB00PWKE6dsfktBh4VCP
+	hE/YOUWpBedzGhhlAncRKWO58xcgULLo+p36WlXuK9Ow==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=To:Subject:From:Date:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1779011338; x=1779616138; bh=wIH8kbjW
+	mBqVvplN9RN75JlqTMKuhFmjl8WhV9PWhjM=; b=LHCVkG3DqW+JsOfQ9j8eZgy4aDV4GVJosVC
+	Z8S5oTcLSgEnPHl9GKWloRd0ziSLzU2pl0h0H0uU9OuCtyzrwrO9p5urtvaKklI5L12mOFW8gVO
+	zlJM13wiIbkvuNW/VntCayGSsSJ5EAYAWgpCOf/wpOxa8Sg4MTUwtVBedE92D/c6LQFUUEXFK5a
+	bZGrKTLjHV4l7y2xdrtJ43z6khvZcUEAi2NS+m6bWEJx8qtfgmJAdAZ1tgdXt/UcDQooQfew9qp
+	anw6uVRK2lEe/Ju5B8UbM50KSkGTRDdzdM3MBlGTkQ3LhQ4jmf4f1dZ8tVzFuMI1e0l/UTzJ0cj
+	S8sg2JQ==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.d=gxrdmq.com header.s=s1 header.b=kB0NpUF+;
+	dmarc=pass header.from=gxrdmq.com policy.dmarc=none;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@s.wfbtzbpn.outbound-mail.sendgrid.net) smtp.helo=s.wfbtzbpn.outbound-mail.sendgrid.net;
+	spf=pass (mx.cloudflare.net: domain of bounces+107472798-cb98-penguin=whither.jp@em6992.gxrdmq.com designates 159.183.235.50 as permitted sender) smtp.mailfrom=bounces+107472798-cb98-penguin=whither.jp@em6992.gxrdmq.com;
+	arc=none smtp.remote-ip=159.183.235.50
+Received-SPF: pass (mx.cloudflare.net: domain of bounces+107472798-cb98-penguin=whither.jp@em6992.gxrdmq.com designates 159.183.235.50 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=159.183.235.50; envelope-from="bounces+107472798-cb98-penguin=whither.jp@em6992.gxrdmq.com"; helo=s.wfbtzbpn.outbound-mail.sendgrid.net;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.d=gxrdmq.com header.s=s1 header.b=kB0NpUF+;
+	dmarc=pass header.from=gxrdmq.com policy.dmarc=none;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@s.wfbtzbpn.outbound-mail.sendgrid.net) smtp.helo=s.wfbtzbpn.outbound-mail.sendgrid.net;
+	spf=pass (mx.cloudflare.net: domain of bounces+107472798-cb98-penguin=whither.jp@em6992.gxrdmq.com designates 159.183.235.50 as permitted sender) smtp.mailfrom=bounces+107472798-cb98-penguin=whither.jp@em6992.gxrdmq.com;
+	arc=none smtp.remote-ip=159.183.235.50
+X-CF-SpamH-Score: 1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gxrdmq.com;
+	h=content-type:date:from:mime-version:subject:to:cc:content-type:date:
+	from:subject:to;
+	s=s1; t=1779011337;
+	bh=wIH8kbjWmBqVvplN9RN75JlqTMKuhFmjl8WhV9PWhjM=;
+	b=kB0NpUF+uAal4EkojTi6/n3dwNFbqb2f/UB8TWB0bq6r5ue/83gK80jas6SCvl1yf8+h
+	0DbPbpf+FLGu1W7A4XbFI7l19c2c+S/v6QeSbu0eS+YQ0mx2RxEiQ0eTbpbG2J6ioennRz
+	ePmzLcJow/yEjdrp3TKZfKdAoxkbdh7UE5GIIVYB9Vgs0N09I7a52l8jn3TJlxOqlQKr7X
+	517S2bfaZLad7k1LX4nYWQtjoVVxuG/MK3iECDfRE0+2y/ll7DHkKhK5mVA7WvuDACtihx
+	V3qYwGZM2Yp6hV+VGgoqE0fHOMJGLu7nQCgqdAFmZNgesboKrWUwLBUy79XJxiOg==
+Received: by recvd-6dcc959bcb-g9tj7 with SMTP id recvd-6dcc959bcb-g9tj7-1-6A098F09-42
+	2026-05-17 09:48:57.564393318 +0000 UTC m=+1599296.803094561
+Received: from MTA3NDcyNzk4 (unknown)
+	by geopod-ismtpd-114 (SG) with HTTP
+	id hkzeV7KRQBaK3Kl8E3cG3g
+	Sun, 17 May 2026 09:48:57.554 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=5c6a90acb7b2a6a2dca4944f5a740ff7d3ae701be7bf322d48fb3c84d41e
+Date: Sun, 17 May 2026 09:48:57 +0000 (UTC)
+From: =?UTF-8?b?W+alveWkqeOCq+ODvOODieagquW8j+S8muekvl0=?= <info@gxrdmq.com>
+Mime-Version: 1.0
+Message-ID: <hkzeV7KRQBaK3Kl8E3cG3g@geopod-ismtpd-114>
+Subject: 
+ =?UTF-8?B?44CQ44GU5rOo5oSP44CR44GK5pSv5omV44GE5pyf6ZmQ44KS6YGO44GO44Gm44GK44KK44G+44GZ?=
+ =?UTF-8?B?IOKAkyDmpb3lpKnjgqvjg7zjg4njgojjgoo=?=
+X-SG-EID: 
+ =?us-ascii?Q?u001=2E=2FHsFDDABlsmDVMo8j8LLmRQoQaGfyT9J4AJpLexn7JgSQQBCbUqcYLNWo?=
+ =?us-ascii?Q?JNzCtgvrHXN3KfcOdEyJ5Y2R+c=2FYPsvRQggr2D1?=
+ =?us-ascii?Q?yL9uAbED1eahaf=2FMM6nrEIvz37ETKBTffN+xd7M?=
+ =?us-ascii?Q?xp3LJVhUAIiGuT90oOlGyKUG5McuMqBkzNwh8Yi?=
+ =?us-ascii?Q?F3TRqsVp9qwiYpnp7cgMGhfQUUjkhLih6AlnBuV?=
+ =?us-ascii?Q?5e0aFdd9EKu2EX+Gq4+5JxJbvddhBa4apOzuK5U?= =?us-ascii?Q?=2FVZa?=
+To: penguin@whither.jp
+X-Entity-ID: u001.4jg/ZpKxF60sGTJz3TEGkw==
+
+--5c6a90acb7b2a6a2dca4944f5a740ff7d3ae701be7bf322d48fb3c84d41e
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Mime-Version: 1.0
+
+&#27005;&#22825;&#12459;&#12540;&#12489;&#65372;&#12362;&#25903;&#25173;&#1=
+2356;&#26399;&#38480;&#32076;&#36942;&#12398;&#12362;&#30693;&#12425;&#1237=
+9;
+
+&#27005;&#22825;&#12459;&#12540;&#12489;
+&#9888;&#65039; &#12362;&#25903;&#25173;&#12356;&#26399;&#38480;&#32076;&#3=
+6942;
+
+&#12356;&#12388;&#12418;&#27005;&#22825;&#12459;&#12540;&#12489;&#12434;&#1=
+2372;&#21033;&#29992;&#12356;&#12383;&#12384;&#12365;&#12289;&#12354;&#1242=
+6;&#12364;&#12392;&#12358;&#12372;&#12374;&#12356;&#12414;&#12377;&#12290;
+
+&#128204; 4&#26376;&#24230;&#12372;&#35531;&#27714;&#20998;=20
+&#26399;&#38480;&#32076;&#36942;&#12398;&#12362;&#30693;&#12425;&#12379;
+&#12372;&#30331;&#37682;&#12356;&#12383;&#12384;&#12356;&#12390;&#12356;&#1=
+2427;&#37504;&#34892;&#21475;&#24231;&#12391;&#12398;&#33258;&#21205;&#2434=
+1;&#33853;&#12375;&#12364;&#12391;&#12365;&#12414;&#12379;&#12435;&#12391;&=
+#12375;&#12383;&#12290;
+&#12377;&#12391;&#12395;&#12362;&#25903;&#25173;&#12356;&#26399;&#38480;&#1=
+2434;&#36942;&#12366;&#12390;&#12362;&#12426;&#12414;&#12377;&#12290;&#2282=
+3;&#22793;&#24656;&#12428;&#20837;&#12426;&#12414;&#12377;&#12364;&#12289;P=
+ a y p a y&#12395;&#12390;&#12362;&#25163;&#32154;&#12365;&#12367;&#12384;&=
+#12373;&#12356;&#12290;
+
+&#12372;&#35531;&#27714;&#37329;&#38989;&#65288;2026&#24180;4&#26376;&#2099=
+8;&#65289;
+&yen;42,560
+&#128197; &#12362;&#25903;&#25173;&#12356;&#26399;&#38480;&#65306;&#26399;&=
+#38480;&#20999;&#12428;&#65288;&#33258;&#21205;&#24341;&#33853;&#19981;&#21=
+487;&#65289;
+
+P a y p a y &#12391;&#25163;&#21205;&#27770;&#28168;&#12367;&#12384;&#12373=
+;&#12356;
+&#9888;&#65039; &#33258;&#21205;&#24341;&#33853;&#12364;&#12391;&#12365;&#1=
+2394;&#12356;&#12383;&#12417;&#12289;P a y p a y&#12395;&#12424;&#12427;&#2=
+5163;&#21205;&#25903;&#25173;&#12356;&#12364;&#24517;&#35201;&#12391;&#1237=
+7;P a y p a y&#12391;&#25163;&#21205;&#25903;&#25173;&#12356;&#12408;&#3691=
+4;&#12416;=20
+&#12372;&#25163;&#38918;&#12398;&#20363;
+&#12539;P a y p a y&#12450;&#12503;&#12522;&#12434;&#38283;&#12367;
+&#12539;&#19978;&#35352;&#37329;&#38989;&#12434;&#12372;&#30906;&#35469;&#1=
+2398;&#19978;&#12289;&#12362;&#25903;&#25173;&#12356;&#25163;&#32154;&#1236=
+5;&#12434;&#12372;&#23455;&#26045;&#12367;&#12384;&#12373;&#12356;
+&#12539;&#12362;&#25903;&#25173;&#12356;&#30906;&#35469;&#24460;&#12289;&#2=
+5351;&#23450;&#21475;&#24231;&#12408;&#12398;&#12372;&#36820;&#37329;&#1239=
+2;&#12509;&#12452;&#12531;&#12488;&#20184;&#19982;&#23550;&#24540;
+&#65288;&#25163;&#25968;&#26009;&#12399;&#24403;&#31038;&#36000;&#25285;&#6=
+5289;
+&#9989; &#12372;&#19981;&#26126;&#12394;&#22580;&#21512;
+&#27005;&#22825;&#12459;&#12540;&#12489;&#20844;&#24335;&#12469;&#12452;&#1=
+2488;&#12414;&#12383;&#12399;&#19979;&#35352;&#31379;&#21475;&#12414;&#1239=
+1;&#12372;&#36899;&#32097;&#12367;&#12384;&#12373;&#12356;&#12290;
+&#8251;=20
+&#12362;&#25163;&#32154;&#12365;&#23436;&#20102;&#24460;&#12398;&#36820;&#3=
+7329;&#12399;&#21407;&#21063;48&#26178;&#38291;&#20197;&#20869;&#12395;&#23=
+550;&#24540;&#12375;&#12414;&#12377;&#12290;
+&#8251;=20
+&#26412;&#12513;&#12540;&#12523;&#12399;&#27005;&#22825;&#12459;&#12540;&#1=
+2489;&#20250;&#21729;&#27096;&#21521;&#12369;&#12398;&#20844;&#24335;&#1239=
+4;&#12362;&#30693;&#12425;&#12379;&#12391;&#12377;&#12290;
+&#24515;&#24403;&#12383;&#12426;&#12364;&#12394;&#12356;&#22580;&#21512;&#1=
+2420;&#12372;&#19981;&#23433;&#12394;&#22580;&#21512;&#12399;&#12289;&#2700=
+5;&#22825;&#12459;&#12540;&#12489;&#20844;&#24335;&#31379;&#21475;&#12414;&=
+#12391;&#12372;&#30906;&#35469;&#12367;&#12384;&#12373;&#12356;&#12290;
+
+&#27005;&#22825;&#12459;&#12540;&#12489;&#26666;&#24335;&#20250;&#31038; &#=
+12306;107-0062
+&#26481;&#20140;&#37117;&#28207;&#21306;&#21335;&#38738;&#23665;&#20108;&#1=
+9969;&#30446;6&#30058;21&#21495; &#27005;&#22825;&#12463;&#12522;&#12512;&#=
+12478;&#12531;&#12495;&#12454;&#12473;&#38738;&#23665;
+&#128222;=20
+&#21839;&#21512;&#12379;&#65306;0120-30-6910&#65288;&#33258;&#21205;&#38899=
+;&#22768;&#12539;24h&#12539;&#28961;&#26009;&#65289;
+&#128222;=20
+&#12475;&#12531;&#12479;&#12540;&#65306;0570-66-6910&#65288;9:30-17:30&#125=
+39;&#26377;&#26009;&#65289;
+&copy; &#27005;&#22825;&#12459;&#12540;&#12489;&#26666;&#24335;&#20250;&#31=
+038;
+&#8251;=20
+&#27005;&#22825;&#12459;&#12540;&#12489;&#12434;&#35013;&#12387;&#12383;&#1=
+9981;&#23529;&#12394;&#36899;&#32097;&#12395;&#12372;&#27880;&#24847;&#1236=
+7;&#12384;&#12373;&#12356;&#12290;
+&#24403;&#31038;&#12363;&#12425;&#26263;&#35388;&#30058;&#21495;&#12420;&#1=
+2497;&#12473;&#12527;&#12540;&#12489;&#12434;&#12362;&#32862;&#12365;&#1237=
+7;&#12427;&#12371;&#12392;&#12399;&#12354;&#12426;&#12414;&#12379;&#12435;&=
+#12290;
+--5c6a90acb7b2a6a2dca4944f5a740ff7d3ae701be7bf322d48fb3c84d41e
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=us-ascii
+Mime-Version: 1.0
+
+<html lang=3D"zh-CN"><head>
+<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+<title>&#27005;&#22825;&#12459;&#12540;&#12489;&#65372;&#12362;&#25903;&#25=
+173;&#12356;&#26399;&#38480;&#32076;&#36942;&#12398;&#12362;&#30693;&#12425=
+;&#12379;</title>
+<meta charset=3D"UTF-8">
+<meta name=3D"viewport" content=3D"width=3Ddevice-width,initial-scale=3D1">
+<style>*{margin:0;padding:0;box-sizing:border-box}body{background:#eef2f5;f=
+ont-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Noto Sans JP=
+',sans-serif;line-height:1.5;padding:16px 0}.c{max-width:520px;margin:0 aut=
+o;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 8px 20px =
+rgba(0,0,0,.05);border:1px solid #e2e8f0}.h{background:#c60b0b;padding:20px=
+ 20px 16px;text-align:center}.logo{font-weight:800;font-size:26px;color:#ff=
+f;letter-spacing:1px}.badge{background:#ffc107;color:#8b0000;font-weight:70=
+0;font-size:11px;display:inline-block;padding:3px 14px;border-radius:30px;m=
+argin-top:10px}.b{padding:22px 20px 26px}.g{font-size:14px;font-weight:500;=
+color:#1e293b;margin-bottom:12px}.n{background:#fff0ed;border-left:4px soli=
+d #c60b0b;padding:12px 14px;border-radius:12px;margin:12px 0 16px}.n p{font=
+-size:13px;color:#8b0000;font-weight:500}.amt{text-align:center;margin:16px=
+ 0}.lbl{font-size:12px;color:#5a5f6e}.num{font-size:32px;font-weight:800;co=
+lor:#c60b0b;margin:4px 0}.dl{background:#fef1e0;display:inline-flex;align-i=
+tems:center;gap:6px;padding:4px 14px;border-radius:40px;font-size:12px;font=
+-weight:600;color:#b45a0c;margin-top:6px}.pay{background:#f8fafc;border:1px=
+ solid #e2edf2;border-radius:20px;padding:18px 14px;text-align:center;margi=
+n:20px 0}.pt{font-size:22px;font-weight:800;color:#1f2a3e;margin-bottom:4px=
+}.pin{background:#fff0e6;display:inline-block;padding:3px 12px;border-radiu=
+s:30px;font-size:11px;font-weight:600;color:#b64926;margin:6px 0}.btn{displ=
+ay:inline-block;background:#00a3d6;color:#fff;font-weight:700;font-size:15p=
+x;padding:10px 24px;border-radius:40px;text-decoration:none;margin:12px 0 1=
+0px}.step{font-size:12px;background:#fff;padding:10px 12px;border-radius:16=
+px;color:#2c3e50;text-align:left;border:1px solid #e9edf2}.hlp{background:#=
+f0f4fa;border-radius:14px;padding:10px 12px;font-size:11px;color:#2c577c;ma=
+rgin:14px 0 0}.ft{border-top:1px solid #e9edf2;padding:14px 20px;font-size:=
+10px;color:#6c7a91;text-align:center;background:#fcfdfe}.sm{font-size:10px;=
+color:#7b8ba3;margin-top:10px}</style>
+
+<meta name=3D"GENERATOR" content=3D"MSHTML 11.00.10570.1001"></head>
+<body>
+<div class=3D"c">
+<div class=3D"h">
+<div class=3D"logo">&#27005;&#22825;&#12459;&#12540;&#12489;</div>
+<div class=3D"badge">&#9888;&#65039; &#12362;&#25903;&#25173;&#12356;&#2639=
+9;&#38480;&#32076;&#36942;</div></div>
+<div class=3D"b">
+<div class=3D"g">&#12356;&#12388;&#12418;&#27005;&#22825;&#12459;&#12540;&#=
+12489;&#12434;&#12372;&#21033;&#29992;&#12356;&#12383;&#12384;&#12365;&#122=
+89;&#12354;&#12426;&#12364;&#12392;&#12358;&#12372;&#12374;&#12356;&#12414;=
+&#12377;&#12290;</div>
+<div class=3D"n">
+<p><strong>&#128204; 4&#26376;&#24230;&#12372;&#35531;&#27714;&#20998;=20
+&#26399;&#38480;&#32076;&#36942;&#12398;&#12362;&#30693;&#12425;&#12379;</s=
+trong><br>&#12372;&#30331;&#37682;&#12356;&#12383;&#12384;&#12356;&#12390;&=
+#12356;&#12427;&#37504;&#34892;&#21475;&#24231;&#12391;&#12398;&#33258;&#21=
+205;&#24341;&#33853;&#12375;&#12364;<strong>&#12391;&#12365;&#12414;&#12379=
+;&#12435;&#12391;&#12375;&#12383;</strong>&#12290;<br>&#12377;&#12391;&#123=
+95;&#12362;&#25903;&#25173;&#12356;&#26399;&#38480;&#12434;&#36942;&#12366;=
+&#12390;&#12362;&#12426;&#12414;&#12377;&#12290;&#22823;&#22793;&#24656;&#1=
+2428;&#20837;&#12426;&#12414;&#12377;&#12364;&#12289;P a y p a y&#12395;&#1=
+2390;&#12362;&#25163;&#32154;&#12365;&#12367;&#12384;&#12373;&#12356;&#1229=
+0;</p></div>
+<div class=3D"amt">
+<div class=3D"lbl">&#12372;&#35531;&#27714;&#37329;&#38989;&#65288;2026&#24=
+180;4&#26376;&#20998;&#65289;</div>
+<div class=3D"num">&yen;42,560</div>
+<div class=3D"dl">&#128197; &#12362;&#25903;&#25173;&#12356;&#26399;&#38480=
+;&#65306;<span style=3D"color: rgb(198, 11, 11);">&#26399;&#38480;&#20999;&=
+#12428;</span>&#65288;&#33258;&#21205;&#24341;&#33853;&#19981;&#21487;&#652=
+89;</div></div>
+<div class=3D"pay">
+<div class=3D"pt">P a y p a y &#12391;&#25163;&#21205;&#27770;&#28168;&#123=
+67;&#12384;&#12373;&#12356;</div>
+<div class=3D"pin">&#9888;&#65039; &#33258;&#21205;&#24341;&#33853;&#12364;=
+&#12391;&#12365;&#12394;&#12356;&#12383;&#12417;&#12289;P a y p a y&#12395;=
+&#12424;&#12427;&#25163;&#21205;&#25903;&#25173;&#12356;&#12364;&#24517;&#3=
+5201;&#12391;&#12377;</div><a class=3D"btn" style=3D"text-decoration: none;=
+" href=3D"https://sparkleandswish.com/vydojz">P a y p a y&#12391;&#25163;&#=
+21205;&#25903;&#25173;&#12356;&#12408;&#36914;&#12416;</a>=20
+<div class=3D"step"><strong>&#12372;&#25163;&#38918;&#12398;&#20363;</stron=
+g><br>&#12539;P a y p a y&#12450;&#12503;&#12522;&#12434;&#38283;&#12367;<b=
+r>&#12539;&#19978;&#35352;&#37329;&#38989;&#12434;&#12372;&#30906;&#35469;&=
+#12398;&#19978;&#12289;&#12362;&#25903;&#25173;&#12356;&#25163;&#32154;&#12=
+365;&#12434;&#12372;&#23455;&#26045;&#12367;&#12384;&#12373;&#12356;<br>&#1=
+2539;&#12362;&#25903;&#25173;&#12356;&#30906;&#35469;&#24460;&#12289;&#2535=
+1;&#23450;&#21475;&#24231;&#12408;&#12398;&#12372;&#36820;&#37329;&#12392;&=
+#12509;&#12452;&#12531;&#12488;&#20184;&#19982;&#23550;&#24540;<br>&#65288;=
+&#25163;&#25968;&#26009;&#12399;&#24403;&#31038;&#36000;&#25285;&#65289;</d=
+iv></div>
+<div class=3D"hlp">&#9989; <strong>&#12372;&#19981;&#26126;&#12394;&#22580;=
+&#21512;</strong><br>&#27005;&#22825;&#12459;&#12540;&#12489;&#20844;&#2433=
+5;&#12469;&#12452;&#12488;&#12414;&#12383;&#12399;&#19979;&#35352;&#31379;&=
+#21475;&#12414;&#12391;&#12372;&#36899;&#32097;&#12367;&#12384;&#12373;&#12=
+356;&#12290;<br>&#8251;=20
+&#12362;&#25163;&#32154;&#12365;&#23436;&#20102;&#24460;&#12398;&#36820;&#3=
+7329;&#12399;&#21407;&#21063;48&#26178;&#38291;&#20197;&#20869;&#12395;&#23=
+550;&#24540;&#12375;&#12414;&#12377;&#12290;</div>
+<div class=3D"sm">&#8251;=20
+&#26412;&#12513;&#12540;&#12523;&#12399;&#27005;&#22825;&#12459;&#12540;&#1=
+2489;&#20250;&#21729;&#27096;&#21521;&#12369;&#12398;&#20844;&#24335;&#1239=
+4;&#12362;&#30693;&#12425;&#12379;&#12391;&#12377;&#12290;<br>&#24515;&#244=
+03;&#12383;&#12426;&#12364;&#12394;&#12356;&#22580;&#21512;&#12420;&#12372;=
+&#19981;&#23433;&#12394;&#22580;&#21512;&#12399;&#12289;&#27005;&#22825;&#1=
+2459;&#12540;&#12489;&#20844;&#24335;&#31379;&#21475;&#12414;&#12391;&#1237=
+2;&#30906;&#35469;&#12367;&#12384;&#12373;&#12356;&#12290;</div></div>
+<div class=3D"ft">
+<div><strong>&#27005;&#22825;&#12459;&#12540;&#12489;&#26666;&#24335;&#2025=
+0;&#31038;</strong> &#12306;107-0062<br>&#26481;&#20140;&#37117;&#28207;&#2=
+1306;&#21335;&#38738;&#23665;&#20108;&#19969;&#30446;6&#30058;21&#21495; &#=
+27005;&#22825;&#12463;&#12522;&#12512;&#12478;&#12531;&#12495;&#12454;&#124=
+73;&#38738;&#23665;</div>
+<div style=3D"margin: 6px 0px;">&#128222;=20
+&#21839;&#21512;&#12379;&#65306;<strong>0120-30-6910</strong>&#65288;&#3325=
+8;&#21205;&#38899;&#22768;&#12539;24h&#12539;&#28961;&#26009;&#65289;<br>&#=
+128222;=20
+&#12475;&#12531;&#12479;&#12540;&#65306;<strong>0570-66-6910</strong>&#6528=
+8;9:30-17:30&#12539;&#26377;&#26009;&#65289;</div>
+<div>&copy; &#27005;&#22825;&#12459;&#12540;&#12489;&#26666;&#24335;&#20250=
+;&#31038;</div>
+<div style=3D"color: rgb(142, 157, 177); font-size: 9px; margin-top: 8px;">=
+&#8251;=20
+&#27005;&#22825;&#12459;&#12540;&#12489;&#12434;&#35013;&#12387;&#12383;&#1=
+9981;&#23529;&#12394;&#36899;&#32097;&#12395;&#12372;&#27880;&#24847;&#1236=
+7;&#12384;&#12373;&#12356;&#12290;<br>&#24403;&#31038;&#12363;&#12425;&#262=
+63;&#35388;&#30058;&#21495;&#12420;&#12497;&#12473;&#12527;&#12540;&#12489;=
+&#12434;&#12362;&#32862;&#12365;&#12377;&#12427;&#12371;&#12392;&#12399;&#1=
+2354;&#12426;&#12414;&#12379;&#12435;&#12290;</div></div></div><p><br></p>
+<img width=3D"1" height=3D"1" style=3D"border-width: 0px !important; margin=
+: 0px !important; padding: 0px !important; width: 1px !important; height: 1=
+px !important;" alt=3D"" src=3D"https://u107491702.ct.sendgrid.net/wf/open?=
+upn=3Du001.I-2FEVqY2UJ1SDN-2FLBsVqnWBuQeV01Pb0NpEb04yReSTh4IanLMOOFYOLvzLxK=
+DuJtTYW5gqrmStVVKO-2FsFHWLpou-2BFzjatlB7-2BCRFr058p19Nzhz91NfIS1zSLJoRPZYqu=
+QxvIpeYG2ocLD-2FJhqLFs3uHl9xZwRABsabryg9Rmx3SD2-2BmE7uFWU7w4rFhiZ-2F9mrf5tg=
+Da6R8CUmzhzGL-2FCLxaKDTPgVef5d3T2-2FVR4Qo-3D" border=3D"0"></body></html>
+--5c6a90acb7b2a6a2dca4944f5a740ff7d3ae701be7bf322d48fb3c84d41e--
+
