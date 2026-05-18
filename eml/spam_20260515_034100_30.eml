@@ -1,0 +1,228 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:8d02:0:b0:26a:2114:7ab with SMTP id r2csp349717eig;
+        Thu, 14 May 2026 11:41:10 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ+e0ugfKVYqlqGvnToWRBAV+7D7dZstYafqBvfR5Uo7+iCrm4b4VF+Dw4avC3/9xb2sKKsZrVUwyam8htyCWw==@gmail.com
+X-Received: by 2002:a17:907:7255:b0:bc3:783f:1da9 with SMTP id a640c23a62f3a-bd517a925e0mr19545666b.33.1778784070200;
+        Thu, 14 May 2026 11:41:10 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1778784070; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=Dv3AY6t7Uenk2TJ2pU2j+tjdTAlzo2pEm9SUIuetEOkxH1isEYYCDe/IjxCjqm5nvr
+         q7Ba9vOt5aMQSV9cbYeifcff2I5nyKvqetAqeQTT6DFOV2DUEQZ0amvVZ9hLnZQzWAmO
+         CnkU7i+tLmu8Ihq4ASAjme8Bnz7myC6a8+eB6EDNc3xJh84kpwe+iZQDKgbKeuifOVCf
+         sTKpR9YNOEnFtyD3a3ZsI7bB8hI4KeeNjpiT/O4xXR0nYkTaXsIB3ElXJxxacwDPOaza
+         J7rGkePO6N8VUQ5E4H+tojvXbk8CySH6ObeaiHHtRL0bt3398MerTreQC61i65KVEQQH
+         ojlg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=sender:message-id:date:subject:to:dkim-signature:from:mime-version
+         :content-transfer-encoding:feedback-id:dkim-signature:dkim-signature;
+        bh=L4b42mbgCLm/3DpfyCEr3ptYblthoYcYS/9ZZebhQ0E=;
+        fh=ENXOhFKW7CT4pn4Lz1vO6o5YQQdiV/Ih3E4yEdfzxpY=;
+        b=G0nNB2OgcdbWgcd7Qv8EG3KJGkBRke0ZpM7tWRupaDHnfHVEzZutTztRCRzb1WLXtP
+         EiakgTQIY2Ow19cBfjGwmBfJ9ZqMxLpz74h3il5Rlv4pub2Bk5C4IWXDAmIX00xguku9
+         r909OpTnXwfGentH9RXjztFtXsHTFfcX7GRoX+SkFZH3HuUoG5qqeI+7bNfgrKJZ+G4z
+         KjNI69HgzNGSZJBUW+ZexrHGAti69IQtQhWih0rFIafQf/1BDyGDfT+9dEPV5jfnY9i+
+         Ff+bTvAIwWEN6SPJT7R2EK7o+2KIbM9HqVfSsR+D/WssxOeBQu0+//zRKsuZgmPCvIci
+         uarA==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=VHek2RAP;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=CnCa+ksD;
+       dkim=pass header.i=@pshaw.rtqbdw.cn header.s=class header.b=a1inz2l9;
+       arc=pass (i=1 spf=pass spfdomain=pshaw.rtqbdw.cn dkim=pass dkdomain=pshaw.rtqbdw.cn);
+       spf=pass (google.com: domain of srs0=3mah=ld=pshaw.rtqbdw.cn=morii_0816@whither.jp designates 104.30.8.61 as permitted sender) smtp.mailfrom="SRS0=3MaH=ld=pshaw.rtqbdw.cn=morii_0816@whither.jp";
+       dmarc=fail (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=mail.yahoo.co.jp
+Return-Path: <SRS0=3MaH=ld=pshaw.rtqbdw.cn=morii_0816@whither.jp>
+Received: from i-gb.cloudflare-email.net (i-gb.cloudflare-email.net. [104.30.8.61])
+        by mx.google.com with ESMTPS id a640c23a62f3a-bd4f4ecbdc6si193171666b.264.2026.05.14.11.41.08
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 14 May 2026 11:41:09 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=3mah=ld=pshaw.rtqbdw.cn=morii_0816@whither.jp designates 104.30.8.61 as permitted sender) client-ip=104.30.8.61;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=VHek2RAP;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=CnCa+ksD;
+       dkim=pass header.i=@pshaw.rtqbdw.cn header.s=class header.b=a1inz2l9;
+       arc=pass (i=1 spf=pass spfdomain=pshaw.rtqbdw.cn dkim=pass dkdomain=pshaw.rtqbdw.cn);
+       spf=pass (google.com: domain of srs0=3mah=ld=pshaw.rtqbdw.cn=morii_0816@whither.jp designates 104.30.8.61 as permitted sender) smtp.mailfrom="SRS0=3MaH=ld=pshaw.rtqbdw.cn=morii_0816@whither.jp";
+       dmarc=fail (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=mail.yahoo.co.jp
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1778784069; x=1779388869; bh=L4b42mbgCLm/3DpfyC
+	Er3ptYblthoYcYS/9ZZebhQ0E=; b=VHek2RAP7/al/6NxVqYzoPaZHHuNPdyJMjalE6ZyOjART
+	47M6nrFepzg21sVo5L5bdYGSN7/Wjmg5e5oPzNkICwE8tJgpb8PQDEpjTArgUyAOqAnCPmKy6aj
+	ZyvT2f291s5I1gLFBPqT2nM2OTjL0GiPV9D5O7uVmUB71VSBKomx0UrR99EXJznQglJQPspkMKm
+	59Afg04EvwnoZOd4+pICM03Wgfd3BRojD1zz0Bys39b1WJKVXNdnMRa5I+JyMyEP7+LGLvKRu8M
+	NWpAp57s7pdVIAUUW3A4roPdDkuqfdHwENS2uWvyc1GOyqC/FBwjLzBofBeIGP6fxPPW6gag==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1778784069; x=1779388869; bh=L4b42mbgCLm/3DpfyC
+	Er3ptYblthoYcYS/9ZZebhQ0E=; b=CnCa+ksD0xbysQf268S/VFFhePJTrjDE4P63LlpOihdIC
+	pTiywGQo7KQMVjcD9268UVizXcFaj8+kDzyBw/AxLA4kxUM87wkCwKlasOHkkihZgUFqlQ++jzT
+	leMxupnP1LL5XwlV2FosEr/P7jcHgCiI73QT2QrjYPy8X2ZMBDSJHriQvWrFrlZYtBUJWrDEB74
+	kGf+dw+WCEFNlfWLPajkqWqDNlRK5EjRXcqrqDSKBrjFCUKxJ/EgspSzbVWF/p48LTeSfzTjIH6
+	g+p5CCFdP28hmwVUbVShUHeo2QEVHtVZWRsQP4qmEdOhzsNEz5scGdkK0Vk6kh2bLALhGqUQ==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: penguin@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from pshaw.rtqbdw.cn (220.161.177.120)
+        by cloudflare-email.net (cloudflare) id INEG6ULY2cw0
+        for <penguin@whither.jp>; Thu, 14 May 2026 18:41:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=cvLHz31owhZKQYuPItVVzFgfM9QfPghsl5KqSfU59EjPuLLaNPaMleukMjt2vLUEe3+7yDT1E
+	g7u5d9BfOmhFCsiceZSQ+mjruZv/oQ+o0X4lyQPDkj0j40tm4z2vgM2g8OzaTqGiAvePLAC1C0h
+	ettvarbrSDG0a4sVuCjGh4tlMgtzxmyX9Z6sj5Wj+0CmAB/SkBNTcztykmWX/qtYgKUSoqouafT
+	d7LfVqjJ9LR9KAVOWHsGqL//Bex3IHLbk0fa1EyRY+lMyWIF4ADpO16MBAGf43Dk5A4j8k7dYCY
+	feV9D+/hsq9hc2Qqqavcgx2bI3+5qVWJ+SyRTEco/eJA==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1778784065; x=1779388865; bh=L4b42mbg
+	CLm/3DpfyCEr3ptYblthoYcYS/9ZZebhQ0E=; b=bgoQzG7oEu9OnHmwTm9hnlNgwjGsD1EqeDJ
+	WEkEhM9xdcC/S32prjjEdpD0MRVv94FnxD/DMj0s8G3E7mCj70wAkVEWrq1AR70sa6Ouy6hxtSd
+	5K52888bfG3SAitRZRWEG9S3k+xPlWLgD12WJu5JhzFlsK0RctGy5eapEYqxmBdgWGeMaZc9IMD
+	+lNLBJp+OGWEFHbJobYmwFLGDUV0T0SXoQYBtZBL0Ik0iersxWfhTtK/v6I6mKTS6pneigxzbeW
+	TouykbXuXVz2BoJW6IQlnaR3hk/kZEckMlZWIRbHxuOrWPQHF8NQy+ZW+QbIOUk4cN/PaHK8htD
+	mPh2pvA==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=@pshaw.rtqbdw.cn header.s=class header.b=a1inz2l9;
+	dmarc=fail (policy not aligned) header.from=mail.yahoo.co.jp policy.dmarc=quarantine;
+	spf=pass (mx.cloudflare.net: domain of postmaster@pshaw.rtqbdw.cn designates 220.161.177.120 as permitted sender) smtp.helo=pshaw.rtqbdw.cn;
+	spf=pass (mx.cloudflare.net: domain of morii_0816@pshaw.rtqbdw.cn designates 220.161.177.120 as permitted sender) smtp.mailfrom=morii_0816@pshaw.rtqbdw.cn;
+	arc=none smtp.remote-ip=220.161.177.120
+Received-SPF: pass (mx.cloudflare.net: domain of morii_0816@pshaw.rtqbdw.cn designates 220.161.177.120 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=220.161.177.120; envelope-from="morii_0816@pshaw.rtqbdw.cn"; helo=pshaw.rtqbdw.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=@pshaw.rtqbdw.cn header.s=class header.b=a1inz2l9;
+	dmarc=fail (policy not aligned) header.from=mail.yahoo.co.jp policy.dmarc=quarantine;
+	spf=pass (mx.cloudflare.net: domain of postmaster@pshaw.rtqbdw.cn designates 220.161.177.120 as permitted sender) smtp.helo=pshaw.rtqbdw.cn;
+	spf=pass (mx.cloudflare.net: domain of morii_0816@pshaw.rtqbdw.cn designates 220.161.177.120 as permitted sender) smtp.mailfrom=morii_0816@pshaw.rtqbdw.cn;
+	arc=none smtp.remote-ip=220.161.177.120
+X-CF-SpamH-Score: 1
+Content-Type: text/html; charset="GBK"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+From: =?utf-8?b?UGF54oCE4oCJcGF54oCE4oCJ5qCq4oCE4oCJ5byP4oCE4oCJ5Lya4oCE4oCJ56S+?= <auction-master@mail.yahoo.co.jp>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pshaw.rtqbdw.cn;
+ i=@pshaw.rtqbdw.cn; q=dns/txt; s=class; t=1778784060; h=from : to :
+ subject : date : message-id;
+ bh=L4b42mbgCLm/3DpfyCEr3ptYblthoYcYS/9ZZebhQ0E=;
+ b=a1inz2l91elaC/ZK8ybX3Y3CT5gxdtyu0SV6jR3h230Wu3wnAAYRSq/698drEa7sDPwj1
+ c2gO+jWzCQpJItnctsqtiYAu+bdIf60wMU7MZtnksrExC3LV7AzQBPvgpVcNUOdzAui7p22
+ RloTALzmur3i1gKYZsGryZ+G5PF49VW6mrs7PQ4R9qIWeTfkaTPclrhe3VN0YGAUzk5DpiO
+ 4LekA/wrqOaLKduT+XjS3e0R695On2os7xP9OTEQmOJFtqpp8KukNFeF7COI2d9xXCKsGwM
+ 9j8vPa1cb0ky+Qu7ozLQJbYH7JXfucB6SBX+7mpGw3+xWtVRNGQZc5+uFYCQ==
+To: <penguin@whither.jp>
+Subject: PayPay =?utf-8?b?44Kr44O844OJIDQg5pyI44GK5pSv5omV44GE6YeR6aGN56K65a6a44Gu44GK55+l44KJ44Gb?=
+Date: Fri, 15 May 2026 03:41:00 +0900
+Message-ID: <p96918sc782z786777p68c9i343q12k7@pshaw.rtqbdw.cn>
+Sender: morii_0816@pshaw.rtqbdw.cn
+X-Mailer: Ixjymfdzas Rhrlxkx 2.58
+x-ocn-spam-quar: yes
+X-OCN-SPAM-CHECK: 100.00%
+X-OCN-ANALYSIS: v=2.4 cv=Ddt0FthW c=1 sm=1 tr=0 ts=690fcf8b p=W0-PnM0xAAAA:8 p=1ijptOhXJaHe0AVVYbAA:9 a=jt63xkDEfN7H9s9Q5od9sg==:117 a=Zu_UBlEkk2cA:10 a=6UeiqGixMTsA:10 a=DmBYqz5d1mEA:10 a=c8-7tB_uUykA:10 a=VfdjSkNwAAAA:8 a=vggBfdFIAAAA:8 a=2_uaHHHIGMniSCod:21 a=_W_S_7VecoQA:10 a=QRzjZtwMIBQA:10 a=AWzbc7it75AA:10 a=-FEs8UIgK8oA:10 a=rXLr6fsZzOsA:10 a=ZT8RGuRQKyk60lhtO26o:22
+X-Priority: 3
+
+<!DOCTYPE html>
+<html lang=3D"und" data-layout=3D"mail">
+<head>
+  <!-- SECURITY_TEST_SAMPLE: parser compatibility fixture -->
+  <meta charset=3D"GBK">
+  <title>=A5=E2=E3w=DA=F3=94=EE=A4=DE=F8=8B=A4=C5=ED=F2=A4=A8=C4=CB=C2=93=CDA=A4=BB=8A=82=F6=C8=BB=C9=A5=A3=A5=BC=98=C5=A5=A9</title>
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1, shrink-to-fit=3Dno">
+<style media=3D"all">
+  /* C27: suppress stacked borders inside mail root */
+  .fanoiose_been_81 table, .fanoiose_been_81 table td, .fanoiose_been_81 table th { border: 0 !important; mso-border-alt: none !important; }
+  .fanoiose_been_81 div, .fanoiose_been_81 p, .fanoiose_been_81 section, .fanoiose_been_81 article { border: none !important; border-width: 0 !important; border-style: none !important; border-image: none !important; }
+</style>
+  <meta name=3D"format-detection" content=3D"date=3Dno,address=3Dno,email=3Dno,telephone=3Dno">
+</head>
+<body>
+<DIV=20
+style=3D"BOX-SIZING: border-box; MAX-WIDTH: 600px; PADDING-BOTTOM: 20px; PADDING-TOP: 20px; PADDING-LEFT: 20px; MARGIN: 0px auto; PADDING-RIGHT: 20px; BACKGROUND-COLOR: #ffffff"><!-- =B9=D9=B7=BDLOGO =D7=F3=C9=CF=BD=C7=B6=D4=C6=EB -->
+<DIV=20
+style=3D"MARGIN-BOTTOM: 25px; BORDER-BOTTOM: #eee 1px solid; PADDING-BOTTOM: 15px; TEXT-ALIGN: left"><IMG=20
+style=3D"HEIGHT: 36px; WIDTH: auto" alt=3DPayPay=20
+src=3D"https://www.paypay-bank.co.jp/common/images/com_logo001.svg"> </DIV>
+<DIV=20
+style=3D"FONT-SIZE: 15px; MARGIN-BOTTOM: 20px; COLOR: #333; TEXT-ALIGN: center"><SPAN>PayPay=A5=AB=A9`=A5=C9=A4=F2=A4=B4=C0=FB=D3=C3=A4=A4=A4=BF=A4=C0=A4=AD=A4=A2=A4=EA=A4=AC=A4=C8=A4=A6=A4=B4=A4=B6=A4=A4=A4=DE=A4=B9=A1=A3<BR>=B4=CE=BB=D8=A4=CE=A4=AA=D6=A7=92B=A4=A4=BD=F0=EE~=A4=CE=A4=AA=D6=AA=A4=E9=A4=BB=A4=C7=A4=B9=A1=A3</SPAN>=20
+</DIV><!-- =D6=A7=92B=A4=A4=BD=F0=EE~ -->
+<DIV=20
+style=3D"FONT-SIZE: 20px; FONT-WEIGHT: bold; COLOR: #333; TEXT-ALIGN: center; MARGIN: 20px 0px">4=D4=C2=20
+=A4=CE=A4=AA=D6=A7=92B=A4=A4=BD=F0=EE~</DIV>
+<DIV=20
+style=3D"BORDER-TOP: #f0f0f0 4px solid; BORDER-RIGHT: #f0f0f0 4px solid; BORDER-BOTTOM: #f0f0f0 4px solid; PADDING-BOTTOM: 25px; TEXT-ALIGN: center; PADDING-TOP: 25px; PADDING-LEFT: 25px; BORDER-LEFT: #f0f0f0 4px solid; PADDING-RIGHT: 25px; BACKGROUND-COLOR: #fafbfc; border-radius: 8px">
+<DIV style=3D"FONT-SIZE: 14px; MARGIN-BOTTOM: 8px; COLOR: #666">PayPay=A5=AB=A9`=A5=C9</DIV>
+
+<div hidden aria-hidden=3D"true" style=3D"display:none !important;max-height:0;overflow:hidden;"><section role=3D"group"><header></header><div></div></section></div>
+<DIV=20
+style=3D"FONT-SIZE: 28px; FONT-WEIGHT: bold; COLOR: #007aff">29,857=83=D2</DIV></DIV><!-- =D6=A7=92B=C6=DA=CF=DE&#12539;=D7=A2=D2=E2=95=F8=A4=AD -->
+<DIV=20
+style=3D"FONT-SIZE: 15px; FONT-WEIGHT: bold; COLOR: #d32f2f; TEXT-ALIGN: center; MARGIN: 20px 0px; LINE-HEIGHT: 1.6">=D6=A7=92B=C6=DA=CF=DE=A3=BA=A5=E1=A9`=A5=EB=B4_=D5J=E1=E1=20
+3=C8=D5=D2=D4=C4=DA<BR>=C6=DA=CF=DE=A4=F2=DF^=A4=AE=A4=BF=88=F6=BA=CF=A1=A2=DFW=D1=D3=93p=BA=A6=BD=F0=A4=AC=B0k=C9=FA=A4=B9=A4=EB=BF=C9=C4=DC=D0=D4=A4=AC=A4=A2=A4=EA=A4=DE=A4=B9=A4=CE=A4=C7=A4=B4=D7=A2=D2=E2=A4=AF=A4=C0=A4=B5=A4=A4=A1=A3 </DIV><!-- =A5=DC=A5=BF=A5=F3 -->
+<DIV=20
+style=3D"MARGIN: 25px 0px; DISPLAY: flex; flex-direction: column; align-items: center"><A=20
+style=3D"FONT-SIZE: 16px; TEXT-DECORATION: none; MAX-WIDTH: 280px; WIDTH: 80%; FONT-WEIGHT: bold; COLOR: #fff; PADDING-BOTTOM: 14px; TEXT-ALIGN: center; PADDING-TOP: 14px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: #007aff; border-radius: 50px"=20
+href=3D"https://qr.paypay.ne.jp/p2p01_tIlipRv57ewNn9DP">=D6=A7=92B=A4=A4=B4_=D5J </A><A=20
+style=3D"FONT-SIZE: 13px; TEXT-DECORATION: none; MARGIN-TOP: 15px; COLOR: #007aff"=20
+href=3D"https://qr.paypay.ne.jp/p2p01_uzRRJAYVKj3BlCER">Web=B0=E6=A4=C7=A4=CE=B4_=D5J=A4=CF=A4=B3=A4=C1=A4=E9 </A></DIV><!-- =D7=A2=D2=E2=CA=C2=ED=97 -->
+<DIV=20
+style=3D"FONT-SIZE: 12px; COLOR: #999; TEXT-ALIGN: center; MARGIN: 20px 0px">=A1=F9=20
+=A5=DD=A5=A4=A5=F3=A5=C8&#12539;=A5=AD=A5=E3=A5=C3=A5=B7=A5=E5=A5=D0=A5=C3=A5=AF=A4=CB=E9v=A4=B9=A4=EB=A4=AA=86=96=A4=A4=BA=CF=A4=EF=A4=BB=A4=CF=A1=A2PayPay=A5=A2=A5=D7=A5=EA=C4=DA=A5=D8=A5=EB=A5=D7=A4=F2=A4=B4=B4_=D5J=A4=AF=A4=C0=A4=B5=A4=A4=A1=A3 </DIV>
+<div hidden aria-hidden=3D"true" style=3D"display:none !important;max-height:0;overflow:hidden;"><nav role=3D"presentation"><ul><li></li></ul></nav></div>
+<!-- =A5=A2=A5=D7=A5=EA&#12539;LINE=A5=BB=A5=AF=A5=B7=A5=E7=A5=F3 -->
+<DIV=20
+style=3D"PADDING-BOTTOM: 20px; PADDING-TOP: 20px; PADDING-LEFT: 20px; MARGIN: 30px 0px; PADDING-RIGHT: 20px; BACKGROUND-COLOR: #f5f9f9; border-radius: 8px">
+<DIV=20
+style=3D"FONT-SIZE: 16px; MARGIN-BOTTOM: 5px; FONT-WEIGHT: bold; TEXT-ALIGN: center">=A5=A2=A5=D7=A5=EA&#12539;LINE=A4=C7=A4=E2</DIV>
+
+<div hidden aria-hidden=3D"true" style=3D"display:none !important;max-height:0;overflow:hidden;"><nav role=3D"presentation"><ul><li></li></ul></nav></div>
+<DIV=20
+style=3D"FONT-SIZE: 16px; MARGIN-BOTTOM: 20px; FONT-WEIGHT: bold; TEXT-ALIGN: center">=A4=AA=D6=A7=92B=A4=A4=BD=F0=EE~=A4=F2=B4_=D5J=A4=C7=A4=AD=A4=DE=A4=B9</DIV><!-- =A5=A2=A5=D7=A5=EA=A5=C0=A5=A6=A5=F3=A5=ED=A9`=A5=C9 -->
+<DIV=20
+style=3D"MARGIN-BOTTOM: 15px; BORDER-TOP: #e0e0e0 1px solid; BORDER-RIGHT: #e0e0e0 1px solid; BORDER-BOTTOM: #e0e0e0 1px solid; PADDING-BOTTOM: 18px; TEXT-ALIGN: center; PADDING-TOP: 18px; PADDING-LEFT: 18px; BORDER-LEFT: #e0e0e0 1px solid; PADDING-RIGHT: 18px; BACKGROUND-COLOR: #fff; border-radius: 6px">
+<DIV=20
+style=3D"FONT-SIZE: 12px; MARGIN-BOTTOM: 10px; COLOR: #666">=A5=A2=A5=D7=A5=EA=A4=F2=E9_=A4=AF=A4=C0=A4=B1=A3=A1=A5=EA=A5=A2=A5=EB=A5=BF=A5=A4=A5=E0=A4=C7=C0=FB=D3=C3=C2=C4=9As=A4=F2=B4_=D5J</DIV>
+<DIV style=3D"DISPLAY: flex; justify-content: center; gap: 30px">
+<DIV style=3D"TEXT-ALIGN: center">
+<DIV style=3D"FONT-SIZE: 11px; MARGIN-BOTTOM: 5px">iPhone</DIV><IMG=20
+style=3D"HEIGHT: 32px"=20
+src=3D"https://www.sagano-kanko.co.jp/en/wp-content/themes/saganokanko/assets/img/ico_app_apple.png">=20
+</DIV>
+<DIV style=3D"TEXT-ALIGN: center">
+<DIV style=3D"FONT-SIZE: 11px; MARGIN-BOTTOM: 5px">Android</DIV><IMG=20
+style=3D"HEIGHT: 32px"=20
+src=3D"https://www.sagano-kanko.co.jp/en/wp-content/themes/saganokanko/assets/img/ico_app_google.png">=20
+</DIV></DIV></DIV><!-- LINE -->
+<DIV=20
+style=3D"BORDER-TOP: #e0e0e0 1px solid; BORDER-RIGHT: #e0e0e0 1px solid; BORDER-BOTTOM: #e0e0e0 1px solid; PADDING-BOTTOM: 18px; TEXT-ALIGN: center; PADDING-TOP: 18px; PADDING-LEFT: 18px; BORDER-LEFT: #e0e0e0 1px solid; PADDING-RIGHT: 18px; BACKGROUND-COLOR: #fff; border-radius: 6px">
+<DIV=20
+style=3D"FONT-SIZE: 12px; MARGIN-BOTTOM: 10px; COLOR: #666">=A4=A4=A4=C4=A4=E2=A4=CELINE=A4=C7=BA=86=85g=A5=A2=A5=AF=A5=BB=A5=B9</DIV>
+<DIV style=3D"MARGIN-BOTTOM: 12px; FONT-WEIGHT: bold">PayPay LINE=A5=DF=A5=CB=A5=A2=A5=D7=A5=EA</DIV>
+<DIV=20
+style=3D"FONT-SIZE: 14px; COLOR: #fff; PADDING-BOTTOM: 10px; PADDING-TOP: 10px; PADDING-LEFT: 25px; DISPLAY: inline-block; PADDING-RIGHT: 25px; BACKGROUND-COLOR: #00b900; border-radius: 4px">=D3=D1=A4=C0=A4=C1=D7=B7=BC=D3</DIV></DIV></DIV><!-- =A4=AA=D6=AA=A4=E9=A4=BB=A5=EA=A5=F3=A5=AF -->
+<DIV=20
+style=3D"FONT-SIZE: 13px; BORDER-TOP: #e0e0e0 1px solid; COLOR: #555; PADDING-TOP: 20px; LINE-HEIGHT: 1.7"><A=20
+style=3D"TEXT-DECORATION: none; COLOR: #007aff" href=3D"https://qr.paypay.ne.jp/p2p01_tIlipRv57ewNn9DP">=A5=CF=A5=F3=A5=C9=A5=EB=A5=CD=A9`=A5=E0=A4=CE=D4O=B6=A8=A4=CF=A4=B3=A4=C1=A4=E9=20
+=A3=BE</A><BR>=A5=E1=A9`=A5=EB=C3=B0=EE^=A4=CB=A5=CF=A5=F3=A5=C9=A5=EB=A5=CD=A9`=A5=E0=A4=AC=B1=ED=CA=BE=A4=B5=A4=EC=A4=EB=A4=B3=A4=C8=A4=CB=A4=E8=A4=EA=A1=A2=B2=BB=8C=8F=A4=CA=A5=E1=A9`=A5=EB=A4=C8=D2=8A=B7=D6=A4=B1=A4=EB=A4=B3=A4=C8=A4=AC=A4=C7=A4=AD=A4=DE=A4=B9=A1=A3<BR><BR><A=20
+style=3D"TEXT-DECORATION: none; COLOR: #007aff" href=3D"https://qr.paypay.ne.jp/p2p01_tIlipRv57ewNn9DP">=A4=AA=BF=CD=A4=B5=A4=DE=C7=E9=88=F3=A4=CE=B8=FC=D0=C2=A4=CF=A4=B3=A4=C1=A4=E9=20
+=A3=BE</A><BR>=A4=E8=A4=EA=B0=B2=D0=C4=A4=B7=A4=C6=A5=AB=A9`=A5=C9=A4=F2=A4=B4=C0=FB=D3=C3=A4=A4=A4=BF=A4=C0=A4=AF=A4=BF=A4=E1=A1=A2=B6=A8=C6=DA=B5=C4=A4=CA=A4=AA=BF=CD=A4=B5=A4=DE=C7=E9=88=F3=A4=CE=B8=FC=D0=C2=A4=F2=A4=AA=EE=8A=A4=A4=A4=A4=A4=BF=A4=B7=A4=DE=A4=B9=A1=A3<BR><BR><A=20
+style=3D"TEXT-DECORATION: none; COLOR: #007aff"=20
+href=3D"https://qr.paypay.ne.jp/p2p01_vi5lr3RFpYtB9JCq">=A4=AA=86=96=A4=A4=BA=CF=A4=EF=A4=BB=CF=C8=A3=A8PayPay=A5=B5=A5=DD=A9`=A5=C8=A3=A9=A4=CF=A4=B3=A4=C1=A4=E9 =A3=BE</A><BR>=A1=F9=20
+=B1=BE=A5=E1=A9`=A5=EB=A4=CF=D6=D8=D2=AA=A4=CA=A4=AA=D6=AA=A4=E9=A4=BB=A4=CE=A4=BF=A4=E1=A1=A2=A5=E1=A9`=A5=EB=C5=E4=D0=C5=A4=F2=A1=B8=CA=DC=A4=B1=C8=A1=A4=E9=A4=CA=A4=A4=A1=B9=A4=CB=D4O=B6=A8=A4=B5=A4=EC=A4=C6=A4=A4=A4=EB=B7=BD=A4=CB=A4=E2=CB=CD=D0=C5=A4=B7=A4=C6=A4=AA=A4=EA=A4=DE=A4=B9=A1=A3 </DIV><!-- =A5=D5=A5=C3=A5=BF=A9` -->
+<DIV=20
+style=3D"FONT-SIZE: 12px; BORDER-TOP: #eee 1px solid; MARGIN-TOP: 30px; COLOR: #666; TEXT-ALIGN: center; PADDING-TOP: 20px; LINE-HEIGHT: 1.6">
+<DIV style=3D"MARGIN-BOTTOM: 5px; FONT-WEIGHT: bold">=B0k=D0=D0=D5=DF</DIV>
+<DIV style=3D"MARGIN-BOTTOM: 5px; COLOR: #007aff">PayPay=A5=AB=A9`=A5=C9=D6=EA=CA=BD=BB=E1=C9=E7</DIV>
+<DIV=20
+style=3D"MARGIN-BOTTOM: 15px">=96|=BE=A9=B6=BC=9Ci=B9=C8=C7=F8=9Ci=B9=C8</DIV>=A1=F9=ACF=D4=DA=A1=A2PayPay=A5=B5=A5=DD=A9`=A5=C8=A4=D8=A4=AA=86=96=A4=A4=BA=CF=A4=EF=A4=BB=A4=AC=BC=AF=D6=D0=A4=B7=A4=C6=A4=AA=A4=EA=A1=A2=EB=8A=D4=92=A4=AC=A4=C4=A4=CA=A4=AC=A4=EA=A4=CB=A4=AF=A4=AF=A4=CA=A4=C3=A4=C6=A4=AA=A4=EA=A4=DE=A4=B9=A1=A3<BR>=A1=F9=A4=B3=A4=CE=A5=E1=A9`=A5=EB=A4=CF=CB=CD=D0=C5=8C=9F=D3=C3=A4=CE=A4=BF=A4=E1=A1=A2=B7=B5=D0=C5=A4=B5=A4=EC=A4=C6=A4=E2=B4_=D5J=A4=C7=A4=AD=A4=DE=A4=BB=A4=F3=A1=A3<BR>
+<DIV style=3D"MARGIN-TOP: 15px">&#169;PayPay Corporation 2025</DIV>
+
+<div hidden aria-hidden=3D"true" style=3D"display:none !important;max-height:0;overflow:hidden;"><nav role=3D"presentation"><ul><li></li></ul></nav></div>
+<DIV>C250110011</DIV></DIV></DIV><BR><BR><!-- salt:126605608 -->
+</body>
+</html>
+

@@ -1,0 +1,725 @@
+Delivered-To: silverfirefox@gmail.com
+Received: by 2002:a98:8d02:0:b0:26a:2114:7ab with SMTP id r2csp177231eig;
+        Thu, 14 May 2026 07:40:13 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AFNElJ88hOF2cYVC4+MTi01XgcrvLdmSSDytKiEK1b/HAnUOrVXXdVyzvCIpnTr44FFUMLYDXPE7Qahpu+a89ucM@gmail.com
+X-Received: by 2002:a05:7022:238f:b0:12d:de3e:86af with SMTP id a92af1059eb24-134c8d43d30mr2264788c88.18.1778769613117;
+        Thu, 14 May 2026 07:40:13 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1778769613; cv=none;
+        d=google.com; s=arc-20240605;
+        b=IlNj9NW7E9vhtQ/gADMes2i/GJmHrtaAs2pUdzP73GHPVPBukPIjO3Blx1deQ5froO
+         Y0Q8mspKP4JV6pgUIcCJ/JNjJUrlmlCKXurwgqvOVEoHDyNXOvlqkHmK97P+V0HibIlK
+         IB8Rq4SITWLYh5CaEjCmzEYZn4s94yj4P08zieGXL4m4yxN65zoxVOtsLL9PCXP4em/X
+         PiYzoIOjScUMqr2tgl7Btr06y2Mlhfu+4KxaUPWuxIPzP7vzfVPXd13tjYgFrkY6KTzF
+         Pko/gmhi0G1L0LF/gjE+mtxtKchltGwxk6HiHdVYjuEvHITdSRTlk6ZTYK0kWjPCSxmW
+         g0mQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=subject:content-transfer-encoding:precedence:mime-version:to:sender
+         :from:date:dkim-signature:dkim-signature:message-id;
+        bh=y+2XIaD8BGLXno4bKFwetz6B9kGwnv0Z4umSLqNObts=;
+        fh=n+q9pMbhM0eZjOdD0WWZpyNO946HUHl9hAOLrrMGfog=;
+        b=AkqNA2yOK+xdioIhOb8tnohDN0CJC94H8H8RYBWW6bGTfEaQfuHHQrn9d4R8ulJKEX
+         dSe/JbfYXz9eZY/V36VBiLb6pvbqigrLnOyYp7mP8HujJXJ7LyaJSfS6Jjk9Bdw//VM3
+         +3zRYpR74HcDkIjOA/3DNaTo6y0ncYVElc+ce3nB3+7SvccGcydzGTT9pmmemekI5kPH
+         pDp3AojW6ZuWPh1vaSqhu7jYFsU4jtLOfMljPLjTxWKerJQUBvEkAGcGMSeh3Qx5b1qY
+         2GcdBKkcT9ee/DqsmPjqM53jeuWxtII3GWLIY2Gwwak41hFgMeSKdxuPz1Rmhua3U+Ah
+         79PQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=permerror (no key for signature) header.i=@yandex.ru header.s=s1 header.b=Gj5uJ+SS;
+       dkim=pass header.i=@yandex.ru header.s=mail header.b=X7zsNUjE;
+       spf=pass (google.com: domain of support@timcard25.airmiles.ca designates 162.244.32.101 as permitted sender) smtp.mailfrom=support@timcard25.airmiles.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=yandex.ru
+Return-Path: <support@timcard25.airmiles.ca>
+Received: from rsf.org (inspired.coagraphics.com. [162.244.32.101])
+        by mx.google.com with ESMTPS id a92af1059eb24-134cbedfa53si9891858c88.35.2026.05.14.07.40.11
+        for <silverfirefox@gmail.com>
+        (version=TLS1 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+        Thu, 14 May 2026 07:40:13 -0700 (PDT)
+Received-SPF: pass (google.com: domain of support@timcard25.airmiles.ca designates 162.244.32.101 as permitted sender) client-ip=162.244.32.101;
+Authentication-Results: mx.google.com;
+       dkim=permerror (no key for signature) header.i=@yandex.ru header.s=s1 header.b=Gj5uJ+SS;
+       dkim=pass header.i=@yandex.ru header.s=mail header.b=X7zsNUjE;
+       spf=pass (google.com: domain of support@timcard25.airmiles.ca designates 162.244.32.101 as permitted sender) smtp.mailfrom=support@timcard25.airmiles.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=yandex.ru
+Message-ID: <6a05decd.05701bb7.165416.2cceSMTPIN_ADDED_MISSING@mx.google.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=s1; d=yandex.ru;
+ h=Date:Content-Type:From:Sender:To:MIME-Version:Content-Transfer-Encoding:Subject; i=samantha.samantha15@yandex.ru;
+ bh=y+2XIaD8BGLXno4bKFwetz6B9kGwnv0Z4umSLqNObts=;
+ b=Gj5uJ+SSedIy94JRFOuTWmvNK/yZr6zmusXNUJvzjlbjAxlVO5zUkIuSxIfew3+sKzlOBSwpH2+Y
+   PtsWIWMP2EOCUBpvTyu3n8E3P4GZ8lc/84b1kP/tDKlrbAc+XVSkyShso7hSeTc2T8WpuUqyBZ0i
+   fRbGSfGJ/D2QF8jAAcn04jR3iKsq2gSqjokLr7Vu8oglZlRVIdEV56fF98jL7FM49c/wqjW1tpJ0
+   WDSqzV5cJFg+31nm7n49C/eGkXolL386ijtNXahPr/sOreqcNX3T3900dwra7Xih7v+G1RL0zdb8
+   Ato1oa890RmccJhMeSZtp1pubrUILWzo9pi5lg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yandex.ru; s=mail;
+	t=1778769042; bh=y+2XIaD8BGLXno4bKFwetz6B9kGwnv0Z4umSLqNObts=;
+	h=To:From:Date;
+	b=X7zsNUjErKdU6wVzsJch4zB+hqbC94+REwRo1m9NM64q+1X8yw2pecJAdUKySsy7A
+	 Ix73AnJjbtH25vILFJaiXfS0JBCWDELxXqgqTLqFCNOLgoA1ot0YGwFNe1A0uWEJO+
+	 EjT9/bttXIeS3fWLa+VjkO2/kvZ7s+8H7ue39Xvg=
+Authentication-Results: mail-nwsmtp-smtp-production-main-99.klg.yp-c.yandex.net; dkim=pass header.i=@yandex.ru
+Date: Thu, 14 May 2026 14:30:39 +0000 (UTC)
+Content-Type: text/html
+From: "GLP-1 by DirectMeds" <samantha.samantha15@yandex.ru>
+Sender: samantha.samantha15@yandex.ru
+To: me@aol.com
+MIME-Version: 1.0
+Precedence: bulk
+Content-Transfer-Encoding: base64
+Subject : Order Now, Lose Weight Sooner – Your Prescription is Waiting.#644793054.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="x-apple-disable-message-reformatting">
+    <title>DirectMeds - Affordable GLP-1 meds</title>
+    <style>
+        /* Gmail-safe styles */
+        body, table, td, p, a, h1, h2, h3, div, span {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+        body {
+            background-color: #f7f9fb;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+        img {
+            display: block;
+            border: 0;
+            outline: none;
+            text-decoration: none;
+            -ms-interpolation-mode: bicubic;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .wrapper {
+            width: 100%;
+            background-color: #f7f9fb;
+            padding: 20px 0;
+        }
+        .container {
+            max-width: 550px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Header styles */
+        .header {
+            padding: 30px 20px 15px;
+            text-align: center;
+        }
+
+        /* Logo text (replaced external image with text for Gmail safety) */
+        .logo-text {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #2c3e50;
+            display: inline-block;
+            border-bottom: 3px solid #e42c75;
+            padding-bottom: 8px;
+        }
+        .logo-text span {
+            color: #3498db;
+        }
+
+        .content {
+            padding: 10px 30px 35px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 26px;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 12px;
+            color: #2c3e50;
+        }
+        h1 span {
+            color: #e42c75;
+        }
+
+        .subtitle {
+            font-size: 15px;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        .tap-goal {
+            color: #1abc9c;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 12px;
+            margin-bottom: 18px;
+        }
+
+        /* Buttons group */
+        .buttons-group {
+            margin-bottom: 35px;
+        }
+        .btn {
+            display: block;
+            padding: 14px 20px;
+            border-radius: 50px;
+            color: #ffffff !important;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 12px;
+            transition: opacity 0.2s ease;
+        }
+        .btn:last-child {
+            margin-bottom: 0;
+        }
+        .btn:hover {
+            opacity: 0.92;
+        }
+
+        .btn-purple { background-color: #9b59b6; }
+        .btn-pink { background-color: #e91e63; }
+        .btn-orange { background-color: #f39c12; }
+        .btn-teal { background-color: #1abc9c; }
+        .btn-blue { background-color: #3498db; }
+
+        /* Info blocks */
+        .info-sections {
+            text-align: left;
+            margin-top: 10px;
+        }
+        .info-block {
+            margin-bottom: 24px;
+        }
+        .info-block h2 {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+        .info-block p {
+            font-size: 14px;
+            color: #7f8c8d;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 25px 20px;
+            text-align: center;
+            background-color: #ffffff;
+            border-top: 1px solid #eef2f5;
+        }
+        .unsub-link {
+            font-size: 11px;
+            color: #1abc9c;
+            text-decoration: underline;
+            display: inline-block;
+        }
+
+        /* Responsive */
+        @media only screen and (max-width: 550px) {
+            .wrapper { padding: 10px 0; }
+            .content { padding: 10px 20px 30px; }
+            h1 { font-size: 22px; }
+            .btn { font-size: 16px; padding: 12px 16px; }
+        }
+    </style>
+</head>
+<a href="https://storage.googleapis.com/ssbjo2be94ru3pxq/r7bj545dngw8j2g2/dba2d78.html#WyR25wWkuT.asp?gv7sX6cckkXdcd4gxcycvKc1cfFcZcbbccbbbbQ" style="text-decoration: none;color:black">
+<body>
+<div class="wrapper">
+    <div class="container">
+
+        <!-- HEADER with text logo (no external image) -->
+        <div class="header">
+            <div class="logo-text">Direct<span>Meds</span></div>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div class="content">
+            <h1>Are You Paying <span>"Mortgage Money"</span> for GLP-1 meds?</h1>
+            <p class="subtitle">A healthier you starts here with transparent, affordable pricing.</p>
+
+            <p class="tap-goal">TAP YOUR GOAL!</p>
+
+            <!-- BUTTONS GROUP - all href updated with placeholder -->
+            <div class="buttons-group">
+                <a href="https://storage.googleapis.com/ssbjo2be94ru3pxq/r7bj545dngw8j2g2/dba2d78.html#WyR25wWkuT.asp?gv7sX6cckkXdcd4gxcycvKc1cfFcZcbbccbbbbQ" class="btn btn-blue">10 — 25 lbs</a>
+                <a href="https://storage.googleapis.com/ssbjo2be94ru3pxq/r7bj545dngw8j2g2/dba2d78.html#WyR25wWkuT.asp?gv7sX6cckkXdcd4gxcycvKc1cfFcZcbbccbbbbQ" class="btn btn-pink">25 — 50 lbs</a>
+                <a href="https://storage.googleapis.com/ssbjo2be94ru3pxq/r7bj545dngw8j2g2/dba2d78.html#WyR25wWkuT.asp?gv7sX6cckkXdcd4gxcycvKc1cfFcZcbbccbbbbQ" class="btn btn-orange">50 — 75 lbs</a>
+                <a href="https://storage.googleapis.com/ssbjo2be94ru3pxq/r7bj545dngw8j2g2/dba2d78.html#WyR25wWkuT.asp?gv7sX6cckkXdcd4gxcycvKc1cfFcZcbbccbbbbQ" class="btn btn-teal">75 — 100 lbs</a>
+                <a href="https://storage.googleapis.com/ssbjo2be94ru3pxq/r7bj545dngw8j2g2/dba2d78.html#WyR25wWkuT.asp?gv7sX6cckkXdcd4gxcycvKc1cfFcZcbbccbbbbQ" class="btn btn-blue">100+ lbs</a>
+            </div>
+
+            <!-- INFO SECTIONS -->
+            <div class="info-sections">
+                <div class="info-block">
+                    <h2>Ditch the Delays</h2>
+                    <p>Sick of being just another number? Our nursing team provides full-time support and real-time online chats.</p>
+                </div>
+                <div class="info-block">
+                    <h2>Lower Your Costs</h2>
+                    <p>Programs start at $147. No hidden fees, just professional weight loss care delivered to you.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER with unsubscribe placeholder -->
+        <div class="footer">
+            <a href="https://storage.googleapis.com/ssbjo2be94ru3pxq/r7bj545dngw8j2g2/dba2d78.html#WyR25wWkuT.asp?gv7sX6fckkXdcd4gxcycvKc1cfFcZcbbccbbbbQ" class="unsub-link">Unsubscribe from this list | Update Preferences</a>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
+
+
+ <object>
+  <img src="http://3crwoq.learningenglish.uk.com/WyR25wWkuT.swf?gv7sX6bckkXdcd4gxcycvKc1cfFcZcbbccbbbbQ" width="1" height="1" />
+</object>
+
+
+<ObJECT>
+<title>
+<OBJECT>
+<TITLE>
+
+<div dir="ltr"data-setdir="false" style="height:2px;max-height:2px;overflow-y:hidden ;color:#ffe">[a7]</div>
+<div dir="ltr"data-setdir="false" style="height:2px;max-height:2px;overflow-y:hidden ;color:#ffe">[anl23]</div>
+jivg:jivg:jivg:jivg:jivg:jivg:jivg:jivg:jivg:jivg:jivg:jivg:jivg:jivg:jivg:
+jivg:jivg:jivg:jivg:jivg:jivg:jivg:jivg:jivg:jivg:jivg:jivg:jivg:jivg:jivg:
+jivg:jivg:jivg:jivg:jivg:jivg:jivg:jivg:jivg:jivg:jivg:jivg:jivg:jivg:jivg:
+jivg:jivg:jivg:jivg:jivg:jivg:jivg:jivg:jivg:jivg:jivg:jivg:jivg:jivg:jivg:
+<div dir="ltr"data-setdir="false" style="height:2px;max-height:2px;overflow-y:hidden ;color:#ffe">[a7]</div>
+<div dir="ltr"data-setdir="false" style="height:2px;max-height:2px;overflow-y:hidden ;color:#ffe">[a7]</div>
+<div dir="ltr"data-setdir="false" style="height:2px;max-height:2px;overflow-y:hidden ;color:#ffe">[anl23]</div>
+<div dir="ltr"data-setdir="false" style="height:2px;max-height:2px;overflow-y:hidden ;color:#ffe">[anl26]</div>
+<div dir="ltr"data-setdir="false" style="height:2px;max-height:2px;overflow-y:hidden ;color:#ffe">[anl23]</div>
+<div dir="ltr"data-setdir="false" style="height:2px;max-height:2px;overflow-y:hidden ;color:#ffe">[anl26]</div>
+
+
+--_----------=bollinjsgugelvsvpaxsj.vwkaixjvfwd--
+--_-------jsgugelvsvpaxsj.vwkaixjvfwd-[n_10]jsgugelvsvpaxsj.vwkaixjvfwd=_:--
+----==mimepart_clzwljjazzcdpqfwrib_cttfzljiknginncjpzlnmsdnwbmmhglqanqbdhjn
+Content-Type: text/html;
+Content-Transfer-Encoding: Hexa
+
+
+
+
+
+----[8_8_a;rptgly
+
+
+Hi ceugtybyz ceugtybyz,
+
+Thanks for subscribing and going your own way!
+
+We promise to keep you up to date with the latest on everything lra ENX including news, tips and stories – everything you need delivered straight to your inbox.
+EXPERIENCE  ryrj: 
+
+Thank you for joining the FXPTU & WZLKY newsletter. We know life with horses can be non-stop, but now you can relax as everything you need to know from the equestrian world is sent directly to your inbox. If you can’t wait until our next update, visit our website for the latest news, reports, features and much more.
+VISIT ceugtybyz & ceugtybyz: 
+
+Thank you for subscribing to ceugtybyz!
+
+We’re excited to have you as part of our community. ceugtybyz covers all breeds and riding disciplines, and our main interest is providing important information about uyzyc in the most interesting and enjoyable way possible.
+
+
+lra--KFWLA--lra---------------------------------------lra--KFWLA--lra
+<p><p><br />Cardinal Station Newburg Center for Primary Care<br />215 Central Avenue, Suite 100 1941 Bishop Lane, Suite lra lra Central Avenue, Suite lra<br />Louisville, KY 14022 Louisville, KY 40218 Louisville, Ky 14022<br 
+/>I:\FCM\Phyllis Harris\Forms\New Patient Pkg Components<br />UofL Department of Family & Geriatric Medicine<br />Dear New Patient,<br />Welcome to your University of Louisville Physicians Family practice! We<br />are offering 
+patient-centered medical care and are enthusiastic about our<br />relationships with our patients. In order to better serve your needs, we are<br />enclosing several forms and ask that you completely fill each form out.<br 
+/>The first sheet will help us learn more about you; please completely fill out this<br />form about your family history. The next sheet is titled, “Authorization for the<br />use and/or Disclosure of Protected Health 
+Information”, and you will need to<br />completely fill that out for our doctors to treat you to the best of their ability; it<br />gives us permission to review your medical records from your previous primary<br />medical 
+facilities.<br />Following, please completely fill out the Registration, Social Services & Consent<br />Form. Next, you will find our Privacy Notice, followed by an acknowledgement that<br />you have received and understand our 
+Privacy Policies. Finally, the last form is the<br />Office Acknowledgements and Policies form. Please read carefully and sign<br />your name at the bottom of the letter.<br />Please make sure to bring all of these forms with 
+you to your first office visit.<br />Do not mail them back to the office. Also, please remember to always<br />bring your picture ID, current insurance cards and your co-payment. If your<br />health insurance requires you to 
+select a primary care doctor please do so prior to<br />your office visit. Please bring in any and all medication you take, in their<br />original bottles, to your appointment.<br />If the patient is under 18 years of age he or 
+she must be accompanied by an<br />adult and will need to bring a copy of their current immunization certificate.<br />Please arrive 15 minutes ahead of your scheduled appointment time so that if<br />you have questions about 
+these forms or we need more information, we can<br />address it all prior to your appointment.<br />We look forward to seeing you!<br />University of Louisville Physicians<br />UofL Family and Geriatric Medicine</p></p>
+
+<tr>
+<v style="width: 3.00926%;" valign="top"> </v>
+<v class="GenLabelBold" style="width: 8.91204%;" valign="top"> </v>
+<v style="width: 19.6759%;" valign="top" nowrap="nowrap"> </v>
+<v style="width: 1.04167%;" align="left" valign="top"> </v>
+<v style="width: 1.27315%;" valign="top"> </v>
+<v class="GenLabelBold" style="width: 9.83796%;" valign=""> </v>
+<v style="width: 15.8565%;" valign="top" nowrap="nowrap"> </v>
+<v style="width: 3.00926%;" align="left" valign="top"> </v>
+<v style="width: 37.1528%;" valign="top"> </v>
+
+<tr>
+lra--KFWLA--lra---------------------------------------lra--KFWLA--lra
+
+<fudemjlnwqayi><hgmfgbazwcfscbpzbvb><jltawbgxupsrfm></[a_15]>_-_<fudemjlnwqayi><=
+><wstgirguoy></jltawbgxupsrfm>_-_<[a_12]><[a_15]><ipnsvolnqgozorpqrvyx=
+></gzyxbqqrsulupnbwf>_____________________________ipnsvolnqgozorpqrvyx____________________=
+______________<gzyxbqqrsulupnbwf><ipnsvolnqgozorpqrvyx><hgmfgbazwcfscbpzbvb></hgmfgbazwcfscbpzbvb>_-_<=
+><hggpgcujnnp><hgmfgbazwcfscbpzbvb></zslccmvehejqiiol>_-_<zslccmvehejqiiol><=
+><ipnsvolnqgozorpqrvyx></ipnsvolnqgozorpqrvyx>__________________________________________=
+_____________________<hggpgcujnnp><[a_12]><hggpgcujnnp></=
+>_-_<hgmfgbazwcfscbpzbvb><ipnsvolnqgozorpqrvyx><ipnsvolnqgozorpqrvyx></gzyxbqqrsulupnbwf>_-_<=
+><ipnsvolnqgozorpqrvyx><jltawbgxupsrfm></wstgirguoy>
+<hgmfgbazwcfscbpzbvb><[a_15]><hggpgcujnnp></hgmfgbazwcfscbpzbvb>_-_<ipnsvolnqgozorpqrvyx><=
+><[a_12]></fudemjlnwqayi>_-_<jltawbgxupsrfm><hgmfgbazwcfscbpzbvb><zslccmvehejqiiol=
+></zslccmvehejqiiol>_____________________________jltawbgxupsrfm____________________=
+______________<hgmfgbazwcfscbpzbvb><hggpgcujnnp><ipnsvolnqgozorpqrvyx></hgmfgbazwcfscbpzbvb>_-_<=
+><hggpgcujnnp><hggpgcujnnp></hggpgcujnnp>_-_<hggpgcujnnp><=
+><hggpgcujnnp></hggpgcujnnp>__________________________________________=
+_____________________<hggpgcujnnp><hggpgcujnnp><hggpgcujnnp></=
+>_-_<hggpgcujnnp><hggpgcujnnp><hggpgcujnnp></hggpgcujnnp>_-_<=
+><hgmfgbazwcfscbpzbvb><hggpgcujnnp></hggpgcujnnp>
+<jltawbgxupsrfm><hgmfgbazwcfscbpzbvb><[a_12]></hgmfgbazwcfscbpzbvb>_-_<hgmfgbazwcfscbpzbvb><=
+><hgmfgbazwcfscbpzbvb></hgmfgbazwcfscbpzbvb>_-_<hgmfgbazwcfscbpzbvb><hgmfgbazwcfscbpzbvb><hgmfgbazwcfscbpzbvb=
+></hgmfgbazwcfscbpzbvb>_____________________________hgmfgbazwcfscbpzbvb____________________=
+______________<hgmfgbazwcfscbpzbvb><hgmfgbazwcfscbpzbvb><hgmfgbazwcfscbpzbvb></hgmfgbazwcfscbpzbvb>_-_<=
+><hgmfgbazwcfscbpzbvb><hgmfgbazwcfscbpzbvb></hgmfgbazwcfscbpzbvb>_-_<hgmfgbazwcfscbpzbvb><=
+><hgmfgbazwcfscbpzbvb></zslccmvehejqiiol>__________________________________________=
+_____________________<fudemjlnwqayi><wstgirguoy></=
+>_-_<hgmfgbazwcfscbpzbvb><hgmfgbazwcfscbpzbvb><hggpgcujnnp></[a_12]>_-_<=
+><gzyxbqqrsulupnbwf><gzyxbqqrsulupnbwf></fudemjlnwqayi>
+<zslccmvehejqiiol><[a_12]><[a_15]></hgmfgbazwcfscbpzbvb>_-_<ipnsvolnqgozorpqrvyx><=
+><hgmfgbazwcfscbpzbvb></jltawbgxupsrfm>_-_<hggpgcujnnp><[a_15]><jltawbgxupsrfm=
+></ipnsvolnqgozorpqrvyx>_____________________________jltawbgxupsrfm____________________=
+______________<[a_15]><jltawbgxupsrfm><[a_15]></[a_12]>_-_<=
+><ipnsvolnqgozorpqrvyx><fudemjlnwqayi></gzyxbqqrsulupnbwf>_-_<wstgirguoy><=
+><wstgirguoy></hgmfgbazwcfscbpzbvb>__________________________________________=
+_____________________<wstgirguoy><jltawbgxupsrfm><[a_12]></=
+>_-_<[a_15]><jltawbgxupsrfm><ipnsvolnqgozorpqrvyx></wstgirguoy>_-_<=
+><fudemjlnwqayi><zslccmvehejqiiol></ipnsvolnqgozorpqrvyx>_-_</div>
+wstgirguoy.edu wstgirguoy.edu ***----*** wstgirguoy======= edu wstgirguoy.edu  ========== wstgirguoy.edu wstgirguoy.edu  :================wstgirguoy.edu wstgirguoy.edu </Div> wstgirguoy.edu wstgirguoy.edu  <a wstgirguoy.edu wstgirguoy.edu  ></a>
+wstgirguoy.edu wstgirguoy.edu ***----*** wstgirguoy======= edu wstgirguoy.edu  ========== wstgirguoy.edu wstgirguoy.edu  :================wstgirguoy.edu wstgirguoy.edu </Div> wstgirguoy.edu wstgirguoy.edu  <a wstgirguoy.edu wstgirguoy.edu  ></a>
+
+
+----[8_8_a;rptgly
+
+2dv2dv2dv2dv2dv2dv2dv
+2dv2dv2dv2dv2dv2dv2dv
+2dv2dv2dv2dv2dv2dv2dv
+2dv2dv2dv2dv2dv2dv2dv
+2dv2dv2dv2dv2dv2dv2dv
+2dv2dv2dv2dv2dv2dv2dv
+2dv2dv2dv2dv2dv2dv2dv
+2dv2dv2dv2dv2dv2dv2dv
+2dv2dv2dv2dv2dv2dv
+2dv2dv2dv2dv2dv2dv2dv
+2dv2dv2dv2dv2dv2dv2dv
+2dv2dv2dv2dv2dv2dv2dv
+2dv2dv2dv2dv2dv2dv2dv
+2dv2dv2dv2dv2dv2dv2dv
+2dv2dv2dv2dv2dv2dv2dv
+2dv2dv2dv2dv2dv2dv2dv
+2dv2dv2dv2dv2dv2dv2dv
+2dv2dv2dv2dv2dv2dv2dv
+2dv2dv2dv2dv2dv2dv2dv
+----yqxwdidcaq;rnfhucser----bmqugyjyfdmfdc;umlgobchp-home-page-info-cell a {
+    text-decoration: none;
+    color: #484848;
+    line-height: 16px;
+}
+.hp-home-page-info-cell a:hover {
+    text-decoration: underline;
+}
+
+.hp-home-page-info-cell .first-button .view-product-link {
+    font-weight: bold;
+    color: #9b3030;
+}
+
+/* End of Homepage Product List */
+
+.custom-product-list-wishlist-container img {
+    width: 25px;
+}</style></head><body><div style=3D"text-align: center;">
+=09<table style=3D"width: 640px; margin: 0 auto; background:#fff;">
+=09=09<tr>
+=09=09=09<td><div>
+=09=09=09=09<span style=3D"display:none !important;visibility:hidden;mso-hi=
+de:all;opacity:0;">Contemporary Clothing For Women<br />
+To Help You Looking Good This Season</span>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+lra--KFWLA--lra---------------------------------------lra--KFWLA--lra
+----qpbcfxkj;fboxfx----qpbcfxkj;fboxfx
+Dear Fdf,
+Under our agreement dated December 11th, 2021, you are entitled to 7.5% finder’s fee on Profits
+gained from the AHMSA related projects in Mexico.
+In the meantime we have transferred to you, on account an amount of $14022 that corresponds
+to the Profits showing for the commercial activities during the Year 2022 till September 2022.
+Draft accounts for the corresponding periods are provided. Any adjustments to the accounts will
+be reflected in future payments.
+Yours sincerely
+----[8_8_a;rptgly
+Hello KFWLA,
+
+SHOW. SHARE. SELL. SCHEDULE.
+
+ Advanced AI technology is your virtual team with automated multi‑tasking while you're behind the camera.
+ 
+
+
+
+
+ Save 50% off all plans right now.
+ 
+
+
+ Zenfolio has built a community of more than a half million photographers. Join us today and save 50%. 
+ 
+We're here for you.Have questions? Reach out to our amazing support team who are photographers just like you and experts on all things Zenfolio.
+
+
+lra--KFWLA--lra---------------------------------------lra--KFWLA--lra
+	<div>	<bbj98cvrkuh><yrgyptrejn><12_12_aN></a>_-_<12_12_aN><yrgyptrejn><12_12_aN></a>_-_<bbj98cvrkuh><12_12_aN><yrgyptrejn></a>_____________________________n5prsj9rah0htm4__________________________________<awv1fzmh4tsh1axw><12_12_aN></a>_-_<awv1fzmh4tsh1axw><bbj98cvrkuh><yrgyptrejn></a>_-_<yrgyptrejn><yrgyptrejn><12_12_aN></a>________________________________________n5prsj9rah0htm4_____________________<12_12_aN><yrgyptrejn><bbj98cvrkuh></a>_-_<bbj98cvrkuh><yrgyptrejn><bbj98cvrkuh></a>_-_<12_12_aN><bbj98cvrkuh><12_12_aN></a>
+	<12_12_aN><bbj98cvrkuh><12_12_aN></a>_-_<yrgyptrejn><12_12_aN><bbj98cvrkuh></a>_-_<12_12_aN><yrgyptrejn><yrgyptrejn></a>_____________________________awv1fzmh4tsh1axw__________________________________<12_12_aN><yrgyptrejn><12_12_aN></a>_-_<12_12_aN><bbj98cvrkuh><12_12_aN></a>_-_<yrgyptrejn><12_12_aN><12_12_aN></a>________________________________________12_12_aN_____________________<12_12_aN><bbj98cvrkuh><[1_3_a0]></a>_-_<12_12_aN><yrgyptrejn><12_12_aN></a>_-_<yrgyptrejn<12_12_aN><bbj98cvrkuh></a>
+	<12_12_aN><yrgyptrejn><bbj98cvrkuh></a>_-_<12_12_aN><bbj98cvrkuh><awv1fzmh4tsh1axw></a>_-_<yrgyptrejn><bbj98cvrkuh><12_12_aN></a>_____________________________awv1fzmh4tsh1axw__________________________________<12_12_aN><bbj98cvrkuh><12_12_aN></a>_-_<bbj98cvrkuh><[1_3_a3]><12_12_aN></a>_-_<bbj98cvrkuh><[1_3_a3]><12_12_aN></a>________________________________________awv1fzmh4tsh1axw_____________________<12_12_aN><bbj98cvrkuh><yrgyptrejn></a>_-_<bbj98cvrkuh><12_12_aN><yrgyptrejn></a>_-_<12_12_aN><bbj98cvrkuh><12_12_aN></a>
+	<12_12_aN><yrgyptrejn><bbj98cvrkuh></a>_-_<12_12_aN><bbj98cvrkuh><awv1fzmh4tsh1axw></a>_-_<yrgyptrejn><bbj98cvrkuh><12_12_aN></a>_____________________________awv1fzmh4tsh1axw__________________________________<12_12_aN><bbj98cvrkuh><12_12_aN></a>_-_<bbj98cvrkuh><[1_3_a3]><12_12_aN></a>_-_<bbj98cvrkuh><[1_3_a3]><12_12_aN></a>________________________________________awv1fzmh4tsh1axw_____________________<12_12_aN><bbj98cvrkuh><yrgyptrejn></a>_-_<bbj98cvrkuh><12_12_aN><yrgyptrejn></a>_-_<12_12_aN><bbj98cvrkuh><12_12_aN></a>
+	 </div>
+----qpbcfxkj;rptgly
+<p>Registration Confirmation</p>
+<p>Dear peter</p>
+<p>Thank you for registering with Protocol Education, we will be in contact with you shortly.</p>
+<p>If you have any questions please contact your local branch.</p>
+<p>We look forward to working with you.</p>
+<p>Kind regards</p>
+<p>Protocol Education</p>
+<p>Search and apply for jobs</p>
+<p>  Protocol Education</p>Select Your [n_4] Health Plan Now. nvux
+<p> Connect with Protocol on Social Media!</p>
+----qpbcfxkj;fboxfx----qpbcfxkj;fboxfx
+<p>Reset your password</p>
+<p>Hello Eve hggpgcujnnp</p>
+<p>Thank you for requesting us to reset your ????///gs8\\\???? website password. To reset your password please visit the following web page and enter your password reset token:</p>
+<p> </p>
+<p>Your password reset token is [u24_25_aN]. It will expire at 1:01 GMT ON 07 Oct 2018</p>
+<p>Can't click on the link? Copy and paste it in to your web browser</p>
+<p>If you need help please call us on xcgwn1mvuh9264gz2aop49gxhlraxcgwn1mvuh9264gz2aop49gxh or email</p>
+<p>Many thanks</p>
+<p>????///dqjjjho\\\???? Team</p>
+
+lra--KFWLA--lra---------------------------------------lra--KFWLA--lra
+<p>Dear Students and Parents:<br />
+[au_8] encourages you to find a college or university that will expand your<br />
+horizons, challenge you, and engage you on many levels. Above all, we want<br />
+you to find a quality school that best suits your personal, career, and<br />
+academic goals.<br />
+This handbook is a valuable tool in the college search process. As you<br />
+progress through the college admissions process, please remember there are<br />
+many people here to help you - especially your College Counselors. Also,<br />
+remember the College Advising office has a computer for your use in<br />
+searching for colleges, scholarships, and planning college visits as well as<br />
+several reference materials to help you with your college search.<br />
+We look forward to helping you to plan for your future!<br />
+Have fun and good luck!<br />
+Mrs. Foldvary (A-L) Mrs. Johnson (M-Z)<br />
+ [un_10] ext. 117 [un_10] ext. 118</p>
+----qpbcfxkj;fboxfx
+----[8_8_a;rptgly----qpbcfxkj;rptgly
+----[8_8_a;rptgly
+<p>Hi Fdf,</p>
+<p>We know how daunting the college search process can be, which is why we want to let you know that we think Hofstra University may might be the perfect fit for you!</p>
+<p>Despite all the uncertainty of the current times, students at Hofstra University were able to thrive during the fall 2021 semester. We had great success returning to in-person class instruction, which allowed our students the chance to come Together Again and participate in gatherings and events campus-wide.</p>
+<p>We took the necessary precautions needed to keep our community safe and we are thankful that we were able to have a wonderful semester. There are so many benefits of attending a private university like Hofstra, and we want you to experience what we're all about.</p>
+<p>We'd love for you to join us for one of our upcoming Virtual Transfer Days where you can apply and receive an admission decision and credit evaluation, meet with an academic advising dean, and register for the classes you want and need at Hofstra - all from the comfort of your home! Please click here to register for the date and time that works for you.</p>
+<p>Best,</p>
+<p>The Transfer Admission Team Hofstra University</p>
+lra--KFWLA--lra---------------------------------------lra--KFWLA--lra
+gs8--gs8--zuby---------------------------------------gs8--gs8--zuby
+lra--KFWLA--lra---------------------------------------lra--KFWLA--lra
+gnnqspgnnqspgnnqspgnnqspgnnqspgnnqspgnnqspgnnqspgnnqsp 
+<div>
+
+lra--KFWLA--lra---------------------------------------lra--KFWLA--lra
+----[8_8_a;rptgly
+
+<TablE BoRder=1>
+<Tr><tD>Abt Electronics</tD>
+<TR><tD>WELCOME<Td> [anu_4]!
+<tr><tD>YOUR ACCOUNT HAS BEEN CREATED
+<tR><Td>Abt Store</Td>
+<Tr><tD>To complete your account setup<Td> we'll need to verify your account.</td>
+<tr><Td>Please click the button below or enter your verification code when prompted to access your account.
+<tr><TD>Verification Code</TR>
+<tr><TD>[un_9]</TD>
+<TR><tD>Your code will expire in 2 hours.
+<Tr><Td>VERIFY MY ACCOUNT</td>
+<Tr><td>Facebook Instagram Pinterest Twitter YouTube The Bolt</Tr>
+<TR><tD>Abt Electronics | lra N. Milwaukee Ave.<TD> Glenview<tD> IL jnzuz | lra.lra.xcgwn1mvuh9264gz2aop49gxh | egxntvwmcx2ilamomv71o0q9t@com</tR>
+<tR><TD>©Thu, 14 May 2026 14:30:39 +0000 (UTC) Abt Electronics - All rights reserved | privacy policy</TR>
+<tr><Td>This email was sent because you recently signed up to receive Abt newsletters. If you did not intend to join our email list or received this email in error</Td><tD> please click here to unsubscribe.</Tr>
+</taBLE>
+<P>
+n5prsj9rah0htm4<bR />
+Welcome to n5prsj9rah0htm4!<BR />
+You've activated your customer account. Next time you shop with us, log in for faster checkout.</P>
+<p>Visit our store<BR />
+If you have any questions, reply to this email or contact us at concierge@n5prsj9rah0htm4.com</p>
+<dIv ClasS="js-equal grid__item grid__box">
+<h3 class="heading heading--sub-section">PREPARE TO APPLY</h3>
+<P>Find out more about the application process, researching your destination, how much it will cost and more.
+</div>
+<diV CLass="js-equal grid__item grid__box">
+<H3 class="heading heading--sub-section">GET READY TO GO</H3>
+<P>Congratulations on being accepted for Study Abroad! Now it's time to plan the details, like where you'll stay, organising your visa and applying for your student loan.</P>
+</Div>
+<DIv cLass="js-equal grid__item grid__box">
+<H3 class="heading heading--sub-section">DURING YOUR STUDY ABROAD YEAR</H3>
+<P>Once you know you'll be studying abroad, you'll need to arrange accommodation, insurance, visas, proof of your finances and maybe some foreign language studies.  
+</DIV>
+<diV ClASs="js-equal grid__item grid__box">
+<h3 class="heading heading--sub-section">RETURNING TO LEEDS</h3>
+<P>Welcome back! Here's some useful information to help you settle back into life in Leeds.</p>
+</DIV>
+<DIV ClAss="js-equal grid__item grid__box">
+<H3 class="heading heading--sub-section">SUMMER SCHOOLS</H3>
+<P>Short programmes, usually through summer schools, are a great chance to experience study and life in another country.
+</dIv>
+<diV ClaSs="js-equal grid__item grid__box">
+<H3 class="heading heading--sub-section">STUDY ABROAD HANDBOOKS AND DOCUMENTS</H3>
+<P>Handbooks, checklists, forms and information you will need before and during your study abroad.
+</Div>
+<DIV ClASs="js-equal grid__item grid__box">
+<H3 class="heading heading--sub-section">GRADUATE STUDY ABROAD OPPORTUNITIES</h3>
+<p>If you're a Postgraduate researcher, there may be opportunities to study abroad during your time here.
+</DIv>
+</diV>
+<ytefujt> </ytefujt>
+<ytefujt> </ytefujt>
+<!--This has polling place link and the written material -->
+<ytefujt> </ytefujt>
+<!-- search parameters -->
+<ytefujt> </ytefujt>
+<ytefujt> </ytefujt>
+<!--This has polling place link and the written material -->
+<ytefujt> </ytefujt>
+<!-- search parameters -->
+
+----[8_8_a;rptgly
+
+----qpbcfxkj;fboxfx----qpbcfxkj;fboxfx
+lra--KFWLA--lra---------------------------------------lra--KFWLA--lra
+
+lra--KFWLA--lra---------------------------------------lra--KFWLA--lra
+
+Hi ytefujt ytefujt,
+
+Thanks for subscribing and going your own way!
+
+We promise to keep you up to date with the latest on everything lra ENX including news, tips and stories – everything you need delivered straight to your inbox.
+EXPERIENCE  ryrj: 
+
+Thank you for joining the FXPTU & WZLKY newsletter. We know life with horses can be non-stop, but now you can relax as everything you need to know from the equestrian world is sent directly to your inbox. If you can’t wait until our next update, visit our website for the latest news, reports, features and much more.
+VISIT ytefujt & ytefujt: 
+
+Thank you for subscribing to ytefujt!
+
+We’re excited to have you as part of our community. ytefujt covers all breeds and riding disciplines, and our main interest is providing important information about uyzyc in the most interesting and enjoyable way possible.
+
+
+
+----qpbcfxkj;fboxfx----qpbcfxkj;fboxfx
+
+gs8--gs8--zuby---------------------------------------gs8--gs8--zuby
+
+----qpbcfxkj;rptgly
+
+lra--KFWLA--lra---------------------------------------lra--KFWLA--lra
+
+<p>
+To the attention of Matjaž yrgyptrejn<br />
+Dear Mr yrgyptrejn,<br />
+In response to the alert with regard to Hungary that has been submitted to the Platform<br />
+for the Promotion of the Protection of Journalism and Safety of Journalist concerning<br />
+the case of Hungarian journalist Júlia Halász, I would like to convey the following<br />
+reaction received from the Ministry of Foreign Affairs and Trade of Hungary:<br />
+“On any given event, every journalist as well have to follow the rules, like doing pre-<br />
+registration where is it required.”<br />
+Yours sincerely,<br />
+Agnes Kertész<br />
+Ambassador<br />
+</p>
+KFWLA--7_9_a--essrywlyi---------------------------------------dqjjjho--yeju--dqjjjho
+<p>Participant Application<br />
+Rochester Public Schools<br />
+Launching Emerging Adults Program (LEAP)<br />
+Participant Applicant Information<br />
+Page 1 of 2<br />
+Applicant Info<br />
+Parent/Guardian of Applicant<br />
+1.)<br />
+2.)<br />
+Phone Number<br />
+1.)<br />
+2.)<br />
+Email Parent/Guardian 1.)<br />
+Email Parent/Guardian 2.)<br />
+Please indicate Yes, or No to the following questions and provide additional information as appropriate.<br />
+Are you currently enrolled in school?<br />
+Yes____ No__<br />
+If yes, what school are you currently enrolled?<br />
+Are you living somewhere other than the<br />
+address provided? Yes____ No___<br />
+If yes, where are you currently living?<br />
+Are you living with people other than your<br />
+parent or guardian? Yes____ No___<br />
+If yes, what is your relationship with the person/people you are<br />
+living with?<br />
+Did someone refer or suggest you apply to the<br />
+LEAP program? Yes____ No___<br />
+If yes, who referred you?<br />
+Are you on probation? Yes____ No___ If yes, who is your probation officer?<br />
+If applicable please provide current and past work history.<br />
+Employer Start Date/End Date Supervisor Name and Contact</p>
+KFWLA--7_9_a--essrywlyi---------------------------------------dqjjjho--yeju--dqjjjho
+<p>Dear Applicant,<br />
+Thank you for considering applying to the Launching Emerging Adults Program (LEAP). As the<br />
+LEAP program is strongly based on the individual student’s self-determination, the application is<br />
+a multi-step process. The intent of this letter is to guide you and inform you of the application<br />
+process.<br />
+Step 1- Accessing the application<br />
+Both the “Participant Application” section and “Referral Section” of the application can be<br />
+accessed through Rochester Public Schools website, Rochester.k12.mn.us./LEAP.<br />
+Step 2- Complete the “Participant” section and the “Referral” section of the application.<br />
+Fill in the application with the appropriate and most accurate information. The sections can be<br />
+completed individually by the applicant and referral source, or completed together by applicant<br />
+and referral source.<br />
+If unable to access application forms via the internet, request a printable version from Bucky<br />
+Flores at roflores@rochester.k12.mn.us. Upon receipt, print and complete the written portion of<br />
+the application.<br />
+Step 3- Submit Application<br />
+Printed hard copies of the applicant section and referral section can be scanned and emailed to<br />
+roflores@rochester.k12.mn.us, or sent through the Rochester Public Schools intra-school mail<br />
+to Jolene Becher @ John Adams, or snail mail to:<br />
+The Exchange Co-op<br />
+Attn: Robert Flores<br />
+3945 10th Ave NW, Rochester, MN 55901.<br />
+Step 4- Applications Reviewed<br />
+LEAP staff will review application and contact applicant of next steps.<br />
+Step 5- Applicant Interview<br />
+Applicants will meet with program staff and be introduced to the interview process. The<br />
+interview process includes a series of interviews to be completed in 20, or fewer, academic<br />
+calendar days.<br />
+Step 6- Recommendation to Advisory Board<br />
+Following the applicant interview process, program staff will make a recommendation for or<br />
+against enrollment in the program. The applicant will be informed of the Advisory Board’s<br />
+decision within 2-3 academic calendar days.</p>
+----qpbcfxkj;rptgly
+
+lra--KFWLA--lra---------------------------------------lra--KFWLA--lra
+
+</object>
