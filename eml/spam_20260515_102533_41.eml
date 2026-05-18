@@ -1,0 +1,409 @@
+Delivered-To: silverfirefox@gmail.com
+Received: by 2002:a98:8d02:0:b0:26a:2114:7ab with SMTP id r2csp543880eig;
+        Thu, 14 May 2026 18:25:34 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AFNElJ9/TEafvJ5KOtfLFrrTzZuQh09cmX8oTgbRa3Ym1pT7epY6rKfPo0nyKhMi1ZYKOpsqz8LZ5XOSKs/BrxEz@gmail.com
+X-Received: by 2002:a2e:a584:0:b0:393:e571:276c with SMTP id 38308e7fff4ca-39561c04d5fmr4246391fa.5.1778808334284;
+        Thu, 14 May 2026 18:25:34 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1778808334; cv=none;
+        d=google.com; s=arc-20240605;
+        b=ha/fm/su4sdzpY7kGGFof/34WkG4sjaE/c6xbjYoB6Q3W5GsqCqutXWOKd6ChH4VdT
+         gnGGu8ehG3vdJ1X0nbZeS5YLVbZEnoyJ7jZeMv3Ca47ZS+KOMKu849Ys1hn5wjCJn5y0
+         Rj4uK3IToxdSxe9mqRLj5umTXLJDEDDAaC8gY5+mjwJti3V4nskVpDsJNe6ZXjU5SQF1
+         jOO0eX3DyhU3x1+a3uRnFkfrsutJytXViKIUWKwBexOUs5PaOUbz1ysbT4/Mi0zyXvp5
+         8ciZpANDGORPoFUFGViBif2P4fML3QR+qLKpr/UcN6fHAiPz4Da35em6tid+9EZmgXKl
+         fjpA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:envelope-to:date:subject:from:feedback-id:dkim-signature
+         :message-id;
+        bh=TyGTY9K1LDCsL54x95eWzjXi6PZ9041b3v0R947b9bE=;
+        fh=GMSS3jjCGonHKdIEfnKvsCy6Z0N1IFfgELPgutHS5/4=;
+        b=hifLyfUSTBz8EMOYjILlwOJoKg3IcTEIJF8yOhyHlWwSEwYfs/fuoBmaBUJ/lppG0v
+         8YnGUcfBGklWyJdJ+E2ntkiUlEFIbEiJJx/YDTBWlyc/M9I/fXSC5CNZx1icR7yG1Uue
+         9/ko2a5R2W7rEVlb4JLXuv9u/39rfthN5HopHQ7c/LllR0pBds2CXs8ANnS3I3AFRgZS
+         7WabSDNre/EemGkJcPZDKNbWp53p0p9Z0ZMqBvMpaP0WG6lsCs7c+jLH06CkqRjoyN5D
+         R1qWbUq2H0DpJF2rX3TpOcYFJtOyEub562bOtAJ/ptvIAm88B+ZdTZXmKCaMuUl/6mVG
+         AtIA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=permerror (no key for signature) header.i=@questionprov014846.com header.s=s1 header.b=mYJGN58c;
+       spf=pass (google.com: domain of dcjksnjyjddsoysdmrmo@main2027.cillrdse.me designates 91.223.3.136 as permitted sender) smtp.mailfrom=dCJKSnjyJddSOysdmrmo@main2027.cillrdse.me
+Return-Path: <dCJKSnjyJddSOysdmrmo@main2027.cillrdse.me>
+Received: from paderborn.guidepisa.com (paderborn.guidepisa.com. [91.223.3.136])
+        by mx.google.com with ESMTPS id 38308e7fff4ca-3945c902e59si16305821fa.33.2026.05.14.18.25.34
+        for <silverfirefox@gmail.com>
+        (version=TLS1 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+        Thu, 14 May 2026 18:25:34 -0700 (PDT)
+Received-SPF: pass (google.com: domain of dcjksnjyjddsoysdmrmo@main2027.cillrdse.me designates 91.223.3.136 as permitted sender) client-ip=91.223.3.136;
+Authentication-Results: mx.google.com;
+       dkim=permerror (no key for signature) header.i=@questionprov014846.com header.s=s1 header.b=mYJGN58c;
+       spf=pass (google.com: domain of dcjksnjyjddsoysdmrmo@main2027.cillrdse.me designates 91.223.3.136 as permitted sender) smtp.mailfrom=dCJKSnjyJddSOysdmrmo@main2027.cillrdse.me
+Message-ID: <6a06760e.1edc5c92.a9d89.8e4fSMTPIN_ADDED_MISSING@mx.google.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=s1; d=questionprov014846.com;
+ h=From:Subject:Date:To:Content-Type; i=teamsupport-Silverfirefox-227071707992@questionprov014846.com;
+ bh=TyGTY9K1LDCsL54x95eWzjXi6PZ9041b3v0R947b9bE=;
+ b=mYJGN58c7tVnroJO6YbjANIke9A4l7lEyB2j3iFxX9mgxXcYiRnNfmPBWCMqXr5UKy8eGaeC3AAv
+   xejuyP5LQFxCtVsO2FpaWpyqk01FMZUZkP8Dqw/k4rYjPxAbok9lAI47BNhc7fIXaBa7uS8Nud8r
+   GL0YD6XQCwZsbVLx8qHoEtYDsLz9+lnmUalJRGcGs9uba89bK9INtodVj2gzsXXc4q2f7JrAjrhd
+   CEaaSBd8EBc+aWYgkzB9YGiYKevK9P90p4NsMKS0ZGvfZKa/f7XbfbIv/M6AlU/0bptiIYASZ8l7
+   3Gey8pV5bryrNwDSLxupcvwRXCjS/4e2Idlh/A==
+Feedback-ID: 1.us-east-1.psHyoMfnH8hkuQnF72JGzzQK1By9IkayShm7uIk1GIc=:AmazonSES
+From: Customer: 808TG44 <teamsupport-Silverfirefox-227071707992@questionprov014846.com>
+Subject: =?UTF-8?B?VGhpcyBsaW1pdGVkIHRpbWUgb2ZmZXIganVzdCBmb3IgeW91IQ==?=
+Date: Fri, 15 May 2026 01:25:33 +0000 (UTC)
+Envelope-To: support-931593017@googlemail.com
+To: support_6724476@googlemail.com
+X-PVIQ: mkto-RdMCgBVWW-NB6yqY-hZCeCx-FdLezk
+Received: from efianalytics.com (efianalytics.com. 216.244.76.116)
+X-EMMAIL: np7xtwv6723t@zqggzxrbj6u6lw.us
+X-MarketoID: vKD-Gha-ownhcpal:0:jJKk4V:9:oB3EVd:besLKX8VE
+Content-Type: multipart/report; boundary="000000000000SGCNuB7Qm6umj710elBSQB"; report-type=delivery-status
+
+--000000000000SGCNuB7Qm6umj710elBSQB
+Content-Type: multipart/related; boundary="000000000000B0MNRUNyYR84HR9a"
+
+--000000000000B0MNRUNyYR84HR9a
+Content-Type: multipart/alternative; boundary="000000000000B0MNRUNyYR84HR9b"
+
+--000000000000B0MNRUNyYR84HR9b
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Top Stories of the Day: Fri, 15 May 2026 01:25:33 +0000 (UTC)
+
+871212720827560669
+-----
+zryfryceukqpozsykhzmdzjznunvwlkfzhxfvbdcznaagnnepekviawyaborcfenlkoweiaioxfdackcdduufssdoxejnpauziaheiwmlcytrnfgtaascizrslwrwflzymwpnstuoakodwjbeivbdpqkueggwpweuxsfmfpbnglbplorhnzoyumgyyiuedzttpmnnwhksunksk
+
+If you believe this has been sent to you in error, please safely unsubscrib=
+e
+
+--000000000000B0MNRUNyYR84HR9b
+Content-Type: text/html; charset="UTF-8"  
+Content-Transfer-Encoding: 8bit+
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Philips Sonicare – Upgrade Your Daily Routine</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@400;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f5f0eb;
+      font-family: 'Lato', Arial, sans-serif;
+      color: #222;
+    }
+
+    .email-wrapper {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #f5f0eb;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      background-color: #f5f0eb;
+      text-align: center;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .hero-headline {
+      background-color: #c8102e;
+      padding: 28px 32px 20px;
+    }
+
+    .hero-headline h1 {
+      font-family: 'Bebas Neue', Impact, sans-serif;
+      font-size: 72px;
+      line-height: 1;
+      color: #fff;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .hero-image {
+      display: block;
+      width: 100%;
+      max-height: 420px;
+      object-fit: cover;
+      background: linear-gradient(180deg, #f5f0eb 0%, #e8e0d8 100%);
+      padding: 32px 0 0;
+    }
+
+    /* Toothbrush placeholder (shown when no actual image is embedded) */
+    .toothbrush-placeholder {
+      background: linear-gradient(180deg, #f5f0eb 10%, #e0d8cf 100%);
+      padding: 40px 20px 0;
+      text-align: center;
+    }
+
+    .brush-stage {
+      display: inline-flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 16px;
+      position: relative;
+    }
+
+    .charging-base {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 280px;
+      height: 36px;
+      background: #c8102e;
+      border-radius: 18px 18px 6px 6px;
+    }
+
+    .brush {
+      width: 52px;
+      height: 240px;
+      border-radius: 26px 26px 10px 10px;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .brush-head {
+      width: 30px;
+      height: 50px;
+      border-radius: 15px 15px 4px 4px;
+      background: linear-gradient(180deg, #f0c060 0%, #d4a030 100%);
+      margin-bottom: 4px;
+    }
+
+    .brush-body-pink {
+      flex: 1;
+      width: 100%;
+      border-radius: 26px 26px 10px 10px;
+      background: linear-gradient(180deg, #f9d0d8 0%, #e8a0b0 50%, #d08090 100%);
+      box-shadow: inset -4px 0 12px rgba(0,0,0,0.08);
+    }
+
+    .brush-body-white {
+      flex: 1;
+      width: 100%;
+      border-radius: 26px 26px 10px 10px;
+      background: linear-gradient(180deg, #f8f8f8 0%, #e0e0e0 50%, #c8c8c8 100%);
+      box-shadow: inset -4px 0 12px rgba(0,0,0,0.10);
+    }
+
+    .brush-button {
+      position: absolute;
+      top: 80px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.6);
+      border: 2px solid rgba(255,255,255,0.9);
+    }
+
+    .glass {
+      width: 48px;
+      height: 64px;
+      border-radius: 6px 6px 10px 10px;
+      background: rgba(200,220,240,0.25);
+      border: 2px solid rgba(200,220,240,0.45);
+      position: absolute;
+      bottom: 36px;
+      z-index: 1;
+    }
+
+    .glass-left  { left: 68px; }
+    .glass-right { right: 68px; }
+
+    /* ── CTA BUTTON ── */
+    .cta-section {
+      text-align: center;
+      padding: 36px 32px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background-color: #c8102e;
+      color: #fff;
+      font-family: 'Lato', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      padding: 16px 48px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .cta-btn:hover {
+      background-color: #a00020;
+    }
+
+    /* ── PRODUCT SECTION ── */
+    .product-section {
+      padding: 0 32px 36px;
+      text-align: center;
+    }
+
+    .product-title-wrap {
+      display: inline-block;
+      background-color: #c8102e;
+      padding: 10px 18px;
+      margin-bottom: 24px;
+    }
+
+    .product-title-wrap h2 {
+      font-family: 'Bebas Neue', Impact, sans-serif;
+      font-size: 42px;
+      line-height: 1.1;
+      color: #fff;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .product-description {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #444;
+      max-width: 420px;
+      margin: 0 auto 32px;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      padding: 24px 32px 32px;
+      text-align: center;
+      border-top: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .footer p {
+      font-size: 11px;
+      color: #888;
+      line-height: 1.7;
+      margin-bottom: 6px;
+    }
+
+    .footer a {
+      color: #888;
+      text-decoration: underline;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 480px) {
+      .hero-headline h1 { font-size: 52px; }
+      .product-title-wrap h2 { font-size: 32px; }
+      .cta-btn { padding: 14px 32px; font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="email-wrapper">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-headline">
+      <h1>Upgrade<br>Your Daily<br>Routine</h1>
+    </div>
+
+    <!-- Illustrated toothbrush stage (replaces the photo) -->
+    <div class="toothbrush-placeholder">
+      <div class="brush-stage" style="height:280px; width:280px; position:relative;">
+
+        <!-- Left glass -->
+        <div class="glass glass-left"></div>
+
+        <!-- Pink brush -->
+        <div class="brush" style="margin-bottom:36px;">
+          <div class="brush-head"></div>
+          <div class="brush-body-pink">
+            <div class="brush-button"></div>
+          </div>
+        </div>
+
+        <!-- White brush -->
+        <div class="brush" style="margin-bottom:36px;">
+          <div class="brush-head"></div>
+          <div class="brush-body-white">
+            <div class="brush-button"></div>
+          </div>
+        </div>
+
+        <!-- Right glass -->
+        <div class="glass glass-right"></div>
+
+        <!-- Red charging base -->
+        <div class="charging-base"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FIRST CTA -->
+  <div class="cta-section">
+    <a href="https://storage.googleapis.com/xcm6s17yab0bgsy1/cdywl4qkjgycyie4/daa4d99.html#EWcUlu1I9ki.aspx?cbfglWH6ccklbrcd6nYcdck3c1cgM4bscPhcbbbbQ" class="cta-btn">Discover My Clean Upgrade</a>
+  </div>
+
+  <!-- PRODUCT DETAILS -->
+  <div class="product-section">
+    <div class="product-title-wrap">
+      <h2>Philips Sonicare<br>2-Pack Electric<br>Toothbrush Set</h2>
+    </div>
+
+    <p class="product-description">
+      Experience a smarter clean with this high-performance Sonicare 2-pack.
+      Featuring multiple brushing modes, a built-in pressure sensor,
+      Bluetooth tracking, and a convenient USB charging case, it helps
+      improve your oral care with ease and precision. Complete the short
+      survey to see if you can access this set.
+    </p>
+
+    <a href="https://storage.googleapis.com/xcm6s17yab0bgsy1/cdywl4qkjgycyie4/daa4d99.html#EWcUlu1I9ki.aspx?cbfglWH6ccklbrcd6nYcdck3c1cgM4bscPhcbbbbQ" class="cta-btn">Check My Access Now</a>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p>If you wish to unsubscribe, please click <a href="https://storage.googleapis.com/xcm6s17yab0bgsy1/cdywl4qkjgycyie4/daa4d99.html#EWcUlu1I9ki.aspx?cbfglWH6dcklbrcd6nYcdck3c1cgM4bscPhcbbbbQ">here</a>.</p>
+    <p>
+      The advertiser does not manage your subscription.<br>
+      If you prefer not to receive further communication please unsubscribe <a href="https://storage.googleapis.com/xcm6s17yab0bgsy1/cdywl4qkjgycyie4/daa4d99.html#EWcUlu1I9ki.aspx?cbfglWH6fcklbrcd6nYcdck3c1cgM4bscPhcbbbbQ">here</a><br>
+      Or write to: 1344 Disc, Dr 1006 Sparks NV 89436
+    </p>
+  </div>
+
+</div>
+
+</body>
+</html>
+
+
+
+
+</html>
+
+ <object>
+  <img src="http://zct0qo.easyre.milliman.com/EWcUlu1I9ki.swf?cbfglWH6bcklbrcd6nYcdck3c1cgM4bscPhcbbbbQ" width="1" height="1" />
+   <object>
+
+
+
+
+
+
+
+
+--000000000000B0MNRUNyYR84HR9b--
+--000000000000B0MNRUNyYR84HR9a--
+--000000000000SGCNuB7Qm6umj710elBSQB--
