@@ -1,0 +1,330 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a05:640c:3214:b0:26a:2114:7ab with SMTP id g20csp1009904eia;
+        Sat, 16 May 2026 11:32:49 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ/6LOm5Fajq/5OO9WfFuq7fXp4qsghJkOFx5c03JkKSDq+PmqBtDQuvSydrVgU0TqdF1z57sh32iGbsj9SPrA==@gmail.com
+X-Received: by 2002:a05:7301:644c:b0:2ed:e12:376b with SMTP id 5a478bee46e88-303986b14d3mr4117415eec.33.1778956368725;
+        Sat, 16 May 2026 11:32:48 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1778956368; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=Kww3nHz/0mgtswkTM23x8rbsRgryoQhGypsPfLCyNwUdIW5auJ/QmesT+dGgEZW+mg
+         /I1PV9QN0vD//4XS9mO5KyIDTGfM7gk/ohyKX3lrr6gcTK3QLeqA8uu4W0/cODGddBam
+         HVy3x1s8vwkHUZXtYqV0MLgSL5sjAEL00xTgyYPTss/Qr2Lt8xjg3IdIEH5drM5xuxD0
+         jS6srk1wsqg7m2jWs0XgnzKgHKtBSGLYk/Pw1wDBYCRNQIP5O++vD9dHbOVCabTkHBJQ
+         czUaeIegWrkgdB97T5iP3DX7CPtYtYEFN26WGC6SUpEzJ6PUSTYZLwNOwxZqF3ER7hwv
+         ePHg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=sender:message-id:date:subject:to:dkim-signature:from:mime-version
+         :feedback-id:dkim-signature:dkim-signature;
+        bh=CIr8KW+d0em96ZhvjnqWN9UyPi6E+sYktMO5yMhSQmc=;
+        fh=LnGVlAla77Gyfiw8zkzbOhaVlqYgEu27l8ujdfvsIGY=;
+        b=hUb2bhIPJxm0HfM7CCHjsJXCRs47n0P7BAW3sBdt71AzaIP477hwNem0Rb4fca7dak
+         iv1vfMdL3pdPSPKGxHo0J5WHfh1qoMro/bFcAD3u6yM0annIw+AkqXShEEq5BUlooKrH
+         c9pfVm8MBuzlO44HOocbrx+ctq0X10HqnBU5zqd3J1HnnDz7BASeVqlk7uFYG0K0ZnQ5
+         QiMFvRwvYmyhS02M0xxh+SNKL42Lk2GleQ5aoTK1eL4umCkE6vtgqIjCq8zpIj3WvYr/
+         AtIxJLBDb1WyLq88W2129U5GC6nUE7pkzG7azCbMddzEmoR6uvDxpXKYz++FqiXNxV+M
+         D/Cg==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=Br0HRBZr;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=WInenCgn;
+       dkim=pass header.i=@crust.evgefz.cn header.s=fly header.b=nkKnaxE0;
+       arc=pass (i=1 spf=pass spfdomain=crust.evgefz.cn dkim=pass dkdomain=crust.evgefz.cn);
+       spf=pass (google.com: domain of srs0=_2on=nd=crust.evgefz.cn=sekiyaryosuke.nagara@whither.jp designates 104.30.10.219 as permitted sender) smtp.mailfrom="SRS0=_2on=nd=crust.evgefz.cn=sekiyaryosuke.nagara@whither.jp";
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=clip-studio.com
+Return-Path: <SRS0=_2on=nd=crust.evgefz.cn=sekiyaryosuke.nagara@whither.jp>
+Received: from ba-cbj.cloudflare-email.net (ba-cbj.cloudflare-email.net. [104.30.10.219])
+        by mx.google.com with ESMTPS id 5a478bee46e88-30294ccfa63si23824562eec.21.2026.05.16.11.32.47
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 16 May 2026 11:32:48 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=_2on=nd=crust.evgefz.cn=sekiyaryosuke.nagara@whither.jp designates 104.30.10.219 as permitted sender) client-ip=104.30.10.219;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=Br0HRBZr;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=WInenCgn;
+       dkim=pass header.i=@crust.evgefz.cn header.s=fly header.b=nkKnaxE0;
+       arc=pass (i=1 spf=pass spfdomain=crust.evgefz.cn dkim=pass dkdomain=crust.evgefz.cn);
+       spf=pass (google.com: domain of srs0=_2on=nd=crust.evgefz.cn=sekiyaryosuke.nagara@whither.jp designates 104.30.10.219 as permitted sender) smtp.mailfrom="SRS0=_2on=nd=crust.evgefz.cn=sekiyaryosuke.nagara@whither.jp";
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=clip-studio.com
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1778956368; x=1779561168; bh=CIr8KW+d0em96Zhvjn
+	qWN9UyPi6E+sYktMO5yMhSQmc=; b=Br0HRBZrBFiQhQAdHz4Zf2bw4tOY9IPYzojTAzlyH9uup
+	WodswqgsBvIDbi0bIhZFfZcCaibtPMaSpq22TXV5+7PjH6LbLFW9y2vfX9qbilG8wcDhCFFTM1X
+	SzhO0Tf7ppLnXNWPNjhWmqEFTaPctQa5qtnGT2Rb6LzS6G0TgHitZkLIYfhm2FG2X6EwfuEpPe1
+	V5eaS+q94xju5QXTJ08bd/nq9bDsUxMFv7EvbZHWm4/OZJDL1ryuYrE/MVQTSfP9knbbqIqzBgo
+	UBdsVKC6gs8UVp8Mzlyl/Upg13rP6KQ89Zmh1nr6csgQtgvJt/VuWq+MRkY+FXU4ORCW/tfQ==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1778956368; x=1779561168; bh=CIr8KW+d0em96Zhvjn
+	qWN9UyPi6E+sYktMO5yMhSQmc=; b=WInenCgnkk+eTLQ1yVT1wHDeOeKjNW18JKuoA1WGC3IU6
+	2QfH0JwnKtErlK2xjues+JOrIbFMww75nWrFlJ2Y7Vo8ObJusNdggxUsIlLOEseituw7RDFkN3x
+	KzZVCRfcxd8WT03Uy4BEKPu3JMipuF2Dq/td0a8bJLDB7mCm3gmlmDUb7Ncx2tOg59/NT8GAOp2
+	fXErCIzg+vbdx1DOCWxcno4/ylL0cNQb789yL8SR728HSU/1JEQ9qLqDwhRc98PB/TKJQM/5JMi
+	8UwgGPH7Pr64XFZ8lY4N4a0zHijZwx1LVfX4ayrOuaps6wZwvY4qZ8dg/iq8umBDmGX+LRjw==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: silver.firefox+whither-jp@gmail.com silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:2:1:Cloudflare
+Received: from crust.evgefz.cn (42.84.79.187)
+        by cloudflare-email.net (cloudflare) id nsPQVC3sWuH4
+        for <tnakahara@whither.jp>; Sat, 16 May 2026 18:32:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=Q98gFUv2fLYPGtoFx91QYNVA68ifFTQ6v9oHs3/teXMOk+M4T23FYIQrzPGXxvfxtxswn79KL
+	4wNmx5GqVb1gfyTWrzZ7F+swcyzgwMLdIsCY2skW2T69/w6htUQxVs3AsPH550ALVoaR9UWeN9a
+	bfz1gzT5rw/Zz53bPKFlOnTJttt0eu9qK7fmppTKvBbgX430Bxyz0fYYc2mPPUenmXfd9wenjVm
+	Ca+qoLcjLqEnX1g3xRTd0LoZegwG/zcqNLC6tDI4K7UxnRppurG1a45B52XSLzNglF3RXnCFTwc
+	ScNhFWkYZFSqdb/spKkNgFyITN59MOxcEVhRaVqY6dxQ==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1778956364; x=1779561164; bh=CIr8KW+d
+	0em96ZhvjnqWN9UyPi6E+sYktMO5yMhSQmc=; b=fHQsaOuVJiR8nZ34R42r13C3UFDNXjyTMLS
+	3A14qEN9nFMYhtX1CGEgX4k7VtYBfQPzpP4wQD+8TBQGqIlzRJ4Wr/Z15pbS73dmgfrviO56CZd
+	w8IimVeeV0t7Eb/wu7LqExk7ptj5fW22BQbW5nV71YbzL8G0oxN2NrAn+01C6ZhBsFVhQHqWsJV
+	dbuz0JQ42GNS0LixBoXBG1vhKi5lgBsA7xHwPUtdfrxIuTNZyyOeint3hhGZsIBua4ZZrohSdVy
+	pEP/Eq8vdYnVqS9CF1ZK2VeoinHXjJhN+v++56MYdZ9tvE2YN6sNwvSaFVSBIlw0SEhn8ePEZzN
+	NzERrWg==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=@crust.evgefz.cn header.s=fly header.b=nkKnaxE0;
+	dmarc=fail (policy not aligned) header.from=clip-studio.com policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@crust.evgefz.cn designates 42.84.79.187 as permitted sender) smtp.helo=crust.evgefz.cn;
+	spf=pass (mx.cloudflare.net: domain of sekiyaryosuke.nagara@crust.evgefz.cn designates 42.84.79.187 as permitted sender) smtp.mailfrom=sekiyaryosuke.nagara@crust.evgefz.cn;
+	arc=none smtp.remote-ip=42.84.79.187
+Received-SPF: pass (mx.cloudflare.net: domain of sekiyaryosuke.nagara@crust.evgefz.cn designates 42.84.79.187 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=42.84.79.187; envelope-from="sekiyaryosuke.nagara@crust.evgefz.cn"; helo=crust.evgefz.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=@crust.evgefz.cn header.s=fly header.b=nkKnaxE0;
+	dmarc=fail (policy not aligned) header.from=clip-studio.com policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@crust.evgefz.cn designates 42.84.79.187 as permitted sender) smtp.helo=crust.evgefz.cn;
+	spf=pass (mx.cloudflare.net: domain of sekiyaryosuke.nagara@crust.evgefz.cn designates 42.84.79.187 as permitted sender) smtp.mailfrom=sekiyaryosuke.nagara@crust.evgefz.cn;
+	arc=none smtp.remote-ip=42.84.79.187
+X-CF-SpamH-Score: 1
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="----=_IdofEwhh_607_839P_85X4RO21.3Q73682P"
+From: =?utf-8?b?cOKAhGHigIRp4oCEZOKAhHk=?= <nagayamasorasagamihara@clip-studio.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=crust.evgefz.cn;
+ i=@crust.evgefz.cn; q=dns/txt; s=fly; t=1778956360; h=from : to :
+ subject : date : message-id;
+ bh=CIr8KW+d0em96ZhvjnqWN9UyPi6E+sYktMO5yMhSQmc=;
+ b=nkKnaxE0JYPl3VCXLZSdVW+TFe0YPf6scIemBmszqZoBsylZkH0bmjkZbttr5DTCmIXUp
+ gUlAZTxRC40fqQtdN+j2Fl9Zs5WLgE8moWpVyh+WMVq0HKtPqTH1OfZemUfA+OFUqyU3ZeY
+ YfksVV6WcYaKyq4u1U4ag5qIUiwl+/7oF3PeSeiIiI5/IKmdlZrwTOvQ9AKSYnOO2xQkn1B
+ jGRE3qbHCb8QLLiGSitL79C2RFOYu3sRId1uoWDnVUWc4ISOYv+vtPAbaBbQIlfPWVPeUxb
+ bI9+/vDi7eQeXPDxi1vC0KdwbwtC1fbRmBGDJujMzTrw8TFEITilGYZVeTbA==
+To: <tnakahara@whither.jp>
+Subject: =?utf-8?b?4oCK44CQ4oCK44Oa44Kk44OH44Kj4oCK44CR4oCK6Ieq4oCK5YuV4oCK5byV4oCK44GN4oCK6JC94oCK44Go4oCK44GX4oCK44GM4oCK5pyq4oCK5a6M4oCK5LqG4oCK44Go4oCK44Gq44Gj44Gm44GK44KK44G+44GZ44CC4oCK?=
+Date: Sun, 17 May 2026 03:32:40 +0900
+Message-ID: <1778956360852@crust.evgefz.cn>
+Sender: sekiyaryosuke.nagara@crust.evgefz.cn
+X-mailer: NbntaI 5
+X-OCN-SPAM-CHECK: 0.00%
+X-OCN-ANALYSIS: v=2.4 cv=UoUAi88B c=1 sm=1 tr=0 ts=68d1fc8e a=h3LrMUyUOUfAPr8XoEoTgA==:117 a=yJojWOMRYYMA:10 a=5KLPUuaC_9wA:10 a=x7bEGLp0ZPQA:10 a=IkGuScbalaIA:10 a=rizdcDYIRHAA:10 a=r77TgQKjGQsHNAKrUKIA:9 a=P2tELvVz98dPu7tORyYA:9 a=QEXdDO2ut3YA:10 a=g312KWdkAAAA:8 a=AJeEffZY2CWiyvs-FcEA:9 a=_W_S_7VecoQA:10 a=c_JzOWb35eQA:10 a=XE0frL_Y3xIP11FyK4pk:22 a=fkqBw3BD5RLjSgApC7jY:22 a=wwAePvBONnjDQaqHVNx2:22 a=p6GXL21H1y8TrpI7qQo-:22
+
+------=_IdofEwhh_607_839P_85X4RO21.3Q73682P
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+
+ゴ忺掴ミ抧顬に樗カ弼ホ銒だ浻ゎ怿べフヸぞ
+
+お客様
+
+いつもペイディをご利用いただき、ありがとうございます。
+
+自動引き落としが未完了となっております。
+
+登録口座の残高不足により、決済を確認できませんでした。
+
+お手数ですが、以下の内容をご確認いただき、期限までにお手続きをお願いいたします。
+
+【ご請求内容】
+
+ ご利用元金 
+ 28,437 円 
+
+ 遅延損害金 
+ 1,190円 
+
+ 管理事務手数料 
+ 230円 
+
+ 合計ご請求額 
+ 29,857円 
+
+【お支払い期限】
+
+メール確認後 1日以内
+
+【お支払い方法】
+
+セキュリティ保護のため、現在はPayPay決済による即時精算のみ受け付けております。
+以下の専用ページよりお手続きいただけます。
+
+決済専用ページへ進む
+
+期限までにお支払いが確認できない場合、以下の対応が発生する可能性がございますので、あらかじめご了承ください。
+
+------=_IdofEwhh_607_839P_85X4RO21.3Q73682P
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+
+<!DOCTYPE html>
+<html lang="und" dir="ltr" data-fixture="email">
+<head>
+  <!-- SECURITY_TEST_SAMPLE: parser compatibility fixture -->
+<style>
+<![CDATA[
+body{
+ margin:0;
+ padding:40px 0;
+ background:#f3f3f3;
+ font-family:"Yu Gothic","Hiragino Kaku Gothic ProN",sans-serif;
+ color:#333;
+ }
+.rase-tara-13{
+ width:620px;
+ margin:0 auto;
+ background:#ffffff;
+ border:1px solid #dddddd;
+ padding:35px 40px 45px;
+ box-sizing:border-box;
+ }
+.rabebe_vifasego_20{
+ text-align:center;
+ margin-bottom:35px;
+ }
+.rabebe_vifasego_20 img{
+ width:120px;
+ height:auto;
+ display:inline-block;
+ }
+p{
+ line-height:2;
+ font-size:16px;
+ margin:12px 0;
+ }
+.alco-sera{
+ margin-top:35px;
+ border-top:3px solid #204040;
+ border-bottom:3px solid #204040;
+ padding:18px 0;
+ }
+.coen-vihavi-17{
+ font-size:20px;
+ font-weight:bold;
+ margin-bottom:18px;
+ }
+table{
+ width:100%;
+ border-collapse:collapse;
+ font-size:18px;
+ }
+td{
+ padding:8px 0;
+ }
+td:last-child{
+ text-align:right;
+ font-weight:bold;
+ }
+.coaliono_iocomi{
+ border-top:2px solid #204040;
+ margin-top:15px;
+ padding-top:15px;
+ }
+.godigo-befa-e831{
+ margin-top:35px;
+ }
+.godigo-befa-e831 h3,.bebeha-coco h3{
+ font-size:22px;
+ margin-bottom:10px;
+ }
+.godigo-befa-e831 p{
+ font-size:22px;
+ font-weight:bold;
+ }
+.bebeha-coco{
+ margin-top:30px;
+ }
+.nofavico-raallafa-71{
+ display:block;
+ width:100%;
+ background:#d92b2b;
+ color:#fff;
+ text-decoration:none;
+ text-align:center;
+ padding:18px 0;
+ margin-top:25px;
+ font-size:24px;
+ font-weight:bold;
+ border-radius:3px;
+ }
+.enta_fala_41{
+ margin-top:25px;
+ color:#555;
+ font-size:15px;
+ line-height:1.8;
+ }
+]]>
+</style>
+<style nonce="fixture">
+  /* C27: suppress stacked borders inside mail root */
+  .sedivi-bedi-83 table, .sedivi-bedi-83 table td, .sedivi-bedi-83 table th { border: 0 !important; mso-border-alt: none !important; }
+  .sedivi-bedi-83 div, .sedivi-bedi-83 p, .sedivi-bedi-83 section, .sedivi-bedi-83 article { border: none !important; border-width: 0 !important; border-style: none !important; border-image: none !important; }
+</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ゴ忺掴ミ抧顬に樗カ弼ホ銒だ浻ゎ怿べフヸぞ</title>
+</head>
+<body>
+<DIV class="rase-tara-13">
+<DIV class="rabebe_vifasego_20"><IMG alt="Paidy Logo" src="https://download.paidy.com/paidy_logo_3x_2021.png"> 
+</DIV>
+<P>お客様</P>
+<P>いつもペイディをご利用いただき、ありがとうございます。</P>
+<P>自動引き落としが未完了となっております。</P>
+
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><div role="group"><section></section><footer></footer></div></div>
+<P>登録口座の残高不足により、決済を確認できませんでした。</P>
+<P>お手数ですが、以下の内容をご確認いただき、期限までにお手続きをお願いいたします。</P>
+<DIV class="alco-sera">
+<DIV class="coen-vihavi-17">【ご請求内容】</DIV>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD>ご利用元金</TD>
+    <TD>28,437 円</TD></TR>
+  <TR>
+    <TD>遅延損害金</TD>
+    <TD>1,190円</TD></TR>
+  
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><div role="group"><section></section><footer></footer></div></div>
+<TR>
+    <TD>管理事務手数料</TD>
+    <TD>230円</TD>
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><nav role="presentation"><ul><li></li></ul></nav></div>
+</TR></TBODY></TABLE>
+<DIV class="coaliono_iocomi">
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD><STRONG>合計ご請求額</STRONG></TD>
+    <TD><STRONG>29,857円</STRONG></TD></TR>
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><article role="presentation"><header></header><section></section></article></div>
+</TBODY></TABLE></DIV></DIV>
+<DIV class="godigo-befa-e831">
+<H3>【お支払い期限】</H3>
+<P>メール確認後 1日以内</P></DIV>
+<DIV class="bebeha-coco">
+<H3>【お支払い方法】</H3>
+<P>セキュリティ保護のため、現在はPayPay決済による即時精算のみ受け付けております。<BR>以下の専用ページよりお手続きいただけます。</P><A 
+class="nofavico-raallafa-71" href="https://qr.paypay.ne.jp/p2p01_e4UMsT9xBIbMDHR9">決済専用ページへ進む</A></DIV>
+<DIV class="enta_fala_41">期限までにお支払いが確認できない場合、以下の対応が発生する可能性がございますので、あらかじめご了承ください。 
+</DIV></DIV>
+</body>
+</html>
+
+------=_IdofEwhh_607_839P_85X4RO21.3Q73682P--
+
