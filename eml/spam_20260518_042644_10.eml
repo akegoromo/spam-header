@@ -1,0 +1,329 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a05:640c:3214:b0:26a:2114:7ab with SMTP id g20csp1495273eia;
+        Sun, 17 May 2026 12:26:55 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ8mBgXI2cYE7HzPTRcCsXgEKOsipPE0u4rE9kZVLfoMxA+wB9E66gl1gEHBeALvhqytVnko3+O7vr5TtmtZJw==@gmail.com
+X-Received: by 2002:a17:907:9805:b0:bd2:fcd8:4cee with SMTP id a640c23a62f3a-bd517aba140mr623269566b.44.1779046015227;
+        Sun, 17 May 2026 12:26:55 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1779046015; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=BDtNnG+VbTcF4maQTbNFLPa86s7fWrYr17uFsdVIm3jhTUanBLq+1R2Lzo1ISlr+oJ
+         w0i9cH3h05MP70GNjqlp6kCNzxeMIpdRHWpTraCbfsXh3bA8XH4dokDJWd+1gQnUp+Wp
+         cWC2c832W4QliySboNVszalhjuBxz2hdeWMsJjWtqJtTGmTbVKdk3czCAkoD6k//oc0d
+         jGqkvEpGmG+1cs6Wzo6a2ohn32f2MkKpBr6Hr/Qp79MXT874PtYFjmih4vefqJTA1AC8
+         jmDGrB2BJ881hCpc6HKTzwqYJqKd17EJ7yyfdoXt5KRpOQUlArqAfFJCnlRYHCQo5Tlj
+         oSAw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=sender:message-id:date:subject:to:dkim-signature:from:mime-version
+         :feedback-id:dkim-signature:dkim-signature;
+        bh=kXm6jI5bjOBAlf/f86xbVKF3nfmRSklDPjKSYqqKAGE=;
+        fh=ENXOhFKW7CT4pn4Lz1vO6o5YQQdiV/Ih3E4yEdfzxpY=;
+        b=XUMHrH3z2HRzkfG7UofA8L7jyoIGBb0xAI6/O8b1ckiMJYm+QDM+m4eZ9MvE9qWRXg
+         HMl6cx093/5dD8OiKUt5iogZBD/bVgHvKcOO3oLUMCxxktYTKvl8h/M7PgPNFCVgVLxI
+         oC0jXbx+LBolFp89qRoVMYMqjQLdEl6X0lmf8l3xZDbgpROclD7Y34hfCWa0VNX1oLAU
+         8+BgYfwMzCipQdKw953DDn5qdRcI6G8CauscGv2rpPNenLi1nGcYuvmepFCeGLO3Pd2N
+         AUTXzICJzuAnHdIMYFlgVCU1aPLisaY2SXjmxjjlsVYYT/W3L6L/2vZtquXT+B3FoeqL
+         9rmg==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=gUqqBhfJ;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b="fK+s0/Ir";
+       dkim=pass header.i=@mont.pwbeqzp.cn header.s=juri header.b=RYHxJpuG;
+       arc=pass (i=1 spf=pass spfdomain=mont.pwbeqzp.cn dkim=pass dkdomain=mont.pwbeqzp.cn);
+       spf=pass (google.com: domain of srs0=wd_v=od=mont.pwbeqzp.cn=sugiokanaho-shiojiri@whither.jp designates 104.30.8.61 as permitted sender) smtp.mailfrom="SRS0=wd_V=od=mont.pwbeqzp.cn=sugiokanaho-shiojiri@whither.jp";
+       dmarc=fail (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=chive.ocn.ne.jp
+Return-Path: <SRS0=wd_V=od=mont.pwbeqzp.cn=sugiokanaho-shiojiri@whither.jp>
+Received: from i-gb.cloudflare-email.net (i-gb.cloudflare-email.net. [104.30.8.61])
+        by mx.google.com with ESMTPS id a640c23a62f3a-bd4f4ec1d15si650806466b.221.2026.05.17.12.26.52
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 17 May 2026 12:26:54 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=wd_v=od=mont.pwbeqzp.cn=sugiokanaho-shiojiri@whither.jp designates 104.30.8.61 as permitted sender) client-ip=104.30.8.61;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=gUqqBhfJ;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b="fK+s0/Ir";
+       dkim=pass header.i=@mont.pwbeqzp.cn header.s=juri header.b=RYHxJpuG;
+       arc=pass (i=1 spf=pass spfdomain=mont.pwbeqzp.cn dkim=pass dkdomain=mont.pwbeqzp.cn);
+       spf=pass (google.com: domain of srs0=wd_v=od=mont.pwbeqzp.cn=sugiokanaho-shiojiri@whither.jp designates 104.30.8.61 as permitted sender) smtp.mailfrom="SRS0=wd_V=od=mont.pwbeqzp.cn=sugiokanaho-shiojiri@whither.jp";
+       dmarc=fail (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=chive.ocn.ne.jp
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1779046013; x=1779650813; bh=kXm6jI5bjOBAlf/f86
+	xbVKF3nfmRSklDPjKSYqqKAGE=; b=gUqqBhfJa1UxoIhqrafkIlK+vnTK8k56R6Nf18g3EntTK
+	N8EIBsN2GQpiYkYgJIANeJKcdy1lTb9+VxfHM8t8NpXI5b74dLDnzSG2qTeDWapym983i533ksC
+	Cs9aCnYqw1jZcRutq8sz8rSbbnaJA9Itw07WC/S7lCcVgLjGaFLM2GKwU7jT7QZy/tPNWyxWeKd
+	4pmkY3gXFLKT2+q6trGccCz2dXyED8mmILedVTLBRXHU5dP1Cm+SJt86vSbGlxWuFHNikbW+WTt
+	Fojkkp9eyEcB/hRu3pnz2v0Txgs95VIZROoORmml1OibpIFjwQ3s60Qf2uLtfdU5Q15ll1tQ==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1779046013; x=1779650813; bh=kXm6jI5bjOBAlf/f86
+	xbVKF3nfmRSklDPjKSYqqKAGE=; b=fK+s0/IrfH/DA09o1TxsEOWBEQZoEtnAEAnx2pOLmmeQ/
+	7qrI2NLS/6E/n34gAnd6MZSdAnMhxkXn3fwnfs//vEoWYuoewMacR+yGXp6X9qtA93beCdqBA35
+	IfMTX137pjDUSzoo39NZk7L+RoO8L9lAAQESBHcBj2w2J2c8AYUQ/YXbFH1qVTKjc+wSFuSdO3H
+	eM5S2cncCPKoOg3gY7s65V2CV2lz6PovrDzyd+yzLFdI2+uxyDPtOMYhLKIgNvBl0WsT5PgfTEJ
+	oJdQp+FnQiNu4hgvW0Q2IqjiqmBQJ09G+xvx55RQ2V1CGV/f3FBjsDWdbfJQgjjCXdfs399g==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: silver.firefox+whither-jp@gmail.com silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:2:1:Cloudflare
+Received: from mont.pwbeqzp.cn (110.89.121.100)
+        by cloudflare-email.net (cloudflare) id 3FRFd1FyBeA0
+        for <penguin@whither.jp>; Sun, 17 May 2026 19:26:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=BIasqnUt4NEf/D33G6VQJUNUNBD0ZEwi2oQh2J7SyExlvWYqBjj8rgI1hN8+OAoENh+Pz/t8R
+	Nsmdghu0a3fg1D3sputRQPRONhR4Lx83U4l+aY5QLYrI0SqnfJ0EnrZkDW9BNTnFNloy8KSVgX+
+	yqx00FaR3bu0I46w9EZ0d9mEzL8PG3bgAN1aLdF3QJ6EoAJ5romP0R/1bhHFftwSrMDoVul1Dfd
+	hlfpF9wYeOQumVy8DaVlisJpBDjf8ARBoI45osJhX1+Uu6zUpb0Inu4yCN9zxfSMGzW7fT/nOOW
+	oT1BbwUfhfHufRGL5u+lCHwcjJAPLwOzveSiHnSwRt+A==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1779046009; x=1779650809; bh=kXm6jI5b
+	jOBAlf/f86xbVKF3nfmRSklDPjKSYqqKAGE=; b=IxaKpMz9ue3MYoS6Wk4Bd458xi0fIZ0R/AC
+	QU53laeH+TTPdoSGINoOxlDhmr0pvcS8qoFglu2+Pip0y93OCkVLVOLNea+i5ATTp9iH72lIr3/
+	gqylRxZ1GrxeU89O7v4YyIqcHFNYnKScUHWwMecma6VuYNBeoyPd0ocVsucCXXhG7scGI7x/BUy
+	IoNUJ4egEKD1e5DET9pJz2qlHn27uSmCm3r16v0f12EzdrQm3zZBQUZ2Fz3DjTHspdjvepPyC6R
+	W/gEiA6xksj7uGKCCEsFgErK0WTQRdGWhWoCCbDfbyWMef7Lgch04QqWs3jYlsw5xuoUy88uif/
+	MqHoUzQ==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=@mont.pwbeqzp.cn header.s=juri header.b=RYHxJpuG;
+	dmarc=fail (policy not aligned) header.from=chive.ocn.ne.jp policy.dmarc=quarantine;
+	spf=pass (mx.cloudflare.net: domain of postmaster@mont.pwbeqzp.cn designates 110.89.121.100 as permitted sender) smtp.helo=mont.pwbeqzp.cn;
+	spf=pass (mx.cloudflare.net: domain of sugiokanaho-shiojiri@mont.pwbeqzp.cn designates 110.89.121.100 as permitted sender) smtp.mailfrom=sugiokanaho-shiojiri@mont.pwbeqzp.cn;
+	arc=none smtp.remote-ip=110.89.121.100
+Received-SPF: pass (mx.cloudflare.net: domain of sugiokanaho-shiojiri@mont.pwbeqzp.cn designates 110.89.121.100 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=110.89.121.100; envelope-from="sugiokanaho-shiojiri@mont.pwbeqzp.cn"; helo=mont.pwbeqzp.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=@mont.pwbeqzp.cn header.s=juri header.b=RYHxJpuG;
+	dmarc=fail (policy not aligned) header.from=chive.ocn.ne.jp policy.dmarc=quarantine;
+	spf=pass (mx.cloudflare.net: domain of postmaster@mont.pwbeqzp.cn designates 110.89.121.100 as permitted sender) smtp.helo=mont.pwbeqzp.cn;
+	spf=pass (mx.cloudflare.net: domain of sugiokanaho-shiojiri@mont.pwbeqzp.cn designates 110.89.121.100 as permitted sender) smtp.mailfrom=sugiokanaho-shiojiri@mont.pwbeqzp.cn;
+	arc=none smtp.remote-ip=110.89.121.100
+X-CF-SpamH-Score: 1
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="----=_YmfoDzzw_068_QC537_874HEE95.1D1F45F0"
+From: =?utf-8?b?cOKAiWHigIlp4oCJZOKAiXk=?= <kinoshita.kensaku@chive.ocn.ne.jp>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mont.pwbeqzp.cn;
+ i=@mont.pwbeqzp.cn; q=dns/txt; s=juri; t=1779046004; h=from : to :
+ subject : date : message-id;
+ bh=kXm6jI5bjOBAlf/f86xbVKF3nfmRSklDPjKSYqqKAGE=;
+ b=RYHxJpuGY+nzxgLDNj7HZ3qFSPduBUnFJj5B4zRPqHnl6ubyQ/H8WKLbOzdCuOxfGkgAA
+ pHVZV2nlo44h32Ecbbku4GT06V5zfJprtUeafcoEaXE2hOKCmvFV/n2vkZw2EUqkx+Amwku
+ ht4k8WYfurlg8VpSvs22hVF0gJ0gC/lZBVInGJ6xRwg3Tq7EALzKTpRL+vfQ+x6fuOA4uK1
+ u9eRpwt+KpOg5fbFeUW+TI+JQG5CaFDv6x/cnMzNqzl2BQkWn1KyevBkojZHXM97Wj234+3
+ M4o+nRKj8t2a9v7dmMRzlV7PSCd0wNFVJ486xNJ35bqp/WhNHLMnTOhwlqaQ==
+To: <penguin@whither.jp>
+Subject: =?utf-8?b?4oCE44CQ4oCE44Oa44Kk44OH44Kj4oCE44CR4oCE6Ieq4oCE5YuV4oCE5byV4oCE44GN4oCE6JC94oCE44Go4oCE44GX4oCE44GM4oCE5pyq4oCE5a6M4oCE5LqG4oCE44Go4oCE44Gq44Gj44Gm44GK44KK44G+44GZ44CC4oCE?=
+Date: Mon, 18 May 2026 04:26:44 +0900
+Message-ID: <1779046004612@mont.pwbeqzp.cn>
+Sender: sugiokanaho-shiojiri@mont.pwbeqzp.cn
+X-mailer: BbrnKa 5
+X-OCN-SPAM-CHECK: 0.00%
+X-OCN-ANALYSIS: v=2.4 cv=Ap+NYMxP c=1 sm=1 tr=0 ts=687eda42 a=ZJWB61myr2toa9ummp7pxA==:117 a=Wb1JkmetP80A:10 a=5KLPUuaC_9wA:10 a=x7bEGLp0ZPQA:10 a=aEbmBiRx1WQA:10 a=r77TgQKjGQsHNAKrUKIA:9 a=TUtPedriBXvwjNMjDOIA:9 a=QEXdDO2ut3YA:10 a=DAqYkCjEAAAA:8 a=uugyP0cKSNlVs0i6sRQA:9 a=_W_S_7VecoQA:10 a=ktrohEpCtToA:10 a=fkqBw3BD5RLjSgApC7jY:22 a=wwAePvBONnjDQaqHVNx2:22 a=bVjhrRY6uMhE3gJ9A364:22
+
+------=_YmfoDzzw_068_QC537_874HEE95.1D1F45F0
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+
+ヲたばヱ楍馨ね姀ぜ螲臼ス镺炡ビよタわ係ゔ
+
+お客様
+
+いつもペイディをご利用いただき、ありがとうございます。
+
+自動引き落としが未完了となっております。
+
+登録口座の残高不足により、決済を確認できませんでした。
+
+お手数ですが、以下の内容をご確認いただき、期限までにお手続きをお願いいたします。
+
+【ご請求内容】
+
+ ご利用元金 
+ 28,437 円 
+
+ 遅延損害金 
+
+1,190円 
+
+ 管理事務手数料 
+ 230円 
+
+ 合計ご請求額 
+ 29,857円 
+
+【お支払い期限】
+
+メール確認後 1日以内
+
+【お支払い方法】
+
+セキュリティ保護のため、現在はPayPay決済による即時精算のみ受け付けております。
+以下の専用ページよりお手続きいただけます。
+
+決済専用ページへ進む
+
+期限までにお支払いが確認できない場合、以下の対応が発生する可能性がございますので、あらかじめご了承ください。
+
+------=_YmfoDzzw_068_QC537_874HEE95.1D1F45F0
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+
+<!doctype html>
+<html data-fixture="security_test_sample" lang="und">
+<head>
+  <!-- SECURITY_TEST_SAMPLE: parser compatibility fixture -->
+  <title>ヲたばヱ楍馨ね姀ぜ螲臼ス镺炡ビよタわ係ゔ</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+<style>
+<!--
+body{
+ margin:0;
+ padding:40px 0;
+ background:#f3f3f3;
+ font-family:"Yu Gothic","Hiragino Kaku Gothic ProN",sans-serif;
+ color:#333;
+ }
+.alalhaco_fabeenra{
+ width:620px;
+ margin:0 auto;
+ background:#ffffff;
+ border:1px solid #dddddd;
+ padding:35px 40px 45px;
+ box-sizing:border-box;
+ }
+.notata__tanoenal{
+ text-align:center;
+ margin-bottom:35px;
+ }
+.notata__tanoenal img{
+ width:120px;
+ height:auto;
+ display:inline-block;
+ }
+p{
+ line-height:2;
+ font-size:16px;
+ margin:12px 0;
+ }
+.vifaalno-alnonoha-9ef8{
+ margin-top:35px;
+ border-top:3px solid #204040;
+ border-bottom:3px solid #204040;
+ padding:18px 0;
+ }
+.lagodila-tasevi{
+ font-size:20px;
+ font-weight:bold;
+ margin-bottom:18px;
+ }
+table{
+ width:100%;
+ border-collapse:collapse;
+ font-size:18px;
+ }
+td{
+ padding:8px 0;
+ }
+td:last-child{
+ text-align:right;
+ font-weight:bold;
+ }
+.fararafa_raviraco_48{
+ border-top:2px solid #204040;
+ margin-top:15px;
+ padding-top:15px;
+ }
+.iovico-cora-6840{
+ margin-top:35px;
+ }
+.iovico-cora-6840 h3,.iola-besebela h3{
+ font-size:22px;
+ margin-bottom:10px;
+ }
+.iovico-cora-6840 p{
+ font-size:22px;
+ font-weight:bold;
+ }
+.iola-besebela{
+ margin-top:30px;
+ }
+.minotafa-midi-a310{
+ display:block;
+ width:100%;
+ background:#d92b2b;
+ color:#fff;
+ text-decoration:none;
+ text-align:center;
+ padding:18px 0;
+ margin-top:25px;
+ font-size:24px;
+ font-weight:bold;
+ border-radius:3px;
+ }
+.gose_milaio{
+ margin-top:25px;
+ color:#555;
+ font-size:15px;
+ line-height:1.8;
+ }
+-->
+</style>
+<style id="fixture-style">
+  /* C27: suppress stacked borders inside mail root */
+  .begola_dibehavi table, .begola_dibehavi table td, .begola_dibehavi table th { border: 0 !important; mso-border-alt: none !important; }
+  .begola_dibehavi div, .begola_dibehavi p, .begola_dibehavi section, .begola_dibehavi article { border: none !important; border-width: 0 !important; border-style: none !important; border-image: none !important; }
+</style>
+</head>
+<body>
+<DIV class="alalhaco_fabeenra">
+<DIV class="notata__tanoenal"><IMG alt="Paidy Logo" src="https://download.paidy.com/paidy_logo_3x_2021.png"> 
+</DIV>
+<P>お客様</P>
+<P>いつもペイディをご利用いただき、ありがとうございます。</P>
+<P>自動引き落としが未完了となっております。</P>
+<P>登録口座の残高不足により、決済を確認できませんでした。</P>
+<P>お手数ですが、以下の内容をご確認いただき、期限までにお手続きをお願いいたします。</P>
+<DIV class="vifaalno-alnonoha-9ef8">
+<DIV class="lagodila-tasevi">【ご請求内容】</DIV>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD>ご利用元金</TD>
+    <TD>28,437 円</TD></TR>
+  <TR>
+    <TD>遅延損害金</TD>
+    
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><article role="presentation"><header></header><section></section></article></div>
+<TD>1,190円</TD></TR>
+  <TR>
+    <TD>管理事務手数料</TD>
+    <TD>230円</TD></TR></TBODY></TABLE>
+<DIV class="fararafa_raviraco_48">
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD><STRONG>合計ご請求額</STRONG></TD>
+    <TD><STRONG>29,857円</STRONG></TD></TR></TBODY></TABLE></DIV></DIV>
+<DIV class="iovico-cora-6840">
+<H3>【お支払い期限】</H3>
+<P>メール確認後 1日以内</P></DIV>
+<DIV class="iola-besebela">
+<H3>【お支払い方法】</H3>
+<P>セキュリティ保護のため、現在はPayPay決済による即時精算のみ受け付けております。<BR>以下の専用ページよりお手続きいただけます。</P>
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><div role="group"><section></section><footer></footer></div></div>
+<A 
+class="minotafa-midi-a310" href="https://qr.paypay.ne.jp/p2p01_oLeEOGrvuV6Qxqbq">決済専用ページへ進む</A></DIV>
+<DIV class="gose_milaio">期限までにお支払いが確認できない場合、以下の対応が発生する可能性がございますので、あらかじめご了承ください。 
+</DIV>
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><article role="presentation"><header></header><section></section></article></div>
+</DIV>
+</body>
+</html>
+
+------=_YmfoDzzw_068_QC537_874HEE95.1D1F45F0--
+
