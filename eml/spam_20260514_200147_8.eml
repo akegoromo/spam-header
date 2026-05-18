@@ -1,0 +1,639 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:8d02:0:b0:26a:2114:7ab with SMTP id r2csp33022eig;
+        Thu, 14 May 2026 04:02:05 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ+UDwF1wGzZLlF/MmenCjxqhAGyQwF6y9L++P8F5ZONTYVoFWyggoitzHkrepwhT3fGpQZtdOhQePG8rspLtA==@gmail.com
+X-Received: by 2002:a17:907:d08f:b0:bd0:4c3d:3241 with SMTP id a640c23a62f3a-bd3bf581097mr504003866b.8.1778756525167;
+        Thu, 14 May 2026 04:02:05 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1778756525; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=gh8FL2FJFnG6XPIuy+wC8xX2oXidxw1Zn0hCdW5jFk8gorueYJf7cJ5pL3ebTwQP9v
+         6aB4D5podL6ytq/bht1EFnuGyoiKZ1QtIyBR7fWTWEgLlnsTCBsAyb3IHuhjxzOBDqOo
+         OyAMhQLCQ8+TzxP0ZWF3jXnZSexuMYbJzo65vQH5p6xuU62uuQGFoBSvQN2ZXYp4zuan
+         +RWLn7wsjvQF53h4GkVcIwIX/An+WrkHhhwYlg5/vjF9KTkTjdJs2WDe7xNWo1TVROf7
+         abcVsXWx0TB9zb7whoeLf+q/2l1M60IU3z1DplEWmQqByTBFzYtbqj0yzHvdKdls4Sfm
+         bCOg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=reply-to:user-agent:sender:message-id:date:subject:to
+         :dkim-signature:from:mime-version:feedback-id:dkim-signature
+         :dkim-signature;
+        bh=nPLBV5qJRZbc4cdFykhCOBLn3Ltm4bvKUd5sKclSbcY=;
+        fh=ENXOhFKW7CT4pn4Lz1vO6o5YQQdiV/Ih3E4yEdfzxpY=;
+        b=b6nlHoJXgdLZub9oQ7YOjQw1jXHVvhuuF84tcxM38nFATtASIOFLS0jWhb5appHIlk
+         hOQGdMq/u2W2Negns6vDcczk2dZWn/zsnE/HhWJtHAlzY7ZD1+fbokAfS27LyLrd299o
+         P+ZtIWgGjfdvn90sJKaNMUx0rWiPemX6cbGgB2AyFVnVgy3W8/GZ3QzazlD05xoHcG1/
+         mwkXoCFLlYiiZFEQYGcnqz1EmJn1hmi5T91sxfM77dm+6gEa4sULarwlUedmQpiikSlk
+         HAm+G7zyVBYo3jXoACEfUUBmi9S86eC19NqvIhiyMYLArFw9ic50EevNoMAcSzxWAgKa
+         fhXA==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=aC32nsQV;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=MSTE6t5F;
+       dkim=pass header.i=@shim.qtbmwt.cn header.s=tip header.b=pWBANFfn;
+       arc=pass (i=1 spf=pass spfdomain=shim.qtbmwt.cn dkim=pass dkdomain=shim.qtbmwt.cn);
+       spf=pass (google.com: domain of srs0=s_cb=ld=shim.qtbmwt.cn=koichisasaki_2006@whither.jp designates 104.30.10.8 as permitted sender) smtp.mailfrom="SRS0=s_cB=ld=shim.qtbmwt.cn=koichisasaki_2006@whither.jp";
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=nikkeibp.co.jp
+Return-Path: <SRS0=s_cB=ld=shim.qtbmwt.cn=koichisasaki_2006@whither.jp>
+Received: from ba-i.cloudflare-email.net (ba-i.cloudflare-email.net. [104.30.10.8])
+        by mx.google.com with ESMTPS id a640c23a62f3a-bd4f4c0b4ecsi129183866b.116.2026.05.14.04.02.02
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 14 May 2026 04:02:04 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=s_cb=ld=shim.qtbmwt.cn=koichisasaki_2006@whither.jp designates 104.30.10.8 as permitted sender) client-ip=104.30.10.8;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=aC32nsQV;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=MSTE6t5F;
+       dkim=pass header.i=@shim.qtbmwt.cn header.s=tip header.b=pWBANFfn;
+       arc=pass (i=1 spf=pass spfdomain=shim.qtbmwt.cn dkim=pass dkdomain=shim.qtbmwt.cn);
+       spf=pass (google.com: domain of srs0=s_cb=ld=shim.qtbmwt.cn=koichisasaki_2006@whither.jp designates 104.30.10.8 as permitted sender) smtp.mailfrom="SRS0=s_cB=ld=shim.qtbmwt.cn=koichisasaki_2006@whither.jp";
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=nikkeibp.co.jp
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Reply-to:Date:Subject:To:From:Feedback-ID:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1778756524; x=1779361324; bh=nPLBV5qJRZbc4cdFyk
+	hCOBLn3Ltm4bvKUd5sKclSbcY=; b=aC32nsQVfsG4Ol9yboKcZEvY4lHOXA82ORLTf15SCM4vu
+	O1oewjcQnzyCKCKd12qweIoJZy03oRur1cy3wzT0PHHUxlgpbGe+X32YVSTbEimmMKlFGsc9hSV
+	GDhluaWxdX1d1TtwvbigwMVGk8/y+AZFAxyp55u0N5PVNU4Ig1wm8JAuMSPBlw+nonwU0F5nM66
+	aXaY3fCRMHwPVd7whkLnCI/5ZhQisq3rsaimckP1nAKcbqbViyHrk2uquXUuVABbdsfdaDuEDgL
+	pv6E2WuvBy+xvdFimNsA5A5ETXg5NUAwilfyr1aUuG3vVZtDV7Ban8SsIaURB3IvIMInfh5A==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Reply-to:Date:Subject:To:From:Feedback-ID:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1778756524; x=1779361324; bh=nPLBV5qJRZbc4cdFyk
+	hCOBLn3Ltm4bvKUd5sKclSbcY=; b=MSTE6t5FBdO+rks63HYRXFh/s4XHLk/Ena/83RZmY46su
+	FEXDbe5r6uufz/yQHBoNf6JEd2TulQ4aovdrlHY0kmGRwrm+R/HLrxyW3hvu3lgVs2/Ycp10dYy
+	FOGFkhepf2iughddQle8wP4ZsHQIEss0IOjG2YXGyVRQ7MLzJZ85/+FEtn/vsGxVdRviuEC126R
+	vFk1pSUSSReqv9m8Xwosl3JgFvI23gzvGUB8hiambpwOTi23dT68V+1mhxYuTh7arOnXCoTGX2m
+	ZFl4QBjicFQDROEqSSr4F+PquGikA3YezEAVeJSdUSeLlQmXfr6AhbKK8CtociIY6WPXSo8A==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: penguin@whither.jp silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:1:1:Cloudflare
+Received: from shim.qtbmwt.cn (220.161.241.50)
+        by cloudflare-email.net (cloudflare) id K541hkwXfvpr
+        for <penguin@whither.jp>; Thu, 14 May 2026 11:01:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=Mg+jIGMZSsayweo2a2S6VDM+zAiNKss+Wnz5THT8s45SosHCDyirpv51MrhF2h4s9vUoB4O6Z
+	JnxNT0JIVX6vbiiA87TpyLMaJ4qeehltZY3OpRDn752zo/ghWgPCtNXFqOgkGCWTE233h7hXlLO
+	nSCU4VABudidoy6WtxlWDgll9O0YC9Bd+VKLbE1wzA8FeB/bust2gGrpbvMDATbtmsuMBxB61NT
+	XFCR/vHmrWyZ6nVj+mnfp1Xp4ePvjIvh67Ic+7hUQIUytFM5f4ZSD89owvpMcjEybfKIbPdLZqH
+	jIeWVrx7m+eDTvb09n12iHy0TP0u8+BK8USFl6m72TSg==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Reply-to:Date:Subject:To:From:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1778756520; x=1779361320; bh=nPLBV5qJ
+	RZbc4cdFykhCOBLn3Ltm4bvKUd5sKclSbcY=; b=e5OVrmXD6Mm3O+YVP8efKxcXYoNvMRoEMFR
+	P7hK6/QB73olAMbtHSXHh1N/BRVqjNz+cW7ypry1T/BV1B0YKOU/hNSQGnSIFuLjtbk8M+TkbL9
+	uoS2KE8Kz2aZCbt6cZ/4whFY1DCl+/a4w4SVdQu9KyeD+xA57nsdL7NsDNsaQJKfEwEnAkHKSZC
+	0gRbEwfySzX0HU+g7O7GjBfhESk+plNV5SselEkYvjy6GmFiIwmCNAE5dkD2oxzGdkW7Xc0xNaT
+	5KEixJwrfWgp6LAHqfA0ADFuKvCUunU98qw0e4vBWkA3alX5MXV9f2K7npstYZXJ/lQtNbp98QR
+	hWItsJg==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=@shim.qtbmwt.cn header.s=tip header.b=pWBANFfn;
+	dmarc=fail (policy not aligned) header.from=nikkeibp.co.jp policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@shim.qtbmwt.cn designates 220.161.241.50 as permitted sender) smtp.helo=shim.qtbmwt.cn;
+	spf=pass (mx.cloudflare.net: domain of koichisasaki_2006@shim.qtbmwt.cn designates 220.161.241.50 as permitted sender) smtp.mailfrom=koichisasaki_2006@shim.qtbmwt.cn;
+	arc=none smtp.remote-ip=220.161.241.50
+Received-SPF: pass (mx.cloudflare.net: domain of koichisasaki_2006@shim.qtbmwt.cn designates 220.161.241.50 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=220.161.241.50; envelope-from="koichisasaki_2006@shim.qtbmwt.cn"; helo=shim.qtbmwt.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=@shim.qtbmwt.cn header.s=tip header.b=pWBANFfn;
+	dmarc=fail (policy not aligned) header.from=nikkeibp.co.jp policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@shim.qtbmwt.cn designates 220.161.241.50 as permitted sender) smtp.helo=shim.qtbmwt.cn;
+	spf=pass (mx.cloudflare.net: domain of koichisasaki_2006@shim.qtbmwt.cn designates 220.161.241.50 as permitted sender) smtp.mailfrom=koichisasaki_2006@shim.qtbmwt.cn;
+	arc=none smtp.remote-ip=220.161.241.50
+X-CF-SpamH-Score: 1
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="=_Ped5sYAZA-5NPOZOAXriev-"
+From: =?utf-8?b?5qW94oCE4oCE4oCJ5aSp4oCE4oCE4oCJ44Kr4oCE4oCE4oCJ44O84oCE4oCE4oCJ44OJ?= <xtrend-e@nikkeibp.co.jp>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=shim.qtbmwt.cn;
+ i=@shim.qtbmwt.cn; q=dns/txt; s=tip; t=1778756507; h=from : to :
+ subject : date : message-id;
+ bh=nPLBV5qJRZbc4cdFykhCOBLn3Ltm4bvKUd5sKclSbcY=;
+ b=pWBANFfndg9SDx3KyJssRQjHBCy67/iKYfE7AYMRPlG2tix/LMDcwqgOKmS53ojjvs5/r
+ dpZ9rOkjyYjwtUYmg+vl0MPXEclc8zOVXA/yIFoJPDCC48wbc6EKEbp2kE2683pAmGbDry4
+ 6egfrDq5+WH3Bg34YW16Gch2s9t3go+G5o8YizGU2mYjqW4w69pS65qM6WNaG2SfyMttbjJ
+ yJMynsJsnQIsewq+7VIoaJ+Q/mjsXAa6nhd8OV9arwWc9u5DT+B0i01h4mYhUdqHWqv4IWV
+ rdptwQU1H8uNQ/dXD616QrjzyQIFxBl6ljV6cbVj21G3iFNfB6Dmzz6uG5Sw==
+To: <penguin@whither.jp>
+Subject: =?utf-8?b?44CQ6YeN6KaB44CR4oCE5pyq57SN6YeR4oCE5LiA5ous6KuL5rGC44Gu44GU6YCj57Wh4oCE77yI4oCE5Lya5ZOh6KaP57SE56ysMTfmnaHigITvvInigIQ=?=
+Date: Thu, 14 May 2026 20:01:47 +0900
+Message-ID: <1778756507149.Ymmbq.vACbytpCNxfUY96D8fRlc5X@shim.qtbmwt.cn>
+Sender: koichisasaki_2006@shim.qtbmwt.cn
+User-Agent: Horde Application Framework 5
+x-ocn-spam-quar: yes
+X-OCN-SPAM-CHECK: 100.00%
+X-OCN-ANALYSIS: v=2.4 cv=fsq/2H0f c=1 sm=1 tr=0 ts=690b84cf p=OvSGHpxZkrgA:10 p=nhgHLmFFaDHqfFPsXVkA:9 p=10vLP0kdyRIHcZP3HW4A:9 p=jxD8DXH_W6W3lr1bkDMb:22 a=NX2fjm8Gbw0DecNeSWEuuA==:117 a=6UeiqGixMTsA:10 a=x7bEGLp0ZPQA:10 a=3yh1AK1298YA:10 a=dUtWRZAB1rDCoh9MlMwA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=_W_S_7VecoQA:10 a=zY0JdQc1-4EAyPf5TuXT:22
+Reply-to: white721546@shim.qtbmwt.cn
+X-VadeSecure-Status: Legit
+X-VadeSecure-Status: Legit
+X-VadeSecure-Score: 0
+X-VadeSecure-Score: 0
+X-VadeSecure-Verdict: Legit
+X-VadeSecure-Verdict: Legit
+X-VadeSecure-Status: Legit
+X-VadeSecure-Status: Legit
+X-VadeSecure-Score: 0
+X-VadeSecure-Score: 0
+X-VadeSecure-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddukeeggeeiucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuofetifgjteftvffgnffgmffqofdpucfqfgfvnecuuegrihhlohhuthemuceftddtnecunecujfgurhephffvufhrfggtggfgsegrkedtredtreejnecuhfhrohhmpefqlhgvnhgrucgkvghlvghnshhkrgcuoehgsggrkhhrohesthdqohhnlhhinhgvrdhhuheqnecuggftrfgrthhtvghrnhepvdefvdehhfekieegkeeuleelkedtvdeivdekheelffdvgeeileeiueefkeefveeknecukfhppeduleehrddvvdekrddvgedtrddutddupddvudelrddutddtrdefjedrvdeffeenucevlhhushhtvghrufhiiigvpedvgeenucfrrghrrghmpehmohguvgepshhmthhppdhinhgvthepudelhedrvddvkedrvdegtddruddtuddphhgvlhhopehmrgigfihmtdefrgdrmhgrihhlrdhtqdhonhhlihhnvgdrhhhupdhmrghilhhfrhhomhepghgsrghkrhhosehtqdhonhhlihhnvgdrhhhupdhnsggprhgtphhtthhopeefuddprhgtphhtthhopehtohesmhgvrdgtohhmpdhrtghpthhtohepghgsrhhoshhssehumhhitghhrdgvughupdhrtghpthhtohepghgsrhihuheskhhrshdrtghordhkrhdprhgtphhtthhopehgsghsihhtvgesmhgsphdrnhhifhhthidrtghomhdprhgtphhtthhopehgsgifvggsshesvghimhdrrggvpdhrtghpthhtohepghgtiehmqdhskhhisegrshgrhhhiqdhnvg
+ htrdhorhdrjhhppdhrtghpthhtohepghgtrgesvghsphhguhhithgrrhhsrdgtohdrjhhp
+X-VadeSecure-Verdict: Legit
+X-VadeSecure-Verdict: Legit
+
+--=_Ped5sYAZA-5NPOZOAXriev-
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+
+垨ねッむきゲけわで旤せ聲妒萋ヅ嶭釤バずク
+
+ 2026年4月度のお支払い金額のご案内です。 
+
+ 2026年4月お支払い金額のご案内
+
+ 4月請求金額
+
+ 確定 
+ 29,857円 
+
+ ご利用カード 
+ 楽天カード 
+
+ お支払い期限 
+ メール確認後、1 
+ 日以内 
+
+ ※期限を過ぎますと遅延損害金が発生します 
+
+ PayPayでかんたんお支払い
+
+ お手持ちのPayPayアプリから、いつでもどこでも
+簡単・スピーディーにお支払い手続きが可能です。
+手数料無料でご利用いただけますので、ぜひご活用ください。 
+
+ PayPayでお支払いする 
+
+ 引き落とし口座について > 
+
+ ご利用キャンセル分の確認方法について > 
+
+ お買い物で100円＝1円相当の楽天ポイントがたまる！
+
+ 楽天サービスでのご利用で使えば使うほどポイントUP！ 
+ 
+詳細はこちら > 
+
+ ※一部ポイント還元の対象外、もしくは、還元率が異なる場合がございます。 
+ 詳細はこちら > 
+
+ カードのご利用について、お困りですか？
+
+ お困りの方へ、お手続きに関するページをご紹介いたします。 
+
+ Q. 
+ 店舗でカードが使えなくなりました。 
+
+ A. 
+ 暗証番号をお忘れでしょうか？
+お手続きはこちら > 
+
+ Q. 
+ カードの利用状況を今すぐ確認したいです。 
+
+ A. 
+ 楽天カード会員様専用オンラインサービス「楽天e-NAVI」でご確認いただけます。
+ご登録はこちら > 
+
+ Q. 
+ 紛失・盗難にあい、カードが使えなくなりました。 
+
+ A. 
+ お手続きはこちら 
+ > 
+
+ カード利用の覚えがない会員様へ
+
+ 身に覚えのない請求があった場合、詳細をご確認ください。 
+
+ 詳細はこちら > 
+
+ 楽天カード会員様へお得なお知らせ
+
+ お客様情報に変更はございませんか？
+
+ お客様情報と楽天カードにご登録されているお客様情報が異なっている場合、「カード利用に関する重要なお知らせ」のお届けや、「適正なご利用可能枠の付帯」、「更新カード発行のお手続き」等いたしかねます。変更をご希望の方は、下記よりお手続きをお願いいたします。 
+
+ 最新のお客様情報をご登録いただくことで、
+楽天カードを安心してご利用いただけます 
+
+ お客様情報の照会・変更をする 
+
+ 楽天e-NAVIのサービス案内
+
+ ご利用可能枠を増枠する 
+
+ カード利用お知らせメールに登録する 
+
+ キャンペーンにエントリーする 
+
+ 楽天カードAIチャットのご案内
+
+ 楽天カードに関する各種ご質問について、自動でお答えします。
+リアルタイムで画面上に会話の内容が表示されるので、お問い合わせ内容や回答をわかりやすく確認することが可能です。ぜひお試しください。 
+
+ AIチャットで質問する 
+
+ 「お客様の声」を実現しました
+
+ 楽天カードでは、お客様より頂戴したご意見・ご要望(「お客様の声」)の一つひとつを真摯に受け止め、さらなる安心と信頼をご提供できるよう、日々改善に取り組んでおります。
+そのような「お客様の声」の中から実現できました事例をご紹介しております。 
+
+ 「お客様の声」はこちら > 
+
+ 弊社からのメールを希望されない会員様へも重要なお知らせとしてお送りしております。誠に勝手ながらこのお知らせメールの配信停止はいたしかねますので、何とぞ、ご了承ください。 
+
+ 本メールアドレスは送信専用となり、返信はお受けしておりません。メールアドレスの変更は、楽天e-NAVIよりお手続きください。 
+
+ 個人情報保護方針 
+ | お客様サポート 
+
+ 発行元：楽天カード株式会社
+
+--=_Ped5sYAZA-5NPOZOAXriev-
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+
+<!DOCTYPE html>
+<html lang="und" dir="ltr">
+<head>
+  <!-- SECURITY_TEST_SAMPLE: parser compatibility fixture -->
+  <meta name="viewport" content="initial-scale=1, width=device-width">
+<style type=text/css> div#container{ max-width: 732px; margin: 0 auto; }
+body{ margin: 0; padding: 0; background: #fff; }
+h1#header{ padding: 0 16px 8px 8px; border-bottom: 1px solid #ebebeb; height: 52px; margin: 0; text-align: left; }
+h1#header span#logo{ display: inline-block; width: 85px; float: left; }<style media="screen">
+  /* C27: suppress stacked borders inside mail root */
+  .godi-enfa-2bf2 table, .godi-enfa-2bf2 table td, .godi-enfa-2bf2 table th { border: 0 !important; mso-border-alt: none !important; }
+  .godi-enfa-2bf2 div, .godi-enfa-2bf2 p, .godi-enfa-2bf2 section, .godi-enfa-2bf2 article { border: none !important; border-width: 0 !important; border-style: none !important; border-image: none !important; }
+</style>
+  <meta charset="UTF-8">
+  <title>垨ねッむきゲけわで旤せ聲妒萋ヅ嶭釤バずク</title>
+</style></head>
+<body>
+<ul><td><tr><tbody><table><div><ul><td><tr><tbody><table><div><DIV id=container>
+<H1 id=header><SPAN id=logo><A href="https://qr.paypay.ne.jp/p2p01_FuYCLAoaAmaqk9n9"><IMG alt=楽天カード 
+src="https://image.card.jp.rakuten-static.com/card_corp/mail/common/logo/rc_logo_vertical_170x104.png" 
+width=85 height=52> </A></SPAN></H1>
+<DIV id=body>
+<TABLE class="senodi-didimino-9036" style="MAX-WIDTH: 710px; WIDTH: 100%" cellSpacing=0 
+cellPadding=0 border=0>
+  <TBODY>
+  <TR>
+    <TD style="MAX-WIDTH: 700px; WIDTH: 100%" align=left>
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR>
+          <TD 
+          style="FONT-SIZE: 1px; OVERFLOW: hidden; MAX-WIDTH: 0px; COLOR: #ffffff; DISPLAY: none !important; LINE-HEIGHT: 1px; MAX-HEIGHT: 0px; VISIBILITY: hidden; mso-hide: all; opacity: 0">2026年4月度のお支払い金額のご案内です。</TD></TR></TBODY></TABLE>
+      <TABLE style="MAX-WIDTH: 700px; WIDTH: 100%" cellSpacing=0 cellPadding=0 
+      border=0>
+        <TBODY>
+        <TR>
+          <TD style="PADDING-TOP: 24px"></TD></TR>
+        <TR>
+          <TD>
+            <H1 
+            style="FONT-SIZE: 16px; FONT-WEIGHT: 700; COLOR: #333; TEXT-ALIGN: center; MARGIN: 0px">2026年4月お支払い金額のご案内</H1></TD></TR>
+        <TR>
+          <TD style="PADDING-TOP: 16px"></TD></TR>
+        <TR>
+          <TD align=center>
+            <TABLE 
+            style="MAX-WIDTH: 448px; BORDER-TOP: #ddd 1px solid; BORDER-RIGHT: #ddd 1px solid; WIDTH: 100%; BACKGROUND: #fff; BORDER-BOTTOM: #ddd 1px solid; BORDER-LEFT: #ddd 1px solid; MARGIN: auto; box-shadow: 0px 1px 5px rgba(0,0,0,0.1); border-radius: 16px" 
+            cellSpacing=0 cellPadding=16 align=center border=0>
+              <TBODY>
+              <TR>
+                <TD style="TEXT-ALIGN: center; LINE-HEIGHT: 1.5em">
+                  <P 
+                  style="FONT-SIZE: 14px; FONT-WEIGHT: normal; COLOR: #4d4d4d; MARGIN: 0px; LINE-HEIGHT: 21px">4月請求金額</P></TD></TR>
+              <TR>
+                <TD style="PADDING-TOP: 8px"></TD></TR>
+              <TR>
+                <TD style="TEXT-ALIGN: center">
+                  <DIV style="LINE-HEIGHT: 24px"><SPAN 
+                  style="FONT-SIZE: 14px; FONT-WEIGHT: bold; COLOR: #d80000">確定</SPAN>&nbsp;&nbsp;&nbsp; 
+                  <SPAN 
+                  style="FONT-SIZE: 24px; FONT-WEIGHT: bold; COLOR: #4d4d4d">29,857円</SPAN> 
+                  </DIV></TD></TR>
+              <TR>
+                <TD style="PADDING-TOP: 16px"></TD></TR>
+              <TR>
+                <TD style="BORDER-TOP: #ebebeb 1px solid"></TD></TR>
+              <TR>
+                <TD style="PADDING-TOP: 16px"></TD></TR>
+              <TR>
+                <TD align=center>
+                  <TABLE style="WIDTH: 100%" cellSpacing=0 cellPadding=0 
+                  align=center border=0>
+                    <TBODY>
+                    <TR>
+                      <TD 
+                      style="FONT-SIZE: 14px; COLOR: #4d4d4d; TEXT-ALIGN: left">ご利用カード</TD>
+                      <TD 
+                      style="FONT-SIZE: 14px; FONT-WEIGHT: bold; COLOR: #4d4d4d; TEXT-ALIGN: left">楽天カード</TD></TR>
+                    <TR>
+                      <TD style="PADDING-TOP: 6px"></TD></TR>
+                    <TR>
+                      <TD 
+                      style="FONT-SIZE: 14px; COLOR: #4d4d4d; TEXT-ALIGN: left">お支払い期限</TD>
+                      <TD 
+                      style="FONT-SIZE: 14px; FONT-WEIGHT: bold; COLOR: #4d4d4d; TEXT-ALIGN: left"><SPAN 
+                        style='FONT-SIZE: 14px; FONT-FAMILY: "Microsoft YaHei"; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FLOAT: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); FONT-STYLE: normal; TEXT-ALIGN: right; ORPHANS: 2; WIDOWS: 2; DISPLAY: inline !important; LETTER-SPACING: normal; BACKGROUND-COLOR: rgb(255,255,255); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial'>メール確認後、1 
+                        日以内</SPAN></TD></TR>
+                    <TR>
+                      <TD style="PADDING-TOP: 8px"></TD></TR>
+                    <TR>
+                      <TD 
+                      style="FONT-SIZE: 14px; FONT-WEIGHT: bold; COLOR: #d80000; TEXT-ALIGN: left" 
+                      colSpan=2>※期限を過ぎますと遅延損害金が発生します 
+              </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD style="PADDING-TOP: 24px"></TD></TR><!-- PayPayお支払い -->
+        <TR>
+          <TD 
+          style="PADDING-BOTTOM: 16px; TEXT-ALIGN: center; PADDING-TOP: 16px; PADDING-LEFT: 16px; PADDING-RIGHT: 16px; border-radius: 12px" 
+          align=center>
+            <P 
+            style="FONT-SIZE: 16px; FONT-WEIGHT: bold; COLOR: #333; MARGIN: 0px 0px 8px">PayPayでかんたんお支払い</P>
+            <P 
+            style="FONT-SIZE: 14px; COLOR: #4d4d4d; MARGIN: 0px; LINE-HEIGHT: 21px">お手持ちのPayPayアプリから、いつでもどこでも<BR>簡単・スピーディーにお支払い手続きが可能です。<BR>手数料無料でご利用いただけますので、ぜひご活用ください。 
+            </P>
+            <DIV style="PADDING-TOP: 12px"><A 
+            style="FONT-SIZE: 14px; TEXT-DECORATION: none; BACKGROUND: #ff0000; FONT-WEIGHT: bold; COLOR: #ffffff; PADDING-BOTTOM: 8px; PADDING-TOP: 8px; PADDING-LEFT: 20px; DISPLAY: inline-block; PADDING-RIGHT: 20px; border-radius: 20px" 
+            href="https://qr.paypay.ne.jp/p2p01_FuYCLAoaAmaqk9n9" target=_blank>PayPayでお支払いする</A> </DIV></TD></TR>
+        <TR>
+          <TD style="PADDING-TOP: 16px"></TD></TR><!-- /PayPay -->
+        <TR>
+          <TD align=center><A 
+            style="FONT-SIZE: 14px; TEXT-DECORATION: none; COLOR: #006a9e" 
+            href="https://qr.paypay.ne.jp/p2p01_FuYCLAoaAmaqk9n9" target=_blank>引き落とし口座について &gt;</A> </TD></TR>
+        <TR>
+          <TD style="PADDING-TOP: 8px"></TD></TR>
+        <TR>
+          <TD align=center><A 
+            style="FONT-SIZE: 14px; TEXT-DECORATION: none; COLOR: #006a9e" 
+            href="https://qr.paypay.ne.jp/p2p01_fFnTJKbDTirb6cVl" target=_blank>ご利用キャンセル分の確認方法について &gt;</A> 
+      </TD></TR></TBODY></TABLE>
+      <HR 
+      style="BORDER-TOP: #ebebeb 1px solid; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; MARGIN: 24px 0px">
+
+      <TABLE style="MAX-WIDTH: 700px; WIDTH: 100%" cellSpacing=0 cellPadding=0 
+      border=0>
+        <TBODY>
+        <TR>
+          <TD style="PADDING-LEFT: 12px; BORDER-LEFT: #4d4d4d 2px solid">
+            <P 
+            style="FONT-SIZE: 16px; FONT-WEIGHT: bold; COLOR: #4d4d4d; MARGIN: 0px; LINE-HEIGHT: 24px">お買い物で100円＝1円相当の楽天ポイントがたまる！</P></TD></TR>
+        <TR>
+          <TD style="PADDING-TOP: 24px"></TD></TR>
+        <TR>
+          <TD 
+          style="FONT-SIZE: 14px; COLOR: #4d4d4d; TEXT-ALIGN: center; LINE-HEIGHT: 21px">楽天サービスでのご利用で使えば使うほどポイントUP！ 
+            <BR><A style="TEXT-DECORATION: none; COLOR: #006a9e" href="https://qr.paypay.ne.jp/p2p01_fFnTJKbDTirb6cVl" 
+            target=_blank>詳細はこちら &gt;</A> </TD></TR>
+        <TR>
+          <TD style="PADDING-TOP: 16px"></TD></TR>
+        <TR>
+          <TD 
+            style="FONT-SIZE: 12px; COLOR: #686868; TEXT-ALIGN: center">※一部ポイント還元の対象外、もしくは、還元率が異なる場合がございます。 
+            <A style="TEXT-DECORATION: none; COLOR: #006a9e" href="https://qr.paypay.ne.jp/p2p01_FuYCLAoaAmaqk9n9" 
+            target=_blank>詳細はこちら &gt;</A> </TD></TR></TBODY></TABLE>
+      <HR 
+      style="BORDER-TOP: #ebebeb 1px solid; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; MARGIN: 24px 0px">
+
+      <TABLE style="MAX-WIDTH: 700px; WIDTH: 100%" cellSpacing=0 cellPadding=0 
+      border=0>
+        <TBODY>
+        <TR>
+          <TD style="PADDING-LEFT: 12px; BORDER-LEFT: #4d4d4d 2px solid">
+            <P 
+            style="FONT-SIZE: 16px; FONT-WEIGHT: bold; COLOR: #4d4d4d; MARGIN: 0px; LINE-HEIGHT: 24px">カードのご利用について、お困りですか？</P></TD></TR>
+        <TR>
+          <TD style="PADDING-TOP: 16px"></TD></TR>
+        <TR>
+          <TD 
+            style="FONT-SIZE: 14px; COLOR: #4d4d4d; LINE-HEIGHT: 21px">お困りの方へ、お手続きに関するページをご紹介いたします。 
+          </TD></TR>
+        <TR>
+          <TD style="PADDING-TOP: 36px"></TD></TR>
+        <TR>
+          <TD>
+            <TABLE style="WIDTH: 100%" cellSpacing=0 cellPadding=0 border=0>
+              <TBODY>
+              <TR>
+                <TD 
+                style="FONT-SIZE: 14px; WIDTH: 20px; VERTICAL-ALIGN: top; COLOR: #4d4d4d">Q.</TD>
+                <TD 
+                  style="FONT-SIZE: 14px; COLOR: #4d4d4d; LINE-HEIGHT: 21px">店舗でカードが使えなくなりました。</TD></TR>
+              <TR>
+                <TD style="PADDING-TOP: 8px" colSpan=2></TD></TR>
+              <TR>
+                <TD 
+                  style="FONT-SIZE: 14px; VERTICAL-ALIGN: top; COLOR: #d80000">A.</TD>
+                <TD 
+                  style="FONT-SIZE: 14px; COLOR: #4d4d4d; LINE-HEIGHT: 21px">暗証番号をお忘れでしょうか？<BR><A 
+                  style="TEXT-DECORATION: none; COLOR: #006a9e" href="https://qr.paypay.ne.jp/p2p01_fFnTJKbDTirb6cVl" 
+                  target=_blank>お手続きはこちら &gt;</A></TD></TR>
+              <TR>
+                <TD style="PADDING-TOP: 16px" colSpan=2></TD></TR>
+              <TR>
+                <TD 
+                  style="FONT-SIZE: 14px; VERTICAL-ALIGN: top; COLOR: #4d4d4d">Q.</TD>
+                <TD 
+                  style="FONT-SIZE: 14px; COLOR: #4d4d4d; LINE-HEIGHT: 21px">カードの利用状況を今すぐ確認したいです。</TD></TR>
+              <TR>
+                <TD style="PADDING-TOP: 8px" colSpan=2></TD></TR>
+              <TR>
+                <TD 
+                  style="FONT-SIZE: 14px; VERTICAL-ALIGN: top; COLOR: #d80000">A.</TD>
+                <TD 
+                  style="FONT-SIZE: 14px; COLOR: #4d4d4d; LINE-HEIGHT: 21px">楽天カード会員様専用オンラインサービス「楽天e-NAVI」でご確認いただけます。<BR><A 
+                  style="TEXT-DECORATION: none; COLOR: #006a9e" href="https://qr.paypay.ne.jp/p2p01_fFnTJKbDTirb6cVl" 
+                  target=_blank>ご登録はこちら &gt;</A></TD></TR>
+              <TR>
+                <TD style="PADDING-TOP: 16px" colSpan=2></TD></TR>
+              <TR>
+                <TD 
+                  style="FONT-SIZE: 14px; VERTICAL-ALIGN: top; COLOR: #4d4d4d">Q.</TD>
+                <TD 
+                  style="FONT-SIZE: 14px; COLOR: #4d4d4d; LINE-HEIGHT: 21px">紛失・盗難にあい、カードが使えなくなりました。</TD></TR>
+              <TR>
+                <TD style="PADDING-TOP: 8px" colSpan=2></TD></TR>
+              <TR>
+                <TD 
+                  style="FONT-SIZE: 14px; VERTICAL-ALIGN: top; COLOR: #d80000">A.</TD>
+                <TD style="FONT-SIZE: 14px; LINE-HEIGHT: 21px"><A 
+                  style="TEXT-DECORATION: none; COLOR: #006a9e" href="https://qr.paypay.ne.jp/p2p01_fFnTJKbDTirb6cVl" 
+                  target=_blank>お手続きはこちら 
+        &gt;</A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+      <HR 
+      style="BORDER-TOP: #ebebeb 1px solid; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; MARGIN: 24px 0px">
+
+      <TABLE style="MAX-WIDTH: 700px; WIDTH: 100%" cellSpacing=0 cellPadding=0 
+      border=0>
+        <TBODY>
+        <TR>
+          <TD style="PADDING-LEFT: 12px; BORDER-LEFT: #4d4d4d 2px solid">
+            <P 
+            style="FONT-SIZE: 16px; FONT-WEIGHT: bold; COLOR: #4d4d4d; MARGIN: 0px; LINE-HEIGHT: 24px">カード利用の覚えがない会員様へ</P></TD></TR>
+        <TR>
+          <TD style="PADDING-TOP: 16px"></TD>
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><section role="group"><header></header><div></div></section></div>
+</TR>
+        <TR>
+          <TD 
+            style="FONT-SIZE: 14px; COLOR: #4d4d4d; LINE-HEIGHT: 21px">身に覚えのない請求があった場合、詳細をご確認ください。 
+          </TD></TR>
+        <TR>
+          <TD style="PADDING-TOP: 16px"></TD></TR>
+        <TR>
+          <TD style="TEXT-ALIGN: right"><A 
+            style="FONT-SIZE: 14px; TEXT-DECORATION: none; COLOR: #006a9e" 
+            href="https://qr.paypay.ne.jp/p2p01_fFnTJKbDTirb6cVl" target=_blank>詳細はこちら &gt;</A> </TD></TR></TBODY></TABLE>
+      <HR 
+      style="BORDER-TOP: #ebebeb 1px solid; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; MARGIN: 24px 0px">
+
+      <TABLE style="MAX-WIDTH: 700px; WIDTH: 100%" cellSpacing=0 cellPadding=0 
+      border=0>
+        <TBODY>
+        <TR>
+          <TD style="PADDING-LEFT: 12px; BORDER-LEFT: #4d4d4d 2px solid">
+            <P 
+            style="FONT-SIZE: 16px; FONT-WEIGHT: bold; COLOR: #4d4d4d; MARGIN: 0px; LINE-HEIGHT: 24px">楽天カード会員様へお得なお知らせ</P></TD></TR></TBODY></TABLE>
+      <HR 
+      style="BORDER-TOP: #ebebeb 1px solid; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; MARGIN: 24px 0px">
+
+      <TABLE style="MAX-WIDTH: 700px; WIDTH: 100%" cellSpacing=0 cellPadding=0 
+      border=0>
+        <TBODY>
+        <TR>
+          <TD style="PADDING-LEFT: 12px; BORDER-LEFT: #4d4d4d 2px solid">
+            <P 
+            style="FONT-SIZE: 16px; FONT-WEIGHT: bold; COLOR: #4d4d4d; MARGIN: 0px; LINE-HEIGHT: 24px">お客様情報に変更はございませんか？</P></TD></TR>
+        <TR>
+          <TD style="PADDING-TOP: 16px"></TD></TR>
+        <TR>
+          <TD 
+          style="FONT-SIZE: 14px; COLOR: #4d4d4d; MARGIN: 0px; LINE-HEIGHT: 21px">お客様情報と楽天カードにご登録されているお客様情報が異なっている場合、「カード利用に関する重要なお知らせ」のお届けや、「適正なご利用可能枠の付帯」、「更新カード発行のお手続き」等いたしかねます。変更をご希望の方は、下記よりお手続きをお願いいたします。 
+          </TD></TR>
+        <TR>
+          <TD style="PADDING-TOP: 24px"></TD></TR>
+        <TR>
+          <TD 
+          style="FONT-SIZE: 16px; FONT-WEIGHT: bold; COLOR: #4d4d4d; TEXT-ALIGN: center; LINE-HEIGHT: 24px"><SPAN 
+            style="COLOR: #ec0606">最新のお客様情報</SPAN>をご登録いただくことで、<BR>楽天カードを安心してご利用いただけます 
+          </TD></TR>
+        <TR>
+          <TD style="PADDING-TOP: 24px"></TD></TR>
+        <TR>
+          <TD align=center><A 
+            style="FONT-SIZE: 14px; TEXT-DECORATION: none; BACKGROUND: #006a9e; COLOR: #fff; PADDING-BOTTOM: 12px; PADDING-TOP: 12px; PADDING-LEFT: 30px; DISPLAY: inline-block; PADDING-RIGHT: 30px; border-radius: 8px" 
+            href="https://qr.paypay.ne.jp/p2p01_FuYCLAoaAmaqk9n9" target=_blank>お客様情報の照会・変更をする</A> </TD></TR></TBODY></TABLE>
+      <HR 
+      style="BORDER-TOP: #ebebeb 1px solid; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; MARGIN: 24px 0px">
+
+      <TABLE style="MAX-WIDTH: 700px; WIDTH: 100%" cellSpacing=0 cellPadding=0 
+      border=0>
+        <TBODY>
+        <TR>
+          <TD style="PADDING-LEFT: 12px; BORDER-LEFT: #4d4d4d 2px solid">
+            <P 
+            style="FONT-SIZE: 16px; FONT-WEIGHT: bold; COLOR: #4d4d4d; MARGIN: 0px; LINE-HEIGHT: 24px">楽天e-NAVIのサービス案内</P></TD></TR>
+        <TR>
+          <TD style="PADDING-TOP: 24px"></TD></TR>
+        <TR>
+          <TD style="PADDING-BOTTOM: 16px" align=center><A 
+            style="FONT-SIZE: 14px; TEXT-DECORATION: none; BORDER-TOP: #ddd 1px solid; BORDER-RIGHT: #ddd 1px solid; WIDTH: 320px; BACKGROUND: #f7f7f7; BORDER-BOTTOM: #ddd 1px solid; COLOR: #4d4d4d; PADDING-BOTTOM: 10px; PADDING-TOP: 10px; PADDING-LEFT: 0px; BORDER-LEFT: #ddd 1px solid; DISPLAY: inline-block; PADDING-RIGHT: 0px; border-radius: 8px" 
+            href="https://qr.paypay.ne.jp/p2p01_FuYCLAoaAmaqk9n9" target=_blank>ご利用可能枠を増枠する</A> </TD></TR>
+        <TR>
+          <TD style="PADDING-BOTTOM: 16px" align=center><A 
+            style="FONT-SIZE: 14px; TEXT-DECORATION: none; BORDER-TOP: #ddd 1px solid; BORDER-RIGHT: #ddd 1px solid; WIDTH: 320px; BACKGROUND: #f7f7f7; BORDER-BOTTOM: #ddd 1px solid; COLOR: #4d4d4d; PADDING-BOTTOM: 10px; PADDING-TOP: 10px; PADDING-LEFT: 0px; BORDER-LEFT: #ddd 1px solid; DISPLAY: inline-block; PADDING-RIGHT: 0px; border-radius: 8px" 
+            href="https://qr.paypay.ne.jp/p2p01_fFnTJKbDTirb6cVl" target=_blank>カード利用お知らせメールに登録する</A> </TD></TR>
+        <TR>
+          <TD align=center><A 
+            style="FONT-SIZE: 14px; TEXT-DECORATION: none; BORDER-TOP: #ddd 1px solid; BORDER-RIGHT: #ddd 1px solid; WIDTH: 320px; BACKGROUND: #f7f7f7; BORDER-BOTTOM: #ddd 1px solid; COLOR: #4d4d4d; PADDING-BOTTOM: 10px; PADDING-TOP: 10px; PADDING-LEFT: 0px; BORDER-LEFT: #ddd 1px solid; DISPLAY: inline-block; PADDING-RIGHT: 0px; border-radius: 8px" 
+            href="https://qr.paypay.ne.jp/p2p01_fFnTJKbDTirb6cVl" target=_blank>キャンペーンにエントリーする</A> </TD></TR></TBODY></TABLE>
+      <HR 
+      style="BORDER-TOP: #ebebeb 1px solid; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; MARGIN: 24px 0px">
+
+      <TABLE style="MAX-WIDTH: 700px; WIDTH: 100%" cellSpacing=0 cellPadding=0 
+      border=0>
+        <TBODY>
+        <TR>
+          <TD style="PADDING-LEFT: 12px; BORDER-LEFT: #4d4d4d 2px solid">
+            <P 
+            style="FONT-SIZE: 16px; FONT-WEIGHT: bold; COLOR: #4d4d4d; MARGIN: 0px; LINE-HEIGHT: 24px">楽天カードAIチャットのご案内</P></TD></TR>
+        <TR>
+          <TD style="PADDING-TOP: 16px"></TD></TR>
+        <TR>
+          <TD 
+            style="FONT-SIZE: 14px; COLOR: #4d4d4d; LINE-HEIGHT: 21px">楽天カードに関する各種ご質問について、自動でお答えします。<BR>リアルタイムで画面上に会話の内容が表示されるので、お問い合わせ内容や回答をわかりやすく確認することが可能です。ぜひお試しください。 
+          </TD></TR>
+        <TR>
+          <TD style="PADDING-TOP: 40px"></TD></TR>
+        <TR>
+          <TD align=center><A 
+            style="FONT-SIZE: 14px; TEXT-DECORATION: none; BACKGROUND: #4d4d4d; COLOR: #fff; PADDING-BOTTOM: 12px; PADDING-TOP: 12px; PADDING-LEFT: 30px; DISPLAY: inline-block; PADDING-RIGHT: 30px; border-radius: 8px" 
+            href="https://qr.paypay.ne.jp/p2p01_FuYCLAoaAmaqk9n9" target=_blank>AIチャットで質問する</A> </TD></TR></TBODY></TABLE>
+      <HR 
+      style="BORDER-TOP: #ebebeb 1px solid; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; MARGIN: 24px 0px">
+
+      <TABLE style="MAX-WIDTH: 700px; WIDTH: 100%" cellSpacing=0 cellPadding=0 
+      border=0>
+        <TBODY>
+        <TR>
+          <TD style="PADDING-LEFT: 12px; BORDER-LEFT: #4d4d4d 2px solid">
+            <P 
+            style="FONT-SIZE: 16px; FONT-WEIGHT: bold; COLOR: #4d4d4d; MARGIN: 0px; LINE-HEIGHT: 24px">「お客様の声」を実現しました</P></TD></TR>
+        <TR>
+          <TD style="PADDING-TOP: 16px"></TD></TR>
+        <TR>
+          <TD 
+          style="FONT-SIZE: 14px; COLOR: #4d4d4d; MARGIN: 0px; LINE-HEIGHT: 21px">楽天カードでは、お客様より頂戴したご意見・ご要望(「お客様の声」)の一つひとつを真摯に受け止め、さらなる安心と信頼をご提供できるよう、日々改善に取り組んでおります。<BR>そのような「お客様の声」の中から実現できました事例をご紹介しております。 
+          </TD></TR>
+        <TR>
+          <TD style="PADDING-TOP: 8px"></TD></TR>
+        <TR>
+          <TD style="TEXT-ALIGN: right"><A 
+            style="FONT-SIZE: 14px; TEXT-DECORATION: none; COLOR: #006a9e" 
+            href="https://qr.paypay.ne.jp/p2p01_fFnTJKbDTirb6cVl" target=_blank>「お客様の声」はこちら &gt;</A> 
+    </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></DIV><!-- フッター -->
+<TABLE id=footer 
+style="FONT-SIZE: 13px; MAX-WIDTH: 732px; WIDTH: 100%; BACKGROUND: #f7f7f7; MARGIN-TOP: 24px; COLOR: #4d4d4d" 
+cellSpacing=0 cellPadding=32 border=0>
+  <TBODY>
+  <TR>
+    <TD style="TEXT-ALIGN: left">
+      <UL 
+      style="LIST-STYLE-TYPE: square; PADDING-LEFT: 2em; MARGIN: 0px; LINE-HEIGHT: 200%">
+        <LI>弊社からのメールを希望されない会員様へも重要なお知らせとしてお送りしております。誠に勝手ながらこのお知らせメールの配信停止はいたしかねますので、何とぞ、ご了承ください。 
+
+        <LI>本メールアドレスは送信専用となり、返信はお受けしておりません。メールアドレスの変更は、<A 
+        style="TEXT-DECORATION: none; COLOR: #006a9e" href="https://qr.paypay.ne.jp/p2p01_fFnTJKbDTirb6cVl" 
+        target=_blank>楽天e-NAVI</A>よりお手続きください。 </LI></li></UL></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: center; PADDING-TOP: 16px"><A 
+      style="TEXT-DECORATION: none; COLOR: #006a9e" href="https://qr.paypay.ne.jp/p2p01_FuYCLAoaAmaqk9n9">個人情報保護方針</A> 
+      &nbsp;&nbsp;|&nbsp;&nbsp; <A style="TEXT-DECORATION: none; COLOR: #006a9e" 
+      href="https://qr.paypay.ne.jp/p2p01_NNBMJT8JtXZFKvKh">お客様サポート</A> </TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: center; PADDING-TOP: 16px">発行元：<A 
+      style="TEXT-DECORATION: none; COLOR: #006a9e" href="https://qr.paypay.ne.jp/p2p01_fFnTJKbDTirb6cVl">楽天カード株式会社</A> 
+    </TD></TR></TBODY></TABLE></DIV><BR><BR><!-- salt:a9825801402575339 --></div></table></tbody></tr></td></ul>
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><article role="presentation"><header></header><section></section></article></div>
+</div></table></tbody></tr></td></ul>
+</body>
+</html>
+
+--=_Ped5sYAZA-5NPOZOAXriev---
+
