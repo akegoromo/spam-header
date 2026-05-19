@@ -1,0 +1,52 @@
+Delivered-To: silver.firefox@gmail.com
+Received: by 2002:a05:640c:3214:b0:26a:2114:7ab with SMTP id g20csp2347988eia;
+        Mon, 18 May 2026 20:25:07 -0700 (PDT)
+X-Received: by 2002:a05:6a20:12d6:b0:3b1:a9ce:5094 with SMTP id adf61e73a8af0-3b22e7535abmr19997807637.16.1779161107129;
+        Mon, 18 May 2026 20:25:07 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779161107; cv=none;
+        d=google.com; s=arc-20240605;
+        b=DcJpwd+nXX0q4Rtp8TQRHyt3hu00q5y+rRfq9T7MWyFkakG/vuVmupLxc6RHqlIIVU
+         kjZQLirTx9kvQzHJsvp3C/5j0sdDvcD1Jk/mKe81eG9zu55JoQlmbYuPm2+Agk129jjY
+         eevoM+nl9bHlS5ChucYEBgUw+N6hqfMAeJu9erWqei3lMFnYrPtc476EuMJdsu/c9p46
+         OqiXR72lHfzK0EHcSlxfHDi10iX94xL2UccjxBDUtx8Z7pygK5lkDc3DNsIjwTmmHDgD
+         3aDP/68wxualjoQw0hKU0NsnlPsCswyJ78I5FUwp1ScHstTAPFGtcDLxmPSv1xDAYbBm
+         MY8Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:subject:mime-version:from:to:date
+         :dkim-signature:message-id;
+        bh=UqH7wXW+NjGfxo3KJfARz5qQxei3ZaITJR2TARnpFfk=;
+        fh=30F+LetgEkDSNSp+uLeo/St8k5O2MuAL6jcfWOE8egk=;
+        b=GGcwTVStxdwGzuG/rfmO6zOjCVw1BUGdztngLQsB7RwyP29ERn6kqVJ6mB4L5pr4N+
+         bT2ln55Rh8lFBgtmM6bQjNPh9YSXVnk4nHGCbGM2h27BSrFt2f8OBKDVhZIj1PO4TzH/
+         tu0d4FqDA2EPlvvnwQYsmyk0n7CrxzEARjM3EwmQljQQrywaNitnQ6PqhAEs5Jv48qJP
+         QIug3LS+amOGyRoeUypqhi8oPrH3vLzqH2YSo40dFSq5ynOrUeISnqoRr/TXVGYkrOjQ
+         ztZtIKex2atZRqkvGcilGkQo6OG+P98LS0fxdTXzmoHnyeLlwnwGKJGDR0KIf6wdXIdY
+         wXPg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@guiltflank.com header.s=202605 header.b=mmrGWifZ;
+       spf=pass (google.com: domain of jkgqjvdtvc@guiltflank.com designates 35.167.221.173 as permitted sender) smtp.mailfrom=JKGQJVDTVC@guiltflank.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=guiltflank.com
+Return-Path: <JKGQJVDTVC@guiltflank.com>
+Received: from [35.167.221.173] (ec2-35-167-221-173.us-west-2.compute.amazonaws.com. [35.167.221.173])
+        by mx.google.com with ESMTP id 41be03b00d2f7-c82bb07bd3bsi31416786a12.29.2026.05.18.20.25.06
+        for <silver.firefox@gmail.com>;
+        Mon, 18 May 2026 20:25:06 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jkgqjvdtvc@guiltflank.com designates 35.167.221.173 as permitted sender) client-ip=35.167.221.173;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@guiltflank.com header.s=202605 header.b=mmrGWifZ;
+       spf=pass (google.com: domain of jkgqjvdtvc@guiltflank.com designates 35.167.221.173 as permitted sender) smtp.mailfrom=JKGQJVDTVC@guiltflank.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=guiltflank.com
+Message-ID: <6a0bd813.a62f898b.1833ff.0764SMTPIN_ADDED_BROKEN@mx.google.com>
+X-Google-Original-Message-ID: <V41HJUP9LGNDA_qeccr0b52tk7.povo.ne.jp>
+Received: by bo4xpc3.vop (Postfix, from userid 0)
+	id 806984746F; Tue, 19 May 2026 12:25:04 +0900 (JST)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=202605; d=guiltflank.com; t=1779160093; h=to:from:date:subject:
+ message-id; bh=UqH7wXW+NjGfxo3KJfARz5qQxei3ZaITJR2TARnpFfk=;
+ b=mmrGWifZaIyxBrxckTg/I9gKBJSK5dgfSy/QbFFH/SKGVDpIo/pirNf1vGIpIY986kAj6G
+ VNqLn2UJTXk2GJcaEtMA50+AnWacN3Eg0hegftb1UpqaPH0p2EMOSDlHlZ6JB/n/c7nOYl
+ 0AM/lfEIk+Q2LHOTPSIsAr1Rd83TcGm2yXgJvweaQeK9pKqhWs3x6tVVQnNFDp9KbmXmgs
+ LyDxjc/GW/C1N8XjeQ2TlN2E4hwZk81JGwgbruuau51epI8DpB1JkNKixyZOUPB8MYC/p3
+ ywb2loj4FJovf24HPanE5S5k9YsDBVTg3jTsIdHsYtm1dqDmj8msfTdHIsWdmw==
+Date: Tue, 19 May 2026 12:07:59 +0900

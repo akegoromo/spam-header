@@ -1,0 +1,61 @@
+Delivered-To: silver.firefox@gmail.com
+Received: by 2002:a05:640c:3214:b0:26a:2114:7ab with SMTP id g20csp21911eia;
+        Fri, 15 May 2026 00:14:50 -0700 (PDT)
+X-Received: by 2002:a05:6a00:8106:b0:837:735b:826f with SMTP id d2e1a72fcca58-83f18edc02cmr5075222b3a.32.1778829290149;
+        Fri, 15 May 2026 00:14:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1778829290; cv=none;
+        d=google.com; s=arc-20240605;
+        b=JI3kCRPwQ3AMVviaBloAhNG9vrBQPSFmnwO8dFjfdHJMpGlyJBxLZuX/uFdjckPG1Z
+         1D2KglFM9gSO6xywBzslpBW6wtDDvTmo55MQHVLONefqiK6BexLWxMgKzjyGpe9yJmYa
+         te9z0TSbZcN4aPzX4i/I4tCcoRPflzpKsYkhf9SNJy8d245Da6LROxuDh5uLe6wTww4G
+         zwY4NhlPED91OIeJLCi5VggGzGgJvhH7qPhr2CglU25UADAboCoYa80TL58lyVOYAXf9
+         0SjbvwA6mvAyJ+ubX3BJlf75Nmafm0z4tmvpXaphElCM0p3lzX+c43dgT1Ij3hFsk8Tt
+         eJ/w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:mime-version:message-id:subject:to:from
+         :date:dkim-signature;
+        bh=rgTBONkQw1HlRgVZQlBuoF/rEkz7ODTdCb7MbPNfBxY=;
+        fh=30F+LetgEkDSNSp+uLeo/St8k5O2MuAL6jcfWOE8egk=;
+        b=js1uv7MrfRA51S5446hMWqg/Dr/Aqfk+kegYbdL/6HrHrDwW+8vDTvZr9i8MCMuIhF
+         OALKOOFYxmsVXhTNAHrv607OaDnDFLRghni+jI08KLsbh7rdSmma+tIpe2boE+4W9iNH
+         GPYzV3olGWd9eisiG/6DKY7XHbHD5u0UYu3m2kyyf188Vy0Hj+zE5h69c85Du2tvTVBl
+         9KX3W29MshsVCqpEAZ9XFJeFnqSaN99tYjBhsOMlVWx4nM88h6nwvHFQBoNXFBtZkr0p
+         a0lFC4iKv7pMyr+GS7byqCLvXjOdcLdt0ThVJkdH1WKOAsIHyH53vZYlpCCm6Cd0oEe5
+         tZwQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@docomo.ne.jp header.s=dcm20210531 header.b=n8eNXYal;
+       spf=pass (google.com: domain of uejwpfk4h72z6m9h8h1z@docomo.ne.jp designates 203.138.203.6 as permitted sender) smtp.mailfrom=uejwpfk4h72z6m9h8h1z@docomo.ne.jp;
+       dmarc=pass (p=QUARANTINE sp=REJECT dis=NONE) header.from=docomo.ne.jp
+Return-Path: <uejwpfk4h72z6m9h8h1z@docomo.ne.jp>
+Received: from mail106.docomo.ne.jp (mail106.docomo.ne.jp. [203.138.203.6])
+        by mx.google.com with ESMTPS id d2e1a72fcca58-83f1a0d7165si10985413b3a.264.2026.05.15.00.14.49
+        for <silver.firefox@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 15 May 2026 00:14:50 -0700 (PDT)
+Received-SPF: pass (google.com: domain of uejwpfk4h72z6m9h8h1z@docomo.ne.jp designates 203.138.203.6 as permitted sender) client-ip=203.138.203.6;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@docomo.ne.jp header.s=dcm20210531 header.b=n8eNXYal;
+       spf=pass (google.com: domain of uejwpfk4h72z6m9h8h1z@docomo.ne.jp designates 203.138.203.6 as permitted sender) smtp.mailfrom=uejwpfk4h72z6m9h8h1z@docomo.ne.jp;
+       dmarc=pass (p=QUARANTINE sp=REJECT dis=NONE) header.from=docomo.ne.jp
+Received: from mfsmax.docomo.ne.jp
+ by mail106.docomo.ne.jp via TCP with SMTP id 5f6c0010699ddf99e69f
+ for silver.firefox@gmail.com; Fri, 15 May 2026 16:14:48 +0900
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=docomo.ne.jp; s=dcm20210531;
+ h=Date:From:To:Message-ID;
+ b=n8eNXYalkWF4AUUyFPAcA4hoe94HYs9qVrh34DHg2YBEvvZxahxgDUnOWZ/2WZmrqnCjqB2GEyP
+  kIKoK5LdIKYipd8H3FFLx/BtXyQS0IAWU2KlPr6g78byuipV5lQy8Fk7lHPXWHnZ3zfQXL1R4EBE
+  ZIu3S1QTYS8Fu+iygPWw6irsEfuPapE3lazCq969Z5WEIDedYndViSFkPk2GUanlyUinKIFYHr0w
+  hYALF3XC0ZKyYK3SqB/AXC8nuj5FQd0rYBKbmhvhgBe37esmV70VFk6x6SpqmWVJvjVnbldPqvCo
+  /oVvgDNuuMW6MlKJ1nBlceJOrgw8zcmybrC60Cg==;
+ bh=rgTBONkQw1HlRgVZQlBuoF/rEkz7ODTdCb7MbPNfBxY=
+Received: from docomo.ne.jp ([10.242.32.69])
+ by mfsmax.docomo.ne.jp(DOCOMO Mail Server Ver2.0) with SMTP id 5f6c0010699ddf99e69f
+ for <silver.firefox@gmail.com>; Fri, 15 May 2026 16:14:48 +0900 (JST)
+X-DCMMail: spmode
+Date: Fri, 15 May 2026 16:04:33 +0900 (JST)
+From: =?iso-2022-jp?B?GyRCRkNBKjZiMT8+cEpzGyhC?=<uejwpfk4h72z6m9h8h1z@docomo.ne.jp>
+To: silver.firefox@gmail.com
+Subject: =?shift_jis?B?SE8yM1FZgZ6QVpKFg4GDYoNagVuDV4LMgqiSbYLngrk=?=
+Message-ID: <20260515161448663.47504148170496@FFSPR004.FS>
