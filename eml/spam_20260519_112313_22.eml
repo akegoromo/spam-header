@@ -1,0 +1,147 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a05:640c:3214:b0:26a:2114:7ab with SMTP id g20csp2326873eia;
+        Mon, 18 May 2026 19:23:22 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ9sc4gpFA6ZKbPDMvNsXle3kEn5qZAKwW7mCi9RdLXkFgtvTrWwNIX4TCDzPBHCIqwtNwF+dSVxvLzDJ1cTvg==@gmail.com
+X-Received: by 2002:a17:902:d2c9:b0:2bd:b50f:c1bf with SMTP id d9443c01a7336-2bdb50fc703mr112413365ad.38.1779157402363;
+        Mon, 18 May 2026 19:23:22 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1779157402; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=GycqTM4OixcGlh1OePqWVU84SDTGxo41lhMelov1XQ8a/K1L9ff8mAAMHTgf2K6mf5
+         L86m8XbAOhtUZ1Hw956zjW1/1UcoMfsPg0rfFlCZanJRfBWmxZpxUUJ/r54hEXncsQnQ
+         G+lrMf+ztV+JGjf5jxgeNzQO5fBI3Cj+Awxs1FPLlseh1gK0CxGvPv/bqI40+EDRpg6c
+         v4gK4PHZKX8kPqoWyH71qqLdYYwDSa6IJzfwkpa7PbeK/ad6t/GCWXiYoXD1WW/OrQeH
+         M2nMTuVAQQmMZ7RXoy+MyzZpqp6JolrMtNVdN1lYOmp4dyz8xPxlxQKGEqouHODxogX5
+         nm9A==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=message-id:track_id:content-transfer-encoding:mime-version:date
+         :subject:to:from:dkim-signature:feedback-id:dkim-signature
+         :dkim-signature;
+        bh=Le4F9DfbQbWeLNzycDA8PpNxJUlO+Gte1D4SpsUFJRI=;
+        fh=ZvW0x9cqg9zupAloVhxQnod9puSrN7eqnXOfjeIqpWU=;
+        b=M1boA1gmVJ7ovEpCYbg3s3sr/5E3Xa2Jp7FQUzsysZ4TSGXXbLliyBpxpr9/zMB8fP
+         la6W8qPC6u2r48rl9FiSq2Js85Zq143NeuqcxaZ0xsB8xqvCWXDIrBJ24mtxI0lD9fz6
+         x51wIfocibYehYu/1zkRjraCu2JOjGB5nmrN2aJMPxwpY40hmX7dElBuiZrWXyBt66RU
+         Oo/WWEmdGjKcZ8WnPRwZHbg00IKi/hmWaQ5pZZ7s18SWHCe2fYvIF+YyglOEdLgg1mB9
+         lxMzdLCe5HIw+ue68SdJO+WBpyBrB2ujT5eCOM/yCLKiwyNHcwYD1tcZlm2bX1gqQXeX
+         XOvw==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=VpIrjRg5;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=XrbTWu3F;
+       dkim=permerror (no key for signature) header.i=@bk.mufg.jp header.s=norep37 header.b=FybPvQTT;
+       arc=pass (i=1 spf=pass spfdomain=norep37.aisklabel.com);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.39 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=bk.mufg.jp
+Return-Path: <cfbounces+ndrdrop@whither.jp>
+Received: from ba-dj.cloudflare-email.net (ba-dj.cloudflare-email.net. [104.30.10.39])
+        by mx.google.com with ESMTPS id d9443c01a7336-2bd5d45a2c3si351217235ad.167.2026.05.18.19.23.20
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 18 May 2026 19:23:22 -0700 (PDT)
+Received-SPF: pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.39 as permitted sender) client-ip=104.30.10.39;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=VpIrjRg5;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=XrbTWu3F;
+       dkim=permerror (no key for signature) header.i=@bk.mufg.jp header.s=norep37 header.b=FybPvQTT;
+       arc=pass (i=1 spf=pass spfdomain=norep37.aisklabel.com);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.39 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=bk.mufg.jp
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1779157401; x=1779762201; bh=Le4F9DfbQbWeLNzycD
+	A8PpNxJUlO+Gte1D4SpsUFJRI=; b=VpIrjRg5+sDRRzIOpzQKqm/2IXTGRxM0SnVI8IRgvhqj9
+	28h2Wy+c6xLIjjo44k+jKIhIJOvzBHFKk9EZAkUBaH03QslJjKfsjy6UqJo4N1vQR9SSk58UXlM
+	fzu+mIsFeCIalr5iua98RwoVDTA7LQIZobRlT5AbgB8g0J7S5BQ80oNTZMhIqGzhUWpFwdmdLY2
+	dKyAh2Hi4QjWogqQFqAjH8oot+tLpnV8mVMWHzItyo+2nzao4caloBdXDZpfsgPpCWzXaE3wYHE
+	FsuEqMUXMo1XoSq9LE3WJbGjIkvVBssPzUHQcxfXbehwVBQEShv0M+xD4rtFMMOP54EtQ9NQ==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:reply-to:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1779157401; x=1779762201; bh=Le4F9DfbQbWeLNzycD
+	A8PpNxJUlO+Gte1D4SpsUFJRI=; b=XrbTWu3FH+O7y47bmL/dgsaYMxAYL+Av/9B2KfRKYJ9NE
+	qvlVM1qL+NwPz0OB38jVroMJr7I4RE0ViJhmc/D5q/rpm0vvpX8e6A3Esfp8xfwptNSqT0+N01U
+	c+Q2usS22S5K4BO2Ns/5lolQiJQdI5fPXNBn85XHcCkpsLeG0nweOXz5+ekwMfelv78IPnxAXma
+	8XAv5huv/CX1v41PpN+TxPN8djm+ECopu/Y15skX0lOy3J0ir6z3YU6zpTFZvHKpYl6WrRGJAwi
+	aEEsvHJEQU3eyrjsKRcdQlj0CY2xQIZq3tphJUiLB8GVSJ7ydT8aQBIXTgOe4O/t7m0gVdwA==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: silver.firefox+whither-jp@gmail.com silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:2:1:Cloudflare
+Received: from norep37.aisklabel.com (34.180.116.14)
+        by cloudflare-email.net (cloudflare) id jeHn3RQJJQdh
+        for <er2-yxc26@whither.jp>; Tue, 19 May 2026 02:23:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=TetZRKSIKNj3z+dlCKJH9jFDr/aBVsz/K3hkGntm2LN+QqeGznJHTZjaOmbrS6vwMsVWc+rDn
+	AuooDgGc5EjoeHf9kEMoSCTzBxVSOu9rHGc8hnA4PN0t511f71+V3Qp0E5ribevLVwlwX7TBmsR
+	czMIY2HxiNl7ymXBTX6KXYht69WZAdw0tLSE1WOzxrFTkIWnVpXCop23Gpwc10N1ytzS32sXanj
+	imKdlURx90TP63rGgIuQozl1PYX/X9w2ZnPVzIjvi3znAm9quCYdDVa/pQ8smJBesxdvNco/eKO
+	DJHLMYLMcZgL/WsrjgC1e3C0GVUw+47mQc9CpTwzbPAQ==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1779157396; x=1779762196; bh=Le4F9Dfb
+	QbWeLNzycDA8PpNxJUlO+Gte1D4SpsUFJRI=; b=J4gkOclXgWiVIoF/KkskAiSlMQGMrnlm6Xf
+	oP8/dOjvMzQTX5gwyPj7CPoprcK/30IlBtJf6k7ky2JVRD32bpB6QXHP/8HFW+/AHxcWPGmDuwv
+	jV+cpcfB87ddyD4cROcRc/xqeDDyhuXMmHkkX4c030xzJ473bBFlFPzGrDSew83wFLs47Tirag4
+	j87LXNPigpvN/Suh1AWxC2lg0peRhbLMCOkYKbKGgVGg5+OnSwaambrjEz+yyGhJDyNkTxIt1UU
+	5LqxYaoj/hUXvqB+a9/luJ8X7ybPg9c2ulz0hsLaqF/uInosp2CTwE0aHBYfzLrvcDRWDDk6S7V
+	OqF7IWw==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=permerror (dns record not found) header.i=no-reply@bk.mufg.jp header.s=norep37 header.b=FybPvQTT;
+	dmarc=fail (policy not aligned) header.from=bk.mufg.jp policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@norep37.aisklabel.com designates 34.180.116.14 as permitted sender) smtp.helo=norep37.aisklabel.com;
+	spf=pass (mx.cloudflare.net: domain of norep37-er2+2Dyxc26=whither.jp@norep37.aisklabel.com designates 34.180.116.14 as permitted sender) smtp.mailfrom=norep37-er2+2Dyxc26=whither.jp@norep37.aisklabel.com;
+	arc=none smtp.remote-ip=34.180.116.14
+Received-SPF: pass (mx.cloudflare.net: domain of norep37-er2+2Dyxc26=whither.jp@norep37.aisklabel.com designates 34.180.116.14 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=34.180.116.14; envelope-from="norep37-er2+2Dyxc26=whither.jp@norep37.aisklabel.com"; helo=norep37.aisklabel.com;
+Authentication-Results: mx.cloudflare.net;
+	dkim=permerror (dns record not found) header.i=no-reply@bk.mufg.jp header.s=norep37 header.b=FybPvQTT;
+	dmarc=fail (policy not aligned) header.from=bk.mufg.jp policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@norep37.aisklabel.com designates 34.180.116.14 as permitted sender) smtp.helo=norep37.aisklabel.com;
+	spf=pass (mx.cloudflare.net: domain of norep37-er2+2Dyxc26=whither.jp@norep37.aisklabel.com designates 34.180.116.14 as permitted sender) smtp.mailfrom=norep37-er2+2Dyxc26=whither.jp@norep37.aisklabel.com;
+	arc=none smtp.remote-ip=34.180.116.14
+X-CF-SpamH-Score: 1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=norep37; d=bk.mufg.jp;
+ h=From:To:Subject:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+ Message-ID; i=no-reply@bk.mufg.jp;
+ bh=Le4F9DfbQbWeLNzycDA8PpNxJUlO+Gte1D4SpsUFJRI=;
+ b=FybPvQTT0SJHXlctHpRaaOSuXIOdDuFwOm4fKANCiWPqaL9yaKvQJzYkQsZ3A4otMcNVHEVQRpmS
+   7fdZXI6WeO93vjeEcfkxEaKDq0gF4+TQj4V3wxqPQqIssUXLSqQ+BCPWxHnzTYAsZuD15yLagHLS
+   KkqBkxouyVhGiIXV7a9xbPj0fx+/+oTCuuSs+VLDHVLx+U7GLZNdC0MKIuY4JovAA+NHJlAr/za8
+   lVDt2REXM6Vs7rUIvjYO++yGoOwqIi/THWQPb/y1TNHFxx9yj5rCHCcMWnS5UjVpSrn2WEhv32FC
+   azRGrEneqUnrt04fjDasrVX/FtqHeZx0gBOs7Q==
+From: =?iso-2022-jp?B?GyRCOzBJKRsoQlVGShskQjZkOVQbKEI=?= <no-reply@bk.mufg.jp>
+To: =?iso-2022-jp?B?ZXIyLXl4YzI2QHdoaXRoZXIuanA=?= <er2-yxc26@whither.jp>
+Subject: =?iso-2022-jp?B?UG9udGEbJEIlXSUkJXMlSE8iN0hNLTh6NHw4QiROJCpDTiR
+	pJDsbKEJOby45ODA3MjAxOQ==?=
+Date: Tue, 19 May 2026 10:23:13 +0800
+X-Priority: 3
+MIME-Version: 1.0
+Content-Type: text/html; charset="ISO-2022-JP"
+Content-Transfer-Encoding: 7bit
+track_id: c1k368Z
+Message-ID: <0.0.0.D81.1DCE736730336E8.0@norep37.aisklabel.com>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=iso-2022-jp" http-equiv=Content-Type>
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"></HEAD>
+<BODY>
+<P>【三菱UFJ銀行】Pontaポイント通知</P>
+<P>三菱UFJ銀行をご利用いただき、誠にありがとうございます。</P>
+<P>お客様の口座に積算されているPontaポイントの中に、まもなく有効期限を迎えるポイントがございます。<BR>有効期限を過ぎますとポイントは失効し、
+ご利用いただけなくなりますのでご注意ください。<BR>━━━━━━━━━━━━━━━━━━━━<BR>管理番号：8477BD1C-5922-0834-8
+D97-0AA9004BB776<BR>失効予定ポイント数：8,
+089<BR>有効期限：2026年5月30日<BR>━━━━━━━━━━━━━━━━━━━━</P>
+<P>■ ポイント残高を確認する<BR><A 
+href="https://insurancesschool.com/?
+type=verify&key=qmrqxifpdr">https://debit.bk.mufg.jp/p/login/merber</A><BR>━
+━━━━━━━━━━━━━━━━━━━<BR>・Pontaポイントは、1ポイント＝1円として全国の提携店舗やサービスでご利用いただけます。<BR>・本日
+中にご利用いただくことで、無駄なくポイントを活用いただけます。<BR>・詳細なポイント残高や履歴は、以下のリンクより「三菱UFJダイレクト」にログインし
+てご確認ください。<BR>━━━━━━━━━━━━━━━━━━━━<BR>本メールは送信専用アドレスより配信しております。<BR>ご返信いただきましても
+お答えできませんのでご了承ください。</P>
+<P>株式会社三菱UFJ銀行<BR>東京都千代田区丸の内2-7-1<BR>C4JZIJ</P></BODY></HTML>
+
+
