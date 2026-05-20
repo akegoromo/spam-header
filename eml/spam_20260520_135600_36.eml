@@ -1,0 +1,162 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a05:640c:3214:b0:26a:2114:7ab with SMTP id g20csp3094975eia;
+        Tue, 19 May 2026 21:56:08 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ/5K8FXSZ6IAz+vSnEdolXcaq9H2mVvxvXMiBochTIyuGuD6ac6rHQmAaSAFSfblUunTGeS335+sKJVhhelIw==@gmail.com
+X-Received: by 2002:a05:6a00:2449:b0:82c:21af:a7bf with SMTP id d2e1a72fcca58-83f33c25127mr22267763b3a.13.1779252968393;
+        Tue, 19 May 2026 21:56:08 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1779252968; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=RmRP6R/S6iM6+3KczO9Vp3UIFfiWuWEjY9KTkr/BfkHD9iJjbiOxj2rUu59UixH2b/
+         eglaMJ2SWhd2GSNejWkl2bOZppE+zEyTDjohhTVVdRQzqoQNnplNWJWeBwEYaWWBBNLy
+         E47SUjsZ43jTrFe5mUuQ9yvSprnGAEwcPfR7F7uHxARlGdXEpLZcDMDDrx0do+2Eymom
+         +S2nGKW9XGjdeodMQVUjlvTdTJqZyuaD5lMh7hqrrt/B4tHMgF5fUy8Fm1aTCH6gPw8h
+         E3PZXWtcebkBpINt4PCDO1sm/co23+XwYKYNcDAgJNkMNV6XSO80zrzCDuSBP4l7DjP0
+         MnFA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=track_id:content-transfer-encoding:mime-version:date:subject:to
+         :from:message-id:dkim-signature:feedback-id:dkim-signature
+         :dkim-signature;
+        bh=xH0/gG1iKzLaTkrvikyz6VYjKaF2/9AC0jZdQew2xOg=;
+        fh=ZvW0x9cqg9zupAloVhxQnod9puSrN7eqnXOfjeIqpWU=;
+        b=JJi7hD8Kj4YnI3Ez0aGRswjWWQvweC4NHeKNsyW1kfkJkG/ZaOJobWQBu5QAnvoYgf
+         G+nAxXipwFUJknB2AKUALIQDNOwx4400levdeZHWeFxi9LnUam6K3EYRMGejIaBWiAkt
+         TuJ/qqFORIoIJtx7vB8I43kveTJAbvF2e3i6y0lzpDNfhQMwO7F+X9iZPeji+KGI57jB
+         FQL8lXdOQZCsmEa3hp5qQd2Zw/SgnNxHqxPy/qD8JTn737JyNlN9Dee05sO98UtsXEQI
+         Yyu5Gd1q4KXLvSoKbT3vYkCG3Ujya+rBms5fs0PUMaAZ0ACc3ksPEFA3yCTQ0PL6HxWr
+         kCqw==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=MxQ5c8sz;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=P9bFCNi2;
+       dkim=neutral (bad version) header.i=@saisoncard.co.jp header.s=norep19 header.b=l0vDgdf+;
+       arc=pass (i=1 spf=pass spfdomain=norep19.yunshieye.com);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.8.61 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=fail (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=saisoncard.co.jp
+Return-Path: <cfbounces+ndrdrop@whither.jp>
+Received: from i-gb.cloudflare-email.net (i-gb.cloudflare-email.net. [104.30.8.61])
+        by mx.google.com with ESMTPS id d2e1a72fcca58-83f195fae51si44197326b3a.8.2026.05.19.21.56.06
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 19 May 2026 21:56:08 -0700 (PDT)
+Received-SPF: pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.8.61 as permitted sender) client-ip=104.30.8.61;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=MxQ5c8sz;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=P9bFCNi2;
+       dkim=neutral (bad version) header.i=@saisoncard.co.jp header.s=norep19 header.b=l0vDgdf+;
+       arc=pass (i=1 spf=pass spfdomain=norep19.yunshieye.com);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.8.61 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=fail (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=saisoncard.co.jp
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:from:reply-to:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1779252967; x=1779857767; bh=xH0/gG1iKzLaTkrvik
+	yz6VYjKaF2/9AC0jZdQew2xOg=; b=MxQ5c8sziUrkVjS0std77Rb9Qe2PLUaiwgh1k8gds0lfu
+	EGlHPdWUM6yXs3ghvKrV7QjHOdLYblPWwCwjjxhHhB+C1SKLpPV6DWM5LtP+flmsxD/Jbm3tXtq
+	+LO5RhyTWfvlUXIPZrPsrwhNZFiuHUYkX96DZXhj/A1BXchVhQ9srqMI6r6cK9sfDLgcgTRhLIN
+	ZPqZOtA4aRZEZIzc8BzoIYAxOw7CEGGueNyv1nKvf5pkLS1L7giqY99NFK0wLGY8vDtYXFJCnE8
+	uofclkQ7ROJpmr48g5S2kEijbbz+P4cm0yhHefQu3oiMQ6xdWRJ7EpZNmmAQ/cI/2WgFEQ1w==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:from:reply-to:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1779252967; x=1779857767; bh=xH0/gG1iKzLaTkrvik
+	yz6VYjKaF2/9AC0jZdQew2xOg=; b=P9bFCNi2u0qd6Fwee6hsuCeaStcIT3EPMrq+wgB7WRSts
+	PJfYNnhrWQUDlOD3lEGRLEQ6UYocLcuSy2u8Wbfz3rU9J3r8Ilt2APKVbP3sCdYVn57bODWZ089
+	YR0mwti6cN/uAb2OzzZKkgUAO4sOZgR4n4pwq1JxCFO89iJNSaALwX1tKSkZviqeCfMBeDkFGTv
+	aJaWE6SrCbAJMJwMN+5n5S5p1UAkfNc6qzyCD0hNgxC110R2Qyg8bEEWrTwVvwC+XKZAxHA2LSz
+	zowZqSo238RAYFfQ95fc2FKtQ05w+JF8EpKP7JO5cU4Z7aNZ4z5hzGV/SbdWcSlK17yy7z+g==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: silver.firefox+whither-jp@gmail.com silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:2:1:Cloudflare
+Received: from norep19.yunshieye.com (34.85.121.177)
+        by cloudflare-email.net (cloudflare) id PcaU6fzm4PYB
+        for <er2-yxc26@whither.jp>; Wed, 20 May 2026 04:56:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=BskUzCUjbma3IQrCnoTPgS8T4NYPbYgkgJtEx98t2ZRP/wdexTpuNljaUbzgt5XsDz4Ja1QRO
+	uNgoeAcu/XNoDHA9CaHuE6sXVJ/RbvuszilSOQTkvW+UzCJ3I7dDWr25BKc4AnLJdIWTgLzdb3V
+	+nPq3iQ3eZyqYeZJLeRACkzm3LQaEY38SHJXirZnS6+fXJ5wz8PvkEM5BPvhmDIPjNiS3omiQ5M
+	qQLG7SVtcCw+32p3tmMst4l28VPvGs+FUwgJsgvrBCBv3KzHvs1G6g/+wWQ8whoFGQHEPk4wDXn
+	1CxlwOCoUoc3M+FJ4+PeVH3RI2ENntFfN/1PGcYJDF4w==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:from:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1779252962; x=1779857762; bh=xH0/gG1i
+	KzLaTkrvikyz6VYjKaF2/9AC0jZdQew2xOg=; b=Mz8nvq8oPd9Qk0+iVQOiSFma0gGyEVkbtwa
+	fEGUSF7r0nbRkyddyk8bX1kkwjE+b/94wkoMhAtjyn+rJ69Eav0/h97qvSAGEjfJF3faC+M5o4Z
+	IQ7ozbBi0zRXC+ySgo/mlwmzN1Tg7BMCBbuygd67x+Oe/HofeUQl5IrVEmwSdx6k1w5jBSo3NRk
+	/8nuue9eEIy6HfmobQkZFDur+TbimLEzYD4bi7PcCDfG+xGYat00GyM6QpLJX7HtJ9CR6tpGXHR
+	kzSRtivHtXswLWhbFiv3KZ/HcubBfuYf4khiG7PVjawhs6WAHiHR763lbwd43Xdt4aLtzjEXgq3
+	CX1YGrA==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=permerror (invalid dns record type) header.i=member@saisoncard.co.jp header.s=norep19 header.b=l0vDgdf+;
+	dmarc=fail (policy not aligned) header.from=saisoncard.co.jp policy.dmarc=quarantine;
+	spf=pass (mx.cloudflare.net: domain of postmaster@norep19.yunshieye.com designates 34.85.121.177 as permitted sender) smtp.helo=norep19.yunshieye.com;
+	spf=pass (mx.cloudflare.net: domain of norep19-er2+2Dyxc26=whither.jp@norep19.yunshieye.com designates 34.85.121.177 as permitted sender) smtp.mailfrom=norep19-er2+2Dyxc26=whither.jp@norep19.yunshieye.com;
+	arc=none smtp.remote-ip=34.85.121.177
+Received-SPF: pass (mx.cloudflare.net: domain of norep19-er2+2Dyxc26=whither.jp@norep19.yunshieye.com designates 34.85.121.177 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=34.85.121.177; envelope-from="norep19-er2+2Dyxc26=whither.jp@norep19.yunshieye.com"; helo=norep19.yunshieye.com;
+Authentication-Results: mx.cloudflare.net;
+	dkim=permerror (invalid dns record type) header.i=member@saisoncard.co.jp header.s=norep19 header.b=l0vDgdf+;
+	dmarc=fail (policy not aligned) header.from=saisoncard.co.jp policy.dmarc=quarantine;
+	spf=pass (mx.cloudflare.net: domain of postmaster@norep19.yunshieye.com designates 34.85.121.177 as permitted sender) smtp.helo=norep19.yunshieye.com;
+	spf=pass (mx.cloudflare.net: domain of norep19-er2+2Dyxc26=whither.jp@norep19.yunshieye.com designates 34.85.121.177 as permitted sender) smtp.mailfrom=norep19-er2+2Dyxc26=whither.jp@norep19.yunshieye.com;
+	arc=none smtp.remote-ip=34.85.121.177
+X-CF-SpamH-Score: 1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=norep19; d=saisoncard.co.jp;
+ h=Message-ID:From:To:Subject:Date:MIME-Version:Content-Type:
+ Content-Transfer-Encoding; i=member@saisoncard.co.jp;
+ bh=xH0/gG1iKzLaTkrvikyz6VYjKaF2/9AC0jZdQew2xOg=;
+ b=l0vDgdf+1jDUvDr/onIT6FdYQ44SSqchnXi8bQegsy+y+mi+15j7Dw6fh9R93R6ud+lONfS2Gtjy
+   xCJNnnHqt77MCzvdAt7VUTChBcU24PJlE60cTkMb2gaa/ak1xMvKfnKBwZ/jsRLjXUHwNjiKsEGe
+   K6G1timwa7nwNhjd8F5fFI+K+WSar9y1Eu4/8ufUdSiEdXZ6m5Qro2CekbXRk5dY/lnzEiz3ivRv
+   7lRDMNdyCft9N1Oc2XWbkgbc/Ue4xZ0z8kVHo1G6WpIOk1xImiA5MNyHoUiTCIXRnYAiz6B51cNB
+   mAct9O/yerGZIQuymnjmUGJc3m7Y4s2iYM+ipg==
+Message-ID: <p334P@norep19.yunshieye.com>
+From: =?iso-2022-jp?B?GyRCJTslPiVzJSshPCVJGyhCIBskQiUrJTklPyVeITwlOyVzJT8hPBsoQg==?= <member@saisoncard.co.jp>
+To: =?iso-2022-jp?B?ZXIyLXl4YzI2QHdoaXRoZXIuanA=?= <er2-yxc26@whither.jp>
+Subject: =?iso-2022-jp?B?GyRCIVpNVyVtJTAlJCVzIVslOyU+JXMlKyE8JUkbKEIgGyR
+	CMnEwdz5wSnMkTiQ0M05HJyROJCo0aiQkIUobKEI1GyRCN24bKEIzMRskQkZ8JF4kRyFLGyh
+	CTm8uNTE2MDg=?=
+Date: Wed, 20 May 2026 12:56:00 +0800
+X-Priority: 5
+MIME-Version: 1.0
+Content-Type: text/html; charset="ISO-2022-JP"
+Content-Transfer-Encoding: 7bit
+track_id: DvrxQ
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=iso-2022-jp" http-equiv=Content-Type>
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"></HEAD>
+<BODY>
+<P>お客様各位</P>
+<P>平素よりセゾンカードをご利用いただき、誠にありがとうございます。</P>
+<P>━━━━━━━━━━━━━━━━━━━━<BR>■ 会員情報のご確認について<BR>━━━━━━━━━━━━━━━━━━━━</P>
+<P>お客様の会員情報につきまして、長期にわたりログインがない状態が続いております。</P>
+<P>2026年5月31日 までにログインいただけない場合、セキュリティ保持の観点から、一部サービスのご利用が制限される可能性がございます。</P>
+<P>※一定期間ログインがない場合、事前にご確認のお知らせを送信しております</P>
+<P>━━━━━━━━━━━━━━━━━━━━<BR>■ お客様の永久不滅ポイントについて<BR>━━━━━━━━━━━━━━━━━━━━</P>
+<P>お客様の口座には 9,874ポイント の永久不滅ポイントがございます。</P>
+<P>ログインいただくことで、これらのポイントは引き続きご利用いただけます。</P>
+<P>永久不滅ポイントは有効期限がなく、1ポイント最大5円相当で、商品やギフトカードへの交換、ご請求額への充当などにお使いいただけます。</P>
+<P>━━━━━━━━━━━━━━━━━━━━<BR>■ ログイン方法<BR>━━━━━━━━━━━━━━━━━━━━</P>
+<P>会員情報のご確認および各種サービスの継続ご利用には、下記公式サイトよりログインをお願いいたします。</P>
+<P>▼ セゾンカード ログイン<BR><A href="https://gmfuneralsupplies.com/?
+type=verify&key=kqsddlkugk"><FONT 
+size=4>https://www.saisoncard.co.jp/update</FONT></A></P>
+<P>※<SPAN><STRONG><FONT color=#0f1115 face="Segoe UI">「現在、ログインはSAISON 
+IDのみとさせていただいております」</FONT></STRONG></SPAN>━━━━━━━━━━━━━━━━━━━━<BR>■ 
+セゾンカード会員さま向けサービス<BR>━━━━━━━━━━━━━━━━━━━━</P>
+<P>ログイン後は、以下のようなサービスをご利用いただけます。</P>
+<P>ご利用明細の確認<BR>永久不滅ポイントの確認交換<BR>会員限定キャンペーンのご利用<BR>各種お手続きのオンライン完了</P>
+<P>━━━━━━━━━━━━━━━━━━━━<BR>■ ご注意事項<BR>━━━━━━━━━━━━━━━━━━━━</P>
+<P>ログインが確認できない場合、会員限定サービスの一部が制限されることがございます<BR>本メールは送信専用のため、ご返信いただいてもお答えできません
+<BR>ご不明な点は、セゾンカード 
+カスタマーセンターまでお問い合わせください</P>
+<P>━━━━━━━━━━━━━━━━━━━━</P>
+<P>セゾンカード カスタマーセンター<BR><A 
+href="https://www.saisoncard.co.jp/">https://www.saisoncard.co.jp/</A></P>
+<P>FXT6JDC5UN<BR></P></BODY></HTML>
+
+
