@@ -1,0 +1,70 @@
+Delivered-To: silver.firefox@gmail.com
+Received: by 2002:a98:a317:0:b0:26a:2114:7ab with SMTP id h23csp129483eid;
+        Wed, 20 May 2026 19:53:08 -0700 (PDT)
+X-Received: by 2002:a17:903:904:b0:2bd:d7c5:927c with SMTP id d9443c01a7336-2bea2674fe6mr7532415ad.20.1779331988515;
+        Wed, 20 May 2026 19:53:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779331988; cv=none;
+        d=google.com; s=arc-20240605;
+        b=fcwnpSfNg+YoPxjQfQTTj5wO1rlCbo42KR3OnEqw7cZVVChImCiuhazIFKUL/PIUWI
+         ogxk8l7bgIgtMTeW9BCD+pkNkWy3UHB3z8olCbEXv3Tbpdc1BSG2WZXVZNDsnENZYlJh
+         3M9auyeWOzcI9SwUE0Qw8LLf1Op02XvdeYjC94rJqizZcE/89osshuCJt3zdRtwGjUSH
+         RuKGfUc3+EG46YbzJIZcwZuJnr2ftZU71dsJpwJ348KXeLA7LxhtwxBmCaiJOkTHmBND
+         ca8seUVW3f4BcVkjpI/ukTJrOF6IMsiCdamHrA3wPJUn1u0qrzNfYxRZC5VH1LYmpBgX
+         Vp0g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:message-id:subject:mime-version:from:to
+         :date:dkim-signature;
+        bh=sTVNutAGzkyEYslYNbJQj+JASkbGE76fnMp93h3Cllw=;
+        fh=30F+LetgEkDSNSp+uLeo/St8k5O2MuAL6jcfWOE8egk=;
+        b=hJTKT4TqY4hasxHxoFBoYNBYvXeez102WqLGJGuEpr0xbfPbWj4jwxV9zCLSZAqCWo
+         lrgoGuG3zrXmOJvYOw4wbvLVYGrtwqYoXd7sFxnwzi96m4e1MQ9Xgv3BgOEUA0yHq/Js
+         UJUHB23rSEo3rWqDXYfPdK/KUaLri0B+BOGZhsuddnku0gjUi6Ptj0+TaZ9wIKWKb2SF
+         KqWwTM4lau/t6DC2DZGJ+pFnZehxigDf1k80uSrxj/lXxfS3YqwHcHjIOnGqlWQyTGE6
+         mIGRNNH0R6KbfxTAsuafrR3j05TqGB7haY+D11bOspBCyzFSrsFhvV1W/98caOLeLfER
+         SGfw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@thirtiethforge.com header.s=202605 header.b=m8ao1MxC;
+       spf=pass (google.com: domain of lv5ro4p4rvtzru0ejv@thirtiethforge.com designates 54.64.1.172 as permitted sender) smtp.mailfrom=Lv5RO4p4rvTZRU0Ejv@thirtiethforge.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=thirtiethforge.com
+Return-Path: <Lv5RO4p4rvTZRU0Ejv@thirtiethforge.com>
+Received: from [54.64.1.172] (ec2-54-64-1-172.ap-northeast-1.compute.amazonaws.com. [54.64.1.172])
+        by mx.google.com with ESMTP id d9443c01a7336-2bd5bd696d0si374839385ad.20.2026.05.20.19.53.08
+        for <silver.firefox@gmail.com>;
+        Wed, 20 May 2026 19:53:08 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lv5ro4p4rvtzru0ejv@thirtiethforge.com designates 54.64.1.172 as permitted sender) client-ip=54.64.1.172;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@thirtiethforge.com header.s=202605 header.b=m8ao1MxC;
+       spf=pass (google.com: domain of lv5ro4p4rvtzru0ejv@thirtiethforge.com designates 54.64.1.172 as permitted sender) smtp.mailfrom=Lv5RO4p4rvTZRU0Ejv@thirtiethforge.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=thirtiethforge.com
+Received: by dr9olzt2.qio (Postfix, from userid 0)
+	id 14FA141227; Thu, 21 May 2026 11:53:06 +0900 (JST)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=202605; d=thirtiethforge.com; t=1779330473; h=to:from:date:subject:
+ message-id; bh=sTVNutAGzkyEYslYNbJQj+JASkbGE76fnMp93h3Cllw=;
+ b=m8ao1MxC0eIw+1PO1W4X41Lj6W7gQcsPrGqFIA8F9s3RUsZkZiyuH/1VDS+O3/v+cBpF57
+ +9+jNKtGWZMFiCEtlCEwncalocT/ogXfkxzsbXumA3sFKgAv9k8teHRW9NZo5duw4csCGH
+ HhyOLCYAUc/uN2dRy6LkFPICTOWNCoqukgJjVNjhGdMtfcgxFu2C3GRHS/Dfz82DO7Px0+
+ B6l1FW6OXr2bS4/I0Hn9PwC0nBlhzDBQs3Oe1MKasdImjFfxgZuPHIzO+4X2eI3sI2cCyi
+ eRGh+J0SrZqMLvOQuy8eSezHzenYnNk3+rvBykXtxTyiMfIfvc90SNm1HyRVog==
+Date: Thu, 21 May 2026 11:27:43 +0900
+To: silver.firefox@gmail.com
+From: =?UTF-8?B?56aP5YWDIOiMguWkqw==?= <mail@thirtiethforge.com>
+MIME-Version: 1.0
+Subject: =?UTF-8?B?4pePNCwwMDAsMDAw44Od44Kk44Oz44OI44KS44OX44Os44K844Oz44OI44GV44Gb44Gm6aCC44GE44Gf56aP5YWD44Gn44GZ44CC?=
+Message-ID: <m1sxlg17y7wrwv8fpsn9rnjupms7c89szeg5x@thirtiethforge.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: base64
+
+4pePNCwwMDAsMDAw44Od44Kk44Oz44OI44KS44OXCgpodHRwczovL3RoaXJ0aWV0aGZvcmdlLmNv
+bS9UVkNZWUtUVkdaLzBDRTVGNy9XMm02cmNrT3JUTHhFRGM0CgrntKDmlbXjgarlh7rkvJrjgYTj
+ga/jganjgZPjgavjgafjgoLokL3jgaHjgabjgYTjgb7jgZvjgpPjgILopovjgaTjgZHjgovloLTm
+iYDjgYzlpKfkuovigKbjgZPjgZPjgafopovjgaTjgZHjgabjgb/jgb7jgZvjgpPjgYvvvJ8K57Sg
+5pW144Gq5Lq644Go44Gu5Ye65Lya44GE44Gj44Gm5Lq655Sf44KS6LGK44GL44Gr44GX44Gm44GP
+44KM44G+44GZ44KI44Gt44CC44OJ44Kt44OJ44Kt44GZ44KL5qeY44Gq54m55Yil44Gq5Ye65Lya
+44GE44GM5b6F44Gj44Gm44GE44G+44GZKF5eKQoK5paw552A44KS56K66KqN44GZ44KLCmh0dHBz
+Oi8vdGhpcnRpZXRoZm9yZ2UuY29tL1RWQ1lZS1RWR1ovMENFNUY3L1cybTZyY2tPclRMeEVEYzQK
+CgrpgIDkvJrjga/jgrPjg4Hjg6kKaHR0cHM6Ly90aGlydGlldGhmb3JnZS5jb20vVFZDWVlLVFZH
+Wi8wQ0U1RjcvVzJtNnJja09yVEx4RURjNAoKCkNvcHlyaWdodChDKSDjgq/jg6njgrfjgqrjg7Mg
+QWxsIFJpZ2h0cyBSZXNlcnZlZC4=
+
