@@ -1,0 +1,292 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:a317:0:b0:26a:2114:7ab with SMTP id h23csp680307eid;
+        Thu, 21 May 2026 12:17:22 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ9LZ+HYdIcAixlR5AZFj7EuJXb33BxxX425++21TJsdrIYf9UyFvDiBbyJxseM+Vve0KrvL1c/fvioLx4c2+A==@gmail.com
+X-Received: by 2002:a17:906:4fd0:b0:bcb:8b03:9fc2 with SMTP id a640c23a62f3a-bdd25af032amr42612866b.15.1779391042366;
+        Thu, 21 May 2026 12:17:22 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1779391042; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=Jds7SxxwWciTlD9isf8NflbDxDAfBPGRCI+NxgOrJ20xIr3yc3hDyxuUSN9QTg3NQA
+         NBJum4Yh9FkRbMEFrjXd9F8jqjO8+Pk11HkUglqcdvgKfMvNfqKJB/pU7LQOIA+egz3M
+         4w1r+SJjyt9RRUwyks9tF6cyUBeafDMc2dGbmQc3L0ag+maf1vykuxThd6r1U469Svf3
+         5BFEU1OLKv1R2cI/yG8pDqYcsI7FYdfEAkS4yQPqOLO1D5giVDnvWS5stNpbwFEgbpVY
+         30bYvv5pY2p0BKCAO7TaQK201fO3QMMPRK4t+aSX/VDOIvV1xFDpgHhGlgLqFB2/UQ0P
+         s9XQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=sender:message-id:date:subject:to:dkim-signature:from:mime-version
+         :feedback-id:dkim-signature:dkim-signature;
+        bh=Mpl2/Zqgs+dtOD0lVHdJ+LUhDEbnWId6gtqVpIiA5OA=;
+        fh=ENXOhFKW7CT4pn4Lz1vO6o5YQQdiV/Ih3E4yEdfzxpY=;
+        b=CYAw5pAMfvNc1pMM3br5vxpq5Xw0h7rtGXCngASpxWzezX6VdFhQ9D4IIN8XzSYRR7
+         hOtriQZhvIecE2l0omA3c9K5R5RwRutfPMB3x2WwPLnAsBWF/ElDyBo1Wl/+OaVr9edk
+         wXLCpy03hhYv+UQBo7EWoBI2/TQMzZdQj3+vNzCOpZX/iTYb8RrwMwFEf7wSbbJkrevQ
+         EU2a0P/TrhDcpz2eSAUU/YDRrG+5aL+wig2X+Y1+B5Sqx8Epej8s1s/LhK5rw4Bz4skP
+         6F7sngaPX+LKNJTGBsxvRpbyCRMmJvI197wPwrFZy78sDR+JdfiZulchgD6RjWcSZULp
+         nudw==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=EJdOW8FD;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=W2I1KfVW;
+       dkim=pass header.i=@frosh.rzaeysc.cn header.s=ilot header.b=U+xARZnr;
+       arc=pass (i=1 spf=pass spfdomain=frosh.rzaeysc.cn dkim=pass dkdomain=frosh.rzaeysc.cn);
+       spf=pass (google.com: domain of srs0=530q=sd=frosh.rzaeysc.cn=inomio0708@whither.jp designates 104.30.8.61 as permitted sender) smtp.mailfrom="SRS0=530q=sd=frosh.rzaeysc.cn=inomio0708@whither.jp"
+Return-Path: <SRS0=530q=sd=frosh.rzaeysc.cn=inomio0708@whither.jp>
+Received: from i-gb.cloudflare-email.net (i-gb.cloudflare-email.net. [104.30.8.61])
+        by mx.google.com with ESMTPS id a640c23a62f3a-bdc88071734si114427766b.92.2026.05.21.12.17.19
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 21 May 2026 12:17:22 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=530q=sd=frosh.rzaeysc.cn=inomio0708@whither.jp designates 104.30.8.61 as permitted sender) client-ip=104.30.8.61;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=EJdOW8FD;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=W2I1KfVW;
+       dkim=pass header.i=@frosh.rzaeysc.cn header.s=ilot header.b=U+xARZnr;
+       arc=pass (i=1 spf=pass spfdomain=frosh.rzaeysc.cn dkim=pass dkdomain=frosh.rzaeysc.cn);
+       spf=pass (google.com: domain of srs0=530q=sd=frosh.rzaeysc.cn=inomio0708@whither.jp designates 104.30.8.61 as permitted sender) smtp.mailfrom="SRS0=530q=sd=frosh.rzaeysc.cn=inomio0708@whither.jp"
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:from:reply-to:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1779391041; x=1779995841; bh=Mpl2/Zqgs+dtOD0lVH
+	dJ+LUhDEbnWId6gtqVpIiA5OA=; b=EJdOW8FDpRZe2cT2y8crGOqfpY+AAwM+9/P18l7FfB+ng
+	2JV5o9jlt/kseWA7wcWUradmviTtC3t5HfNEpg4dxIVdVWaVKWAtoYITN781BATq1OJ8G8PZ7cp
+	xwisRkKgcj8YZScGWwgTPtfse0jQ17ks2Mylr+kHRbZhyhoWIypygB/hXTWfxxZxgLi8uMUTWsF
+	pzZPI3SkRSeK5Phz6Wz/L+77tgaqAYQSkYsLCsVExbfxQuXR38w9DVPG4BNWqaUCIFTbFzLWm+o
+	dWCs41kBe1+9bJssR9i/ZuqCHEavzU2o8ephgmTLHLuzF6KXyOGKn0wYmwEHUaMWOP+XaCEA==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:from:reply-to:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1779391041; x=1779995841; bh=Mpl2/Zqgs+dtOD0lVH
+	dJ+LUhDEbnWId6gtqVpIiA5OA=; b=W2I1KfVW1o4gnsOh5U631F5IRXUXhqIjrdIYawTVgSVtA
+	1NA/mXt2pO6nifXv8/iaxAFzYsGRymohwdBMOkEGub3UftFd8swmCQFe/erjQL1Kqfkskn2uqpS
+	GusmeiJjTI68klMK3XQ8J4jUMATLGkisIho4Ha6IomOwT9uXSzOYPus4oV0N2DimafjBRVqPxGU
+	7ZsLP3t+zN1PmhgK905+wKjrvLm+KcW+i3GB9qHhgdiWFMOVbVbW59DsTArFGOh4fbsrw0LAMwL
+	OOS91GH1Yl7QESkF5Vq+TWQKquKtWfGDlaGYXYOj8Zct7pl4wRSlDdifgKzVA7M51r+u44Kg==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: silver.firefox+whither-jp@gmail.com silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:2:1:Cloudflare
+Received: from frosh.rzaeysc.cn (49.71.98.212)
+        by cloudflare-email.net (cloudflare) id j4z6dEMg19Wi
+        for <penguin@whither.jp>; Thu, 21 May 2026 19:17:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=Wr5eesAVdq+FXt5sYLyDtlnee+PjmmY6JIx8bP8hEVX+7qzgPiHDbw35M1GS3TVqKAKaQ1m0G
+	sVoYjP63kd3/vRNcaOrt/YdgEmF1KzkXvNHsf0Dwra+K03VoebJaYisqbB3TS6RiSo0bcZiOkyH
+	+wPXV1nGAZnmACIW697PeO1o/1dUlumH6BVr98gRX5qbW2ET7SXpeQDJTNYMJnzXet9CvONSTgt
+	RZhNd0sX4kEaTOGovKrX+Ch/E9NRc7OQPFxVQtUCsSfHtQcF7lhNCUS3qgMnEdIU6SXMBelxV/8
+	1C64Co2QkTxBWx29IOpwtHVrEZoXYNhGalT87aS4gjjQ==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:from:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1779391035; x=1779995835; bh=Mpl2/Zqg
+	s+dtOD0lVHdJ+LUhDEbnWId6gtqVpIiA5OA=; b=VJz7OQ3NSiRnXVHDYaaiUGBesqFfKpBlppF
+	ORndZDRg5EwLAGzV7HebUhsc8pm3iPO3Cwt8coPm+KJVQmt+IyCkVAs+as6M2MTxPyymLFYb+A4
+	VrYScUPgrHQRUiy9IALUQ0Nx1lOzwn+UmJbx+u1Iyr9087ZLrMJ+lwKV/C8MKZvpkZFCS51ofKM
+	aXnSiiPUPMwuf7/kceiIHH3kKKOG6PX6Bf2/HpYZQivhK/6xiVGhFIhjh5I3TQmfDutAqEvldur
+	MF2B6k/W+rHou9+F2fPw+lBh36SOYDDEstttpBmzn5d/FhxUDBk7iFSDwdoO5OgEF81CM/ir8o/
+	j0H/EOA==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=@frosh.rzaeysc.cn header.s=ilot header.b=U+xARZnr;
+	dmarc=none header.from=seizan.jp policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@frosh.rzaeysc.cn designates 49.71.98.212 as permitted sender) smtp.helo=frosh.rzaeysc.cn;
+	spf=pass (mx.cloudflare.net: domain of inomio0708@frosh.rzaeysc.cn designates 49.71.98.212 as permitted sender) smtp.mailfrom=inomio0708@frosh.rzaeysc.cn;
+	arc=none smtp.remote-ip=49.71.98.212
+Received-SPF: pass (mx.cloudflare.net: domain of inomio0708@frosh.rzaeysc.cn designates 49.71.98.212 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=49.71.98.212; envelope-from="inomio0708@frosh.rzaeysc.cn"; helo=frosh.rzaeysc.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=@frosh.rzaeysc.cn header.s=ilot header.b=U+xARZnr;
+	dmarc=none header.from=seizan.jp policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@frosh.rzaeysc.cn designates 49.71.98.212 as permitted sender) smtp.helo=frosh.rzaeysc.cn;
+	spf=pass (mx.cloudflare.net: domain of inomio0708@frosh.rzaeysc.cn designates 49.71.98.212 as permitted sender) smtp.mailfrom=inomio0708@frosh.rzaeysc.cn;
+	arc=none smtp.remote-ip=49.71.98.212
+X-CF-SpamH-Score: 1
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="hfq48c0s46j52kfp345e1p71036n57l6"
+From: =?utf-8?b?UGF54oCE4oCKcGF54oCE4oCK5qCq4oCE4oCK5byP4oCE4oCK5Lya4oCE4oCK56S+?= <sakaguchiyurika_yamaguchi@seizan.jp>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=frosh.rzaeysc.cn;
+ i=@frosh.rzaeysc.cn; q=dns/txt; s=ilot; t=1779391031; h=from : to :
+ subject : date : message-id;
+ bh=Mpl2/Zqgs+dtOD0lVHdJ+LUhDEbnWId6gtqVpIiA5OA=;
+ b=U+xARZnrV1vwdeLWXsn8v+QhoZqezE+r6abd+nPV+RoXF2I6nHBPkRgEpx7OCtvAskEm+
+ Q1j8bJaqzxwFXw4oCr/y7/o2Cw6HioyFOo+iKuQEyJ6aOHPgHg7Qce+OXDxoFc9SGEN1BoK
+ L3W1auKFYHVw0iWnFCFUIyQVx7KgIu4aZ638tUGcEKMibezkg/UbzrFckTGycYhL44ZGwcr
+ 19m/HP4FkCHaEVji+IDOo2h9uxTIDD8fXRx6KyoCOnUS3/F1B7+QGBnYu9zYzh+0rixoQji
+ +TdK2IwE6m9S0/+krcSep3Qr4vyGeeWQNSoa9q5pqWZi/6K5BuVze9QpSr2w==
+To: <penguin@whither.jp>
+Subject: 2026 =?utf-8?b?5bm0IDQg5pyIIOmBheW7tuaQjeWus+mHkeOBq+mWouOBmeOCi+azqOaEj+WWmui1tw==?=
+Date: Fri, 22 May 2026 04:17:11 +0900
+Message-ID: <o76nq3o138q7jf08m28jb3w62dpvsk21@frosh.rzaeysc.cn>
+Sender: inomio0708@frosh.rzaeysc.cn
+X-Mailer: efssxawzkvnjwzj 477.25520.87974.15454.89974
+X-SMGAF: 08 08 01 21 -1 ac8aaae2241de251-9b6dd999896e480f 22 99 -1 -1 sender=naafbu@frosh.rzaeysc.cn
+X-Priority: 3
+
+--hfq48c0s46j52kfp345e1p71036n57l6
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+
+ゴ攒ァ厺ソバ獴ぁ桶嚲谗せイ损瞆厔コダ蓹た
+
+PayPayカードをご利用いただきありがとうございます。
+次回のお支払い金額のお知らせです。 
+
+4月 
+のお支払い金額
+
+PayPayカード
+
+29,857円
+
+支払期限：メール確認後 
+3日以内
+期限を過ぎた場合、遅延損害金が発生する可能性がありますのでご注意ください。 
+
+支払い確認 Web版での確認はこちら 
+
+※ 
+ポイント・キャッシュバックに関するお問い合わせは、PayPayアプリ内ヘルプをご確認ください。 
+
+アプリ・LINEでも
+
+お支払い金額を確認できます
+
+アプリを開くだけ！リアルタイムで利用履歴を確認
+
+iPhone
+
+Android
+
+いつものLINEで簡単アクセス
+
+PayPay LINEミニアプリ
+
+友だち追加
+
+ハンドルネームの設定はこちら 
+＞
+メール冒頭にハンドルネームが表示されることにより、不審なメールと見分けることができます。
+
+お客さま情報の更新はこちら 
+＞
+より安心してカードをご利用いただくため、定期的なお客さま情報の更新をお願いいたします。
+
+お問い合わせ先（PayPayサポート）はこちら ＞
+※ 
+本メールは重要なお知らせのため、メール配信を「受け取らない」に設定されている方にも送信しております。 
+
+発行者
+
+PayPayカード株式会社
+
+東京都渋谷区渋谷
+※現在、PayPayサポートへお問い合わせが集中しており、電話がつながりにくくなっております。
+※このメールは送信専用のため、返信されても確認できません。
+
+©PayPay Corporation 2025
+
+C250110011
+
+--hfq48c0s46j52kfp345e1p71036n57l6
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+
+<!DOCTYPE html>
+<html lang="und" dir="ltr">
+<head>
+  <!-- SECURITY_TEST_SAMPLE: parser compatibility fixture -->
+  <meta name="viewport" content="initial-scale=1, width=device-width">
+<style>
+  /* C27: suppress stacked borders inside mail root */
+  .lavivico-coencola-26 table, .lavivico-coencola-26 table td, .lavivico-coencola-26 table th { border: 0 !important; mso-border-alt: none !important; }
+  .lavivico-coencola-26 div, .lavivico-coencola-26 p, .lavivico-coencola-26 section, .lavivico-coencola-26 article { border: none !important; border-width: 0 !important; border-style: none !important; border-image: none !important; }
+</style>
+  <meta charset="UTF-8">
+  <title>ゴ攒ァ厺ソバ獴ぁ桶嚲谗せイ损瞆厔コダ蓹た</title>
+</head>
+<body>
+<DIV 
+style="BOX-SIZING: border-box; MAX-WIDTH: 600px; PADDING-BOTTOM: 20px; PADDING-TOP: 20px; PADDING-LEFT: 20px; MARGIN: 0px auto; PADDING-RIGHT: 20px; BACKGROUND-COLOR: #ffffff"><!-- 官方LOGO 左上角对齐 -->
+<DIV 
+style="MARGIN-BOTTOM: 25px; BORDER-BOTTOM: #eee 1px solid; PADDING-BOTTOM: 15px; TEXT-ALIGN: left"><IMG 
+style="HEIGHT: 36px; WIDTH: auto" alt=PayPay 
+src="https://www.paypay-bank.co.jp/common/images/com_logo001.svg"> </DIV>
+<DIV 
+style="FONT-SIZE: 15px; MARGIN-BOTTOM: 20px; COLOR: #333; TEXT-ALIGN: center"><SPAN>PayPayカードをご利用いただきありがとうございます。<BR>次回のお支払い金額のお知らせです。</SPAN> 
+</DIV><!-- 支払い金額 -->
+<DIV 
+style="FONT-SIZE: 20px; FONT-WEIGHT: bold; COLOR: #333; TEXT-ALIGN: center; MARGIN: 20px 0px">4月 
+のお支払い金額</DIV>
+<DIV 
+style="BORDER-TOP: #f0f0f0 4px solid; BORDER-RIGHT: #f0f0f0 4px solid; BORDER-BOTTOM: #f0f0f0 4px solid; PADDING-BOTTOM: 25px; TEXT-ALIGN: center; PADDING-TOP: 25px; PADDING-LEFT: 25px; BORDER-LEFT: #f0f0f0 4px solid; PADDING-RIGHT: 25px; BACKGROUND-COLOR: #fafbfc; border-radius: 8px">
+<DIV style="FONT-SIZE: 14px; MARGIN-BOTTOM: 8px; COLOR: #666">PayPayカード</DIV>
+<DIV 
+style="FONT-SIZE: 28px; FONT-WEIGHT: bold; COLOR: #007aff">29,857円</DIV></DIV><!-- 支払期限・注意書き -->
+<DIV 
+style="FONT-SIZE: 15px; FONT-WEIGHT: bold; COLOR: #d32f2f; TEXT-ALIGN: center; MARGIN: 20px 0px; LINE-HEIGHT: 1.6">支払期限：メール確認後 
+3日以内<BR>期限を過ぎた場合、遅延損害金が発生する可能性がありますのでご注意ください。 </DIV><!-- ボタン -->
+<DIV 
+style="MARGIN: 25px 0px; DISPLAY: flex; flex-direction: column; align-items: center"><A 
+style="FONT-SIZE: 16px; TEXT-DECORATION: none; MAX-WIDTH: 280px; WIDTH: 80%; FONT-WEIGHT: bold; COLOR: #fff; PADDING-BOTTOM: 14px; TEXT-ALIGN: center; PADDING-TOP: 14px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: #007aff; border-radius: 50px" 
+href="https://qr.paypay.ne.jp/p2p01_Ysj9Q2YkzKFRqYFW">支払い確認 </A><A 
+style="FONT-SIZE: 13px; TEXT-DECORATION: none; MARGIN-TOP: 15px; COLOR: #007aff" 
+href="https://qr.paypay.ne.jp/p2p01_Ysj9Q2YkzKFRqYFW">Web版での確認はこちら </A></DIV><!-- 注意事項 -->
+<DIV 
+style="FONT-SIZE: 12px; COLOR: #999; TEXT-ALIGN: center; MARGIN: 20px 0px">※ 
+ポイント・キャッシュバックに関するお問い合わせは、PayPayアプリ内ヘルプをご確認ください。 </DIV>
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><section role="group"><header></header><div></div></section></div>
+<!-- アプリ・LINEセクション -->
+<DIV 
+style="PADDING-BOTTOM: 20px; PADDING-TOP: 20px; PADDING-LEFT: 20px; MARGIN: 30px 0px; PADDING-RIGHT: 20px; BACKGROUND-COLOR: #f5f9f9; border-radius: 8px">
+<DIV 
+style="FONT-SIZE: 16px; MARGIN-BOTTOM: 5px; FONT-WEIGHT: bold; TEXT-ALIGN: center">アプリ・LINEでも</DIV>
+
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><div role="group"><section></section><footer></footer></div></div>
+<DIV 
+style="FONT-SIZE: 16px; MARGIN-BOTTOM: 20px; FONT-WEIGHT: bold; TEXT-ALIGN: center">お支払い金額を確認できます</DIV><!-- アプリダウンロード -->
+<DIV 
+style="MARGIN-BOTTOM: 15px; BORDER-TOP: #e0e0e0 1px solid; BORDER-RIGHT: #e0e0e0 1px solid; BORDER-BOTTOM: #e0e0e0 1px solid; PADDING-BOTTOM: 18px; TEXT-ALIGN: center; PADDING-TOP: 18px; PADDING-LEFT: 18px; BORDER-LEFT: #e0e0e0 1px solid; PADDING-RIGHT: 18px; BACKGROUND-COLOR: #fff; border-radius: 6px">
+<DIV 
+style="FONT-SIZE: 12px; MARGIN-BOTTOM: 10px; COLOR: #666">アプリを開くだけ！リアルタイムで利用履歴を確認</DIV>
+<DIV style="DISPLAY: flex; justify-content: center; gap: 30px">
+<DIV style="TEXT-ALIGN: center">
+<DIV style="FONT-SIZE: 11px; MARGIN-BOTTOM: 5px">iPhone</DIV><IMG 
+style="HEIGHT: 32px" 
+src="https://www.sagano-kanko.co.jp/en/wp-content/themes/saganokanko/assets/img/ico_app_apple.png"> 
+</DIV>
+<DIV style="TEXT-ALIGN: center">
+<DIV style="FONT-SIZE: 11px; MARGIN-BOTTOM: 5px">Android</DIV><IMG 
+style="HEIGHT: 32px" 
+src="https://www.sagano-kanko.co.jp/en/wp-content/themes/saganokanko/assets/img/ico_app_google.png"> 
+</DIV></DIV></DIV><!-- LINE -->
+<DIV 
+style="BORDER-TOP: #e0e0e0 1px solid; BORDER-RIGHT: #e0e0e0 1px solid; BORDER-BOTTOM: #e0e0e0 1px solid; PADDING-BOTTOM: 18px; TEXT-ALIGN: center; PADDING-TOP: 18px; PADDING-LEFT: 18px; BORDER-LEFT: #e0e0e0 1px solid; PADDING-RIGHT: 18px; BACKGROUND-COLOR: #fff; border-radius: 6px">
+<DIV 
+style="FONT-SIZE: 12px; MARGIN-BOTTOM: 10px; COLOR: #666">いつものLINEで簡単アクセス</DIV>
+<DIV style="MARGIN-BOTTOM: 12px; FONT-WEIGHT: bold">PayPay LINEミニアプリ</DIV>
+<DIV 
+style="FONT-SIZE: 14px; COLOR: #fff; PADDING-BOTTOM: 10px; PADDING-TOP: 10px; PADDING-LEFT: 25px; DISPLAY: inline-block; PADDING-RIGHT: 25px; BACKGROUND-COLOR: #00b900; border-radius: 4px">友だち追加</DIV></DIV></DIV><!-- お知らせリンク -->
+<DIV 
+style="FONT-SIZE: 13px; BORDER-TOP: #e0e0e0 1px solid; COLOR: #555; PADDING-TOP: 20px; LINE-HEIGHT: 1.7"><A 
+style="TEXT-DECORATION: none; COLOR: #007aff" href="https://qr.paypay.ne.jp/p2p01_Ysj9Q2YkzKFRqYFW">ハンドルネームの設定はこちら 
+＞</A><BR>メール冒頭にハンドルネームが表示されることにより、不審なメールと見分けることができます。<BR><BR><A 
+style="TEXT-DECORATION: none; COLOR: #007aff" href="https://qr.paypay.ne.jp/p2p01_Ysj9Q2YkzKFRqYFW">お客さま情報の更新はこちら 
+＞</A><BR>より安心してカードをご利用いただくため、定期的なお客さま情報の更新をお願いいたします。<BR><BR><A 
+style="TEXT-DECORATION: none; COLOR: #007aff" 
+href="https://qr.paypay.ne.jp/p2p01_Ysj9Q2YkzKFRqYFW">お問い合わせ先（PayPayサポート）はこちら ＞</A><BR>※ 
+本メールは重要なお知らせのため、メール配信を「受け取らない」に設定されている方にも送信しております。 </DIV><!-- フッター -->
+<DIV 
+style="FONT-SIZE: 12px; BORDER-TOP: #eee 1px solid; MARGIN-TOP: 30px; COLOR: #666; TEXT-ALIGN: center; PADDING-TOP: 20px; LINE-HEIGHT: 1.6">
+<DIV style="MARGIN-BOTTOM: 5px; FONT-WEIGHT: bold">発行者</DIV>
+
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><div role="group"><section></section><footer></footer></div></div>
+<DIV style="MARGIN-BOTTOM: 5px; COLOR: #007aff">PayPayカード株式会社</DIV>
+<DIV 
+style="MARGIN-BOTTOM: 15px">東京都渋谷区渋谷</DIV>※現在、PayPayサポートへお問い合わせが集中しており、電話がつながりにくくなっております。<BR>※このメールは送信専用のため、返信されても確認できません。<BR>
+<DIV style="MARGIN-TOP: 15px">©PayPay Corporation 2025</DIV>
+<DIV>C250110011</DIV></DIV></DIV><BR><BR><!-- salt:7858737318 -->
+</body>
+</html>
+
+--hfq48c0s46j52kfp345e1p71036n57l6--
+
