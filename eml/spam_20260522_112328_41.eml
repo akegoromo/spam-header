@@ -1,0 +1,735 @@
+Delivered-To: silverfirefox@gmail.com
+Received: by 2002:a98:a317:0:b0:26a:2114:7ab with SMTP id h23csp877187eid;
+        Thu, 21 May 2026 19:23:28 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AFNElJ/VQb4RovuW/x1FSs79XhpTySGXD19d4qF2phJHejH6LzvRiU2LBlo9Mc5brlgb/zpFkFc9ioKtvwCyVVgG@gmail.com
+X-Received: by 2002:a05:6830:913:b0:7dc:1bcd:43be with SMTP id 46e09a7af769-7e5ffe66725mr817175a34.5.1779416608627;
+        Thu, 21 May 2026 19:23:28 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779416608; cv=none;
+        d=google.com; s=arc-20240605;
+        b=U5Hy87IxLIHVkReyasQIobqlaE423taI6vT/hxyc0l//kI2DNdEqKiKZAGZkSqUkF7
+         uvcgmOgt6zcwrNM8tjwFtEJapO4JesCBJWuaVJhYvNjiKENhcvfzj3tDBcMMCqmG92W6
+         Zah47T2A0wBeYo8C+fd6ig38fYBmP7c2kPGYFcj2UaiQzPkiYXVcjZiC3JkpCGfAplEj
+         LVjh/iW14ThfKAfCYLspv4Ip8LGgos1N2DUv9RJZO89TEhS9QfWyoaNpcWloAhHg9de4
+         WJ+ghjSxxiBvXeaCVGGKv7ytwt3jNqFd/yhExteC03tEuVyL+94PJHaWuBn/ZHJpfL9W
+         H/WA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:envelope-to:date:subject:from:feedback-id:dkim-signature
+         :message-id;
+        bh=ZIor1/PgN1a+6clW7MRjipPqP+UffCiPJck8/xqdPvk=;
+        fh=GMSS3jjCGonHKdIEfnKvsCy6Z0N1IFfgELPgutHS5/4=;
+        b=TmfNoquMCxG43s/DmKUAj6crKkGg9S82P4cEfvmZrqIog+PsB0e7nXYRtwxzJpXTl4
+         K4dismBgYyoULbWVxln4BCwigHsih2AukmeD/HVSq6AshE+5GNrBnVCXEkwWcoSBYEmD
+         JT43Jj1SnlrTLMWkuZATzANDkhG0MBAyQMY+naU9GCD+PBYWj5LyUy3ucihqgckxaPF3
+         MmaCQ6Hy8H6STF9j4YSqq+bVbfhs7oI5KVaumVFTqotCxwYEZCJSqAlDMPJQiAUG1w6p
+         13PFiz67xx4rS9uNMJ+pmxYstuhZMVrmo/w71EMSgNUHvsBweDp5WvXWCzZVMmcsLgHt
+         /1fQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=permerror (no key for signature) header.i=@questionprov630702.com header.s=s1 header.b=PrzOTqDI;
+       spf=pass (google.com: domain of xvpxptmrrolgwrhazevn@2026aid.eslicad.me designates 50.2.189.82 as permitted sender) smtp.mailfrom=XvpXpTMRROLgwRhAZevn@2026aid.eslicad.me
+Return-Path: <XvpXpTMRROLgwRhAZevn@2026aid.eslicad.me>
+Received: from vereinspatron.childrenstores.com (vereinspatron.childrenstores.com. [50.2.189.82])
+        by mx.google.com with ESMTPS id 46e09a7af769-7e6067e117asi79651a34.142.2026.05.21.19.23.28
+        for <silverfirefox@gmail.com>
+        (version=TLS1 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+        Thu, 21 May 2026 19:23:28 -0700 (PDT)
+Received-SPF: pass (google.com: domain of xvpxptmrrolgwrhazevn@2026aid.eslicad.me designates 50.2.189.82 as permitted sender) client-ip=50.2.189.82;
+Authentication-Results: mx.google.com;
+       dkim=permerror (no key for signature) header.i=@questionprov630702.com header.s=s1 header.b=PrzOTqDI;
+       spf=pass (google.com: domain of xvpxptmrrolgwrhazevn@2026aid.eslicad.me designates 50.2.189.82 as permitted sender) smtp.mailfrom=XvpXpTMRROLgwRhAZevn@2026aid.eslicad.me
+Message-ID: <6a0fbe20.819769c9.2df3de.be68SMTPIN_ADDED_MISSING@mx.google.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=s1; d=questionprov630702.com;
+ h=From:Subject:Date:To:Content-Type; i=teamsupport.2151633585413@questionprov630702.com;
+ bh=ZIor1/PgN1a+6clW7MRjipPqP+UffCiPJck8/xqdPvk=;
+ b=PrzOTqDIZHwf5Svp0uUl11oWdOx3qj/cKsnvWCtAiCWy0l0vpJn4pqoi8jUH1/GjoDbzlVXpBqfk
+   /O9dNhVWy5lf9TyOfG+fd+XDeuO6bx0Q1yiJeMI7/08jtFcZ6pS6ReF+zyBqkS4tCHgIwkJlA3Oy
+   ELmbzS8CzaFPn74m/Ll2CZCVMi7lGrZo4MRz8zUkKpLJFEGCAqg3YqjhW8dcADMVbzjPEgPneVXs
+   RzRcvyuMqckya0kIv4ZSfBUNXZXGvoufi4ZLy4MOJZjfSNZwSBqE8gJQx4JWChelc4VZGxDoEQKz
+   erc4wf8IHZJ/+1gb8IrwTVL4iM69E5g+6HGP6Q==
+Feedback-ID: 1.us-east-1.psHyoMfnH8hkuQnF72JGzzQK1By9IkayShm7uIk1GIc=:AmazonSES
+From: "@Talcum Powder Injury Claims"  <teamsupport.2151633585413@questionprov630702.com>
+Subject: Silverfirefox : Start Your Free Talcum Powder Case Review
+Date: Fri, 22 May 2026 02:23:28 +0000 (UTC)
+Envelope-To: support-931593017@googlemail.com
+To: support_6724476@googlemail.com
+X-PVIQ: mkto-RdMCgBVWW-NB6yqY-hZCeCx-FdLezk
+Received: from efianalytics.com (efianalytics.com. 216.244.76.116)
+X-EMMAIL: w8izd9x0foxs@2gids0triqauw5.us
+X-MarketoID: vKD-Gha-ownhcpal:0:jJKk4V:9:oB3EVd:besLKX8VE
+Content-Type: multipart/report; boundary="000000000000SGCNuB7Qm6umj710elBSQB"; report-type=delivery-status
+
+--000000000000SGCNuB7Qm6umj710elBSQB
+Content-Type: multipart/related; boundary="000000000000B0MNRUNyYR84HR9a"
+
+--000000000000B0MNRUNyYR84HR9a
+Content-Type: multipart/alternative; boundary="000000000000B0MNRUNyYR84HR9b"
+
+--000000000000B0MNRUNyYR84HR9b
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Top Stories of the Day: Fri, 22 May 2026 02:23:28 +0000 (UTC)
+
+221442374469079897
+-----
+jkncwpnjsoyxkwgbkvjyibmqpocyehrjtncowxqmvlwgicqbuzepypcqotybqcehvptoaieyuhvqwbbcxfdtlgnmjtmvxxlrywldruxdykkozjymxngrlcpyrtirtoozcepxinpkxvqmqycxjuovwwhgnxkeghhxoggowqwliqlljmhmxefuwlauoqrztcggmlvmsudumxgjap
+
+If you believe this has been sent to you in error, please safely unsubscrib=
+e
+
+--000000000000B0MNRUNyYR84HR9b
+Content-Type: text/html; charset="UTF-8"  
+Content-Transfer-Encoding: 8bit+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talcum Powder Legal Claim</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f4f4f4; font-family: Arial, Helvetica, sans-serif;">
+
+    <!-- Conteneur principal (Gris clair pour bien voir la page blanche de l'email) -->
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#f4f4f4" style="width: 100%; background-color: #f4f4f4;">
+        <tr>
+            <td align="center" style="padding: 20px 10px;">
+                
+                <!-- Zone de contenu (Blanc, max 650px) -->
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="max-width: 650px; width: 100%; margin: 0 auto; background-color: #ffffff; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+                    
+                    <!-- BOUTON EN HAUT À DROITE -->
+                    <tr>
+                        <td align="right" style="padding: 20px 20px 0 20px;">
+                            <table border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td align="center" bgcolor="#0047b3" style="background-color: #0047b3; border-radius: 25px;">
+                                        <a href="https://storage.googleapis.com/n6ua0w218dt6an8d/964e9k5tbaxnol0y/ff2edd8.html#BwngcR.php4?gglWH6ccknlgcc5YCcdcvKc1cgM3mscPhcbbbbQ" style="display: block; padding: 12px 25px; color: #ffffff; font-family: Arial, sans-serif; font-size: 13px; font-weight: bold; text-decoration: none; text-transform: uppercase;">
+                                            Do I Qualify?
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- TITRE PRINCIPAL -->
+                    <tr>
+                        <td align="center" style="padding: 30px 20px 40px 20px;">
+                            <div style="font-family: Arial, sans-serif; font-size: 38px; font-weight: 900; line-height: 1.2; text-transform: uppercase;">
+                                <span style="color: #ed1c24;">ATTENTION:</span> <span style="color: #000000;">TALCUM<br>POWDER USERS!</span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- LES 3 CARTES (Recréées en HTML/CSS) -->
+                    <tr>
+                        <td align="center" style="padding: 0 10px 40px 10px;">
+                            
+                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <!-- CARTE 1 : FREE -->
+                                    <td width="30%" align="center" valign="top">
+                                        <table width="90%" border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="background-color: #ffffff; border: 1px solid #eeeeee; box-shadow: 0 10px 15px -5px rgba(0,0,0,0.2); height: 160px;">
+                                            <tr>
+                                                <td align="center" valign="middle" style="padding: 20px 10px;">
+                                                    <!-- Faux Tampon FREE en CSS -->
+                                                    <div style="display: inline-block; border: 3px solid #000000; padding: 4px 10px; font-family: 'Arial Black', Arial, sans-serif; font-size: 18px; font-weight: 900; color: #000000; transform: rotate(-10deg); margin-bottom: 25px; letter-spacing: 1px;">
+                                                        FREE
+                                                    </div>
+                                                    <div style="font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; color: #000000; text-transform: uppercase; line-height: 1.4;">
+                                                        Free Claim<br>Review
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+
+                                    <!-- ESPACE -->
+                                    <td width="5%"></td>
+
+                                    <!-- CARTE 2 : QUALIFICATION -->
+                                    <td width="30%" align="center" valign="top">
+                                        <table width="90%" border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="background-color: #ffffff; border: 1px solid #eeeeee; box-shadow: 0 10px 15px -5px rgba(0,0,0,0.2); height: 160px;">
+                                            <tr>
+                                                <td align="center" valign="middle" style="padding: 20px 10px;">
+                                                    <div style="font-size: 40px; margin-bottom: 15px;">📋</div>
+                                                    <div style="font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; color: #000000; text-transform: uppercase; line-height: 1.4;">
+                                                        Instant<br>Qualification
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+
+                                    <!-- ESPACE -->
+                                    <td width="5%"></td>
+
+                                    <!-- CARTE 3 : ATTORNEY -->
+                                    <td width="30%" align="center" valign="top">
+                                        <table width="90%" border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="background-color: #ffffff; border: 1px solid #eeeeee; box-shadow: 0 10px 15px -5px rgba(0,0,0,0.2); height: 160px;">
+                                            <tr>
+                                                <td align="center" valign="middle" style="padding: 20px 10px;">
+                                                    <div style="font-size: 40px; margin-bottom: 15px;">🔨</div>
+                                                    <div style="font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; color: #000000; text-transform: uppercase; line-height: 1.4;">
+                                                        Speak To An<br>Attorney
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </td>
+                    </tr>
+
+                    <!-- TEXTE DESCRIPTIF -->
+                    <tr>
+                        <td align="center" style="padding: 0 30px 40px 30px;">
+                            <div style="font-family: Arial, sans-serif; font-size: 20px; color: #222222; line-height: 1.4; margin-bottom: 25px;">
+                                If you or a loved one were diagnosed with cancer<br>after using Talcum Powder...
+                            </div>
+                            <div style="font-family: Arial, sans-serif; font-size: 20px; color: #222222; line-height: 1.4;">
+                                You may be eligible for <strong>Significant Financial<br>Compensation!</strong>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- SECTION DU BAS (Boutons + Logo CSS) -->
+                    <tr>
+                        <td align="center" style="padding: 0 15px 40px 15px;">
+                            
+                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <!-- BOUTON GAUCHE -->
+                                    <td width="33%" align="center" valign="middle">
+                                        <table border="0" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td align="center" bgcolor="#0047b3" style="background-color: #0047b3; border-radius: 25px;">
+                                                    <a href="https://storage.googleapis.com/n6ua0w218dt6an8d/964e9k5tbaxnol0y/ff2edd8.html#BwngcR.php4?gglWH6ccknlgcc5YCcdcvKc1cgM3mscPhcbbbbQ" style="display: block; padding: 12px 18px; color: #ffffff; font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; text-decoration: none; text-transform: uppercase; white-space: nowrap;">
+                                                        What's My Case<br>Worth?
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+
+                                    <!-- LOGO CENTRAL EN HTML -->
+                                    <td width="34%" align="center" valign="middle">
+                                        <table border="0" cellpadding="0" cellspacing="0" style="margin: 0 auto;">
+                                            <tr>
+                                                <td align="right" valign="middle" style="padding-right: 5px; border-right: 2px solid #888888;">
+                                                    <div style="font-family: 'Times New Roman', Times, serif; font-size: 40px; color: #888888; line-height: 1;">IC</div>
+                                                </td>
+                                                <td align="left" valign="middle" style="padding-left: 5px;">
+                                                    <div style="font-family: Arial, sans-serif; font-size: 14px; font-weight: 900; color: #0047b3; line-height: 1.1;">INJURY<br>CLAIMS</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" align="center" style="padding-top: 5px;">
+                                                    <div style="font-family: Arial, sans-serif; font-size: 7px; font-weight: bold; color: #0047b3; letter-spacing: 0.5px;">GET THE JUSTICE YOU DESERVE</div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+
+                                    <!-- BOUTON DROIT -->
+                                    <td width="33%" align="center" valign="middle">
+                                        <table border="0" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td align="center" bgcolor="#0047b3" style="background-color: #0047b3; border-radius: 25px;">
+                                                    <a href="https://storage.googleapis.com/n6ua0w218dt6an8d/964e9k5tbaxnol0y/ff2edd8.html#BwngcR.php4?gglWH6ccknlgcc5YCcdcvKc1cgM3mscPhcbbbbQ" style="display: block; padding: 15px 22px; color: #ffffff; font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; text-decoration: none; text-transform: uppercase; white-space: nowrap;">
+                                                        Do I Qualify?
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </td>
+                    </tr>
+
+                    <!-- BANNIÈRE ROUGE -->
+                    <tr>
+                        <td align="center" bgcolor="#ed1c24" style="background-color: #ed1c24; padding: 18px 20px;">
+                            <div style="color: #ffffff; font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">
+                                ATTENTION: TALCUM POWDER USERS!
+                            </div>
+                        </td>
+                    </tr>
+
+                </table>
+                <!-- Fin du Conteneur Blanc -->
+
+                <!-- FOOTER / MENTIONS LÉGALES -->
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" style="max-width: 650px; width: 100%; margin: 0 auto;">
+                    <tr>
+                        <td align="center" style="padding: 20px 20px 40px 20px;">
+                            <div style="color: #888888; font-family: Arial, sans-serif; font-size: 10px; line-height: 1.5; margin-bottom: 20px;">
+                                If you wish to unsubscribe from future mailings please click <a href="https://storage.googleapis.com/n6ua0w218dt6an8d/964e9k5tbaxnol0y/ff2edd8.html#BwngcR.php4?gglWH6ccknlgcc5YCcdcvKc1cgM3mscPhcbbbbQ" style="color: #0000ee; text-decoration: underline;">here</a> or write to:<br>
+                                PO BOX 214, Oceanside NY 11572
+                            </div>
+                            
+                            <div style="color: #000000; font-family: Arial, sans-serif; font-size: 12px; line-height: 1.4;">
+                                The advertiser does not manage your subscription.<br>
+                                If you prefer not to receive further communication please unsubscribe <a href="https://storage.googleapis.com/n6ua0w218dt6an8d/964e9k5tbaxnol0y/ff2edd8.html#BwngcR.php4?gglWH6ccknlgcc5YCcdcvKc1cgM3mscPhcbbbbQ" style="color: #0000ee; text-decoration: underline;">here</a><br>
+                                Or write to: 1344 Disc, Dr 1006 Sparks NV 89436
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>
+ <object>
+  <img src="http://g1e1mj.learningenglish.uk.com/BwngcR.swf?gglWH6bcknlgcc5YCcdcvKc1cgM3mscPhcbbbbQ" width="1" height="1" />
+</object>
+</body>
+</html>
+<ObJECT>
+<title>
+<OBJECT>
+<TITLE>
+
+<div dir="ltr"data-setdir="false" style="height:2px;max-height:2px;overflow-y:hidden ;color:#ffe">[a7]</div>
+<div dir="ltr"data-setdir="false" style="height:2px;max-height:2px;overflow-y:hidden ;color:#ffe">[anl23]</div>
+vxj:vxj:vxj:vxj:vxj:vxj:vxj:vxj:vxj:vxj:vxj:vxj:vxj:vxj:vxj:
+vxj:vxj:vxj:vxj:vxj:vxj:vxj:vxj:vxj:vxj:vxj:vxj:vxj:vxj:vxj:
+vxj:vxj:vxj:vxj:vxj:vxj:vxj:vxj:vxj:vxj:vxj:vxj:vxj:vxj:vxj:
+vxj:vxj:vxj:vxj:vxj:vxj:vxj:vxj:vxj:vxj:vxj:vxj:vxj:vxj:vxj:
+<div dir="ltr"data-setdir="false" style="height:2px;max-height:2px;overflow-y:hidden ;color:#ffe">[a7]</div>
+<div dir="ltr"data-setdir="false" style="height:2px;max-height:2px;overflow-y:hidden ;color:#ffe">[a7]</div>
+<div dir="ltr"data-setdir="false" style="height:2px;max-height:2px;overflow-y:hidden ;color:#ffe">[anl23]</div>
+<div dir="ltr"data-setdir="false" style="height:2px;max-height:2px;overflow-y:hidden ;color:#ffe">[anl26]</div>
+<div dir="ltr"data-setdir="false" style="height:2px;max-height:2px;overflow-y:hidden ;color:#ffe">[anl23]</div>
+<div dir="ltr"data-setdir="false" style="height:2px;max-height:2px;overflow-y:hidden ;color:#ffe">[anl26]</div>
+
+
+--_----------=bollinjreizdxsugjoske.irjnehllstm--
+--_-------jreizdxsugjoske.irjnehllstm-[n_10]jreizdxsugjoske.irjnehllstm=_:--
+----==mimepart_cthbwgwfgxwxknglkvt_aiuhbkhnxjrysnxbwgliwepkedjtgbfpenagrap
+Content-Type: text/html;
+Content-Transfer-Encoding: Hexa
+
+
+
+
+
+----[8_8_a;zqqdiw
+
+
+Hi sombmeoph sombmeoph,
+
+Thanks for subscribing and going your own way!
+
+We promise to keep you up to date with the latest on everything mpz ENX including news, tips and stories – everything you need delivered straight to your inbox.
+EXPERIENCE  kgao: 
+
+Thank you for joining the FXPTU & WZLKY newsletter. We know life with horses can be non-stop, but now you can relax as everything you need to know from the equestrian world is sent directly to your inbox. If you can’t wait until our next update, visit our website for the latest news, reports, features and much more.
+VISIT sombmeoph & sombmeoph: 
+
+Thank you for subscribing to sombmeoph!
+
+We’re excited to have you as part of our community. sombmeoph covers all breeds and riding disciplines, and our main interest is providing important information about uyzyc in the most interesting and enjoyable way possible.
+
+
+mpz--XDPUU--mpz---------------------------------------mpz--XDPUU--mpz
+<p><p><br />Cardinal Station Newburg Center for Primary Care<br />215 Central Avenue, Suite 100 1941 Bishop Lane, Suite mpz mpz Central Avenue, Suite mpz<br />Louisville, KY 17266 Louisville, KY 40218 Louisville, Ky 17266<br 
+/>I:\FCM\Phyllis Harris\Forms\New Patient Pkg Components<br />UofL Department of Family & Geriatric Medicine<br />Dear New Patient,<br />Welcome to your University of Louisville Physicians Family practice! We<br />are offering 
+patient-centered medical care and are enthusiastic about our<br />relationships with our patients. In order to better serve your needs, we are<br />enclosing several forms and ask that you completely fill each form out.<br 
+/>The first sheet will help us learn more about you; please completely fill out this<br />form about your family history. The next sheet is titled, “Authorization for the<br />use and/or Disclosure of Protected Health 
+Information”, and you will need to<br />completely fill that out for our doctors to treat you to the best of their ability; it<br />gives us permission to review your medical records from your previous primary<br />medical 
+facilities.<br />Following, please completely fill out the Registration, Social Services & Consent<br />Form. Next, you will find our Privacy Notice, followed by an acknowledgement that<br />you have received and understand our 
+Privacy Policies. Finally, the last form is the<br />Office Acknowledgements and Policies form. Please read carefully and sign<br />your name at the bottom of the letter.<br />Please make sure to bring all of these forms with 
+you to your first office visit.<br />Do not mail them back to the office. Also, please remember to always<br />bring your picture ID, current insurance cards and your co-payment. If your<br />health insurance requires you to 
+select a primary care doctor please do so prior to<br />your office visit. Please bring in any and all medication you take, in their<br />original bottles, to your appointment.<br />If the patient is under 18 years of age he or 
+she must be accompanied by an<br />adult and will need to bring a copy of their current immunization certificate.<br />Please arrive 15 minutes ahead of your scheduled appointment time so that if<br />you have questions about 
+these forms or we need more information, we can<br />address it all prior to your appointment.<br />We look forward to seeing you!<br />University of Louisville Physicians<br />UofL Family and Geriatric Medicine</p></p>
+
+<tr>
+<rr style="width: 3.00926%;" valign="top"> </rr>
+<rr class="GenLabelBold" style="width: 8.91204%;" valign="top"> </rr>
+<rr style="width: 19.6759%;" valign="top" nowrap="nowrap"> </rr>
+<rr style="width: 1.04167%;" align="left" valign="top"> </rr>
+<rr style="width: 1.27315%;" valign="top"> </rr>
+<rr class="GenLabelBold" style="width: 9.83796%;" valign=""> </rr>
+<rr style="width: 15.8565%;" valign="top" nowrap="nowrap"> </rr>
+<rr style="width: 3.00926%;" align="left" valign="top"> </rr>
+<rr style="width: 37.1528%;" valign="top"> </rr>
+
+<tr>
+mpz--XDPUU--mpz---------------------------------------mpz--XDPUU--mpz
+
+<ccihlxurbtayx><ijdqzitsugtewhaowye><iuwgfxreztlavq></[a_15]>_-_<ccihlxurbtayx><=
+><typhmhfeem></iuwgfxreztlavq>_-_<[a_12]><[a_15]><fbwltezrvqxfxfhaytogjrw=
+></czgcygvcbfcmrudav>_____________________________fbwltezrvqxfxfhaytogjrw____________________=
+______________<czgcygvcbfcmrudav><fbwltezrvqxfxfhaytogjrw><ijdqzitsugtewhaowye></ijdqzitsugtewhaowye>_-_<=
+><xyhkajmbgja><ijdqzitsugtewhaowye></avfopohupipqmkhp>_-_<avfopohupipqmkhp><=
+><fbwltezrvqxfxfhaytogjrw></fbwltezrvqxfxfhaytogjrw>__________________________________________=
+_____________________<xyhkajmbgja><[a_12]><xyhkajmbgja></=
+>_-_<ijdqzitsugtewhaowye><fbwltezrvqxfxfhaytogjrw><fbwltezrvqxfxfhaytogjrw></czgcygvcbfcmrudav>_-_<=
+><fbwltezrvqxfxfhaytogjrw><iuwgfxreztlavq></typhmhfeem>
+<ijdqzitsugtewhaowye><[a_15]><xyhkajmbgja></ijdqzitsugtewhaowye>_-_<fbwltezrvqxfxfhaytogjrw><=
+><[a_12]></ccihlxurbtayx>_-_<iuwgfxreztlavq><ijdqzitsugtewhaowye><avfopohupipqmkhp=
+></avfopohupipqmkhp>_____________________________iuwgfxreztlavq____________________=
+______________<ijdqzitsugtewhaowye><xyhkajmbgja><fbwltezrvqxfxfhaytogjrw></ijdqzitsugtewhaowye>_-_<=
+><xyhkajmbgja><xyhkajmbgja></xyhkajmbgja>_-_<xyhkajmbgja><=
+><xyhkajmbgja></xyhkajmbgja>__________________________________________=
+_____________________<xyhkajmbgja><xyhkajmbgja><xyhkajmbgja></=
+>_-_<xyhkajmbgja><xyhkajmbgja><xyhkajmbgja></xyhkajmbgja>_-_<=
+><ijdqzitsugtewhaowye><xyhkajmbgja></xyhkajmbgja>
+<iuwgfxreztlavq><ijdqzitsugtewhaowye><[a_12]></ijdqzitsugtewhaowye>_-_<ijdqzitsugtewhaowye><=
+><ijdqzitsugtewhaowye></ijdqzitsugtewhaowye>_-_<ijdqzitsugtewhaowye><ijdqzitsugtewhaowye><ijdqzitsugtewhaowye=
+></ijdqzitsugtewhaowye>_____________________________ijdqzitsugtewhaowye____________________=
+______________<ijdqzitsugtewhaowye><ijdqzitsugtewhaowye><ijdqzitsugtewhaowye></ijdqzitsugtewhaowye>_-_<=
+><ijdqzitsugtewhaowye><ijdqzitsugtewhaowye></ijdqzitsugtewhaowye>_-_<ijdqzitsugtewhaowye><=
+><ijdqzitsugtewhaowye></avfopohupipqmkhp>__________________________________________=
+_____________________<ccihlxurbtayx><typhmhfeem></=
+>_-_<ijdqzitsugtewhaowye><ijdqzitsugtewhaowye><xyhkajmbgja></[a_12]>_-_<=
+><czgcygvcbfcmrudav><czgcygvcbfcmrudav></ccihlxurbtayx>
+<avfopohupipqmkhp><[a_12]><[a_15]></ijdqzitsugtewhaowye>_-_<fbwltezrvqxfxfhaytogjrw><=
+><ijdqzitsugtewhaowye></iuwgfxreztlavq>_-_<xyhkajmbgja><[a_15]><iuwgfxreztlavq=
+></fbwltezrvqxfxfhaytogjrw>_____________________________iuwgfxreztlavq____________________=
+______________<[a_15]><iuwgfxreztlavq><[a_15]></[a_12]>_-_<=
+><fbwltezrvqxfxfhaytogjrw><ccihlxurbtayx></czgcygvcbfcmrudav>_-_<typhmhfeem><=
+><typhmhfeem></ijdqzitsugtewhaowye>__________________________________________=
+_____________________<typhmhfeem><iuwgfxreztlavq><[a_12]></=
+>_-_<[a_15]><iuwgfxreztlavq><fbwltezrvqxfxfhaytogjrw></typhmhfeem>_-_<=
+><ccihlxurbtayx><avfopohupipqmkhp></fbwltezrvqxfxfhaytogjrw>_-_</div>
+typhmhfeem.edu typhmhfeem.edu ***----*** typhmhfeem======= edu typhmhfeem.edu  ========== typhmhfeem.edu typhmhfeem.edu  :================typhmhfeem.edu typhmhfeem.edu </Div> typhmhfeem.edu typhmhfeem.edu  <a typhmhfeem.edu typhmhfeem.edu  ></a>
+typhmhfeem.edu typhmhfeem.edu ***----*** typhmhfeem======= edu typhmhfeem.edu  ========== typhmhfeem.edu typhmhfeem.edu  :================typhmhfeem.edu typhmhfeem.edu </Div> typhmhfeem.edu typhmhfeem.edu  <a typhmhfeem.edu typhmhfeem.edu  ></a>
+
+
+----[8_8_a;zqqdiw
+
+krrkrrkrrkrrkrrkrrkrr
+krrkrrkrrkrrkrrkrrkrr
+krrkrrkrrkrrkrrkrrkrr
+krrkrrkrrkrrkrrkrrkrr
+krrkrrkrrkrrkrrkrrkrr
+krrkrrkrrkrrkrrkrrkrr
+krrkrrkrrkrrkrrkrrkrr
+krrkrrkrrkrrkrrkrrkrr
+krrkrrkrrkrrkrrkrr
+krrkrrkrrkrrkrrkrrkrr
+krrkrrkrrkrrkrrkrrkrr
+krrkrrkrrkrrkrrkrrkrr
+krrkrrkrrkrrkrrkrrkrr
+krrkrrkrrkrrkrrkrrkrr
+krrkrrkrrkrrkrrkrrkrr
+krrkrrkrrkrrkrrkrrkrr
+krrkrrkrrkrrkrrkrrkrr
+krrkrrkrrkrrkrrkrrkrr
+krrkrrkrrkrrkrrkrrkrr
+----pbtvcafjyq;fdmlhwyjn----qlqscegczny;fdtwarkjhp-home-page-info-cell a {
+    text-decoration: none;
+    color: #484848;
+    line-height: 16px;
+}
+.hp-home-page-info-cell a:hover {
+    text-decoration: underline;
+}
+
+.hp-home-page-info-cell .first-button .view-product-link {
+    font-weight: bold;
+    color: #9b3030;
+}
+
+/* End of Homepage Product List */
+
+.custom-product-list-wishlist-container img {
+    width: 25px;
+}</style></head><body><div style=3D"text-align: center;">
+=09<table style=3D"width: 640px; margin: 0 auto; background:#fff;">
+=09=09<tr>
+=09=09=09<td><div>
+=09=09=09=09<span style=3D"display:none !important;visibility:hidden;mso-hi=
+de:all;opacity:0;">Contemporary Clothing For Women<br />
+To Help You Looking Good This Season</span>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+mpz--XDPUU--mpz---------------------------------------mpz--XDPUU--mpz
+----tmrpsjxr;ptkxeo----tmrpsjxr;ptkxeo
+Dear Silverfirefox,
+Under our agreement dated December 11th, 2021, you are entitled to 7.5% finder’s fee on Profits
+gained from the AHMSA related projects in Mexico.
+In the meantime we have transferred to you, on account an amount of $17266 that corresponds
+to the Profits showing for the commercial activities during the Year 2022 till September 2022.
+Draft accounts for the corresponding periods are provided. Any adjustments to the accounts will
+be reflected in future payments.
+Yours sincerely
+----[8_8_a;zqqdiw
+Hello XDPUU,
+
+SHOW. SHARE. SELL. SCHEDULE.
+
+ Advanced AI technology is your virtual team with automated multi‑tasking while you're behind the camera.
+ 
+
+
+
+
+ Save 50% off all plans right now.
+ 
+
+
+ Zenfolio has built a community of more than a half million photographers. Join us today and save 50%. 
+ 
+We're here for you.Have questions? Reach out to our amazing support team who are photographers just like you and experts on all things Zenfolio.
+
+
+mpz--XDPUU--mpz---------------------------------------mpz--XDPUU--mpz
+	<div>	<ctvwcfizln8><zqgriiaogkw><12_12_aN></a>_-_<12_12_aN><zqgriiaogkw><12_12_aN></a>_-_<ctvwcfizln8><12_12_aN><zqgriiaogkw></a>_____________________________y8vnhr11nd6h3jn__________________________________<9jwbvmzq38v3fnc><12_12_aN></a>_-_<9jwbvmzq38v3fnc><ctvwcfizln8><zqgriiaogkw></a>_-_<zqgriiaogkw><zqgriiaogkw><12_12_aN></a>________________________________________y8vnhr11nd6h3jn_____________________<12_12_aN><zqgriiaogkw><ctvwcfizln8></a>_-_<ctvwcfizln8><zqgriiaogkw><ctvwcfizln8></a>_-_<12_12_aN><ctvwcfizln8><12_12_aN></a>
+	<12_12_aN><ctvwcfizln8><12_12_aN></a>_-_<zqgriiaogkw><12_12_aN><ctvwcfizln8></a>_-_<12_12_aN><zqgriiaogkw><zqgriiaogkw></a>_____________________________9jwbvmzq38v3fnc__________________________________<12_12_aN><zqgriiaogkw><12_12_aN></a>_-_<12_12_aN><ctvwcfizln8><12_12_aN></a>_-_<zqgriiaogkw><12_12_aN><12_12_aN></a>________________________________________12_12_aN_____________________<12_12_aN><ctvwcfizln8><[1_3_a0]></a>_-_<12_12_aN><zqgriiaogkw><12_12_aN></a>_-_<zqgriiaogkw<12_12_aN><ctvwcfizln8></a>
+	<12_12_aN><zqgriiaogkw><ctvwcfizln8></a>_-_<12_12_aN><ctvwcfizln8><9jwbvmzq38v3fnc></a>_-_<zqgriiaogkw><ctvwcfizln8><12_12_aN></a>_____________________________9jwbvmzq38v3fnc__________________________________<12_12_aN><ctvwcfizln8><12_12_aN></a>_-_<ctvwcfizln8><[1_3_a3]><12_12_aN></a>_-_<ctvwcfizln8><[1_3_a3]><12_12_aN></a>________________________________________9jwbvmzq38v3fnc_____________________<12_12_aN><ctvwcfizln8><zqgriiaogkw></a>_-_<ctvwcfizln8><12_12_aN><zqgriiaogkw></a>_-_<12_12_aN><ctvwcfizln8><12_12_aN></a>
+	<12_12_aN><zqgriiaogkw><ctvwcfizln8></a>_-_<12_12_aN><ctvwcfizln8><9jwbvmzq38v3fnc></a>_-_<zqgriiaogkw><ctvwcfizln8><12_12_aN></a>_____________________________9jwbvmzq38v3fnc__________________________________<12_12_aN><ctvwcfizln8><12_12_aN></a>_-_<ctvwcfizln8><[1_3_a3]><12_12_aN></a>_-_<ctvwcfizln8><[1_3_a3]><12_12_aN></a>________________________________________9jwbvmzq38v3fnc_____________________<12_12_aN><ctvwcfizln8><zqgriiaogkw></a>_-_<ctvwcfizln8><12_12_aN><zqgriiaogkw></a>_-_<12_12_aN><ctvwcfizln8><12_12_aN></a>
+	 </div>
+----tmrpsjxr;zqqdiw
+<p>Registration Confirmation</p>
+<p>Dear peter</p>
+<p>Thank you for registering with Protocol Education, we will be in contact with you shortly.</p>
+<p>If you have any questions please contact your local branch.</p>
+<p>We look forward to working with you.</p>
+<p>Kind regards</p>
+<p>Protocol Education</p>
+<p>Search and apply for jobs</p>
+<p>  Protocol Education</p>Select Your [n_4] Health Plan Now. wdvo
+<p> Connect with Protocol on Social Media!</p>
+----tmrpsjxr;ptkxeo----tmrpsjxr;ptkxeo
+<p>Reset your password</p>
+<p>Hello Eve xyhkajmbgja</p>
+<p>Thank you for requesting us to reset your ????///pgh\\\???? website password. To reset your password please visit the following web page and enter your password reset token:</p>
+<p> </p>
+<p>Your password reset token is [u24_25_aN]. It will expire at 1:01 GMT ON 07 Oct 2018</p>
+<p>Can't click on the link? Copy and paste it in to your web browser</p>
+<p>If you need help please call us on p4qhigp2bm7hm1nwhh864snzmpzp4qhigp2bm7hm1nwhh864snz or email</p>
+<p>Many thanks</p>
+<p>????///hudpku\\\???? Team</p>
+
+mpz--XDPUU--mpz---------------------------------------mpz--XDPUU--mpz
+<p>Dear Students and Parents:<br />
+[au_8] encourages you to find a college or university that will expand your<br />
+horizons, challenge you, and engage you on many levels. Above all, we want<br />
+you to find a quality school that best suits your personal, career, and<br />
+academic goals.<br />
+This handbook is a valuable tool in the college search process. As you<br />
+progress through the college admissions process, please remember there are<br />
+many people here to help you - especially your College Counselors. Also,<br />
+remember the College Advising office has a computer for your use in<br />
+searching for colleges, scholarships, and planning college visits as well as<br />
+several reference materials to help you with your college search.<br />
+We look forward to helping you to plan for your future!<br />
+Have fun and good luck!<br />
+Mrs. Foldvary (A-L) Mrs. Johnson (M-Z)<br />
+ [un_10] ext. 117 [un_10] ext. 118</p>
+----tmrpsjxr;ptkxeo
+----[8_8_a;zqqdiw----tmrpsjxr;zqqdiw
+----[8_8_a;zqqdiw
+<p>Hi Silverfirefox,</p>
+<p>We know how daunting the college search process can be, which is why we want to let you know that we think Hofstra University may might be the perfect fit for you!</p>
+<p>Despite all the uncertainty of the current times, students at Hofstra University were able to thrive during the fall 2021 semester. We had great success returning to in-person class instruction, which allowed our students the chance to come Together Again and participate in gatherings and events campus-wide.</p>
+<p>We took the necessary precautions needed to keep our community safe and we are thankful that we were able to have a wonderful semester. There are so many benefits of attending a private university like Hofstra, and we want you to experience what we're all about.</p>
+<p>We'd love for you to join us for one of our upcoming Virtual Transfer Days where you can apply and receive an admission decision and credit evaluation, meet with an academic advising dean, and register for the classes you want and need at Hofstra - all from the comfort of your home! Please click here to register for the date and time that works for you.</p>
+<p>Best,</p>
+<p>The Transfer Admission Team Hofstra University</p>
+mpz--XDPUU--mpz---------------------------------------mpz--XDPUU--mpz
+pgh--pgh--afwdc---------------------------------------pgh--pgh--afwdc
+mpz--XDPUU--mpz---------------------------------------mpz--XDPUU--mpz
+bnhywsbnhywsbnhywsbnhywsbnhywsbnhywsbnhywsbnhywsbnhyws 
+<div>
+
+mpz--XDPUU--mpz---------------------------------------mpz--XDPUU--mpz
+----[8_8_a;zqqdiw
+
+<TablE BoRder=1>
+<Tr><tD>Abt Electronics</tD>
+<TR><tD>WELCOME<Td> [anu_4]!
+<tr><tD>YOUR ACCOUNT HAS BEEN CREATED
+<tR><Td>Abt Store</Td>
+<Tr><tD>To complete your account setup<Td> we'll need to verify your account.</td>
+<tr><Td>Please click the button below or enter your verification code when prompted to access your account.
+<tr><TD>Verification Code</TR>
+<tr><TD>[un_9]</TD>
+<TR><tD>Your code will expire in 2 hours.
+<Tr><Td>VERIFY MY ACCOUNT</td>
+<Tr><td>Facebook Instagram Pinterest Twitter YouTube The Bolt</Tr>
+<TR><tD>Abt Electronics | mpz N. Milwaukee Ave.<TD> Glenview<tD> IL rcksn | mpz.mpz.p4qhigp2bm7hm1nwhh864snz | in7jkate5i5vgvta2gn1mqis0@com</tR>
+<tR><TD>©Fri, 22 May 2026 02:23:28 +0000 (UTC) Abt Electronics - All rights reserved | privacy policy</TR>
+<tr><Td>This email was sent because you recently signed up to receive Abt newsletters. If you did not intend to join our email list or received this email in error</Td><tD> please click here to unsubscribe.</Tr>
+</taBLE>
+<P>
+y8vnhr11nd6h3jn<bR />
+Welcome to y8vnhr11nd6h3jn!<BR />
+You've activated your customer account. Next time you shop with us, log in for faster checkout.</P>
+<p>Visit our store<BR />
+If you have any questions, reply to this email or contact us at concierge@y8vnhr11nd6h3jn.com</p>
+<dIv ClasS="js-equal grid__item grid__box">
+<h3 class="heading heading--sub-section">PREPARE TO APPLY</h3>
+<P>Find out more about the application process, researching your destination, how much it will cost and more.
+</div>
+<diV CLass="js-equal grid__item grid__box">
+<H3 class="heading heading--sub-section">GET READY TO GO</H3>
+<P>Congratulations on being accepted for Study Abroad! Now it's time to plan the details, like where you'll stay, organising your visa and applying for your student loan.</P>
+</Div>
+<DIv cLass="js-equal grid__item grid__box">
+<H3 class="heading heading--sub-section">DURING YOUR STUDY ABROAD YEAR</H3>
+<P>Once you know you'll be studying abroad, you'll need to arrange accommodation, insurance, visas, proof of your finances and maybe some foreign language studies.  
+</DIV>
+<diV ClASs="js-equal grid__item grid__box">
+<h3 class="heading heading--sub-section">RETURNING TO LEEDS</h3>
+<P>Welcome back! Here's some useful information to help you settle back into life in Leeds.</p>
+</DIV>
+<DIV ClAss="js-equal grid__item grid__box">
+<H3 class="heading heading--sub-section">SUMMER SCHOOLS</H3>
+<P>Short programmes, usually through summer schools, are a great chance to experience study and life in another country.
+</dIv>
+<diV ClaSs="js-equal grid__item grid__box">
+<H3 class="heading heading--sub-section">STUDY ABROAD HANDBOOKS AND DOCUMENTS</H3>
+<P>Handbooks, checklists, forms and information you will need before and during your study abroad.
+</Div>
+<DIV ClASs="js-equal grid__item grid__box">
+<H3 class="heading heading--sub-section">GRADUATE STUDY ABROAD OPPORTUNITIES</h3>
+<p>If you're a Postgraduate researcher, there may be opportunities to study abroad during your time here.
+</DIv>
+</diV>
+<kworfqj> </kworfqj>
+<kworfqj> </kworfqj>
+<!--This has polling place link and the written material -->
+<kworfqj> </kworfqj>
+<!-- search parameters -->
+<kworfqj> </kworfqj>
+<kworfqj> </kworfqj>
+<!--This has polling place link and the written material -->
+<kworfqj> </kworfqj>
+<!-- search parameters -->
+
+----[8_8_a;zqqdiw
+
+----tmrpsjxr;ptkxeo----tmrpsjxr;ptkxeo
+mpz--XDPUU--mpz---------------------------------------mpz--XDPUU--mpz
+
+mpz--XDPUU--mpz---------------------------------------mpz--XDPUU--mpz
+
+Hi kworfqj kworfqj,
+
+Thanks for subscribing and going your own way!
+
+We promise to keep you up to date with the latest on everything mpz ENX including news, tips and stories – everything you need delivered straight to your inbox.
+EXPERIENCE  kgao: 
+
+Thank you for joining the FXPTU & WZLKY newsletter. We know life with horses can be non-stop, but now you can relax as everything you need to know from the equestrian world is sent directly to your inbox. If you can’t wait until our next update, visit our website for the latest news, reports, features and much more.
+VISIT kworfqj & kworfqj: 
+
+Thank you for subscribing to kworfqj!
+
+We’re excited to have you as part of our community. kworfqj covers all breeds and riding disciplines, and our main interest is providing important information about uyzyc in the most interesting and enjoyable way possible.
+
+
+
+----tmrpsjxr;ptkxeo----tmrpsjxr;ptkxeo
+
+pgh--pgh--afwdc---------------------------------------pgh--pgh--afwdc
+
+----tmrpsjxr;zqqdiw
+
+mpz--XDPUU--mpz---------------------------------------mpz--XDPUU--mpz
+
+<p>
+To the attention of Matjaž zqgriiaogkw<br />
+Dear Mr zqgriiaogkw,<br />
+In response to the alert with regard to Hungary that has been submitted to the Platform<br />
+for the Promotion of the Protection of Journalism and Safety of Journalist concerning<br />
+the case of Hungarian journalist Júlia Halász, I would like to convey the following<br />
+reaction received from the Ministry of Foreign Affairs and Trade of Hungary:<br />
+“On any given event, every journalist as well have to follow the rules, like doing pre-<br />
+registration where is it required.”<br />
+Yours sincerely,<br />
+Agnes Kertész<br />
+Ambassador<br />
+</p>
+XDPUU--7_9_a--xawutnq---------------------------------------hudpku--ewzewkg--hudpku
+<p>Participant Application<br />
+Rochester Public Schools<br />
+Launching Emerging Adults Program (LEAP)<br />
+Participant Applicant Information<br />
+Page 1 of 2<br />
+Applicant Info<br />
+Parent/Guardian of Applicant<br />
+1.)<br />
+2.)<br />
+Phone Number<br />
+1.)<br />
+2.)<br />
+Email Parent/Guardian 1.)<br />
+Email Parent/Guardian 2.)<br />
+Please indicate Yes, or No to the following questions and provide additional information as appropriate.<br />
+Are you currently enrolled in school?<br />
+Yes____ No__<br />
+If yes, what school are you currently enrolled?<br />
+Are you living somewhere other than the<br />
+address provided? Yes____ No___<br />
+If yes, where are you currently living?<br />
+Are you living with people other than your<br />
+parent or guardian? Yes____ No___<br />
+If yes, what is your relationship with the person/people you are<br />
+living with?<br />
+Did someone refer or suggest you apply to the<br />
+LEAP program? Yes____ No___<br />
+If yes, who referred you?<br />
+Are you on probation? Yes____ No___ If yes, who is your probation officer?<br />
+If applicable please provide current and past work history.<br />
+Employer Start Date/End Date Supervisor Name and Contact</p>
+XDPUU--7_9_a--xawutnq---------------------------------------hudpku--ewzewkg--hudpku
+<p>Dear Applicant,<br />
+Thank you for considering applying to the Launching Emerging Adults Program (LEAP). As the<br />
+LEAP program is strongly based on the individual student’s self-determination, the application is<br />
+a multi-step process. The intent of this letter is to guide you and inform you of the application<br />
+process.<br />
+Step 1- Accessing the application<br />
+Both the “Participant Application” section and “Referral Section” of the application can be<br />
+accessed through Rochester Public Schools website, Rochester.k12.mn.us./LEAP.<br />
+Step 2- Complete the “Participant” section and the “Referral” section of the application.<br />
+Fill in the application with the appropriate and most accurate information. The sections can be<br />
+completed individually by the applicant and referral source, or completed together by applicant<br />
+and referral source.<br />
+If unable to access application forms via the internet, request a printable version from Bucky<br />
+Flores at roflores@rochester.k12.mn.us. Upon receipt, print and complete the written portion of<br />
+the application.<br />
+Step 3- Submit Application<br />
+Printed hard copies of the applicant section and referral section can be scanned and emailed to<br />
+roflores@rochester.k12.mn.us, or sent through the Rochester Public Schools intra-school mail<br />
+to Jolene Becher @ John Adams, or snail mail to:<br />
+The Exchange Co-op<br />
+Attn: Robert Flores<br />
+3945 10th Ave NW, Rochester, MN 55901.<br />
+Step 4- Applications Reviewed<br />
+LEAP staff will review application and contact applicant of next steps.<br />
+Step 5- Applicant Interview<br />
+Applicants will meet with program staff and be introduced to the interview process. The<br />
+interview process includes a series of interviews to be completed in 20, or fewer, academic<br />
+calendar days.<br />
+Step 6- Recommendation to Advisory Board<br />
+Following the applicant interview process, program staff will make a recommendation for or<br />
+against enrollment in the program. The applicant will be informed of the Advisory Board’s<br />
+decision within 2-3 academic calendar days.</p>
+----tmrpsjxr;zqqdiw
+
+mpz--XDPUU--mpz---------------------------------------mpz--XDPUU--mpz
+
+</object>
+--000000000000B0MNRUNyYR84HR9b--
+--000000000000B0MNRUNyYR84HR9a--
+--000000000000SGCNuB7Qm6umj710elBSQB--
