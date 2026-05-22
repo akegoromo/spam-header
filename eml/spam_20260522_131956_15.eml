@@ -1,0 +1,812 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:a317:0:b0:26a:2114:7ab with SMTP id h23csp920531eid;
+        Thu, 21 May 2026 21:19:58 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ8kje+NGfcu8NoYgQOMEmn0+3czC6etDi/QhvBTMemyKyQPDBzekKdIu6YswO8LCXOlOGF+eqmgcvTg3cjqCQ==@gmail.com
+X-Received: by 2002:a05:6402:360b:b0:67e:9e04:31d0 with SMTP id 4fb4d7f45d1cf-6889c477b35mr721715a12.23.1779423598768;
+        Thu, 21 May 2026 21:19:58 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1779423598; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=gaiYGkSmsbiYmyBwex3udEIuwvTFN/Yjg3IqJOVrWQVXtOO90A1DsJdambxazRiefS
+         R2L0M48pIOTlLUt1by7wE8sn8zpLIHroh7xMqZmagYIAipoVAH4XH7gtYIjgN/6RAqG0
+         pHxv5hvKxJ5mUQ8KnXivEMJWQUdkLlF7r3EkaPKSgAv6eVwtWZ6PKsFDjjQJZo9alQ/1
+         qTnaMwdIfhjsYImovVnYMymKa90Kz+UorhOyNrKrhGnxRNikkUQUwMvjugXZDk6aSSB6
+         /AaMGe5sczFPC9fDxf8NoIZihYgT/10uqvldP9sanUvB15QRpm0pZQrf+QQgzp+LPJo0
+         ss9Q==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:mime-version:from:date:dkim-signature
+         :feedback-id:dkim-signature:dkim-signature;
+        bh=7rjNQ5CeONv4d31ezCu7jf/BB4lK3ZFQhUZT521+Qqw=;
+        fh=AmwUtjvAn7++NEBttiaVEnyCAVA5youKb81rEHZT4FM=;
+        b=a4HpdRravddu8FE13298x6S8g7UyFjbq6FKY6/KqXbF/gfuCtWoBRKjXV5idVrNw0K
+         lrtBoCNzgWRkpsAaBCM47R76RHOzkjZOQ0/jZ/PzKq8xAIzK86ZdrvFWnirw5/eNMXQM
+         WNM6TynTwljR3oJXeYAmnaQukWxSSB+HvWcHPW+KfrfXaAhWHXvFcqwwYreL+aYFftOz
+         BeD1qHSDEsPxbe/LT4z6YmTIbr9Hu6peaOhbeMgkNu74AJtF9kHoRUDakS+gHtFzx5o/
+         LKHt+mXE7/KXh5rIse9/tN1OH4IA8qvvvJhjP7nyGVwfWesxc7SDAlmyvsayny78kN4t
+         U94Q==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=U8opFG0W;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=F2j9U1sC;
+       dkim=pass header.i=@drwhiteparis.com header.s=s1 header.b=ZBh+s10k;
+       arc=pass (i=1 spf=pass spfdomain=em9091.drwhiteparis.com dkim=pass dkdomain=drwhiteparis.com dmarc=pass fromdomain=drwhiteparis.com);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.39 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=drwhiteparis.com
+Return-Path: <cfbounces+ndrdrop@whither.jp>
+Received: from ba-dj.cloudflare-email.net (ba-dj.cloudflare-email.net. [104.30.10.39])
+        by mx.google.com with ESMTPS id 4fb4d7f45d1cf-688bb13a808si217186a12.127.2026.05.21.21.19.58
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 21 May 2026 21:19:58 -0700 (PDT)
+Received-SPF: pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.39 as permitted sender) client-ip=104.30.10.39;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=U8opFG0W;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=F2j9U1sC;
+       dkim=pass header.i=@drwhiteparis.com header.s=s1 header.b=ZBh+s10k;
+       arc=pass (i=1 spf=pass spfdomain=em9091.drwhiteparis.com dkim=pass dkdomain=drwhiteparis.com dmarc=pass fromdomain=drwhiteparis.com);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.39 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=drwhiteparis.com
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=To:Subject:From:Date:Feedback-ID:from:reply-to:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1779423598; x=1780028398; bh=7rjNQ5CeONv4d31ezC
+	u7jf/BB4lK3ZFQhUZT521+Qqw=; b=U8opFG0WFcxpmHg8hoaOK3N2YEDfjN2CKtw8gLsBK076L
+	JLnAmZ17d5VsWqYZj54Df4HT0/+v5ZPx3g7h4dO2TXo/WvXT1MTB2XSkrrTvi7FnSxKUozGih5L
+	S4ZQBwoi/cco2AdLlRZ0k24AihyiWMLk+iFRl1FHlhOXmg3yhM2+Thq+AoIHORB5VaqKH49EOpP
+	s6BKqJ8/EoNKXS/CvHfmIPXxIO+Jr91m+Y+VTzUHUaV3TwTwo4f2kFyY2gLdmohk822JkFTiacD
+	v6huuiNTcgkm02dmIAMTxpYRgK3ZYxT6AbR+mqVm5MipS12b6yZ38feeUADL5vd2Xo8f0+LA==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=To:Subject:From:Date:Feedback-ID:from:reply-to:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1779423598; x=1780028398; bh=7rjNQ5CeONv4d31ezC
+	u7jf/BB4lK3ZFQhUZT521+Qqw=; b=F2j9U1sCQTxuVLc2anT0YqHUJsgnFWhKu3dI2R9pgJKOR
+	NBhb/sNXaiRZVyBP76GjXPIGBI3ovb0Sf4+wR88rD/yf4pRAiR7+8NXF5xQ+uvT1Znp+fA4kyob
+	mz+ACOQ77hwv9KHmOX5GKgIcakncHtr9KHwEXqpLm/osXpQj3Egs20bAUMTLiUH7vXUPucq7GHZ
+	L1p2QA+OQoKcuWhHnfGzDaeEpV4O5lYCL2fW7OnijLxTPvJrd3ZhzcnR8pMVyfFfKI9QRgYdks0
+	D2I0IeuDfIenN5hZKmmQ7mPwsMyKmJwDO8t0jnZdjeufs9pGo+XG7P3cp6wIyf8CfkImWQNA==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: silver.firefox+whither-jp@gmail.com silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:2:1:Cloudflare
+Received: from s.wfbtzhsv.outbound-mail.sendgrid.net (159.183.224.104)
+        by cloudflare-email.net (cloudflare) id DmhXf7RdSZiP
+        for <tnakahara@whither.jp>; Fri, 22 May 2026 04:19:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=hB/6CsBqkoqKLHwbSOjq1NVUmdbL3TcbHYO3cbvYRErzmshvozJui7/zXtDIp43xB14KwXIqd
+	e0ZfbonG0a32MJNy0mgYhhXUsBOk+3g6WkXHpUbo1QX+KsVKDNKRD2LPqsT5AdDCP8fwZdQOfxW
+	ma0ndj+rGRG5ax5o7oyUFqqCLyGKUpGUnROdJAW8VQYBbwvy2Ded/aWxY7IyYo0pn72uF4oljhT
+	NnEZ7MnkdIV2jFS7kMxyNk52DnU8WRSCT1UoUu8DhvjNglvd+kM3Pnhe8UIKCJmFaW0Qtwjrutz
+	QZmZH0annBOyRXnIOuwDa/r2vgWeBHOjZ0jDDsL/zqzw==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=To:Subject:From:Date:from:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1779423597; x=1780028397; bh=7rjNQ5Ce
+	ONv4d31ezCu7jf/BB4lK3ZFQhUZT521+Qqw=; b=gP+P2m1floueGUqiu6n+TlxAZ8Qgo014XFt
+	JXZhYDjeS+pQ9OaKryfDCa4eFVTpXt+unt764YlLrEvxszmGlGfQ0BEBfnlk8LSwbzgYP3m6dw6
+	qsvu00J2nA6uIyZcMpnXVC5xJ53setSa9u2GMGmPwpdeVgXeKW42Yg9tjxd5hA9qac4yLCvMLjy
+	n7YrPzCQaeNI2JN2K28B9DpbhT5p2JU5aTRBzTTiBG2dnuZsm6tz/f/2lwJ4e0uq/bu8QTlhl+s
+	n0M+i56nyz831FREPYMYpCavOELKU9s9ioKEz4iATyYzDMNg3dPXRUiOfjqI4YXZQiovbVIYR+3
+	7E4ypqQ==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.d=drwhiteparis.com header.s=s1 header.b=ZBh+s10k;
+	dmarc=pass header.from=drwhiteparis.com policy.dmarc=none;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@s.wfbtzhsv.outbound-mail.sendgrid.net) smtp.helo=s.wfbtzhsv.outbound-mail.sendgrid.net;
+	spf=pass (mx.cloudflare.net: domain of bounces+107786130-86e8-tnakahara=whither.jp@em9091.drwhiteparis.com designates 159.183.224.104 as permitted sender) smtp.mailfrom=bounces+107786130-86e8-tnakahara=whither.jp@em9091.drwhiteparis.com;
+	arc=none smtp.remote-ip=159.183.224.104
+Received-SPF: pass (mx.cloudflare.net: domain of bounces+107786130-86e8-tnakahara=whither.jp@em9091.drwhiteparis.com designates 159.183.224.104 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=159.183.224.104; envelope-from="bounces+107786130-86e8-tnakahara=whither.jp@em9091.drwhiteparis.com"; helo=s.wfbtzhsv.outbound-mail.sendgrid.net;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.d=drwhiteparis.com header.s=s1 header.b=ZBh+s10k;
+	dmarc=pass header.from=drwhiteparis.com policy.dmarc=none;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@s.wfbtzhsv.outbound-mail.sendgrid.net) smtp.helo=s.wfbtzhsv.outbound-mail.sendgrid.net;
+	spf=pass (mx.cloudflare.net: domain of bounces+107786130-86e8-tnakahara=whither.jp@em9091.drwhiteparis.com designates 159.183.224.104 as permitted sender) smtp.mailfrom=bounces+107786130-86e8-tnakahara=whither.jp@em9091.drwhiteparis.com;
+	arc=none smtp.remote-ip=159.183.224.104
+X-CF-SpamH-Score: 0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=drwhiteparis.com;
+	h=content-type:date:from:mime-version:subject:to:cc:content-type:date:
+	from:subject:to;
+	s=s1; t=1779423596;
+	bh=7rjNQ5CeONv4d31ezCu7jf/BB4lK3ZFQhUZT521+Qqw=;
+	b=ZBh+s10kwPIL6ZyoAhxM9XaZa8AWRQrbI3s+G5BVRqw7YuNT0p5F950dFKFRYWZPEGe9
+	NAQzzTYNlncaRkdZjS9igaOwUjYe2aavslB1SHEnsIg2MlaVEXRWFY6G+bIGQOPaxfsywb
+	5F4r2cmhxyz9QjTGxmzkPTmNJWdL2O2Kkvgw2t7xIrOFwTSG/esGxjp8z7wCnGM2fqCxpk
+	2Uhvz6zUADtNBXaJ3ToVJT2cAUPV2Jqt07+CINY0uIjzwADmj9mazLspc/7GgSsTSOzyab
+	9tSlUcyeovBGTV5lf+o7dgZzDDvb4H37tREfTAJ7RYxOreh2DQaiHxETO6UWaLLA==
+Received: by recvd-66f8c77d66-mpp26 with SMTP id recvd-66f8c77d66-mpp26-1-6A0FD96C-26
+	2026-05-22 04:19:56.488803069 +0000 UTC m=+2011596.572086137
+Received: from MTA3Nzg2MTMw (unknown)
+	by geopod-ismtpd-65 (SG) with HTTP
+	id AU7o_dCRQ2WwnZgxHgexew
+	Fri, 22 May 2026 04:19:56.463 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=22bfd5e7bdb63894688b8a7eeae3509ffcee9114a08f59914f71507cbab1
+Date: Fri, 22 May 2026 04:19:56 +0000 (UTC)
+From: =?UTF-8?b?44CQ44Ki44Kr44Km44Oz44OI6YCa55+l44CR?=
+	<info@drwhiteparis.com>
+Mime-Version: 1.0
+Message-ID: <AU7o_dCRQ2WwnZgxHgexew@geopod-ismtpd-65>
+Subject: =?UTF-8?B?44CQaQ==?= C l o u
+ =?UTF-8?B?ZCvjgJHoh6rli5Xmm7TmlrDjga7jgZ/jgoHjga7jgYrmiYvntprjgY3jga7jgYrpoZjjgYQ=?=
+X-SG-EID: 
+ =?us-ascii?Q?u001=2E+K=2F6WAX5Q4Drg7khNIJuKpRgw8k7Eaoh9PX71dA8o+l8J5I7jV18Jfcsh?=
+ =?us-ascii?Q?TXerMVJhIADdfFiqLXGTOAMLzn7uu20QFLevoSU?=
+ =?us-ascii?Q?jb4mRYtjP4pPvU6mZZDdMRlf6PcBM579IiBPoTm?=
+ =?us-ascii?Q?4xvMnZGN0dG3WDVkP9QFm8wVGN0LgXFj7lieCZC?=
+ =?us-ascii?Q?z2iu4qhk4rcg6M=2F+X3QK1mLdwyTJqD37Hir66h1?=
+ =?us-ascii?Q?josl4GzD4u6opOQ79=2FVdONefkeAKj1M8qAN0j4G?=
+ =?us-ascii?Q?VNxuVvlWLhizsQ3uyD3VBh=2FwYw=3D=3D?=
+To: tnakahara@whither.jp
+X-Entity-ID: u001.BskN7oQVH7HoPx+VE5LVww==
+
+--22bfd5e7bdb63894688b8a7eeae3509ffcee9114a08f59914f71507cbab1
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Mime-Version: 1.0
+
+&#12304;&#37325;&#35201;&#12305;&#12362;&#25903;&#25173;&#12356;&#12395;&#2=
+2833;&#25943;&#12375;&#12414;&#12375;&#12383;&#65288;&#12362;&#25903;&#2517=
+3;&#12356;&#26041;&#27861;&#12398;&#26356;&#26032;&#12364;&#24517;&#35201;&=
+#12391;&#12377;&#65289;
+
+&#12362;&#25903;&#25173;&#12356;&#12395;&#22833;&#25943;&#12375;&#12414;&#1=
+2375;&#12383;&#12290;&#26399;&#38480;&#12414;&#12391;&#12395;&#12362;&#2590=
+3;&#25173;&#12356;&#26041;&#27861;&#12398;&#26356;&#26032;&#12434;&#12362;&=
+#39000;&#12356;&#12356;&#12383;&#12375;&#12414;&#12377;&#12290;? ? ? ? ? ? =
+? ? ?=20
+?
+
+ =20
+ =20
+   =20
+     =20
+       =20
+       =20
+         =20
+           =20
+             =20
+             =20
+               =20
+                  &#12502;&#12389;&#12498;&#12435;&#12510;&#12471;&#12531;&=
+#12471;&#12361;
+
+                 =20
+                   =20
+                      i C l o u d =20
+                     =20
+                  &#12511;&#12482;&#12393;&#12516;&#12398;
+
+                  &#12362;&#25903;&#25173;&#12356;&#12395;&#22833;&#25943;&=
+#12375;&#12414;&#12375;&#12383;
+
+                &#35201;&#23550;&#24540;=20
+               =20
+            &#12465;&#12419;&#12378;&#12375;&#12485;&#12459;&#12375;&#12506=
+;
+
+            &#12372;&#30331;&#37682;&#12398;&#12362;&#25903;&#25173;&#12356=
+;&#26041;&#27861;&#12391;&#27770;&#28168;&#12434;&#35430;&#12415;&#12414;&#=
+12375;&#12383;&#12364;&#12289;&#20966;&#29702;&#12434;&#23436;&#20102;&#123=
+91;&#12365;&#12414;&#12379;&#12435;&#12391;&#12375;&#12383;&#12290;
+&#26399;&#38480;&#12414;&#12391;&#12395;&#12362;&#25903;&#25173;&#12356;&#2=
+6041;&#27861;&#12434;&#26356;&#26032;&#12356;&#12383;&#12384;&#12369;&#1239=
+4;&#12356;&#22580;&#21512;&#12289;&#12503;&#12521;&#12531;&#12398;&#26356;&=
+#26032;&#12364;&#34892;&#12431;&#12428;&#12378;&#12289;&#19968;&#37096;&#27=
+231;&#33021;&#12364;&#21046;&#38480;&#12373;&#12428;&#12427;&#21487;&#33021=
+;&#24615;&#12364;&#12354;&#12426;&#12414;&#12377;&#12290;
+
+       =20
+         =20
+           =20
+             =20
+             =20
+               =20
+                 =20
+                   =20
+                   =20
+                     =20
+                        &#12493;&#12523;&#12485;&#12492;&#12450;&#12411;&#1=
+2465;&#12364;
+
+                        &#12521;&#12396;&#12478;&#12520;&#12395;
+
+&#12372;&#35531;&#27714;&#26085;
+                        2026/05/22
+
+                        &#12492;&#12508;&#12487;&#12408;&#12412;&#12504;&#1=
+2354;&#12396;
+
+                        &#29366;&#27841;
+
+                        &#12362;&#25903;&#25173;&#12356;&#12395;&#22833;&#2=
+5943;
+
+                        &#12473;&#12378;&#12402;&#12399;&#12384;&#12491;&#1=
+2530;&#12461;&#12492;&#12526;
+
+                        &#12362;&#25163;&#32154;&#12365;&#26399;&#38480;
+
+                        2026/05/23 23:59
+
+                     =20
+                        &#12392;&#12495;&#12422;&#12429;&#12364;
+
+                        &#35531;&#27714;&#26360;&#30058;&#21495;
+
+                        INV-583920
+
+                        &#12425;&#12374;&#12432;&#12500;&#12477;
+
+                        &#27880;&#25991;&#30058;&#21495;
+
+                        ODR-UPXJQK
+
+                        &#12492;&#12522;&#12376;&#12428;&#12455;&#12415;&#1=
+2354;&#12401;&#12395;
+
+                        &#22833;&#25943;&#29702;&#30001;
+
+                        &#12459;&#12540;&#12489;&#20250;&#31038;&#12395;&#1=
+2424;&#12426;&#25215;&#35469;&#12373;&#12428;&#12414;&#12379;&#12435;&#1239=
+1;&#12375;&#12383;
+
+       =20
+         =20
+       =20
+         =20
+            &#12412;&#12413;&#12370;&#12506;&#12510;&#12425;&#12471;&#12427=
+;&#12355;
+
+            &#27425;&#12395;&#34892;&#12358;&#12371;&#12392;
+
+           =20
+             =20
+             =20
+               =20
+                  &#12403;&#12381;&#12358;&#12433;&#12382;&#12508;&#12529;&=
+#12502;
+
+                  &#12362;&#25903;&#25173;&#12356;&#26041;&#27861;&#12434;&=
+#26356;&#26032;&#12375;&#12390;&#20877;&#24230;&#12362;&#35430;&#12375;&#12=
+367;&#12384;&#12373;&#12356;
+
+                  &#12475;&#12399;&#12390;&#12433;&#12361;&#12451;&#12370;&=
+#12506;
+
+                 =20
+                   =20
+                   =20
+                      1=20
+                     =20
+                     =20
+                        &#12459;&#12540;&#12489;&#12398;&#26377;&#21177;&#2=
+6399;&#38480;?&#21033;&#29992;&#38480;&#24230;&#38989;&#12434;&#12372;&#309=
+06;&#35469;&#12367;&#12384;&#12373;&#12356;
+
+                   =20
+                      2=20
+                     =20
+                     =20
+                        &#21029;&#12398;&#12459;&#12540;&#12489;&#12289;&#1=
+2414;&#12383;&#12399;&#21029;&#12398;&#12362;&#25903;&#25173;&#12356;&#2604=
+1;&#27861;&#12395;&#20999;&#12426;&#26367;&#12360;&#12390;&#12367;&#12384;&=
+#12373;&#12356;
+
+                   =20
+                      3=20
+                     =20
+                     =20
+                        &#26356;&#26032;&#24460;&#12289;&#25968;&#20998;&#2=
+4460;&#12395;&#20877;&#24230;&#12450;&#12459;&#12454;&#12531;&#12488;&#2936=
+6;&#24907;&#12434;&#12372;&#30906;&#35469;&#12367;&#12384;&#12373;&#12356;
+
+       =20
+         =20
+       =20
+         =20
+            &#12357;&#12493;&#12394;&#12534;&#12368;&#12503;&#12406;&#12405=
+;
+
+            &#12372;&#21033;&#29992;&#20013;&#12398;&#12503;&#12521;&#12531=
+;
+
+           =20
+             =20
+             =20
+               =20
+                 =20
+                   =20
+                   =20
+                     =20
+                       =20
+                         =20
+                         =20
+                            i C l o u d =20
+                           =20
+                        &#12505;&#12481;&#12435;&#12540;&#12509;&#12513;&#1=
+2429;&#12490;&#12365;
+
+                        =20
+
+                        &#12382;&#12354;&#12489;&#12370;&#12492;&#12353;&#1=
+2534;&#12427;&#12463;&#12462;
+
+                        50=20
+                        GB &#12398;&#12473;&#12488;&#12524;&#12540;&#12472;=
+&#65288;&#26376;&#38989;&#65289;
+
+                        &#12531;&#12419;&#12418;&#12415;&#12494;&#12385;&#1=
+2531;&#12425;&#12507;
+
+                        &#27425;&#22238;&#26356;&#26032;&#26085;&#65306;202=
+6&#24180;06&#26376;22&#26085;
+
+                     =20
+                        &#12530;&#12519;&#12421;&#12481;&#12514;&#12521;&#1=
+2377;&#12394;&#12368;
+
+                        &#65509;150
+
+             =20
+               =20
+             =20
+               =20
+                 =20
+                   =20
+                   =20
+                     =20
+                        &#12396;&#12491;&#12400;&#12373;&#12402;
+
+                        &#21512;&#35336;&#65288;&#31246;&#36796;&#65289;
+
+                     =20
+                        &#12526;&#12403;&#12428;&#12398;&#12413;&#12385;
+
+                        &#65509;150
+
+       =20
+         =20
+           =20
+             =20
+             =20
+                &#12362;&#25903;&#25173;&#12356;&#26041;&#27861;&#12434;&#2=
+6356;&#26032;&#12377;&#12427;=20
+       =20
+         =20
+           =20
+             =20
+             =20
+                &#35531;&#27714;&#20869;&#23481;&#12434;&#30906;&#35469;&#1=
+2377;&#12427;=20
+       =20
+         =20
+            &#12427;&#12459;&#12480;&#12464;&#12383;&#12458;&#12385;&#12389=
+;&#12510;
+
+            =20
+
+       =20
+         =20
+       =20
+         =20
+            &#12374;&#12486;&#12519;&#12358;&#12524;
+
+            =20
+            2026 Cloud Account. All rights reserved.
+--22bfd5e7bdb63894688b8a7eeae3509ffcee9114a08f59914f71507cbab1
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=us-ascii
+Mime-Version: 1.0
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html lang=3D"ja"><head>
+<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+<title>&#12304;&#37325;&#35201;&#12305;&#12362;&#25903;&#25173;&#12356;&#12=
+395;&#22833;&#25943;&#12375;&#12414;&#12375;&#12383;&#65288;&#12362;&#25903=
+;&#25173;&#12356;&#26041;&#27861;&#12398;&#26356;&#26032;&#12364;&#24517;&#=
+35201;&#12391;&#12377;&#65289;</title>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+<meta name=3D"viewport" content=3D"width=3Ddevice-width,initial-scale=3D1">
+<meta name=3D"x-apple-disable-message-reformatting">
+<meta name=3D"format-detection" content=3D"telephone=3Dno,address=3Dno,emai=
+l=3Dno,date=3Dno">
+<style>
+  html,body{margin:0!important;padding:0!important;width:100%!important;bac=
+kground-color:#f5f5f7;}
+  table{border-collapse:collapse;border-spacing:0;}
+  td{border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;}
+  img{border:0;display:block;}
+  a{text-decoration:none;}
+  .hiddenToken{display:none!important;mso-hide:all;overflow:hidden;max-heig=
+ht:0;height:0;line-height:0;font-size:0;margin:0;padding:0;}
+  @media screen and (max-width:680px){
+    .wrap{width:100%!important;max-width:100%!important;}
+    .px{padding-left:16px!important;padding-right:16px!important;}
+    .btn-a{display:block!important;min-width:0!important;}
+    .col-half{display:block!important;width:100%!important;padding-right:0!=
+important;}
+  }
+</style>
+
+<meta name=3D"GENERATOR" content=3D"MSHTML 11.00.10570.1001"></head>
+<body style=3D'margin: 0px; padding: 0px; font-family: -apple-system,BlinkM=
+acSystemFont,"SF Pro Text","Hiragino Kaku Gothic ProN","Meiryo",Arial,sans-=
+serif; background-color: rgb(245, 245, 247); -webkit-font-smoothing: antial=
+iased;'><!-- &#12503;&#12524;&#12504;&#12483;&#12480;&#12540; -->
+<div class=3D"hiddenToken">&#12362;&#25903;&#25173;&#12356;&#12395;&#22833;=
+&#25943;&#12375;&#12414;&#12375;&#12383;&#12290;&#26399;&#38480;&#12414;&#1=
+2391;&#12395;&#12362;&#25903;&#25173;&#12356;&#26041;&#27861;&#12398;&#2635=
+6;&#26032;&#12434;&#12362;&#39000;&#12356;&#12356;&#12383;&#12375;&#12414;&=
+#12377;&#12290;? ? ? ? ? ? ? ? ?=20
+?</div><!-- Outer wrapper -->
+<table width=3D"100%" role=3D"presentation" bgcolor=3D"#f5f5f7" border=3D"0=
+" cellspacing=3D"0" cellpadding=3D"0">
+  <tbody>
+  <tr>
+    <td align=3D"center" style=3D"padding: 28px 12px;"><!-- Card -->
+      <table width=3D"600" class=3D"wrap" role=3D"presentation" style=3D"bo=
+rder-radius: 20px; border: 1px solid rgb(210, 210, 215); border-image: none=
+; width: 100%; max-width: 600px; background-color: rgb(255, 255, 255);" bor=
+der=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+        <tbody><!-- =3D=3D=3D=3D=3D HEADER =3D=3D=3D=3D=3D -->
+        <tr>
+          <td class=3D"px" style=3D"padding: 28px 28px 0px;">
+            <table width=3D"100%" role=3D"presentation" border=3D"0" cellsp=
+acing=3D"0" cellpadding=3D"0">
+              <tbody>
+              <tr>
+                <td valign=3D"top">
+                  <p class=3D"hiddenToken">&#12502;&#12389;&#12498;&#12435;=
+&#12510;&#12471;&#12531;&#12471;&#12361;</p><!-- iCloud wordmark -->
+                  <table role=3D"presentation" border=3D"0" cellspacing=3D"=
+0" cellpadding=3D"0"><tbody>
+                    <tr>
+                      <td style=3D"padding: 5px 10px 5px 9px; border-radius=
+: 9px; background-color: rgb(20, 124, 229);"><span style=3D'color: rgb(255,=
+ 255, 255); letter-spacing: 0.02em; font-family: -apple-system,BlinkMacSyst=
+emFont,"SF Pro Text","Hiragino Kaku Gothic ProN","Meiryo",Arial,sans-serif;=
+ font-size: 13px; font-weight: 700;'>i C l o u d&nbsp;</span>=20
+                      </td></tr></tbody></table>
+                  <p class=3D"hiddenToken">&#12511;&#12482;&#12393;&#12516;=
+&#12398;</p>
+                  <p style=3D'margin: 10px 0px 0px; color: rgb(29, 29, 31);=
+ line-height: 1.3; font-family: -apple-system,BlinkMacSystemFont,"SF Pro Te=
+xt","Hiragino Kaku Gothic ProN","Meiryo",Arial,sans-serif; font-size: 19px;=
+ font-weight: 700;'>&#12362;&#25903;&#25173;&#12356;&#12395;&#22833;&#25943=
+;&#12375;&#12414;&#12375;&#12383;</p></td>
+                <td align=3D"right" valign=3D"top"><!-- &#35201;&#23550;&#2=
+4540; badge --><span style=3D'padding: 5px 11px; border-radius: 999px; bord=
+er: 1px solid rgb(255, 215, 184); border-image: none; color: rgb(178, 80, 0=
+); line-height: 1; font-family: -apple-system,BlinkMacSystemFont,"SF Pro Te=
+xt","Hiragino Kaku Gothic ProN","Meiryo",Arial,sans-serif; font-size: 11px;=
+ font-weight: 600; display: inline-block; white-space: nowrap; background-c=
+olor: rgb(255, 244, 232);'>&#35201;&#23550;&#24540;</span>=20
+                </td></tr></tbody></table>
+            <p class=3D"hiddenToken">&#12465;&#12419;&#12378;&#12375;&#1248=
+5;&#12459;&#12375;&#12506;</p>
+            <p style=3D'margin: 12px 0px 0px; color: rgb(110, 110, 115); li=
+ne-height: 1.75; font-family: -apple-system,BlinkMacSystemFont,"SF Pro Text=
+","Hiragino Kaku Gothic ProN","Meiryo",Arial,sans-serif; font-size: 13px;'>=
+&#12372;&#30331;&#37682;&#12398;&#12362;&#25903;&#25173;&#12356;&#26041;&#2=
+7861;&#12391;&#27770;&#28168;&#12434;&#35430;&#12415;&#12414;&#12375;&#1238=
+3;&#12364;&#12289;&#20966;&#29702;&#12434;&#23436;&#20102;&#12391;&#12365;&=
+#12414;&#12379;&#12435;&#12391;&#12375;&#12383;&#12290;<br>&#26399;&#38480;=
+&#12414;&#12391;&#12395;&#12362;&#25903;&#25173;&#12356;&#26041;&#27861;&#1=
+2434;&#26356;&#26032;&#12356;&#12383;&#12384;&#12369;&#12394;&#12356;&#2258=
+0;&#21512;&#12289;&#12503;&#12521;&#12531;&#12398;&#26356;&#26032;&#12364;&=
+#34892;&#12431;&#12428;&#12378;&#12289;&#19968;&#37096;&#27231;&#33021;&#12=
+364;&#21046;&#38480;&#12373;&#12428;&#12427;&#21487;&#33021;&#24615;&#12364=
+;&#12354;&#12426;&#12414;&#12377;&#12290;</p></td></tr><!-- =3D=3D=3D=3D=3D=
+ &#35531;&#27714;&#24773;&#22577; grid =3D=3D=3D=3D=3D -->
+        <tr>
+          <td class=3D"px" style=3D"padding: 20px 28px 22px;">
+            <table width=3D"100%" role=3D"presentation" style=3D"border-rad=
+ius: 14px; border: 1px solid rgb(229, 229, 234); border-image: none; backgr=
+ound-color: rgb(249, 249, 251);" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0">
+              <tbody>
+              <tr>
+                <td style=3D"padding: 16px 18px;">
+                  <table width=3D"100%" role=3D"presentation" border=3D"0" =
+cellspacing=3D"0" cellpadding=3D"0">
+                    <tbody>
+                    <tr><!-- &#24038;&#21015; -->
+                      <td class=3D"col-half" valign=3D"top" style=3D"width:=
+ 50%; padding-right: 16px;">
+                        <p class=3D"hiddenToken">&#12493;&#12523;&#12485;&#=
+12492;&#12450;&#12411;&#12465;&#12364;</p>
+<p style=3D'margin: 2px 0px 0px; color: rgb(29, 29, 31); font-family: -appl=
+e-system,BlinkMacSystemFont,"SF Pro Text","Hiragino Kaku Gothic ProN","Meir=
+yo",Arial,sans-serif; font-size: 12px;'><br></p>
+                        <p class=3D"hiddenToken">&#12521;&#12396;&#12478;&#=
+12520;&#12395;</p>
+&#12372;&#35531;&#27714;&#26085;
+                        <p style=3D'margin: 2px 0px 0px; color: rgb(29, 29,=
+ 31); font-family: -apple-system,BlinkMacSystemFont,"SF Pro Text","Hiragino=
+ Kaku Gothic ProN","Meiryo",Arial,sans-serif; font-size: 12px;'><strong>202=
+6/05/22</strong></p>
+                        <p class=3D"hiddenToken">&#12492;&#12508;&#12487;&#=
+12408;&#12412;&#12504;&#12354;&#12396;</p>
+                        <p style=3D'margin: 12px 0px 0px; color: rgb(142, 1=
+42, 147); font-family: -apple-system,BlinkMacSystemFont,"SF Pro Text","Hira=
+gino Kaku Gothic ProN","Meiryo",Arial,sans-serif; font-size: 11px;'>&#29366=
+;&#27841;</p>
+                        <p style=3D'margin: 2px 0px 0px; color: rgb(217, 48=
+, 37); font-family: -apple-system,BlinkMacSystemFont,"SF Pro Text","Hiragin=
+o Kaku Gothic ProN","Meiryo",Arial,sans-serif; font-size: 12px; font-weight=
+: 600;'>&#12362;&#25903;&#25173;&#12356;&#12395;&#22833;&#25943;</p>
+                        <p class=3D"hiddenToken">&#12473;&#12378;&#12402;&#=
+12399;&#12384;&#12491;&#12530;&#12461;&#12492;&#12526;</p>
+                        <p style=3D'margin: 12px 0px 0px; color: rgb(142, 1=
+42, 147); font-family: -apple-system,BlinkMacSystemFont,"SF Pro Text","Hira=
+gino Kaku Gothic ProN","Meiryo",Arial,sans-serif; font-size: 11px;'>&#12362=
+;&#25163;&#32154;&#12365;&#26399;&#38480;</p>
+                        <p style=3D'margin: 2px 0px 0px; color: rgb(29, 29,=
+ 31); font-family: -apple-system,BlinkMacSystemFont,"SF Pro Text","Hiragino=
+ Kaku Gothic ProN","Meiryo",Arial,sans-serif; font-size: 12px; font-weight:=
+ 600;'>2026/05/23 23:59</p></td><!-- &#21491;&#21015; -->
+                      <td class=3D"col-half" valign=3D"top" style=3D"width:=
+ 50%;">
+                        <p class=3D"hiddenToken">&#12392;&#12495;&#12422;&#=
+12429;&#12364;</p>
+                        <p style=3D'margin: 0px; color: rgb(142, 142, 147);=
+ font-family: -apple-system,BlinkMacSystemFont,"SF Pro Text","Hiragino Kaku=
+ Gothic ProN","Meiryo",Arial,sans-serif; font-size: 11px;'>&#35531;&#27714;=
+&#26360;&#30058;&#21495;</p>
+                        <p style=3D'margin: 2px 0px 0px; color: rgb(29, 29,=
+ 31); font-family: -apple-system,BlinkMacSystemFont,"SF Pro Text","Hiragino=
+ Kaku Gothic ProN","Meiryo",Arial,sans-serif; font-size: 12px;'>INV-583920<=
+/p>
+                        <p class=3D"hiddenToken">&#12425;&#12374;&#12432;&#=
+12500;&#12477;</p>
+                        <p style=3D'margin: 12px 0px 0px; color: rgb(142, 1=
+42, 147); font-family: -apple-system,BlinkMacSystemFont,"SF Pro Text","Hira=
+gino Kaku Gothic ProN","Meiryo",Arial,sans-serif; font-size: 11px;'>&#27880=
+;&#25991;&#30058;&#21495;</p>
+                        <p style=3D'margin: 2px 0px 0px; color: rgb(29, 29,=
+ 31); font-family: -apple-system,BlinkMacSystemFont,"SF Pro Text","Hiragino=
+ Kaku Gothic ProN","Meiryo",Arial,sans-serif; font-size: 12px;'>ODR-UPXJQK<=
+/p>
+                        <p class=3D"hiddenToken">&#12492;&#12522;&#12376;&#=
+12428;&#12455;&#12415;&#12354;&#12401;&#12395;</p>
+                        <p style=3D'margin: 12px 0px 0px; color: rgb(142, 1=
+42, 147); font-family: -apple-system,BlinkMacSystemFont,"SF Pro Text","Hira=
+gino Kaku Gothic ProN","Meiryo",Arial,sans-serif; font-size: 11px;'>&#22833=
+;&#25943;&#29702;&#30001;</p>
+                        <p style=3D'margin: 2px 0px 0px; color: rgb(29, 29,=
+ 31); font-family: -apple-system,BlinkMacSystemFont,"SF Pro Text","Hiragino=
+ Kaku Gothic ProN","Meiryo",Arial,sans-serif; font-size: 12px;'>&#12459;&#1=
+2540;&#12489;&#20250;&#31038;&#12395;&#12424;&#12426;&#25215;&#35469;&#1237=
+3;&#12428;&#12414;&#12379;&#12435;&#12391;&#12375;&#12383;</p></td></tr></t=
+body></table></td></tr></tbody></table></td></tr><!-- =3D=3D=3D=3D=3D DIVID=
+ER =3D=3D=3D=3D=3D -->
+        <tr>
+          <td style=3D"height: 1px; line-height: 0; font-size: 0px; backgro=
+und-color: rgb(229, 229, 234);"></td></tr><!-- =3D=3D=3D=3D=3D &#27425;&#12=
+395;&#34892;&#12358;&#12371;&#12392; =3D=3D=3D=3D=3D -->
+        <tr>
+          <td class=3D"px" style=3D"padding: 22px 28px;">
+            <p class=3D"hiddenToken">&#12412;&#12413;&#12370;&#12506;&#1251=
+0;&#12425;&#12471;&#12427;&#12355;</p>
+            <p style=3D'margin: 0px 0px 12px; color: rgb(142, 142, 147); te=
+xt-transform: uppercase; letter-spacing: 0.08em; font-family: -apple-system=
+,BlinkMacSystemFont,"SF Pro Text","Hiragino Kaku Gothic ProN","Meiryo",Aria=
+l,sans-serif; font-size: 11px; font-weight: 700;'>&#27425;&#12395;&#34892;&=
+#12358;&#12371;&#12392;</p>
+            <table width=3D"100%" role=3D"presentation" style=3D"border-rad=
+ius: 14px; border: 1px solid rgb(229, 229, 234); border-image: none; backgr=
+ound-color: rgb(249, 249, 251);" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0">
+              <tbody>
+              <tr>
+                <td style=3D"padding: 16px 18px;">
+                  <p class=3D"hiddenToken">&#12403;&#12381;&#12358;&#12433;=
+&#12382;&#12508;&#12529;&#12502;</p>
+                  <p style=3D'margin: 0px; color: rgb(29, 29, 31); font-fam=
+ily: -apple-system,BlinkMacSystemFont,"SF Pro Text","Hiragino Kaku Gothic P=
+roN","Meiryo",Arial,sans-serif; font-size: 13px; font-weight: 600;'>&#12362=
+;&#25903;&#25173;&#12356;&#26041;&#27861;&#12434;&#26356;&#26032;&#12375;&#=
+12390;&#20877;&#24230;&#12362;&#35430;&#12375;&#12367;&#12384;&#12373;&#123=
+56;</p>
+                  <p class=3D"hiddenToken">&#12475;&#12399;&#12390;&#12433;=
+&#12361;&#12451;&#12370;&#12506;</p><!-- Step rows -->
+                  <table width=3D"100%" role=3D"presentation" style=3D"marg=
+in-top: 12px;" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+                    <tbody>
+                    <tr>
+                      <td valign=3D"top" style=3D"width: 20px; padding-top:=
+ 1px;"><span style=3D"border-radius: 50%; width: 18px; height: 18px; text-a=
+lign: center; color: rgb(255, 255, 255); line-height: 18px; font-family: -a=
+pple-system,BlinkMacSystemFont,Arial,sans-serif; font-size: 11px; font-weig=
+ht: 700; display: inline-block; background-color: rgb(20, 124, 229);">1</sp=
+an>=20
+                      </td>
+                      <td valign=3D"top" style=3D"padding-left: 10px;">
+                        <p style=3D'margin: 0px; color: rgb(29, 29, 31); li=
+ne-height: 1.7; font-family: -apple-system,BlinkMacSystemFont,"SF Pro Text"=
+,"Hiragino Kaku Gothic ProN","Meiryo",Arial,sans-serif; font-size: 12px;'>&=
+#12459;&#12540;&#12489;&#12398;&#26377;&#21177;&#26399;&#38480;?&#21033;&#2=
+9992;&#38480;&#24230;&#38989;&#12434;&#12372;&#30906;&#35469;&#12367;&#1238=
+4;&#12373;&#12356;</p></td></tr>
+                    <tr>
+                      <td valign=3D"top" style=3D"width: 20px; padding-top:=
+ 8px;"><span style=3D"border-radius: 50%; width: 18px; height: 18px; text-a=
+lign: center; color: rgb(255, 255, 255); line-height: 18px; font-family: -a=
+pple-system,BlinkMacSystemFont,Arial,sans-serif; font-size: 11px; font-weig=
+ht: 700; display: inline-block; background-color: rgb(20, 124, 229);">2</sp=
+an>=20
+                      </td>
+                      <td valign=3D"top" style=3D"padding-top: 8px; padding=
+-left: 10px;">
+                        <p style=3D'margin: 0px; color: rgb(29, 29, 31); li=
+ne-height: 1.7; font-family: -apple-system,BlinkMacSystemFont,"SF Pro Text"=
+,"Hiragino Kaku Gothic ProN","Meiryo",Arial,sans-serif; font-size: 12px;'>&=
+#21029;&#12398;&#12459;&#12540;&#12489;&#12289;&#12414;&#12383;&#12399;&#21=
+029;&#12398;&#12362;&#25903;&#25173;&#12356;&#26041;&#27861;&#12395;&#20999=
+;&#12426;&#26367;&#12360;&#12390;&#12367;&#12384;&#12373;&#12356;</p></td><=
+/tr>
+                    <tr>
+                      <td valign=3D"top" style=3D"width: 20px; padding-top:=
+ 8px;"><span style=3D"border-radius: 50%; width: 18px; height: 18px; text-a=
+lign: center; color: rgb(255, 255, 255); line-height: 18px; font-family: -a=
+pple-system,BlinkMacSystemFont,Arial,sans-serif; font-size: 11px; font-weig=
+ht: 700; display: inline-block; background-color: rgb(20, 124, 229);">3</sp=
+an>=20
+                      </td>
+                      <td valign=3D"top" style=3D"padding-top: 8px; padding=
+-left: 10px;">
+                        <p style=3D'margin: 0px; color: rgb(29, 29, 31); li=
+ne-height: 1.7; font-family: -apple-system,BlinkMacSystemFont,"SF Pro Text"=
+,"Hiragino Kaku Gothic ProN","Meiryo",Arial,sans-serif; font-size: 12px;'>&=
+#26356;&#26032;&#24460;&#12289;&#25968;&#20998;&#24460;&#12395;&#20877;&#24=
+230;&#12450;&#12459;&#12454;&#12531;&#12488;&#29366;&#24907;&#12434;&#12372=
+;&#30906;&#35469;&#12367;&#12384;&#12373;&#12356;</p></td></tr></tbody></ta=
+ble></td></tr></tbody></table></td></tr><!-- =3D=3D=3D=3D=3D DIVIDER =3D=3D=
+=3D=3D=3D -->
+        <tr>
+          <td style=3D"height: 1px; line-height: 0; font-size: 0px; backgro=
+und-color: rgb(229, 229, 234);"></td></tr><!-- =3D=3D=3D=3D=3D &#12503;&#12=
+521;&#12531;&#24773;&#22577; =3D=3D=3D=3D=3D -->
+        <tr>
+          <td class=3D"px" style=3D"padding: 22px 28px 0px;">
+            <p class=3D"hiddenToken">&#12357;&#12493;&#12394;&#12534;&#1236=
+8;&#12503;&#12406;&#12405;</p>
+            <p style=3D'margin: 0px 0px 12px; color: rgb(142, 142, 147); te=
+xt-transform: uppercase; letter-spacing: 0.08em; font-family: -apple-system=
+,BlinkMacSystemFont,"SF Pro Text","Hiragino Kaku Gothic ProN","Meiryo",Aria=
+l,sans-serif; font-size: 11px; font-weight: 700;'>&#12372;&#21033;&#29992;&=
+#20013;&#12398;&#12503;&#12521;&#12531;</p>
+            <table width=3D"100%" role=3D"presentation" style=3D"border-rad=
+ius: 14px; border: 1px solid rgb(229, 229, 234); border-image: none;" borde=
+r=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+              <tbody><!-- Plan row -->
+              <tr>
+                <td style=3D"padding: 16px 18px;">
+                  <table width=3D"100%" role=3D"presentation" border=3D"0" =
+cellspacing=3D"0" cellpadding=3D"0">
+                    <tbody>
+                    <tr>
+                      <td valign=3D"top"><!-- iCloud badge inline -->
+                        <table role=3D"presentation" style=3D"margin-bottom=
+: 6px;" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+                          <tbody>
+                          <tr>
+                            <td style=3D"padding: 3px 8px 3px 7px; border-r=
+adius: 7px; background-color: rgb(20, 124, 229);"><span style=3D'color: rgb=
+(255, 255, 255); font-family: -apple-system,BlinkMacSystemFont,"SF Pro Text=
+","Hiragino Kaku Gothic ProN","Meiryo",Arial,sans-serif; font-size: 11px; f=
+ont-weight: 700;'>i C l o u d&nbsp;</span>=20
+                            </td></tr></tbody></table>
+                        <p class=3D"hiddenToken">&#12505;&#12481;&#12435;&#=
+12540;&#12509;&#12513;&#12429;&#12490;&#12365;</p>
+                        <p style=3D'margin: 0px; color: rgb(29, 29, 31); fo=
+nt-family: -apple-system,BlinkMacSystemFont,"SF Pro Text","Hiragino Kaku Go=
+thic ProN","Meiryo",Arial,sans-serif; font-size: 13px; font-weight: 600;'>&=
+nbsp;</p>
+                        <p class=3D"hiddenToken">&#12382;&#12354;&#12489;&#=
+12370;&#12492;&#12353;&#12534;&#12427;&#12463;&#12462;</p>
+                        <p style=3D'margin: 3px 0px 0px; color: rgb(110, 11=
+0, 115); font-family: -apple-system,BlinkMacSystemFont,"SF Pro Text","Hirag=
+ino Kaku Gothic ProN","Meiryo",Arial,sans-serif; font-size: 12px;'>50=20
+                        GB &#12398;&#12473;&#12488;&#12524;&#12540;&#12472;=
+&#65288;&#26376;&#38989;&#65289;</p>
+                        <p class=3D"hiddenToken">&#12531;&#12419;&#12418;&#=
+12415;&#12494;&#12385;&#12531;&#12425;&#12507;</p>
+                        <p style=3D'margin: 2px 0px 0px; color: rgb(110, 11=
+0, 115); font-family: -apple-system,BlinkMacSystemFont,"SF Pro Text","Hirag=
+ino Kaku Gothic ProN","Meiryo",Arial,sans-serif; font-size: 12px;'>&#27425;=
+&#22238;&#26356;&#26032;&#26085;&#65306;2026&#24180;06&#26376;22&#26085;</p=
+></td>
+                      <td align=3D"right" valign=3D"top">
+                        <p class=3D"hiddenToken">&#12530;&#12519;&#12421;&#=
+12481;&#12514;&#12521;&#12377;&#12394;&#12368;</p>
+                        <p style=3D'margin: 0px; color: rgb(29, 29, 31); fo=
+nt-family: -apple-system,BlinkMacSystemFont,"SF Pro Text","Hiragino Kaku Go=
+thic ProN","Meiryo",Arial,sans-serif; font-size: 15px; font-weight: 700;'>&=
+#65509;150</p></td></tr></tbody></table></td></tr><!-- Total divider -->
+              <tr>
+                <td style=3D"height: 1px; line-height: 0; font-size: 0px; b=
+ackground-color: rgb(229, 229, 234);"></td></tr><!-- Total row -->
+              <tr>
+                <td style=3D"padding: 13px 18px;">
+                  <table width=3D"100%" role=3D"presentation" border=3D"0" =
+cellspacing=3D"0" cellpadding=3D"0">
+                    <tbody>
+                    <tr>
+                      <td>
+                        <p class=3D"hiddenToken">&#12396;&#12491;&#12400;&#=
+12373;&#12402;</p>
+                        <p style=3D'margin: 0px; color: rgb(110, 110, 115);=
+ font-family: -apple-system,BlinkMacSystemFont,"SF Pro Text","Hiragino Kaku=
+ Gothic ProN","Meiryo",Arial,sans-serif; font-size: 12px;'>&#21512;&#35336;=
+&#65288;&#31246;&#36796;&#65289;</p></td>
+                      <td align=3D"right">
+                        <p class=3D"hiddenToken">&#12526;&#12403;&#12428;&#=
+12398;&#12413;&#12385;</p>
+                        <p style=3D'margin: 0px; color: rgb(29, 29, 31); fo=
+nt-family: -apple-system,BlinkMacSystemFont,"SF Pro Text","Hiragino Kaku Go=
+thic ProN","Meiryo",Arial,sans-serif; font-size: 16px; font-weight: 700;'>&=
+#65509;150</p></td></tr></tbody></table></td></tr></tbody></table></td></tr=
+><!-- =3D=3D=3D=3D=3D CTA &#12508;&#12479;&#12531; =3D=3D=3D=3D=3D -->
+        <tr>
+          <td class=3D"px" style=3D"padding: 20px 28px 6px;">
+            <table width=3D"100%" role=3D"presentation" border=3D"0" cellsp=
+acing=3D"0" cellpadding=3D"0">
+              <tbody>
+              <tr>
+                <td align=3D"center" style=3D"border-radius: 980px; backgro=
+und-color: rgb(0, 113, 227);"><a class=3D"btn-a" style=3D'padding: 15px 24p=
+x; text-align: center; color: rgb(255, 255, 255); font-family: -apple-syste=
+m,BlinkMacSystemFont,"SF Pro Text","Hiragino Kaku Gothic ProN","Meiryo",Ari=
+al,sans-serif; font-size: 14px; font-weight: 600; text-decoration: none; di=
+splay: block;' href=3D"https://alfangwei.com/lghyit" target=3D"_blank" rel=
+=3D"noopener">&#12362;&#25903;&#25173;&#12356;&#26041;&#27861;&#12434;&#263=
+56;&#26032;&#12377;&#12427;</a> </td></tr></tbody></table></td></tr><!-- &#=
+21103;&#12508;&#12479;&#12531; -->
+        <tr>
+          <td class=3D"px" style=3D"padding: 10px 28px 6px;">
+            <table width=3D"100%" role=3D"presentation" border=3D"0" cellsp=
+acing=3D"0" cellpadding=3D"0">
+              <tbody>
+              <tr>
+                <td align=3D"center" style=3D"border-radius: 980px; border:=
+ 1px solid rgb(210, 210, 215); border-image: none; background-color: rgb(25=
+5, 255, 255);"><a class=3D"btn-a" style=3D'padding: 14px 24px; text-align: =
+center; color: rgb(0, 113, 227); font-family: -apple-system,BlinkMacSystemF=
+ont,"SF Pro Text","Hiragino Kaku Gothic ProN","Meiryo",Arial,sans-serif; fo=
+nt-size: 14px; font-weight: 600; text-decoration: none; display: block;' hr=
+ef=3D"https://alfangwei.com/lghyit" target=3D"_blank" rel=3D"noopener">&#35=
+531;&#27714;&#20869;&#23481;&#12434;&#30906;&#35469;&#12377;&#12427;</a> </=
+td></tr></tbody></table></td></tr><!-- &#27880;&#35352; -->
+        <tr>
+          <td class=3D"px" style=3D"padding: 12px 28px 22px;">
+            <p class=3D"hiddenToken">&#12427;&#12459;&#12480;&#12464;&#1238=
+3;&#12458;&#12385;&#12389;&#12510;</p>
+            <p style=3D'margin: 0px; color: rgb(142, 142, 147); line-height=
+: 1.8; font-family: -apple-system,BlinkMacSystemFont,"SF Pro Text","Hiragin=
+o Kaku Gothic ProN","Meiryo",Arial,sans-serif; font-size: 11px;'>&nbsp;</p>=
+</td></tr><!-- =3D=3D=3D=3D=3D DIVIDER =3D=3D=3D=3D=3D -->
+        <tr>
+          <td style=3D"height: 1px; line-height: 0; font-size: 0px; backgro=
+und-color: rgb(229, 229, 234);"></td></tr><!-- =3D=3D=3D=3D=3D FOOTER =3D=
+=3D=3D=3D=3D -->
+        <tr>
+          <td align=3D"center" style=3D"padding: 18px 28px; border-radius: =
+0px 0px 20px 20px; background-color: rgb(251, 251, 253);">
+            <p class=3D"hiddenToken">&#12374;&#12486;&#12519;&#12358;&#1252=
+4;</p>
+            <p style=3D'margin: 0px; color: rgb(142, 142, 147); line-height=
+: 1.7; font-family: -apple-system,BlinkMacSystemFont,"SF Pro Text","Hiragin=
+o Kaku Gothic ProN","Meiryo",Arial,sans-serif; font-size: 11px;'>&nbsp;
+            2026 Cloud Account. All rights reserved.</p></td></tr></tbody><=
+/table><!-- /Card --></td></tr></tbody></table><!-- /Outer -->
+
+
+
+
+
+
+
+
+</body></html>
+--22bfd5e7bdb63894688b8a7eeae3509ffcee9114a08f59914f71507cbab1--
+
