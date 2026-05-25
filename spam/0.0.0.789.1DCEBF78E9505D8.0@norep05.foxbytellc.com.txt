@@ -1,0 +1,124 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:a317:0:b0:26a:2114:7ab with SMTP id h23csp2610754eid;
+        Sun, 24 May 2026 20:35:47 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ/K1zkVlKp8vHj53K7pIjENzNe5cEzVqA9k86RUZh6TdKvPB2jix5OwJUKV7quFg3na7aAc2A2uG63TgyqKJw==@gmail.com
+X-Received: by 2002:a05:6a00:10c9:b0:82f:70a7:4a25 with SMTP id d2e1a72fcca58-8415f3640d3mr11550247b3a.35.1779680147524;
+        Sun, 24 May 2026 20:35:47 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1779680147; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=b8ejUX7aoAulhLRJzBlI2L5vsX0v6vGe2D15Y76Ynx/Tt4cmeQ+yySslHCMFvD9jAt
+         BCWTUe2gs/1NfV0SgWq/WS7pmn6Hj37rRXWHGC9ez/NMEgc37rncn0cPzzb9INgWwjT7
+         gcC3fJf951et1pFvBuige1ZVWKRfh4bd+G+NypjUbxfcZTFkmTn3nvxa9y9OSitoWXKm
+         DUMdPwrksFe4uNNVxpjZGbDpDFC3DgiYfqsYit+DQ+FWpsS0utGLanPhH0BthZX42Gw4
+         BSYKBQcv6akYQ5xnllXFsmkC2lO+RmIt7pNVaYDBdzO5RrfxnwJNrWQf2oc4BPUcD6R9
+         TsyQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=message-id:track_id:content-transfer-encoding:mime-version:date
+         :subject:to:from:dkim-signature:feedback-id:dkim-signature
+         :dkim-signature;
+        bh=DEXtyjse5QMSq1E48xasZLgslKRZfs9YIvNmf/Xbl6M=;
+        fh=fQWze01OliPNmGEne1HvSQ/xuo7jXoAdryJsxuhv5xk=;
+        b=JUH7G/BrfT9HpahxqDd34CEK33CgOChNEE7ESCQFTTciFVFu3N9zd2XyaKau8F6QfE
+         weaCRmrjYyH8tHd7GMnf7ufcmWgGxZBIcaICxWOzN0PEHEHmAlGJF0r4mFdCoqSPZ73z
+         CIFQtVmUbfgaM7Ej7D/SecJ2G7dlo8gUuz7rFQLvvhXaYwmdl6XvRLGwI/pLQqtv0UU2
+         AoMuj70WdAp7V0gzi+MuU0k60y7U2kNs9ahLg0b58GCyEtjE8rIumSbSZQnw3cn/Ls4B
+         jsRcsLdwiMDp04NBrBbhaTV1V7F8zUdw9kfgS6KTUtwfZDALCI19K09RpZi6Tr1scDj8
+         37rA==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=gMUd9RWG;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=ceMTgu96;
+       dkim=neutral (bad version) header.i=@saisoncard.co.jp header.s=norep05 header.b=ukQbMtbU;
+       arc=pass (i=1 spf=pass spfdomain=norep05.foxbytellc.com);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.219 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=fail (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=saisoncard.co.jp
+Return-Path: <cfbounces+ndrdrop@whither.jp>
+Received: from ba-cbj.cloudflare-email.net (ba-cbj.cloudflare-email.net. [104.30.10.219])
+        by mx.google.com with ESMTPS id d2e1a72fcca58-84165058da6si17839484b3a.223.2026.05.24.20.35.45
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 24 May 2026 20:35:47 -0700 (PDT)
+Received-SPF: pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.219 as permitted sender) client-ip=104.30.10.219;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=gMUd9RWG;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=ceMTgu96;
+       dkim=neutral (bad version) header.i=@saisoncard.co.jp header.s=norep05 header.b=ukQbMtbU;
+       arc=pass (i=1 spf=pass spfdomain=norep05.foxbytellc.com);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.219 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=fail (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=saisoncard.co.jp
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:from:reply-to:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1779680146; x=1780284946; bh=DEXtyjse5QMSq1E48x
+	asZLgslKRZfs9YIvNmf/Xbl6M=; b=gMUd9RWGCsG1oUcKqOo1CcOQHIcBVS0T4vVZVL3HVBqAc
+	cZBaAhh9luTTuwiaRXv1BTWdVKsVTFGM3kVeBnOTuNhv/RFreafEtvxHtrZdELm5Uesz/U6jd07
+	69FIuCyL8irsRu4q7/Xy0s9RBKc6qDb9WLa/A/WodNRFwfhsP7z6eCBCVwtR9ZavYpRWvkJEjb2
+	/4XOfKS07EftEKs1Gbe85V0gvCU0eKjMM32YLGILlPxiYqoxPY8GLnfwyhbUQKCfSYbvgXlnf+T
+	l5mxFwoWOx2OeUQdZfH4UpcTPoC70yjICTKxhDPggzZr20SYwlVETJ4jYjXsHvUf18bbonQg==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:from:reply-to:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1779680146; x=1780284946; bh=DEXtyjse5QMSq1E48x
+	asZLgslKRZfs9YIvNmf/Xbl6M=; b=ceMTgu96bQNBqxWtu4Mlt0/lP11fvJlPFESpzsyaEMRYg
+	wYkOCEL2fDeBIBb0mgtJCdrR8rZohaonr+rxMkopsi3ZPG4z3UhutNLo1bdYBoqW4y0JfhLJKLp
+	ikllJerA8zkYBJ2Lqaf9KCyENVKSD2/t9Tg9myQxGK3mfNznkp8b/K7OAemKAdULNr4MyH+zDz2
+	3+7aoBzHMRJZFFTj77yNmjpgS3YsJME0CWxVKg0OteXxv6KpDNF5vf51npq7hcimei+2rW3Tz8l
+	zgSwM6vlzoz9BTp9B0N4/GWx95Lnt3ISob1ff8ntq2IeEDaHT4T34hRgXKFQZRii2ZlS3UaQ==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: silver.firefox+whither-jp@gmail.com silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:2:1:Cloudflare
+Received: from norep05.foxbytellc.com (34.85.79.216)
+        by cloudflare-email.net (cloudflare) id yxETdmOb7yVF
+        for <er2-yxc26@whither.jp>; Mon, 25 May 2026 03:35:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=czlEwt9smpHTkCuKIe6UskclaXVz4ZTPaMsgue1W7w8F0ofUho4auY4BzrP8FFGQOBdFUlHYZ
+	F/ke83QhJLmaLokInko93DgqEEhj6vMZfJkJofE5fIgqELruE2P+L5XtSMkFgAOdrLV/vfomvxm
+	OplEuylw4bfgypgpYlYqLO6cwHUh/kZdBAZvU8oYYTiY+nclzpk0yzOpNzQO8Aocuf8DXMkqc7X
+	IX6FTlWbcj54x3WXssOYND+3kQ9LhP07wEK8lgaXTI2fimP63Lrs1NmBxLx4q9AgIbtw2Y2J3+P
+	V0Eci2/0HhUdOHVzBK7IPCc4X3s1wdgMgzmaDfV8yQJg==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:from:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1779680140; x=1780284940; bh=DEXtyjse
+	5QMSq1E48xasZLgslKRZfs9YIvNmf/Xbl6M=; b=b/UD5dJEhiqHwrG/Bxa4jsDqqcNQsUpK5tZ
+	Nijw0zAx2vGyLWbx1VG5x9tc462EeT6fzo2cUtmG4zDz5ASMo75QKfu/vu5Nxg6hibzG5d8s46O
+	XCLzRe2Jc0mAMsAaQGSSqYEd6gVJbsHPognBd5vOZHX1cyu4UxLIgVHGi0XXwUElU7mEMPd81r/
+	v5woOhTModEv1jlANLJcl2QvMWLzRkB46Rlgu0vVfDOb7tBZ9YGWxjV1ozSz6MLvnlqDHJgVfe7
+	ilUlLDsDslh5rgMNO+nUn9vu7CgM6JHAvglkKV6Gm56GWR77wqGvo2Rr79gw1gPhzsNq8yxQ3VR
+	kUZhKww==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=permerror (invalid dns record type) header.i=member@saisoncard.co.jp header.s=norep05 header.b=ukQbMtbU;
+	dmarc=fail (policy not aligned) header.from=saisoncard.co.jp policy.dmarc=quarantine;
+	spf=pass (mx.cloudflare.net: domain of postmaster@norep05.foxbytellc.com designates 34.85.79.216 as permitted sender) smtp.helo=norep05.foxbytellc.com;
+	spf=pass (mx.cloudflare.net: domain of norep05-er2+2Dyxc26=whither.jp@norep05.foxbytellc.com designates 34.85.79.216 as permitted sender) smtp.mailfrom=norep05-er2+2Dyxc26=whither.jp@norep05.foxbytellc.com;
+	arc=none smtp.remote-ip=34.85.79.216
+Received-SPF: pass (mx.cloudflare.net: domain of norep05-er2+2Dyxc26=whither.jp@norep05.foxbytellc.com designates 34.85.79.216 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=34.85.79.216; envelope-from="norep05-er2+2Dyxc26=whither.jp@norep05.foxbytellc.com"; helo=norep05.foxbytellc.com;
+Authentication-Results: mx.cloudflare.net;
+	dkim=permerror (invalid dns record type) header.i=member@saisoncard.co.jp header.s=norep05 header.b=ukQbMtbU;
+	dmarc=fail (policy not aligned) header.from=saisoncard.co.jp policy.dmarc=quarantine;
+	spf=pass (mx.cloudflare.net: domain of postmaster@norep05.foxbytellc.com designates 34.85.79.216 as permitted sender) smtp.helo=norep05.foxbytellc.com;
+	spf=pass (mx.cloudflare.net: domain of norep05-er2+2Dyxc26=whither.jp@norep05.foxbytellc.com designates 34.85.79.216 as permitted sender) smtp.mailfrom=norep05-er2+2Dyxc26=whither.jp@norep05.foxbytellc.com;
+	arc=none smtp.remote-ip=34.85.79.216
+X-CF-SpamH-Score: 1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=norep05; d=saisoncard.co.jp;
+ h=From:To:Subject:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+ Message-ID; i=member@saisoncard.co.jp;
+ bh=DEXtyjse5QMSq1E48xasZLgslKRZfs9YIvNmf/Xbl6M=;
+ b=ukQbMtbUfD5HiLmFn5Gh+qtwfQHUE/sGs/ZZtQ22ExoTaLkAaNWBxTcvHB3RYqDVdc/4lKHKQUbp
+   ni1WtU4N4AeJ2Thdv1OJ2Sz9V5O1AK+BjIES51uuNnojiFvEqb53kIIz4u6LSxArOo6JZFKhea0s
+   zCra0lDiTG4BDgexXQrlLAdhD4TWSDWCrCetlQ06BnAbhfQq42CVW97Z9mz6pdhztYdAp38p4cQS
+   n9qpfuUGzjCCIm4m42FVA9/UZITw015hZ/ADsjK+Zg8NeixK4akRFsF13frN745Xa0jBF+Uo2AQN
+   YjpoZpn51OFGsQhk6SOYd5UiZkj03ejos4WkHA==
+From: "=?iso-2022-jp?Q?=1B$B%;%>%s%+!<%I=1B(B_=1B$B%+%9%=3F%^!<%;%s%=3F!<=1B(B?=" <member@saisoncard.co.jp>
+To: =?iso-2022-jp?Q?er2-yxc26?= <er2-yxc26@whither.jp>
+Subject: =?iso-2022-jp?Q?=1B$B$4=3F=3D@A$$$=3F$@$$$=3FJV6b$,>5G'$5$l$^$7$=3F=1B(BNo.14588?=
+Date: Mon, 25 May 2026 11:35:38 +0800
+X-Priority: 1
+MIME-Version: 1.0
+Content-Type: text/html; charset="ISO-2022-JP"
+Content-Transfer-Encoding: 7bit
+track_id: 26UX1nfY3
+Message-ID: <0.0.0.789.1DCEBF78E9505D8.0@norep05.foxbytellc.com>
