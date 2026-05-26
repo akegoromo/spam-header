@@ -1,0 +1,227 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:a317:0:b0:26a:2114:7ab with SMTP id h23csp3155322eid;
+        Mon, 25 May 2026 16:36:53 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ+yQgkRyLOC1GiBU678HQaUYzORENKQqjcvhYU9ej3Jt75tFnkyeIGeWnuFykd87mKLmSnW1hOe+5AXimwOBg==@gmail.com
+X-Received: by 2002:a05:7022:913:b0:134:c6ab:a512 with SMTP id a92af1059eb24-1365fc7ede8mr5896565c88.36.1779752213254;
+        Mon, 25 May 2026 16:36:53 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1779752213; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=TD7H9oKFapsu3y92W73nxL5Jg/4byMS5SbRZy5AZgHPENAy9TcuT8p0D1Chz2AdD9i
+         oFj7aGa/+64trPfQl13Bu2d/3D0RFV7nuqNypuP1jJ8qUPCAQbeMsTouuMDCRLcGSIcq
+         VJ2NoNe2VVSNUTthnf3tpjCImVZwXJ5v2Xy0wjkFBr2KNROBqq4oSd23uMtgXzS+yx3N
+         gJdngfFYIiYvsy/9WWTSFGVk1MEkI8U5fT65hEtrf5pPwHQgO1groIGmpcHyrxl94gXp
+         DSxHbgMabXGVm6oJUtnC11/sIZ/rb5HPM9s7uckncL23WivRsgWv4G2QK9daPWPAzB2s
+         TbDQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=sender:message-id:date:subject:to:dkim-signature:from:mime-version
+         :feedback-id:dkim-signature:dkim-signature;
+        bh=o+pk68z3+28ebsM07W+xkQizq+ksf1YxyIeSXHnmMjU=;
+        fh=LnGVlAla77Gyfiw8zkzbOhaVlqYgEu27l8ujdfvsIGY=;
+        b=Wremyzj6ecDP+8QSxpdAwN3S522GmNOY4WwcrHxncVA/Bvdj49mLbFcP5kEthI0ueX
+         Z39/N1swoVwHNbHrltTgOK4SHHl7AhwE0M4L6O6vM1HRQMUpKr8BDuT/JYHmSdXxIJig
+         thydDrQCz9KfMRtquv0B8VqHCgZSdH36mdr+csSNssxp9P41nBGyA/wvOdlmYMyuKl7k
+         PSdjtopCATJ7Mr5UemqMPcU5ci09F92gCBlPWKQ7EUthR6h4QEEj5uvvabxPcV/jKxwD
+         S8bJyxgW96EC4dQfWKqML/lFU5FNU/CQbAVCmAA1QspMbFnd3knOt8bugKNihPUeR8ZV
+         hU+w==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=bbUZpf6y;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=DOInEgPS;
+       dkim=pass header.i=@cruet.motenp.cn header.s=dom header.b=Mh0pQOWk;
+       arc=pass (i=1 spf=pass spfdomain=cruet.motenp.cn dkim=pass dkdomain=cruet.motenp.cn);
+       spf=pass (google.com: domain of srs0=2snb=wd=cruet.motenp.cn=daionodera@whither.jp designates 104.30.10.219 as permitted sender) smtp.mailfrom="SRS0=2Snb=wd=cruet.motenp.cn=daionodera@whither.jp"
+Return-Path: <SRS0=2Snb=wd=cruet.motenp.cn=daionodera@whither.jp>
+Received: from ba-cbj.cloudflare-email.net (ba-cbj.cloudflare-email.net. [104.30.10.219])
+        by mx.google.com with ESMTPS id a92af1059eb24-1366aa8ba83si23691616c88.37.2026.05.25.16.36.51
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 25 May 2026 16:36:52 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=2snb=wd=cruet.motenp.cn=daionodera@whither.jp designates 104.30.10.219 as permitted sender) client-ip=104.30.10.219;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=bbUZpf6y;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=DOInEgPS;
+       dkim=pass header.i=@cruet.motenp.cn header.s=dom header.b=Mh0pQOWk;
+       arc=pass (i=1 spf=pass spfdomain=cruet.motenp.cn dkim=pass dkdomain=cruet.motenp.cn);
+       spf=pass (google.com: domain of srs0=2snb=wd=cruet.motenp.cn=daionodera@whither.jp designates 104.30.10.219 as permitted sender) smtp.mailfrom="SRS0=2Snb=wd=cruet.motenp.cn=daionodera@whither.jp"
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:from:reply-to:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1779752212; x=1780357012; bh=o+pk68z3+28ebsM07W
+	+xkQizq+ksf1YxyIeSXHnmMjU=; b=bbUZpf6yiURB38JpKOsCQ5KPNubqeE7b1qvoc4nqCn4yC
+	cSvwGDtaugJPiP5hhKJB79pC9k4bXu61NhQgsQdQcR8I5SQV0UIAwRiIhvWohtA5ocUEE2ZCT8p
+	MGzCGeMmGvQG439/fdTMSJ3qezssgAYAIsOyb5sPpy+1UDvtYOYmMG2DONGh3HCDicS5FE+mdkM
+	wiGJyXo5hXGkOd8DI5CX0XjHnVP5obG6PzonAdPjWR0KBqIbf/j4TqIK129qzFkyec+hq0wW+pI
+	cvSS2FjDNm6IY3wx2M5UKi4+JvskwI3psGk0cBpWVHJ31MtbulCi3gyfDfMWvctCEek6BzOw==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:from:reply-to:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1779752212; x=1780357012; bh=o+pk68z3+28ebsM07W
+	+xkQizq+ksf1YxyIeSXHnmMjU=; b=DOInEgPSQmi1gXes0gYCd1050XinQWLO5RRrAPft9pQ6g
+	TH0OXV5t9CZbNeOb3SMIm7VpzwDKwlL3SShl0h7wOjFO1p8/GltxOjEwCfqAbAlt+ehBvQYWy9y
+	sW5iVARBFloeGmHL8UQieu17YtBeOwgCZsCV+gcgjFJHlttt5mDQNP/rT2ydbc4LaWEiZAdLM5c
+	7gM9eCuXb4qFEk25SZrH03IJCx3XO9dqTGn0zaHCFVOf3iXKt0CQ0vWFeIC0tE6NctU3SA9s2K5
+	Dm0QJM5i6zUMKnKO89PZZzf3dQS4GnFAWDqrOpv9eADYYBTv2xihUyt9I9NkveYZTN6Y50jg==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: silver.firefox+whither-jp@gmail.com silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:2:1:Cloudflare
+Received: from cruet.motenp.cn (42.177.140.238)
+        by cloudflare-email.net (cloudflare) id cD7oBDquidUN
+        for <tnakahara@whither.jp>; Mon, 25 May 2026 23:36:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=c7vUrol90kXfogxORDFlxcV/WoNvGRd1+vQU182FF7ewFkCBSJF9mr2JzAvIGb8Eg2Gpzmo4n
+	Zh+IQ1uFWJsFEYzWgXqEyZu7vRuXSFVvWKDHJNNGaAA3Ql/p1zMB80cJBrXRiLHhd4uHcP2P4Un
+	6J/49cREqhOgetHiKzy3ud44PqE+4+SJLa7Lcf3rDDKttTZqGR2XI9BcPvShICuHr3Lz44HeCEo
+	ml/1aNZBGtK7rKE8QU1mnjQqmOeE29BAnjiFWjfIv8Na3TC96xlEB1jpjiszi4fJcAUgOfuFeno
+	dT/gxUSB4WqqMx5al3/8hkcFBbc9i9PS/H/JeH/TUEdg==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:from:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1779752208; x=1780357008; bh=o+pk68z3
+	+28ebsM07W+xkQizq+ksf1YxyIeSXHnmMjU=; b=K5u83gHwdGpp/LZdIt+T74uykwlwZPcSCL7
+	O/jjT7F7QnUJtrAEH1/1E/FDtcILxigfv9juU+/5D/+E36fK/3Xg38ebAjiDQ4OWwupJKuMrety
+	QjOsuHS4T0zX7LpJ8Eg93Fsn9wJnNJddWVOfUf6WS8PTM9QPFSnyyELybGvYeNxFAUmWgRsxJv7
+	sHcsXReUHUCMqyAvyWJs7mEHIAKWETIMc8iHqU53Xt6ogmSOLG6wcAm1h8lKad17E25zeWPEPri
+	R15/MCu8nr9aVfgNBuBP5JQt2jn7tviJZSByfAY0iHy9Xc031tTF05dLE0l5ILynLYolGX1TgWQ
+	xihuJiw==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=@cruet.motenp.cn header.s=dom header.b=Mh0pQOWk;
+	dmarc=none header.from=jychip.com.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@cruet.motenp.cn designates 42.177.140.238 as permitted sender) smtp.helo=cruet.motenp.cn;
+	spf=pass (mx.cloudflare.net: domain of daionodera@cruet.motenp.cn designates 42.177.140.238 as permitted sender) smtp.mailfrom=daionodera@cruet.motenp.cn;
+	arc=none smtp.remote-ip=42.177.140.238
+Received-SPF: pass (mx.cloudflare.net: domain of daionodera@cruet.motenp.cn designates 42.177.140.238 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=42.177.140.238; envelope-from="daionodera@cruet.motenp.cn"; helo=cruet.motenp.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=@cruet.motenp.cn header.s=dom header.b=Mh0pQOWk;
+	dmarc=none header.from=jychip.com.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@cruet.motenp.cn designates 42.177.140.238 as permitted sender) smtp.helo=cruet.motenp.cn;
+	spf=pass (mx.cloudflare.net: domain of daionodera@cruet.motenp.cn designates 42.177.140.238 as permitted sender) smtp.mailfrom=daionodera@cruet.motenp.cn;
+	arc=none smtp.remote-ip=42.177.140.238
+X-CF-SpamH-Score: 2
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="----=_501_8x2092soa9j7whgu_=----"
+From: Mastercard <info@jychip.com.cn>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cruet.motenp.cn;
+ i=@cruet.motenp.cn; q=dns/txt; s=dom; t=1779752203; h=from : to :
+ subject : date : message-id;
+ bh=o+pk68z3+28ebsM07W+xkQizq+ksf1YxyIeSXHnmMjU=;
+ b=Mh0pQOWkWOZoyf3fA/VbTWfuK5lTWSCiqXqS1cAKGXZOOzNPaby8tEwa+k9D65NILn+yG
+ lolqzMfI4HW2tewtpWv/AjDXP4ENfA7tYicPet/O+SeFF9zPlOXulK31nuekRH46+8HFv4G
+ y+C7chXdq8giSpTzYiK2ABcOaHGQ1fJomt6ayz4Y4EGT36AB/yOuvx23Gpm4L1mC4cTggjY
+ QXKZ1o3iZZXN0PekUJW8izBPVhs+blZKr2VSK/h/WOgMIov14fgm1fTO7sWxbIpWn+qsP1L
+ UQZ0kbscnJKQcM4cZn2S01EMK7Qycsvt/r4y7QFxHR43QUrMI0nKvfGClYAw==
+To: <tnakahara@whither.jp>
+Subject: =?utf-8?b?TWFzdGVyY2FyZOOCu+OCreODpeODquODhuOCo+iqjeiovOaJi+e2muOBjeOBq+OBpOOBhOOBpuOBruahiOWGhQ==?=
+Date: Tue, 26 May 2026 08:36:43 +0900
+Message-ID: <A41190B6101CNP49299V9Y5360UW8P19@cruet.motenp.cn>
+Sender: daionodera@cruet.motenp.cn
+X-Mailer: Supmailer 39.2.1
+X-OCN-SPAM-CHECK: 0.00%
+X-OCN-ANALYSIS: v=2.4 cv=V4kebcri c=1 sm=1 tr=0 ts=69053c85 a=DPl8XokF7Da1/mxgZb8Z5A==:117 a=6UeiqGixMTsA:10 a=5KLPUuaC_9wA:10 a=M51BFTxLslgA:10 a=r77TgQKjGQsHNAKrUKIA:9 a=gTeSRhyQAAAA:8 a=ZsBv2YKCQ58SdHZCD48A:9 a=QEXdDO2ut3YA:10 a=8j_Z4YhkQ-gA:10 a=DIsmFQS9VG6Rqf0XIBEA:9 a=_W_S_7VecoQA:10 a=RqPyx-umzbFUwlkuQnOt:22
+X-Priority: 3
+
+------=_501_8x2092soa9j7whgu_=----
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+
+灑ハ煺畢秐チゕねげ煼ヤ镲えボせせザく字啍
+
+ 【MasterCard】カードご利用確認のお願い 
+
+ 平素よりMasterCardをご利用いただき誠にありがとうございます。 
+
+ 不審な取引が検出されたため、カードの安全性を確認させていただく必要がございます。 
+
+ 下記より、ご利用内容のご確認をお願いいたします。 
+
+ 確認が行われない場合、一部の機能に制限がかかる可能性がございます。 
+
+ ご利用内容を確認する 
+
+ ■ 
+ 手続き期限：本メール受信後48時間以内にご対応ください。 
+
+ ※本メールは自動送信です。返信は受け付けておりません。
+ご不明な点は公式サイトをご確認ください。 
+
+ © 2026 
+ MasterCard Japan. All rights 
+reserved.
+
+------=_501_8x2092soa9j7whgu_=----
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+
+<!DOCTYPE html>
+<html lang="und" dir="ltr">
+<head>
+  <!-- SECURITY_TEST_SAMPLE: parser compatibility fixture -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="format-detection" content="telephone=no">
+<style type="text/css">
+body{margin:0;padding:20px;background-color:#f5f5f5;font-size:14px;font-family:Arial,sans-serif;line-height:1.6}table{border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt}img{border:0;display:block}a{text-decoration:none!important}
+</style>
+<style>
+<!--
+  /* C27: suppress stacked borders inside mail root */
+  .seal-bevilaal-18d7 table, .seal-bevilaal-18d7 table td, .seal-bevilaal-18d7 table th { border: 0 !important; mso-border-alt: none !important; }
+  .seal-bevilaal-18d7 div, .seal-bevilaal-18d7 p, .seal-bevilaal-18d7 section, .seal-bevilaal-18d7 article { border: none !important; border-width: 0 !important; border-style: none !important; border-image: none !important; }
+-->
+</style>
+  <title>灑ハ煺畢秐チゕねげ煼ヤ镲えボせせザく字啍</title>
+</head>
+<body>
+<DIV style="MAX-WIDTH: 600px; MARGIN: 0px auto" align=center>
+<TABLE id=_cid0.575072660024516 
+style="BACKGROUND: #ffffff; PADDING-BOTTOM: 25px; PADDING-TOP: 25px; PADDING-LEFT: 25px; PADDING-RIGHT: 25px; border-radius: 8px" 
+cellSpacing=0 cellPadding=0 width="100%" bgColor=#ffffff border=0>
+  <TBODY>
+  <TR>
+    <TD 
+    style="FONT-SIZE: 16px; FONT-WEIGHT: bold; COLOR: #0055b7; PADDING-BOTTOM: 15px">【MasterCard】カードご利用確認のお願い</TD></TR>
+  
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><nav role="presentation"><ul><li></li></ul></nav></div>
+<TR>
+    <TD style="PADDING-BOTTOM: 10px">平素よりMasterCardをご利用いただき誠にありがとうございます。</TD></TR>
+  <TR>
+    <TD 
+    style="PADDING-BOTTOM: 10px">不審な取引が検出されたため、カードの安全性を確認させていただく必要がございます。</TD>
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><div role="group"><section></section><footer></footer></div></div>
+</TR>
+  <TR>
+    <TD style="PADDING-BOTTOM: 10px">下記より、ご利用内容のご確認をお願いいたします。</TD></TR>
+  <TR>
+    <TD style="PADDING-BOTTOM: 10px">確認が行われない場合、一部の機能に制限がかかる可能性がございます。</TD></TR>
+  <TR>
+    <TD 
+    style="PADDING-BOTTOM: 20px; PADDING-TOP: 20px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px" 
+    align=center>
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR>
+          <TD 
+          style="PADDING-BOTTOM: 12px; PADDING-TOP: 12px; PADDING-LEFT: 30px; PADDING-RIGHT: 30px; BACKGROUND-COLOR: #0055b7; border-radius: 4px" 
+          align=center><A 
+            style="FONT-SIZE: 15px; FONT-WEIGHT: bold; COLOR: #ffffff; LINE-HEIGHT: 1.5" 
+            href="https://nejrnux.cn/sGnS6ECnB0.takatsuki.jp" target=_blank>ご利用内容を確認する</A> </TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD style="FONT-WEIGHT: bold; PADDING-TOP: 15px">■ 
+      手続き期限：本メール受信後48時間以内にご対応ください。</TD></TR>
+  <TR>
+    <TD 
+      style="FONT-SIZE: 12px; COLOR: #666666; PADDING-TOP: 15px">※本メールは自動送信です。返信は受け付けておりません。<BR>ご不明な点は公式サイトをご確認ください。</TD></TR>
+  <TR>
+    <TD style="FONT-SIZE: 11px; COLOR: #888888; PADDING-TOP: 20px">© 2026 
+      MasterCard Japan. All rights 
+reserved.</TD></TR>
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><article role="presentation"><header></header><section></section></article></div>
+</TBODY></TABLE></DIV>
+</body>
+</html>
+
+------=_501_8x2092soa9j7whgu_=------
+
