@@ -1,0 +1,291 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:a317:0:b0:26a:2114:7ab with SMTP id h23csp3211707eid;
+        Mon, 25 May 2026 19:21:43 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ+gqEqeQQRbaBMVEoqLSK/cihvBPXdFpCKXxfVC+wBloxemb+TieMEkIUgtpBmOfsfUm7DmYl82Snz71sJvqQ==@gmail.com
+X-Received: by 2002:a05:7022:258a:b0:135:e312:47a0 with SMTP id a92af1059eb24-1365fa34af3mr5209330c88.26.1779762102820;
+        Mon, 25 May 2026 19:21:42 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1779762102; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=LASuauU20Rofq9Jt4p36EuszzRvkTvXLYcuydHvUI10l9z7VfmgIqag3jnI8txRSMP
+         AtVQ2LKwoaNI9WzI5NpfRaMvnMCanHYTWduuxhhSzTOYTZCDNFOC+RIZOzhBHDaG9ryo
+         7IvrMsEd0RcSyO2z623q1hOWN5wECUVLlVAvXuTPOFXu5FAbtuI6037NjAANcynfbt+G
+         9fyu8/YsP/ODp5VBQ1C2hExo2+lsXX/S8lNGj6wgXaU0OSOY6+3DTYITRslVDfP/Hpiv
+         +jB57nkeBFMAUtxU6pHeKsI1XBTa1WQT6c9K8ny7Z/LbZblxZfohgjfCeAjSUZh9eHgg
+         eivw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=dkim-signature:track-id:mime-version:message-id:date:subject:to
+         :from:dkim-signature:feedback-id:dkim-signature:dkim-signature;
+        bh=QR1F9dNs150M63PVLZ3fIGb3fTne3ULE+VAWHXaJv64=;
+        fh=m+OapupikxvYB45gmXHZuh6TDrqOUOcr8LawkUDPi8A=;
+        b=Ody0YTCPoP1ewo6JKGKH3q2iCaHHhWHXt9LSLvbiNcTnaTOHA+/fnjl95f8mTau4+n
+         GaQgObPUTg14Cgtd2gu2sQu1reilK4lbsCXGC5roFK+SeXLQ/zkYIJqXJNPLarVva+hP
+         CycBw0ddkpLZfFo4XTlzb1c01xRPvk5bExuezpx3Tf2w1+MyCIUuq2Qaq8NPTdcGg25E
+         BrPN2mzGJvvwR0g3untFv3qifLTUNrpYMt0jtqm0Uu9DhgjzeZUPaYk0QOKvhEOgztOJ
+         606PlIl8gvIUYUqQfDaQ7ntLHoyRcqxSEGtvwVoah7a+wEs9gSsaPHf5Fl9goxrQhMYd
+         kKaA==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=QceckSRq;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=ejP33nKn;
+       dkim=neutral (body hash did not verify) header.i=@toucan.jiashitou.com header.s=selector2 header.b=iBFyelJr;
+       dkim=pass header.i=@toucan.jiashitou.com header.s=toucan header.b=XcmdTQa+;
+       arc=pass (i=1 spf=pass spfdomain=toucan.jiashitou.com dkim=pass dkdomain=toucan.jiashitou.com dmarc=pass fromdomain=toucan.jiashitou.com);
+       spf=pass (google.com: domain of srs0=r8mj=xd=toucan.jiashitou.com=toucan@whither.jp designates 104.30.10.39 as permitted sender) smtp.mailfrom="SRS0=r8mj=xd=toucan.jiashitou.com=toucan@whither.jp";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=toucan.jiashitou.com
+Return-Path: <SRS0=r8mj=xd=toucan.jiashitou.com=toucan@whither.jp>
+Received: from ba-dj.cloudflare-email.net (ba-dj.cloudflare-email.net. [104.30.10.39])
+        by mx.google.com with ESMTPS id a92af1059eb24-1366acab214si28011505c88.77.2026.05.25.19.21.41
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 25 May 2026 19:21:42 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=r8mj=xd=toucan.jiashitou.com=toucan@whither.jp designates 104.30.10.39 as permitted sender) client-ip=104.30.10.39;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=QceckSRq;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=ejP33nKn;
+       dkim=neutral (body hash did not verify) header.i=@toucan.jiashitou.com header.s=selector2 header.b=iBFyelJr;
+       dkim=pass header.i=@toucan.jiashitou.com header.s=toucan header.b=XcmdTQa+;
+       arc=pass (i=1 spf=pass spfdomain=toucan.jiashitou.com dkim=pass dkdomain=toucan.jiashitou.com dmarc=pass fromdomain=toucan.jiashitou.com);
+       spf=pass (google.com: domain of srs0=r8mj=xd=toucan.jiashitou.com=toucan@whither.jp designates 104.30.10.39 as permitted sender) smtp.mailfrom="SRS0=r8mj=xd=toucan.jiashitou.com=toucan@whither.jp";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=toucan.jiashitou.com
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:from:reply-to:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1779762102; x=1780366902; bh=QR1F9dNs150M63PVLZ
+	3fIGb3fTne3ULE+VAWHXaJv64=; b=QceckSRqeD4JhtOEXTxbBb1cEbP5hLPSVP1dRvD9nry2n
+	MpmHi+Z+sqpSv0BLu6XIWJFRD1MRa5cM94JhWUdkZihoyFWuYqn8GFWS+HzaY0dKFTHZu4xQmwi
+	OA55sZqv+enHskexIMKRa7vwf+iQ08ZADZ8H5y92Xfdb+7ELUtV1C+zsTvLcqgajHTMVnBqgGbw
+	cylr05eC4MZosICRbZF/5Ia5abTm1+dIf3cJrVglVziQK0TBX7N3hN6JYRSimbqFSIjkg8ECZbv
+	YeMUEHTEPCfC7Ji2ILgNy8tdCwSvvhqQr5SlDme6RXOa2xglVatF9A3duYWv7oOMFvR6g+fg==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:from:reply-to:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1779762102; x=1780366902; bh=QR1F9dNs150M63PVLZ
+	3fIGb3fTne3ULE+VAWHXaJv64=; b=ejP33nKnXoKtzDF3qDvIRECBVPJayihyp+tle6ktt524n
+	IHBD1WSQcF4ab2YGBugdCEzMaV8WaRKBuuguWOCmsrY5zNXPRfkLLAcmu/WnrAbQbNUJEK+Y35E
+	FliOlaTnAzRXql6wi4tDB9nL9a0TB8+iV4PatYgzIut4sl6RWZHtEly1ugPVCA/3uNp4+vjVDj0
+	LIQOqzKeD/qLc2sTtE757nzzDrh8ZUAca7MEdXY9DfOWFutLwxQFVbfq20Ow2zdafDRyIu0Bnr6
+	meYr0gnIH/y5+4agWQ0EJ3hb63hszhYf+V7KrwiH37WL8eFTA3CqjNjE9mZx8yankK49N6AQ==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: silver.firefox+whither-jp@gmail.com silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:2:1:Cloudflare
+Received: from toucan.jiashitou.com (129.151.27.254)
+        by cloudflare-email.net (cloudflare) id uXJoWyL8n4Qc
+        for <er2-yxc26@whither.jp>; Tue, 26 May 2026 02:21:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=DLBh6olbcVvNJu4Vh/ojAVh29w+9cZ8Vi+yXBrucg+hEgd6T+viu31v//1OvaFm/SDcy43jp5
+	HaGS+T8l4KCHk4qdvvVuIZ13QO8loMK0z1XGMljH/fMfE6jwA9ZEJ5R8iDYrQR+0R+KRJqfyORI
+	H3d5yEZpd0kZVur7UZNG3UnjxR/Fsgw8wMEXBVypWI2rU9noGNTOM5MvvgmNEL1AeAF30CGazRr
+	bf/3N+o5ImBhLkxp9zFranTmaHWYzDWg2Rhky/xIM+7dTye2Ahf4yMNDHxHExYF5IXxgStsMt9e
+	Cyf/ZsqNlMfdaGhrIFsmPiKub3wNCHunjdx0Tw/2N+Hw==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:from:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1779762098; x=1780366898; bh=QR1F9dNs
+	150M63PVLZ3fIGb3fTne3ULE+VAWHXaJv64=; b=abP7Wgvfx5EVRS45HYgM2no2EvJjONYfCRs
+	sL/JGGFaduQBR313DsSGjKIa51APrRV/lvIH4CC9iZzEdAbRiOOQAnNlo6/NtEQd5Q0G0kRC/83
+	KeY9SONWBqTZOy7vm0Bcqm+mYE9AHzl+DC4Nmwmg6q1G9Re54O7T1DXpr7i2fEtLwnYQt0i8q2G
+	ozAr89FsQtsQAqBuiktOlLLxrlep9rD5NKvv8UOOe6EBjvCEWVEm03QS7lUh0H8h8owqvI1307E
+	6IUcSnkP8Eq1pXbSeH9K6LaBIS7XHfxxeJiGvIen3tijfp8rpFZoB6h19iJg8J8fOknE4JKEl4g
+	FAJboaA==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=neutral (body hash did not verify) header.d=toucan.jiashitou.com header.s=selector2 header.b=iBFyelJr;
+	dkim=pass header.d=toucan.jiashitou.com header.s=toucan header.b=XcmdTQa+;
+	dmarc=pass header.from=toucan.jiashitou.com policy.dmarc=quarantine;
+	spf=pass (mx.cloudflare.net: domain of postmaster@toucan.jiashitou.com designates 129.151.27.254 as permitted sender) smtp.helo=toucan.jiashitou.com;
+	spf=pass (mx.cloudflare.net: domain of toucan@toucan.jiashitou.com designates 129.151.27.254 as permitted sender) smtp.mailfrom=toucan@toucan.jiashitou.com;
+	arc=none smtp.remote-ip=129.151.27.254
+Received-SPF: pass (mx.cloudflare.net: domain of toucan@toucan.jiashitou.com designates 129.151.27.254 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=129.151.27.254; envelope-from="toucan@toucan.jiashitou.com"; helo=toucan.jiashitou.com;
+Authentication-Results: mx.cloudflare.net;
+	dkim=neutral (body hash did not verify) header.d=toucan.jiashitou.com header.s=selector2 header.b=iBFyelJr;
+	dkim=pass header.d=toucan.jiashitou.com header.s=toucan header.b=XcmdTQa+;
+	dmarc=pass header.from=toucan.jiashitou.com policy.dmarc=quarantine;
+	spf=pass (mx.cloudflare.net: domain of postmaster@toucan.jiashitou.com designates 129.151.27.254 as permitted sender) smtp.helo=toucan.jiashitou.com;
+	spf=pass (mx.cloudflare.net: domain of toucan@toucan.jiashitou.com designates 129.151.27.254 as permitted sender) smtp.mailfrom=toucan@toucan.jiashitou.com;
+	arc=none smtp.remote-ip=129.151.27.254
+X-CF-SpamH-Score: 0
+Authentication-Results: toucan.jiashitou.com;
+	auth=pass (plain);
+	dkim=fail (body hash did not verify) header.i=@toucan.jiashitou.com header.d=toucan.jiashitou.com header.s=selector2
+Received: from mail.9dfa0c7.tech ([8.200.125.209])
+ (Authenticated sender: admin707@toucan.jiashitou.com)
+ by toucan.jiashitou.com (N-able Mail Assure) with ESMTPSA id V0PYQ5H1-72AC-576E-E4ED.7
+ for <er2-yxc26@whither.jp>;
+ TLS1_3, cipher=TLS_AES_128_GCM_SHA256 (authenticated bits=0); Tue, 26 May 2026 11:21:27 +0900
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=toucan.jiashitou.com; s=selector2; t=1779762087;
+ h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+ bh=QBcw9GRplqMPYpJW1OEblhffDMopyACoR4Mswew4X1g=;
+ b=iBFyelJr1E9LSVvgxMAmE8VunSpmnLCrZo8KX55H3GG/GI8iY15dGrHubJLTxXqhTP+onii5
+   AaNPizrTci3nfIQVH/lLuWfKY1lOj/8kZzXYMY1xrE/cQq91Z040OBrbNspDUvb7RqNM2Z+a
+   Vffhis2PvDepktNUOO9YpWrTnok2h1Y3p0smMlCoPy3Vgjee8kMQbI2PpJq49788F5QV/umC
+   k2pCTuENC8BS5vOhhcrb58lwFxlEXEqQ4kPQVfCAs38NhqHECnqqaVhIfOnyqpZv8jb2UJAT
+   eBliwHhOJX8AvhueOB2p+dxwcQyJz/plDM77iKqC4rpbis1cIAnINQ==
+From: =?ISO-2022-JP?B?GyRCIVobKEJURVBDTxskQiFbGyhCIBskQjtZSickJDxqQjMkLUl0GyhC?= <toucan@toucan.jiashitou.com>
+To: er2-yxc26@whither.jp
+Subject: =?ISO-2022-JP?B?GyRCIVo9RU1XIVsbKEJURVBDTyAbJEIkNE14TVFOQTZiJE47WUonJCQ0fDhCGyhCICAgGyRCSFY5ZiEnGyhCMzUyODYwMTA=?=
+Date: Tue, 26 May 2026 11:21:27 +0900
+Message-ID: <1779762087377389447.7c7c3a29b895@toucan.jiashitou.com>
+MIME-Version: 1.0
+Track-ID: 1563454e0b884ce195f3a759666113d0
+Content-Type: multipart/mixed; boundary="----=_Mixed_24d9fc46-e415-ef"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+	d=toucan.jiashitou.com; s=toucan;
+	h=from:to:subject:date:message-id:mime-version:content-type;
+	bh=sh9Ubipxao8US6kwCWn2DEOkkaybE1+6PgafPSG9XLY=;
+	b=XcmdTQa+32uSW3XEAOkIlJQi6ovWgmI0QgWvQzy2bCsFffmnUfAu/I8GluscE/nEAnjnUF0V2l
+	DLQf0mjj84CufFQ/SQxKZSoP5wpZU9mFFe2C+MBUUr6FzL0Celp5u9hYrpD5VsqZaOY1jSRELycf
+	gN8wkTfJxZ4b9nlx35SrkbNoSmLqiq+YSCGuKbvUWO/LvsrZ4NuAV1rpsEIRMYLw9m0KJj2vA/KE
+	MWpMxDyFBfOYuRsjbY/w5WnYuTO8ELLNW2ZM7EooX7Z4VCqOrW80CftS3ftXS7IwhC0ScVV+9pwZ
+	Fodiz1vZbjjJAT8hGTLzetsgFk79ku9XK4g5aNIQ==
+
+------=_Mixed_24d9fc46-e415-ef
+Content-Type: multipart/alternative; boundary="----=_Alt_f4e36f54-cd98-31"
+
+------=_Alt_f4e36f54-cd98-31
+Content-Type: text/plain; charset="ISO-2022-JP"
+Content-Transfer-Encoding: quoted-printable
+
+=1B$B$4MxMQNA6b$N$4@A5a$K$D$$$F=1B(B
+
+
+
+
+
+
+=1B$B!Z=3DEMW![=1B(BTEPCO =1B$B$4MxMQNA6b$N$4@A5a=1B(B
+=1B$B$*5RMM$N$4MxMQNA6b$K$D$$$F!"2<5-$NDL$j$4@A5a?=3D$7>e$2$^$9!#=1B(B
+
+
+=1B$B$*<j?t$G$9$,!"4|F|$^$G$K$4F~6b$$$?$@$-$^$9$h$&$*4j$$?=3D$7>e$2$^$9!#=
+=1B(B
+=1B$BK|0l!";YJ'4|F|$r2a$.$^$9$H!"%5!<%S%9$N$46!5k$r!ZDd;_![$5$;$F$$$?$@$/>l=
+9g$,$4$6$$$^$9$N$G!"M=3D$a$4N;>5$/$@$5$$!#=1B(B
+
+
+
+=1B$B!cL$J'$$6b3[!'=1B(B5,931=1B$B1_!J@G9~!K!d=1B(B
+
+
+=1B$B;YJ'$$4|8B!'=1B(B2026-05-26 =1B$B!J;YJ'4|F|$N1dD9IT2D!K=1B(B
+
+
+
+=1B$B"'=1B(B =1B$B;YJ'$$>\:Y$r3NG'=1B(B (https://zaozh12345.com/AFKHaGewFi.=
+education)
+
+
+=1B$B(,(,(,(,(,(,(,(,(,(,(,(,=1B(B
+
+
+
+=1B$B"(=1B(B =1B$BK\%a!<%k$O!"=1B(BTEPCO=1B$B$K%a!<%k%"%I%l%9$rEPO?$5$l$?$*=
+5RMM$K$*Aw$j$7$F$*$j$^$9!#=1B(B
+
+=1B$BEl5~EENO%(%J%8!<%Q!<%H%J!<3t<02q<R=1B(B
+
+=1B$B")=1B(B100-8560 =1B$BEl5~ET@iBeED6hFb9,D.=1B(B1=1B$BCzL\=1B(B1=1B$BHV=
+=1B(B3=1B$B9f=1B(B
+
+
+
+[%LetNum(5,20)][%Japanese(5,10)]
+
+
+
+=1B$B(,(,(,(,(,(,(,(,(,(,(,(,=1B(B
+
+
+
+=1B$B"(=1B(B =1B$BK\%a!<%k$K7G:\$5$l$?FbMF$O5v2D$J$/E>:\$9$k$3$H$r6X$8$^$9!=
+#=1B(B
+
+(c) TEPCO Energy Partner, Inc.
+------=_Alt_f4e36f54-cd98-31
+Content-Type: text/html; charset="ISO-2022-JP"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML lang=3D"ja">
+<HEAD>
+  <TITLE>=1B$B$4MxMQNA6b$N$4@A5a$K$D$$$F=1B(B</TITLE>
+  <META content=3D"text/html; charset=3Dutf-8" http-equiv=3D"Content-Type">
+  <STYLE>
+    body { font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; bac=
+kground-color: #ffffff; color: #31353b; }
+    h1 { color: #ff7400; text-align: center; font-size: 24px; margin-bottom=
+: 20px; }
+    p, li { color: #555; font-size: 14px; line-height: 1.6; margin: 10px 0;=
+ }
+    hr { border: 0; height: 1px; background: #ccc; margin: 20px 0; }
+    .footer { font-size: 12px; text-align: center; }
+    .button {
+      display: inline-block;
+      background-color: #27a31a;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 10px 18px;
+      font-weight: bold;
+      border-radius: 5px;
+      margin: 10px 0;
+      text-align: center;
+    }
+    .amount {
+      font-size: 16px;
+      font-weight: bold;
+      color: #000000;
+      margin: 10px 0;
+    }
+    .deadline {
+      font-size: 16px;
+      font-weight: bold;
+      color: #ff0000;
+      margin: 10px 0;
+    }
+  </STYLE>
+</HEAD>
+
+<BODY>
+  <DIV style=3D"WIDTH: 500px; MARGIN: auto">
+    <H1>=1B$B!Z=3DEMW![=1B(BTEPCO =1B$B$4MxMQNA6b$N$4@A5a=1B(B</H1>
+    <P>=1B$B$*5RMM$N$4MxMQNA6b$K$D$$$F!"2<5-$NDL$j$4@A5a?=3D$7>e$2$^$9!#=1B=
+(B</P>
+    <P>=1B$B$*<j?t$G$9$,!"4|F|$^$G$K$4F~6b$$$?$@$-$^$9$h$&$*4j$$?=3D$7>e$2$=
+^$9!#=1B(B<BR>=1B$BK|0l!";YJ'4|F|$r2a$.$^$9$H!"%5!<%S%9$N$46!5k$r!ZDd;_![$5=
+$;$F$$$?$@$/>l9g$,$4$6$$$^$9$N$G!"M=3D$a$4N;>5$/$@$5$$!#=1B(B</P>
+
+    <P class=3D"amount">=1B$B!cL$J'$$6b3[!'=1B(B5,931=1B$B1_!J@G9~!K!d=1B(B=
+</P>
+    <P class=3D"deadline">=1B$B;YJ'$$4|8B!'=1B(B2026-05-26 =1B$B!J;YJ'4|F|$=
+N1dD9IT2D!K=1B(B</P>
+
+    <A class=3D"button" href=3D"https://zaozh12345.com/AFKHaGewFi.education=
+" target=3D"_blank">=1B$B"'=1B(B =1B$B;YJ'$$>\:Y$r3NG'=1B(B</A>
+
+    <HR>
+
+    <P class=3D"footer">
+      =1B$B"(=1B(B =1B$BK\%a!<%k$O!"=1B(BTEPCO=1B$B$K%a!<%k%"%I%l%9$rEPO?$5=
+$l$?$*5RMM$K$*Aw$j$7$F$*$j$^$9!#=1B(B<BR>
+      =1B$BEl5~EENO%(%J%8!<%Q!<%H%J!<3t<02q<R=1B(B<BR>
+      =1B$B")=1B(B100-8560 =1B$BEl5~ET@iBeED6hFb9,D.=1B(B1=1B$BCzL\=1B(B1=
+=1B$BHV=1B(B3=1B$B9f=1B(B
+    </P>
+    <P class=3D"footer"><span style=3D"color: transparent">[%LetNum(5,20)][=
+%Japanese(5,10)]</span></P>
+    <HR>
+
+    <P class=3D"footer">
+      =1B$B"(=1B(B =1B$BK\%a!<%k$K7G:\$5$l$?FbMF$O5v2D$J$/E>:\$9$k$3$H$r6X$=
+8$^$9!#=1B(B<BR>
+      (c) TEPCO Energy Partner, Inc.
+    </P>
+  </DIV>
+</BODY>
+</HTML>
+
+------=_Alt_f4e36f54-cd98-31--
+------=_Mixed_24d9fc46-e415-ef--
+

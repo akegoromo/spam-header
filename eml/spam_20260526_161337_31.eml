@@ -1,0 +1,669 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:a317:0:b0:26a:2114:7ab with SMTP id h23csp3306212eid;
+        Tue, 26 May 2026 00:13:46 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ/UZK7aFmL/R9z1G2PJIhm5eBFU/x22bOLH8ZImCt+f7j0cxv9LAVczFULjiGePykPhzu+RiINbUoesjpy1rw==@gmail.com
+X-Received: by 2002:a05:620a:294b:b0:914:ee1a:fc1c with SMTP id af79cd13be357-914ee1afc9emr593421085a.58.1779779625821;
+        Tue, 26 May 2026 00:13:45 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1779779625; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=LwH/66C+jZ2KOczDGxfYtEA2jDRsdWo1813MrKriQq7AA3ts7PpyPKiVx45vZkse+J
+         3nRfiE1q1gMO2rttYiwwVcVI9Mvy4QWpSf6+LialDNmdd/N3yu4893Rx/58unRVwzfCj
+         wG+lqg691S0idgEo0/hJg99dTG7msbEpgDKQVzMrZ9iB4Cno4hVf2LoU1/2jFV6tT/mU
+         RCUBGdnxPzxO/nYR80lr4Ry0SCV7ozkyO+ye8Xk1imPmqKtBW2es2PBYzb/cj0le8Aj1
+         2Djkv3Dkqx71zB43wIXKLE35vIy+jP20V6aozszPrvrjkGtnaG5qlVBdeRZwzBSFEDoo
+         o54g==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=mime-version:list-unsubscribe-post:list-unsubscribe:list-id
+         :feedback-id:message-id:date:to:reply-to:from:subject:dkim-signature
+         :dkim-signature:dkim-signature;
+        bh=Z906HGb/dppNPGBYB3T5dGCk0umkuJG3tcilgEjMe3c=;
+        fh=LnGVlAla77Gyfiw8zkzbOhaVlqYgEu27l8ujdfvsIGY=;
+        b=WPf1OqcC0l1HwytoV86o9oYj+qxK1INFBsABv1lWmk/Uy2ENvMxrW4Maug0R+I1XlM
+         TM5lap2UpjyK1oFG32WYsGHwrjgt3AmRib199GSXi7zs9DfjTdYTlLUGbL5FOoY+LnyU
+         yPtEgerMzm7pCZ2Sw3UT+IE8MPeAjbvecp8NtVtNYYVp6P7my0rdAD77wBPacWOb7c+L
+         OewoDbzVj9NfE9K6gNBFyOM0LEIAtNQzTWVvGNQY+weRm/vossRPz5RdYzIhkfqAXH7d
+         8/ElTVUi1aC/B74Clyjip254muYMu3GGte6H/Urwi8Ko1v7Bj7QgOBVAf4zYVl5b1D+o
+         OXLA==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=czhNxK0V;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b="B8/b+kBw";
+       dkim=pass header.i=@mailchimpapp.com header.s=k3 header.b=cDKHBukM;
+       arc=pass (i=1 spf=pass spfdomain=mail98.atl11.rsgsv.net dkim=pass dkdomain=254198875.mailchimpapp.com dmarc=pass fromdomain=254198875.mailchimpapp.com);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.8 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=mailchimpapp.com
+Return-Path: <cfbounces+ndrdrop@whither.jp>
+Received: from ba-i.cloudflare-email.net (ba-i.cloudflare-email.net. [104.30.10.8])
+        by mx.google.com with ESMTPS id af79cd13be357-914f89d7218si109036685a.222.2026.05.26.00.13.44
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 26 May 2026 00:13:45 -0700 (PDT)
+Received-SPF: pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.8 as permitted sender) client-ip=104.30.10.8;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=czhNxK0V;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b="B8/b+kBw";
+       dkim=pass header.i=@mailchimpapp.com header.s=k3 header.b=cDKHBukM;
+       arc=pass (i=1 spf=pass spfdomain=mail98.atl11.rsgsv.net dkim=pass dkdomain=254198875.mailchimpapp.com dmarc=pass fromdomain=254198875.mailchimpapp.com);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.8 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=mailchimpapp.com
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=List-Unsubscribe-Post:List-Unsubscribe:List-ID:Feedback-ID:Date:To
+	:Reply-To:From:Subject:from:cc:resent-date:resent-from:resent-to:resent-cc
+	:in-reply-to:references:list-help:list-subscribe:list-post:list-owner
+	:list-archive; t=1779779625; x=1780384425; bh=Z906HGb/dppNPGBYB3T5dGCk0umku
+	JG3tcilgEjMe3c=; b=czhNxK0VMGJEl5ps4wXaYyeNUp8TywZUhzRhbgAhFQRSOwVBwHWxUsHd
+	/oZM4JS4H64+zef5oLuXguiGwZ1U6lxTrYkDsYyD3U9xmdsT7sLBm3xBWZnzLtC7kcKZ0wmzLZ2
+	oPxz9JeImJfqbqQO5WPCEw5aHSYzkcxEBiG2aNUvWHJiyrYywg4tHqxVIvUsqYGh7yu19WB6Cj9
+	wA+F60PMiuulUVslOWpw8mTUgoURoqn8q2a2kKIuscgFdzfmTp+xC9CVkm+CuFqYJgQ4JH68RbD
+	0DDJP9cyjEa0IenHWo7MD5KxcnIVbt46yVg7cjANijDmRF9sfGEAsHQ+6Go8w==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=List-Unsubscribe-Post:List-Unsubscribe:List-ID:Feedback-ID:Date:To
+	:Reply-To:From:Subject:from:cc:resent-date:resent-from:resent-to:resent-cc
+	:in-reply-to:references:list-help:list-subscribe:list-post:list-owner
+	:list-archive; t=1779779625; x=1780384425; bh=Z906HGb/dppNPGBYB3T5dGCk0umku
+	JG3tcilgEjMe3c=; b=B8/b+kBw4yeQHdfdekdoj3HoQt8KFEv1mFQ6D9wA5IiK+egzGmeh6LRk
+	kfm01AY4v+BzCrhqPeg3E0Zx2MDH9dlRS8l0pbOScFm7WPU9GeRnu4CXdEEK2dJuYEYewVke3Jm
+	apXnpc1nVL7WweMyijbdVTRVHujKSxYdy6HNDLFJTIKi6EHmjUgNKi+tYhJ0KN6ZwYQav8a32az
+	0BPIhPeCWvp33gwcwBhXObkEGDjGu7jBT5O+7+Cj1CwansRqADAeN0dmRv+lDWWgTzfB93RTCPw
+	TfuxThabyjavrpLNrSP8dCENJ4WU4Yx0hGRJfHz5GsBBQJOFf9bybYnvuJepA==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: silver.firefox+whither-jp@gmail.com silver.firefox+whither-jp@gmail.com
+Received: from mail98.atl11.rsgsv.net (205.201.133.98)
+        by cloudflare-email.net (cloudflare) id CK7OxItM9zXa
+        for <tnakahara@whither.jp>; Tue, 26 May 2026 07:13:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=huo4otRQ1pdevYcIMijoZ0BZiRsIbcV2qlnjgsqqZypDCpPMv2b3vKAjH9MZzRnFsPTnZplk3
+	9q38pkj03MpBmFGKnWV7s5IaCfhoJUa5aiowY6WP2NvQieJHp0Ss8Exx9CrmioiI/xKQEoY1ZYM
+	N84f0YrSv+BlXTDFXFlravgUSBjS9OnmdDua8roLF84VUd+efZgiUwENWVpIjdPgJOHFLeyqYUP
+	0Wv3OXlYhVeGyCBp38bOOu2iCSQ4MhAuJOolltwLloGNXgXOKZTH/N/sSw5WitjwuDFUe5qk6Rj
+	3X1jYVyNgABNMBJ9UFfqcthMgSnJj4O7Rd/yhB+S5MFQ==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=List-ID:Date:To:Reply-To:From:Subject:from:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1779779620; x=1780384420; bh=Z906HGb/
+	dppNPGBYB3T5dGCk0umkuJG3tcilgEjMe3c=; b=ZBJXG8zeZ7KRlis+Lxsc2Xve0C7ML+xH22d
+	BlYRB7tEUGFSgMuRtzf+XSNK1OmcxTu/6Hh08lLkCftP3lIDqQQX+RWDf6OlohFdyhLlqqagrmo
+	rtC0lcD9rcRw0yhDuAhs0s33bqbP0LC7rNyaJSUyaWCXVZ49fs0eifQinKK7TUU/L0lVxSA5Pyi
+	fYxLGMFRfJZ69tecgbnxJS2iooakJfnNBIl7wKjs2BZLqtHmZeEJqmkFT0AKJv5h+byWGJfpTwg
+	UiFtOR2wiuXaP/Q5HeImYQT8C8ImIAGmzXbIBhhSZXMONrXnROmbo2hX9+cBfQK+obiYUtu24ZD
+	tLNIs3w==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=docoolab@254198875.mailchimpapp.com header.s=k3 header.b=cDKHBukM;
+	dmarc=pass header.from=254198875.mailchimpapp.com policy.dmarc=reject;
+	spf=pass (mx.cloudflare.net: domain of postmaster@mail98.atl11.rsgsv.net designates 205.201.133.98 as permitted sender) smtp.helo=mail98.atl11.rsgsv.net;
+	spf=pass (mx.cloudflare.net: domain of bounce-mc.us19_254198875.17572108-1b91cd4dd4@mail98.atl11.rsgsv.net designates 205.201.133.98 as permitted sender) smtp.mailfrom=bounce-mc.us19_254198875.17572108-1b91cd4dd4@mail98.atl11.rsgsv.net;
+	arc=none smtp.remote-ip=205.201.133.98
+Received-SPF: pass (mx.cloudflare.net: domain of bounce-mc.us19_254198875.17572108-1b91cd4dd4@mail98.atl11.rsgsv.net designates 205.201.133.98 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=205.201.133.98; envelope-from="bounce-mc.us19_254198875.17572108-1b91cd4dd4@mail98.atl11.rsgsv.net"; helo=mail98.atl11.rsgsv.net;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=docoolab@254198875.mailchimpapp.com header.s=k3 header.b=cDKHBukM;
+	dmarc=pass header.from=254198875.mailchimpapp.com policy.dmarc=reject;
+	spf=pass (mx.cloudflare.net: domain of postmaster@mail98.atl11.rsgsv.net designates 205.201.133.98 as permitted sender) smtp.helo=mail98.atl11.rsgsv.net;
+	spf=pass (mx.cloudflare.net: domain of bounce-mc.us19_254198875.17572108-1b91cd4dd4@mail98.atl11.rsgsv.net designates 205.201.133.98 as permitted sender) smtp.mailfrom=bounce-mc.us19_254198875.17572108-1b91cd4dd4@mail98.atl11.rsgsv.net;
+	arc=none smtp.remote-ip=205.201.133.98
+X-CF-SpamH-Score: 0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailchimpapp.com;
+	s=k3; t=1779779620; x=1780049620;
+	i=docoolab@254198875.mailchimpapp.com;
+	bh=Z906HGb/dppNPGBYB3T5dGCk0umkuJG3tcilgEjMe3c=;
+	h=Subject:From:Reply-To:To:Date:Message-ID:X-MC-User:Feedback-ID:
+	 List-ID:List-Unsubscribe:List-Unsubscribe-Post:Content-Type:
+	 MIME-Version:CC:Date:Subject:From;
+	b=cDKHBukMmYCLXUbEuUknuS4fe1zOKcroE7GWAwfg1wDkVqOxHlay8FNxSJdi1rwB+
+	 G0oZti/eXR3gWXzxe8yObT7g/C9pSgOsGZTeCccKP5anFHTMnutqqKlvbUtcNvIPQY
+	 a7GapzPbNyNSSFj36hVX1G4DU8IrUHJKmYGc/N1JaPFuK6BKkH2RKl3eY+/qm+GTYE
+	 t+NHN0BK+mB8xj49w247jrx1VqEwuxDHu9XL8RsumNM59POHzINYM1RTGoN2W7oXHE
+	 z21ol7iK8dTrSxReiIHv38gl2eu7mCBBngEYU6BVNci/fLbtBSFxTJvrXJ0IMaUC/w
+	 ZSP07WdYugWpA==
+Received: from localhost (localhost [127.0.0.1])
+	by mail98.atl11.rsgsv.net (Mailchimp) with ESMTP id 4gPkW81Hynz6CQZB1
+	for <tnakahara@whither.jp>; Tue, 26 May 2026 07:13:40 +0000 (UTC)
+Subject: =?utf-8?Q?DOCO=20Lab=20Smart=20Adaptive=205D=20Reciprocating=20Shaver?=
+From: DOCO Lab <docoolab@254198875.mailchimpapp.com>
+Reply-To:  <docoolab@outlook.com>
+To: <tnakahara@whither.jp>
+Date: Tue, 26 May 2026 07:13:37 +0000
+Message-ID: <8e03b649e322b05efe83f8147.1b91cd4dd4.20260526071312.55915e24e0.b35ccd8f@mail98.atl11.rsgsv.net>
+X-Mailer: Mailchimp Mailer - **CID55915e24e01b91cd4dd4**
+X-Campaign: mailchimp8e03b649e322b05efe83f8147.55915e24e0
+X-campaignid: mailchimp8e03b649e322b05efe83f8147.55915e24e0
+X-Report-Abuse: Please report abuse for this campaign here: https://mailchimp.com/contact/abuse/?u=8e03b649e322b05efe83f8147&id=55915e24e0&e=1b91cd4dd4
+X-MC-User: 8e03b649e322b05efe83f8147
+Feedback-ID: 254198875:254198875.17572108:us19:mc
+List-ID: 8e03b649e322b05efe83f8147mc list <8e03b649e322b05efe83f8147.1547604.list-id.mcsv.net>
+X-Accounttype: pr
+List-Unsubscribe: <https://hotmail.us19.list-manage.com/unsubscribe?u=8e03b649e322b05efe83f8147&id=e57a2d287b&t=h&e=1b91cd4dd4&c=55915e24e0>, <mailto:unsubscribe-mc.us19_8e03b649e322b05efe83f8147.55915e24e0-1b91cd4dd4@unsubscribe.mailchimpapp.net?subject=unsubscribe>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Content-Type: multipart/alternative; boundary="_----------=_MCPart_1889484756"
+MIME-Version: 1.0
+
+This is a multi-part message in MIME format
+
+--_----------=_MCPart_1889484756
+Content-Type: text/plain; charset="utf-8"; format="fixed"
+Content-Transfer-Encoding: quoted-printable
+
+https://www.kickstarter.com/projects/docolab/doco-lab-smart-adaptive-5d-re=
+ciprocating-shaver?ref=3Dco69e6
+
+DOCO Lab Smart Adaptive 5D Reciprocating Shaver
+https://www.kickstarter.com/projects/docolab/doco-lab-smart-adaptive-5d-re=
+ciprocating-shaver?ref=3Dco69e6
+
+With a 5-blade reciprocating system=2C ultra-thin 0.05mm foil=2C high-torq=
+ue motor=2C IPX7 waterproof body=2C magnetic quick-clean design=2C and up=
+ to 60 days of battery life=2C DOCO Lab is built for men who expect more f=
+rom their everyday grooming tools.
+SHOP THE SALE (https://www.kickstarter.com/projects/docolab/doco-lab-smart=
+-adaptive-5d-reciprocating-shaver?ref=3Dco69e6)
+
+This email was sent by:{accountaddress}
+
+This email was sent to tnakahara@whither.jp (mailto:tnakahara@whither.jp)
+why did I get this? (https://hotmail.us19.list-manage.com/about?u=3D8e03b6=
+49e322b05efe83f8147&id=3De57a2d287b&e=3D1b91cd4dd4&c=3D55915e24e0)     unsub=
+scribe from this list (https://hotmail.us19.list-manage.com/unsubscribe?u=
+=3D8e03b649e322b05efe83f8147&id=3De57a2d287b&t=3Db&e=3D1b91cd4dd4&c=3D55915e=
+24e0)     update subscription preferences (https://hotmail.us19.list-manag=
+e.com/profile?u=3D8e03b649e322b05efe83f8147&id=3De57a2d287b&e=3D1b91cd4dd4&c=
+=3D55915e24e0)
+Rose Miller .  E 48th St . Los Angeles=2C CA 90011 . USA
+--_----------=_MCPart_1889484756
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html lang=3D"en" xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:sc=
+hemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:offic=
+e">
+
+    <head>
+        <meta charset=3D"utf-8">
+        <meta name=3D"viewport" content=3D"width=3Ddevice-width">
+        <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+        <meta name=3D"x-apple-disable-message-reformatting">
+        <meta name=3D"format-detection" content=3D"telephone=3Dno=2Caddres=
+s=3Dno=2Cemail=3Dno=2Cdate=3Dno=2Curl=3Dno">
+
+        <meta name=3D"color-scheme" content=3D"light">
+        <meta name=3D"supported-color-schemes" content=3D"light">
+
+
+        <!--[if !mso]><!-->
+
+          <link rel=3D"preload" as=3D"style" href=3D"https://fonts.googlea=
+pis.com/css2?family=3DOpen+Sans:ital=2Cwght@0=2C400;0=2C700;1=2C400;1=2C70=
+0&family=3DOpen+Sans:ital=2Cwght@0=2C400;0=2C700;1=2C400;1=2C700&family=3D=
+Open+Sans:ital=2Cwght@0=2C400;0=2C700;1=2C400;1=2C700&family=3DOpen+Sans:i=
+tal=2Cwght@0=2C400;0=2C700;1=2C400;1=2C700&family=3DOpen+Sans:ital=2Cwght@=
+0=2C400;0=2C700;1=2C400;1=2C700&display=3Dswap">
+          <link rel=3D"stylesheet" href=3D"https://fonts.googleapis.com/cs=
+s2?family=3DOpen+Sans:ital=2Cwght@0=2C400;0=2C700;1=2C400;1=2C700&family=
+=3DOpen+Sans:ital=2Cwght@0=2C400;0=2C700;1=2C400;1=2C700&family=3DOpen+San=
+s:ital=2Cwght@0=2C400;0=2C700;1=2C400;1=2C700&family=3DOpen+Sans:ital=2Cwg=
+ht@0=2C400;0=2C700;1=2C400;1=2C700&family=3DOpen+Sans:ital=2Cwght@0=2C400;=
+0=2C700;1=2C400;1=2C700&display=3Dswap">
+
+          <style type=3D"text/css">
+          // TODO: fix me!
+            @import url(https://fonts.googleapis.com/css2?family=3DOpen+Sa=
+ns:ital=2Cwght@0=2C400;0=2C700;1=2C400;1=2C700&family=3DOpen+Sans:ital=2Cw=
+ght@0=2C400;0=2C700;1=2C400;1=2C700&family=3DOpen+Sans:ital=2Cwght@0=2C400=
+;0=2C700;1=2C400;1=2C700&family=3DOpen+Sans:ital=2Cwght@0=2C400;0=2C700;1=
+=2C400;1=2C700&family=3DOpen+Sans:ital=2Cwght@0=2C400;0=2C700;1=2C400;1=2C=
+700&display=3Dswap);
+        </style>
+
+        <!--<![endif]-->
+
+        <!--[if mso]>
+          <style>
+              // TODO: fix me!
+              * {
+                  font-family: sans-serif !important;
+              }
+          </style>
+        <![endif]-->
+
+
+        <!-- NOTE: the title is processed in the backend during the campai=
+gn dispatch -->
+        <title></title>
+
+        <!--[if gte mso 9]>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:AllowPNG/>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+        <![endif]-->
+
+    <style type=3D"text/css">
+        :root {
+            color-scheme: light;
+            supported-color-schemes: light;
+        }
+
+        html=2C
+        body {
+            margin: 0 auto !important;
+            padding: 0 !important;
+            height: 100% !important;
+            width: 100% !important;
+
+            overflow-wrap: break-word;
+            -ms-word-break: break-word;
+            word-break: break-word;
+        }
+
+
+
+
+
+
+  center=2C
+  #body_table {
+
+  }
+
+  ul=2C ol {
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  li {
+    margin-bottom: 0;
+  }
+
+
+
+  .list-block-list-outside-left li {
+    margin-left: 20px !important;
+  }
+
+  .list-block-list-outside-right li {
+    margin-right: 20px !important;
+  }
+
+
+     .paragraph {
+      font-size: 16px;
+      font-family: Open Sans=2C sans-serif;
+      font-weight: normal;
+      font-style: normal;
+      text-align: start;
+      line-height: 1;
+      text-decoration: none;
+      color: #ffffff;
+
+    }
+
+
+     .heading1 {
+      font-size: 37px;
+      font-family: Open Sans=2C sans-serif;
+      font-weight: normal;
+      font-style: italic;
+      text-align: center;
+      line-height: 1;
+      text-decoration: none;
+      color: #ffffff;
+
+    }
+
+
+     .heading2 {
+      font-size: 22px;
+      font-family: Open Sans=2C sans-serif;
+      font-weight: normal;
+      font-style: normal;
+      text-align: start;
+      line-height: 1;
+      text-decoration: none;
+      color: #ffffff;
+
+    }
+
+
+     .heading3 {
+      font-size: 18px;
+      font-family: Open Sans=2C sans-serif;
+      font-weight: normal;
+      font-style: normal;
+      text-align: start;
+      line-height: 1;
+      text-decoration: none;
+      color: #ffffff;
+
+    }
+
+
+     .list {
+      font-size: 16px;
+      font-family: Open Sans=2C sans-serif;
+      font-weight: normal;
+      font-style: normal;
+      text-align: start;
+      line-height: 1;
+      text-decoration: none;
+      color: #ffffff;
+
+    }
+
+
+  p a=2C
+  li a {
+
+    color: #8b68ff;
+    text-decoration: underline;
+    font-style: normal;
+    font-weight: normal;
+
+  }
+
+  .button-table a {
+    text-decoration: none;
+    font-style: normal;
+    font-weight: normal;
+  }
+
+  .paragraph > span {text-decoration: none;}.heading1 > span {text-decorat=
+ion: none;}.heading2 > span {text-decoration: none;}.heading3 > span {text=
+-decoration: none;}.list > span {text-decoration: none;}
+
+
+        * {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        div[style*=3D"margin: 16px 0"] {
+            margin: 0 !important;
+        }
+
+        #MessageViewBody=2C
+        #MessageWebViewDiv {
+            width: 100% !important;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            mso-table-lspace: 0pt !important;
+            mso-table-rspace: 0pt !important;
+        }
+        table:not(.button-table) {
+            border-spacing: 0 !important;
+            border-collapse: collapse !important;
+            table-layout: fixed !important;
+            margin: 0 auto !important;
+        }
+
+        th {
+            font-weight: normal;
+        }
+
+        tr td p {
+            margin: 0;
+        }
+
+        img {
+            -ms-interpolation-mode: bicubic;
+        }
+
+        a[x-apple-data-detectors]=2C
+
+        .unstyle-auto-detected-links a=2C
+        .aBn {
+            border-bottom: 0 !important;
+            cursor: default !important;
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+        }
+
+        .im {
+            color: inherit !important;
+        }
+
+        .a6S {
+            display: none !important;
+            opacity: 0.01 !important;
+        }
+
+        img.g-img+div {
+            display: none !important;
+        }
+
+        @media only screen and (min-device-width: 320px) and (max-device-w=
+idth: 374px) {
+            u~div .contentMainTable {
+                min-width: 320px !important;
+            }
+        }
+
+        @media only screen and (min-device-width: 375px) and (max-device-w=
+idth: 413px) {
+            u~div .contentMainTable {
+                min-width: 375px !important;
+            }
+        }
+
+        @media only screen and (min-device-width: 414px) {
+            u~div .contentMainTable {
+                min-width: 414px !important;
+            }
+        }
+    </style>
+    <style type=3D"text/css">
+        @media only screen and (max-device-width: 700px) {
+            .contentMainTable {
+                width: 100% !important;
+                margin: auto !important;
+            }
+            .single-column {
+                width: 100% !important;
+                margin: auto !important;
+            }
+            .multi-column {
+                width: 100% !important;
+                margin: auto !important;
+            }
+        }
+        @media only screen and (max-width: 700px) {
+            .contentMainTable {
+                width: 100% !important;
+                margin: auto !important;
+            }
+            .single-column {
+                width: 100% !important;
+                margin: auto !important;
+            }
+            .multi-column {
+                width: 100% !important;
+                margin: auto !important;
+            }
+        }
+    </style>
+    <!--[if mso | IE]>
+<style>
+=2Ebutton-vl8h1JSrJ-DL75t4NMgN- { padding: 19px 32px; };
+=2Ebutton-vl8h1JSrJ-DL75t4NMgN- a { margin: -19px -32px; }; </style>
+<![endif]-->
+
+<!--[if mso | IE]>
+    <style>
+        .list-block-outlook-outside-left {
+            margin-left: -18px;
+        }
+
+        .list-block-outlook-outside-right {
+            margin-right: -18px;
+        }
+
+        a:link=2C span.MsoHyperlink {
+            mso-style-priority:99;
+
+    color: #8b68ff;
+    text-decoration: underline;
+    font-style: normal;
+    font-weight: normal;
+
+        }
+    </style>
+<![endif]-->
+
+
+<style type=3D"text/css">
+    table .button-td a=2C
+    table p=2C
+    table li {
+      -ms-word-break: break-word;
+      word-break: break-word !important;
+    }
+</style>
+
+
+    </head>
+
+    <body width=3D"100%" style=3D"margin: 0; padding: 0 !important; mso-li=
+ne-height-rule: exactly; background-color: #ffffff;">
+        <center role=3D"article" aria-roledescription=3D"email" lang=3D"en=
+" style=3D"width: 100%; background-color: #ffffff;">
+            <!--[if mso | IE]>
+            <table role=3D"presentation" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" id=3D"body_table" width=3D"100%" style=3D"background-color=
+: #ffffff;">
+            <tbody>
+                <tr>
+                    <td>
+                    <![endif]-->
+                        <table align=3D"center" role=3D"presentation" cell=
+spacing=3D"0" cellpadding=3D"0" border=3D"0" width=3D"700" style=3D"margin=
+: auto;" class=3D"contentMainTable">
+                            <tr class=3D"wp-block-editor-imageblock-v1"><t=
+d style=3D"background-color:#010102;padding-top:0;padding-bottom:0;padding=
+-left:0;padding-right:0" align=3D"center"><table align=3D"center" width=3D=
+"100%" style=3D"width:100%;border-spacing:0;border-collapse:collapse;max-w=
+idth:700px" role=3D"presentation"><tbody><tr align=3D"center"><td style=3D=
+"padding:0"><a href=3D"https://us.list-manage.com/qNBg6UBZm7m?e=3D1b91cd4dd4&c2id=3Dda560e3097a71501cb116740062964f1"><img src=3D"https://api.smtprelay.co/userfile/c=
+65b09d8-4900-4601-8852-0facbf701d05/=E4=B8=BB=E5=9B=BE2026-05-21T02_26_37.=
+jpg" width=3D"700" height=3D"" alt=3D"" style=3D"border-radius:0px;display=
+:block;height:auto;width:100%;max-width:100%;border:0" class=3D"g-img"></a=
+></td></tr></tbody></table></td></tr><tr class=3D"wp-block-editor-headingb=
+lock-v1"><td valign=3D"top" style=3D"background-color:#795fc8;display:bloc=
+k;padding-top:15px;padding-right:20px;padding-bottom:15px;padding-left:20p=
+x;word-break:normal;hyphens:auto;-webkit-hyphens:auto;-ms-hyphens:auto"><p=
+ style=3D"font-family:Open Sans=2C sans-serif;letter-spacing:0;font-size:4=
+1px;background-color:#795fc8;color:#ffffff;margin:0;word-break:normal" cla=
+ss=3D"heading1"><span style=3D"font-style: normal" class=3D"italic"><span=
+ style=3D"font-weight: bold" class=3D"bold">DOCO Lab Smart Adaptive 5D Rec=
+iprocating Shaver</span></span></p></td></tr><tr class=3D"wp-block-editor-=
+imageblock-v1"><td style=3D"background-color:#010102;padding-top:20px;padd=
+ing-bottom:20px;padding-left:50px;padding-right:50px" align=3D"center"><ta=
+ble align=3D"center" width=3D"100%" style=3D"width:100%;border-spacing:0;b=
+order-collapse:collapse;max-width:100%" role=3D"presentation"><tbody><tr a=
+lign=3D"center"><td style=3D"padding:0"><a href=3D"https://us.list-manage.=
+com/FRGBJEabpcx?e=3D1b91cd4dd4&c2id=3Dda560e3097a71501cb116740062964f1"><img src=3D"https:/=
+/api.smtprelay.co/userfile/c65b09d8-4900-4601-8852-0facbf701d05/07.jpg" wi=
+dth=3D"600" height=3D"" alt=3D"" style=3D"border-radius:0px;display:block;=
+height:auto;width:100%;max-width:100%;border:0" class=3D"g-img"></a></td><=
+/tr></tbody></table></td></tr><tr class=3D"wp-block-editor-paragraphblock-=
+v1"><td valign=3D"top" style=3D"padding:25px 20px 15px 20px;background-col=
+or:#010102;word-break:normal;hyphens:auto;-webkit-hyphens:auto;-ms-hyphens=
+:auto"><p class=3D"paragraph" style=3D"font-family:Open Sans=2C sans-serif=
+;text-align:center;line-height:27.20px;font-size:16px;margin:0;color:#ffff=
+ff;word-break:normal">With a 5-blade reciprocating system=2C ultra-thin 0.=
+05mm foil=2C high-torque motor=2C IPX7 waterproof body=2C magnetic quick-c=
+lean design=2C and up to 60 days of battery life=2C DOCO Lab is built for=
+ men who expect more from their everyday grooming tools. </p></td></tr><tr=
+ class=3D"wp-block-editor-buttonblock-v1" align=3D"center"><td style=3D"ba=
+ckground-color:#010102;padding-top:20px;padding-right:19px;padding-bottom:=
+20px;padding-left:19px;width:100%" valign=3D"top"><table role=3D"presentat=
+ion" cellspacing=3D"0" cellpadding=3D"0" class=3D"button-table"><tbody><tr=
+><td valign=3D"top" class=3D"button-vl8h1JSrJ-DL75t4NMgN- button-td button=
+-td-primary" style=3D"cursor:pointer;border:none;border-radius:0px;backgro=
+und-color:#8B68FF;font-size:19px;font-family:Open Sans=2C sans-serif;width=
+:fit-content;direction:ltr;text-decoration:none;letter-spacing:1px;color:#=
+ffffff;overflow:hidden"><a style=3D"color:#ffffff;display:block;padding:19=
+px 32px 19px 32px" href=3D"https://us.list-manage.com/14WYSnuyxet?e=3D1b91cd4dd4&c2id=3Dda560e3097a71501cb116740062964f1"><span style=3D"font-weight: bold" class=3D"=
+bold">SHOP THE SALE</span></a></td></tr></tbody></table></td></tr><tr clas=
+s=3D"wp-block-editor-dividerblock-v1" align=3D"center" valign=3D"top"><td=
+ style=3D"padding-top:20px;padding-bottom:20px;padding-left:50px;padding-r=
+ight:50px;background-color:#010102"><div style=3D"background:#5D5D5D;font-=
+size:2px;line-height:2px;border:0">&nbsp;</div></td></tr><tr><td valign=3D=
+"top" align=3D"center" style=3D"padding:20px 20px 20px 20px;background-col=
+or:#010102"><p aria-label=3D"Unsubscribe" class=3D"paragraph" style=3D"fon=
+t-family:Open Sans=2C sans-serif;text-align:center;line-height:13.80px;fon=
+t-size:12px;margin:0;color:#ffffff;word-break:normal">This email was sent=
+ by:{accountaddress}</p></td></tr>
+                        </table>
+                    <!--[if mso | IE]>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+            <![endif]-->
+        </center>
+                <center>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wi=
+dth=3D"100%" id=3D"canspamBarWrapper" style=3D"background-color:#FFFFFF; b=
+order-top:1px solid #E5E5E5;">
+                    <tr>
+                        <td align=3D"center" valign=3D"top" style=3D"paddi=
+ng-top:20px; padding-bottom:20px;">
+                            <table border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" id=3D"canspamBar">
+                                <tr>
+                                    <td align=3D"center" valign=3D"top" st=
+yle=3D"color:#606060; font-family:Helvetica=2C Arial=2C sans-serif; font-s=
+ize:11px; line-height:150%; padding-right:20px; padding-bottom:5px; paddin=
+g-left:20px; text-align:center;">
+                                        This email was sent to <a href=3D"=
+mailto:tnakahara@whither.jp" target=3D"_blank" style=3D"color:#404040 !importa=
+nt;">tnakahara@whither.jp</a>
+                                        <br>
+                                        <a href=3D"https://hotmail.us19.li=
+st-manage.com/about?u=3D8e03b649e322b05efe83f8147&id=3De57a2d287b&e=3D1b91cd4dd4&c=3D55915e24e0" target=3D"_blank" style=3D"color:#404040 !important;"=
+><em>why did I get this?</em></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href=3D"https:=
+//hotmail.us19.list-manage.com/unsubscribe?u=3D8e03b649e322b05efe83f8147&i=
+d=3De57a2d287b&t=3Db&e=3D1b91cd4dd4&c=3D55915e24e0" style=3D"color:#404040 !=
+important;">unsubscribe from this list</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href=
+=3D"https://hotmail.us19.list-manage.com/profile?u=3D8e03b649e322b05efe83f=
+8147&id=3De57a2d287b&e=3D1b91cd4dd4&c=3D55915e24e0" style=3D"color:#404040 !=
+important;">update subscription preferences</a>
+                                        <br>
+                                        Rose Miller &middot;  E 48th St &m=
+iddot; Los Angeles=2C CA 90011 &middot; USA
+                                        <br>
+                                        <br>
+
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <style type=3D"text/css">
+                    @media only screen and (max-width: 480px){
+                        table#canspamBar td{font-size:14px !important;}
+                        table#canspamBar td a{display:block !important; ma=
+rgin-top:10px !important;}
+                    }
+                </style>
+            </center><div style=3D"display:none;"><img src=3D"https://us.l=
+ist-manage.com/3DJ2QFHk7sP3akiT1HN9Aw?e=3D1b91cd4dd4&c2id=3Dda560e3097a71501cb116740062964f1" height=3D"1" width=3D"1" style=3D"display:none;" alt=3D""></div></body>
+</html>
+--_----------=_MCPart_1889484756--
+
