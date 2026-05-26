@@ -1,0 +1,118 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:a317:0:b0:26a:2114:7ab with SMTP id h23csp3155322eid;
+        Mon, 25 May 2026 16:36:53 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ+yQgkRyLOC1GiBU678HQaUYzORENKQqjcvhYU9ej3Jt75tFnkyeIGeWnuFykd87mKLmSnW1hOe+5AXimwOBg==@gmail.com
+X-Received: by 2002:a05:7022:913:b0:134:c6ab:a512 with SMTP id a92af1059eb24-1365fc7ede8mr5896565c88.36.1779752213254;
+        Mon, 25 May 2026 16:36:53 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1779752213; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=TD7H9oKFapsu3y92W73nxL5Jg/4byMS5SbRZy5AZgHPENAy9TcuT8p0D1Chz2AdD9i
+         oFj7aGa/+64trPfQl13Bu2d/3D0RFV7nuqNypuP1jJ8qUPCAQbeMsTouuMDCRLcGSIcq
+         VJ2NoNe2VVSNUTthnf3tpjCImVZwXJ5v2Xy0wjkFBr2KNROBqq4oSd23uMtgXzS+yx3N
+         gJdngfFYIiYvsy/9WWTSFGVk1MEkI8U5fT65hEtrf5pPwHQgO1groIGmpcHyrxl94gXp
+         DSxHbgMabXGVm6oJUtnC11/sIZ/rb5HPM9s7uckncL23WivRsgWv4G2QK9daPWPAzB2s
+         TbDQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=sender:message-id:date:subject:to:dkim-signature:from:mime-version
+         :feedback-id:dkim-signature:dkim-signature;
+        bh=o+pk68z3+28ebsM07W+xkQizq+ksf1YxyIeSXHnmMjU=;
+        fh=LnGVlAla77Gyfiw8zkzbOhaVlqYgEu27l8ujdfvsIGY=;
+        b=Wremyzj6ecDP+8QSxpdAwN3S522GmNOY4WwcrHxncVA/Bvdj49mLbFcP5kEthI0ueX
+         Z39/N1swoVwHNbHrltTgOK4SHHl7AhwE0M4L6O6vM1HRQMUpKr8BDuT/JYHmSdXxIJig
+         thydDrQCz9KfMRtquv0B8VqHCgZSdH36mdr+csSNssxp9P41nBGyA/wvOdlmYMyuKl7k
+         PSdjtopCATJ7Mr5UemqMPcU5ci09F92gCBlPWKQ7EUthR6h4QEEj5uvvabxPcV/jKxwD
+         S8bJyxgW96EC4dQfWKqML/lFU5FNU/CQbAVCmAA1QspMbFnd3knOt8bugKNihPUeR8ZV
+         hU+w==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=bbUZpf6y;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=DOInEgPS;
+       dkim=pass header.i=@cruet.motenp.cn header.s=dom header.b=Mh0pQOWk;
+       arc=pass (i=1 spf=pass spfdomain=cruet.motenp.cn dkim=pass dkdomain=cruet.motenp.cn);
+       spf=pass (google.com: domain of srs0=2snb=wd=cruet.motenp.cn=daionodera@whither.jp designates 104.30.10.219 as permitted sender) smtp.mailfrom="SRS0=2Snb=wd=cruet.motenp.cn=daionodera@whither.jp"
+Return-Path: <SRS0=2Snb=wd=cruet.motenp.cn=daionodera@whither.jp>
+Received: from ba-cbj.cloudflare-email.net (ba-cbj.cloudflare-email.net. [104.30.10.219])
+        by mx.google.com with ESMTPS id a92af1059eb24-1366aa8ba83si23691616c88.37.2026.05.25.16.36.51
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 25 May 2026 16:36:52 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=2snb=wd=cruet.motenp.cn=daionodera@whither.jp designates 104.30.10.219 as permitted sender) client-ip=104.30.10.219;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=bbUZpf6y;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=DOInEgPS;
+       dkim=pass header.i=@cruet.motenp.cn header.s=dom header.b=Mh0pQOWk;
+       arc=pass (i=1 spf=pass spfdomain=cruet.motenp.cn dkim=pass dkdomain=cruet.motenp.cn);
+       spf=pass (google.com: domain of srs0=2snb=wd=cruet.motenp.cn=daionodera@whither.jp designates 104.30.10.219 as permitted sender) smtp.mailfrom="SRS0=2Snb=wd=cruet.motenp.cn=daionodera@whither.jp"
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:from:reply-to:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1779752212; x=1780357012; bh=o+pk68z3+28ebsM07W
+	+xkQizq+ksf1YxyIeSXHnmMjU=; b=bbUZpf6yiURB38JpKOsCQ5KPNubqeE7b1qvoc4nqCn4yC
+	cSvwGDtaugJPiP5hhKJB79pC9k4bXu61NhQgsQdQcR8I5SQV0UIAwRiIhvWohtA5ocUEE2ZCT8p
+	MGzCGeMmGvQG439/fdTMSJ3qezssgAYAIsOyb5sPpy+1UDvtYOYmMG2DONGh3HCDicS5FE+mdkM
+	wiGJyXo5hXGkOd8DI5CX0XjHnVP5obG6PzonAdPjWR0KBqIbf/j4TqIK129qzFkyec+hq0wW+pI
+	cvSS2FjDNm6IY3wx2M5UKi4+JvskwI3psGk0cBpWVHJ31MtbulCi3gyfDfMWvctCEek6BzOw==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:from:reply-to:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1779752212; x=1780357012; bh=o+pk68z3+28ebsM07W
+	+xkQizq+ksf1YxyIeSXHnmMjU=; b=DOInEgPSQmi1gXes0gYCd1050XinQWLO5RRrAPft9pQ6g
+	TH0OXV5t9CZbNeOb3SMIm7VpzwDKwlL3SShl0h7wOjFO1p8/GltxOjEwCfqAbAlt+ehBvQYWy9y
+	sW5iVARBFloeGmHL8UQieu17YtBeOwgCZsCV+gcgjFJHlttt5mDQNP/rT2ydbc4LaWEiZAdLM5c
+	7gM9eCuXb4qFEk25SZrH03IJCx3XO9dqTGn0zaHCFVOf3iXKt0CQ0vWFeIC0tE6NctU3SA9s2K5
+	Dm0QJM5i6zUMKnKO89PZZzf3dQS4GnFAWDqrOpv9eADYYBTv2xihUyt9I9NkveYZTN6Y50jg==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: silver.firefox+whither-jp@gmail.com silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:2:1:Cloudflare
+Received: from cruet.motenp.cn (42.177.140.238)
+        by cloudflare-email.net (cloudflare) id cD7oBDquidUN
+        for <tnakahara@whither.jp>; Mon, 25 May 2026 23:36:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=c7vUrol90kXfogxORDFlxcV/WoNvGRd1+vQU182FF7ewFkCBSJF9mr2JzAvIGb8Eg2Gpzmo4n
+	Zh+IQ1uFWJsFEYzWgXqEyZu7vRuXSFVvWKDHJNNGaAA3Ql/p1zMB80cJBrXRiLHhd4uHcP2P4Un
+	6J/49cREqhOgetHiKzy3ud44PqE+4+SJLa7Lcf3rDDKttTZqGR2XI9BcPvShICuHr3Lz44HeCEo
+	ml/1aNZBGtK7rKE8QU1mnjQqmOeE29BAnjiFWjfIv8Na3TC96xlEB1jpjiszi4fJcAUgOfuFeno
+	dT/gxUSB4WqqMx5al3/8hkcFBbc9i9PS/H/JeH/TUEdg==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:from:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1779752208; x=1780357008; bh=o+pk68z3
+	+28ebsM07W+xkQizq+ksf1YxyIeSXHnmMjU=; b=K5u83gHwdGpp/LZdIt+T74uykwlwZPcSCL7
+	O/jjT7F7QnUJtrAEH1/1E/FDtcILxigfv9juU+/5D/+E36fK/3Xg38ebAjiDQ4OWwupJKuMrety
+	QjOsuHS4T0zX7LpJ8Eg93Fsn9wJnNJddWVOfUf6WS8PTM9QPFSnyyELybGvYeNxFAUmWgRsxJv7
+	sHcsXReUHUCMqyAvyWJs7mEHIAKWETIMc8iHqU53Xt6ogmSOLG6wcAm1h8lKad17E25zeWPEPri
+	R15/MCu8nr9aVfgNBuBP5JQt2jn7tviJZSByfAY0iHy9Xc031tTF05dLE0l5ILynLYolGX1TgWQ
+	xihuJiw==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=@cruet.motenp.cn header.s=dom header.b=Mh0pQOWk;
+	dmarc=none header.from=jychip.com.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@cruet.motenp.cn designates 42.177.140.238 as permitted sender) smtp.helo=cruet.motenp.cn;
+	spf=pass (mx.cloudflare.net: domain of daionodera@cruet.motenp.cn designates 42.177.140.238 as permitted sender) smtp.mailfrom=daionodera@cruet.motenp.cn;
+	arc=none smtp.remote-ip=42.177.140.238
+Received-SPF: pass (mx.cloudflare.net: domain of daionodera@cruet.motenp.cn designates 42.177.140.238 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=42.177.140.238; envelope-from="daionodera@cruet.motenp.cn"; helo=cruet.motenp.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=@cruet.motenp.cn header.s=dom header.b=Mh0pQOWk;
+	dmarc=none header.from=jychip.com.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@cruet.motenp.cn designates 42.177.140.238 as permitted sender) smtp.helo=cruet.motenp.cn;
+	spf=pass (mx.cloudflare.net: domain of daionodera@cruet.motenp.cn designates 42.177.140.238 as permitted sender) smtp.mailfrom=daionodera@cruet.motenp.cn;
+	arc=none smtp.remote-ip=42.177.140.238
+X-CF-SpamH-Score: 2
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="----=_501_8x2092soa9j7whgu_=----"
+From: Mastercard <info@jychip.com.cn>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cruet.motenp.cn;
+ i=@cruet.motenp.cn; q=dns/txt; s=dom; t=1779752203; h=from : to :
+ subject : date : message-id;
+ bh=o+pk68z3+28ebsM07W+xkQizq+ksf1YxyIeSXHnmMjU=;
+ b=Mh0pQOWkWOZoyf3fA/VbTWfuK5lTWSCiqXqS1cAKGXZOOzNPaby8tEwa+k9D65NILn+yG
+ lolqzMfI4HW2tewtpWv/AjDXP4ENfA7tYicPet/O+SeFF9zPlOXulK31nuekRH46+8HFv4G
+ y+C7chXdq8giSpTzYiK2ABcOaHGQ1fJomt6ayz4Y4EGT36AB/yOuvx23Gpm4L1mC4cTggjY
+ QXKZ1o3iZZXN0PekUJW8izBPVhs+blZKr2VSK/h/WOgMIov14fgm1fTO7sWxbIpWn+qsP1L
+ UQZ0kbscnJKQcM4cZn2S01EMK7Qycsvt/r4y7QFxHR43QUrMI0nKvfGClYAw==
+To: <tnakahara@whither.jp>
+Subject: =?utf-8?b?TWFzdGVyY2FyZOOCu+OCreODpeODquODhuOCo+iqjeiovOaJi+e2muOBjeOBq+OBpOOBhOOBpuOBruahiOWGhQ==?=
+Date: Tue, 26 May 2026 08:36:43 +0900
+Message-ID: <A41190B6101CNP49299V9Y5360UW8P19@cruet.motenp.cn>
