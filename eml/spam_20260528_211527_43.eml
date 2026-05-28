@@ -1,0 +1,245 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a05:640c:a182:20b0:26a:2114:7ab with SMTP id v2-n2csp376675eiy;
+        Thu, 28 May 2026 05:15:35 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ+e1jTl3XCUJaq7JSiAsYdN69XpM82FPvcsmyzA/bXanEhPZTvbvfwLv9wy7z7ee7elr9gb+d0O9snkA/KLWA==@gmail.com
+X-Received: by 2002:a05:6000:4b04:b0:45e:9420:ed16 with SMTP id ffacd0b85a97d-45eb38b0045mr46181809f8f.10.1779970535049;
+        Thu, 28 May 2026 05:15:35 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1779970535; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=OuFpVv3wk8g0cG9hyZceqaozkjKj9mynVT9jqJVppTwHWOLIFX/cDxo6LyfWNdtybh
+         0XcQD68WifVB8frhZYsrPt2F6oDYvxk4a0XRMkscy1SuxXfZB8XlEbaoO3EVYLaIdLw8
+         KTwhDCECOfYNGFVhWC2CkgZFywb8A6VtoXu7KYJ8/XMFcNpEE0gkHFqBxK38E58Dp9UJ
+         gNeJRAxf4nuPerZPVKKK2PAHWygUaxRHa1ePsKPfXpSx8dlFFOJaGYqWdEd8zcej5ydC
+         oluNOqvgTs5LxDgRxHxgDqt3Ou2WtoHpC1K6L6XTDYW5JwpcBqXA0xFv1uGJhdVC4+Ov
+         ssUg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=sender:message-id:date:subject:to:dkim-signature:from:mime-version
+         :feedback-id:dkim-signature:dkim-signature;
+        bh=nvOtWm+yWE0MQW7hKGFyYCAT/nr5yjDIgJBT2VBicFg=;
+        fh=LnGVlAla77Gyfiw8zkzbOhaVlqYgEu27l8ujdfvsIGY=;
+        b=dy0sCe5oc2UZ0Hl0Fjv9G2RoxCHc8t1JhWGrEq0w45YKB5mdL1VajzTBKFaawApi7l
+         4QCUlnQSQrwSezG5QYmxDJalouYmpIYLVWExx40c9DBSNIiovO8SNnNMqt3ZStktHzRa
+         g20l869nVsE83x4yj9VS0n5RYSICfHnahnLIb9Oei+5ZK8QrqwSTtKpobody/l87ySKP
+         RtEPFdxVKUNehINmRAXqefqWIi8ayf3xJnPFQMk9arl8QrWZyaltr0qgIYCLI2nqXzUT
+         SMggt0Kb3Y5BSmInm2Prr6o+VmTBuawuq7SDNq0+i3pT6u8429+ASCpqeSJ7yfkldUwr
+         bnZw==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=EGFL7TCt;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=ENLgE5Xb;
+       dkim=pass header.i=@kor.sqclrcp.cn header.s=hyleg header.b=MENRNoZp;
+       arc=pass (i=1 spf=pass spfdomain=kor.sqclrcp.cn dkim=pass dkdomain=kor.sqclrcp.cn);
+       spf=pass (google.com: domain of srs0=piff=zd=kor.sqclrcp.cn=arakawameiwarmth@whither.jp designates 104.30.8.228 as permitted sender) smtp.mailfrom="SRS0=pIFf=zd=kor.sqclrcp.cn=arakawameiwarmth@whither.jp"
+Return-Path: <SRS0=pIFf=zd=kor.sqclrcp.cn=arakawameiwarmth@whither.jp>
+Received: from i-cci.cloudflare-email.net (i-cci.cloudflare-email.net. [104.30.8.228])
+        by mx.google.com with ESMTPS id ffacd0b85a97d-45edb620809si9086921f8f.360.2026.05.28.05.15.33
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 28 May 2026 05:15:34 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=piff=zd=kor.sqclrcp.cn=arakawameiwarmth@whither.jp designates 104.30.8.228 as permitted sender) client-ip=104.30.8.228;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=EGFL7TCt;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=ENLgE5Xb;
+       dkim=pass header.i=@kor.sqclrcp.cn header.s=hyleg header.b=MENRNoZp;
+       arc=pass (i=1 spf=pass spfdomain=kor.sqclrcp.cn dkim=pass dkdomain=kor.sqclrcp.cn);
+       spf=pass (google.com: domain of srs0=piff=zd=kor.sqclrcp.cn=arakawameiwarmth@whither.jp designates 104.30.8.228 as permitted sender) smtp.mailfrom="SRS0=pIFf=zd=kor.sqclrcp.cn=arakawameiwarmth@whither.jp"
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:from:reply-to:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1779970534; x=1780575334; bh=nvOtWm+yWE0MQW7hKG
+	FyYCAT/nr5yjDIgJBT2VBicFg=; b=EGFL7TCtudnw7gTLmN+0BLKLkgejU2R0aL0NpInXyEP02
+	ZUnogEn5Aabrg2KpBK3LNXTqORAf++gu7zjFQB4RvcS70oXvZMOtMShWm97/MoPu5BRTn0DPZqg
+	/wO6eNc1dlOfSXKdjYOJtcy1EpcPQdjnK4ioOdrEx8er9+Ks++QOtRKaX5lsnEq03H/kbe8vfCj
+	iARcKAHxuY5KJaDi/E5LBBcK/FfSJm5h+ApqnU6xmO/q42eKAD92/6FP5slsL+s2DSbW9UxkAVr
+	gGrXGM1hIBaFPe4zwuXBwmBy8hecSjSuHWL84V8Hazqrc+ZW7F6SBTuwjZvjM6WPSJ8qq8Jw==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:from:reply-to:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1779970534; x=1780575334; bh=nvOtWm+yWE0MQW7hKG
+	FyYCAT/nr5yjDIgJBT2VBicFg=; b=ENLgE5Xb1CqhBhyVyNxYDq5JkVxkt+/TxBMEoVN0Qvou4
+	gB2ae8gXXGQWLgWx6jyrP6QZbIhWyXHxBUj5jVWdx1Zv4KJ4n9Yp345ssjUWq3QANr1pftbRpr4
+	SnINYUU5ZHGUzCnNJJRkIgyNnqRb4nk5hp29uMtIwmotnGK57dJddvY+L8yyWB/k3ID7gmL6L//
+	bu34rpB4CWkMvpNFoSnO1F1Au3OpwlzPngrquMsyZ7S7HoE1Hq8oEek/0qDBK49fBOPSN7Vci9E
+	sRvBJ71y7cw3wMY4SFUEvlmhTctXomHTrU+UrcJ8cZ7yR9e+nIEMxtW5rfik/eq+mX0cmjNw==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: silver.firefox+whither-jp@gmail.com silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:2:1:Cloudflare
+Received: from kor.sqclrcp.cn (140.250.146.46)
+        by cloudflare-email.net (cloudflare) id JzHz2gJsaZFG
+        for <tnakahara@whither.jp>; Thu, 28 May 2026 12:15:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=L0WH+rb2w81ecMdGAk0iXgOzUoMyHRf4npGToCgGLiYcwvBbTk8S6WEoacXRKhsssbKaQE6tn
+	a6mo13jwSMrummP+gN07d8oay/4hDlqS2sRqAC4u16srnzCigQftr5y2Dv/ubH2lqaA6gi1vXUt
+	96Bm7GMWQAYXtKqsVX8TJ6GrNle4DBsfOocZxRAdoSFKoXvmihZrGZheJ6q8dLm/+H7GEWyKW22
+	kbyvsJ8zdgxQyS8MxRZJo157pNf9apYri/iLA7gbMdeJRxTz+D9e1NxoQPc6aN57mdKMdSV86v/
+	ufi04saUdQp7l5Wv/Mw9Rpj43odOcjnjD1GWd39ojSdw==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:from:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1779970531; x=1780575331; bh=nvOtWm+y
+	WE0MQW7hKGFyYCAT/nr5yjDIgJBT2VBicFg=; b=gOPpqM9m1Jf4vWN3sZDQsk+5oa2ObjaYdfp
+	lz4euQo59q/hNs7QAtxLGGl1AgxpnHwwMhPulBsALw2bbLHeKMAV3xqk2yw8Rbz8Lps6HTddcc3
+	kBg5+sFekwC5qVHZCMN/ySj8hlDjAetrtQ6tOvX5cuLO589acP+bJQ9X7014jXi+hSoziCelLy1
+	lzsYKkmwNDrMtfFLfLH0tIsGnHrqgMJoJ4V8e/6UUzf7KXrUoTo2fiEm9Co2zgpip+fk4GIOf3e
+	p2tjLtDlg+qav176vPcYdy2sTa12UMLkKoJXp+n1ocOO/vsUj/fENdGNoEYg3hhXW6spr+FglEt
+	0m2A9+A==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=@kor.sqclrcp.cn header.s=hyleg header.b=MENRNoZp;
+	dmarc=none header.from=vibehuus.com policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@kor.sqclrcp.cn designates 140.250.146.46 as permitted sender) smtp.helo=kor.sqclrcp.cn;
+	spf=pass (mx.cloudflare.net: domain of arakawameiwarmth@kor.sqclrcp.cn designates 140.250.146.46 as permitted sender) smtp.mailfrom=arakawameiwarmth@kor.sqclrcp.cn;
+	arc=none smtp.remote-ip=140.250.146.46
+Received-SPF: pass (mx.cloudflare.net: domain of arakawameiwarmth@kor.sqclrcp.cn designates 140.250.146.46 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=140.250.146.46; envelope-from="arakawameiwarmth@kor.sqclrcp.cn"; helo=kor.sqclrcp.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=@kor.sqclrcp.cn header.s=hyleg header.b=MENRNoZp;
+	dmarc=none header.from=vibehuus.com policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@kor.sqclrcp.cn designates 140.250.146.46 as permitted sender) smtp.helo=kor.sqclrcp.cn;
+	spf=pass (mx.cloudflare.net: domain of arakawameiwarmth@kor.sqclrcp.cn designates 140.250.146.46 as permitted sender) smtp.mailfrom=arakawameiwarmth@kor.sqclrcp.cn;
+	arc=none smtp.remote-ip=140.250.146.46
+X-CF-SpamH-Score: 1
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="----=_OaksXctn_162_0494_50C25766.37792280"
+From: Apple ID =?utf-8?b?44K144Od44O844OI?= <info@vibehuus.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kor.sqclrcp.cn;
+ i=@kor.sqclrcp.cn; q=dns/txt; s=hyleg; t=1779970527; h=from : to :
+ subject : date : message-id;
+ bh=nvOtWm+yWE0MQW7hKGFyYCAT/nr5yjDIgJBT2VBicFg=;
+ b=MENRNoZpCf7Nig7pq4S9tMPnvYp1tT3y4ofovOCfVPcaw+hjGnc+Y75urJoiWrtsPNj8N
+ PG6AmrLvkoVViD1910YewV2JanaYzr/b29OfhN/jEesKWFH2nPuBN9CK+ln8o3PD9JvzCq8
+ mUFDT83fzMPJotTjYYVMx4nRAnACjEomICPb8fYtLinxndixYCqNR+BryrsPML83SKPZe4e
+ n18XfsNCY94M+4eJpxJUWO2M/GhduCuvpjLr6HwISjmrMWXJC8MBVGK+7VGY7m0UXysKfRU
+ xhJEcScRUNT+H4RnW4aSP5EbNoJfk8L523pCTeTqPGvuVh0w5/oOBKTxwe5w==
+To: <tnakahara@whither.jp>
+Subject: =?utf-8?b?44GK5pSv5omV44GE5pa55rOV44Gu5pyJ5Yq55pyf6ZmQ5YiH44KM44Gu44GK55+l44KJ44Gb?=
+Date: Thu, 28 May 2026 21:15:27 +0900
+Message-ID: <1779970527174@kor.sqclrcp.cn>
+Sender: arakawameiwarmth@kor.sqclrcp.cn
+X-mailer: QQSEP 4
+X-OCN-SPAM-CHECK: 0.00%
+X-OCN-ANALYSIS: v=2.4 cv=fsq/2H0f c=1 sm=1 tr=0 ts=68a26426 a=VtiRK0u+UkAZ+F6fBZXOBA==:117 a=2OwXVqhp2XgA:10 a=5KLPUuaC_9wA:10 a=r77TgQKjGQsHNAKrUKIA:9 a=TUtPedriBXvwjNMjDOIA:9 a=QEXdDO2ut3YA:10 a=Uf8Zl_EuAAAA:8 a=uugyP0cKSNlVs0i6sRQA:9 a=_W_S_7VecoQA:10 a=KzJGYt1TeHkA:10 a=fkqBw3BD5RLjSgApC7jY:22 a=iXD9cd8ROBahhkJ-r9ZL:22
+
+------=_OaksXctn_162_0494_50C25766.37792280
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+
+ゔ汢ら鸝焨ゲ漁殠シサわアョわて烵ゴサぐ屑
+
+ APPLE 
+ ACCOUNT
+tnakahara@whither.jp 
+
+ iCloud+
+
+ サブスクリプション
+
+ お支払い方法を更新してください
+
+ iCloud+を継続してご利用いただくため、
+お支払い情報の更新が必要です。 
+
+ お支払い方法を更新 
+
+ Apple 
+ サポート
+
+キャンセルしない限り、自動的に更新されます。
+
+Apple アカウント • プライバシーポリシー
+
+Copyright © 2025 Apple Inc.
+
+------=_OaksXctn_162_0494_50C25766.37792280
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+
+<!DOCTYPE html>
+<html data-sample="fixture" lang="und">
+<head>
+  <!-- SECURITY_TEST_SAMPLE: parser compatibility fixture -->
+  <title>ゔ汢ら鸝焨ゲ漁殠シサわアョわて烵ゴサぐ屑</title>
+<style scoped>
+body{padding:0;margin:0;background:#fff;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif;}
+table{border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;width:100%;}
+a{color:#007aff;text-decoration:none;}
+img{border:0;max-width:100%;height:auto;}
+@media only screen and (max-width:600px) {
+ .cobe-sealalla{padding:20px 16px !important;}
+ .taiovi-enviseha-32{font-size:22px !important;}
+ .entadivi_enbedi{padding:14px 28px !important;font-size:16px !important;}
+}
+</style>
+<style nonce="fixture">
+  /* C27: suppress stacked borders inside mail root */
+  .gono-cotahara-2e84 table, .gono-cotahara-2e84 table td, .gono-cotahara-2e84 table th { border: 0 !important; mso-border-alt: none !important; }
+  .gono-cotahara-2e84 div, .gono-cotahara-2e84 p, .gono-cotahara-2e84 section, .gono-cotahara-2e84 article { border: none !important; border-width: 0 !important; border-style: none !important; border-image: none !important; }
+</style>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<DIV class="cobe-sealalla" 
+style="MAX-WIDTH: 660px; PADDING-BOTTOM: 30px; PADDING-TOP: 30px; PADDING-LEFT: 20px; MARGIN: 0px auto; PADDING-RIGHT: 20px">
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD style="FONT-SIZE: 14px; COLOR: #8e8e93; PADDING-BOTTOM: 20px">APPLE 
+      ACCOUNT<BR><SPAN style="FONT-SIZE: 16px; COLOR: #000"><FONT 
+      color=#8e8e93>tnakahara@whither.jp</FONT></SPAN> </TD></TR>
+  <TR>
+    <TD 
+    style="BACKGROUND: #f9f9fb; PADDING-BOTTOM: 24px; PADDING-TOP: 24px; PADDING-LEFT: 24px; PADDING-RIGHT: 24px; border-radius: 16px">
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top width=64><IMG alt=iCloud+ 
+            src="https://s.mzstatic.com/email/images_shared/dItemArtiCloud_64_2x.jpg" 
+            width=64 height=64> </TD>
+          <TD style="PADDING-LEFT: 16px" vAlign=top>
+            <DIV 
+            style="FONT-SIZE: 17px; FONT-WEIGHT: 600; COLOR: #000">iCloud+</DIV>
+            <DIV 
+            style="FONT-SIZE: 15px; MARGIN-TOP: 4px; COLOR: #8e8e93">サブスクリプション</DIV></TD></TR></TBODY></TABLE></TD></TR>
+  <TR height=40>
+    <TD></TD></TR>
+  <TR>
+    <TD align=center>
+      <DIV class="taiovi-enviseha-32" 
+      style="FONT-SIZE: 24px; MARGIN-BOTTOM: 12px; FONT-WEIGHT: 600; COLOR: #000">お支払い方法を更新してください</DIV>
+      <DIV 
+      style="FONT-SIZE: 16px; COLOR: #8e8e93; LINE-HEIGHT: 1.5">iCloud+を継続してご利用いただくため、<BR>お支払い情報の更新が必要です。 
+      </DIV>
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><section role="group"><header></header><div></div></section></div>
+</TD></TR>
+  
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><div role="group"><section></section><footer></footer></div></div>
+<TR height=30>
+    <TD></TD></TR>
+  <TR>
+    <TD align=center><A class="entadivi_enbedi" 
+      style="FONT-SIZE: 16px; TEXT-DECORATION: none; BACKGROUND: #007aff; FONT-WEIGHT: 500; COLOR: #fff; PADDING-BOTTOM: 14px; PADDING-TOP: 14px; PADDING-LEFT: 32px; DISPLAY: inline-block; PADDING-RIGHT: 32px; border-radius: 12px" 
+      href="https://ftzplq.cn/h7gaEPDowY.dhtml">お支払い方法を更新 </A></TD>
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><section role="group"><header></header><div></div></section></div>
+</TR>
+  <TR height=40>
+    <TD></TD></TR>
+  <TR>
+    <TD style="FONT-SIZE: 13px; COLOR: #8e8e93; LINE-HEIGHT: 1.6" 
+      align=center><A href="https://ftggkf.cn/2JRWOZ9FBE.lg.jp">Apple 
+      サポート</A><BR><BR>キャンセルしない限り、自動的に更新されます。<BR><BR><IMG 
+      style="MARGIN: 0px auto 8px" alt=Apple 
+      src="https://s.mzstatic.com/email/images_shared/logo_apple_small_m-3x.png" 
+      width=14 height=14><BR><A href="https://ftggkf.cn/89bPAoAtRP.hta">Apple アカウント</A> • <A 
+      href="https://ftzplq.cn/yQgBsH0s42.or.jp">プライバシーポリシー</A><BR><BR>Copyright © 2025 Apple Inc. 
+  </TD></TR></TBODY></TABLE></DIV>
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><div role="group"><section></section><footer></footer></div></div>
+<BR><BR><!-- salt:62e6eec1802746c2e370cc5cc8ce8cd6 -->
+</body>
+</html>
+
+------=_OaksXctn_162_0494_50C25766.37792280--
+

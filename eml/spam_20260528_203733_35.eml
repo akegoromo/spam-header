@@ -1,0 +1,71 @@
+Delivered-To: silver.firefox@gmail.com
+Received: by 2002:a05:640c:a182:20b0:26a:2114:7ab with SMTP id v2-n2csp358301eiy;
+        Thu, 28 May 2026 04:44:04 -0700 (PDT)
+X-Received: by 2002:a17:902:da92:b0:2bc:db02:d1ed with SMTP id d9443c01a7336-2beb06738acmr273634645ad.38.1779968643943;
+        Thu, 28 May 2026 04:44:03 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779968643; cv=none;
+        d=google.com; s=arc-20240605;
+        b=GZAL82q+G63/to765TWM8sB2ykLkKeP2DlOZLS4HTYsO/bV8ar46tBagY+jVxTFHdj
+         ZB7dAv9asiONygZ2j7JvF4gvT2s6x8JNZgHO5ei0ev/HCpJ6GHYcD4hNCH/76f6ENZ7V
+         DgjwyDJE4nDO5+HUQLjs5H99rIubOjqQ5SwPxtJdAJdkJvpzADWZ3XjgMZUbvyXPtI70
+         mqVjx21zcxsDVmx4q5oQH8ZU1NxPZ6SwNFjV/Su8E+pmmWnE146BvXcxtJ3PSEfddGP0
+         vG/9HdUp52JXUXRd2VRsA0AAN+hcv+KCm+zDQHUSTk9IzKXyWez3238C3lA4rdbIuxtW
+         TJtA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:message-id:subject:mime-version:from:to
+         :date:dkim-signature;
+        bh=+t5ONcOIqINVjBXI2hU5kCqQnXFRkxYESoAtfNZOzTk=;
+        fh=30F+LetgEkDSNSp+uLeo/St8k5O2MuAL6jcfWOE8egk=;
+        b=gjK7TifjUJxJnxXTEVczUkrTjJ9WoJ6V2I7nEH3gStEb3+4yBiJaQjg0sxas5YQbVc
+         tN8Gi74+ys8Shm1XCq60yuoIiEi1zX3Z16dIdKYltIIRE64OKNGSpLCWbRiPzW0b82oL
+         fIO9m2CilSqiAdtxkCe7P5WrrP8AgtWlhoE2SMujoFBmnZd6PTSIh8/KIUZSXEm57GF1
+         kmYHZUPX2/W3awNzZX3U9iL9NUxVkYIv/QdqLT2+EpaGHkbypMVW3Q1IsKZ8rOrR49vd
+         FIaD/ktVRst/MLQGnkLqejXPLinmZ2zLqVBnbGY8IG0hmwGWMzSE4LgbyaYq2SqxKHYT
+         0ktQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@dustyembark.biz header.s=202605 header.b=MV7Y1TXQ;
+       spf=pass (google.com: domain of ew01gxn1ixns5ljt@dustyembark.biz designates 35.161.211.186 as permitted sender) smtp.mailfrom=eW01Gxn1iXNS5ljT@dustyembark.biz;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=dustyembark.biz
+Return-Path: <eW01Gxn1iXNS5ljT@dustyembark.biz>
+Received: from [35.161.211.186] (ec2-35-161-211-186.us-west-2.compute.amazonaws.com. [35.161.211.186])
+        by mx.google.com with ESMTP id d9443c01a7336-2beb5a6dc4asi341651475ad.163.2026.05.28.04.44.03
+        for <silver.firefox@gmail.com>;
+        Thu, 28 May 2026 04:44:03 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ew01gxn1ixns5ljt@dustyembark.biz designates 35.161.211.186 as permitted sender) client-ip=35.161.211.186;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@dustyembark.biz header.s=202605 header.b=MV7Y1TXQ;
+       spf=pass (google.com: domain of ew01gxn1ixns5ljt@dustyembark.biz designates 35.161.211.186 as permitted sender) smtp.mailfrom=eW01Gxn1iXNS5ljT@dustyembark.biz;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=dustyembark.biz
+Received: by mdwak.acl (Postfix, from userid 0)
+	id 8ED5B4172F; Thu, 28 May 2026 20:44:03 +0900 (JST)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=202605; d=dustyembark.biz; t=1779968257; h=to:from:date:subject:
+ message-id; bh=+t5ONcOIqINVjBXI2hU5kCqQnXFRkxYESoAtfNZOzTk=;
+ b=MV7Y1TXQ60GLAe8eTWM+rVE/vl7ra3dSWFMRnb7dMyixRGp3Ib+ryqjocacDNuIc82fXrq
+ TMiqldg1a+ba7Aoyfzfc9gTVVqJ6HQPSqldll/OScGkiVE8t+yWeKM1+KVZzSDQgUht3qb
+ QyUE5plEmxHMKD+OFwJhMtpa7k7g1mBBw1s3gjxeh7MoBJKiqP42QdmErkuB14a4/4aIJi
+ v53666t/seLPyYLFfCeGbnhZ5kmcJKTXh2LQjkpYEzMLIw6nlOmC51fyn4kSk+1PSFYrgU
+ 6MfYVIk+E+1kD0yZRleFMm5WzRg4LRZ44gM/tbrFEMhHPNw3XlbFN7ec206xJA==
+Date: Thu, 28 May 2026 20:37:33 +0900
+To: silver.firefox@gmail.com
+From: =?utf-8?B?5bqD54CsIOW8pg==?= <mail@dustyembark.biz>
+MIME-Version: 1.0
+Subject: =?utf-8?B?4pePNCwwMDAsMDAw44Od44Kk44Oz44OI44KS44OX44Os44K844Oz44OI44GV44Gb44Gm6aCC44GE44Gf5bqD54Cs44Gn44GZ44CC?=
+Message-ID: <sVJnO7uAp3YLux77suOhw8@notifications.google.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: base64
+
+4pePNCwwMDAsMDAw44Od44Kk44Oz44OI44KS44OX44Os44K844Oz44OI44GV44Gb44Gm6aCC44GE
+44Gf5bqD54Cs44GnCgpodHRwczovL2Vyci5kdXN0eWVtYmFyay5iaXovOFlCQ3M5TE1ZdwoK57Sg
+5pW144Gq5Ye65Lya44GE44Gv44Gp44GT44Gr44Gn44KC6JC944Gh44Gm44GE44G+44Gb44KT44CC
+6KaL44Gk44GR44KL5aC05omA44GM5aSn5LqL4oCm44GT44GT44Gn6KaL44Gk44GR44Gm44G/44G+
+44Gb44KT44GL77yfCue0oOaVteOBquS6uuOBqOOBruWHuuS8muOBhOOBo+OBpuS6uueUn+OCkuix
+iuOBi+OBq+OBl+OBpuOBj+OCjOOBvuOBmeOCiOOBreOAguODieOCreODieOCreOBmeOCi+anmOOB
+queJueWIpeOBquWHuuS8muOBhOOBjOW+heOBo+OBpuOBhOOBvuOBmSheXikKCuaWsOedgOOCkuei
+uuiqjeOBmeOCiwpodHRwczovL2d3ay5kdXN0eWVtYmFyay5iaXoveEFWcEE5dVdDdQoKCumAgOS8
+muOBr+OCs+ODgeODqQpodHRwczovL3p3bS5kdXN0eWVtYmFyay5iaXovNHFTNVBkWmd5cQoKCkNv
+cHlyaWdodChDKSDjg6njg4Pjgq3jg7zjg4Hjg6Pjg7zjg6AgQWxsIFJpZ2h0cyBSZXNlcnZlZC4K
+Cg==
+
+

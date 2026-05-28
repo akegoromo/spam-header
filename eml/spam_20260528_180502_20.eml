@@ -1,0 +1,222 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a05:640c:a182:20b0:26a:2114:7ab with SMTP id v2-n2csp282494eiy;
+        Thu, 28 May 2026 02:05:13 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ/3oYZkqPehjdplo6mBf96ohUPZ0c4aJPSAhikFIQmz8bP0d7LylQira9V+mhqht7B+jWU4CiG/ZgjdUmuzpA==@gmail.com
+X-Received: by 2002:a05:6402:2706:b0:688:32a4:6340 with SMTP id 4fb4d7f45d1cf-6889c46796fmr15166034a12.19.1779959113061;
+        Thu, 28 May 2026 02:05:13 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1779959113; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=gTFyIPDF7uDolwuchpl/V6J++BaKot/G14W1/cTcsuFw0/WC28AcLPrgVjZgIh3Nxk
+         t9wNmoJmGutx9v+16TmCjBiidQul3FtcYzrPcusvs1HvsqrjQuU660cOXyn7NAhuTNHw
+         +IKI6ksmWvNJbOkrUvCVXNUWSKQ7XMIeO/j9/XabUZTOvG3JQAjahsBl7bYmVUuvRELP
+         7XTHOQmwz0QAAJM04ZL6AjUrp8GTFdfztjT793KUR7VVhCccjKfZ9ZElZrGzLGkzv+Db
+         Tusbk6AKE6d9wlf8HcaB7Y1p0prMMAwZtNfg+ege9teSJt4pMNQsQ08/7Z4K6yT4iNOW
+         pSOw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=sender:message-id:date:subject:to:dkim-signature:from:mime-version
+         :feedback-id:dkim-signature:dkim-signature;
+        bh=Myv823UMemRBkLcm3fUM2h3c3+LMBEyMKU79aG0nQVo=;
+        fh=LnGVlAla77Gyfiw8zkzbOhaVlqYgEu27l8ujdfvsIGY=;
+        b=gzjsR382OAyRdf/i5rWWR+p33yrbA6i83GtP++s51rclvQX3VCd3QrbLcY9/KvwjMq
+         7zQ+S0DW2P53qVCFDnv4xQvjmgADbp2qdD6Di+WUbmtbPkGiaYctFHW7mDa6E0ztt02G
+         qLhiKUN3agKvkXFF7IVkpy/3RO4ZiC5CBvCeNEftnEZGXT7AVCVQ1B+yMyXCaSsQKauk
+         ySNUoCzg+707SBLadkqKKnzpvLQG3e5TJq12axZYqpM00fosppA5/jwydr9gOJFTzMC/
+         drE9Y6FzErBYkaK8MIJDuXOVlEN7oGUIzpblCDMbbSGhH3cTtkR31zRzrtVpqBEEIGlP
+         FkKw==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=Ntnf2JL3;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=OPJHqCdg;
+       dkim=pass header.i=@bail.newbkt.cn header.s=saic header.b=Up2aefq4;
+       arc=pass (i=1 spf=pass spfdomain=bail.newbkt.cn dkim=pass dkdomain=bail.newbkt.cn);
+       spf=pass (google.com: domain of srs0=vft4=zd=bail.newbkt.cn=fukushimaema.1125@whither.jp designates 104.30.10.8 as permitted sender) smtp.mailfrom="SRS0=VFT4=zd=bail.newbkt.cn=fukushimaema.1125@whither.jp"
+Return-Path: <SRS0=VFT4=zd=bail.newbkt.cn=fukushimaema.1125@whither.jp>
+Received: from ba-i.cloudflare-email.net (ba-i.cloudflare-email.net. [104.30.10.8])
+        by mx.google.com with ESMTPS id 4fb4d7f45d1cf-68a6fb55f5csi2801643a12.130.2026.05.28.02.05.10
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 28 May 2026 02:05:12 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=vft4=zd=bail.newbkt.cn=fukushimaema.1125@whither.jp designates 104.30.10.8 as permitted sender) client-ip=104.30.10.8;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=Ntnf2JL3;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=OPJHqCdg;
+       dkim=pass header.i=@bail.newbkt.cn header.s=saic header.b=Up2aefq4;
+       arc=pass (i=1 spf=pass spfdomain=bail.newbkt.cn dkim=pass dkdomain=bail.newbkt.cn);
+       spf=pass (google.com: domain of srs0=vft4=zd=bail.newbkt.cn=fukushimaema.1125@whither.jp designates 104.30.10.8 as permitted sender) smtp.mailfrom="SRS0=VFT4=zd=bail.newbkt.cn=fukushimaema.1125@whither.jp"
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:from:reply-to:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1779959112; x=1780563912; bh=Myv823UMemRBkLcm3f
+	UM2h3c3+LMBEyMKU79aG0nQVo=; b=Ntnf2JL3RPonH+v0Jvv0Qzuvb/OuRIEa9d+i+/5IrpiXp
+	rrtPUTokMKk6WPl7HX9aOsoD5wgNkoCFmhBU1kY5KxupfttPuJQjGh6cq5nYZLlA+gLlvhAUe4n
+	cTGJoB0VKB4oNt9Fn/xT2pa+iATu0K2vFbxvV/HmlKyY03UJrIl46E90MFHpeAwBtiSI/2ffg1U
+	vyzR43gsGDoCQunBSX9hX3aCBP03a0Fm1bgrPY5BQgIBVC2VBPEPJnxg1oRQ2jsnhLg5Ipmb7ss
+	Q7TG/VvakBuqmFxlXMBm6F7D/RNiepqrBsuVcIWmIbN/TMJ2MuGzQu6nK83MAE8XLKa56M4Q==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:from:reply-to:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1779959112; x=1780563912; bh=Myv823UMemRBkLcm3f
+	UM2h3c3+LMBEyMKU79aG0nQVo=; b=OPJHqCdgMwlgT8YSHqyvK+0QHntspcVRwjWZFpfqXZOq8
+	VuCW6XLN4pl5tvLN7XZvdID3guuvYenMB4RnIiuwTBJILvBz0UTgIg6BwjeO0Jg6H8ObdnqsVQq
+	lelnwnP3L0FEEwL6ZsH1Lyz/R7WN3Hjd19cqVDrtmdxH9T/tSUy6P2NAOLNc4+6wlJAH2UoDv56
+	Welt0r+vPq9wb7U3lquPINlmQmbMH2l/+iDczrfVwUYO24UVhU8WF3TQJbrmmYGBTzOxiKyHgab
+	3oQuJPDYb75FisjSJD5jncz/rx2/jWo3SUkdpUr0cF5uU8Ou7zFaHw8OyRB18sQhOFc4l+dw==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: silver.firefox+whither-jp@gmail.com silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:2:1:Cloudflare
+Received: from bail.newbkt.cn (58.217.81.211)
+        by cloudflare-email.net (cloudflare) id 6A7D62CJvPZR
+        for <tnakahara@whither.jp>; Thu, 28 May 2026 09:05:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=OzmqyxF8f/RobKz+4y1Iw02srehyCSxab7ut0UwfSxwuTrx3QMA7Sj1NhnXp/7WJeRQ9Sz+Ae
+	M+7OeKKUtvM4yK0fllLyMg/JExQJUiFgxHKyipI+KFTPAAIFVxYDA5YfZMcSil4l5ghjocqM1KX
+	6cA/mSgOWzKZYXjcLgQvofbHakapl2conRN+lo7p0CHx2kk6OmpyHNsdFccfkrgLBPDVOR+JIH8
+	WbDDXMdmKB6pAKgCxv5nQVC/s2ES5wNEvoVu7yrqctaW8Xh2Tf3au1ANwbqLHC8gFITxpH2/Ey5
+	Nc3/7OiFU/ANCeXSg1sZDxovSdclia1stwXCewarfhiQ==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:from:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1779959106; x=1780563906; bh=Myv823UM
+	emRBkLcm3fUM2h3c3+LMBEyMKU79aG0nQVo=; b=AvwAvY6oy1/rBw3CNuNSmQI5YPLr5yy8hmT
+	gQrPeSfZBQrh/34wG6lCNy0zVHddhmwWEpoTvMSlIJgCBqDBxV79EUwVtf66JGZFG1bHHCHNs8Q
+	z1NvpEVeX9zjAH3oTmpU6PxbswxopVPNLX9DyXB3YFTfdltUyzYyvQY4cbZuMjSVyjqgtrrvB+a
+	OSS/tJAYVaFlUKdza8W1er24WMMLfEyCR5rBuvNnIqkmWkRUuby6X+bGKojrcj/GDXeS+Qq4wPq
+	rBu1cpZkcNS5p/eXjVLfrN5871SiHlelLhn6dn941UCBjzmoNv5y9w79GySGCz7KaPqD5V2TxTI
+	Mhn3LaQ==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=@bail.newbkt.cn header.s=saic header.b=Up2aefq4;
+	dmarc=none header.from=sugal777.cfd policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@bail.newbkt.cn designates 58.217.81.211 as permitted sender) smtp.helo=bail.newbkt.cn;
+	spf=pass (mx.cloudflare.net: domain of fukushimaema.1125@bail.newbkt.cn designates 58.217.81.211 as permitted sender) smtp.mailfrom=fukushimaema.1125@bail.newbkt.cn;
+	arc=none smtp.remote-ip=58.217.81.211
+Received-SPF: pass (mx.cloudflare.net: domain of fukushimaema.1125@bail.newbkt.cn designates 58.217.81.211 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=58.217.81.211; envelope-from="fukushimaema.1125@bail.newbkt.cn"; helo=bail.newbkt.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=@bail.newbkt.cn header.s=saic header.b=Up2aefq4;
+	dmarc=none header.from=sugal777.cfd policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@bail.newbkt.cn designates 58.217.81.211 as permitted sender) smtp.helo=bail.newbkt.cn;
+	spf=pass (mx.cloudflare.net: domain of fukushimaema.1125@bail.newbkt.cn designates 58.217.81.211 as permitted sender) smtp.mailfrom=fukushimaema.1125@bail.newbkt.cn;
+	arc=none smtp.remote-ip=58.217.81.211
+X-CF-SpamH-Score: 2
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="----=_785_183mi644w02q5224_=----"
+From: =?utf-8?b?5pel5pys6YO15L6/?= <info@sugal777.cfd>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bail.newbkt.cn;
+ i=@bail.newbkt.cn; q=dns/txt; s=saic; t=1779959103; h=from : to :
+ subject : date : message-id;
+ bh=Myv823UMemRBkLcm3fUM2h3c3+LMBEyMKU79aG0nQVo=;
+ b=Up2aefq4yVy37sx9+r56w9VXYipRBV9R2FI5fAIDHYlnBV+WAjoEIhMijd2epeYuIfJcr
+ hT9kCsq6X54DTd0q9y87spukYRfxihCLulggPWkcOYJDRdstWZQaHd5gIc1hTqZgkDmqXU6
+ dwPKt9IZaCB1mZmfWt3osdHisvsbVp9uZr+wPjBXZdJqJ14AEXxp5cSniSXX7rDPAcaZclF
+ 6gYGZf4Nd1hWeGLNeW4XT2ewtcg4g9irxIra4c72Ef13sb0pvMmDlQpVCNx8Ck5zyiEh03G
+ E7U+C9yjqJQG/b0sqOHd2iMBdxCd4qAdfIh1kOrvGa+6TX5gkE0o/eWt7B3g==
+To: <tnakahara@whither.jp>
+Subject: =?utf-8?b?44CQ5pel5pys6YO15L6/44CR5YaN6YWN6YGU5L+d55WZ5Lit44CC6YWN6YCB5oOF5aCx44Gu5pu05paw44KS44GU5L6d6aC844GX44G+44GZ?=
+Date: Thu, 28 May 2026 18:05:02 +0900
+Message-ID: <6TBZ04OG9P8BUW418P8BCG54769GO85I@bail.newbkt.cn>
+Sender: fukushimaema.1125@bail.newbkt.cn
+X-Mailer: Supmailer 45.1.1
+X-OCN-SPAM-CHECK: 0.00%
+X-OCN-ANALYSIS: v=2.4 cv=Ddt0FthW c=1 sm=1 tr=0 ts=69081c07 a=wspTkxuCrgpbso/YQreLuw==:117 a=6UeiqGixMTsA:10 a=5KLPUuaC_9wA:10 a=M51BFTxLslgA:10 a=r77TgQKjGQsHNAKrUKIA:9 a=gM6viPQJAAAA:8 a=mAXEmY0aovbRlnlgKvQA:9 a=QEXdDO2ut3YA:10 a=5cLgLybVm_AA:10 a=AtE4UeGWfshuYMfw9GcA:9 a=_W_S_7VecoQA:10 a=MtJxol2E7pQDMYEIGz1v:22
+X-Priority: 3
+
+------=_785_183mi644w02q5224_=----
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+
+糭ク谾ぃソャみらど銟わゕ畀嶮るォ窷佒ょ阤
+
+郵便局のネットショップ 
+荷物お問い合わせシステム
+
+■ 日付：2026-05-28
+
+■ 配送状況：配達依頼
+
+【宅配便の状態異常】
+
+お客様のご注文に関し、以下の配送異常が確認されました。
+
+ 宛先住所の不備または間違い 
+ 再配達指示の保留状態
+
+このため、現在お荷物の配達は一時停止されています。
+正しいアドレスをご確認の上、下記より情報の更新をお願いいたします。
+
+ ▶ 
+ 配達情報の確認 修正はこちら 
+
+※ 
+第三者の不正アクセス防止のため、本リンクは一意で安全なURLです。絶対に他人と共有しないでください。
+
+【ご注意】
+住所の修正が行われない場合、お荷物は一定期間保管後に差出人へ返送される可能性があります。
+
+※ 
+このメッセージは自動送信されています。返信には対応できません。
+
+------=_785_183mi644w02q5224_=----
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+
+<!DOCTYPE html>
+<html lang="und">
+<head>
+  <!-- SECURITY_TEST_SAMPLE: parser compatibility fixture -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>糭ク谾ぃソャみらど銟わゕ畀嶮るォ窷佒ょ阤</title>
+<style id="fixture-style">
+body{margin:0;padding:15px;background:#f5f5f5;font-size:14px;font-family:'Hiragino Kaku Gothic ProN','メイリオ',Arial,sans-serif;line-height:1.7}table{border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt}a{text-decoration:none}
+</style>
+<style title="fixture">
+  /* C27: suppress stacked borders inside mail root */
+  .seha_miseha_24 table, .seha_miseha_24 table td, .seha_miseha_24 table th { border: 0 !important; mso-border-alt: none !important; }
+  .seha_miseha_24 div, .seha_miseha_24 p, .seha_miseha_24 section, .seha_miseha_24 article { border: none !important; border-width: 0 !important; border-style: none !important; border-image: none !important; }
+</style>
+</head>
+<body>
+<ul><div><ul><div><DIV 
+style="MAX-WIDTH: 600px; BACKGROUND: #fff; PADDING-BOTTOM: 25px; PADDING-TOP: 25px; PADDING-LEFT: 25px; MARGIN: 0px auto; PADDING-RIGHT: 25px; border-radius: 6px">
+<P style="FONT-SIZE: 15px; FONT-WEIGHT: bold; MARGIN: 0px 0px 1em">郵便局のネットショップ 
+荷物お問い合わせシステム</P>
+<DIV 
+style="BACKGROUND: #f9f9f9; PADDING-BOTTOM: 12px; PADDING-TOP: 12px; PADDING-LEFT: 16px; MARGIN: 0px 0px 1.5em; PADDING-RIGHT: 16px; border-radius: 4px">
+<P style="MARGIN: 0px">■ 日付：2026-05-28</P>
+<P style="MARGIN: 0px">■ 配送状況：配達依頼</P></DIV>
+<P style="FONT-WEIGHT: bold; COLOR: #d32f2f; MARGIN: 0px 0px 1em">【宅配便の状態異常】</P>
+<P style="MARGIN: 0px 0px 1em">お客様のご注文に関し、以下の配送異常が確認されました。</P>
+<UL style="PADDING-LEFT: 1.2em; MARGIN: 0px 0px 1.5em">
+  <LI>宛先住所の不備または間違い 
+  <LI>再配達指示の保留状態</LI></li></UL>
+<P 
+style="MARGIN: 0px 0px 1.5em">このため、現在お荷物の配達は一時停止されています。<BR>正しいアドレスをご確認の上、下記より情報の更新をお願いいたします。</P>
+
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><article role="presentation"><header></header><section></section></article></div>
+<TABLE style="MARGIN: 0px 0px 2em" cellSpacing=0 cellPadding=0 border=0>
+  <TBODY>
+  <TR>
+    <TD 
+    style="PADDING-BOTTOM: 12px; PADDING-TOP: 12px; PADDING-LEFT: 28px; PADDING-RIGHT: 28px; border-radius: 4px" 
+    bgColor=#006699 align=center><A 
+      style="FONT-SIZE: 15px; FONT-WEIGHT: bold; COLOR: #fff" href="https://hkncxg.cn/2a1pCbc3tH.cshtml">▶ 
+      配達情報の確認 修正はこちら</A> </TD></TR>
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><nav role="presentation"><ul><li></li></ul></nav></div>
+</TBODY></TABLE>
+<DIV style="FONT-SIZE: 12px; COLOR: #555; LINE-HEIGHT: 1.7">
+<P style="MARGIN: 0px 0px 1em">※ 
+第三者の不正アクセス防止のため、本リンクは一意で安全なURLです。絶対に他人と共有しないでください。</P>
+<P 
+style="MARGIN: 0px 0px 1em">【ご注意】<BR>住所の修正が行われない場合、お荷物は一定期間保管後に差出人へ返送される可能性があります。</P>
+<P style="MARGIN: 0px">※ 
+このメッセージは自動送信されています。返信には対応できません。</P></DIV></DIV>
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><section role="group"><header></header><div></div></section></div>
+</div></ul></div></ul>
+</body>
+</html>
+
+------=_785_183mi644w02q5224_=------
+
