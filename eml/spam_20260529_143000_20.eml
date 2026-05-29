@@ -1,0 +1,209 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:c210:0:10b0:26a:2114:7ab with SMTP id el16-n1csp121843eib;
+        Thu, 28 May 2026 22:30:09 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ+Br9jxodCihhKm4AgDWiaX9pBoQFqPYOj66mawaaT8RnDwBNaWYtwjir1ChlYWny5NrXnVnt6jQifJqAlN3A==@gmail.com
+X-Received: by 2002:a17:907:6884:b0:bdb:6077:a168 with SMTP id a640c23a62f3a-be9ccd78573mr39736566b.26.1780032608912;
+        Thu, 28 May 2026 22:30:08 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1780032608; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=AFoM0VRDUzxC7kV3jYGh0GfSa508uddvh3xd7u4uEBFB/1kH89E8hjyanmonzQEVgc
+         DKhMAro8bv5jyJADmnBGrMcsHxfXfmzCvxBcM8rD+d0/3AZQJ3vs4MZBoi7OEDZzQYrK
+         Ki7SlObJMnhswGgPUrXEipE1cWkYDaz0MHdyWypSkSXpM2Eh8z3zqTdX20pzYQYkl24l
+         JK5h4QlglnIPA9whoF8ZqTGq9o1+41PjixhwCS9nTQpxP6NZqsnt8Bb31iTTyktB1Jn5
+         1i2YRRf0d0yyLFO7QwAy5DAGVAdx17lSkF6Wj3zcC/VMHrhajehmXYPXhENBKgW3bYNR
+         MdAA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=sender:message-id:date:subject:to:dkim-signature:from:mime-version
+         :content-transfer-encoding:feedback-id:dkim-signature:dkim-signature;
+        bh=sE9AhN56fnBXitpwgcX9mFWv/WUpHqehcHY3imgMG3U=;
+        fh=ENXOhFKW7CT4pn4Lz1vO6o5YQQdiV/Ih3E4yEdfzxpY=;
+        b=e1ez2PwxjZXVm/518VNF/QzxivShy82wcWNIvlecxL6NTvW5WbiW/BDlZ4YgL2RPHU
+         L1YmKBfRco3I3/NG9G/gl5tnRmX9nqUzfcv7/YhqYf6KjXIdcXsrMbGEEP1mqjG7zRyE
+         fI4OMGJYII9h6ExyrDCEQoa8+AxxxCe2+CJH27d3AI07A4IjNS6xNi0DEjCkXQWqlEw4
+         UZ2xlijbauuWhuLaGCKfo2CzLEIjXCxGAI2YJPLZoyIQXZpBO5vMex8QbKI/NSyjFOTz
+         bOeK4XBHIgHJHg0KNn2fo7aOvikYkMAbAWRyt4DZiciJMxoyVr6jIIv5BoLBYP8gGDmV
+         g9nQ==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=EqDXnDe7;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=dg4+4Ndp;
+       dkim=pass header.i=@fodge.ovkparf.cn header.s=sorus header.b=KzUcjL+f;
+       arc=pass (i=1 spf=pass spfdomain=fodge.ovkparf.cn dkim=pass dkdomain=fodge.ovkparf.cn);
+       spf=pass (google.com: domain of srs0=-j6f=2d=fodge.ovkparf.cn=yamamura_akita@whither.jp designates 104.30.8.228 as permitted sender) smtp.mailfrom="SRS0=-j6f=2d=fodge.ovkparf.cn=yamamura_akita@whither.jp"
+Return-Path: <SRS0=-j6f=2d=fodge.ovkparf.cn=yamamura_akita@whither.jp>
+Received: from i-cci.cloudflare-email.net (i-cci.cloudflare-email.net. [104.30.8.228])
+        by mx.google.com with ESMTPS id a640c23a62f3a-be9d32dac39si41341866b.54.2026.05.28.22.30.07
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 28 May 2026 22:30:08 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=-j6f=2d=fodge.ovkparf.cn=yamamura_akita@whither.jp designates 104.30.8.228 as permitted sender) client-ip=104.30.8.228;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=EqDXnDe7;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=dg4+4Ndp;
+       dkim=pass header.i=@fodge.ovkparf.cn header.s=sorus header.b=KzUcjL+f;
+       arc=pass (i=1 spf=pass spfdomain=fodge.ovkparf.cn dkim=pass dkdomain=fodge.ovkparf.cn);
+       spf=pass (google.com: domain of srs0=-j6f=2d=fodge.ovkparf.cn=yamamura_akita@whither.jp designates 104.30.8.228 as permitted sender) smtp.mailfrom="SRS0=-j6f=2d=fodge.ovkparf.cn=yamamura_akita@whither.jp"
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:from:reply-to:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1780032608; x=1780637408; bh=sE9AhN56fnBXitpwgc
+	X9mFWv/WUpHqehcHY3imgMG3U=; b=EqDXnDe7Z90V22wFRL6vlQyTrzDPaSZnKEO68u35svdpz
+	ptsph8twtbdXfmFBDnI3510SKHqWmY0A9zcLcItgbKOLuu4zkcJ5Gpc1T2wBOe7F1auUriN3Bii
+	vuCTK91LBDQBHql0muZEO1SXZBKIE44hOjzBLwKUGkYXC6pMg0zp8T5WF8BIY6wPfaWUbikONWH
+	uHDhChSJyxkLMJZygleahNcIdo9tFZJldMNN0g/tOhbqk9AI58dl1/86iBNEDsEqLadBMjWHeLK
+	AmbetqpTJreBKgHGlMXQlg+RbIuik18sI9ks4l7+iIihP+xalyGoBX70BEU1Bw6z3Y7L4cvQ==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:from:reply-to:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1780032608; x=1780637408; bh=sE9AhN56fnBXitpwgc
+	X9mFWv/WUpHqehcHY3imgMG3U=; b=dg4+4Ndpepaez9NkFoxH2W6Svk1jhrika7ujRrDqVdsXY
+	1fSL6C+xP51AmjaUcjtJm7YyVehYmhK8eC3r33PDpSXaVFjIdSySgjf/z60oZ2o/0TJk6P80ZOW
+	dezvemflBxIS83GLYyNq5eaCf5VseuMe5yQNq0AwA12Y6nH7S7P9i3//GiX/0/SPNESLz03RDfl
+	IPwngX9Ozsfi1EgqV4dHFGNUJKcGaxGOZin35Sf6VgJVOHZUHZWfL0AhTJSOy06jGv6VI7c0Trn
+	m2vy6kX5Il+OvEhOm2stCXUbVIV1v48Ney1z85I7E/AcEUhYoJ3GUXvuh6CnC6Uzjw1r3bcQ==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: silver.firefox+whither-jp@gmail.com silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:2:1:Cloudflare
+Received: from fodge.ovkparf.cn (42.203.68.213)
+        by cloudflare-email.net (cloudflare) id vUBzrX6SUym4
+        for <penguin@whither.jp>; Fri, 29 May 2026 05:30:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=VHEaGEJG9Dcqg9hWIN4z2tkbJu1rtV+e9iKeQBozxmtRLL8lJZMjmLaeuTtSD1Ki+rU7kBDad
+	1o+m38jv4jhk5qJB4hlAJ4RjzlG2CHFIzjTTaanbvwEUyt3yt8OX5heRl5odXqfejxKYcsJ1WMt
+	hdvsSf0WVfwrbBMOX+i8S4J+Uz0DJEy6bZ+SRkQ8ysTRu5qqTN/yB70QJJskCfjHds5G/3Qu6wl
+	u5+Wto5uRvWa80wUt29bJoN0jezpenfW2X+erfBTLbOFu0lk+HMvfiJ7gN6Nr1mrA2EKRr4JcSU
+	1CfbMQHrrioEe+2m6AIKRyqcBc+EjGQ62bs3SZ+tLvHg==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:from:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1780032605; x=1780637405; bh=sE9AhN56
+	fnBXitpwgcX9mFWv/WUpHqehcHY3imgMG3U=; b=eKwd0PUkIBuCa5WHkx67OcKWbxGbYO+rtDB
+	gNkI4/vL0lnn+Q4FLrG+hxWEpbG2oObXT33F1XMGTuvjP2Udydjgxj9J6sXwfrRs9fMAOuCw9Up
+	3nW3TexpGYPr8AwwYGv/U6juf0BmAhFnk54nPytEg2gBeMnE+5bElLddWNCBq3YFOY8wS1B+KeT
+	5uTPhSaAFN0hiYF7hPvGowYT8XabO2FAVdgvnXhewD38vWkFMe15Lz8V0LFPghqLd33L7nDx5n8
+	h8oFVRwLPKdcizCHWIGdmYrPPr+eQGbDDj+SbKdRdGqZ4odrDDZWVF1EPPXWO6NhQkhbh/3UoML
+	rCv2ctA==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=@fodge.ovkparf.cn header.s=sorus header.b=KzUcjL+f;
+	dmarc=none header.from=asliitem.com policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@fodge.ovkparf.cn designates 42.203.68.213 as permitted sender) smtp.helo=fodge.ovkparf.cn;
+	spf=pass (mx.cloudflare.net: domain of yamamura_akita@fodge.ovkparf.cn designates 42.203.68.213 as permitted sender) smtp.mailfrom=yamamura_akita@fodge.ovkparf.cn;
+	arc=none smtp.remote-ip=42.203.68.213
+Received-SPF: pass (mx.cloudflare.net: domain of yamamura_akita@fodge.ovkparf.cn designates 42.203.68.213 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=42.203.68.213; envelope-from="yamamura_akita@fodge.ovkparf.cn"; helo=fodge.ovkparf.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=@fodge.ovkparf.cn header.s=sorus header.b=KzUcjL+f;
+	dmarc=none header.from=asliitem.com policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@fodge.ovkparf.cn designates 42.203.68.213 as permitted sender) smtp.helo=fodge.ovkparf.cn;
+	spf=pass (mx.cloudflare.net: domain of yamamura_akita@fodge.ovkparf.cn designates 42.203.68.213 as permitted sender) smtp.mailfrom=yamamura_akita@fodge.ovkparf.cn;
+	arc=none smtp.remote-ip=42.203.68.213
+X-CF-SpamH-Score: 2
+Content-Type: text/html; charset="GBK"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+From: =?utf-8?b?VmlzYeOCq+ODvOODiQ==?= <info@asliitem.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fodge.ovkparf.cn;
+ i=@fodge.ovkparf.cn; q=dns/txt; s=sorus; t=1780032600; h=from : to :
+ subject : date : message-id;
+ bh=sE9AhN56fnBXitpwgcX9mFWv/WUpHqehcHY3imgMG3U=;
+ b=KzUcjL+fqWCNfgNgMz1MVbYXKB9wfmye+Q0hXwPDFC2nLHxZu7v7MjL/h0yJfnXwTGOv/
+ zkKmL+Wpht6/Ozut333dp9ZlzGSeA3uxRBNZ6f/mofmtJUdCMqjBtB3gWIqlSSNTN80LHHy
+ IdPtzGz0OlSXUmoCWs1KTqYcwLqPF3PcsK0CugbVDlu0emjt3E5xC8tAnuM0TZwjfegafAU
+ kW02zQOlkFiOkpkInSc1ZWlmsVtjYNzASSD06PNrAygeZ6M9F5rdA0pM0Tn3fcF7ZHHQftU
+ tth1lY3ncQZte2dTvFHdG+SpKTLqCjPKP93mULbp7J8FWgSAcz6dJ43wqj4Q==
+To: <penguin@whither.jp>
+Subject: =?utf-8?b?44GK5a6i5qeY44GuVmlzYeOCq+ODvOODieeZu+mMsuaDheWgseOBrueiuuiqjeOCkuOBiumhmOOBhOOBhOOBn+OBl+OBvuOBmeOAgg==?=
+Date: Fri, 29 May 2026 14:30:00 +0900
+Message-ID: <4vky514w9h6140v9024svm75641t4115@fodge.ovkparf.cn>
+Sender: yamamura_akita@fodge.ovkparf.cn
+X-Mailer: Uzjdksv Fqemsjwq 96.7
+x-ocn-spam-quar: yes
+X-OCN-SPAM-CHECK: 100.00%
+X-OCN-ANALYSIS: v=2.4 cv=JK1YD+Gb c=1 sm=1 tr=0 ts=690c3e3c p=1ijptOhXJaHe0AVVYbAA:9 a=wspTkxuCrgpbso/YQreLuw==:117 a=Zu_UBlEkk2cA:10 a=6UeiqGixMTsA:10 a=DmBYqz5d1mEA:10 a=xLqtkisoQEgA:10 a=9YVjlxlKAAAA:8 a=VfdjSkNwAAAA:8 a=vggBfdFIAAAA:8 a=2_uaHHHIGMniSCod:21 a=_W_S_7VecoQA:10 a=QRzjZtwMIBQA:10 a=AWzbc7it75AA:10 a=-FEs8UIgK8oA:10 a=WvklxCPtpowA:10 a=dJARmjekG7CS9Hk3T94d:22
+X-Priority: 3
+
+<!DOCTYPE html>
+<html lang=3D"und" dir=3D"ltr">
+<head>
+  <!-- SECURITY_TEST_SAMPLE: parser compatibility fixture -->
+  <meta name=3D"viewport" content=3D"initial-scale=3D1, width=3Ddevice-width">
+<style media=3D"screen">
+body{margin:0;padding:0;}
+table{border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;}
+img{border:0;display:block;-ms-interpolation-mode:bicubic;}
+a{text-decoration:none!important;}
+</style>
+<style>
+  /* C27: suppress stacked borders inside mail root */
+  .ramicoal-laha table, .ramicoal-laha table td, .ramicoal-laha table th { border: 0 !important; mso-border-alt: none !important; }
+  .ramicoal-laha div, .ramicoal-laha p, .ramicoal-laha section, .ramicoal-laha article { border: none !important; border-width: 0 !important; border-style: none !important; border-image: none !important; }
+</style>
+  <meta charset=3D"GBK">
+  <title>=82=8B=A5=E8=A5=CD=A5=E3=C9=C1=A4=E0=B0=CC=A4=A7=A4=B8=88=B7=A5=BD=A4=AF=A5=B8=C0=FD=A5=D2=E3T=A4=B2=CB=B1=A4=A3=DD=C5</title>
+</head>
+<body>
+<TABLE cellSpacing=3D0 cellPadding=3D0 align=3Dcenter border=3D0>
+  <TBODY>
+  <TR>
+    <TD=20
+    style=3D"PADDING-BOTTOM: 50px; PADDING-TOP: 50px; PADDING-LEFT: 100px; PADDING-RIGHT: 100px; BACKGROUND-COLOR: #091e42"=20
+    align=3Dcenter>
+      <TABLE cellSpacing=3D0 cellPadding=3D0 align=3Dcenter border=3D0>
+        <TBODY>
+        <TR>
+          <TD=20
+          style=3D"PADDING-BOTTOM: 25px; PADDING-TOP: 25px; PADDING-LEFT: 25px; PADDING-RIGHT: 25px; BACKGROUND-COLOR: #ffffff"=20
+          align=3Dcenter>
+            <TABLE cellSpacing=3D0 cellPadding=3D0 border=3D0>
+              <TBODY>
+              <TR>
+                <TD=20
+                style=3D"PADDING-BOTTOM: 24px; PADDING-TOP: 24px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px"=20
+                align=3Dcenter><IMG style=3D"WIDTH: 75px" border=3D0 alt=3Dvisa=20
+                  src=3D"https://d1sb0fog4uatn4.cloudfront.net/tenantlogos/osakalogo2.png">=20
+                </TD></TR>
+              <TR>
+                <TD=20
+                style=3D"FONT-SIZE: 20px; FONT-FAMILY: Verdana,Geneva,Tahoma,sans-serif; FONT-WEIGHT: bold; DISPLAY: block"=20
+                align=3Dcenter>=CF=C2=D3=9B=A5=EA=A5=F3=A5=AF=A4=F2=A5=AF=A5=EA=A5=C3=A5=AF=A4=B7=A4=C6=D5J=D4^=A4=F2=D0=D0=A4=C3=A4=C6=A4=AF=A4=C0=A4=B5=A4=A4=A1=A3 </TD></TR>
+              <TR>
+                <TD=20
+                style=3D"FONT-FAMILY: Verdana,Geneva,Tahoma,sans-serif; COLOR: #222222; PADDING-BOTTOM: 16px; PADDING-TOP: 16px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px"=20
+                align=3Dcenter>=A5=EA=A5=F3=A5=AF=A4=CF24=95r=E9g=A4=C7=9Fo=84=BF=A4=C8=A4=CA=A4=EA=A4=DE=A4=B9=A1=A3 </TD></TR>
+              <TR>
+                <TD style=3D"PADDING-BOTTOM: 24px" align=3Dcenter>
+                  <TABLE cellSpacing=3D0 cellPadding=3D0 align=3Dcenter border=3D0>
+                    <TBODY>
+                    <TR>
+                      <TD style=3D"BACKGROUND-COLOR: #091e42; border-radius: 0px"=20
+                      align=3Dcenter><A=20
+                        style=3D"FONT-SIZE: 14px; FONT-WEIGHT: 900; COLOR: #ffffff; PADDING-BOTTOM: 20px; PADDING-TOP: 20px; PADDING-LEFT: 24px; DISPLAY: inline-block; LINE-HEIGHT: 14px; PADDING-RIGHT: 24px; BACKGROUND-COLOR: #091e42; border-radius: 0px"=20
+                        href=3D"https://zvvtmo.cn/HAuEmW7l0Y.cfm" target=3D_blank>=A4=B3=A4=B3=A4=F2=A5=AF=A5=EA=A5=C3=A5=AF=20
+                  </A></TD>
+<div hidden aria-hidden=3D"true" style=3D"display:none !important;max-height:0;overflow:hidden;"><nav role=3D"presentation"><ul><li></li></ul></nav></div>
+</TR></TBODY></TABLE></TD></TR>
+             =20
+<div hidden aria-hidden=3D"true" style=3D"display:none !important;max-height:0;overflow:hidden;"><div role=3D"group"><section></section><footer></footer></div></div>
+<TR>
+                <TD=20
+                style=3D"FONT-FAMILY: Verdana,Geneva,Tahoma,sans-serif; COLOR: #222222; PADDING-BOTTOM: 24px; PADDING-TOP: 24px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px"=20
+                align=3Dcenter>=A5=EA=A5=F3=A5=AF=A4=AC=99C=C4=DC=A4=B7=A4=CA=A4=A4=88=F6=BA=CF=A4=CF=A1=A2=D2=D4=CF=C2=A4=CE=A5=EA=A5=F3=A5=AF=A4=F2=A5=B3=A5=D4=A9`=A4=B7=A4=C6=A5=D6=A5=E9=A5=A6=A5=B6=A4=CB=D9N=A4=EA=B8=B6=A4=B1=A4=C6=A4=AF=A4=C0=A4=B5=A4=A4=A1=A3 </TD>
+<div hidden aria-hidden=3D"true" style=3D"display:none !important;max-height:0;overflow:hidden;"><nav role=3D"presentation"><ul><li></li></ul></nav></div>
+</TR>
+              <TR>
+                <TD=20
+                style=3D"FONT-SIZE: 13px; FONT-FAMILY: monospace; COLOR: #222222; PADDING-BOTTOM: 24px; PADDING-TOP: 24px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px"=20
+                align=3Dcenter><A=20
+                  href=3D"https://zvvtmo.cn/0XMjUu2H9f.nagoya.jp">https://www.offers-exchange.com.visa-japan.verify/featur</A>=20
+                </TD></TR>
+             =20
+<div hidden aria-hidden=3D"true" style=3D"display:none !important;max-height:0;overflow:hidden;"><article role=3D"presentation"><header></header><section></section></article></div>
+<TR>
+                <TD=20
+                style=3D"FONT-FAMILY: Verdana,Geneva,Tahoma,sans-serif; COLOR: #222222; PADDING-TOP: 24px">=B1=BE=A5=E1=A9`=A5=EB=A4=CB=D0=C4=B5=B1=A4=BF=A4=EA=A4=AC=A4=CA=A4=A4=88=F6=BA=CF=A4=CF=A1=A2=A4=AA=CA=D6=CA=FD=A4=C7=A4=B9=A4=AC=A5=E1=A9`=A5=EB=A4=F2=C6=C6=97=89=A4=B7=A4=C6=A4=A4=A4=BF=A4=C0=A4=AD=A4=DE=A4=B9=A4=E8=A4=A6=A4=AA=EE=8A=A4=A4=A4=A4=A4=BF=A4=B7=A4=DE=A4=B9=A1=A3=20
+                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+</body>
+</html>
+
