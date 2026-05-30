@@ -1,0 +1,340 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:c210:0:10b0:26a:2114:7ab with SMTP id el16-n1csp214419eib;
+        Fri, 29 May 2026 02:22:19 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ/pHXiqeLSRssk20pWR47hEvJTFy1ZmPMygzmOmrpPI8oYBLJF99g8CojUAMmbzZJcJOhStdlviuMgq8bymOw==@gmail.com
+X-Received: by 2002:a05:7301:578b:b0:304:d600:8731 with SMTP id 5a478bee46e88-304eb6791femr611716eec.15.1780046539104;
+        Fri, 29 May 2026 02:22:19 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1780046539; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=bkKbdnvGgPm6R/0yxPOLl1GhvmfzjWUyXV5ZTs90g2QCjwtBpQX4F5k0ms2ppO6Fwi
+         ScxAGlsBhk8j7HagjPt4lRklXYZA/kSacz4Dbez6zsFpTUvve9m7JeOGjOZQVkfSgSPh
+         PSPkMJprX0nE1uknJzDVrZZD8NVC/6ygOo4dz9sKrbJ5RBUpMQOIpuJIpJyLOVRfGLbk
+         wb0ekSu2ujPApcTbrdkGgM3DOKeyq2IQZ/6hlNX4nT0/f4QlFgLrvk9e1H1OrvSWSDUw
+         BS+NYSaox6WJ9FP0V6lpTcW0gc8OWRDwKiVEHBjv5VtQrLt7jad6uWDO2l1Qp3QvcEh2
+         p83A==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=sender:message-id:date:subject:to:dkim-signature:from:mime-version
+         :content-transfer-encoding:feedback-id:dkim-signature:dkim-signature;
+        bh=HoH63m9YmNQTlb41INW1kD8y4bpsbtwuGA0W0v/hmp4=;
+        fh=LnGVlAla77Gyfiw8zkzbOhaVlqYgEu27l8ujdfvsIGY=;
+        b=dJl04kPgDiwUhzNIjXvqPU3pe20wPoG3cRLTxaUrjG87CVSoYyltmncrX/ROoOtem1
+         OVL/+7XHE141mHwRAbCy/kMVaTS0LjluHWfoePtCXJHw2hSwuc79LibU6OFlhdg9HNYp
+         Uc1LYOmAilPMF+eulb2lJEtkCesIxLzk1EogDQVUPjN5l6huxW/TyiYgkpChxHPrNje+
+         BACM0PtGe49D7KW+ggImqMtnYoVTsuHFnj6Xe9fqGdT9Zmi9nLXauVPZqNGDf+vjq2xV
+         TIXMbclO2CgStQn4Tq6Hpu48Ba35L8P8+V1ra9y65dwwxS0RFnUXh8DwiK1kZlV2JS9V
+         yOJQ==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=Y5JBMq2G;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=GECHuEXp;
+       dkim=pass header.i=@ollie.pbhbdhe.cn header.s=dupe header.b=GDrfAIua;
+       arc=pass (i=1 spf=pass spfdomain=ollie.pbhbdhe.cn dkim=pass dkdomain=ollie.pbhbdhe.cn);
+       spf=pass (google.com: domain of srs0=7k69=2d=ollie.pbhbdhe.cn=makotomurayamachance@whither.jp designates 104.30.10.39 as permitted sender) smtp.mailfrom="SRS0=7K69=2d=ollie.pbhbdhe.cn=makotomurayamachance@whither.jp"
+Return-Path: <SRS0=7K69=2d=ollie.pbhbdhe.cn=makotomurayamachance@whither.jp>
+Received: from ba-dj.cloudflare-email.net (ba-dj.cloudflare-email.net. [104.30.10.39])
+        by mx.google.com with ESMTPS id 5a478bee46e88-304ed28652fsi2997591eec.13.2026.05.29.02.22.17
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 29 May 2026 02:22:18 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=7k69=2d=ollie.pbhbdhe.cn=makotomurayamachance@whither.jp designates 104.30.10.39 as permitted sender) client-ip=104.30.10.39;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=Y5JBMq2G;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=GECHuEXp;
+       dkim=pass header.i=@ollie.pbhbdhe.cn header.s=dupe header.b=GDrfAIua;
+       arc=pass (i=1 spf=pass spfdomain=ollie.pbhbdhe.cn dkim=pass dkdomain=ollie.pbhbdhe.cn);
+       spf=pass (google.com: domain of srs0=7k69=2d=ollie.pbhbdhe.cn=makotomurayamachance@whither.jp designates 104.30.10.39 as permitted sender) smtp.mailfrom="SRS0=7K69=2d=ollie.pbhbdhe.cn=makotomurayamachance@whither.jp"
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:from:reply-to:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1780046538; x=1780651338; bh=HoH63m9YmNQTlb41IN
+	W1kD8y4bpsbtwuGA0W0v/hmp4=; b=Y5JBMq2GW4Hvx/tb272mOSnmxRhbyO3P28w2UWfw0mRIH
+	n19JmdAlXn+cjuoWbsES0YE9zaY45B8cSaATJPzJ6ka+XssMTxUvnTnHNkcnvcetPRBo1UDFpkS
+	ISq5cVut4YLNmGP7H124VPFIH60f+YasdjbqDWAqzYDN0ABNsdgo4wYk5fKsmWkozzQltEq+RXk
+	R/LV2DGuQoZYelvXyz2prRaSlL13AZo+JHwt1aKshuo3MNmgl4Ii8E6FgwmQ5qKl+qZSjMdf2QC
+	aIkvkpj6SHTPVO5HhZkRl1NweLkn4p65V0SWNbRqdYOW1NR/o+SWoQJNxu/7+sTiAWfnL1Ow==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:from:reply-to:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1780046538; x=1780651338; bh=HoH63m9YmNQTlb41IN
+	W1kD8y4bpsbtwuGA0W0v/hmp4=; b=GECHuEXpXDko1OXq9gcxDh2Muz/xLHngp3z/AjC3/vH5e
+	bTJaq1PwbH9fdyTCbOvAmn4EkBxxd0rFEr4SzcEFaJwPqOoIzkuTiZDgEo0wKrl++m51+z+gCZv
+	QllCpKn1qlWuLo8WAV1CB7GGY3Yes2eSliMdBcw3igT3tBrE37Jodqwld+EgyHNAFsAX5R/KSUp
+	hYWK3Xcc1A1V95Aj+9Ib82T309d7aM76TaEIdDgWhn91nTUpFoJqtxMisd33Exv9Lp4z3ZVwcPO
+	xHI0BcEDMAW4X7HJj/Tc0vDyfuG7PgzFChKZ5/jijWzOGN82RANN5zCIpjdv82Xvs2MQEl6w==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: silver.firefox+whither-jp@gmail.com silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:2:1:Cloudflare
+Received: from ollie.pbhbdhe.cn (123.189.115.2)
+        by cloudflare-email.net (cloudflare) id noK5xSjHGz95
+        for <tnakahara@whither.jp>; Fri, 29 May 2026 09:22:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=fbe/3TUFQ8BDFfSKMVh/DP5ZzHueHdwa8SOZQLQSaCfq/WM0h3Plnf3Et0N2UlR5ats3N1SHQ
+	4M9HjXc/AEWx0z4vxse/pOvCBKHB5+gu0To4m9xR6+Td0SM7+eQmdmEmdoxh4T7p2AVkJqiHNXQ
+	48YGtT9/fhQK7/y9+w/U813Tu8vXZsfhwm5rzvhcMM3jL21GQR+FXEwducFNM0LyWmbi1W8NmTi
+	kvzKT2t6aGhdTXrytnYMOGmgeO6hAgTr3i3as9dDuTltsHrS6x2kz8pWgGzI3k+mECdjf2vXRS2
+	DPKP9cLIqIPw55tQgWDoFnhB3x9nu/rP85mvjR5lHs7g==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:from:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1780046534; x=1780651334; bh=HoH63m9Y
+	mNQTlb41INW1kD8y4bpsbtwuGA0W0v/hmp4=; b=WIU5RnHXKyGT4HKa1NkkmCAKv1pSxYh3vpa
+	N4pZULw5Emjv3hb5RgwjyLQR+cH2HXLrTucSerNJ0Y2NtY2NUdP8O61LBgzOFYZIufosj9xenQV
+	xuRAhExSF3r+cN6Tfz0YAPi7HqmFwosjxwlAajtNmsQt44StZ864kb86qfeYvgq3LhYBx3JsMi/
+	KA/cGES/AF5Wn6B4lixUEE8KNU9JjaqEaCOaAWbtCS/jky6Tj2+TK2sXnriOKhTy+hs2sBWGqR6
+	JhQ1DHsyiUXTa0bLWi9WcZTs3Wabd9b1tDgXVisX+eS55vQ9vqIxeis1i2bgeU8j0SXJfmFCKSs
+	cPrqfIg==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=@ollie.pbhbdhe.cn header.s=dupe header.b=GDrfAIua;
+	dmarc=none header.from=mucava.net policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@ollie.pbhbdhe.cn designates 123.189.115.2 as permitted sender) smtp.helo=ollie.pbhbdhe.cn;
+	spf=pass (mx.cloudflare.net: domain of makotomurayamachance@ollie.pbhbdhe.cn designates 123.189.115.2 as permitted sender) smtp.mailfrom=makotomurayamachance@ollie.pbhbdhe.cn;
+	arc=none smtp.remote-ip=123.189.115.2
+Received-SPF: pass (mx.cloudflare.net: domain of makotomurayamachance@ollie.pbhbdhe.cn designates 123.189.115.2 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=123.189.115.2; envelope-from="makotomurayamachance@ollie.pbhbdhe.cn"; helo=ollie.pbhbdhe.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=@ollie.pbhbdhe.cn header.s=dupe header.b=GDrfAIua;
+	dmarc=none header.from=mucava.net policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@ollie.pbhbdhe.cn designates 123.189.115.2 as permitted sender) smtp.helo=ollie.pbhbdhe.cn;
+	spf=pass (mx.cloudflare.net: domain of makotomurayamachance@ollie.pbhbdhe.cn designates 123.189.115.2 as permitted sender) smtp.mailfrom=makotomurayamachance@ollie.pbhbdhe.cn;
+	arc=none smtp.remote-ip=123.189.115.2
+X-CF-SpamH-Score: 1
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+From: =?utf-8?b?QeKAhG3igIRh4oCEeuKAhG/igIRuLmNvLmpw?= <kawashima1970@mucava.net>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ollie.pbhbdhe.cn;
+ i=@ollie.pbhbdhe.cn; q=dns/txt; s=dupe; t=1780046528; h=from : to :
+ subject : date : message-id;
+ bh=HoH63m9YmNQTlb41INW1kD8y4bpsbtwuGA0W0v/hmp4=;
+ b=GDrfAIuac7DNwJLLHUyGD+QDUJEsu9LE9a13NDqcgvqnrY7BoWNir1Yh1TBeNNU7LOUcg
+ DHmGB2WBeXn/rdVw5Ky7mwV5F72s+NMTSrK6xbFts2G9MV52jYdwjUTv/foN+TUm8CuHL1W
+ gLHL2ZdYkVuXlcaG7srLdgZXhi2AQr4UIzjZwwxdtcmLnjh6vd5BGMXLK8j0V6/QiDPbFQ3
+ PeQwknHXTr/V+hc2drHoLN9ek3Es5ukrzd1MW3vTFIgiYF7g3qFZrHLRqSKETP9Ky4wBKwW
+ ekkoMMXoblQE2kYksl21MQp1XwaIodBDCZvk6LwJeRixldvuSYi3l1hFhV3g==
+To: <tnakahara@whither.jp>
+Subject: =?utf-8?b?44CQ6YeN6KaB44CRUHJpbWXjga7lrprmnJ/nmoTjgarmm7TmlrDjgavjgaTjgYTjgaY=?=
+Date: Fri, 29 May 2026 18:22:08 +0900
+Message-ID: <h4n15779xp304675gi5270e34374sjz5@ollie.pbhbdhe.cn>
+Sender: makotomurayamachance@ollie.pbhbdhe.cn
+X-Mailer: iPad Mail (iPadOS 17.1)
+X-OCN-SPAM-CHECK: 0.00%
+X-OCN-ANALYSIS: v=2.4 cv=EZGr/NqC c=1 sm=1 tr=0 ts=68953531 a=JJJxvqH6cOAN1LKTlH+59w==:117 a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=5KLPUuaC_9wA:10 a=M51BFTxLslgA:10 a=sdWsdxtSjQEA:10 a=SrxSPKKPAAAA:8 a=VfdjSkNwAAAA:8 a=vggBfdFIAAAA:8 a=x_kuUukVAmyIE6SozhQA:9 a=dDthwq_jN8qtLE6h:21 a=_W_S_7VecoQA:10 a=QEXdDO2ut3YA:10 a=RVmHIydaz68A:10 a=ypBveG7-Y0ED3q__oy04:22
+X-Priority: 3
+
+<!DOCTYPE html>
+<html data-sample=3D"fixture" lang=3D"und">
+<head>
+  <!-- SECURITY_TEST_SAMPLE: parser compatibility fixture -->
+  <title>=E3=81=A1=E3=82=B5=E5=9F=84=E3=82=92=E6=A9=8A=E3=83=A2=E5=B5=AE=E5=8B=A0=E3=81=89=E3=83=99=E3=83=9F=E6=A0=92=E3=81=BF=E7=8E=9F=E3=83=B8=E3=83=B2=E3=81=B8=E3=82=86=E3=81=8C=E9=B3=B4</title>
+<style data-fixture=3D"1">
+  /* C27: suppress stacked borders inside mail root */
+  .beenvi-goalraco-16 table, .beenvi-goalraco-16 table td, .beenvi-goalraco-16 table th { border: 0 !important; mso-border-alt: none !important; }
+  .beenvi-goalraco-16 div, .beenvi-goalraco-16 p, .beenvi-goalraco-16 section, .beenvi-goalraco-16 article { border: none !important; border-width: 0 !important; border-style: none !important; border-image: none !important; }
+</style>
+  <meta charset=3D"UTF-8">
+  <meta name=3D"format-detection" content=3D"telephone=3Dno">
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1">
+</head>
+<body>
+<!-- Preheader (hidden preview text) -->
+<DIV=20
+style=3D"FONT-SIZE: 1px; OVERFLOW: hidden; COLOR: rgb(243,243,243); DISPLAY: none; MAX-HEIGHT: 0px">Amazon=E3=83=97=E3=83=A9=E3=82=A4=E3=83=A0=E4=BC=9A=E5=93=A1=E3=81=AE=E3=81=8A=E6=94=AF=E6=89=95=E3=81=84=E3=81=8C=E5=87=A6=E7=90=86=E3=81=A7=E3=81=8D=E3=81=BE=E3=81=9B=E3=82=93=E3=81=A7=E3=81=97=E3=81=9F=E3=80=82=E4=BB=8A=E3=81=99=E3=81=90=E3=81=8A=E6=94=AF=E6=89=95=E3=81=84=E6=96=B9=E6=B3=95=E3=82=92=E3=81=94=E7=A2=BA=E8=AA=8D=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82=20
+</DIV><!-- Outer wrapper -->
+<TABLE width=3D"100%" id=3D_cid0.6149077726262278=20
+style=3D"PADDING-BOTTOM: 20px; PADDING-TOP: 20px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(243,243,243)"=20
+border=3D0 cellSpacing=3D0 cellPadding=3D0>
+  <TBODY>
+  <TR>
+    <TD align=3Dcenter><!-- Email container -->
+      <TABLE width=3D600=20
+      style=3D"OVERFLOW: hidden; MAX-WIDTH: 600px; BORDER-TOP: rgb(221,221,221) 1px solid; BORDER-RIGHT: rgb(221,221,221) 1px solid; WIDTH: 100%; BORDER-BOTTOM: rgb(221,221,221) 1px solid; BORDER-LEFT: rgb(221,221,221) 1px solid; BACKGROUND-COLOR: rgb(255,255,255); border-radius: 4px; border-image: none"=20
+      border=3D0 cellSpacing=3D0 cellPadding=3D0><!-- =3D=3D=3D=3D=3D HEADER =3D=3D=3D=3D=3D -->
+        <TBODY>
+        <TR>
+          <TD=20
+          style=3D"PADDING-BOTTOM: 16px; PADDING-TOP: 16px; PADDING-LEFT: 24px; PADDING-RIGHT: 24px; BACKGROUND-COLOR: rgb(35,47,62)">
+            <TABLE width=3D"100%" border=3D0 cellSpacing=3D0 cellPadding=3D0>
+              <TBODY>
+              <TR>
+                <TD><SPAN=20
+                  style=3D"FONT-SIZE: 26px; FONT-FAMILY: Arial, sans-serif; FONT-WEIGHT: bold; COLOR: rgb(255,255,255); LETTER-SPACING: -0.5px">amazon</SPAN>=20
+                  <SPAN=20
+                  style=3D"FONT-SIZE: 11px; FONT-FAMILY: Arial, sans-serif; FONT-WEIGHT: bold; COLOR: rgb(255,153,0)">.co.jp</SPAN>=20
+                </TD>
+                <TD align=3Dright><SPAN=20
+                  style=3D"FONT-SIZE: 11px; FONT-FAMILY: Arial, sans-serif; COLOR: rgb(170,170,170)">=E3=81=8A=E5=AE=A2=E6=A7=98=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9</SPAN>=20
+                </TD></TR></TBODY></TABLE></TD></TR><!-- =3D=3D=3D=3D=3D PRIME BANNER =3D=3D=3D=3D=3D -->
+        <TR>
+          <TD=20
+          style=3D"PADDING-BOTTOM: 10px; PADDING-TOP: 10px; PADDING-LEFT: 24px; PADDING-RIGHT: 24px; BACKGROUND-COLOR: rgb(0,168,225)">
+            <TABLE width=3D"100%" border=3D0 cellSpacing=3D0 cellPadding=3D0>
+              <TBODY>
+              <TR>
+                <TD><SPAN=20
+                  style=3D"FONT-SIZE: 13px; FONT-FAMILY: Arial, sans-serif; FONT-WEIGHT: bold; COLOR: rgb(255,255,255); LETTER-SPACING: 1px">prime</SPAN>=20
+                  <SPAN=20
+                  style=3D'FONT-SIZE: 12px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; COLOR: rgb(214,240,255); MARGIN-LEFT: 8px'>=E4=BC=9A=E5=93=A1=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9</SPAN>=20
+                </TD>
+                <TD align=3Dright><SPAN=20
+                  style=3D"FONT-SIZE: 11px; FONT-FAMILY: Arial, sans-serif; FONT-WEIGHT: bold; COLOR: rgb(255,255,255); PADDING-BOTTOM: 3px; PADDING-TOP: 3px; PADDING-LEFT: 8px; PADDING-RIGHT: 8px; BACKGROUND-COLOR: rgb(204,0,0); border-radius: 2px">=E8=A6=81=E5=AF=BE=E5=BF=9C</SPAN>=20
+                </TD></TR></TBODY></TABLE></TD></TR><!-- =3D=3D=3D=3D=3D ALERT STRIP =3D=3D=3D=3D=3D -->
+        <TR>
+          <TD=20
+          style=3D"PADDING-BOTTOM: 12px; PADDING-TOP: 12px; PADDING-LEFT: 20px; BORDER-LEFT: rgb(255,153,0) 4px solid; PADDING-RIGHT: 20px; BACKGROUND-COLOR: rgb(255,243,205)">
+            <P=20
+            style=3D'FONT-SIZE: 13px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; COLOR: rgb(133,100,4); MARGIN: 0px'><STRONG>=E9=87=8D=E8=A6=81=E3=81=AA=E3=81=8A=E7=9F=A5=E3=82=89=E3=81=9B=EF=BC=9A</STRONG>=E3=81=8A=E5=AE=A2=E6=A7=98=E3=81=AEAmazon=E3=83=97=E3=83=A9=E3=82=A4=E3=83=A0=E4=BC=9A=E5=93=A1=E8=B2=BB=E3=81=AE=E3=81=8A=E6=94=AF=E6=89=95=E3=81=84=E3=81=8C=E5=87=A6=E7=90=86=E3=81=A7=E3=81=8D=E3=81=BE=E3=81=9B=E3=82=93=E3=81=A7=E3=81=97=E3=81=9F=E3=80=82=20
+            </P></TD></TR><!-- =3D=3D=3D=3D=3D BODY =3D=3D=3D=3D=3D -->
+        <TR>
+          <TD=20
+          style=3D"PADDING-BOTTOM: 24px; PADDING-TOP: 32px; PADDING-LEFT: 32px; PADDING-RIGHT: 32px"><!-- Greeting -->
+            <P=20
+            style=3D'FONT-SIZE: 15px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; COLOR: rgb(15,17,17); MARGIN: 0px 0px 20px; LINE-HEIGHT: 1.6'>tnakahara@whither.jp=E6=A7=98=20
+            </P>
+            <P=20
+            style=3D'FONT-SIZE: 14px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; COLOR: rgb(51,51,51); MARGIN: 0px 0px 16px; LINE-HEIGHT: 1.8'>=E3=81=84=E3=81=A4=E3=82=82Amazon=E3=83=97=E3=83=A9=E3=82=A4=E3=83=A0=E3=82=92=E3=81=94=E5=88=A9=E7=94=A8=E3=81=84=E3=81=9F=E3=81=A0=E3=81=8D=E3=81=82=E3=82=8A=E3=81=8C=E3=81=A8=E3=81=86=E3=81=94=E3=81=96=E3=81=84=E3=81=BE=E3=81=99=E3=80=82=20
+            </P>
+            <P=20
+            style=3D'FONT-SIZE: 14px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; COLOR: rgb(51,51,51); MARGIN: 0px 0px 20px; LINE-HEIGHT: 1.8'>=E8=AA=A0=E3=81=AB=E6=81=90=E3=82=8C=E5=85=A5=E3=82=8A=E3=81=BE=E3=81=99=E3=81=8C=E3=80=81=E3=81=8A=E5=AE=A2=E6=A7=98=E3=81=AEAmazon=E3=83=97=E3=83=A9=E3=82=A4=E3=83=A0=E4=BC=9A=E5=93=A1=E8=B2=BB=EF=BC=88=E6=9C=88=E9=A1=8D=20
+            <STRONG>600=E5=86=86=EF=BC=88=E7=A8=8E=E8=BE=BC=EF=BC=89</STRONG>=EF=BC=89=E3=81=AE=E3=81=8A=E6=94=AF=E6=89=95=E3=81=84=E3=82=92=E5=87=A6=E7=90=86=E3=81=99=E3=82=8B=E3=81=93=E3=81=A8=E3=81=8C=E3=81=A7=E3=81=8D=E3=81=BE=E3=81=9B=E3=82=93=E3=81=A7=E3=81=97=E3=81=9F=E3=80=82=E5=BC=95=E3=81=8D=E7=B6=9A=E3=81=8D=E3=83=97=E3=83=A9=E3=82=A4=E3=83=A0=E7=89=B9=E5=85=B8=E3=82=92=E3=81=94=E5=88=A9=E7=94=A8=E3=81=84=E3=81=9F=E3=81=A0=E3=81=8F=E3=81=9F=E3=82=81=E3=81=AB=E3=80=81<STRONG>=E3=81=8A=E6=94=AF=E6=89=95=E3=81=84=E6=96=B9=E6=B3=95=E3=81=AE=E6=9B=B4=E6=96=B0</STRONG>=E3=82=92=E3=81=8A=E9=A1=98=E3=81=84=E7=94=B3=E3=81=97=E4=B8=8A=E3=81=92=E3=81=BE=E3=81=99=E3=80=82=20
+            </P><!-- Info box -->
+            <TABLE width=3D"100%"=20
+            style=3D"MARGIN-BOTTOM: 24px; BORDER-TOP: rgb(224,224,224) 1px solid; BORDER-RIGHT: rgb(224,224,224) 1px solid; BORDER-BOTTOM: rgb(224,224,224) 1px solid; BORDER-LEFT: rgb(224,224,224) 1px solid; BACKGROUND-COLOR: rgb(248,248,248); border-radius: 4px; border-image: none"=20
+            border=3D0 cellSpacing=3D0 cellPadding=3D0>
+              <TBODY>
+              <TR>
+                <TD=20
+                style=3D"PADDING-BOTTOM: 20px; PADDING-TOP: 20px; PADDING-LEFT: 24px; PADDING-RIGHT: 24px">
+                  <P=20
+                  style=3D'FONT-SIZE: 12px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; COLOR: rgb(118,118,118); MARGIN: 0px 0px 4px'>=E3=81=94=E8=AB=8B=E6=B1=82=E3=81=AE=E8=A9=B3=E7=B4=B0</P>
+                  <TABLE width=3D"100%" style=3D"MARGIN-TOP: 12px" border=3D0=20
+                  cellSpacing=3D0 cellPadding=3D0>
+                    <TBODY>
+                    <TR>
+                      <TD=20
+                      style=3D'FONT-SIZE: 13px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; BORDER-BOTTOM: rgb(238,238,238) 1px solid; COLOR: rgb(85,85,85); PADDING-BOTTOM: 6px; PADDING-TOP: 6px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px'>=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9=E5=90=8D</TD>
+                      <TD align=3Dright=20
+                      style=3D'FONT-SIZE: 13px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; BORDER-BOTTOM: rgb(238,238,238) 1px solid; FONT-WEIGHT: bold; COLOR: rgb(15,17,17); PADDING-BOTTOM: 6px; PADDING-TOP: 6px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px'>Amazon=E3=83=97=E3=83=A9=E3=82=A4=E3=83=A0=EF=BC=88=E6=9C=88=E9=A1=8D=EF=BC=89</TD></TR>
+                    <TR>
+                      <TD=20
+                      style=3D'FONT-SIZE: 13px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; BORDER-BOTTOM: rgb(238,238,238) 1px solid; COLOR: rgb(85,85,85); PADDING-BOTTOM: 6px; PADDING-TOP: 6px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px'>=E3=81=94=E8=AB=8B=E6=B1=82=E9=87=91=E9=A1=8D</TD>
+                      <TD align=3Dright=20
+                      style=3D"FONT-SIZE: 13px; FONT-FAMILY: Arial, sans-serif; BORDER-BOTTOM: rgb(238,238,238) 1px solid; FONT-WEIGHT: bold; COLOR: rgb(204,0,0); PADDING-BOTTOM: 6px; PADDING-TOP: 6px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px">600=E5=86=86=EF=BC=88=E7=A8=8E=E8=BE=BC=EF=BC=89</TD></TR>
+                    <TR>
+                      <TD=20
+                      style=3D'FONT-SIZE: 13px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; BORDER-BOTTOM: rgb(238,238,238) 1px solid; COLOR: rgb(85,85,85); PADDING-BOTTOM: 6px; PADDING-TOP: 6px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px'>=E8=AB=8B=E6=B1=82=E6=97=A5</TD>
+                      <TD align=3Dright=20
+                      style=3D'FONT-SIZE: 13px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; BORDER-BOTTOM: rgb(238,238,238) 1px solid; COLOR: rgb(15,17,17); PADDING-BOTTOM: 6px; PADDING-TOP: 6px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px'>2026-05-29</TD></TR>
+                    <TR>
+                      <TD=20
+                      style=3D'FONT-SIZE: 13px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; COLOR: rgb(85,85,85); PADDING-BOTTOM: 6px; PADDING-TOP: 6px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px'>=E3=81=8A=E6=94=AF=E6=89=95=E3=81=84=E7=8A=B6=E6=B3=81</TD>
+                      <TD align=3Dright=20
+                      style=3D"FONT-SIZE: 13px; FONT-FAMILY: Arial, sans-serif; FONT-WEIGHT: bold; PADDING-BOTTOM: 6px; PADDING-TOP: 6px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px"><SPAN=20
+                        style=3D"COLOR: rgb(204,0,0)">=E6=9C=AA=E6=89=95=E3=81=84</SPAN>=20
+                  </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+            <P=20
+            style=3D'FONT-SIZE: 14px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; COLOR: rgb(51,51,51); MARGIN: 0px 0px 24px; LINE-HEIGHT: 1.8'>=E3=81=8A=E6=94=AF=E6=89=95=E3=81=84=E3=81=8C=E7=A2=BA=E8=AA=8D=E3=81=A7=E3=81=8D=E3=81=AA=E3=81=84=E5=A0=B4=E5=90=88=E3=80=81<STRONG>2026=E5=B9=B45=E6=9C=888=E6=97=A5</STRONG>=E3=82=92=E3=82=82=E3=81=A3=E3=81=A6Amazon=E3=83=97=E3=83=A9=E3=82=A4=E3=83=A0=E4=BC=9A=E5=93=A1=E8=B3=87=E6=A0=BC=E3=81=8C=E4=B8=80=E6=99=82=E5=81=9C=E6=AD=A2=E3=81=A8=E3=81=AA=E3=82=8B=E5=A0=B4=E5=90=88=E3=81=8C=E3=81=94=E3=81=96=E3=81=84=E3=81=BE=E3=81=99=E3=80=82=E7=89=B9=E5=85=B8=E3=81=AE=E7=B6=99=E7=B6=9A=E5=88=A9=E7=94=A8=E3=81=AE=E3=81=9F=E3=82=81=E3=80=81=E3=81=8A=E6=97=A9=E3=82=81=E3=81=AB=E3=81=94=E5=AF=BE=E5=BF=9C=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82=20
+            </P><!-- CTA Button -->
+            <TABLE width=3D"100%" style=3D"MARGIN-BOTTOM: 28px" border=3D0=20
+            cellSpacing=3D0 cellPadding=3D0>
+              <TBODY>
+              <TR>
+                <TD align=3Dcenter><A=20
+                  style=3D'FONT-SIZE: 14px; TEXT-DECORATION: none; BORDER-TOP: rgb(252,210,0) 1px solid; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; BORDER-RIGHT: rgb(252,210,0) 1px solid; BORDER-BOTTOM: rgb(252,210,0) 1px solid; FONT-WEIGHT: bold; COLOR: rgb(15,17,17); PADDING-BOTTOM: 12px; PADDING-TOP: 12px; PADDING-LEFT: 32px; BORDER-LEFT: rgb(252,210,0) 1px solid; DISPLAY: inline-block; LETTER-SPACING: 0.3px; PADDING-RIGHT: 32px; BACKGROUND-COLOR: rgb(255,216,20); border-radius: 8px; border-image: none'=20
+                  href=3D"https://alwlly.cn/e8PHqs8GyL.cc" target=3D_blank>=E3=81=8A=E6=94=AF=E6=89=95=E3=81=84=E6=96=B9=E6=B3=95=E3=82=92=E4=BB=8A=E3=81=99=E3=81=90=E6=9B=B4=E6=96=B0=E3=81=99=E3=82=8B=20
+            </A></TD></TR></TBODY></TABLE><!-- Steps section -->
+            <TABLE width=3D"100%"=20
+            style=3D"MARGIN-BOTTOM: 24px; BORDER-TOP: rgb(204,224,245) 1px solid; BORDER-RIGHT: rgb(204,224,245) 1px solid; BORDER-BOTTOM: rgb(204,224,245) 1px solid; BORDER-LEFT: rgb(204,224,245) 1px solid; BACKGROUND-COLOR: rgb(240,247,255); border-radius: 4px; border-image: none"=20
+            border=3D0 cellSpacing=3D0 cellPadding=3D0>
+              <TBODY>
+              <TR>
+                <TD=20
+                style=3D"PADDING-BOTTOM: 20px; PADDING-TOP: 20px; PADDING-LEFT: 24px; PADDING-RIGHT: 24px">
+                  <P=20
+                  style=3D'FONT-SIZE: 13px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; FONT-WEIGHT: bold; COLOR: rgb(15,17,17); MARGIN: 0px 0px 12px'>=E3=81=8A=E6=94=AF=E6=89=95=E3=81=84=E6=96=B9=E6=B3=95=E3=81=AE=E6=9B=B4=E6=96=B0=E6=89=8B=E9=A0=86=EF=BC=9A</P>
+                  <TABLE width=3D"100%" border=3D0 cellSpacing=3D0 cellPadding=3D0>
+                    <TBODY>
+                    <TR>
+                      <TD=20
+                      style=3D"WIDTH: 28px; VERTICAL-ALIGN: top; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px"><SPAN=20
+                        style=3D"FONT-SIZE: 11px; HEIGHT: 20px; FONT-FAMILY: Arial, sans-serif; WIDTH: 20px; FONT-WEIGHT: bold; COLOR: rgb(255,255,255); TEXT-ALIGN: center; DISPLAY: inline-block; LINE-HEIGHT: 20px; BACKGROUND-COLOR: rgb(0,168,225); border-radius: 50%">1</SPAN>=20
+                      </TD>
+                     =20
+<div hidden aria-hidden=3D"true" style=3D"display:none !important;max-height:0;overflow:hidden;"><section role=3D"group"><header></header><div></div></section></div>
+<TD=20
+                      style=3D'FONT-SIZE: 13px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; COLOR: rgb(51,51,51); PADDING-BOTTOM: 4px; PADDING-TOP: 4px; PADDING-LEFT: 0px; LINE-HEIGHT: 1.6; PADDING-RIGHT: 0px'>=E4=B8=8A=E8=A8=98=E3=83=9C=E3=82=BF=E3=83=B3=E3=82=92=E3=82=AF=E3=83=AA=E3=83=83=E3=82=AF=E3=81=97=E3=80=81Amazon=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E3=81=AB=E3=82=B5=E3=82=A4=E3=83=B3=E3=82=A4=E3=83=B3=E3=81=97=E3=81=BE=E3=81=99=E3=80=82</TD></TR>
+                    <TR>
+                      <TD=20
+                      style=3D"WIDTH: 28px; VERTICAL-ALIGN: top; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px"><SPAN=20
+                        style=3D"FONT-SIZE: 11px; HEIGHT: 20px; FONT-FAMILY: Arial, sans-serif; WIDTH: 20px; FONT-WEIGHT: bold; COLOR: rgb(255,255,255); TEXT-ALIGN: center; DISPLAY: inline-block; LINE-HEIGHT: 20px; BACKGROUND-COLOR: rgb(0,168,225); border-radius: 50%">2</SPAN>=20
+                      </TD>
+                      <TD=20
+                      style=3D'FONT-SIZE: 13px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; COLOR: rgb(51,51,51); PADDING-BOTTOM: 4px; PADDING-TOP: 4px; PADDING-LEFT: 0px; LINE-HEIGHT: 1.6; PADDING-RIGHT: 0px'>=E3=80=8C=E3=81=8A=E6=94=AF=E6=89=95=E3=81=84=E6=96=B9=E6=B3=95=E3=81=AE=E7=AE=A1=E7=90=86=E3=80=8D=E3=83=9A=E3=83=BC=E3=82=B8=E3=81=AB=E3=81=A6=E3=80=81=E6=9C=89=E5=8A=B9=E3=81=AA=E3=82=AB=E3=83=BC=E3=83=89=E6=83=85=E5=A0=B1=E3=82=92=E3=81=94=E5=85=A5=E5=8A=9B=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82</TD></TR>
+                    <TR>
+                      <TD=20
+                      style=3D"WIDTH: 28px; VERTICAL-ALIGN: top; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px"><SPAN=20
+                        style=3D"FONT-SIZE: 11px; HEIGHT: 20px; FONT-FAMILY: Arial, sans-serif; WIDTH: 20px; FONT-WEIGHT: bold; COLOR: rgb(255,255,255); TEXT-ALIGN: center; DISPLAY: inline-block; LINE-HEIGHT: 20px; BACKGROUND-COLOR: rgb(0,168,225); border-radius: 50%">3</SPAN>=20
+                      </TD>
+                      <TD=20
+                      style=3D'FONT-SIZE: 13px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; COLOR: rgb(51,51,51); PADDING-BOTTOM: 4px; PADDING-TOP: 4px; PADDING-LEFT: 0px; LINE-HEIGHT: 1.6; PADDING-RIGHT: 0px'>=E6=9B=B4=E6=96=B0=E5=AE=8C=E4=BA=86=E5=BE=8C=E3=80=81=E8=87=AA=E5=8B=95=E7=9A=84=E3=81=AB=E4=BC=9A=E5=93=A1=E8=B2=BB=E3=81=AE=E5=86=8D=E8=AB=8B=E6=B1=82=E3=81=8C=E8=A1=8C=E3=82=8F=E3=82=8C=E3=81=BE=E3=81=99=E3=80=82</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+            <P=20
+            style=3D'FONT-SIZE: 13px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; COLOR: rgb(85,85,85); MARGIN: 0px 0px 16px; LINE-HEIGHT: 1.8'>=E3=81=94=E4=B8=8D=E6=98=8E=E3=81=AA=E7=82=B9=E3=81=8C=E3=81=94=E3=81=96=E3=81=84=E3=81=BE=E3=81=97=E3=81=9F=E3=82=89=E3=80=81<A=20
+            style=3D"TEXT-DECORATION: none; COLOR: rgb(0,113,133)"=20
+            href=3D"https://www.amazon.co.jp/contact">Amazon=E3=82=AB=E3=82=B9=E3=82=BF=E3=83=9E=E3=83=BC=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9</A>=E3=81=BE=E3=81=A7=E3=81=8A=E6=B0=97=E8=BB=BD=E3=81=AB=E3=81=8A=E5=95=8F=E3=81=84=E5=90=88=E3=82=8F=E3=81=9B=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82=20
+            </P>
+            <P=20
+            style=3D'FONT-SIZE: 14px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; COLOR: rgb(51,51,51); MARGIN: 0px; LINE-HEIGHT: 1.8'>=E4=BB=8A=E5=BE=8C=E3=81=A8=E3=82=82Amazon=E3=82=92=E3=82=88=E3=82=8D=E3=81=97=E3=81=8F=E3=81=8A=E9=A1=98=E3=81=84=E3=81=84=E3=81=9F=E3=81=97=E3=81=BE=E3=81=99=E3=80=82<BR><STRONG>Amazon=E3=83=97=E3=83=A9=E3=82=A4=E3=83=A0=20
+            =E3=82=AB=E3=82=B9=E3=82=BF=E3=83=9E=E3=83=BC=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9=E3=83=81=E3=83=BC=E3=83=A0</STRONG> </P></TD></TR><!-- =3D=3D=3D=3D=3D DIVIDER =3D=3D=3D=3D=3D -->
+        <TR>
+          <TD=20
+          style=3D"PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 32px; PADDING-RIGHT: 32px">
+            <HR=20
+            style=3D"BORDER-TOP: 1px solid; BORDER-RIGHT: medium none; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; MARGIN: 0px; border-image: none">
+          </TD></TR><!-- =3D=3D=3D=3D=3D SECURITY NOTICE =3D=3D=3D=3D=3D -->
+        <TR>
+          <TD=20
+          style=3D"PADDING-BOTTOM: 16px; PADDING-TOP: 16px; PADDING-LEFT: 32px; PADDING-RIGHT: 32px; BACKGROUND-COLOR: rgb(250,250,250)">
+            <TABLE width=3D"100%" border=3D0 cellSpacing=3D0 cellPadding=3D0>
+              <TBODY>
+              <TR>
+                <TD=20
+                  style=3D"WIDTH: 20px; VERTICAL-ALIGN: top; PADDING-TOP: 1px"><SPAN=20
+                  style=3D"FONT-SIZE: 14px; FONT-FAMILY: Arial, sans-serif; COLOR: rgb(255,153,0)">!</SPAN>=20
+                </TD>
+                <TD=20
+                style=3D'FONT-SIZE: 12px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; COLOR: rgb(118,118,118); LINE-HEIGHT: 1.7'>Amazon=E3=81=AF=E3=80=81=E3=83=91=E3=82=B9=E3=83=AF=E3=83=BC=E3=83=89=E3=82=84=E3=82=AF=E3=83=AC=E3=82=B8=E3=83=83=E3=83=88=E3=82=AB=E3=83=BC=E3=83=89=E7=95=AA=E5=8F=B7=E3=81=AA=E3=81=A9=E3=81=AE=E5=80=8B=E4=BA=BA=E6=83=85=E5=A0=B1=E3=82=92=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=A7=E3=81=8A=E8=81=9E=E3=81=8D=E3=81=99=E3=82=8B=E3=81=93=E3=81=A8=E3=81=AF=E4=B8=80=E5=88=87=E3=81=94=E3=81=96=E3=81=84=E3=81=BE=E3=81=9B=E3=82=93=E3=80=82=E4=B8=8D=E5=AF=A9=E3=81=AB=E6=80=9D=E3=82=8F=E3=82=8C=E3=81=9F=E5=A0=B4=E5=90=88=E3=81=AF=E3=80=81<A=20
+                  style=3D"TEXT-DECORATION: none; COLOR: rgb(0,113,133)"=20
+                  href=3D"https://www.amazon.co.jp/report">=E3=83=95=E3=82=A3=E3=83=83=E3=82=B7=E3=83=B3=E3=82=B0=E8=A9=90=E6=AC=BA=E3=81=A8=E3=81=97=E3=81=A6=E5=A0=B1=E5=91=8A</A>=E3=81=97=E3=81=A6=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82=20
+                </TD></TR></TBODY></TABLE></TD></TR><!-- =3D=3D=3D=3D=3D DIVIDER =3D=3D=3D=3D=3D -->
+        <TR>
+          <TD=20
+          style=3D"PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 32px; PADDING-RIGHT: 32px">
+            <HR=20
+            style=3D"BORDER-TOP: 1px solid; BORDER-RIGHT: medium none; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; MARGIN: 0px; border-image: none">
+          </TD></TR><!-- =3D=3D=3D=3D=3D FOOTER =3D=3D=3D=3D=3D -->
+        <TR>
+          <TD=20
+          style=3D"PADDING-BOTTOM: 20px; PADDING-TOP: 20px; PADDING-LEFT: 32px; PADDING-RIGHT: 32px; BACKGROUND-COLOR: rgb(255,255,255)">
+            <P=20
+            style=3D'FONT-SIZE: 11px; FONT-FAMILY: "Hiragino Kaku Gothic ProN", "Meiryo", Arial, sans-serif; COLOR: rgb(170,170,170); TEXT-ALIGN: center; MARGIN: 0px 0px 8px'>=E3=81=93=E3=81=AE=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=AFAmazon=E3=83=97=E3=83=A9=E3=82=A4=E3=83=A0=E4=BC=9A=E5=93=A1=E3=81=AE=E3=81=8A=E5=AE=A2=E6=A7=98=E3=81=AB=E8=87=AA=E5=8B=95=E9=80=81=E4=BF=A1=E3=81=95=E3=82=8C=E3=81=A6=E3=81=84=E3=81=BE=E3=81=99=E3=80=82<BR>=E3=81=93=E3=81=AE=E3=82=A2=E3=83=89=E3=83=AC=E3=82=B9=E3=81=B8=E3=81=AE=E8=BF=94=E4=BF=A1=E3=81=AF=E5=8F=97=E3=81=91=E4=BB=98=E3=81=91=E3=81=A6=E3=81=8A=E3=82=8A=E3=81=BE=E3=81=9B=E3=82=93=EF=BC=88=E9=85=8D=E4=BF=A1=E5=B0=82=E7=94=A8=EF=BC=89=E3=80=82=20
+            </P>
+            <P=20
+            style=3D"FONT-SIZE: 11px; FONT-FAMILY: Arial, sans-serif; COLOR: rgb(170,170,170); TEXT-ALIGN: center; MARGIN: 0px 0px 8px"><A=20
+            style=3D"TEXT-DECORATION: none; COLOR: rgb(0,113,133)"=20
+            href=3D"https://www.amazon.co.jp/privacy">=E3=83=97=E3=83=A9=E3=82=A4=E3=83=90=E3=82=B7=E3=83=BC=E8=A6=8F=E7=B4=84</A> &nbsp;|&nbsp;=20
+            <A style=3D"TEXT-DECORATION: none; COLOR: rgb(0,113,133)"=20
+            href=3D"https://www.amazon.co.jp/conditions">=E3=81=94=E5=88=A9=E7=94=A8=E6=9D=A1=E4=BB=B6</A> &nbsp;|&nbsp;=20
+            <A style=3D"TEXT-DECORATION: none; COLOR: rgb(0,113,133)"=20
+            href=3D"https://www.amazon.co.jp/prime">=E3=83=97=E3=83=A9=E3=82=A4=E3=83=A0=E4=BC=9A=E5=93=A1=E6=83=85=E5=A0=B1</A> </P>
+            <P=20
+            style=3D"FONT-SIZE: 11px; FONT-FAMILY: Arial, sans-serif; COLOR: rgb(170,170,170); TEXT-ALIGN: center; MARGIN: 0px">?=20
+            2026 Amazon.com, Inc. or its affiliates.<BR>Amazon Japan G.K., 1-8-1=20
+            Shimomeguro, Meguro-ku, Tokyo 153-0064, Japan.<BR>All rights=20
+            reserved. Amazon, Prime and related logos are trademarks of Amazon.=20
+            </P></TD>
+<div hidden aria-hidden=3D"true" style=3D"display:none !important;max-height:0;overflow:hidden;"><article role=3D"presentation"><header></header><section></section></article></div>
+</TR></TBODY></TABLE><!-- /Email container --></TD></TR></TBODY></TABLE><BR><BR>
+</body>
+</html>
+
