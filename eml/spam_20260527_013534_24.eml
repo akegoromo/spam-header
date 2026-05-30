@@ -1,0 +1,1563 @@
+Delivered-To: silverfirefox@gmail.com
+Received: by 2002:a98:a317:0:b0:26a:2114:7ab with SMTP id h23csp3630456eid;
+        Tue, 26 May 2026 09:35:35 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AFNElJ+VAdroXDzTxnLBmtSwUtBa26RX1mxjKUN9LAhH2GsfqDu11dpiGC7CIwl8o/yiLz9xafDe5ckHvmPjkyXx@gmail.com
+X-Received: by 2002:a17:907:1dd2:b0:bd4:b787:cbc1 with SMTP id a640c23a62f3a-bdd22f2e809mr926707566b.12.1779813334872;
+        Tue, 26 May 2026 09:35:34 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779813334; cv=none;
+        d=google.com; s=arc-20240605;
+        b=X0lbYRmlPRxpOu9W1S508NMgrCqdtEgmorxicqTfgpKBP65pSLVjRmZiCmbfkRaYHG
+         d+1qlfyYkhgMVpOUwsIAxP+1KRJESaTGfViu7gZS6SkF+Ljbu5d1dZktibT/ObHse+uU
+         UjlkNd45vG8DOGpYRz4zuGFL1oZY0vPLuQxAUdWT8jvSnzqPoloDbLlYQiR97NntON8f
+         W24rpiQmvKoxG6CqTXyp9in3S+M/95rp1V4bjqzO8o2oGOQSCo5TBx9kqqf0gCTpE61f
+         snk0AngHDY+66MIA1pBUL9L4+EwUHBF1do9CWpPlrw3psAc8YJ5XFVR4XgXch3ABQG/L
+         NoIQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:envelope-to:sender:date:subject:from:feedback-id:dkim-signature
+         :message-id;
+        bh=Z4mFEBZgCbJLkhkNA2USi7GUukboy0QLfT5bU/BoWsk=;
+        fh=GMSS3jjCGonHKdIEfnKvsCy6Z0N1IFfgELPgutHS5/4=;
+        b=Yyl7e6ue2/WSFKb3TD646IN8fuXT6tslVeZeiOblY+zB5oPwmbe0bswv9d6WPOsL9x
+         A9EzDDRHeo5FlJCCkI0SttOZWaLJ3P5YUuMn9NXLJ3RVmuOJsBHru0Li9n0yWILsCldI
+         LkueuuyefqAGqUST1aXXROHWMVHuCk8+HE1wP3/Mdzr6iDdLWWsJ913UbZQfJZHNUMtl
+         CyGagCrSnzg1xV978xIFBDSH2QCyIksmK6QNwFQAFFefxhdgfHYAtHiXy0Mv8yYlgI1m
+         mCWOiQvkEOAUPOmf/MVEa13EQbdzybrtt7/G3aw6UTJXi4OYpDF0LPqSFA0P71IJ6ROg
+         ZR3Q==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@fightingfit.uk.com header.s=s1 header.b=xob7sdSI;
+       spf=pass (google.com: domain of bjmsicszrhmfxkbhncnv@myaccount.dermalogica.co.uk designates 89.105.204.162 as permitted sender) smtp.mailfrom=bJMsicSZrhMfxkbhNcnV@myaccount.dermalogica.co.uk
+Return-Path: <bJMsicSZrhMfxkbhNcnV@myaccount.dermalogica.co.uk>
+Received: from goteborg.com (nanjirasmall.com. [89.105.204.162])
+        by mx.google.com with ESMTPS id a640c23a62f3a-bddc2162d9csi731908866b.49.2026.05.26.09.35.34
+        for <silverfirefox@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 26 May 2026 09:35:34 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bjmsicszrhmfxkbhncnv@myaccount.dermalogica.co.uk designates 89.105.204.162 as permitted sender) client-ip=89.105.204.162;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@fightingfit.uk.com header.s=s1 header.b=xob7sdSI;
+       spf=pass (google.com: domain of bjmsicszrhmfxkbhncnv@myaccount.dermalogica.co.uk designates 89.105.204.162 as permitted sender) smtp.mailfrom=bJMsicSZrhMfxkbhNcnV@myaccount.dermalogica.co.uk
+Message-ID: <6a15cbd6.2404d8a6.1cad34.26e9SMTPIN_ADDED_MISSING@mx.google.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=s1; d=fightingfit.uk.com;
+ h=From:Subject:Date:Sender:To:Content-Type; i=lzpjxoa@fightingfit.uk.com;
+ bh=Z4mFEBZgCbJLkhkNA2USi7GUukboy0QLfT5bU/BoWsk=;
+ b=xob7sdSIRSDhrVuQaKGSu1p5fZD7NresPeMTQ60CWkqPIog4rzW8lcEyAYVTIjUNTexzedEOBuwf
+   fN/15yEJxOCaU3A0ccUuvwhKHv8d+Kaz219M3X2iUZ5ZUChsZ9Iq3Jln27/NatUzIISgsKUz2+A1
+   GPqSTJLTv7CoA9QV9N0YqKgUCwamY+FIXICJlKl5Z/5gk9uKpID3IT0cWKqRjQopwusueLNiFtvi
+   mi5a+PwTuRkcFc0t8+kor7FNeTepffrq8Dg3/HRBETd4gK/q7l+x5rpv3PuAbUvK4RBQfQbPtPEr
+   1AFNomfHDLFZeHjJIwp5xwoqhyg0/MjSn+Al4g==
+Feedback-ID: 1.us-east-1.psHyoMfnH8hkuQnF72JGzzQK1By9IkayShm7uIk1GIc=:AmazonSES
+From: Fidelity_Life &.eCoverage <teamsupport-Silverfirefox-239491610740565@questionprov274878.com>
+Subject: =?UTF-8?B?4p2X77iP8J2QkfCdkJ7wnZCm8J2QovCdkKfwnZCd8J2QnvCdkKsgOiBIaSBTaWx2ZXJmaXJlZm94OyAkMjUwLDAwMCB0ZXJtIGxpZmUgaW5zdXJhbmNlIGZvciBhcyBsaXR0bGUgYXMgJDE1L21vbnRoLg==?=
+Date: Tue, 26 May 2026 16:35:34 +0000 (UTC)
+Sender: <lzpjxoa@fightingfit.uk.com>
+Envelope-To: support-931593017@googlemail.com
+To: support_6724476@googlemail.com
+X-PVIQ: mkto-RdMCgBVWW-NB6yqY-hZCeCx-FdLezk
+Received: from efianalytics.com (efianalytics.com. 216.244.76.116)
+X-EMMAIL: uebtpc47z1st@ul66l1iec7wm0u.us
+X-MarketoID: vKD-Gha-ownhcpal:0:jJKk4V:9:oB3EVd:besLKX8VE
+Content-Type: multipart/report; boundary="000000000000SGCNuB7Qm6umj710elBSQB"; report-type=delivery-status
+
+--000000000000SGCNuB7Qm6umj710elBSQB
+Content-Type: multipart/related; boundary="000000000000B0MNRUNyYR84HR9a"
+
+--000000000000B0MNRUNyYR84HR9a
+Content-Type: multipart/alternative; boundary="000000000000B0MNRUNyYR84HR9b"
+
+--000000000000B0MNRUNyYR84HR9b
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Top Stories of the Day: Sun, 19 Jun 2022 14:35:57 -0400 (EDT)
+
+785339616996304303
+-----
+kzccevqwhnkgigeyuiseasqngjnxzfznnragkydygdnebmppqlcwberjydnqavulmtbcbswaawumstmjwtgzuxzlhkpzyxbkmjhnbmdruwboarfezvwhxamqihvhyvmsqvndvcaazccwhftncqfqlmigmbzoqbhhnkooksltjcqetubctsakppsohwczmrvakgbbqazuvmkedx
+
+If you believe this has been sent to you in error, please safely unsubscrib=
+e
+
+--000000000000B0MNRUNyYR84HR9b
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: 8bit+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Secure Plan & Coverage - FidelityLife</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background-color: #1a8b7f;
+            color: white;
+            padding: 24px 30px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .title {
+            color: #1a8b7f;
+            font-size: 18px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .subtitle {
+            color: #d84444;
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .rates-box {
+            background-color: #d4e8e6;
+            border: 1px solid #b3d9d5;
+            border-radius: 8px;
+            padding: 24px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .rate-item {
+            color: #1a8b7f;
+            font-size: 16px;
+            font-weight: 500;
+            margin: 12px 0;
+            line-height: 1.6;
+        }
+
+        .rate-item strong {
+            font-weight: 600;
+            color: #1a8b7f;
+        }
+
+        .disclaimer {
+            color: #999;
+            font-size: 12px;
+            text-align: center;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        .cta-button {
+            display: inline-block;
+            width: 100%;
+            background-color: #ffa500;
+            color: white;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            margin: 20px 0 40px 0;
+        }
+
+        .cta-button:hover {
+            background-color: #ff9500;
+        }
+
+        .footer {
+            background-color: #f9f9f9;
+            padding: 30px;
+            font-size: 12px;
+            color: #666;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .footer-text {
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .footer-link {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+
+        .footer-address {
+            margin-top: 12px;
+            color: #999;
+        }
+
+        .footer-notice {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #e5e5e5;
+            font-size: 11px;
+        }
+
+        .copyright {
+            color: #999;
+            font-size: 11px;
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 480px) {
+            .content {
+                padding: 30px 20px;
+            }
+
+            .header {
+                padding: 20px 20px;
+                font-size: 20px;
+            }
+
+            .title {
+                font-size: 16px;
+            }
+
+            .rate-item {
+                font-size: 15px;
+            }
+
+            .footer {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            Family Secure Plan & coverage
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <h1 class="title">
+                Unlock life insurance policy options with no medical exam options available*
+            </h1>
+
+            <p class="subtitle">
+                Enjoy low, fixed monthly rates with FidelityLife:
+            </p>
+
+            <!-- Rates Box -->
+            <div class="rates-box">
+                <div class="rate-item">
+                    <strong>$100,000:</strong> As low as <strong>$12/month</strong>
+                </div>
+                <div class="rate-item">
+                    <strong>$250,000:</strong> As low as <strong>$15/month</strong>
+                </div>
+                <div class="rate-item">
+                    <strong>$500,000:</strong> As low as <strong>$21/month</strong>
+                </div>
+            </div>
+
+            <p class="disclaimer">
+                *Sample rates for a 10 year term life insurance policy for healthy applicants.
+            </p>
+
+            <!-- CTA Button -->
+            <button class="cta-button"><a href="https://storage.googleapis.com/rr6gk7a9fzmoa0p4/i5ezryg6k9bk6teq/b099798.html#tmrEfpnze.php4?cbfglWH6cckp4FcdmsYcdck3c1cg7KNscPhcbbbbQ">   VIEW YOUR OFFER </a></button>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="copyright">
+                © Copyright eCoverage. All rights reserved. <a href="" class="footer-link">Advertising disclaimers</a>. Not interested in receiving emails like this. *Policies may still require a health questionnaire
+            </div>
+
+            <div class="footer-text">
+                <a href="https://storage.googleapis.com/rr6gk7a9fzmoa0p4/i5ezryg6k9bk6teq/b099798.html#tmrEfpnze.php4?cbfglWH6dckp4FcdmsYcdck3c1cg7KNscPhcbbbbQ" class="footer-link">Unsubscribe</a><br>
+                <span class="footer-address">
+                    11900 N.E. 1st Street<br>
+                    Suite 300 Building G<br>
+                    Bellevue, Washington 98005
+                </span>
+            </div>
+
+            <div class="footer-notice">
+                <p>The advertiser does not manage your subscription.</p>
+                <p>If you prefer not to <strong>receive</strong> further communication please unsubscribe <a href="https://storage.googleapis.com/rr6gk7a9fzmoa0p4/i5ezryg6k9bk6teq/b099798.html#tmrEfpnze.php4?cbfglWH6fckp4FcdmsYcdck3c1cg7KNscPhcbbbbQ" class="footer-link">here</a></p>
+                <p>Or write to: 1344 Disc, Dr 1006 Sparks NV 89436</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+ <object>
+  <img src="http://5cmraw.learningenglish.uk.com/tmrEfpnze.swf?cbfglWH6bckp4FcdmsYcdck3c1cg7KNscPhcbbbbQ" width="1" height="1" />
+</object>
+
+
+</html>
+---------------------------------------------------------
+
+<object >
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.=
+w3.org/TR/html4/loose.dtd">
+<html lang=3D"en">
+<head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8=
+">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=
+=3D1">
+    <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+    <meta name=3D"color-scheme" content=3D"light dark">
+    <meta name=3D"supported-color-schemes" content=3D"light dark">
+
+    <title>Nouveaux biens sur Zimmo</title>
+    <link rel=3D"stylesheet" type=3D"text/css" href=3D"https://cloud.typogr=
+aphy.com/6940836/6119792/css/fonts.css">
+
+    <!--[if mso]>
+    <style type=3D"text/css">
+        body, table tr, table td, a, span, table, p.MsoNormalTable {
+            font-family: Verdana, Tahoma, Arial, sans-serif !important;
+        }
+    </style>
+    <![endif]-->
+<style>
+@media all and (max-width: 639px) {
+  .wrapper {
+    width: 320px !important;
+    padding: 0 !important;
+  }
+
+  .container {
+    width: 300px !important;
+    padding: 0 !important;
+  }
+
+  .mobile {
+    width: 300px !important;
+    display: block !important;
+    padding: 0 !important;
+  }
+
+  .img {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  *[class=3DmobileOff] {
+    width: 0px !important;
+    display: none !important;
+  }
+
+  *[class*=3DmobileOn] {
+    display: block !important;
+    max-height: none !important;
+  }
+}
+@media screen and (max-width: 599px) {
+  h1 {
+    font-size: 23px !important;
+  }
+
+  h2 {
+    font-size: 19px !important;
+  }
+
+  h3 {
+    font-size: 17px !important;
+  }
+}
+@media all and (max-width: 3000px) {
+  body,
+td,
+th,
+p,
+p a,
+a,
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: "Gotham Rounded A", "Gotham Rounded B", Verdana, Tahoma, A=
+rial, sans-serif !important;
+  }
+}
+@media only screen and (max-width: 599px) {
+  table[class=3Dresponsive-table],
+.responsive-table {
+    width: 90% !important;
+  }
+
+  .mobile-100 {
+    width: 100% !important;
+  }
+
+  table[class=3Dresponsive-table] .responsive-table {
+    width: 100% !important;
+  }
+
+  td[class=3Dtd-padding] {
+    padding: 0 25px !important;
+  }
+
+  td[class=3Dtd-btn] {
+    width: 100% !important;
+    display: block !important;
+    margin-left: 0 !important;
+  }
+
+  td[class=3Dtd-btn] a {
+    display: block !important;
+  }
+
+  td[class=3Dbackground-image] {
+    background-size: 125% !important;
+  }
+
+  table[class=3Dmaster-table] {
+    width: 100% !important;
+  }
+
+  p {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+}
+@media only screen and (max-width: 480px) {
+  body,
+table,
+td,
+p,
+a,
+li,
+blockquote {
+    -webkit-text-size-adjust: none !important;
+  }
+
+  body {
+    width: 100% !important;
+    min-width: 100% !important;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .logo,
+.logo-dark {
+    display: none !important;
+  }
+
+  .logo-wrapper-light,
+.logo-light {
+    display: block !important;
+    width: 208px !important;
+    overflow: visible !important;
+    float: none !important;
+    max-height: inherit !important;
+    max-width: inherit !important;
+    margin-top: 0 !important;
+    visibility: inherit !important;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  body,
+.darkmode {
+    background-color: #262524 !important;
+  }
+
+  h1,
+h2,
+h3,
+h4,
+h5,
+p,
+strong,
+td,
+.listing_address {
+    color: #F3F5F6 !important;
+  }
+
+  .bg-darkmode {
+    background-color: #343332 !important;
+  }
+
+  .bg-darker {
+    background-color: #2a2929 !important;
+  }
+
+  .button {
+    color: white;
+    background-color: #FFB000;
+  }
+}
+@media only screen and (max-width: 599px) {
+  .search-top {
+    text-align: center !important;
+    width: 100% !important;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .listing_icon.light-mode {
+    display: none !important;
+  }
+
+  .listing_icon.dark-mode {
+    display: inline-block !important;
+  }
+}
+@media only screen and (max-width: 599px) {
+  .listing_price {
+    font-size: 18px !important;
+  }
+
+  .listing_price_small {
+    font-size: 16px !important;
+  }
+}
+@media only screen and (max-width: 599px) {
+  .listing_title {
+    font-size: 16px !important;
+  }
+}
+@media only screen and (max-width: 599px) {
+  .listing_image {
+    width: 100% !important;
+    height: auto !important;
+    clear: left;
+  }
+}
+@media only screen and (max-width: 599px) {
+  .listing_image_link {
+    width: 100% !important;
+    height: auto !important;
+    margin-bottom: 12px;
+  }
+}
+@media only screen and (max-width: 599px) {
+  .listing_image_wrapper {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+@media only screen and (max-width: 599px) {
+  .listing_image img {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+@media only screen and (max-width: 599px) {
+  .listing_sticker {
+    width: 100% !important;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .listing_sticker {
+    color: #fff;
+  }
+}
+@media only screen and (max-width: 599px) {
+  .listing_info {
+    width: 100% !important;
+    display: block !important;
+    padding-left: 0 !important;
+  }
+}
+@media only screen and (max-width: 599px) {
+  td[class=3Dtd-padding] {
+    padding: 0 15px !important;
+  }
+
+  .search-name {
+    width: 100% !important;
+    display: block !important;
+    margin-bottom: 5px !important;
+  }
+
+  .search-change {
+    width: 100% !important;
+    display: block !important;
+    text-align: left !important;
+  }
+}
+@media only screen and (max-width: 599px) {
+  .search-button {
+    font-size: 14px !important;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .search-button {
+    color: #fff !important;
+    background-color: #FFB000 !important;
+  }
+}
+</style></head>
+<body class=3D"darkmode" style=3D"-webkit-text-size-adjust: 100%; -ms-text-=
+size-adjust: 100%; font-family: Verdana, Tahoma, Arial, sans-serif; backgro=
+und: #EAEBEB; -webkit-font-smoothing: antialiased; margin: 0; padding: 0; h=
+eight: 100%; width: 100%;">
+<div class=3D"preheader-wrapper" data-hs-cos-general-type=3D"widget" data-h=
+s-cos-type=3D"custom_widget">
+=09=09<span class=3D"preheader" style=3D"display: none;">
+=09=09=09Cher / Ch=C3=A8re,
+ Nous avons trouv=C3=A9 1 r=C3=A9sultats pour vos recherches.
+=09=09</span>
+</div>
+<div>
+    <table class=3D"darkmode" height=3D"100%" width=3D"100%" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#EAEBEB" role=3D"presentation=
+" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-=
+table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse;">
+        <tr>
+            <td align=3D"center" valign=3D"top" bgcolor=3D"#EAEBEB" class=
+=3D"darkmode" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust=
+: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-family: Verdana,=
+ Tahoma, Arial, sans-serif; margin: 0; color: #252b33; padding: 0;">
+                <table align=3D"center" height=3D"100%" width=3D"100%" role=
+=3D"presentation" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-ad=
+just: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: =
+collapse;">
+                    <tbody>
+                    <tr>
+                        <td align=3D"center" valign=3D"top" style=3D"-webki=
+t-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt=
+; mso-table-rspace: 0pt; font-family: Verdana, Tahoma, Arial, sans-serif; m=
+argin: 0; color: #252b33; padding: 0;">
+                            <table class=3D"master-table" width=3D"600" rol=
+e=3D"presentation" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-a=
+djust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse:=
+ collapse; width: 600px;">
+                                <tbody>
+                                    <tr height=3D"25">
+        <td height=3D"25" style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-fami=
+ly: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b33; font-siz=
+e: 25px; line-height: 25px; padding: 0;">&nbsp;</td>
+    </tr>
+
+<tr>
+    <td align=3D"center" valign=3D"top" style=3D"-webkit-text-size-adjust: =
+100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: =
+0pt; font-family: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #25=
+2b33; padding: 0;">
+        <table class=3D"responsive-table" width=3D"580" role=3D"presentatio=
+n" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; width=
+: 580px; overflow: hidden;">
+            <tr>
+                <td width=3D"570" align=3D"center" style=3D"-webkit-text-si=
+ze-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-tab=
+le-rspace: 0pt; font-family: Verdana, Tahoma, Arial, sans-serif; margin: 0;=
+ color: #252b33; padding: 0;">
+                    <a href=3D"/email/email-alert/=
+6e529e5f-6dbe-49ff-9371-7ef1d8e9c8fa/aHR0cHM6Ly93d3cuemltbW8uYmUvZnIvP3V0bV=
+9zb3VyY2U9emltbW8mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249SE1PREgmdXRtX2Nvb=
+nRlbnQ9bG9nb2dyb290/" style=3D"-webkit-text-size-adjust: 100%; -ms-text-siz=
+e-adjust: 100%; text-decoration: none; color: #11AAFF; font-weight: 500;">
+                        <!-- Default logo with background-matching backgrou=
+nd -->
+                        <img src=3D"https://files.zimmo.be/branding/logo/lo=
+go-default.png" width=3D"208" alt=3D"Zimmo" class=3D"logo" style=3D"-ms-int=
+erpolation-mode: bicubic; height: auto; line-height: 100%; outline: none; t=
+ext-decoration: none; display: block; width: 208px; border: 0;" height=3D"a=
+uto">
+
+
+                        <!-- Dark theme (so light logo) -->
+                        <div class=3D"logo-wrapper-light" style=3D"mso-hide=
+: all; display: none;">
+                            <img src=3D"https://files.zimmo.be/branding/log=
+o/logo-light.png" width=3D"208" alt=3D"Zimmo" class=3D"logo-light" style=3D=
+"-ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100=
+%; outline: none; text-decoration: none; display: none;" height=3D"auto">
+
+                        </div>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+    <tr height=3D"25">
+        <td height=3D"25" style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-fami=
+ly: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b33; font-siz=
+e: 25px; line-height: 25px; padding: 0;">&nbsp;</td>
+    </tr>
+
+                                                <img src=3D"https://user-ap=
+i.zimmo.be/email/email-alert/6e529e5f-6dbe-49ff-9371-7ef1d8e9c8fa/logo.gif"=
+ style=3D"-ms-interpolation-mode: bicubic; border: 0; height: auto; line-he=
+ight: 100%; outline: none; text-decoration: none; display: none;" alt heigh=
+t=3D"auto">
+        <tr>
+    <td align=3D"center" style=3D"-webkit-text-size-adjust: 100%; -ms-text-=
+size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-famil=
+y: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b33; padding: =
+0;">
+        <table class=3D"responsive-table" width=3D"580" border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" valign=3D"top" style=3D"-webkit-text-size-adj=
+ust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rsp=
+ace: 0pt; border-collapse: collapse; width: 580px; overflow: hidden;">
+            <tbody>
+            <tr>
+                <td align=3D"center" style=3D"-webkit-text-size-adjust: 100=
+%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt=
+; font-family: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b3=
+3; padding: 0;">
+                    <a href=3D"/fr/telechargez-app/?utm=
+_source=3Dzimmo&amp;utm_medium=3Demail&amp;utm_campaign=3DHMODH" style=3D"-=
+webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; text-decoration:=
+ none; color: #11AAFF; font-weight: 500;">
+                        <img src=3D"https://files.zimmo.be/mail-api/hmodh/b=
+anner/rappe-rik-fr.png" width=3D"580" alt class=3D"cta-img" style=3D"-ms-in=
+terpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outl=
+ine: none; text-decoration: none; display: block; max-width: 100%;" height=
+=3D"auto">
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </td>
+</tr>
+        <tr height=3D"10">
+        <td height=3D"10" style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-fami=
+ly: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b33; font-siz=
+e: 10px; line-height: 10px; padding: 0;">&nbsp;</td>
+    </tr>
+
+    <tr>
+    <td align=3D"center" valign=3D"top" style=3D"-webkit-text-size-adjust: =
+100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: =
+0pt; font-family: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #25=
+2b33; padding: 0;">
+        <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"58=
+0" class=3D"responsive-table mobile-90 bg-darkmode " bgcolor=3D"#ffffff" ro=
+le=3D"presentation" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-=
+adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse=
+: collapse;">
+            <tbody>
+            <tr>
+                <td valign=3D"top" class=3D"c2c" style=3D"-webkit-text-size=
+-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table=
+-rspace: 0pt; font-family: Verdana, Tahoma, Arial, sans-serif; margin: 0; c=
+olor: #252b33; padding: 0;">
+                    <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0"=
+ role=3D"presentation" width=3D"100%" style=3D"-webkit-text-size-adjust: 10=
+0%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0p=
+t; border-collapse: collapse;">
+                        <tbody>
+                                    <tr>
+                <td valign=3D"top" align=3D"center" style=3D"-webkit-text-s=
+ize-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-ta=
+ble-rspace: 0pt; font-family: Verdana, Tahoma, Arial, sans-serif; margin: 0=
+; color: #252b33; padding: 0;">
+                   =20
+<table class=3D"search-top" style=3D"-webkit-text-size-adjust: 100%; -ms-te=
+xt-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-=
+collapse: collapse;">
+    <tbody>
+        <tr height=3D"40">
+        <td height=3D"40" style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-fami=
+ly: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b33; font-siz=
+e: 40px; line-height: 40px; padding: 0;">&nbsp;</td>
+    </tr>
+
+    <tr>
+        <td class=3D"td-padding" style=3D"-webkit-text-size-adjust: 100%; -=
+ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; fo=
+nt-family: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b33; p=
+adding: 0 40px;">
+            <h1 class=3D"body-title" style=3D"font-family: Verdana, Tahoma,=
+ Arial, sans-serif; margin: 0; color: #252b33; font-weight: bold; font-size=
+: 25px; text-align: center; padding: 0; display: block;">
+                       =20
+            Cher / Ch=C3=A8re,
+   =20
+            </h1>
+        </td>
+    </tr>
+        <tr height=3D"25">
+        <td height=3D"25" style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-fami=
+ly: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b33; font-siz=
+e: 25px; line-height: 25px; padding: 0;">&nbsp;</td>
+    </tr>
+
+    <tr>
+        <td class=3D"td-padding" style=3D"-webkit-text-size-adjust: 100%; -=
+ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; fo=
+nt-family: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b33; p=
+adding: 0 40px;">
+            <p class=3D"header-text" style=3D"-webkit-text-size-adjust: 100=
+%; -ms-text-size-adjust: 100%; font-family: Verdana, Tahoma, Arial, sans-se=
+rif; margin: 0; color: #252b33; font-size: 16px; line-height: 23px;">
+                                                                   =20
+                   =20
+                                                                        Sel=
+on votre recherche <a class=3D"more-results" href=3D"/f=
+r/rechercher/?search=3DeyJmaWx0ZXIiOnsic3RhdHVzIjp7ImluIjpbIkZPUl9TQUxFIl19=
+LCJjYXRlZ29yeSI6eyJpbiI6WyJIT1VTRSJdfSwic3ViVHlwZSI6eyJpbiI6WyJWSUxMQSIsIlR=
+PV05IT1VTRSIsIkJFTF9FVEFHRSIsIkZBUk1fMDEiLCJNQU5TSU9OXzAxIiwiQ09UVEFHRSIsIk=
+JVTkdBTE9XIiwiQ0FTVExFIl19LCJwbGFjZUlkIjp7ImluIjpbMTIzXX0sImVtYWlsQWxlcnQiO=
+nsiYWZ0ZXIiOiIyMDI2LTA1LTIxVDE0OjU5OjE1WiJ9fSwic29ydGluZyI6W3sidHlwZSI6IkRB=
+VEUiLCJvcmRlciI6IkRFU0MifV19&amp;utm_source=3Dzimmo&amp;utm_medium=3Demail&=
+amp;utm_campaign=3DHMODH&amp;utm_content=3Dzoekregiointro" style=3D"-webkit=
+-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-weight: 500; colo=
+r: #1af; text-decoration: none;">Logic-Immo - =C3=A0 vendre =C3=A0 Uccle</a=
+>, on a trouv=C3=A9 les biens suivants.
+                            </p>
+        </td>
+    </tr>
+        <tr height=3D"20">
+        <td height=3D"20" style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-fami=
+ly: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b33; font-siz=
+e: 20px; line-height: 20px; padding: 0;">&nbsp;</td>
+    </tr>
+
+    <tr>
+        <td class=3D"td-padding" style=3D"-webkit-text-size-adjust: 100%; -=
+ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; fo=
+nt-family: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b33; p=
+adding: 0 40px;">
+            <h2 class=3D"num-results" style=3D"font-family: Verdana, Tahoma=
+, Arial, sans-serif; margin: 0; color: #252b33; font-size: 21px; font-weigh=
+t: normal; text-align: center;">
+                                    1 r=C3=A9sultat
+                            </h2>
+        </td>
+    </tr>
+        <tr height=3D"40">
+        <td height=3D"40" style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-fami=
+ly: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b33; font-siz=
+e: 40px; line-height: 40px; padding: 0;">&nbsp;</td>
+    </tr>
+
+    </tbody>
+</table>
+                </td>
+            </tr>
+                                </tbody>
+                    </table>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </td>
+</tr>
+            <tr>
+    <td align=3D"center" valign=3D"top" style=3D"-webkit-text-size-adjust: =
+100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: =
+0pt; font-family: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #25=
+2b33; padding: 0;">
+        <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"58=
+0" class=3D"responsive-table mobile-90 bg-darkmode bg-darker" bgcolor=3D"#f=
+3f6f6" role=3D"presentation" style=3D"-webkit-text-size-adjust: 100%; -ms-t=
+ext-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border=
+-collapse: collapse;">
+            <tbody>
+            <tr>
+                <td valign=3D"top" class=3D"c2c" style=3D"-webkit-text-size=
+-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table=
+-rspace: 0pt; font-family: Verdana, Tahoma, Arial, sans-serif; margin: 0; c=
+olor: #252b33; padding: 0;">
+                    <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0"=
+ role=3D"presentation" width=3D"100%" style=3D"-webkit-text-size-adjust: 10=
+0%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0p=
+t; border-collapse: collapse;">
+                        <tbody>
+                                            <tr height=3D"40">
+        <td height=3D"40" style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-fami=
+ly: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b33; font-siz=
+e: 40px; line-height: 40px; padding: 0;">&nbsp;</td>
+    </tr>
+
+                <tr>
+                    <td class=3D"td-padding" style=3D"-webkit-text-size-adj=
+ust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rsp=
+ace: 0pt; font-family: Verdana, Tahoma, Arial, sans-serif; margin: 0; color=
+: #252b33; padding: 0 40px;">
+                        <table class=3D"responsive-table search-top" width=
+=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" valign=3D"top" s=
+tyle=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-tab=
+le-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse;">
+                            <tbody>
+                            <tr>
+                                <td align=3D"left" class=3D"search-name" st=
+yle=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-tabl=
+e-lspace: 0pt; mso-table-rspace: 0pt; font-family: Verdana, Tahoma, Arial, =
+sans-serif; padding: 0; margin: 0; text-rendering: optimizeLegibility; colo=
+r: #555; border-collapse: collapse; width: 50%; display: table-cell;" width=
+=3D"50%">
+                                    <h4 class=3D"search-title" style=3D"fon=
+t-family: Verdana, Tahoma, Arial, sans-serif; font-weight: bold; font-size:=
+ 16px; padding: 0; color: #333; margin: 0;">
+                                        Recherche:
+                                        <a class=3D"seach-link" href=3D"htt=
+ps://user-api.zimmo.be/email/email-alert/6e529e5f-6dbe-49ff-9371-7ef1d8e9c8=
+fa/aHR0cHM6Ly93d3cuemltbW8uYmUvZnIvcmVjaGVyY2hlci8_c2VhcmNoPWV5Sm1hV3gwWlhJ=
+aU9uc2ljM1JoZEhWeklqcDdJbWx1SWpwYklrWlBVbDlUUVV4RklsMTlMQ0pqWVhSbFoyOXllU0k=
+2ZXlKcGJpSTZXeUpJVDFWVFJTSmRmU3dpYzNWaVZIbHdaU0k2ZXlKcGJpSTZXeUpXU1V4TVFTSX=
+NJbFJQVjA1SVQxVlRSU0lzSWtKRlRGOUZWRUZIUlNJc0lrWkJVazFmTURFaUxDSk5RVTVUU1U5T=
+1h6QXhJaXdpUTA5VVZFRkhSU0lzSWtKVlRrZEJURTlYSWl3aVEwRlRWRXhGSWwxOUxDSndiR0Zq=
+WlVsa0lqcDdJbWx1SWpwYk1USXpYWDBzSW1WdFlXbHNRV3hsY25RaU9uc2lZV1owWlhJaU9pSXl=
+NREkyTFRBMUxUSXhWREUwT2pVNU9qRTFXaUo5ZlN3aWMyOXlkR2x1WnlJNlczc2lkSGx3WlNJNk=
+lrUkJWRVVpTENKdmNtUmxjaUk2SWtSRlUwTWlmVjE5JnV0bV9zb3VyY2U9emltbW8mdXRtX21lZ=
+Gl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249SE1PREgmdXRtX2NvbnRlbnQ9em9la3JlZ2lvdGl0ZWw/=
+" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; text=
+-decoration: none; color: #11AAFF; font-weight: 500;">
+                                            Logic-Immo - =C3=A0 vendre  =C3=
+=A0 Uccle
+                                        </a>
+                                    </h4>
+                                </td>
+                                <td align=3D"right" valign=3D"top" class=3D=
+"search-change" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adju=
+st: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-family: Verdan=
+a, Tahoma, Arial, sans-serif; color: #252b33; margin: 0; padding: 0; width:=
+ 50%; vertical-align: top; display: table-cell;" width=3D"50%">
+                                    <a class=3D"search-change-link" href=3D=
+"/fr/monzimmo/recherches/?utm_source=3Dzimmo&amp;utm_me=
+dium=3Demail&amp;utm_campaign=3DHMODH&amp;utm_content=3Dmodifymyzimmo" styl=
+e=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-weigh=
+t: 500; margin: 0; padding: 0; text-rendering: optimizeLegibility; color: #=
+11AAFF; text-decoration: none; display: block;">
+                                        Modifier la recherche&nbsp;=C2=BB
+                                    </a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                    <tr height=3D"20">
+        <td height=3D"20" style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-fami=
+ly: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b33; font-siz=
+e: 20px; line-height: 20px; padding: 0;">&nbsp;</td>
+    </tr>
+
+                                    <tr>
+    <td valign=3D"top" class=3D"td-padding" style=3D"-webkit-text-size-adju=
+st: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspa=
+ce: 0pt; font-family: Verdana, Tahoma, Arial, sans-serif; margin: 0; color:=
+ #252b33; padding: 0 40px;">
+                <table border=3D"0" width=3D"100%" cellspacing=3D"0" cellpa=
+dding=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: =
+100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collap=
+se;">
+            <tbody>
+            <tr>
+                <td class=3D"listing_image" style=3D"-webkit-text-size-adju=
+st: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspa=
+ce: 0pt; font-family: Verdana, Tahoma, Arial, sans-serif; color: #252b33; w=
+idth: 178px; padding: 0; margin: 0; display: inline-block;" width=3D"178">
+                    <a class=3D"listing_image_link" href=3D"https://www.zim=
+mo.be/fr/uccle-1180/a-vendre/maison/LNT8O/?utm_source=3Dzimmo&amp;utm_mediu=
+m=3Demail&amp;utm_campaign=3DHMODH&amp;utm_content=3Dfoto" style=3D"-webkit=
+-text-size-adjust: 100%; -ms-text-size-adjust: 100%; text-decoration: none;=
+ color: #11AAFF; font-weight: 500; width: 178px; display: inline-block;">
+                        <table width=3D"178" cellspacing=3D"0" cellpadding=
+=3D"0" class=3D"listing_image_wrapper" style=3D"-webkit-text-size-adjust: 1=
+00%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0=
+pt; width: 178px; display: inline-block; margin: 0; border-collapse: collap=
+se;">
+                            <tbody>
+                                <tr>
+                                    <td style=3D"-webkit-text-size-adjust: =
+100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: =
+0pt; font-family: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #25=
+2b33; padding: 0; height: 115px;" height=3D"115">
+                                        <img src=3D"https://files.zimmo.be/=
+main-image/38944595-46ca-4c37-bcec-30edd8c75ae9" alt=3D"property" width=3D"=
+178" height=3D"115" style=3D"-ms-interpolation-mode: bicubic; border: 0; li=
+ne-height: 100%; outline: none; text-decoration: none; margin-right: 0; dis=
+play: block; height: 115px;">
+                                    </td>
+                                </tr>
+                                                                    <tr>
+                                        <td class=3D"listing_sticker" style=
+=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-l=
+space: 0pt; mso-table-rspace: 0pt; font-family: Verdana, Tahoma, Arial, san=
+s-serif; padding: 0; width: 178px; display: inline-block; text-align: cente=
+r; font-size: 12px; height: 20px; line-height: 20px; margin: 0; background-=
+color: #e25327; color: #fff;" bgcolor=3D"#e25327" width=3D"178" height=3D"2=
+0" align=3D"center">
+                                            prix r=C3=A9duit
+                                        </td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </a>
+                </td>
+                <td class=3D"listing_info" valign=3D"top" style=3D"-webkit-=
+text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; =
+mso-table-rspace: 0pt; font-family: Verdana, Tahoma, Arial, sans-serif; mar=
+gin: 0; color: #252b33; padding: 0; width: 60%;" width=3D"60%">
+                    <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"=
+0" valign=3D"top" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-ad=
+just: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: =
+collapse;">
+                        <tbody>
+                        <tr>
+                            <td style=3D"-webkit-text-size-adjust: 100%; -m=
+s-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; fon=
+t-family: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b33; pa=
+dding: 0;">
+                                <table style=3D"-webkit-text-size-adjust: 1=
+00%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0=
+pt; border-collapse: collapse;">
+                                    <tbody>
+                                    <tr>
+                                        <td style=3D"-webkit-text-size-adju=
+st: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspa=
+ce: 0pt; font-family: Verdana, Tahoma, Arial, sans-serif; margin: 0; color:=
+ #252b33; padding: 0;">
+                                            <div class=3D"listing_price" st=
+yle=3D"font-size: 22px; font-weight: bold;">
+            <span class=3D"listing_price_number" style=3D"white-space: nowr=
+ap;">=E2=82=AC 1.150.000</span>
+    </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                                                            <td class=3D"li=
+sting_features" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adju=
+st: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-family: Verdan=
+a, Tahoma, Arial, sans-serif; margin: 0; color: #252b33; padding: 0; float:=
+ right;">
+                                    <table style=3D"-webkit-text-size-adjus=
+t: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspac=
+e: 0pt; border-collapse: collapse;">
+    <tbody>
+        <tr>
+                                                                    <td cla=
+ss=3D"listing_feature" style=3D"-webkit-text-size-adjust: 100%; -ms-text-si=
+ze-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-family:=
+ Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b33; padding: 0;=
+ padding-left: 15px; text-align: right; font-size: 14px; white-space: nowra=
+p;" align=3D"right">
+                        <!-- light mode icon -->
+    <img class=3D"listing_icon light-mode" src=3D"https://files.zimmo.be/ma=
+il-api/estate/features/floorspace-surface.png" alt=3D"Surface" width=3D"aut=
+o" height=3D"12" style=3D"-ms-interpolation-mode: bicubic; border: 0; line-=
+height: 100%; outline: none; text-decoration: none; display: inline; height=
+: 12px; width: auto;">
+    <!-- dark mode icon -->
+    <img class=3D"listing_icon dark-mode" src=3D"https://files.zimmo.be/mai=
+l-api/estate/features/floorspace-surface-white.png" alt=3D"Surface" width=
+=3D"auto" height=3D"12" style=3D"-ms-interpolation-mode: bicubic; border: 0=
+; line-height: 100%; outline: none; text-decoration: none; height: 12px; wi=
+dth: auto; display: none;">
+
+                    236m=C2=B2
+                </td>
+                                                                <td class=
+=3D"listing_feature" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size=
+-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-family: V=
+erdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b33; padding: 0; p=
+adding-left: 15px; text-align: right; font-size: 14px; white-space: nowrap;=
+" align=3D"right">
+                        <!-- light mode icon -->
+    <img class=3D"listing_icon light-mode" src=3D"https://files.zimmo.be/ma=
+il-api/estate/features/bedrooms.png" alt=3D"Surface" width=3D"auto" height=
+=3D"12" style=3D"-ms-interpolation-mode: bicubic; border: 0; line-height: 1=
+00%; outline: none; text-decoration: none; display: inline; height: 12px; w=
+idth: auto;">
+    <!-- dark mode icon -->
+    <img class=3D"listing_icon dark-mode" src=3D"https://files.zimmo.be/mai=
+l-api/estate/features/bedrooms-white.png" alt=3D"Surface" width=3D"auto" he=
+ight=3D"12" style=3D"-ms-interpolation-mode: bicubic; border: 0; line-heigh=
+t: 100%; outline: none; text-decoration: none; height: 12px; width: auto; d=
+isplay: none;">
+
+                    5
+           =20
+        </td></tr>
+    </tbody>
+</table>
+                                </td>
+                                                    </tr>
+                            <tr height=3D"15">
+        <td height=3D"15" style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-fami=
+ly: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b33; font-siz=
+e: 15px; line-height: 15px; padding: 0;">&nbsp;</td>
+    </tr>
+
+                        <tr>
+                            <td colspan=3D"2" style=3D"-webkit-text-size-ad=
+just: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rs=
+pace: 0pt; font-family: Verdana, Tahoma, Arial, sans-serif; margin: 0; colo=
+r: #252b33; padding: 0;">
+                                <div>
+                                    <a class=3D"listing_title" href=3D"http=
+s://www.zimmo.be/fr/uccle-1180/a-vendre/maison/LNT8O/?utm_source=3Dzimmo&am=
+p;utm_medium=3Demail&amp;utm_campaign=3DHMODH&amp;utm_content=3Dtitel" styl=
+e=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; text-decor=
+ation: none; color: #11AAFF; font-weight: 500; font-size: 18px;"> Maison =
+=C3=A0 vendre
+                                        &raquo; </a>
+                                </div>
+                            </td>
+                        </tr>
+                            <tr height=3D"15">
+        <td height=3D"15" style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-fami=
+ly: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b33; font-siz=
+e: 15px; line-height: 15px; padding: 0;">&nbsp;</td>
+    </tr>
+
+                        <tr>
+                            <td style=3D"-webkit-text-size-adjust: 100%; -m=
+s-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; fon=
+t-family: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b33; pa=
+dding: 0;">
+                                <div>
+                                    <a class=3D"listing_address" href=3D"ht=
+tps://www.zimmo.be/fr/uccle-1180/a-vendre/maison/LNT8O/?utm_source=3Dzimmo&=
+amp;utm_medium=3Demail&amp;utm_campaign=3DHMODH&amp;utm_content=3Dadres" st=
+yle=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-siz=
+e: 14px; line-height: 19px; text-decoration: none; color: #555555; font-wei=
+ght: normal;">
+                                        Av. des Ronces 9<br>1180 Uccle
+                                    </a>
+                                </div>
+                            </td>
+                                                            <td align=3D"ri=
+ght" class=3D"office-block" style=3D"-webkit-text-size-adjust: 100%; -ms-te=
+xt-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-fa=
+mily: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b33; paddin=
+g: 0;">
+    <div class>
+                    <img src=3D"https://files.zimmo.be/backend-api/RZoSRaWG=
+Chqcv_YmHK9xAoOjoY0=3D/filters:image-format(pjpg)/-/real-estate/customers/b=
+49e5003-4bae-11e9-922b-005056b768a1/logos/01995cff-5268-7cff-a12f-1f68d91c3=
+313" alt=3D"Latour &amp; Petit Bxl Vente" width=3D"auto" align=3D"texttop" =
+class=3D"dealer-img" style=3D"-ms-interpolation-mode: bicubic; display: blo=
+ck; margin: 0; padding: 0; height: 30px; padding-bottom: 10px; line-height:=
+ 100%; outline: none; text-decoration: none; border: 0; width: auto;" heigh=
+t=3D"30">
+        </div>
+</td>
+                                                    </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+            </tr>
+            </tbody>
+        </table>
+    </td>
+</tr>
+                        <tr height=3D"35">
+        <td height=3D"35" style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-fami=
+ly: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b33; font-siz=
+e: 35px; line-height: 35px; padding: 0;">&nbsp;</td>
+    </tr>
+
+                                                                    </tbody=
+>
+                    </table>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </td>
+</tr>
+        <tr>
+    <td align=3D"center" valign=3D"top" style=3D"-webkit-text-size-adjust: =
+100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: =
+0pt; font-family: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #25=
+2b33; padding: 0;">
+        <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"58=
+0" class=3D"responsive-table mobile-90 bg-darkmode bg-darker" bgcolor=3D"#f=
+3f6f6" role=3D"presentation" style=3D"-webkit-text-size-adjust: 100%; -ms-t=
+ext-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border=
+-collapse: collapse;">
+            <tbody>
+            <tr>
+                <td valign=3D"top" class=3D"c2c" style=3D"-webkit-text-size=
+-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table=
+-rspace: 0pt; font-family: Verdana, Tahoma, Arial, sans-serif; margin: 0; c=
+olor: #252b33; padding: 0;">
+                    <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0"=
+ role=3D"presentation" width=3D"100%" style=3D"-webkit-text-size-adjust: 10=
+0%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0p=
+t; border-collapse: collapse;">
+                        <tbody>
+                                        <tr height=3D"10">
+        <td height=3D"10" style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-fami=
+ly: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b33; font-siz=
+e: 10px; line-height: 10px; padding: 0;">&nbsp;</td>
+    </tr>
+
+                                </tbody>
+                    </table>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </td>
+</tr>
+                                <tr>
+                                    <td style=3D"-webkit-text-size-adjust: =
+100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: =
+0pt; font-family: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #25=
+2b33; padding: 0;">
+                                        <footer class=3D"footer" align=3D"c=
+enter">
+                                            <table width=3D"580" cellpaddin=
+g=3D"0" cellspacing=3D"0" border=3D"0" class=3D"responsive-table" align=3D"=
+center" role=3D"presentation" style=3D"-webkit-text-size-adjust: 100%; -ms-=
+text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; borde=
+r-collapse: collapse; width: 580px; overflow: hidden;">
+                                                    <tr height=3D"40">
+        <td height=3D"40" style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-fami=
+ly: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b33; font-wei=
+ght: normal; font-size: 40px; line-height: 40px; padding: 0;">&nbsp;</td>
+    </tr>
+
+                                                <tr>
+    <td align=3D"center" style=3D"-webkit-text-size-adjust: 100%; -ms-text-=
+size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-famil=
+y: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b33; padding: =
+0; font-weight: normal;">
+        <table role=3D"presentation" style=3D"-webkit-text-size-adjust: 100=
+%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt=
+; border-collapse: collapse;">
+            <tbody>
+            <tr align=3D"center">
+                <td align=3D"center" valign=3D"top" style=3D"-webkit-text-s=
+ize-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-ta=
+ble-rspace: 0pt; font-family: Verdana, Tahoma, Arial, sans-serif; margin: 0=
+; color: #252b33; padding: 0; font-weight: normal;">
+                    <h3 style=3D"font-family: Verdana, Tahoma, Arial, sans-=
+serif; margin: 0; color: #252b33; font-weight: bold; font-size: 18px; margi=
+n-bottom: 0;">
+                        T=C3=A9l=C3=A9chargez notre app Zimmo
+                    </h3>
+                    <h4 style=3D"font-family: Verdana, Tahoma, Arial, sans-=
+serif; margin: 0; color: #252b33; font-weight: bold; font-size: 16px;">
+                        et ne manquez aucun nouveau bien
+                    </h4>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </td>
+</tr>
+    <tr height=3D"10">
+        <td height=3D"10" style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-fami=
+ly: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b33; font-wei=
+ght: normal; font-size: 10px; line-height: 10px; padding: 0;">&nbsp;</td>
+    </tr>
+
+<tr>
+    <td align=3D"center" style=3D"-webkit-text-size-adjust: 100%; -ms-text-=
+size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-famil=
+y: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b33; padding: =
+0; font-weight: normal;">
+        <table role=3D"presentation" style=3D"-webkit-text-size-adjust: 100=
+%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt=
+; border-collapse: collapse;">
+            <tbody>
+            <tr align=3D"center">
+                <td valign=3D"middle" height=3D"40" align=3D"left" style=3D=
+"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspa=
+ce: 0pt; mso-table-rspace: 0pt; font-family: Verdana, Tahoma, Arial, sans-s=
+erif; margin: 0; color: #252b33; padding: 0; font-weight: normal;">
+                    <a href=3D"https://apps.apple.com/be/app/zimmo/id153653=
+9061?l=3Dfr" target=3D"_blank" style=3D"-webkit-text-size-adjust: 100%; -ms=
+-text-size-adjust: 100%; text-decoration: none; color: #11AAFF; font-weight=
+: normal;">
+                        <img src=3D"https://files.zimmo.be/icons/stores/app=
+-store-fr.png" alt=3D"App Store" width=3D"127" height=3D"auto" border=3D"0"=
+ align=3D"left" style=3D"-ms-interpolation-mode: bicubic; border: 0; height=
+: auto; line-height: 100%; outline: none; text-decoration: none; display: b=
+lock;">
+                    </a>
+                </td>
+                    <td width=3D"15" style=3D"-webkit-text-size-adjust: 100=
+%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt=
+; font-family: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b3=
+3; font-weight: normal; font-size: 1px; line-height: 1px; padding: 0; width=
+: 15px;">&nbsp;</td>
+
+                <td valign=3D"middle" height=3D"40" align=3D"left" style=3D=
+"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspa=
+ce: 0pt; mso-table-rspace: 0pt; font-family: Verdana, Tahoma, Arial, sans-s=
+erif; margin: 0; color: #252b33; padding: 0; font-weight: normal;">
+                    <a href=3D"https://play.google.com/store/apps/details?i=
+d=3Dbe.zimmo.mobile&hl=3Dfr" target=3D"_blank" style=3D"-webkit-text-size-a=
+djust: 100%; -ms-text-size-adjust: 100%; text-decoration: none; color: #11A=
+AFF; font-weight: normal;">
+                        <img src=3D"https://files.zimmo.be/icons/stores/goo=
+gle-play-fr.png" alt=3D"Google Play" width=3D"134" height=3D"auto" border=
+=3D"0" align=3D"left" style=3D"-ms-interpolation-mode: bicubic; border: 0; =
+height: auto; line-height: 100%; outline: none; text-decoration: none; disp=
+lay: block;">
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </td>
+</tr>
+                                                    <tr height=3D"40">
+        <td height=3D"40" style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-fami=
+ly: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b33; font-wei=
+ght: normal; font-size: 40px; line-height: 40px; padding: 0;">&nbsp;</td>
+    </tr>
+
+                                                <tr>
+    <td align=3D"center" style=3D"-webkit-text-size-adjust: 100%; -ms-text-=
+size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-famil=
+y: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b33; padding: =
+0; font-weight: normal;">
+        <table role=3D"presentation" style=3D"-webkit-text-size-adjust: 100=
+%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt=
+; border-collapse: collapse;">
+            <tbody>
+            <tr align=3D"center">
+                <td style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-=
+adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-family: Ve=
+rdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b33; padding: 0; fo=
+nt-weight: normal;">
+                    <h4 style=3D"font-family: Verdana, Tahoma, Arial, sans-=
+serif; margin: 0; color: #252b33; font-weight: bold; font-size: 16px;">
+                        Suivez-nous
+                    </h4>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </td>
+</tr>
+    <tr height=3D"10">
+        <td height=3D"10" style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-fami=
+ly: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b33; font-wei=
+ght: normal; font-size: 10px; line-height: 10px; padding: 0;">&nbsp;</td>
+    </tr>
+
+<tr>
+    <td align=3D"center" style=3D"-webkit-text-size-adjust: 100%; -ms-text-=
+size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-famil=
+y: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b33; padding: =
+0; font-weight: normal;">
+        <table class=3D"social" role=3D"presentation" style=3D"-webkit-text=
+-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-=
+table-rspace: 0pt; border-collapse: collapse;">
+            <tbody>
+            <tr align=3D"left">
+                <td valign=3D"middle" height=3D"30" align=3D"left" style=3D=
+"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspa=
+ce: 0pt; mso-table-rspace: 0pt; font-family: Verdana, Tahoma, Arial, sans-s=
+erif; margin: 0; color: #252b33; padding: 0; font-weight: normal;">
+                    <a href=3D"https://www.facebook.com/zimmo.be" target=3D=
+"_blank" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100=
+%; text-decoration: none; color: #11AAFF; font-weight: normal;">
+                        <img src=3D"https://files.zimmo.be/icons/social-med=
+ia/facebook.png" alt=3D"Facebook" width=3D"29" height=3D"29" border=3D"0" a=
+lign=3D"left" style=3D"-ms-interpolation-mode: bicubic; border: 0; line-hei=
+ght: 100%; outline: none; text-decoration: none; max-width: 29px; width: 29=
+px; height: 29px; display: block;">
+                    </a>
+                </td>
+                    <td width=3D"15" style=3D"-webkit-text-size-adjust: 100=
+%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt=
+; font-family: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b3=
+3; font-weight: normal; font-size: 1px; line-height: 1px; padding: 0; width=
+: 15px;">&nbsp;</td>
+
+                <td valign=3D"middle" height=3D"30" align=3D"left" style=3D=
+"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspa=
+ce: 0pt; mso-table-rspace: 0pt; font-family: Verdana, Tahoma, Arial, sans-s=
+erif; margin: 0; color: #252b33; padding: 0; font-weight: normal;">
+                    <a href=3D"https://www.pinterest.com/zimmorealestate/" =
+target=3D"_blank" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-ad=
+just: 100%; text-decoration: none; color: #11AAFF; font-weight: normal;">
+                        <img src=3D"https://files.zimmo.be/icons/social-med=
+ia/pinterest.png" alt=3D"Pinterest" width=3D"29" height=3D"29" border=3D"0"=
+ align=3D"left" style=3D"-ms-interpolation-mode: bicubic; border: 0; line-h=
+eight: 100%; outline: none; text-decoration: none; max-width: 29px; width: =
+29px; height: 29px; display: block;">
+                    </a>
+                </td>
+                    <td width=3D"15" style=3D"-webkit-text-size-adjust: 100=
+%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt=
+; font-family: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b3=
+3; font-weight: normal; font-size: 1px; line-height: 1px; padding: 0; width=
+: 15px;">&nbsp;</td>
+
+                <td valign=3D"middle" height=3D"30" align=3D"left" style=3D=
+"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspa=
+ce: 0pt; mso-table-rspace: 0pt; font-family: Verdana, Tahoma, Arial, sans-s=
+erif; margin: 0; color: #252b33; padding: 0; font-weight: normal;">
+                    <a href=3D"https://www.instagram.com/zimmo.be/" target=
+=3D"_blank" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: =
+100%; text-decoration: none; color: #11AAFF; font-weight: normal;">
+                        <img src=3D"https://files.zimmo.be/icons/social-med=
+ia/instagram.png" alt=3D"Instagram" width=3D"29" height=3D"29" border=3D"0"=
+ align=3D"left" style=3D"-ms-interpolation-mode: bicubic; border: 0; line-h=
+eight: 100%; outline: none; text-decoration: none; max-width: 29px; width: =
+29px; height: 29px; display: block;">
+                    </a>
+                </td>
+                    <td width=3D"15" style=3D"-webkit-text-size-adjust: 100=
+%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt=
+; font-family: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b3=
+3; font-weight: normal; font-size: 1px; line-height: 1px; padding: 0; width=
+: 15px;">&nbsp;</td>
+
+                <td valign=3D"middle" height=3D"30" align=3D"left" style=3D=
+"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspa=
+ce: 0pt; mso-table-rspace: 0pt; font-family: Verdana, Tahoma, Arial, sans-s=
+erif; margin: 0; color: #252b33; padding: 0; font-weight: normal;">
+                    <a href=3D"https://www.linkedin.com/company/zimmo-be/" =
+target=3D"_blank" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-ad=
+just: 100%; text-decoration: none; color: #11AAFF; font-weight: normal;">
+                        <img src=3D"https://files.zimmo.be/icons/social-med=
+ia/linkedin.png" alt=3D"LinkedIn" width=3D"29" height=3D"29" border=3D"0" a=
+lign=3D"left" style=3D"-ms-interpolation-mode: bicubic; border: 0; line-hei=
+ght: 100%; outline: none; text-decoration: none; max-width: 29px; width: 29=
+px; height: 29px; display: block;">
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </td>
+</tr>
+                                                    <tr height=3D"40">
+        <td height=3D"40" style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-fami=
+ly: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b33; font-wei=
+ght: normal; font-size: 40px; line-height: 40px; padding: 0;">&nbsp;</td>
+    </tr>
+
+                                                <tr>
+                                                    <td style=3D"-webkit-te=
+xt-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; ms=
+o-table-rspace: 0pt; font-family: Verdana, Tahoma, Arial, sans-serif; margi=
+n: 0; color: #252b33; padding: 0; font-weight: normal;">
+                                                        <p class=3D"copyrig=
+ht-text" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100=
+%; font-family: Verdana, Tahoma, Arial, sans-serif; margin: 0; font-weight:=
+ normal; font-size: 12px; line-height: 15px; text-align: center; color: #A8=
+AAB7; padding: 0 35px;">
+                                                                           =
+                                                                           =
+                                                                           =
+                   &copy; Zimmo bv 2026 | <a href=3D"https://www.mediahuis.=
+be/nl/voorwaarden/politique-vie-privee/?utm_source=3Dzimmo&amp;utm_medium=
+=3Demail&amp;utm_campaign=3DHMODH&amp;utm_content=3Dprivacylink" style=3D"-=
+webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; text-decoration:=
+ none; color: #11AAFF; font-weight: normal;">Privacy</a>
+                                                                | Vous ne s=
+ouhaitez plus recevoir de lettre d'information Zimmo =C3=A0 l'avenir ? Cliq=
+uez <a href=3D"/fr/monzimmo/desinscrire/202001offre%40g=
+mail.com/ec2d6d206c3284d069723f2355fc34a7/?subject=3Demail-alert&amp;utm_so=
+urce=3Dzimmo&amp;utm_medium=3Demail&amp;utm_campaign=3DHMODH&amp;utm_conten=
+t=3Dunsubscribe" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adj=
+ust: 100%; text-decoration: none; color: #11AAFF; font-weight: normal;">ici=
+</a> pour vous d=C3=A9sinscrire. Vous pouvez =C3=A9galement ajuster vos pr=
+=C3=A9f=C3=A9rences sur la page des notifications e-mail de &apos;<a href=
+=3D"/fr/monzimmo/?utm_source=3Dzimmo&amp;utm_medium=3De=
+mail&amp;utm_campaign=3DHMODH&amp;utm_content=3Dmyzimmolink" style=3D"-webk=
+it-text-size-adjust: 100%; -ms-text-size-adjust: 100%; text-decoration: non=
+e; color: #11AAFF; font-weight: normal;">Mon Zimmo</a>&apos;.
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                    <tr height=3D"30">
+        <td height=3D"30" style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-fami=
+ly: Verdana, Tahoma, Arial, sans-serif; margin: 0; color: #252b33; font-wei=
+ght: normal; font-size: 30px; line-height: 30px; padding: 0;">&nbsp;</td>
+    </tr>
+
+                                            </table>
+                                        </footer>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
+
+<object >
+
+
+
+
+
+
+--000000000000B0MNRUNyYR84HR9b--
+--000000000000B0MNRUNyYR84HR9a--
+--000000000000SGCNuB7Qm6umj710elBSQB--
