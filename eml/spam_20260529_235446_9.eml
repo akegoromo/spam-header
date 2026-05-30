@@ -1,0 +1,999 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:c210:0:10b0:26a:2114:7ab with SMTP id el16-n1csp403930eib;
+        Fri, 29 May 2026 07:54:51 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ96gMn3Kgn5d88JCnfBHrx/WheqjhjOArb4a7PBzQvRu6x9XVB1dKWFpwWtP2D0w1h9ZMEUPuZxYy78YgHAPA==@gmail.com
+X-Received: by 2002:a05:690c:2f09:b0:7b9:f136:56d8 with SMTP id 00721157ae682-7de26ed84c7mr19174847b3.30.1780066491225;
+        Fri, 29 May 2026 07:54:51 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1780066491; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=RiScUTRv0OxmUpetxsb8GeX+51BjFlzcYwCeVAfe4Wr+pfAl5D1TRUESYdGlXTmeh/
+         MxM4YW4FnrzzFSnCfX+TX8MsHazw7si91QSN9SGEzVp3NhTVhlWZ6eTfMm1mhq0n3ZJS
+         a8Af4T5cjoNstNeIOArCbF8wMl794jzpG4GsEIm/DeIufszDs3qArwa/eOuQCI30MWig
+         STQglY06HNp/yZmBGPVJlFy0FXtZ6LbeX+Odec9yeg7kjiofmov+RlKoPOB08G5kaeFJ
+         nisspUWavtcLsZ8hT9UchNv6CF9tHsHN+vTyKRrTgPStZgVcJUp4fP0DwU8rIxC/aVR5
+         5AmQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:from:subject:date:message-id:sender:reply-to:mime-version
+         :dkim-signature:dkim-signature:feedback-id:dkim-signature
+         :dkim-signature;
+        bh=q+xYqkUEriUdPeLinhhiV4DJbN0sbHLQWSc+JZ84Gko=;
+        fh=AmwUtjvAn7++NEBttiaVEnyCAVA5youKb81rEHZT4FM=;
+        b=MEGEc8FX85uM4SCMTA8Y0xG2FwjflV/X4a6zy+F/Tl8UPQl2AhjUPZyWp4sdgQet9t
+         bwfY/Bnj1UdAZjhMdxd+FnX3jvvmuk9X7y4eOScJ2YjqU5eA/r1wBHF6Twaox2nILlj7
+         tyBup+DyKSqc2Ycl9BLyKuGpvR0Ha30mFakflqBQGn+V99NJ7Kz7p/Hsi053Aeu8GWl+
+         8rYtPHYX7qgX7ZjRAHZKNuEu7/6GNk4xA4UffNO7RKoBZ0GXR7O70naKWD3tHKlARR1N
+         EGC+BCErRUfhnRVrfK4ACf/Ey+haxOicJvlEiCWoYGi3CesQzvhNiTqdqPg1kXu1QqPS
+         bhmA==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=V33l4nBY;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=dy2amEvC;
+       dkim=pass header.i=@google.com header.s=20251104 header.b=LliZYFPV;
+       dkim=pass header.i=@bgsprotection-com.20251104.gappssmtp.com header.s=20251104 header.b=OEqi1Hmb;
+       arc=pass (i=1 dkim=pass dkdomain=google.com dkim=pass dkdomain=bgsprotection-com.20251104.gappssmtp.com);
+       spf=pass (google.com: domain of srs0=csaw=2d=bgsprotection.com=aideahzazay@whither.jp designates 104.30.10.39 as permitted sender) smtp.mailfrom="SRS0=csaW=2d=bgsprotection.com=aideahzazay@whither.jp"
+Return-Path: <SRS0=csaW=2d=bgsprotection.com=aideahzazay@whither.jp>
+Received: from ba-dj.cloudflare-email.net (ba-dj.cloudflare-email.net. [104.30.10.39])
+        by mx.google.com with ESMTPS id 00721157ae682-7de6f7f3934si16687517b3.160.2026.05.29.07.54.50
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 29 May 2026 07:54:51 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=csaw=2d=bgsprotection.com=aideahzazay@whither.jp designates 104.30.10.39 as permitted sender) client-ip=104.30.10.39;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=V33l4nBY;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=dy2amEvC;
+       dkim=pass header.i=@google.com header.s=20251104 header.b=LliZYFPV;
+       dkim=pass header.i=@bgsprotection-com.20251104.gappssmtp.com header.s=20251104 header.b=OEqi1Hmb;
+       arc=pass (i=1 dkim=pass dkdomain=google.com dkim=pass dkdomain=bgsprotection-com.20251104.gappssmtp.com);
+       spf=pass (google.com: domain of srs0=csaw=2d=bgsprotection.com=aideahzazay@whither.jp designates 104.30.10.39 as permitted sender) smtp.mailfrom="SRS0=csaW=2d=bgsprotection.com=aideahzazay@whither.jp"
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=To:From:Subject:Date:Reply-To:Feedback-ID:from:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1780066490; x=1780671290; bh=q+xYqkUEriUdPeLinh
+	hiV4DJbN0sbHLQWSc+JZ84Gko=; b=V33l4nBY2V7ZEnarI7k2Aj96emfETn7Ys6R1KQmraV04X
+	SREtoA96upE6/PYQUdd/Xksk/ZxNof75Di59KM9FsR9GZorTxXmNz92802PmNkA3GwFR+G/ahTw
+	b8GY8V8NPUrv1vPm9k3XqMVXezChy0jBfCVXlBhc+c858tcQs8MDVGYcZddoxneEWm5AlHv7b96
+	qCfD5ePdVtVC/nbpABdP6iDxeJ2lSkgSO0n6TzUOGzqBGTZaRhS7jI54igGMvltZ0uO/BjoGWTZ
+	IG92jvtazi0XRd3JESkHwDoYAEec4zCdziJirD+hwL9F9ZI4hG3MZ5cl+jzs7+tZYbFpKuug==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=To:From:Subject:Date:Reply-To:Feedback-ID:from:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1780066490; x=1780671290; bh=q+xYqkUEriUdPeLinh
+	hiV4DJbN0sbHLQWSc+JZ84Gko=; b=dy2amEvC4Cc7El8SELxXfdzJ3NO/4yHtiRLRLqhHa8AvV
+	ffE6yky3O+LCS86kWIruN7UBTxe4sgO+wyx/SLpKMebsuKkq2bTJ941r6yQWfnh0T5M0EYPCjkW
+	54mVNTUojw3ScAdS39YhV5XUhs5vr5wv1dk2YKvnv4NV/SIGsV3bkP8M/egFfC2GtgyXaHZHha/
+	63lZ4xT3I5aBd9VF8W/S4GvW4mKnbuTnkvGSry8FXUH+hKCHz5mDqPWKehznqHAlwfZFUj7Uq2y
+	sfHeUZ6uLxplLdm2wz2ghcQsEKWU/QwP0igtGqr7/v2Urh5rAbWgSN2iJPsCoVMoutwqdOBA==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: silver.firefox+whither-jp@gmail.com silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:2:1:Cloudflare
+Received: from mail-yw1-x1148.google.com (2607:f8b0:4864:20::1148)
+        by cloudflare-email.net (cloudflare) id HnuTjzk6cZRG
+        for <tnakahara@whither.jp>; Fri, 29 May 2026 14:54:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=eTk6hwMyb3cNeKSSdBiTW1ckfQwnskUZnTX+YlneHnD7AqqQw4O85Hn/TYQNK2VZ5lDCqrQEQ
+	emYoo7OPZy2Q//OE+X0r1s7unzWcoD2uX+F03B7GjkZ27B47+nhzEEyaiKcB8ofzgQ8XWINc96s
+	a8avHCPaluTIrf5Z+0IrpeB2iXrJPd7KTXyTnsNrfeKZX9CeXoQ9aEW/AhlKylniu5m4cgnf1FX
+	/xQMegUzv1Q46agvsnid+gwC3XUUY8FwhtSqxbSNkPm029z6juAA/NmcHcVGai187fJLtslbT1J
+	OA1vViIj/ClooVacahOnHn196D5S3OJ81OQBilQHE0wA==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=To:From:Subject:Date:Reply-To:from:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1780066487; x=1780671287; bh=q+xYqkUE
+	riUdPeLinhhiV4DJbN0sbHLQWSc+JZ84Gko=; b=fXIIUDS5AAlc3bj7U7zbei8mhhgPgn3v0Q0
+	CWh1cpRuSrxh3cMs+mlbTpde+94jkyWnyOIio1Gp31xcxqEhBCjP6Ekjt8o1JRx6H8O+YKyImIk
+	Tlw0Zjaal15qwmui8ucbpEDd4OMM3GX0wAIAC8X/ih5V2jqNebDRU+oLLsNomvK5N5V7YCCNjvV
+	1SSaNDLGlfTioj0jThxr2wVyEhLSlP95pvWCVH2TAOtR1PDyhRV3XKkfvfQ9UgN1FQnwjZtZARk
+	Kr6N49+Vv6zgrL+F09b+IU1klI+TdeyLscv3DW2iiI/BNL04OPU5vgjNLtzciJHLo3lDFyvZ5L/
+	MHgW9Kg==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.d=google.com header.s=20251104 header.b=LliZYFPV;
+	dkim=pass header.d=bgsprotection-com.20251104.gappssmtp.com header.s=20251104 header.b=OEqi1Hmb;
+	dmarc=none header.from=bgsprotection.com policy.dmarc=none;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@mail-yw1-x1148.google.com) smtp.helo=mail-yw1-x1148.google.com;
+	spf=none (mx.cloudflare.net: no SPF records found for aideahzazay@bgsprotection.com) smtp.mailfrom=aideahzazay@bgsprotection.com;
+	arc=none smtp.remote-ip="2607:f8b0:4864:20::1148"
+Received-SPF: none (mx.cloudflare.net: no SPF records found for aideahzazay@bgsprotection.com)
+	receiver=mx.cloudflare.net; client-ip=2607:f8b0:4864:20::1148; envelope-from="aideahzazay@bgsprotection.com"; helo=mail-yw1-x1148.google.com;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.d=google.com header.s=20251104 header.b=LliZYFPV;
+	dkim=pass header.d=bgsprotection-com.20251104.gappssmtp.com header.s=20251104 header.b=OEqi1Hmb;
+	dmarc=none header.from=bgsprotection.com policy.dmarc=none;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@mail-yw1-x1148.google.com) smtp.helo=mail-yw1-x1148.google.com;
+	spf=none (mx.cloudflare.net: no SPF records found for aideahzazay@bgsprotection.com) smtp.mailfrom=aideahzazay@bgsprotection.com;
+	arc=none smtp.remote-ip="2607:f8b0:4864:20::1148"
+X-CF-SpamH-Score: 0
+Received: by mail-yw1-x1148.google.com with SMTP id 00721157ae682-7dbf9fe4628so30342467b3.1
+        for <tnakahara@whither.jp>; Fri, 29 May 2026 07:54:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1780066487; x=1780671287; darn=whither.jp;
+        h=to:from:subject:date:message-id:sender:reply-to:mime-version:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=q+xYqkUEriUdPeLinhhiV4DJbN0sbHLQWSc+JZ84Gko=;
+        b=LliZYFPVKa5ranl87VpJUg/RuSHzlHLuf5UL9rRLVIkNhgoCqf9OWLvS33nzJqnEXL
+         NULB4SIBBAfrcsuUhAvm9wP9bNlWHpbPrqhf+Im6BOxt9QHUzU4Kv0P8FAHXPvU3UyL5
+         og3AuORnE2KI5EC+SpS0teTUJoy7IukAk4LO/z7S2croCXruCP6sHcTPZCYGmK5LrVS/
+         27PNROnscivJ0vNwkrk0pxkgRJRELe39604hQaR1yOJ6So8BwUSPp+wVXut72K3EvdWD
+         nyj12DKB4gY58M3cto9PtIfCnOJTFQXWnZAmybkPkzLvrxAAGPDfctuXEpReTD7W4MuU
+         6Pmg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgsprotection-com.20251104.gappssmtp.com; s=20251104; t=1780066487; x=1780671287; darn=whither.jp;
+        h=to:from:subject:date:message-id:sender:reply-to:mime-version:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=q+xYqkUEriUdPeLinhhiV4DJbN0sbHLQWSc+JZ84Gko=;
+        b=OEqi1HmbV8tbmICVpfwLVYRAf7K1HnlZAZZDmhZzcVB4x+MofY0IvrywsojQTKAaGm
+         uJuV4/NsqMj/nDB5PNKjRX21Fq+X1px32qqHC3p9An7VJ5DFr2mTXKzftqxmRm/9DU8U
+         /euP/UunDy4La4TTIAiMA0vHjkrSAyIpG479a/0vaqViiVnJ4QOiiTYSNCPNy0V+L8Tt
+         O0VLEM5g5pbKzvQFVk8BENY1SUkMivvSr0ZmTeEHvEwOU8JfM04pxcPVsoupQexrw51n
+         j6D1pO5Vy+R1tgFg0URD4PALgpJDVCiSEPhgHPZRlCLziPN3mzkG/MVF9zoFCNpY1HJq
+         BFnQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780066487; x=1780671287;
+        h=to:from:subject:date:message-id:sender:reply-to:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=q+xYqkUEriUdPeLinhhiV4DJbN0sbHLQWSc+JZ84Gko=;
+        b=sDazeXH4rtddoXfrlNKdWYAPW5YT+1izZNb2u0I7XMmBtt3fW9lij9XRzmu9jp3JK+
+         6W/lRnCJMx9XKEDk48zRNbm5b17SahVPpv5U9MLHbUZME+Q0mpxOK59zB06oh958rqsm
+         BFM9mH6aLSFvRC5DletG6uLPvj61gn64K1K9jr2W7HhbObgE1J3D45p/+x9/wY6uPuRP
+         q2m60vmNFRUy3USxLJPLWgK1DOLdPzyHV5UjisS2Y4Fxcy+864q3jAPVyQf8omY4uxPG
+         Y97XtdEwBM6nZT1j9iszRPtnG3eVVX3po7fWZmjaSsZynKpTp+yq+2SgZfNdZOxvEe+6
+         feLQ==
+X-Gm-Message-State: AOJu0Yy1HO8GlpW2J+tC9k6ZOo1AXI20RzOOl7BynxufU3rpfL0gzcSC
+	YJ22FZugRP7gb7z0AidcqFWTjhrNxh6A0xT4saGG9S8KlMOkgV+4LtfONLZodCls57zXiEtY++n
+	m8rn6S760Q47G2IFy5yg92gebBaqVdZEBSgldKudvv2wWW661H5gHvXMo
+MIME-Version: 1.0
+X-Received: by 2002:a05:690c:c24f:b0:7bd:69b8:f2ec with SMTP id
+ 00721157ae682-7de315b5fe2mr24489057b3.15.1780066486773; Fri, 29 May 2026
+ 07:54:46 -0700 (PDT)
+Reply-To: Aideah Zazay <aideahzazay@bgsprotection.com>
+Sender: Google Calendar <calendar-notification@google.com>
+Message-ID: <calendar-f7b59d03-3678-431c-a910-81a73b8342b8@google.com>
+Date: Fri, 29 May 2026 14:54:46 +0000
+Subject: Invitation: Subscription Plan Renewal Information Notice @ Sat May
+ 30, 2026 12:54pm (GMT+9) (tnakahara@whither.jp)
+From: Aideah Zazay <aideahzazay@bgsprotection.com>
+To: tnakahara@whither.jp
+Content-Type: multipart/mixed; boundary="0000000000009efc760652f6065b"
+
+--0000000000009efc760652f6065b
+Content-Type: multipart/alternative; boundary="0000000000009efc730652f60659"
+
+--0000000000009efc730652f60659
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+Content-Transfer-Encoding: base64
+
+U3Vic2NyaXB0aW9uIFBsYW4gUmVuZXdhbCBJbmZvcm1hdGlvbiBOb3RpY2UNClNhdHVyZGF5IE1h
+eSAzMCwgMjAyNiDii4UgMTI6NTRwbQ0KSmFwYW4gU3RhbmRhcmQgVGltZQ0KDQoNCg0KR2VlayBT
+cXVhZCBDb3JlIHwgUmVjZWlwdCB8IEZyaWRheSwgMjkgTWF5IDIwMjYgMjI6NTQ6MjZTeXN0ZW0g
+U3luYyBJbmRleDogIA0KI1JFRVBWUlZCM1NTTElBRGVzayBBc3Npc3RhbmNlOiArMSAoODA4KS03
+MjEtMzE5NlBsYW4gY29udGludWVzIHVuZGVyICANCnVwZGF0ZWQgc2VydmljZSBjb3ZlcmFnZURl
+YXIgQWNjb3VudCBIb2xkZXIsVGhpcyBhdXRvbWF0ZWQgbG9nIGlzIGdlbmVyYXRlZCAgDQp0byBj
+b25maXJtIHRoYXQgeW91ciBkZWRpY2F0ZWQgZGF0YSBzZWN1cml0eSBwbGF0Zm9ybSBpcyBtb3Zp
+bmcgaW50byBpdHMgIA0KbmV4dCBzY2hlZHVsZWQgcm90YXRpb24uIEZvbGxvd2luZyB5b3VyIHBy
+b2ZpbGUgcHJlZmVyZW5jZXMsIGFuIGF1dGhvcml6ZWQgIA0KcmVjdXJyaW5nIGZlZSBvZiAkMzg2
+Ljc5IFVTRCBpcyBzY2hlZHVsZWQgdG8gcHJvY2VzcyB3aXRoaW4gMjQgIA0KaG91cnMuQWNjb3Vu
+dCBNb25pdG9yaW5nIEh1YjoNCg0KUmVnaXN0cnkgTm9kZSBJRDogQkVWRTBNSjZaQw0KVXRpbGl0
+eSBEZXNjcmlwdGlvbjogU3VwcG9ydCBDb3ZlcmFnZSBQbHVzDQpPcGVyYXRpb25hbCBQZXJpb2Q6
+IDItWWVhcnMNClJhdGUgQXNzZXNzZWQ6ICQzODYuNzkgVVNEDQpWYWxpZGF0aW9uIEtleTogYzI0
+OTI0ZWUtY2MwOS00MTVjLWI4NjQtOTlhMDYyOGRlYzljDQoNClRoaXMgZGlzcGF0Y2ggc2VydmVz
+IGFzIGEgc3lzdGVtIHVwZGF0ZSByZWNvcmQgZm9yIHRyYWNraW5nIHB1cnBvc2VzLiBJZiAgDQp5
+b3UgbmVlZCBtYW51YWwgY2xlYXJhbmNlIHBhcmFtZXRlcnMgb3IgcHJvZmlsZSBhc3Npc3RhbmNl
+LCBwbGVhc2UgY29ubmVjdCAgDQp3aXRoIHVzLldpdGggc2luY2VyZSB0aGFua3MsLEdlZWsgU3F1
+YWQgUEMgUHJvdGVjdGlvbkFjY291bnRzIHRlYW06ICANCk1pY2hlbGxlIERlbGFodW50QXNzaXN0
+YW5jZSBDYWxsIExpbmU6ICsxICg4MDgpICA2NzMtMDMyM09wZXJhdGlvbnMgIA0KQ29udHJvbDog
+NTAwIFMuIEZhbGtlbmJ1cmcgUm9hZCBGYXlldHRldmlsbGUgR2EgMzAyMTUgVW5pdGVkIFN0YXRl
+cyZjb3B5OyAgDQoyMDI2IENvbXBhbnkuIEFsbCByaWdodHMgcmVzZXJ2ZWQuDQoNCk9yZ2FuaXpl
+cg0KQWlkZWFoIFphemF5DQphaWRlYWh6YXpheUBiZ3Nwcm90ZWN0aW9uLmNvbQ0KDQpSZXBseSBm
+b3IgdG5ha2FoYXJhQHdoaXRoZXIuanAgYW5kIHZpZXcgbW9yZSBkZXRhaWxzICANCmh0dHBzOi8v
+Y2FsZW5kYXIuZ29vZ2xlLmNvbS9jYWxlbmRhci9ldmVudD9hY3Rpb249VklFVyZlaWQ9VDNCaVRV
+dzBORXhUT0Zsc1VXMDFTREpVT1ROd05IZG9iR1lnZEc1aGEyRm9ZWEpoUUhkb2FYUm9aWEl1YW5B
+JnRvaz1NamtqWVdsa1pXRm9lbUY2WVhsQVltZHpjSEp2ZEdWamRHbHZiaTVqYjIweVptTTFZbUV3
+TkdWaE5tWTJaRFEwT0RjM05ERTRaR1JqT1dFME5ETmxPVGhrTnpGbE5tWmwmY3R6PUFzaWElMkZU
+b2t5byZobD1lbiZlcz0wDQpZb3VyIGF0dGVuZGFuY2UgaXMgb3B0aW9uYWwuDQoNCn5+Ly9+fg0K
+SW52aXRhdGlvbiBmcm9tIEdvb2dsZSBDYWxlbmRhcjogaHR0cHM6Ly9jYWxlbmRhci5nb29nbGUu
+Y29tL2NhbGVuZGFyLw0KDQpZb3UgYXJlIHJlY2VpdmluZyB0aGlzIGVtYWlsIGJlY2F1c2UgeW91
+IGFyZSBhbiBhdHRlbmRlZSBvbiB0aGUgZXZlbnQuDQoNCkZvcndhcmRpbmcgdGhpcyBpbnZpdGF0
+aW9uIGNvdWxkIGFsbG93IGFueSByZWNpcGllbnQgdG8gc2VuZCBhIHJlc3BvbnNlIHRvICANCnRo
+ZSBvcmdhbml6ZXIsIGJlIGFkZGVkIHRvIHRoZSBndWVzdCBsaXN0LCBpbnZpdGUgb3RoZXJzIHJl
+Z2FyZGxlc3Mgb2YgIA0KdGhlaXIgb3duIGludml0YXRpb24gc3RhdHVzLCBvciBtb2RpZnkgeW91
+ciBSU1ZQLg0KDQpMZWFybiBtb3JlIGh0dHBzOi8vc3VwcG9ydC5nb29nbGUuY29tL2NhbGVuZGFy
+L2Fuc3dlci8zNzEzNSNmb3J3YXJkaW5nDQo=
+--0000000000009efc730652f60659
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!doctype html><html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:=
+schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:offi=
+ce"><head><title></title><!--[if !mso]><meta http-equiv=3D"X-UA-Compatible"=
+ content=3D"IE=3Dedge"><![endif]--><meta http-equiv=3D"Content-Type" conten=
+t=3D"text/html; charset=3DUTF-8"><meta name=3D"viewport" content=3D"width=
+=3Ddevice-width,initial-scale=3D1"><meta name=3D"color-scheme" content=3D"l=
+ight dark"><meta name=3D"supported-color-schemes" content=3D"light dark">
+    <style>
+      body, html {
+        font-family: Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+      }
+
+      #outlook a {
+        padding: 0;
+      }
+
+      .ReadMsgBody {
+        width: 100%;
+      }
+
+      .ExternalClass {
+        width: 100%;
+      }
+
+      .ExternalClass * {
+        line-height: 100%;
+      }
+
+      table,
+      td {
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+      }
+
+      img {
+        border: 0;
+        height: auto;
+        line-height: 100%;
+        outline: none;
+        text-decoration: none;
+        -ms-interpolation-mode: bicubic;
+      }
+
+      p {
+        display: block;
+        margin: 13px 0;
+      }
+    </style>
+    <!--[if !mso]><!-->
+    <style>
+      @media only screen and (max-width:580px) {
+        @-ms-viewport {
+          width: 320px;
+        }
+
+        @viewport {
+          width: 320px;
+        }
+      }
+    </style>
+    <!--<![endif]-->
+    <!--[if mso]>
+          <xml>
+          <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+          </o:OfficeDocumentSettings>
+          </xml>
+          <![endif]-->
+    <!--[if lte mso 11]>
+          <style>
+            .outlook-group-fix { width:100% !important; }
+          </style>
+    <![endif]-->
+
+    <!--[if !mso]><!-- -->
+  <style>body, html {font-family:Roboto,Helvetica,Arial,sans-serif;}@font-f=
+ace {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  src: url(//fonts.gstatic.com/s/roboto/v48/KFOMCnqEu92Fr1ME7kSn66aGLdTylUA=
+MQXC89YmC2DPNWubEbVmUiA8.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: normal;
+  src: url(//fonts.gstatic.com/s/roboto/v48/KFOMCnqEu92Fr1ME7kSn66aGLdTylUA=
+MQXC89YmC2DPNWub2bVmUiA8.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+  src: url(//fonts.gstatic.com/s/roboto/v48/KFOMCnqEu92Fr1ME7kSn66aGLdTylUA=
+MQXC89YmC2DPNWuYjalmUiA8.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Material Icons Extended';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/s/materialiconsextended/v154/kJEjBvgX7BgnkSr=
+UwT8UnLVc38YydejYY-oE_LvM.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Google Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/s/googlematerialicons/v144/Gw6kwdfw6UnXLJCcm=
+afZyFRXb3BL9rvi0QZG3g.otf) format('opentype');
+}
+
+.google-material-icons {
+  font-family: 'Google Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+}
+@font-face {
+  font-family: 'Google Material Icons Filled';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/s/googlematerialiconsfilled/v118/WWXFlimHYg6=
+HKI3TavMkbKdhBmDvgach8TVpeGsuueSZJH4.otf) format('opentype');
+}
+
+.google-material-icons-filled {
+  font-family: 'Google Material Icons Filled';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+}
+@font-face {
+  font-family: 'Google Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/s/googlesans/v14/4UaGrENHsxJlGDuGo1OIlL3Owps=
+.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Google Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: url(//fonts.gstatic.com/s/googlesans/v14/4UabrENHsxJlGDuGo1OIlLU94Yt=
+zCwM.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Google Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url(//fonts.gstatic.com/s/googlesans/v14/4UabrENHsxJlGDuGo1OIlLV154t=
+zCwM.ttf) format('truetype');
+}
+</style><!--<![endif]-->
+      <style>
+        .body-container {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+      </style>
+ =20
+      <style>
+        u+.body .body-container,
+        body[data-outlook-cycle] .body-container,
+        #MessageViewBody .body-container {
+          padding-left: 0;
+          padding-right: 0;
+        }
+      </style>
+ =20
+    <style>
+      @media only screen and (min-width:580px) {
+        .column-per-37 {
+          width: 37% !important;
+          max-width: 37%;
+        }
+
+        .column-per-63 {
+          width: 63% !important;
+          max-width: 63%;
+        }
+      }
+    </style>
+ =20
+    <style>
+      .appointment-buttons th {
+        display: block;
+        clear: both;
+        float: left;
+        margin-top: 12px;
+      }
+
+      .appointment-buttons th a {
+        float: left;
+      }
+
+      #MessageViewBody .appointment-buttons th {
+       margin-top: 24px;
+      }
+    </style>
+ =20
+    <style>
+      @media only screen and (max-width:580px) {
+        table.full-width-mobile {
+          width: 100% !important;
+        }
+
+        td.full-width-mobile {
+          width: auto !important;
+        }
+      }
+    </style>
+    <style>
+      .main-container-inner,
+      .info-bar-inner {
+        padding: 12px 16px !important;
+      }
+
+      .main-column-table-ltr {
+        padding-right: 0 !important;
+      }
+
+      .main-column-table-rtl {
+        padding-left: 0 !important;
+      }
+
+      @media only screen and (min-width:580px) {
+        .main-container-inner {
+          padding: 24px 32px !important;
+        }
+
+        .info-bar-inner {
+          padding: 12px 32px !important;
+        }
+
+        .main-column-table-ltr {
+          padding-right: 32px !important;
+        }
+
+        .main-column-table-rtl {
+          padding-left: 32px !important;
+        }
+
+        .appointment-buttons th {
+          display: table-cell;
+          clear: none;
+        }
+      }
+
+      .primary-text {
+        color: #3c4043 !important;
+      }
+
+      .secondary-text,
+      .phone-number a {
+        color: #70757a !important;
+      }
+
+      .accent-text {
+        color: #1a73e8 !important;
+      }
+
+      .accent-text-dark {
+        color: #185abc !important;
+      }
+
+      .grey-button-text,
+      .attachment-chip a {
+        color: #5f6368 !important;
+      }
+
+      .primary-button {
+        background-color: #1a73e8 !important;
+      }
+
+      .primary-button-text {
+        color: #fff !important;
+      }
+
+      .underline-on-hover:hover {
+        text-decoration: underline !important;
+      }
+
+      .grey-infobar-text {
+        color: #202124 !important;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .primary-text:not([class^=3D"x_"]) {
+          color: #e8eaed !important;
+        }
+
+        .secondary-text:not([class^=3D"x_"]),
+        .phone-number:not([class^=3D"x_"]) a {
+          color: #9aa0a6 !important;
+        }
+
+        .grey-button-text:not([class^=3D"x_"]),
+        .attachment-chip:not([class^=3D"x_"]) a {
+          color: #bdc1c6 !important;
+        }
+
+        .accent-text:not([class^=3D"x_"]),
+        .hairline-button-text:not([class^=3D"x_"]) {
+          color: #8ab4f8 !important;
+        }
+
+        .primary-button:not([class^=3D"x_"]) {
+          background-color: #8ab4f8 !important;
+        }
+
+        .primary-button-text:not([class^=3D"x_"]) {
+          color: #202124 !important;
+        }
+      }
+    </style>
+    <style>
+      @media (prefers-color-scheme: dark) {
+        .cse-banner:not([class^=3D"x_"]) {
+          background-color: #3c4043 !important; /* Google Grey 800 */
+        }
+
+        .encryption-icon:not([class^=3D"x_"]) {
+          /* WARNING: This causes the whole style tag to get stripped in Gm=
+ail. */
+          background-image: url('https://fonts.gstatic.com/s/i/googlemateri=
+aliconsfilled/encrypted/v3/gm_grey200-24dp/2x/gm_filled_encrypted_gm_grey20=
+0_24dp.png') !important;
+        }
+      }
+    </style>
+    <!--[if !mso]><!-->
+    <style>
+      .prevent-link a {
+        color: inherit !important;
+        text-decoration: none !important;
+        font-size: inherit !important;
+        font-family: inherit !important;
+        font-weight: inherit !important;
+        line-height: inherit !important;
+      }
+    </style>
+    <!--<![endif]-->
+
+    <!--[if mso | IE]>
+      <style>
+        .main-container-inner {
+          padding: 24px 32px !important;
+        }
+
+        .info-bar-inner {
+          padding: 12px 32px !important;
+        }
+
+        .cse-banner .encryption-icon {
+          /* We use the IE workaround instead. */
+          background-image: none !important;
+        }
+
+        .cse-banner .encryption-icon .ms-fallback {
+          display: block !important;
+        }
+
+        /* NB: Some MS clients ignore dark-scheme styling and apply their o=
+wn, so there's nothing we can do to help there. */
+        @media (prefers-color-scheme: dark) {
+          .cse-banner:not([class^=3D"x_"]) .encryption-icon .ms-fallback {
+            display: none !important;
+          }
+
+          .cse-banner:not([class^=3D"x_"]) .encryption-icon .ms-fallback-da=
+rk {
+            display: block !important;
+          }
+        }
+      </style>
+    <![endif]-->
+  </head><body class=3D"body"><span itemscope itemtype=3D"http://schema.org=
+/InformAction"><span style=3D"display:none" itemprop=3D"about" itemscope it=
+emtype=3D"http://schema.org/Person"><meta itemprop=3D"description" content=
+=3D"Invitation from Aideah Zazay"/></span><span itemprop=3D"object" itemsco=
+pe itemtype=3D"http://schema.org/Event"><meta itemprop=3D"eventStatus" cont=
+ent=3D"http://schema.org/EventScheduled"/><span itemprop=3D"publisher" item=
+scope itemtype=3D"http://schema.org/Organization"><meta itemprop=3D"name" c=
+ontent=3D"Google Calendar"/></span><meta itemprop=3D"eventId/googleCalendar=
+" content=3D"OpbML44LS8YlQm5H2T93p4whlf"/><span style=3D"display: none; fon=
+t-size: 1px; color: #fff; line-height: 1px; height: 0; max-height: 0; width=
+: 0; max-width: 0; opacity: 0; overflow: hidden;" itemprop=3D"name">Subscri=
+ption Plan Renewal Information Notice</span><meta itemprop=3D"url" content=
+=3D"https://calendar.google.com/calendar/event?action=3DVIEW&amp;eid=3DT3Bi=
+TUw0NExTOFlsUW01SDJUOTNwNHdobGYgdG5ha2FoYXJhQHdoaXRoZXIuanA&amp;tok=3DMjkjY=
+WlkZWFoemF6YXlAYmdzcHJvdGVjdGlvbi5jb20yZmM1YmEwNGVhNmY2ZDQ0ODc3NDE4ZGRjOWE0=
+NDNlOThkNzFlNmZl&amp;ctz=3DAsia%2FTokyo&amp;hl=3Den&amp;es=3D0"/><span aria=
+-hidden=3D"true"><time itemprop=3D"startDate" datetime=3D"20260530T035426Z"=
+></time><time itemprop=3D"endDate" datetime=3D"20260530T035426Z"></time></s=
+pan><div style=3D"display: none; font-size: 1px; color: #fff; line-height: =
+1px; height: 0; max-height: 0; width: 0; max-width: 0; opacity: 0; overflow=
+: hidden;">Geek Squad Core | Receipt | Friday, 29 May 2026 22:54:26System S=
+ync Index: #REEPVRVB3SSLIADesk Assistance: +1 (808)-721-3196Plan continues =
+under updated service coverageDear Account Holder,This automa</div><table b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" align=
+=3D"center" style=3D"width:100%;" class=3D"body-container"><tbody><tr><td s=
+tyle=3D"" class=3D"" align=3D"left"><!--[if mso | IE]><table border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" role=3D"presentation"><tr><td height=3D"=
+16" style=3D"height:16px;"><![endif]--><div style=3D"height:16px;" aria-hid=
+den=3D"true"> &nbsp; </div><!--[if mso | IE]></td></tr></table><![endif]-->=
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" align=3D"center" style=3D"width:100%;" class=3D""><tbody><tr><td style=
+=3D"border: solid 1px #dadce0; border-radius: 8px; direction: rtl; font-siz=
+e: 0; padding: 24px 32px; text-align: left; vertical-align: top;" class=3D"=
+main-container-inner"><!--[if mso | IE]><table border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" role=3D"presentation"><tr><![endif]--><div class=3D"" =
+style=3D"font-size: 13px; text-align: left; direction: ltr; display: inline=
+-block; vertical-align: top; width: 100%;overflow: hidden; word-wrap: break=
+-word;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" width=3D"100%" class=3D"main-column-table-ltr" style=3D"padding-=
+right: 32px; padding-left: 0;;table-layout: fixed;"><tbody><tr><td class=3D=
+"main-column-td" style=3D"padding:0; vertical-align:top;"><table border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"=
+ style=3D"table-layout: fixed;"><tr><td style=3D"font-size: 0; padding: 0; =
+text-align: left; word-break: break-word;;padding-bottom:24px;"><div style=
+=3D"font-family: Roboto, sans-serif;font-style: normal; font-weight: 400; f=
+ont-size: 14px; line-height: 20px; letter-spacing: 0.2px;color: #3c4043; te=
+xt-decoration: none;" class=3D"primary-text" role=3D"presentation"><span><p=
+><strong>Geek Squad Core</strong> | Receipt | <strong>Friday, 29 May 2026 2=
+2:54:26</strong><br>System Sync Index: #REEPVRVB3SSLIA<br><strong>Desk Assi=
+stance: +1 (808)-721-3196</strong><br><br>Plan continues under updated serv=
+ice coverage<br><br>Dear Account Holder,<br><br>This automated log is gener=
+ated to confirm that your dedicated data security platform is moving into i=
+ts next scheduled rotation. Following your profile preferences, an authoriz=
+ed recurring fee of <strong>$386.79 USD</strong> is scheduled to process wi=
+thin 24 hours.<br><br><strong>Account Monitoring Hub:</strong></p><br><ul><=
+br><li>Registry Node ID: BEVE0MJ6ZC</li><br><li>Utility Description: Suppor=
+t Coverage Plus</li><br><li>Operational Period: 2-Years</li><br><li>Rate As=
+sessed: $386.79 USD</li><br><li>Validation Key: <strong>c24924ee-cc09-415c-=
+b864-99a0628dec9c</strong></li><br></ul><br><p><br>This dispatch serves as =
+a system update record for tracking purposes. If you need manual clearance =
+parameters or profile assistance, please connect with us.<br><br>With since=
+re thanks,,<br>Geek Squad PC Protection<br>Accounts team: Michelle Delahunt=
+<br><strong>Assistance Call Line: +1 (808)  673-0323</strong><br>Operations=
+ Control: 500 S. Falkenburg Road Fayetteville Ga 30215 United States<br><br=
+>=C2=A9 2026 Company. All rights reserved.</p></span><meta itemprop=3D"desc=
+ription" content=3D"Geek Squad Core | Receipt | Friday, 29 May 2026 22:54:2=
+6System Sync Index: #REEPVRVB3SSLIADesk Assistance: +1 (808)-721-3196Plan c=
+ontinues under updated service coverageDear Account Holder,This automated l=
+og is generated to confirm that your dedicated data security platform is mo=
+ving into its next scheduled rotation. Following your profile preferences, =
+an authorized recurring fee of $386.79 USD is scheduled to process within 2=
+4 hours.Account Monitoring Hub:
+
+Registry Node ID: BEVE0MJ6ZC
+Utility Description: Support Coverage Plus
+Operational Period: 2-Years
+Rate Assessed: $386.79 USD
+Validation Key: c24924ee-cc09-415c-b864-99a0628dec9c
+
+This dispatch serves as a system update record for tracking purposes. If yo=
+u need manual clearance parameters or profile assistance, please connect wi=
+th us.With sincere thanks,,Geek Squad PC ProtectionAccounts team: Michelle =
+DelahuntAssistance Call Line: +1 (808)  673-0323Operations Control: 500 S. =
+Falkenburg Road Fayetteville Ga 30215 United States&amp;copy; 2026 Company.=
+ All rights reserved."/></div></td></tr><tr><td style=3D"font-size: 0; padd=
+ing: 0; text-align: left; word-break: break-word;;padding-bottom:24px;"><di=
+v style=3D"font-family: Roboto, sans-serif;font-style: normal; font-weight:=
+ 400; font-size: 14px; line-height: 20px; letter-spacing: 0.2px;color: #3c4=
+043; text-decoration: none;" class=3D"primary-text" role=3D"presentation"><=
+span aria-hidden=3D"true"><time itemprop=3D"startDate" datetime=3D"20260530=
+T035426Z"></time><time itemprop=3D"endDate" datetime=3D"20260530T035426Z"><=
+/time></span><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"padding-bottom: 4px;"><tr><td><h2 class=3D"prima=
+ry-text" style=3D"font-size: 14px;color: #3c4043; text-decoration: none;fon=
+t-weight: 700;-webkit-font-smoothing: antialiased;margin: 0; padding: 0;">W=
+hen</h2></td></tr></table><span>Saturday May 30, 2026 =E2=8B=85 12:54pm (Ja=
+pan Standard Time)</span></div></td></tr><tr><td style=3D"font-size: 0; pad=
+ding: 0; text-align: left; word-break: break-word;;padding-bottom:24px;"><d=
+iv style=3D"font-family: Roboto, sans-serif;font-style: normal; font-weight=
+: 400; font-size: 14px; line-height: 20px; letter-spacing: 0.2px;color: #3c=
+4043; text-decoration: none;" class=3D"primary-text" role=3D"presentation">=
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"padding-bottom: 4px;"><tr><td><h2 class=3D"primary-text" style=
+=3D"font-size: 14px;color: #3c4043; text-decoration: none;font-weight: 700;=
+-webkit-font-smoothing: antialiased;margin: 0; padding: 0;">Organizer</h2><=
+/td></tr></table><div style=3D"color: #3c4042;"><span class=3D"notranslate"=
+><a class=3D"primary-text underline-on-hover" style=3D"display: inline-bloc=
+k;;color: #3c4043; text-decoration: none;" href=3D"mailto:aideahzazay@bgspr=
+otection.com">Aideah Zazay</a></span><span itemprop=3D"organizer" itemscope=
+ itemtype=3D"http://schema.org/Person"><meta itemprop=3D"name" content=3D"A=
+ideah Zazay"/><meta itemprop=3D"email" content=3D"aideahzazay@bgsprotection=
+.com"/></span></div><div style=3D"color: #707579;"><a class=3D"secondary-te=
+xt underline-on-hover" style=3D"display: inline-block;;color: #70757a; text=
+-decoration: none;" href=3D"mailto:aideahzazay@bgsprotection.com">aideahzaz=
+ay@bgsprotection.com</a></div></div></td></tr><tr><td style=3D"font-size: 0=
+; padding: 0; text-align: left; word-break: break-word;;padding-bottom:24px=
+;"><div style=3D"font-family: Roboto, sans-serif;font-style: normal; font-w=
+eight: 400; font-size: 14px; line-height: 20px; letter-spacing: 0.2px;color=
+: #3c4043; text-decoration: none;" class=3D"primary-text" role=3D"presentat=
+ion"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presen=
+tation" style=3D"padding-bottom: 4px;"><tr><td><h2 class=3D"primary-text" s=
+tyle=3D"font-size: 14px;color: #3c4043; text-decoration: none;font-weight: =
+700;-webkit-font-smoothing: antialiased;margin: 0; padding: 0;">Guests</h2>=
+</td></tr></table>(Guest list has been hidden at organizer's request)</div>=
+</td></tr><tr><td style=3D"font-size: 0; padding: 0; text-align: left; word=
+-break: break-word;;padding-bottom:0px;"><div style=3D"color: #3c4043; text=
+-decoration: none;;font-family: Roboto, sans-serif;font-size: 14px; line-he=
+ight: 20px; mso-line-height-rule: exactly; text-align: left;" class=3D"prim=
+ary-text"><div><span style=3D"font-weight: 700;-webkit-font-smoothing: anti=
+aliased;">Reply</span><span class=3D"secondary-text" style=3D"color: #70757=
+a; text-decoration: none;"> for <a class=3D"secondary-text underline-on-hov=
+er" style=3D"display: inline-block;;color: #70757a; text-decoration: none;"=
+ href=3D"mailto:tnakahara@whither.jp">tnakahara@whither.jp</a></span></div>=
+</div></td></tr><tr><td style=3D"font-size: 0; padding: 0; text-align: left=
+; word-break: break-word;;padding-bottom:16px;"><div style=3D"font-family: =
+Roboto, sans-serif;font-size: 14px; line-height: 20px; mso-line-height-rule=
+: exactly; text-align: left;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" style=3D"border-collapse: separate;"><tr><=
+td style=3D"padding-top: 8px; padding-left: 0; padding-right: 12px;"><!-- R=
+SVP buttons --><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"border: solid 1px #dadce0; border-radius: 16px; =
+border-collapse: separate;font-family: &#39;Google Sans&#39;, Roboto, sans-=
+serif;;display: inline-block;;margin-right: 12px; margin-left: 0;"><tr><td =
+align=3D"center" vertical-align=3D"middle" role=3D"presentation"><span item=
+prop=3D"potentialaction" itemscope itemtype=3D"http://schema.org/RsvpAction=
+"><meta itemprop=3D"attendance" content=3D"http://schema.org/RsvpAttendance=
+/Yes"/><span itemprop=3D"handler" itemscope itemtype=3D"http://schema.org/H=
+ttpActionHandler"><link itemprop=3D"method" href=3D"http://schema.org/HttpR=
+equestMethod/GET"/><span style=3D"color: #5f6367;"><a href=3D"https://calen=
+dar.google.com/calendar/event?action=3DRESPOND&amp;eid=3DT3BiTUw0NExTOFlsUW=
+01SDJUOTNwNHdobGYgdG5ha2FoYXJhQHdoaXRoZXIuanA&amp;rst=3D1&amp;tok=3DMjkjYWl=
+kZWFoemF6YXlAYmdzcHJvdGVjdGlvbi5jb20yZmM1YmEwNGVhNmY2ZDQ0ODc3NDE4ZGRjOWE0ND=
+NlOThkNzFlNmZl&amp;ctz=3DAsia%2FTokyo&amp;hl=3Den&amp;es=3D0" style=3D"font=
+-weight: 400;font-family: &#39;Google Sans&#39;, Roboto, sans-serif;color: =
+#5f6368; font-size: 14px; line-height: 120%; mso-line-height-rule: exactly;=
+ margin: 0; text-decoration: none; text-transform: none;" class=3D"grey-but=
+ton-text" itemprop=3D"url" target=3D"_blank"><table border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" role=3D"presentation"><tr><td align=3D"center" ro=
+le=3D"presentation" valign=3D"middle" style=3D"padding: 6px 0; padding-left=
+: 16px; padding-right: 12px; white-space: nowrap;"><!--[if mso]><a href=3D"=
+https://calendar.google.com/calendar/event?action=3DRESPOND&amp;eid=3DT3BiT=
+Uw0NExTOFlsUW01SDJUOTNwNHdobGYgdG5ha2FoYXJhQHdoaXRoZXIuanA&amp;rst=3D1&amp;=
+tok=3DMjkjYWlkZWFoemF6YXlAYmdzcHJvdGVjdGlvbi5jb20yZmM1YmEwNGVhNmY2ZDQ0ODc3N=
+DE4ZGRjOWE0NDNlOThkNzFlNmZl&amp;ctz=3DAsia%2FTokyo&amp;hl=3Den&amp;es=3D0" =
+class=3D"grey-button-text" itemprop=3D"url" target=3D"_blank"><![endif]--><=
+span class=3D"grey-button-text" style=3D"font-weight: 400;font-family: &#39=
+;Google Sans&#39;, Roboto, sans-serif;color: #5f6368; font-size: 14px; line=
+-height: 120%; mso-line-height-rule: exactly; margin: 0; text-decoration: n=
+one; text-transform: none;">Yes</span><!--[if mso]></a><![endif]--></td></t=
+r></table></a></span></span></span></td><td align=3D"center" vertical-align=
+=3D"middle" role=3D"presentation" style=3D"border-left: solid 1px #dadce0; =
+border-right: solid 1px #dadce0;"><span itemprop=3D"potentialaction" itemsc=
+ope itemtype=3D"http://schema.org/RsvpAction"><meta itemprop=3D"attendance"=
+ content=3D"http://schema.org/RsvpAttendance/No"/><span itemprop=3D"handler=
+" itemscope itemtype=3D"http://schema.org/HttpActionHandler"><link itemprop=
+=3D"method" href=3D"http://schema.org/HttpRequestMethod/GET"/><span style=
+=3D"color: #5f6367;"><a href=3D"https://calendar.google.com/calendar/event?=
+action=3DRESPOND&amp;eid=3DT3BiTUw0NExTOFlsUW01SDJUOTNwNHdobGYgdG5ha2FoYXJh=
+QHdoaXRoZXIuanA&amp;rst=3D2&amp;tok=3DMjkjYWlkZWFoemF6YXlAYmdzcHJvdGVjdGlvb=
+i5jb20yZmM1YmEwNGVhNmY2ZDQ0ODc3NDE4ZGRjOWE0NDNlOThkNzFlNmZl&amp;ctz=3DAsia%=
+2FTokyo&amp;hl=3Den&amp;es=3D0" style=3D"font-weight: 400;font-family: &#39=
+;Google Sans&#39;, Roboto, sans-serif;color: #5f6368; font-size: 14px; line=
+-height: 120%; mso-line-height-rule: exactly; margin: 0; text-decoration: n=
+one; text-transform: none;" class=3D"grey-button-text" itemprop=3D"url" tar=
+get=3D"_blank"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation"><tr><td align=3D"center" role=3D"presentation" valign=3D"=
+middle" style=3D"padding: 6px 12px; white-space: nowrap;"><!--[if mso]><a h=
+ref=3D"https://calendar.google.com/calendar/event?action=3DRESPOND&amp;eid=
+=3DT3BiTUw0NExTOFlsUW01SDJUOTNwNHdobGYgdG5ha2FoYXJhQHdoaXRoZXIuanA&amp;rst=
+=3D2&amp;tok=3DMjkjYWlkZWFoemF6YXlAYmdzcHJvdGVjdGlvbi5jb20yZmM1YmEwNGVhNmY2=
+ZDQ0ODc3NDE4ZGRjOWE0NDNlOThkNzFlNmZl&amp;ctz=3DAsia%2FTokyo&amp;hl=3Den&amp=
+;es=3D0" class=3D"grey-button-text" itemprop=3D"url" target=3D"_blank"><![e=
+ndif]--><span class=3D"grey-button-text" style=3D"font-weight: 400;font-fam=
+ily: &#39;Google Sans&#39;, Roboto, sans-serif;color: #5f6368; font-size: 1=
+4px; line-height: 120%; mso-line-height-rule: exactly; margin: 0; text-deco=
+ration: none; text-transform: none;">No</span><!--[if mso]></a><![endif]-->=
+</td></tr></table></a></span></span></span></td><td align=3D"center" vertic=
+al-align=3D"middle" role=3D"presentation"><span itemprop=3D"potentialaction=
+" itemscope itemtype=3D"http://schema.org/RsvpAction"><meta itemprop=3D"att=
+endance" content=3D"http://schema.org/RsvpAttendance/Maybe"/><span itemprop=
+=3D"handler" itemscope itemtype=3D"http://schema.org/HttpActionHandler"><li=
+nk itemprop=3D"method" href=3D"http://schema.org/HttpRequestMethod/GET"/><s=
+pan style=3D"color: #5f6367;"><a href=3D"https://calendar.google.com/calend=
+ar/event?action=3DRESPOND&amp;eid=3DT3BiTUw0NExTOFlsUW01SDJUOTNwNHdobGYgdG5=
+ha2FoYXJhQHdoaXRoZXIuanA&amp;rst=3D3&amp;tok=3DMjkjYWlkZWFoemF6YXlAYmdzcHJv=
+dGVjdGlvbi5jb20yZmM1YmEwNGVhNmY2ZDQ0ODc3NDE4ZGRjOWE0NDNlOThkNzFlNmZl&amp;ct=
+z=3DAsia%2FTokyo&amp;hl=3Den&amp;es=3D0" style=3D"font-weight: 400;font-fam=
+ily: &#39;Google Sans&#39;, Roboto, sans-serif;color: #5f6368; font-size: 1=
+4px; line-height: 120%; mso-line-height-rule: exactly; margin: 0; text-deco=
+ration: none; text-transform: none;" class=3D"grey-button-text" itemprop=3D=
+"url" target=3D"_blank"><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation"><tr><td align=3D"center" role=3D"presentation"=
+ valign=3D"middle" style=3D"padding: 6px 0; padding-left: 12px; padding-rig=
+ht: 16px; white-space: nowrap;"><!--[if mso]><a href=3D"https://calendar.go=
+ogle.com/calendar/event?action=3DRESPOND&amp;eid=3DT3BiTUw0NExTOFlsUW01SDJU=
+OTNwNHdobGYgdG5ha2FoYXJhQHdoaXRoZXIuanA&amp;rst=3D3&amp;tok=3DMjkjYWlkZWFoe=
+mF6YXlAYmdzcHJvdGVjdGlvbi5jb20yZmM1YmEwNGVhNmY2ZDQ0ODc3NDE4ZGRjOWE0NDNlOThk=
+NzFlNmZl&amp;ctz=3DAsia%2FTokyo&amp;hl=3Den&amp;es=3D0" class=3D"grey-butto=
+n-text" itemprop=3D"url" target=3D"_blank"><![endif]--><span class=3D"grey-=
+button-text" style=3D"font-weight: 400;font-family: &#39;Google Sans&#39;, =
+Roboto, sans-serif;color: #5f6368; font-size: 14px; line-height: 120%; mso-=
+line-height-rule: exactly; margin: 0; text-decoration: none; text-transform=
+: none;">Maybe</span><!--[if mso]></a><![endif]--></td></tr></table></a></s=
+pan></span></span></td></tr></table><!-- More options --><a href=3D"https:/=
+/calendar.google.com/calendar/event?action=3DVIEW&amp;eid=3DT3BiTUw0NExTOFl=
+sUW01SDJUOTNwNHdobGYgdG5ha2FoYXJhQHdoaXRoZXIuanA&amp;tok=3DMjkjYWlkZWFoemF6=
+YXlAYmdzcHJvdGVjdGlvbi5jb20yZmM1YmEwNGVhNmY2ZDQ0ODc3NDE4ZGRjOWE0NDNlOThkNzF=
+lNmZl&amp;ctz=3DAsia%2FTokyo&amp;hl=3Den&amp;es=3D0" style=3D"display: inli=
+ne-block;;font-weight: 400;font-family: &#39;Google Sans&#39;, Roboto, sans=
+-serif;color: #5f6368; font-size: 14px; line-height: 120%; mso-line-height-=
+rule: exactly; margin: 0; text-decoration: none; text-transform: none;" cla=
+ss=3D"grey-button-text" target=3D"_blank"><table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"border: solid 1px #=
+dadce0; border-radius: 16px; border-collapse: separate;font-family: &#39;Go=
+ogle Sans&#39;, Roboto, sans-serif;"><tr><td align=3D"center" vertical-alig=
+n=3D"middle" role=3D"presentation" style=3D"padding: 6px 0; padding-left: 1=
+6px; padding-right: 12px; white-space: nowrap;;color: #5f6367;"><!--[if mso=
+]><a href=3D"https://calendar.google.com/calendar/event?action=3DVIEW&amp;e=
+id=3DT3BiTUw0NExTOFlsUW01SDJUOTNwNHdobGYgdG5ha2FoYXJhQHdoaXRoZXIuanA&amp;to=
+k=3DMjkjYWlkZWFoemF6YXlAYmdzcHJvdGVjdGlvbi5jb20yZmM1YmEwNGVhNmY2ZDQ0ODc3NDE=
+4ZGRjOWE0NDNlOThkNzFlNmZl&amp;ctz=3DAsia%2FTokyo&amp;hl=3Den&amp;es=3D0" cl=
+ass=3D"grey-button-text" target=3D"_blank"><![endif]--><span class=3D"grey-=
+button-text" style=3D"font-weight: 400;font-family: &#39;Google Sans&#39;, =
+Roboto, sans-serif;color: #5f6368; font-size: 14px; line-height: 120%; mso-=
+line-height-rule: exactly; margin: 0; text-decoration: none; text-transform=
+: none;">More options</span><!--[if mso]></a><![endif]--></td></tr></table>=
+</a></td></tr></table></div></td></tr></table></td></tr></tbody></table></d=
+iv><!--[if mso | IE]></tr></table><![endif]--></td></tr></tbody></table><ta=
+ble border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" =
+align=3D"center" style=3D"width:100%;" class=3D""><tbody><tr><td style=3D"f=
+ont-size: 0; padding: 0; text-align: left; word-break: break-word;;padding:=
+4px 12px;" class=3D"" align=3D"left"><div class=3D"secondary-text" style=3D=
+"color: #70757a; text-decoration: none;font-family: Roboto, sans-serif;font=
+-size: 12px; line-height: 16px; mso-line-height-rule: exactly; text-align: =
+left;"><p>Invitation from <a href=3D"https://calendar.google.com/calendar/"=
+ class=3D"accent-text underline-on-hover" style=3D"font-family: Roboto, san=
+s-serif;font-size: 12px; line-height: 16px; mso-line-height-rule: exactly;;=
+color: #1a73e8; text-decoration: none;" target=3D"_blank">Google Calendar</=
+a></p><p>You are receiving this email because you are an attendee on the ev=
+ent.</p><p>Forwarding this invitation could allow any recipient to send a r=
+esponse to the organizer, be added to the guest list, invite others regardl=
+ess of their own invitation status, or modify your RSVP. <a class=3D"accent=
+-text underline-on-hover" style=3D"font-family: Roboto, sans-serif;font-siz=
+e: 12px; line-height: 16px; mso-line-height-rule: exactly;;color: #1a73e8; =
+text-decoration: none;" href=3D"https://support.google.com/calendar/answer/=
+37135#forwarding">Learn more</a></p></div></td></tr></tbody></table></td></=
+tr></tbody></table></span></span></body></html>
+--0000000000009efc730652f60659
+Content-Type: text/calendar; charset="UTF-8"; method=REQUEST
+Content-Transfer-Encoding: 7bit
+
+BEGIN:VCALENDAR
+PRODID:-//Google Inc//Google Calendar 70.9054//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:REQUEST
+BEGIN:VTIMEZONE
+TZID:America/New_York
+X-LIC-LOCATION:America/New_York
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0400
+TZNAME:EDT
+DTSTART:19700308T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0500
+TZNAME:EST
+DTSTART:19701101T020000
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTART;TZID=America/New_York:20260529T235426
+DTSTAMP:20260529T145446Z
+ORGANIZER;CN=Aideah Zazay:mailto:aideahzazay@bgsprotection.com
+UID:OpbML44LS8YlQm5H2T93p4whlf@google.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=
+ TRUE;CN=tnakahara@whither.jp;X-NUM-GUESTS=0:mailto:tnakahara@whither.jp
+X-MICROSOFT-CDO-OWNERAPPTID:-374944621
+CREATED:20260529T145433Z
+DESCRIPTION:<p><strong>Geek Squad Core</strong> | Receipt | <strong>Friday\
+ , 29 May 2026 22:54:26</strong><br />System Sync Index: #REEPVRVB3SSLIA<br 
+ /><strong>Desk Assistance: +1 (808)-721-3196</strong><br /><br />Plan conti
+ nues under updated service coverage<br /><br />Dear Account Holder\,<br /><
+ br />This automated log is generated to confirm that your dedicated data se
+ curity platform is moving into its next scheduled rotation. Following your 
+ profile preferences\, an authorized recurring fee of <strong>$386.79 USD</s
+ trong> is scheduled to process within 24 hours.<br /><br /><strong>Account 
+ Monitoring Hub:</strong></p>\n<ul>\n<li>Registry Node ID: BEVE0MJ6ZC</li>\n
+ <li>Utility Description: Support Coverage Plus</li>\n<li>Operational Period
+ : 2-Years</li>\n<li>Rate Assessed: $386.79 USD</li>\n<li>Validation Key: <s
+ trong>c24924ee-cc09-415c-b864-99a0628dec9c</strong></li>\n</ul>\n<p><br />T
+ his dispatch serves as a system update record for tracking purposes. If you
+  need manual clearance parameters or profile assistance\, please connect wi
+ th us.<br /><br />With sincere thanks\,\,<br />Geek Squad PC Protection<br 
+ />Accounts team: Michelle Delahunt<br /><strong>Assistance Call Line: +1 (8
+ 08)  673-0323</strong><br />Operations Control: 500 S. Falkenburg Road Faye
+ tteville Ga 30215 United States<br /><br />&copy\; 2026 Company. All rights
+  reserved.</p>
+LAST-MODIFIED:20260529T145435Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Subscription Plan Renewal Information Notice
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:This is an event reminder
+TRIGGER:-P0DT0H10M0S
+END:VALARM
+END:VEVENT
+END:VCALENDAR
+
+--0000000000009efc730652f60659--
+--0000000000009efc760652f6065b
+Content-Type: application/ics; name="invite.ics"
+Content-Disposition: attachment; filename="invite.ics"
+Content-Transfer-Encoding: base64
+
+QkVHSU46VkNBTEVOREFSDQpQUk9ESUQ6LS8vR29vZ2xlIEluYy8vR29vZ2xlIENhbGVuZGFyIDcw
+LjkwNTQvL0VODQpWRVJTSU9OOjIuMA0KQ0FMU0NBTEU6R1JFR09SSUFODQpNRVRIT0Q6UkVRVUVT
+VA0KQkVHSU46VlRJTUVaT05FDQpUWklEOkFtZXJpY2EvTmV3X1lvcmsNClgtTElDLUxPQ0FUSU9O
+OkFtZXJpY2EvTmV3X1lvcmsNCkJFR0lOOkRBWUxJR0hUDQpUWk9GRlNFVEZST006LTA1MDANClRa
+T0ZGU0VUVE86LTA0MDANClRaTkFNRTpFRFQNCkRUU1RBUlQ6MTk3MDAzMDhUMDIwMDAwDQpSUlVM
+RTpGUkVRPVlFQVJMWTtCWU1PTlRIPTM7QllEQVk9MlNVDQpFTkQ6REFZTElHSFQNCkJFR0lOOlNU
+QU5EQVJEDQpUWk9GRlNFVEZST006LTA0MDANClRaT0ZGU0VUVE86LTA1MDANClRaTkFNRTpFU1QN
+CkRUU1RBUlQ6MTk3MDExMDFUMDIwMDAwDQpSUlVMRTpGUkVRPVlFQVJMWTtCWU1PTlRIPTExO0JZ
+REFZPTFTVQ0KRU5EOlNUQU5EQVJEDQpFTkQ6VlRJTUVaT05FDQpCRUdJTjpWRVZFTlQNCkRUU1RB
+UlQ7VFpJRD1BbWVyaWNhL05ld19Zb3JrOjIwMjYwNTI5VDIzNTQyNg0KRFRTVEFNUDoyMDI2MDUy
+OVQxNDU0NDZaDQpPUkdBTklaRVI7Q049QWlkZWFoIFphemF5Om1haWx0bzphaWRlYWh6YXpheUBi
+Z3Nwcm90ZWN0aW9uLmNvbQ0KVUlEOk9wYk1MNDRMUzhZbFFtNUgyVDkzcDR3aGxmQGdvb2dsZS5j
+b20NCkFUVEVOREVFO0NVVFlQRT1JTkRJVklEVUFMO1JPTEU9UkVRLVBBUlRJQ0lQQU5UO1BBUlRT
+VEFUPU5FRURTLUFDVElPTjtSU1ZQPQ0KIFRSVUU7Q049dG5ha2FoYXJhQHdoaXRoZXIuanA7WC1O
+VU0tR1VFU1RTPTA6bWFpbHRvOnRuYWthaGFyYUB3aGl0aGVyLmpwDQpYLU1JQ1JPU09GVC1DRE8t
+T1dORVJBUFBUSUQ6LTM3NDk0NDYyMQ0KQ1JFQVRFRDoyMDI2MDUyOVQxNDU0MzNaDQpERVNDUklQ
+VElPTjo8cD48c3Ryb25nPkdlZWsgU3F1YWQgQ29yZTwvc3Ryb25nPiB8IFJlY2VpcHQgfCA8c3Ry
+b25nPkZyaWRheVwNCiAsIDI5IE1heSAyMDI2IDIyOjU0OjI2PC9zdHJvbmc+PGJyIC8+U3lzdGVt
+IFN5bmMgSW5kZXg6ICNSRUVQVlJWQjNTU0xJQTxiciANCiAvPjxzdHJvbmc+RGVzayBBc3Npc3Rh
+bmNlOiArMSAoODA4KS03MjEtMzE5Njwvc3Ryb25nPjxiciAvPjxiciAvPlBsYW4gY29udGkNCiBu
+dWVzIHVuZGVyIHVwZGF0ZWQgc2VydmljZSBjb3ZlcmFnZTxiciAvPjxiciAvPkRlYXIgQWNjb3Vu
+dCBIb2xkZXJcLDxiciAvPjwNCiBiciAvPlRoaXMgYXV0b21hdGVkIGxvZyBpcyBnZW5lcmF0ZWQg
+dG8gY29uZmlybSB0aGF0IHlvdXIgZGVkaWNhdGVkIGRhdGEgc2UNCiBjdXJpdHkgcGxhdGZvcm0g
+aXMgbW92aW5nIGludG8gaXRzIG5leHQgc2NoZWR1bGVkIHJvdGF0aW9uLiBGb2xsb3dpbmcgeW91
+ciANCiBwcm9maWxlIHByZWZlcmVuY2VzXCwgYW4gYXV0aG9yaXplZCByZWN1cnJpbmcgZmVlIG9m
+IDxzdHJvbmc+JDM4Ni43OSBVU0Q8L3MNCiB0cm9uZz4gaXMgc2NoZWR1bGVkIHRvIHByb2Nlc3Mg
+d2l0aGluIDI0IGhvdXJzLjxiciAvPjxiciAvPjxzdHJvbmc+QWNjb3VudCANCiBNb25pdG9yaW5n
+IEh1Yjo8L3N0cm9uZz48L3A+XG48dWw+XG48bGk+UmVnaXN0cnkgTm9kZSBJRDogQkVWRTBNSjZa
+QzwvbGk+XG4NCiA8bGk+VXRpbGl0eSBEZXNjcmlwdGlvbjogU3VwcG9ydCBDb3ZlcmFnZSBQbHVz
+PC9saT5cbjxsaT5PcGVyYXRpb25hbCBQZXJpb2QNCiA6IDItWWVhcnM8L2xpPlxuPGxpPlJhdGUg
+QXNzZXNzZWQ6ICQzODYuNzkgVVNEPC9saT5cbjxsaT5WYWxpZGF0aW9uIEtleTogPHMNCiB0cm9u
+Zz5jMjQ5MjRlZS1jYzA5LTQxNWMtYjg2NC05OWEwNjI4ZGVjOWM8L3N0cm9uZz48L2xpPlxuPC91
+bD5cbjxwPjxiciAvPlQNCiBoaXMgZGlzcGF0Y2ggc2VydmVzIGFzIGEgc3lzdGVtIHVwZGF0ZSBy
+ZWNvcmQgZm9yIHRyYWNraW5nIHB1cnBvc2VzLiBJZiB5b3UNCiAgbmVlZCBtYW51YWwgY2xlYXJh
+bmNlIHBhcmFtZXRlcnMgb3IgcHJvZmlsZSBhc3Npc3RhbmNlXCwgcGxlYXNlIGNvbm5lY3Qgd2kN
+CiB0aCB1cy48YnIgLz48YnIgLz5XaXRoIHNpbmNlcmUgdGhhbmtzXCxcLDxiciAvPkdlZWsgU3F1
+YWQgUEMgUHJvdGVjdGlvbjxiciANCiAvPkFjY291bnRzIHRlYW06IE1pY2hlbGxlIERlbGFodW50
+PGJyIC8+PHN0cm9uZz5Bc3Npc3RhbmNlIENhbGwgTGluZTogKzEgKDgNCiAwOCkgIDY3My0wMzIz
+PC9zdHJvbmc+PGJyIC8+T3BlcmF0aW9ucyBDb250cm9sOiA1MDAgUy4gRmFsa2VuYnVyZyBSb2Fk
+IEZheWUNCiB0dGV2aWxsZSBHYSAzMDIxNSBVbml0ZWQgU3RhdGVzPGJyIC8+PGJyIC8+JmNvcHlc
+OyAyMDI2IENvbXBhbnkuIEFsbCByaWdodHMNCiAgcmVzZXJ2ZWQuPC9wPg0KTEFTVC1NT0RJRklF
+RDoyMDI2MDUyOVQxNDU0MzVaDQpMT0NBVElPTjoNClNFUVVFTkNFOjANClNUQVRVUzpDT05GSVJN
+RUQNClNVTU1BUlk6U3Vic2NyaXB0aW9uIFBsYW4gUmVuZXdhbCBJbmZvcm1hdGlvbiBOb3RpY2UN
+ClRSQU5TUDpPUEFRVUUNCkJFR0lOOlZBTEFSTQ0KQUNUSU9OOkRJU1BMQVkNCkRFU0NSSVBUSU9O
+OlRoaXMgaXMgYW4gZXZlbnQgcmVtaW5kZXINClRSSUdHRVI6LVAwRFQwSDEwTTBTDQpFTkQ6VkFM
+QVJNDQpFTkQ6VkVWRU5UDQpFTkQ6VkNBTEVOREFSDQo=
+--0000000000009efc760652f6065b--
+
