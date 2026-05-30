@@ -1,0 +1,804 @@
+Delivered-To: silverfirefox@gmail.com
+Received: by 2002:a98:a317:0:b0:26a:2114:7ab with SMTP id h23csp3419783eid;
+        Tue, 26 May 2026 04:27:31 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AFNElJ8YzGfgaiO7SGqTzYbjiuoaAVekhzcZ0T5NMzpWFr6q+ITwr31c50j1J7GzXAkm5nEAggiCpbZFdl7BQx32@gmail.com
+X-Received: by 2002:a05:6870:210b:b0:42c:111b:73fe with SMTP id 586e51a60fabf-43b5ad96bf3mr9973229fac.18.1779794850707;
+        Tue, 26 May 2026 04:27:30 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779794850; cv=none;
+        d=google.com; s=arc-20240605;
+        b=budZqozL5fJIkqALPq50IwKpE6khD4D50foG0hB1sWQ/+tLzFIggd62rRKUX5Wvm9M
+         x2GycGn4qZdPSVQb4e3MKojKnHCcQ9yAJk3DlGDAY6GMaua3aLEx/SJSfgex5KeqTDIH
+         dIoHpgQYzwPLWHTVFbZpGPdKWZ9nb85JqA6us2pVUTDKf+x8LMtRQ+LR5/3E/yDkXlJH
+         pj7qqSxnTZkH8/k+6ROl7vXm42LCqPsR7KkU88ew5MvSEgfreEg//frgNKja2Iyr7pgg
+         LXmZMXuPxQlkUnhXL91UN/6v0FW3HfXClRCHoglA2DfhjEb6+9au69xVrX5DST6FqnFv
+         j70Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:envelope-to:date:sender:subject:from:feedback-id:dkim-signature
+         :message-id;
+        bh=Jz6FIhDlh+Y68GniBQbgIEdjsYPgpat3NastDQOXSyI=;
+        fh=GMSS3jjCGonHKdIEfnKvsCy6Z0N1IFfgELPgutHS5/4=;
+        b=kSmQUDRF+Bzp2BQurKREHsx/cdkzddwuIWYi7KvZSIjh9K8yTQwY3V9haIyfqHr73x
+         nEfbQs2peW5+7Zh0+iRoapqVae5NRrVwRkdjwszaX7C8QOSUxwpWH77v7LgRxUSG9Irm
+         NV2JqX0HX7i2BbTLA1DtjyxsZlGi2Z0xuavCE+DvnlSaIpiHxuhFxKseGGob8/YHniah
+         Gynnr1BsWUle225clB/tYvd1REJ6XrzPqlvsFBDc56xZfqRhejp99L+xP+UtUybT65MQ
+         TrATZZiET/Aevadqr8V60MQiMwNFXczwlg/aPC4CHXoha0rLPtXxKqyumnJeR7qDxVND
+         ewRw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@theretreat.uk.com header.s=s1 header.b=jvuIclNC;
+       spf=pass (google.com: domain of lihwoiltqpyvyfalloac@myaccount.dermalogica.co.uk designates 208.67.250.131 as permitted sender) smtp.mailfrom=LihwOILTQPyvyFalLoAc@myaccount.dermalogica.co.uk
+Return-Path: <LihwOILTQPyvyFalLoAc@myaccount.dermalogica.co.uk>
+Received: from salesviewer.com (collar.zinfullydelicious.com. [208.67.250.131])
+        by mx.google.com with ESMTPS id 586e51a60fabf-43b63c6d329si10594618fac.274.2026.05.26.04.27.30
+        for <silverfirefox@gmail.com>
+        (version=TLS1 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+        Tue, 26 May 2026 04:27:30 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lihwoiltqpyvyfalloac@myaccount.dermalogica.co.uk designates 208.67.250.131 as permitted sender) client-ip=208.67.250.131;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@theretreat.uk.com header.s=s1 header.b=jvuIclNC;
+       spf=pass (google.com: domain of lihwoiltqpyvyfalloac@myaccount.dermalogica.co.uk designates 208.67.250.131 as permitted sender) smtp.mailfrom=LihwOILTQPyvyFalLoAc@myaccount.dermalogica.co.uk
+Message-ID: <6a1583a2.b2b9afb0.61db0.0998SMTPIN_ADDED_MISSING@mx.google.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=s1; d=theretreat.uk.com;
+ h=From:Subject:Sender:Date:To:Content-Type; i=odkmw@theretreat.uk.com;
+ bh=Jz6FIhDlh+Y68GniBQbgIEdjsYPgpat3NastDQOXSyI=;
+ b=jvuIclNCQidSqCKJxJVAmk3DV44PJfVocdloGFrFYTqXBUcpsYctm4eTCslzB2pWyWWKBflFXlsp
+   m2rHSEiabRenvNOdzMHAuUf9kRLuab0UPwVPrN01N8d3jsfsTWypqIj7fYAQkvi17xCV5x1zXuXq
+   F7nrt9ad7jvNCYPZOtGoOvH+p+Y/3t475wMdU8WrFjes029ZOG2J4d8Oo8inZenJrLDTnYtQQURJ
+   UhWts4auZMCzsfGeFgguSLNPkDxwKAK1dzpMeyRmRtbzD5S1FQ1culjFeQQquM9RjEuK9iAzIIQj
+   +rV0LgOT0jmsH7+32McXMUrtrn64hdx8UjCcGQ==
+Feedback-ID: 1.us-east-1.psHyoMfnH8hkuQnF72JGzzQK1By9IkayShm7uIk1GIc=:AmazonSES
+From: "Jelly-Lean"  <teamsupport.044612408192047@questionprov92534.com>
+Subject: Everyone's talking about this gummy 🍬
+Sender: <odkmw@theretreat.uk.com>
+Date: Tue, 26 May 2026 11:27:30 +0000 (UTC)
+Envelope-To: support-931593017@googlemail.com
+To: support_6724476@googlemail.com
+X-PVIQ: mkto-RdMCgBVWW-NB6yqY-hZCeCx-FdLezk
+Received: from efianalytics.com (efianalytics.com. 216.244.76.116)
+X-EMMAIL: gkhedj89gvqv@y6f7rslwmelm6k.us
+X-MarketoID: vKD-Gha-ownhcpal:0:jJKk4V:9:oB3EVd:besLKX8VE
+Content-Type: multipart/report; boundary="000000000000SGCNuB7Qm6umj710elBSQB"; report-type=delivery-status
+
+--000000000000SGCNuB7Qm6umj710elBSQB
+Content-Type: multipart/related; boundary="000000000000B0MNRUNyYR84HR9a"
+
+--000000000000B0MNRUNyYR84HR9a
+Content-Type: multipart/alternative; boundary="000000000000B0MNRUNyYR84HR9b"
+
+--000000000000B0MNRUNyYR84HR9b
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Top Stories of the Day: Tue, 26 May 2026 11:27:30 +0000 (UTC)
+
+153664461275766651
+-----
+pebtxzfscxyylhwoqflnfzgrdvkdsrwmnqnwvfbxyfiluivwehnrvqigtydqlsfsfjgsmkmpsrflxfbcrzumjkprxewewehzlcafqdpjcowhtsghlwacctdksqisbfuljzsekwlqwaznciiumtnemmyollszvcdwcgrgfdezenawppjgupahkuzzgpwzqjsohmdwmgkijqadtt
+
+If you believe this has been sent to you in error, please safely unsubscrib=
+e
+
+--000000000000B0MNRUNyYR84HR9b
+Content-Type: text/html; charset="UTF-8"  
+Content-Transfer-Encoding: 8bit+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Report</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            color: #333333;
+            margin: 0;
+            padding: 40px 15px;
+        }
+
+        /* Main Container (The Frame) */
+        .email-container {
+            max-width: 650px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+        }
+
+        /* Two-tone Red Header */
+        .header-top {
+            background-color: #a91b17; /* Bright dark red */
+            color: #ffffff;
+            text-align: center;
+            padding: 25px;
+            font-size: 38px;
+            font-family: 'Times New Roman', Times, serif;
+            letter-spacing: 2px;
+        }
+
+        .header-bottom {
+            background-color: #7a120f; /* Darker red */
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Content Area */
+        .content {
+            padding: 35px 30px;
+        }
+
+        .overline {
+            color: #8b1c1c;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 30px;
+            color: #111111;
+            line-height: 1.3;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+
+        /* Video Placeholder CTA (Replaces the image) */
+        .video-box {
+            display: block;
+            background-color: #f9f9f9;
+            border: 2px dashed #cccccc;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            text-decoration: none;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .video-box:hover {
+            background-color: #fff0f0;
+            border-color: #a91b17;
+        }
+
+        .play-icon {
+            font-size: 45px;
+            color: #a91b17;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .video-text {
+            font-size: 20px;
+            font-weight: bold;
+            color: #222222;
+        }
+
+        .video-subtext {
+            font-size: 14px;
+            color: #a91b17;
+            font-weight: bold;
+            margin-top: 15px;
+            background-color: #a91b17;
+            color: white;
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 3px;
+        }
+
+        /* Logos Replacement */
+        .media-logos {
+            text-align: center;
+            font-size: 15px;
+            font-weight: bold;
+            color: #888888;
+            margin-bottom: 30px;
+            padding: 15px 0;
+            border-top: 1px solid #eeeeee;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .media-logos span {
+            color: #000000;
+            margin: 0 10px;
+        }
+
+        /* Paragraphs */
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #444444;
+            margin-bottom: 20px;
+        }
+
+        /* Main Red Button */
+        .btn {
+            display: block;
+            background-color: #b01a1a;
+            color: #ffffff;
+            text-align: center;
+            padding: 18px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 6px;
+            margin: 35px 0 10px 0;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #8f1212;
+        }
+
+        /* Inner Footer */
+        .inner-footer {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .inner-footer a {
+            font-size: 12px;
+            color: #0000ee;
+            text-decoration: underline;
+        }
+
+        /* External Footer */
+        .external-footer {
+            max-width: 650px;
+            margin: 20px auto 0;
+            text-align: center;
+            font-size: 12px;
+            color: #666666;
+            line-height: 1.5;
+        }
+
+        .external-footer a {
+            color: #0000ee;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- MAIN FRAME -->
+    <div class="email-container">
+        
+        <!-- Header -->
+        <div class="header-top">HEALTH</div>
+        <div class="header-bottom">DAILY UPDATES ON WELLNESS AND HEALTH</div>
+
+        <!-- Content Area -->
+        <div class="content">
+            <div class="overline">EXCLUSIVE HEALTH REPORT</div>
+            
+            <h1>Doctors Are Paying Attention To This Daily Blood Sugar Formula — Watch The Video Before It Disappears</h1>
+
+            <!-- Video Replacement Block -->
+            <a href="https://storage.googleapis.com/apg6thf04771l31m/rradsnowvdqo16hg/8e51d3f.html#s3joKoEuT.cfc?zLIrvGJ_gAAAAABqFYOideCOvnbLsyC_JajI-Ni5pRP6red2Gkb5dqEe3natwTXZTu00_qbSBgVNJlhlQ-zrrjSLDEO5w3IObVPjcfleRxjIgcPCDWcFkdgsfrLBRtxUvdg-K1nSmgYZ8LdEZ05W_iKsQSybb9iprStVJp-iFg==" class="video-box">
+                <span class="play-icon">▶</span>
+                <span class="video-text">The Real Villain of Type 2 Diabetes</span><br>
+                <span class="video-subtext">WATCH NOW</span>
+            </a>
+
+            <!-- Logos Replacement Block -->
+            <div class="media-logos">
+                As seen on: 
+                <span>The New York Times</span> | 
+                <span>CBS</span> | 
+                <span>abc</span> | 
+                <span>FOX</span> | 
+                <span>CNN</span>
+            </div>
+
+            <p>A growing number of people are discovering <strong>GlucoZen Drops</strong> after reports revealed a natural approach designed to support healthy blood sugar levels and overall wellness. Thousands are now exploring why this plant-based formula is creating so much interest.</p>
+
+            <p>With carefully selected ingredients aimed at supporting glucose balance, energy, and focus, many are rushing to learn what makes this daily routine different.</p>
+
+            <a href="https://storage.googleapis.com/apg6thf04771l31m/rradsnowvdqo16hg/8e51d3f.html#s3joKoEuT.cfc?zLIrvGJ_gAAAAABqFYOideCOvnbLsyC_JajI-Ni5pRP6red2Gkb5dqEe3natwTXZTu00_qbSBgVNJlhlQ-zrrjSLDEO5w3IObVPjcfleRxjIgcPCDWcFkdgsfrLBRtxUvdg-K1nSmgYZ8LdEZ05W_iKsQSybb9iprStVJp-iFg==" class="btn">Watch The Blood Sugar Report</a>
+
+            <div class="inner-footer">
+                <a href="https://storage.googleapis.com/apg6thf04771l31m/rradsnowvdqo16hg/8e51d3f.html#s3joKoEuT.cfc?zLIrvGJ_gAAAAABqFYOideCOvnbLsyC_JajI-Ni5pRP6red2Gkb5dqEe3natwTXZTu00_qbSBgVNJlhlQ-zrrjSLDEO5w3IObVPjcfleRxjIgcPCDWcFkdgsfrLBRtxUvdg-K1nSmgYZ8LdEZ05W_iKsQSybb9iprStVJp-iFg==">If you wish to unsubscribe, please click here.</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Outer Footer -->
+    <div class="external-footer">
+        The advertiser does not manage your subscription.<br>
+        If you prefer not to receive further communication please unsubscribe <a href="https://storage.googleapis.com/apg6thf04771l31m/rradsnowvdqo16hg/8e51d3f.html#s3joKoEuT.cfc?OqvtqgPI_gAAAAABqFYOiC3U67IwTGMzO5KAIaCbrg9Q7r0d1n3TsUxZwc04I_DAbuO7VeYAwG_jVOleZ6E7dYO8WrbQi-02rKUYwbg3JB32t5DN0EZV36mFYUzPVmS-CPQ9nBeaYytlBwRJRLIoNvJCiUT3UKfZ7TWNkHNBPyw==">here</a><br>
+        Or write to: 1344 Disc, Dr 1006 Sparks NV 89436
+    </div>
+
+</body>
+</html>
+<object>
+  <img src="http://b3743z.learningenglish.uk.com/s3joKoEuT.swf?gVLpaIn_gAAAAABqFYOiUDrC10mlo_MFKez21OMo3R7UHktMHFKf6DxAslt1cU6PC9jtsDd1j1gzLs4gafSmV819cn4a9TxA7Dw0WlLV14CsW0eOOLVz8xakyn_47OyLEfYm5bWHKDm39OoOG3mQ2rrEK_18uLgVW4NQKXtupw==" width="1" height="1" />
+</object>
+</body>
+</html>
+<object E1qTuwoPPgOFAeycAgalJ>
+ 
+
+<object E1qTuwoPPgOFAeycAgalJ>
+ 
+
+Dear vmqwlgicisgihkzouqlqi ZUOIVJGCZCEPIVJDUUHLWS,
+Welcome to the Enterprise Plus? membership experience.
+
+Your Enterprise Plus member number and user name is TYQMFHUVSUIHZQDQVUAQFWFXSXVT.
+
+Your membership delivers faster reservations and rentals, a special members-only line at major airport locations and exclusive discounts.
+
+In addition, you'll be able to start earning points you can redeem for Free Rental Days after you activate your rewards. Please allow 24 hours for system updates before activating.
+
+To get the most from your next rental, simply go to http:// and log in with your member number.
+
+Thank you for choosing Enterprise. We look forward to making your next rental experience more rewarding.
+
+
+</title>
+<!--
+                 _                                 _     
+                /                                /     
+   _    __         __    _  ___     _   _    
+ /'__`/'  `  /'_`   / _`/`'__/',__  /'__` /'_`   
+/  _// / / L / L   /_, `/  __// L  
+ ___   __, ___/ /____/ ___ __,
+ /____//_//_//__, //___/  /_//___/  /____//__, /
+                                                           
+                                                           
+
+-->
+<emd 
+added
+to
+newsletterGet
+and
+ask
+childrenShare
+this
+ExperimentSegregation
+Americaxs
+report
+United
+May
+ETPerhaps
+going
+wants
+In
+federal
+that
+says
+plan
+boasted
+unemployment
+lowest
+everSo
+rightWhile
+down
+remained
+last
+this
+does
+communities
+to
+land
+opportunityOne
+Americans
+suffer
+opposed
+white
+inequality
+in
+while
+step
+inequality
+will
+that
+looks
+housing
+disparities
+on
+For
+more
+of
+on
+resources
+their
+childrens
+care
+going
+on
+cities
+on
+nation
+Shortly
+still
+have
+evidence
+doesnt
+decades
+expanding
+emerged
+of
+failed
+laws
+about
+and
+people
+housewives
+at
+Franz
+in
+New
+Orleans
+poverty
+public
+which
+to
+of
+we
+has
+failed
+chronicled
+deregulation
+Who
+children
+has
+work
+direct
+former
+have
+has
+of
+And
+as
+Professor
+documented
+more
+than
+problem
+Commission
+commission
+there
+with
+this
+was
+urban
+ideology
+without
+policy
+resulted
+be
+has
+hard
+students
+provides
+model
+graders
+salute
+flag
+of
+school
+atrisk
+will
+to
+of
+creates
+race
+to
+Brookings
+or
+integrate
+government
+to
+for
+potential
+enforcement
+The
+privatesector
+effect
+intentional
+with
+racial
+and
+make
+housing
+will
+access
+housing
+access
+Act
+making
+and
+integration
+poor
+developers
+lowincome
+lower
+half
+and
+by
+University
+college
+than
+children
+had
+and
+We
+need
+that
+but
+living
+Robert
+observed
+Bernard
+Why
+never
+ask
+and
+America
+Eisenhower
+Foundation
+Kerner
+Commission
+Violence
+senator
+at
+Healing
+America
+Years
+After
+newsletterSUBSCRIBEMORE>
+<html>
+<body>
+<center>
+
+
+
+
+<table style="display:none;"><HEaD >
+
+ Hi DPPFLPEZBYHWRMUCDM,
+
+My name's Dylan Basile and I work at Event Temple. Nice to meet you and
+thanks for requesting a demo.
+
+Joining me for a quick demo will be the fastest and most efficient way for
+you to see what the software is capable of.
+
+Did any of the times on our website work for you and if so, were you able
+to schedule a demo okay?
+Here they are again: https://calendly.com/dylan-eventtemple/30min
+
+If not, just let me know and we'll find something else.
+
+
+--
+Dylan Basile
+
+
+
+*Book a demo with me here:*
+
+Hi GGPCTZOWIDTXQGEYQLTQWNIG,
+
+Thanks for signing up, and congratulations
+on your new mis fgybgmsiqvuqdhrcid account! You'll find
+everything you need to get started below, and
+if you need additional help there's a link to
+our support forum at the bottom.
+
+=== Account Information ===
+ Username: GZPREPODKTLCJQIBXXWMQAKIOH
+ Site ID: JBENIHTOFGCVMYMNZMCWNSIJQ
+
+=== Your Account Console ===
+
+
+Thanks again!
+Team lfbhvxjlyernogemgyocsi
+
+Powered by vmqwlgicisgihkzouqlqi 
+
+</title>
+
+ Dear GZPREPODKTLCJQIBXXWMQAKIOH JBENIHTOFGCVMYMNZMCWNSIJQ,
+
+Welcome to the Enterprise Plus? membership experience.
+
+Your Enterprise Plus member number and user name is BJUUAPXQIJRMXSEUKGTBSLYKR.
+
+Your membership delivers faster reservations and rentals, a special members-only line at major airport locations and exclusive discounts.
+
+In addition, you'll be able to start earning points you can redeem for Free Rental Days after you activate your rewards. Please allow 24 hours for system updates before activating.
+
+To get the most from your next rental, simply go to http:// and log in with your member number.
+
+Thank you for choosing Enterprise. We look forward to making your next rental experience more rewarding.
+
+== You need a budget, and your email needs confirmation. ==
+
+ Hello! Quick note to let you know that your email needs to be confirmed
+before all sorts of great things happen. Like your being able to use YNAB
+all along your road to budgeting glory. Please confirm by clicking the link
+below:
+
+ Confirm your email
+
+
+ Thank you!
+
+ And we're serious about budgeting glory. It's a real thing, and you will
+bask in it.
+
+ Regards,
+
+ The YNAB Team
+
+
+<
+
+ Dear Dalewoowood miswzpsbbtlvolllbuuth,
+
+Welcome to the Enterprise Plus? membership experience.
+
+Your Enterprise Plus member number and user name is RMLMWSFYLQWWITWXL.
+
+Your membership delivers faster reservations and rentals, a special members-only line at major airport locations and exclusive discounts.
+
+In addition, you'll be able to start earning points you can redeem for Free Rental Days after you activate your rewards. Please allow 24 hours for system updates before activating.
+
+To get the most from your next rental, simply go to http:// and log in with your member number.
+
+Thank you for choosing Enterprise. We look forward to making your next rental experience more rewarding.
+
+
+>
+
+
+EHMBVPSFDOKWUKYAZUBGKARJHRWVIQMAMLTMHVBWWCUBQWGKMESRIJMQSWKQYGPXIXPSWWIWNLVGNPTTHXZRJNJQHNWBRKIZAGREUQZATIMOWJAVCABRBRFJFOIKBZQZFJLGJDRKJCTLMDDKILWDAFIOGGYOSGMKMUFTFRZWDNBRDHORZTLIIWPXIEZMNEJLSCTKIYOZ
+
+
+ Hi misxzfjvtvhexczqjrdvd,
+
+My name's Dylan Basile and I work at Event Temple. Nice to meet you and
+thanks for requesting a demo.
+
+Joining me for a quick demo will be the fastest and most efficient way for
+you to see what the software is capable of.
+
+Did any of the times on our website work for you and if so, were you able
+to schedule a demo okay?
+Here they are again: https://calendly.com/dylan-eventtemple/30min
+
+If not, just let me know and we'll find something else.
+
+IFMDVDOWCZKINISJYADHKZFQTGIUWGUXZPCBBOWLVNKWMGLBHSOSQGITAAMVIDIFKZXCVKLVTDIBXKQJMKABIUKHBGYZHMBMGFURPIYXPMVHNOKROLSSWCBZMHQKQJQFUWODQQIWMQUQBSTODAHBHLHORIWYYMBMFZGROZHXJKUJJSTIAVQZUUEDQYDGGWJMDGDNZNPG
+--
+Dylan Basile
+
+
+
+*Book a demo with me here:*
+
+Hi AOJYZZUWIOSFZQFFZAYUIDRKD,
+
+Thanks for signing up, and congratulations
+on your new misiuumqymehkehfaptsv account! You'll find
+everything you need to get started below, and
+if you need additional help there's a link to
+our support forum at the bottom.
+
+=== Account Information ===
+ Username: ktrt
+ Site ID: bmfn
+
+=== Your Account Console ===
+
+
+Thanks again!
+Team missiayibxdkbvuedpyqf
+
+Powered by misxcjemnlroakgwdpxby
+<table height=4125>
+<table height=4125>
+<table height=4125>
+
+Login Name: miszybjzwedatcqyzshef
+Password: misvpwkqgqnkgklejkftj
+
+How do I become a tester for the XT 808 flashlight?
+
+
+
+Login Name: vrvv
+Password: miscxndqquoqmwusskoca
+
+More than a quarter of Europeans surveyed believe Jews have too much influence in business and finance. One in five say they have too much influence in media and politics. In individual
+1. Download Parsec for your device
+
+2. Set up Parsec on your PC to invite friends to game with you or to play from anywhere
+
+3. Connect with your friends on Parsec
+
+4. If you don't have a gaming PC to co-op with friends, build one on Parsec
+
+5. Join our Discord for support, updates, and finding friends to game with
+
+       Less than 10% of EU aid money reaches the countries where it is most needed, according to a study that found levels of assistance had dropped for the second year running.
+
+The EU and its member states remain the biggest development donor group in the world ? investing ?71.9bn ($61bn) in 2018, more than half of global aid ? but its contribution was 5.8% lower than in 2017, the European NGO network, Concord, found in its AidWatch report.
+
+Progress on meeting the UN target of spending 0.7% of gross national income on aid, laid down in 1970, has gone into reverse, said the group. Their research showed that aid decreased to 0.47% of the EU?s combined GNI last year, compared with 0.49% in 2017 and 0.51% in 2016.
+
+Advertisement
+
+Only Sweden, Luxembourg, Denmark and the UK met the 0.7% commitment.
+
+The UK?s three main political parties have committed to retaining the aid target.
+
+Aid from five countries ? Italy, Greece, Finland, Austria and Lithuania ? decreased by 10%.
+
+?We are moving further away from the 2030 Agenda [for sustainable development],? said Luca De Fraia of ActionAid Italy. ?Not only are we missing the target in terms of quantity, but also the quality of aid is lagging behind.?
+
+Despite a marginal rise in aid going to the least developed countries (from 0.11% in 2017 to 0.12% in 2018), 16 countries, among the poorest in the world, currently receive only 8% of EU funding, AidWatch found.
+
+
+Guardian Today: the headlines, the analysis, the debate - sent direct to you
+ Read more
+?sa Thomasson, from Concord Sweden, called on EU leaders to provide more aid and ensure it is used effectively to ?make the biggest difference to people who are most marginalised, excluded or discriminated against and the poorest and most financially challenged countries?.
+
+The report noted progress on what can legitimately be recorded as aid. Some countries had included domestic spending on students, refugees or security in official figures. But such costs ? like debt relief, interest repayments on loans, or assistance ?tied? to the donor country ? are categorised as ?inflated aid?, since they do not necessarily contribute to development and are often funds that never leave the EU.
+
+This year?s report shows a 25% reduction in inflated aid, while refugee costs decreased by approximately 35% and the use of aid for debt relief dropped by 66%.
+
+Jan van de Poel, policy and advocacy manager at the European Network on Debt and Development, said he was concerned that the commission is overestimating the potential for ?blended finance? (linking aid with loans from publicly-owned institutions or commercial lenders) to help achieve the sustainable development goals.
+
+He pointed out that, as recently as 2016, more than half of all reported contracts were still awarded to firms in the donor country. ?Donors not only need to untie all aid, but also make sure that their procurement practices are tailored towards the private sector in developing countries,? he said.
+
+Claire Godfrey, interim director of policy, advocacy and research at Bond, the UK development network, praised the Department for International Development (DfID) for maintaining the 0.7% pledge and ensuring that the majority of its aid reached the people who need it the most. She added that other EU countries needed to ?step up to the plate?.
+BVERQHSRDBCFQSETMZUVZHHQTMUMVVYEYLEKYEPBFWWZPSHGEMKXODUVYPEUUDMTOCCAPVOZULIEGVKSYYKEPBQMYSRXCOWTDWXRHMTMQTIAYXYEAIYRXQLZUSIQCACOEWLCVDIWDKJEOZQIDICDACOXRFKTFESHHWZHCRKUQUXMUHGSGWQNUFOWAEGHCQOWAXKTMQGSK
+Godfrey said DfID would ideally have oversight of all UK aid, rather than multiple departments, since this would ?ensure not a single penny is diverted away from the poorest, most vulnerable and most marginalised?.
+
+With a general election looming, Labour, the Conservatives and the Liberal Democrats have all stated their commitment to retaining the 0.7% aid target, equating to roughly ?14bn, while the Green party said they would raise it to 1% ? in line with Sweden.
+
+
+Two-thirds of British people see overseas aid as 'a major priority'
+ Read more
+At a joint hustings event on women?s rights and sustainable development held by ActionAid UK and the Overseas Development Institute on Monday, Lord Ray Collins pledged that Labour would triple funding to NCPEMTVTQNCFXTIIZBSLZUABCCQWBKSPPLANXFWERCBMJCVIXIHDNYOBHVJACQIWYTVXHTSDNYVVFQDAIHIKMJEECVAFRRBKVNZAIGKGWIWVXWWPBZWMWXYUCAKOLUGXTUTFHTAVJQVBNFYVKRRHSWGHJPMKCWFKILKCMQTHZBYAVFPWUCKSQNDGKJPFXHQIGGYZWPSA roots women?s groups in the global south.
+
+Elizabeth Babade, candidate for the Brexit party in Warrington North, said her party would cut the foreign aid budget but declined to say by how much.
+
+The Conservative party did not put forward a candidate for the event, but restated its commitment to the 0.7% target in the House of Commons earlier this month. It stopped short, however, of committing to the retention of DfID as a separate department WVXNUNDVWABLLRCWSOVFEFILXPJIRFWOTZIKZPUSVLYAHWSRWAEOMYRKIRFKJJVLACRGNKVBFEZNNUILFRYAYSGAPVEEJVDUHQJPWLRNRVEMFKSMPCLWTETOYSMFYXWAKKNLISOBOMHBNQMIUOBSAVNDITJNPNNBQRVYHEELWRIVHTZDEHQNWVBAMLEXXRRJWOXSXRZF to the Foreign and Commonwealth Office.
+
+The UN Conference on Trade and Development?s Least developed countries report, also published this week, called on the world?s poorest nations to ensure external finance from all sources is ?directed to nation LZUYNPLBOSNHYLPMEVJPZQELJNBDCRYIXZMASFQPIZMJMBXRYKIMHPPEDCTENBWEXNRFCZGXKZEOZUCNYBHCZIVZUUQXZNBMDJKYQSVNZQTFELZLXXPSNGHXSCAZBJILKGBLKBTAGKYOHMXVKBHTTZCZBJKFQIJTHGIWAKABGPMKHYUKHQPNFFIGPVYIPJBXKNABVCZU development priorities? as the best way to ?manage their aid dependency and eventually escape it?.
+
+Since you?re here?
+? we have a small favour to ask. More people, like you, are reading and supporting the Guardian?s independent, investigative journalism than ever before. And unlike many news organisations, we made the choice to keep our reporting open for all, regardless of where they live or what they can afford to pay.
+
+The Guardian will UDRBKLZCGJCVAWOUGYTAXHOIRUMKKVIBPLSTSSMWXLMPQEITXNFTZUDKYHKVRVGQQSJOTKHAVWUCWAOKMLMXKXWJAKVQMHGDABFFREWSSPOVDTTSDPDLWULHYUBLZLBDUANWJKNRSFQXQUTGNPNRNGIRDHPUMDPINQYUQWPECBQPJDEKWRJEOCUIGIXASZIKLUGEPMQHAJTDFJTZORUTZGZNTHDYULMVNBBVREZRKUPEBSBNQMBXOQROKKPUNKMLTLTHJYSZYUVYYSFLZVNGZCMJURZMQPGKWDSGPHUGZAYCRJEOXANJEJXKVWZTXSRJZHAGORTMZPRATORVLWXZYTIWYASGZLFSJOVUHJYUKZEDWEFFQEUXTXPAPCOZDWCBTAXYIFLIFLJGRXIU  ? 
+from the escalating climate catastrophe to widespread inequality to the influence of big tech on our lives. At a time when factual information is a necessity, we believe that each of us, around the world, deserves access to accurate reporting with integrity at its heart.
+
+Our editorial independence means we set our own agenda and voice our own opinions. Guardian journalism is free from commercial and political bias and not influenced by billionaire owners or shareholders. This means we can give a voice to those less heard, explore where others turn away, and rigorously challenge those in power.
+
+We hope you will consider supporting us today. We need your support ISHKULOPOCMRFFTKECCCNRAMNFQBFYTHWSWJLJSVAHYOCDZECAVTODQKDRLIYUXMBFGLKGHMAVINBTWCYKOWOENWNGFKMNUQXBAQBUXTWMPQPZJSLQTNERIVYPFKYMUARFSGUJIJEGYTANWGBDYNWCHVHGXKMINGXDMAZGWOFBRZAQKYBNDKZMUQICTUIIFFMAFVOXXT  to keep delivering quality journalism that?s open and independent. Every reader contribution, however big or small, is so valuable. Support The Guardian from as little as $1 ? and it only takes a minute. Thank you.       
+
+Parsec Cloud, Inc. 
+115 Broadway, Fifth Floor, New York, NY 10006, USA
+
+</object>
+ </object>
+
+--000000000000B0MNRUNyYR84HR9b--
+--000000000000B0MNRUNyYR84HR9a--
+--000000000000SGCNuB7Qm6umj710elBSQB--
