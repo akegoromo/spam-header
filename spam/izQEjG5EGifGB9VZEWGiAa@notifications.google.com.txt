@@ -1,0 +1,55 @@
+Delivered-To: silver.firefox@gmail.com
+Received: by 2002:a05:640c:a182:20b0:26a:2114:7ab with SMTP id v2-n2csp390630eiy;
+        Thu, 28 May 2026 05:41:05 -0700 (PDT)
+X-Received: by 2002:a05:6a20:9148:b0:3a2:d316:de53 with SMTP id adf61e73a8af0-3b328e1248amr30452551637.0.1779972065471;
+        Thu, 28 May 2026 05:41:05 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779972065; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Bh+loYmx4tJBiKEDsTlYogK4WTcB8laaKMj8cSUiurUyNbX0WIS7lTQHu6Cs8crEvO
+         qIPmxdQawjuI4XS+XazhRaHEcxzmx99bI38n9cdtF+9X3Pfu5HoW8HHxlgbRgYaxv3TO
+         fVTaPI04Nx6SdKT7Ol2TvXMSzrMnRuWPSYbHsvHURVEBn975pWAE7g2e/jjYX/48zjuh
+         PNOvkyxNLYGGE+ioZ5Vbnahu/0J0JxSxj9IVqOWDB8CfL5Ug0Mwe/dGnjGtRmN1kmnGn
+         rgp9Pl64WU47QnwydrDoaBIpIRXjc1GN8QDoKylGNWB4PFdqUElu2UEj/fop4ENII8pm
+         qW1Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:message-id:subject:mime-version:from:to
+         :date:dkim-signature;
+        bh=5gD9Hb1gm5tSX6a0ByeHN/mxq3jeT7jHRkgL5+wpdi0=;
+        fh=30F+LetgEkDSNSp+uLeo/St8k5O2MuAL6jcfWOE8egk=;
+        b=CZ8Wm49ApOzL5kca5c9yN2/C6yWNjrYc+5+3ZxKxtLJKjP4/QLzwi9v4oP45DrT9Ft
+         sg3aiWHHptqBAS8d64JwofN20nOs9fLK+lHi4X918/6tCfGSEBV9yoUeAzGZB/XvxnNH
+         GEb/MdW5q56ZYfuUqqp351C1U8u5pwrE40GwE+lJCQglzPqrL8wSragG1n9s2FDQJjWb
+         4v6/C0qGk0AAqmXVEdu5l9HCgi/GphJip/BIxrJEHSfTJsA1K3DX1/G6I3GDcz5/nfmN
+         HYXYcZCLKn/N3kc7oPTduiVE55a6XxgpCJMrYuW1dEZE5qKhb3rkZq0Qw4H894ecaaOB
+         70Xw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@dustyembark.biz header.s=202605 header.b=IhHBCl1U;
+       spf=pass (google.com: domain of a8k7cyhxbvgs4rpt@dustyembark.biz designates 52.35.85.101 as permitted sender) smtp.mailfrom=A8k7CYHXbVGS4rPT@dustyembark.biz;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=dustyembark.biz
+Return-Path: <A8k7CYHXbVGS4rPT@dustyembark.biz>
+Received: from [52.35.85.101] (ec2-52-35-85-101.us-west-2.compute.amazonaws.com. [52.35.85.101])
+        by mx.google.com with ESMTP id 41be03b00d2f7-c8520605296si29043961a12.346.2026.05.28.05.41.05
+        for <silver.firefox@gmail.com>;
+        Thu, 28 May 2026 05:41:05 -0700 (PDT)
+Received-SPF: pass (google.com: domain of a8k7cyhxbvgs4rpt@dustyembark.biz designates 52.35.85.101 as permitted sender) client-ip=52.35.85.101;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@dustyembark.biz header.s=202605 header.b=IhHBCl1U;
+       spf=pass (google.com: domain of a8k7cyhxbvgs4rpt@dustyembark.biz designates 52.35.85.101 as permitted sender) smtp.mailfrom=A8k7CYHXbVGS4rPT@dustyembark.biz;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=dustyembark.biz
+Received: by wka7z.ltb (Postfix, from userid 0)
+	id 1355A41777; Thu, 28 May 2026 21:41:05 +0900 (JST)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=202605; d=dustyembark.biz; t=1779971745; h=to:from:date:subject:
+ message-id; bh=5gD9Hb1gm5tSX6a0ByeHN/mxq3jeT7jHRkgL5+wpdi0=;
+ b=IhHBCl1UdZGdxpS+Oqv7wSDpwmPMif5bP8OioL34XBh7h+PTyYgaPp6UUHj7pJBD7VkSq0
+ 3s/jHCWG0Ysz3IRr3DXdd6VT2vTT9V8uf8XsrSyDXyGEc8NnHyy4O/phiJrl+Y0IhSf1ru
+ wrviH1XQnHSQG2fHoXK8FLBhRomVff++zNNXYw1obDnSClQVxHbHQrHzufnM3hwgSRvwDQ
+ RXnXQizEit/ImHKg32d28UStIwtgT+v9odZ/8IVhkPbDdEShzXqCRlNCwvxwn0yq26zy8c
+ 53wFG72ocJE/DxCE8p4PojMHD+me49oODPX9BTB8hNBzS/1NvVSawvMIAx8P8A==
+Date: Thu, 28 May 2026 21:35:26 +0900
+To: silver.firefox@gmail.com
+From: =?utf-8?B?44CQ54Sh5paZ5qGI5YaF44CR44Op44OD44Kt44O844OB44Oj44O844Og5YWs5byP5qGI5YaF?= <mail@dustyembark.biz>
+MIME-Version: 1.0
+Subject: =?utf-8?B?4pePIOaHuOiznuS8geeUu+OBq+OBlOWPguWKoOmgguOBhOOBn+OCsuOCueODiOanmOOBuOeJueWIpeODl+ODrOOCvOODs+ODiOOBruOBlOahiOWGheOBp+OBmSheXinjgIDigLvlj5flj5bmnJ/pmZDvvJrmnIk=?=
+Message-ID: <izQEjG5EGifGB9VZEWGiAa@notifications.google.com>

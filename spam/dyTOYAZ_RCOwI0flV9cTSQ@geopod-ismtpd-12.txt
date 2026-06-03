@@ -1,0 +1,125 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:c210:0:10b0:26a:2114:7ab with SMTP id el16-n1csp1333661eib;
+        Sat, 30 May 2026 23:28:20 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ8Mi3sTW813DlKTR5i9NvLlOra+n3xKFPET7A0pR9jPEbUX7I6t7ovtAsq13yaYjMlLtiXqr2O9mzMx0L63IA==@gmail.com
+X-Received: by 2002:a17:906:8a74:b0:bdc:bb32:2ea9 with SMTP id a640c23a62f3a-beab542bb08mr200404066b.35.1780208900515;
+        Sat, 30 May 2026 23:28:20 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1780208900; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=gandHeEbUtdy1AAWKxltDfgAr8guBb73DlwO9jUIQ6xOv2vQGTqHAKTkqbNbmWQvJN
+         RSr7oowc8K/Dra/Iqjl8akT2/grqU1/OYi19joq1aG/13I86idLtjhMuS/DdFf1s+TV/
+         bM8lLcVeFKuCC7gEq/+JRDBhvh8oKuqWI9XzidCAfgIGGbn1gFItmRGxf1qzZTG0uGYU
+         2KxyLSKqqfEZ2KN7IehEPbGiiaKUmsMPPWj/3md5F9sxRQXwg1QVmHVGkdAAW1SlgjEq
+         QEhlcq9OQU9U55wXc5Jh/c1cGz/paecyv7NySx27TjTgk3Qet0lW1tOagj7wY5QxoCxx
+         2RTA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:mime-version:from:date:dkim-signature
+         :feedback-id:dkim-signature:dkim-signature;
+        bh=5t9sKLTMJ+eQQMAWzRtE905smEOrz0+Bo+9f2e12r08=;
+        fh=qiMXRaPi1E4B7pNYHv0kY8kKvWMH6z5Z6bF+8QXduDY=;
+        b=jA20O9F4MTX7K7W8usyh0CTMFQZKH0GwaVjiZC52Fm9gcQNKQaUoVRlbT8UPhjyk/Y
+         jWEVcvuyxTgiKPkVKVyhDz1rhZaPMMQpRyaiJG9beVKn0gEt22zxQIiT91TrUwceV1zL
+         PWNhFVMIMOG1xhI9396wYlL11d7JSZmYL778ZevdLqLWXVX1NZ+pWNxCLVFlLta0nn84
+         JCi+helG9LfFFac5+c5qglfGVGsr4EpPJwDw79M38FSlq/Xfn11P5D0d9tX+jHCrIKiS
+         cfPq/87y+CGp5WXx2Xkezih9GdPTl7Ghpo9ae0SXltC5ZNEMjzIi8oX6uJVcs5qV1RwY
+         THbg==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=Bu7oJ2Fy;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=anMPJGxj;
+       dkim=pass header.i=@nathanwolfson.com header.s=s1 header.b=bi9SRD7f;
+       arc=pass (i=1 spf=pass spfdomain=em1801.nathanwolfson.com dkim=pass dkdomain=nathanwolfson.com dmarc=pass fromdomain=nathanwolfson.com);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.219 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=nathanwolfson.com
+Return-Path: <cfbounces+ndrdrop@whither.jp>
+Received: from ba-cbj.cloudflare-email.net (ba-cbj.cloudflare-email.net. [104.30.10.219])
+        by mx.google.com with ESMTPS id a640c23a62f3a-bec42db0e04si71210766b.138.2026.05.30.23.28.20
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 30 May 2026 23:28:20 -0700 (PDT)
+Received-SPF: pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.219 as permitted sender) client-ip=104.30.10.219;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=Bu7oJ2Fy;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=anMPJGxj;
+       dkim=pass header.i=@nathanwolfson.com header.s=s1 header.b=bi9SRD7f;
+       arc=pass (i=1 spf=pass spfdomain=em1801.nathanwolfson.com dkim=pass dkdomain=nathanwolfson.com dmarc=pass fromdomain=nathanwolfson.com);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.219 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=nathanwolfson.com
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=To:Subject:From:Date:Feedback-ID:from:reply-to:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1780208900; x=1780813700; bh=5t9sKLTMJ+eQQMAWzR
+	tE905smEOrz0+Bo+9f2e12r08=; b=Bu7oJ2FyoAks34Qx1XaElLWbDrJ0MDRrJcUhmxztWxAza
+	eKe1bbQydoDXKzhcLWcssIFpRVpnhYxy7LmGgEo22t9C4wL2NCHtWj+dNBlu7goDobpxX0rRici
+	VBJX6cumbjHGiTAd/tj1s1OmXPUjUOP6dPNaiu4Ydgx0JS3h81TkzvRZ5sJu5OsoxZLVOO/gTuw
+	Du22hm4XYfHojOeoryGLmIKiMg1pQs/DSfj+8V5EjjrH1GwQEjopTj0vgppYrJLLWmo/OcWslnX
+	kM/ZRyX3BVJJ0y2GYH/ig0v5lh8ypSnjG1qCkuzYAPJAAcDO0CMHRURisbkjtcUJProtaKRA==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=To:Subject:From:Date:Feedback-ID:from:reply-to:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1780208900; x=1780813700; bh=5t9sKLTMJ+eQQMAWzR
+	tE905smEOrz0+Bo+9f2e12r08=; b=anMPJGxjg6qF9dHZMjfJBLqKDKU35Og51+OESWsu2xQe0
+	QYPgrOj34kp+Y815dqQ8/yZWEnVNPDTlvAQbk6zs3Qe2NyRy/J7I+fAbpsgrOfWzaO1K4HHtqV3
+	KYDVrppC5xKIt4grOPX8UFTAZsdnPS4PZRmG5wXYRiL2N83TMzBU2QEzUW1N/eUp4fmnJ6nFbV0
+	+GSZT2h6JmT9ZzKltAkolNALLpJK+evo47xPW4H7W1bu2WNOtuPQsoZ6KYrrOtbIZiiPuwk74cy
+	EzQoBcSs6+wMIHbeaOO34qIkk9ktm9eZ/7MNdOcx3VtvqY4HptO9Hp8Wraokm5iPk62WSohw==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: silver.firefox+whither-jp@gmail.com silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:2:1:Cloudflare
+Received: from s.wfbtzhsv.outbound-mail.sendgrid.net (159.183.224.104)
+        by cloudflare-email.net (cloudflare) id 2wxOK8iO9wdW
+        for <penguin@whither.jp>; Sun, 31 May 2026 06:28:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=LAj2xDv+b7vUsZ9TakExNFy9mufOrTGps+utsgjOA9dUkTIPQp9eeiKM6QKiNXAFkrgIWS+aX
+	jCAQRtMW6nlAnkEDMk/B/iVPKskW3h1UosSHEvSGm4/565FpQqGY6OLS4BnD3ZX3SZJo6zMAZUB
+	jFBJjhkpdsmKPc3WG//8uw7cCmm2yD04cYcpocYkxaJHA0n59C546Jn0R+FXZItXPdK5Rp8LFdF
+	9TWIdr3bxTHFS51YsjPxUXDVqspl45QO1sAo0u19Wt3r3gzWMOE0bTKw3ZNu3Ge3WdxlnpOZ5Kc
+	2mNCD1ZTuDaQVMccoNtGnUlZLu8Ch1yVWaAV4YEjOX9A==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=To:Subject:From:Date:from:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1780208899; x=1780813699; bh=5t9sKLTM
+	J+eQQMAWzRtE905smEOrz0+Bo+9f2e12r08=; b=BSofflZEn/HWluDshM7dZVoVWma+LxQuyAR
+	FjjhAux7VVsFGpfivDTS1ndFwFAgg21sxSw68D+SqQSoit+xGZS7LDlBTC08BIA3yt7RhrHFz11
+	xntcMBQb293+IjlaLxbrQijfMJZ1FLfMv3IdTzPocJy+9zqSARtBp6sWJHvkh/a2/pSft6j3Pog
+	vuhE3PiMv6/bJy37XIPXrIsfNbo+l+0iKmC57IbBXN2vasvr5O41Cyr48KK+YQqGxUGltUne5kz
+	FbruT599WpDVlFuQau53jn8rioPjnT/QWbnQrTOUCRuNs+901Lxd1ruD6Nsg8VgP4SFse/Lo78x
+	2+kII0Q==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.d=nathanwolfson.com header.s=s1 header.b=bi9SRD7f;
+	dmarc=pass header.from=nathanwolfson.com policy.dmarc=none;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@s.wfbtzhsv.outbound-mail.sendgrid.net) smtp.helo=s.wfbtzhsv.outbound-mail.sendgrid.net;
+	spf=pass (mx.cloudflare.net: domain of bounces+108436453-adcf-penguin=whither.jp@em1801.nathanwolfson.com designates 159.183.224.104 as permitted sender) smtp.mailfrom=bounces+108436453-adcf-penguin=whither.jp@em1801.nathanwolfson.com;
+	arc=none smtp.remote-ip=159.183.224.104
+Received-SPF: pass (mx.cloudflare.net: domain of bounces+108436453-adcf-penguin=whither.jp@em1801.nathanwolfson.com designates 159.183.224.104 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=159.183.224.104; envelope-from="bounces+108436453-adcf-penguin=whither.jp@em1801.nathanwolfson.com"; helo=s.wfbtzhsv.outbound-mail.sendgrid.net;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.d=nathanwolfson.com header.s=s1 header.b=bi9SRD7f;
+	dmarc=pass header.from=nathanwolfson.com policy.dmarc=none;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@s.wfbtzhsv.outbound-mail.sendgrid.net) smtp.helo=s.wfbtzhsv.outbound-mail.sendgrid.net;
+	spf=pass (mx.cloudflare.net: domain of bounces+108436453-adcf-penguin=whither.jp@em1801.nathanwolfson.com designates 159.183.224.104 as permitted sender) smtp.mailfrom=bounces+108436453-adcf-penguin=whither.jp@em1801.nathanwolfson.com;
+	arc=none smtp.remote-ip=159.183.224.104
+X-CF-SpamH-Score: 2
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nathanwolfson.com;
+	h=content-type:date:from:mime-version:subject:to:cc:content-type:date:
+	from:subject:to;
+	s=s1; t=1780208898;
+	bh=5t9sKLTMJ+eQQMAWzRtE905smEOrz0+Bo+9f2e12r08=;
+	b=bi9SRD7fImY3RP2J0sWf2gKaj6adoFWVdYxbdvulYoyId8kAgxn9T3LhKNsPXW5yE9hJ
+	b4ln333EcGsu1GfdC5XaTjmTNtzklnZM+BvDtUUiLL3m0Onr2lTfkXHdZbOPdrKK3kVvkD
+	ttQ2e1UuWQ0YRpVw4DEWKxb+1EhsYfkQgu7Ra9v2Z9lBvcF/+5P/Eh0vhFrRcZNGIFghqp
+	/OPEXv3Imk5EtlI7LsfY6q8EKlg9B0jtCyih0KpiZOVsVwRQWhbu2uTox80E/4Gk7gi7P4
+	5UMt3E0kyeeIkVCQYOdh3ggFvVHg2Y0/NJoDxB6Xic4DciKNHsXLULJHAF4slSFQ==
+Received: by recvd-74d8d9b47c-5mlws with SMTP id recvd-74d8d9b47c-5mlws-1-6A1BD502-2
+	2026-05-31 06:28:18.012674869 +0000 UTC m=+2796973.165472375
+Received: from MTA4NDM2NDUz (unknown)
+	by geopod-ismtpd-12 (SG) with HTTP
+	id dyTOYAZ_RCOwI0flV9cTSQ
+	Sun, 31 May 2026 06:28:17.955 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=f064bf1c4bcf958b61633355db2a15743d627c16224d682217ddfb646b28
+Date: Sun, 31 May 2026 06:28:18 +0000 (UTC)
+From: =?UTF-8?b?5LiJ5LqV5L2P5Y+L6YqA6KGM?= <info@nathanwolfson.com>
+Mime-Version: 1.0
+Message-ID: <dyTOYAZ_RCOwI0flV9cTSQ@geopod-ismtpd-12>
