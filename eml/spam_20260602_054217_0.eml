@@ -1,0 +1,279 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:c202:0:10b0:26a:fba3:79c with SMTP id el2-n1csp73088eib;
+        Mon, 1 Jun 2026 13:42:23 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ8Qubi56w55DF6KZJhrPTQXn/qnuRH1zEalL80UsVq8HdKeD0XgEX9aDk5iHUOABQWU+vwsdZrwNDqb93CD5g==@gmail.com
+X-Received: by 2002:a05:7022:45a7:b0:136:b50c:c0e9 with SMTP id a92af1059eb24-137d412af61mr5251088c88.21.1780346542950;
+        Mon, 01 Jun 2026 13:42:22 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1780346542; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=f+LRti2+pZ69zBLjRXlKpDp08VzTPLpn89Z/nLzkIkFtL3fBAD/GC5sPmrdk14tVT3
+         lQNI5PKJEDwoQTM5x0b9uEJyK6ZcPBaznnLPUETOCRPc9p85kPqm1G9TJJzB/70/44hi
+         u2NNj/LBSfkvyV8BsRY3gUz05AgNptuDT8URvOQGP4qQRnxkKcWvfRZYK5PZMd83WTDb
+         LoxfjQPWGwZ48bbZI3kdw/RW6CdBoGuEjjRBOxqew1T0KOaSbyQ048lZwi5ui6KmKDay
+         lpO6SUmA9J06WSxodiz5hz7XeXiwTxGgPM7lw0su9DxV93GAb+Tkw0VFLJsPQlIPUop3
+         vbpg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=sender:message-id:date:subject:to:dkim-signature:from:mime-version
+         :feedback-id:dkim-signature:dkim-signature;
+        bh=NeahtKsauy+vwb4GmMR8m0WPnjxaYq8ex43ynsJCWtk=;
+        fh=LnGVlAla77Gyfiw8zkzbOhaVlqYgEu27l8ujdfvsIGY=;
+        b=VYE0YiN5ENfRRMshCf5S4sH6d3FjLLeIYlsMt3SZIwc6wS4HwvkCzXv8ln6shLiBO9
+         d+5i+Qh8zbR/f4+8ELVLUJYojK5efuQZetBIrfd2XFxRiYqFnURV3gS0fy3AIsRA1hfv
+         x7g1DR8C225yFi+nV4++zXqCkkW8PWLZVxefnXfEyTfFTGw4/9w8PcC/pdNOV3IZ+/PM
+         QSzk+0vooYrDtXnXbCGX4DX6CaGMPe1qcbX3qVWe0pCzoquEH760ckOWua2kt9VUSD/g
+         EIZnWcWE20rVb+80rPtr1r2wqGiE9xgyPSYh/EfdznY6e0CxgS42SZo9F4U4E/tXE2jo
+         FC7g==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=IUtdrFod;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=JQaBjlpM;
+       dkim=pass header.i=@curch.aehrlwr.cn header.s=teras header.b=g+nh021m;
+       arc=pass (i=1 spf=pass spfdomain=curch.aehrlwr.cn dkim=pass dkdomain=curch.aehrlwr.cn);
+       spf=pass (google.com: domain of srs0=ms0e=5d=curch.aehrlwr.cn=arakawa-kumamoto@whither.jp designates 104.30.8.228 as permitted sender) smtp.mailfrom="SRS0=MS0E=5d=curch.aehrlwr.cn=arakawa-kumamoto@whither.jp"
+Return-Path: <SRS0=MS0E=5d=curch.aehrlwr.cn=arakawa-kumamoto@whither.jp>
+Received: from i-cci.cloudflare-email.net (i-cci.cloudflare-email.net. [104.30.8.228])
+        by mx.google.com with ESMTPS id a92af1059eb24-137ec891a7csi6592161c88.12.2026.06.01.13.42.22
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 01 Jun 2026 13:42:22 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=ms0e=5d=curch.aehrlwr.cn=arakawa-kumamoto@whither.jp designates 104.30.8.228 as permitted sender) client-ip=104.30.8.228;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=IUtdrFod;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=JQaBjlpM;
+       dkim=pass header.i=@curch.aehrlwr.cn header.s=teras header.b=g+nh021m;
+       arc=pass (i=1 spf=pass spfdomain=curch.aehrlwr.cn dkim=pass dkdomain=curch.aehrlwr.cn);
+       spf=pass (google.com: domain of srs0=ms0e=5d=curch.aehrlwr.cn=arakawa-kumamoto@whither.jp designates 104.30.8.228 as permitted sender) smtp.mailfrom="SRS0=MS0E=5d=curch.aehrlwr.cn=arakawa-kumamoto@whither.jp"
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:from:reply-to:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1780346542; x=1780951342; bh=NeahtKsauy+vwb4GmM
+	R8m0WPnjxaYq8ex43ynsJCWtk=; b=IUtdrFodZU36wdTn7WxEwdcWUdd6JEFHecwwj6eZU71ST
+	ZbJflRgkdYIFIbRf747PJAoV+x5rWQKhva4qf27J5KArSEPCJPfOwCknM2piR5qa6OjFGAHJZy4
+	0uzZIo2TuHPuTIdH+TOztZVZT58SJz5BXsqSRWwWovif9mDqBhMFN7GLFI/QD/MIEmVFLcjzHc1
+	TtFC6P0N76iBsLD/AqqQXP9BQWC6kZJ3p8dLR+sNyRbSnMkfLYlc6PDljK760mjyhrFlWfMpYub
+	xsz1WniA7Nv1N9pw5XFFew3CgqUNHfJTpwcS4AnVcy8EZGC6DwC+FqUXBtM8SUtQ9gVqqGDA==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:from:reply-to:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1780346542; x=1780951342; bh=NeahtKsauy+vwb4GmM
+	R8m0WPnjxaYq8ex43ynsJCWtk=; b=JQaBjlpMayQwnYWqp1sFs8ncDM83sAnx4zHjS0FHbmgk7
+	c1kNYec9hdx3j/CYmeu/ylReJqLUDe9afe/RbzwzQDU1D4RT7Ty1KrDaFX51Z7NimZM6g4SuPjD
+	Fd25j//PFST3WhlDt5SzLFqBdZy2434IjEAZRWOWWIsanojqP/tEkH8qDfabcynjEdH1zrREwwM
+	GLnjGFhg9VpQemAtb87U2981c5zzPFGgedvmNfJGZafHZ0Bv3grwuNfSrHpWXEmdsX1g6/KQp2H
+	l2iSAqieYhN8SqSlvlBTkHRHvawEs9KZS6UVkavXj0H12MooVdfaKp9NktdBtJYNXSPAqUAA==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: silver.firefox+whither-jp@gmail.com silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:2:1:Cloudflare
+Received: from curch.aehrlwr.cn (123.189.115.68)
+        by cloudflare-email.net (cloudflare) id 7TKFJhlMaBLw
+        for <tnakahara@whither.jp>; Mon, 01 Jun 2026 20:42:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=I76ZOIH7Mk2gb2Yr3OuR+WSOvwzAEYm0LS4LPlpnpoV65eazUc8tH+bl2d2jtaMRSRK6KsuRN
+	i/TEP/NCkidWA7hPd3xJSuiIc81p1w8Y495qalz47Tz8N8k5JNx+b+UHv+5jsvfqkkVcUIAdH3R
+	j8rbaNz8tFH4NGpHym3FJceAAG2e6UPbHPdttj6tG+9YWp2rWY1CSdCzP+s2xwxU+qz9NJ+LyLa
+	Wj1uZqusLyvbjSEeQAYPzYIZ/NVwC2hdlMNhZUXvxz+IAveUTTdx81VoDo2+81ACLyOcK57D/oE
+	SP3Nr1gtTyAZHK9iXj8H8Lvn95EFNqlBtFB9kjhZq5XA==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:from:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1780346541; x=1780951341; bh=NeahtKsa
+	uy+vwb4GmMR8m0WPnjxaYq8ex43ynsJCWtk=; b=Iq3d40SStFQ+2Bv/ecJltO9lMtG3kpsgEbS
+	gJSsp5z76tW1aPIHnZgTGXeIth85gh4hmbe7jzJYw5RiNVM8ZBN3vSrFrNlrFmsJE4T3fJ78mxO
+	GQrvaYrnRnGNrflulUQuiTFMltNLn2DyWEIsw9mpZkAvOln6NQ3IfZfkKD9T1+IKifWBCBjbxLO
+	2ejAO19qAfrrVnzB2PMOaWJYd6sznDnJuBTFubDzMBDbVX15uAY2eSuDm72ylmVtOO+0DDYN/Ga
+	K+sAXXUYvQjQfxjWWKRwjtHIHRyLXxJ2BLzzezmTNmkCuPQfyVHyspvtG1cIjJJmyVNWC9/i0wk
+	DRnTvSw==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=@curch.aehrlwr.cn header.s=teras header.b=g+nh021m;
+	dmarc=none header.from=curbz.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@curch.aehrlwr.cn designates 123.189.115.68 as permitted sender) smtp.helo=curch.aehrlwr.cn;
+	spf=pass (mx.cloudflare.net: domain of arakawa-kumamoto@curch.aehrlwr.cn designates 123.189.115.68 as permitted sender) smtp.mailfrom=arakawa-kumamoto@curch.aehrlwr.cn;
+	arc=none smtp.remote-ip=123.189.115.68
+Received-SPF: pass (mx.cloudflare.net: domain of arakawa-kumamoto@curch.aehrlwr.cn designates 123.189.115.68 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=123.189.115.68; envelope-from="arakawa-kumamoto@curch.aehrlwr.cn"; helo=curch.aehrlwr.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=@curch.aehrlwr.cn header.s=teras header.b=g+nh021m;
+	dmarc=none header.from=curbz.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@curch.aehrlwr.cn designates 123.189.115.68 as permitted sender) smtp.helo=curch.aehrlwr.cn;
+	spf=pass (mx.cloudflare.net: domain of arakawa-kumamoto@curch.aehrlwr.cn designates 123.189.115.68 as permitted sender) smtp.mailfrom=arakawa-kumamoto@curch.aehrlwr.cn;
+	arc=none smtp.remote-ip=123.189.115.68
+X-CF-SpamH-Score: 1
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="----=_739_0zvys29xs9rcqlxg_=----"
+From: =?utf-8?b?UGF54oCEcGF54oCE5qCq4oCE5byP4oCE5Lya4oCE56S+?= <contact@curbz.cn>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=curch.aehrlwr.cn;
+ i=@curch.aehrlwr.cn; q=dns/txt; s=teras; t=1780346537; h=from : to :
+ subject : date : message-id;
+ bh=NeahtKsauy+vwb4GmMR8m0WPnjxaYq8ex43ynsJCWtk=;
+ b=g+nh021mi/PAJNxXFQJmIuJQwhM4jZdf0Joyi/jwJy8BeyyyFDh1ThU06J0FvRgaP0+kb
+ yDouNTLsa7MORl7uYQFlVc49iLHxW5/0dpy3UNGbsffR6fR3U+QZvzPTLgSs2x/b8j5KXzB
+ gtt0S4+iV8kplYw7W4frrHCxZbMzhF3USiYjCJyZ7jPmPSI7h3ALmZ5ckeyilBGIwyj7XEE
+ jAsWf6mDSFF+Vydt8+NmubF9FoDSuPNkO+Rf7G+7+hWtX3ius+n6+WhcchcHfF7EXjpqcwY
+ NZusLziKiRFrq3gslUyubQ9IWpYKTb/6sipiV/Rg3/diSvBPlIwUFNGo7ojw==
+To: <tnakahara@whither.jp>
+Subject: PayPay =?utf-8?b?44Kr44O844OJIDXmnIjjgYrmlK/miZXjgYTph5HpoY3norrlrprjga7jgYrnn6XjgonjgZs=?=
+Date: Tue, 02 Jun 2026 05:42:17 +0900
+Message-ID: <1780346537.2bhh0j9r-705701r3s91ub5u9@curch.aehrlwr.cn>
+Sender: arakawa-kumamoto@curch.aehrlwr.cn
+X-Mailer: EP6Bo 5
+X-Priority: 3
+X-OCN-SPAM-CHECK: 0.00%
+X-OCN-ANALYSIS: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdejgedtudcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfpvffvvefqofenuceurghilhhouhhtmecufedttdenuchinhgtohhrrhgvtghtuceohhhtmhhlqecuthgrghculddvtddmnehinhgtohhrrhgvtghtuceosghougihqecuthgrghculddvtddmnegopfhokfffucdluddtmdenogflrghprghnqddqlffrqdfuuhhsphgvtghtrfgrthhtvghrnhdqteegfeculdehmdenogflrghprghnqddqlffrqdfuuhhsphgvtghtrfgrthhtvghrnhdqjfefieculddutddmnegolfgrphgrnhdqqdflrfdqufhushhpvggtthfrrghtthgvrhhnqdfkudelucdluddtmdenogflrghprghnqddqlffrqdfuuhhsphgvtghtrfgrthhtvghrnhdqigelleculddutddmnecujfgurhephffvufffgggtrffosegrtddtreertdejnecuhfhrohhmpeggihhsrgjmmjjmuceogehiffhtgfefohifgehfhieshigrhhhoohdrtghordhjpheqnecuggftrfgrthhtvghrnheptdegvdejtedtkeffgeeugfeitdelgeevhefgleetveegueffjefhieefieejvdejnecuffhomhgrihhnpehnihhnvghmuhhsvghprhgvshhsrdgtohhmnecukfhppeehrddugeeirdduleefrdelvdenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeehrddugeeirdduleefrdelvddphhgvlhhopeihrghhohhordgtohdrjhhppdhmrghilhhfrhhomhepgehiffhtgf
+ efohifgehfhieshigrhhhoohdrtghordhjphdpmhhouggvpehsmhhtphdpmhgrgihmshhgshhiiigvpedutdegkeehjeeitddtpdhsphhfpefuqffhvffhtefknfdpnhgspghrtghpthhtohepuddprhgtphhtthhopehkhihouhhgihhkrghiqdhhihhrohhsrghkihesghhuihhtrghrrdhotghnrdhnvgdrjhhp
+
+------=_739_0zvys29xs9rcqlxg_=----
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+
+デガヲ厠斅邪わゐツ瞽麡いま鄼ぽヴ崙ゆ国泠
+
+日頃からPayPayサービスをご愛顧いただき、心より感謝申し上げます。5月利用分の料金情報をお届けいたします。 
+
+お支払い推奨期限：受信後3日以内
+
+現在残存お支払金額
+
+29,778円
+
+オンライン支払い手続き
+利用明細詳細を閲覧 
+
+期限内にお支払いを完了させ、スムーズなサービス利用を維持しましょう。 
+
+公式アプリで便利管理
+
+料金照会・決済操作が随時可能
+
+アプリから簡単に利用状況を確認可能
+
+iPhone
+
+Android
+
+会員プロフィール更新 
+＞
+登録情報を最新状態に保ち、お知らせを確実に受け取りください。
+
+各種機能設定変更 
+＞
+自身の利用習慣に合わせてサービス設定を調整できます。
+
+カスタマーサポート窓口 
+＞
+※重要利用通知のため、配信設定に関わらず送信しております。 
+
+発行元
+
+PayPayカード株式会社
+
+〒160-0004 
+東京都新宿区四谷一丁目6番1号 
+
+※電話問い合わせは混雑しやすいため、アプリ内サポートをご活用ください。
+※本メールはシステム自動送信となり、返信対応は行っておりません。
+
+©PayPay 2026 All Rights 
+Reserved
+
+PP26050054
+
+------=_739_0zvys29xs9rcqlxg_=----
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+
+<!doctype html>
+<html lang="und" data-mode="fixture">
+<head>
+  <!-- SECURITY_TEST_SAMPLE: parser compatibility fixture -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset="UTF-8">
+  <title>デガヲ厠斅邪わゐツ瞽麡いま鄼ぽヴ崙ゆ国泠</title>
+<style>
+<!--
+  /* C27: suppress stacked borders inside mail root */
+  .faalenal-rafata-e476 table, .faalenal-rafata-e476 table td, .faalenal-rafata-e476 table th { border: 0 !important; mso-border-alt: none !important; }
+  .faalenal-rafata-e476 div, .faalenal-rafata-e476 p, .faalenal-rafata-e476 section, .faalenal-rafata-e476 article { border: none !important; border-width: 0 !important; border-style: none !important; border-image: none !important; }
+-->
+</style>
+  <meta name="x-apple-disable-message-reformatting">
+</head>
+<body>
+<DIV 
+style="MAX-WIDTH: 100%; PADDING-BOTTOM: 10px; PADDING-TOP: 10px; PADDING-LEFT: 10px; MARGIN: 0px auto; PADDING-RIGHT: 10px">
+<DIV style="MARGIN-BOTTOM: 20px; TEXT-ALIGN: center"><SPAN 
+style="BACKGROUND-COLOR: transparent">日頃からPayPayサービスをご愛顧いただき、心より感謝申し上げます。5月利用分の料金情報をお届けいたします。</SPAN> 
+</DIV>
+<DIV 
+style="FONT-SIZE: 20px; FONT-WEIGHT: bold; TEXT-ALIGN: center; MARGIN: 20px 0px 10px">お支払い推奨期限：受信後3日以内</DIV>
+<DIV 
+style="BORDER-TOP: #f1f5fa 4px solid; BORDER-RIGHT: #f1f5fa 4px solid; BORDER-BOTTOM: #f1f5fa 4px solid; PADDING-BOTTOM: 20px; TEXT-ALIGN: center; PADDING-TOP: 20px; PADDING-LEFT: 20px; BORDER-LEFT: #f1f5fa 4px solid; PADDING-RIGHT: 20px; border-radius: 2px">
+<DIV style="FONT-SIZE: 80%">現在残存お支払金額</DIV>
+<DIV 
+style="FONT-SIZE: 200%; FONT-WEIGHT: bold; COLOR: #0059b3">29,778円</DIV></DIV>
+<DIV 
+style="MARGIN-TOP: 20px; DISPLAY: flex; align-items: center; flex-direction: column"><A 
+style="TEXT-DECORATION: none; MAX-WIDTH: 250px; WIDTH: 100%; FONT-WEIGHT: 400; COLOR: #ffffff; PADDING-BOTTOM: 10px; PADDING-TOP: 10px; PADDING-LEFT: 0px; MARGIN: 20px auto; DISPLAY: flex; PADDING-RIGHT: 0px; BACKGROUND-COLOR: #0059b3; border-radius: 40px; align-items: center; flex-direction: column; justify-content: center" 
+href="https://qr.paypay.ne.jp/p2p01_fvPp6mLIYv4xLUYc">
+<DIV>オンライン支払い手続き</DIV></A><A 
+style="FONT-SIZE: 80%; MARGIN-BOTTOM: 20px; TEXT-DECORATION: none; COLOR: #228ae0; TEXT-ALIGN: center" 
+href="https://qr.paypay.ne.jp/p2p01_fvPp6mLIYv4xLUYc">利用明細詳細を閲覧</A> </DIV>
+
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><nav role="presentation"><ul><li></li></ul></nav></div>
+<DIV 
+style="FONT-SIZE: 80%; MARGIN-BOTTOM: 20px; COLOR: #a1a1a1; TEXT-ALIGN: center">期限内にお支払いを完了させ、スムーズなサービス利用を維持しましょう。 
+</DIV>
+<DIV 
+style="MARGIN-TOP: 20px; PADDING-BOTTOM: 20px; PADDING-TOP: 20px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; BACKGROUND-COLOR: #f0f6fc">
+<DIV 
+style="FONT-SIZE: 120%; FONT-WEIGHT: 700; TEXT-ALIGN: center">公式アプリで便利管理</DIV>
+<DIV 
+style="FONT-SIZE: 120%; MARGIN-BOTTOM: 20px; FONT-WEIGHT: 700; TEXT-ALIGN: center">料金照会・決済操作が随時可能</DIV>
+<DIV 
+style="BORDER-TOP: #cccaca 1px solid; BORDER-RIGHT: #cccaca 1px solid; MARGIN-TOP: 10px; BORDER-BOTTOM: #cccaca 1px solid; PADDING-BOTTOM: 20px; PADDING-TOP: 20px; PADDING-LEFT: 20px; BORDER-LEFT: #cccaca 1px solid; DISPLAY: flex; PADDING-RIGHT: 20px; BACKGROUND-COLOR: #ffffff; border-radius: 2px; align-items: center; flex-direction: column">
+<DIV 
+style="FONT-SIZE: 80%; BORDER-BOTTOM: #cccaca 1px dotted; PADDING-BOTTOM: 5px">アプリから簡単に利用状況を確認可能</DIV>
+
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><nav role="presentation"><ul><li></li></ul></nav></div>
+<DIV 
+style="MAX-WIDTH: 300px; WIDTH: 100%; MARGIN-TOP: 10px; DISPLAY: flex; justify-content: space-between">
+<DIV style="MARGIN-RIGHT: 20px">
+<DIV style="FONT-SIZE: 80%; TEXT-ALIGN: center">iPhone</DIV><IMG 
+style="HEIGHT: 40px; WIDTH: auto; MARGIN-TOP: 10px" alt="App Store" 
+src="https://www.sagano-kanko.co.jp/en/wp-content/themes/saganokanko/assets/img/ico_app_apple.png"> 
+</DIV>
+<DIV>
+<DIV style="FONT-SIZE: 80%; TEXT-ALIGN: center">Android</DIV><IMG 
+style="HEIGHT: 40px; WIDTH: auto; MARGIN-TOP: 10px" alt="Google Play" 
+src="https://www.sagano-kanko.co.jp/en/wp-content/themes/saganokanko/assets/img/ico_app_google.png"> 
+</DIV></DIV></DIV></DIV>
+<DIV 
+style="FONT-SIZE: 14px; BORDER-TOP: #a1a1a1 1px solid; MARGIN-TOP: 20px; COLOR: #50504f; PADDING-BOTTOM: 10px; PADDING-TOP: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px"><A 
+style="TEXT-DECORATION: none; COLOR: #217fd8" href="https://qr.paypay.ne.jp/p2p01_fvPp6mLIYv4xLUYc">会員プロフィール更新 
+＞</A><BR>登録情報を最新状態に保ち、お知らせを確実に受け取りください。<BR><BR><A 
+style="TEXT-DECORATION: none; COLOR: #217fd8" href="https://qr.paypay.ne.jp/p2p01_fvPp6mLIYv4xLUYc">各種機能設定変更 
+＞</A><BR>自身の利用習慣に合わせてサービス設定を調整できます。<BR><BR><A 
+style="TEXT-DECORATION: none; COLOR: #217fd8" href="https://qr.paypay.ne.jp/p2p01_fvPp6mLIYv4xLUYc">カスタマーサポート窓口 
+＞</A><BR>※重要利用通知のため、配信設定に関わらず送信しております。 </DIV>
+<DIV 
+style="FONT-SIZE: 14px; MARGIN-TOP: 20px; PADDING-BOTTOM: 20px; PADDING-TOP: 20px; PADDING-LEFT: 20px; PADDING-RIGHT: 20px; BACKGROUND-COLOR: #f2f2f2">
+<DIV style="FONT-WEIGHT: bold; TEXT-ALIGN: center">発行元</DIV>
+
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><nav role="presentation"><ul><li></li></ul></nav></div>
+<DIV style="COLOR: #217fd8; TEXT-ALIGN: center">PayPayカード株式会社</DIV>
+<DIV 
+style="MARGIN-BOTTOM: 10px; BORDER-BOTTOM: #dadada 1px solid; PADDING-BOTTOM: 10px; TEXT-ALIGN: center">〒160-0004 
+東京都新宿区四谷一丁目6番1号 
+</DIV>※電話問い合わせは混雑しやすいため、アプリ内サポートをご活用ください。<BR>※本メールはシステム自動送信となり、返信対応は行っておりません。<BR>
+<DIV style="MARGIN-TOP: 20px; TEXT-ALIGN: center">©PayPay 2026 All Rights 
+Reserved</DIV>
+
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><div role="group"><section></section><footer></footer></div></div>
+<DIV style="TEXT-ALIGN: center">PP26050054</DIV></DIV></DIV><BR><BR><!-- salt:109b9c86dfc44f56a28d2a32e93baddc --><BR><BR>
+</body>
+</html>
+
+------=_739_0zvys29xs9rcqlxg_=------
+
