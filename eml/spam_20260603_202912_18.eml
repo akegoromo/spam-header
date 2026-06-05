@@ -1,0 +1,600 @@
+Delivered-To: silver.firefox+salvia-info@gmail.com
+Received: by 2002:a98:c202:0:10b0:26a:fba3:79c with SMTP id el2-n1csp1260956eib;
+        Wed, 3 Jun 2026 06:34:14 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ9Fa3FF9jpvmuTHSnvv4qm0Ndmi2cslEZ3LsuQJQZwCetRz5NF7Z7anMswXbtZsr1R/uti3ZNUXNSoBcYGJRQ==@gmail.com
+X-Received: by 2002:a05:693c:25c4:b0:2dd:6937:79b8 with SMTP id 5a478bee46e88-3074fa52073mr1792309eec.5.1780493653687;
+        Wed, 03 Jun 2026 06:34:13 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1780493653; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=P1Qe7v3ei5xeW1AN3Yf9BRBLPZAZONFxS8GkgqP52DBwIjZPTIeKIDQJ9GtKLeTJEj
+         Nyt7jALJIVVYINLeOh8wnQWlwO5o6pumTVWoP+Kj1D1F58xMYFOlwwYycEK4Tf2wNSNz
+         yqKpolBOGxebLy+pDBRNgZBSz14MfkjLrUrKveIt10s5Eyy09yZH3uM7njmqpgSw7tSU
+         ixOTz56B4fnIlid2OiSB5QHzk+VplXYs6+KAUrTEH8WfkpAHHIqJxSJk96TNrEEYOmJD
+         EUwQQr2ybKj6SyIHzRJQ6W9CxbYr8V8TX5QeYI4XBiVeqqyDoLqlGmKn0aK3Gc6NDtNe
+         Tciw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:mime-version:from:date:dkim-signature
+         :feedback-id:dkim-signature:dkim-signature;
+        bh=FkxJlGNI+Q4HzIQu7IxIQFIe1N7UBiQFOATePG1mMO8=;
+        fh=G6CSumgeC+deyp4pcAOQDxoTvlc6gV+aMcpklavZfO4=;
+        b=j1pItDcPU8ZJzyqpC8NyLDlVkucjGJs2f3jIWyVLnj27m+2kRLqI+A2MQxZMYdP4JU
+         5/1miynczqTrvS8lYCiTqqs/ZbJ9OfytwkYwRU+hxVnV/0qCpmO81iFj3m7nmjuhWfrd
+         qfNzRnwGGaGpREzGBa+sCPG5SVDiLw7nYvZxlQ2gs6voTzKvi2oDELTQD/83K4/pKrKA
+         LQEuJeXPR3SCNBLWZCoXw8e1rTEK2ky8jrnYp/8mJCZtSUlbYlAe3kJf8riQ6hSOmurP
+         0h/mhxUVYyOx7XAzRSq/paZm4jNf80odjMXdostSS6zILQ9UzHRrnpUGDTGPBUWTCYWz
+         nQZg==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=PWYuB239;
+       dkim=pass header.i=@salviasplendens.info header.s=cf2024-1 header.b=ZeF22V0h;
+       dkim=pass header.i=@tidbcloud.com header.s=s1 header.b=YYyBR6tc;
+       arc=pass (i=1 spf=pass spfdomain=em9618.tidbcloud.com dkim=pass dkdomain=tidbcloud.com dmarc=pass fromdomain=tidbcloud.com);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@salviasplendens.info designates 104.30.10.8 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@salviasplendens.info;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=tidbcloud.com
+Return-Path: <cfbounces+ndrdrop@salviasplendens.info>
+Received: from ba-i.cloudflare-email.net (ba-i.cloudflare-email.net. [104.30.10.8])
+        by mx.google.com with ESMTPS id 5a478bee46e88-3074db00723si9390171eec.10.2026.06.03.06.34.12
+        for <silver.firefox+salvia-info@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 03 Jun 2026 06:34:13 -0700 (PDT)
+Received-SPF: pass (google.com: domain of cfbounces+ndrdrop@salviasplendens.info designates 104.30.10.8 as permitted sender) client-ip=104.30.10.8;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=PWYuB239;
+       dkim=pass header.i=@salviasplendens.info header.s=cf2024-1 header.b=ZeF22V0h;
+       dkim=pass header.i=@tidbcloud.com header.s=s1 header.b=YYyBR6tc;
+       arc=pass (i=1 spf=pass spfdomain=em9618.tidbcloud.com dkim=pass dkdomain=tidbcloud.com dmarc=pass fromdomain=tidbcloud.com);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@salviasplendens.info designates 104.30.10.8 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@salviasplendens.info;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=tidbcloud.com
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=To:Subject:From:Date:Feedback-ID:from:reply-to:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1780493653; x=1781098453; bh=FkxJlGNI+Q4HzIQu7I
+	xIQFIe1N7UBiQFOATePG1mMO8=; b=PWYuB239DLSN6GFUxmqo0PlL+pCPTls8GdHlr5/0GTbjS
+	vEdY/A+L7ZCQ2/xDQHIVE5gqpTo2xK9unGvNW2KtVHVND5vQtaKwQgFYc1HoWqVeuLkRkKNhlU9
+	jk3eSHwAnWekuSn2RsCSkyy4Awat8Tn6gYUEmjqsCQvOjAUdv/rvHe1hYH8dagVD/ayP+O2BL4t
+	oBrKLHDQtsD0yhtqOFXQiYFss2c2ZgS8+dP6tEug9v74ohMJzu0nxtmt8WrZfBWLkO4TI0fg42K
+	B3s0IPF7+a33cwCWYJCv4Wqt72hlSi5YlknLg7HT8maFnoXJLx3XXyX/7Pt3N0IIw0k6LKOQ==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=salviasplendens.info; c=relaxed/relaxed;
+	h=To:Subject:From:Date:Feedback-ID:from:reply-to:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1780493653; x=1781098453; bh=FkxJlGNI+Q4HzIQu7I
+	xIQFIe1N7UBiQFOATePG1mMO8=; b=ZeF22V0h4OHRISsih6ZJzTZMnCWQpaMgj9/R3PzCaqnuy
+	JGWGFutivex9Y/z1HfsFP9xhozNr53h4wPMNU8xjXtxCYN//Ux+ibvwAWdhockvT4zqRIZNzuzr
+	bnmMuQ+FgJE0kA/5wCUkCrhoNbIUNbhHjP0boR/9XAnpS2OBQypJPlulnD+AC34xEK0DXcYlkLx
+	ULkszQ4+DefipZpzh3XYy8krXYhN9nBkTwkoPJkafp9ufZMXA1fMdrt2GBCQ6FwvtSgb1Q9kxXG
+	0qfb+w5Z4ZEiWpqU3snrjMMB3YTyCHWQgUEry/XfmhSdkZ8dbCQT7e2s6/B5pyQvS6ev1FqQ==;
+X-Forwarded-To: silver.firefox+salvia-info@gmail.com
+X-Forwarded-For: tidbcloud@salviasplendens.info silver.firefox+salvia-info@gmail.com
+Feedback-ID: salviasplendens.info:1:1:Cloudflare
+Received: from wrqvksch.outbound-mail.sendgrid.net (149.72.22.192)
+        by cloudflare-email.net (cloudflare) id lGiCOLAoOvwf
+        for <tidbcloud@salviasplendens.info>; Wed, 03 Jun 2026 13:34:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=c1kH9W3H9cj80c6eu+8NiSYhhiFt4MmeaTG8Me9gb2f77zEl5hVrtuMJ+fBcCkorzLlM6iT5D
+	HtFsd0CegXvjFJenlADK5P9AAJAsn1htHVR6rpSUzrQPbHneJI3qSYJfGETx5Ucnk9R7e4zqFYU
+	6AE6ypckKybr2CqUECg22O58Cpa9MlYRMWOcR5oRJAI41oEbm8yjvlkJxKKz/sfPJilVht3L1gp
+	iMnj+pTF7g4V0nakc0JwiZcH1UDBOgcquLSnh09EP0Tl/5OXkevOHpWBL/A5Q8dxJ13D3ndLGel
+	LFGtkFvTf5WAKPDKfRT4U51UmHhLskHgqWcmiff52CKg==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=To:Subject:From:Date:from:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1780493651; x=1781098451; bh=FkxJlGNI
+	+Q4HzIQu7IxIQFIe1N7UBiQFOATePG1mMO8=; b=Gf0G86CM3awara0a1KNxkH7n+Xk2dxv51a5
+	hWHGggjw+J7bNrVYe62l6QJMzZjYwE3g0VsloleN5izAbxFw7xtmfki6bG9JQ9CpmEQHCXcT95i
+	Z/bYiSwVCZa8RoDBy2NpG+v0lkOWetcMeYWaIDee32VEg/3IKKm+7DolYe8mqxGdEIz79HLMKe9
+	RClXw5po7qetS9HsWiMxmggnGrnyihDsVQOUL7DAxfvSFlGD4fH6tEQcHDtTayT30rmNJ2Ncn+C
+	mS3jwlhSo86YeBx0YTP/+C/GVigDUS3b28AVoN8l+kwnfvwFHyH08Fh129a33gASYXPQ1X9uuF9
+	6FIfHmQ==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.d=tidbcloud.com header.s=s1 header.b=YYyBR6tc;
+	dmarc=pass header.from=tidbcloud.com policy.dmarc=none;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@wrqvksch.outbound-mail.sendgrid.net) smtp.helo=wrqvksch.outbound-mail.sendgrid.net;
+	spf=pass (mx.cloudflare.net: domain of bounces+23729566-e70a-tidbcloud=salviasplendens.info@em9618.tidbcloud.com designates 149.72.22.192 as permitted sender) smtp.mailfrom=bounces+23729566-e70a-tidbcloud=salviasplendens.info@em9618.tidbcloud.com;
+	arc=none smtp.remote-ip=149.72.22.192
+Received-SPF: pass (mx.cloudflare.net: domain of bounces+23729566-e70a-tidbcloud=salviasplendens.info@em9618.tidbcloud.com designates 149.72.22.192 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=149.72.22.192; envelope-from="bounces+23729566-e70a-tidbcloud=salviasplendens.info@em9618.tidbcloud.com"; helo=wrqvksch.outbound-mail.sendgrid.net;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.d=tidbcloud.com header.s=s1 header.b=YYyBR6tc;
+	dmarc=pass header.from=tidbcloud.com policy.dmarc=none;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@wrqvksch.outbound-mail.sendgrid.net) smtp.helo=wrqvksch.outbound-mail.sendgrid.net;
+	spf=pass (mx.cloudflare.net: domain of bounces+23729566-e70a-tidbcloud=salviasplendens.info@em9618.tidbcloud.com designates 149.72.22.192 as permitted sender) smtp.mailfrom=bounces+23729566-e70a-tidbcloud=salviasplendens.info@em9618.tidbcloud.com;
+	arc=none smtp.remote-ip=149.72.22.192
+X-CF-SpamH-Score: 1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tidbcloud.com;
+	h=content-type:date:from:mime-version:subject:to:cc:content-type:date:
+	from:subject:to;
+	s=s1; t=1780486152;
+	bh=FkxJlGNI+Q4HzIQu7IxIQFIe1N7UBiQFOATePG1mMO8=;
+	b=YYyBR6tcmDZsWDIRFWd96LFCm8lA9M7XVIA1oW2+ITrQ+bFVsDpAbdnnxNLU0YvB3OiZ
+	RybDRSYEcCFORVfYLBWuv0+5CcJCEYfdOj3HwAT5r0oQYvg5TksA3ST3JCiLgZVEKV7CV/
+	Wdx9SaZmbyqsA9slUiZZOSgF1b2tzGa5jnTVzC/g9whYbJoIHp+av65EGF+CrrExifFtIW
+	0KfvPuj3MrQ7s3QdWx86TZu90BvEKJYKHzizkMn5SOG8fz7OPugu1q9Cud1sHrbRv0gZ13
+	JBb9UM6hHI6z8N8ZB3nH+mGb0FnX16ypTbwrKX4iSHnzeQTqFZpBhl5EC5mfHLPg==
+Received: by recvd-5744f687b-n5sgz with SMTP id recvd-5744f687b-n5sgz-1-6A201008-4
+	2026-06-03 11:29:12.026621667 +0000 UTC m=+3073933.306147214
+Received: from MjM3Mjk1NjY (unknown)
+	by geopod-ismtpd-4 (SG) with HTTP
+	id cGc54KADR6-fnwNfIJROhw
+	Wed, 03 Jun 2026 11:29:12.018 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=62f0f55da79731b9b72e705d44bb316f27bb8595ba60f11ee1a5295cbb83
+Date: Wed, 03 Jun 2026 11:29:12 +0000 (UTC)
+From: no-reply@tidbcloud.com
+Mime-Version: 1.0
+Message-ID: <cGc54KADR6-fnwNfIJROhw@geopod-ismtpd-4>
+Subject: Maintenance window for System Upgrade 2026-06
+X-SG-EID: 
+ =?us-ascii?Q?u001=2EOe6udP5sTliHb4edvvjYpKq24YehkbIdkFLLhZ+0a6adaH+U9yqybOQ8b?=
+ =?us-ascii?Q?7g4gb99yJQ+0EJBqoEd9rsx7eJ1weIm=2F=2FxWf15D?=
+ =?us-ascii?Q?REnu1PI4OYDcEDCmfHcL2esKdzFkV4YSjDA=2F3P7?=
+ =?us-ascii?Q?7peduXhsjZmA34=2FP05AAzbKVq2yP=2FXeyMT=2FMyxU?=
+ =?us-ascii?Q?fh2qVFMXBdGCeWY9U5DehEj0dcpFibZPrEUQPDf?=
+ =?us-ascii?Q?iQzsFLGYes0ls92ShbZr9o=3D?=
+X-SG-ID: 
+ =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3BpTL9BgbK5wfSJMJGMsmprDsPyUTnMagHRCjb?=
+ =?us-ascii?Q?=2F65Gubla5RI8KkfqElMk+HiyVPbKbzooNxCXWAC?=
+ =?us-ascii?Q?Znlf+sSP4Xk=2FwAme5=2FzeyAGsk4+83tSqsK3jqdj?=
+ =?us-ascii?Q?f7NCLB9N9fJFPa2VulfbgT93MAOyi3BPLmNEdSS?=
+ =?us-ascii?Q?gRv+Jb0hz22=2FEH1kj+2DpAHK7UZXF04N3epxFcc?=
+ =?us-ascii?Q?Q=3D=3D?=
+To: tidbcloud@salviasplendens.info
+X-Entity-ID: u001.JGXY9jyFFRQ7S05wlADj6A==
+
+--62f0f55da79731b9b72e705d44bb316f27bb8595ba60f11ee1a5295cbb83
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Mime-Version: 1.0
+
+Dear Customer,
+We would like to inform you about a planned System Maintenance action for T=
+iDB Cloud on June 11, 2026. This maintenance is crucial to enhance the stab=
+ility and reliability of our services.
+
+--------------------
+*Maintenance window*
+--------------------
+
+* Start time: 2026-06-11 17:00 (UTC+8)
+* End time: 2026-06-11 17:30 (UTC+8)
+* Duration: 30 mins
+
+--------------
+*Impact scope*
+--------------
+
+* All TiDB Starter/Essential instances
+
+----------------
+*Impact Details*
+----------------
+
+This maintenance affects management operations on the TiDB Cloud Console an=
+d OpenAPI ( *temporarily unavailable for 3-5 mins* ). TiDB Cloud connectivi=
+ty and standard read/write operations will remain unaffected. You can conti=
+nue to access data and run applications as usual. The primary components af=
+fected are:
+
+* Data Migration & Changefeed: Data Migration (DM), Changefeed management.
+* Data Utilities: Export, Import, and Backup Schedule Setting management.
+* Branch management
+* Database Audit Log management
+
+We apologize for any inconvenience this may cause. Please feel free to cont=
+act us if you have any concerns.
+
+*Best regards,*
+*TiDB Cloud*
+
+This message was sent from PingCAP, Ltd.
+--62f0f55da79731b9b72e705d44bb316f27bb8595ba60f11ee1a5295cbb83
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=us-ascii
+Mime-Version: 1.0
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org=
+/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html data-editor-version=3D"2" class=3D"sg-campaigns" xmlns=3D"http://www.=
+w3.org/1999/xhtml">
+    <head>
+      <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8">
+      <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scal=
+e=3D1, minimum-scale=3D1, maximum-scale=3D1">
+      <!--[if !mso]><!-->
+      <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3DEdge">
+      <!--<![endif]-->
+      <!--[if (gte mso 9)|(IE)]>
+      <xml>
+        <o:OfficeDocumentSettings>
+          <o:AllowPNG/>
+          <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+      </xml>
+      <![endif]-->
+      <!--[if (gte mso 9)|(IE)]>
+  <style type=3D"text/css">
+    body {width: 800px;margin: 0 auto;}
+    table {border-collapse: collapse;}
+    table, td {mso-table-lspace: 0pt;mso-table-rspace: 0pt;}
+    img {-ms-interpolation-mode: bicubic;}
+  </style>
+<![endif]-->
+      <style type=3D"text/css">
+    body, p, div {
+      font-family: arial,helvetica,sans-serif;
+      font-size: 14px;
+    }
+    body {
+      color: #000000;
+    }
+    body a {
+      color: #1188E6;
+      text-decoration: none;
+    }
+    p { margin: 0; padding: 0; }
+    table.wrapper {
+      width:100% !important;
+      table-layout: fixed;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust: 100%;
+      -moz-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+    img.max-width {
+      max-width: 100% !important;
+    }
+    .column.of-2 {
+      width: 50%;
+    }
+    .column.of-3 {
+      width: 33.333%;
+    }
+    .column.of-4 {
+      width: 25%;
+    }
+    ul ul ul ul  {
+      list-style-type: disc !important;
+    }
+    ol ol {
+      list-style-type: lower-roman !important;
+    }
+    ol ol ol {
+      list-style-type: lower-latin !important;
+    }
+    ol ol ol ol {
+      list-style-type: decimal !important;
+    }
+    @media screen and (max-width:480px) {
+      .preheader .rightColumnContent,
+      .footer .rightColumnContent {
+        text-align: left !important;
+      }
+      .preheader .rightColumnContent div,
+      .preheader .rightColumnContent span,
+      .footer .rightColumnContent div,
+      .footer .rightColumnContent span {
+        text-align: left !important;
+      }
+      .preheader .rightColumnContent,
+      .preheader .leftColumnContent {
+        font-size: 80% !important;
+        padding: 5px 0;
+      }
+      table.wrapper-mobile {
+        width: 100% !important;
+        table-layout: fixed;
+      }
+      img.max-width {
+        height: auto !important;
+        max-width: 100% !important;
+      }
+      a.bulletproof-button {
+        display: block !important;
+        width: auto !important;
+        font-size: 80%;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+      .columns {
+        width: 100% !important;
+      }
+      .column {
+        display: block !important;
+        width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
+      .social-icon-column {
+        display: inline-block !important;
+      }
+    }
+  </style>
+      <!--user entered Head Start--><!--End Head user entered-->
+    </head>
+    <body>
+      <center class=3D"wrapper" data-link-color=3D"#1188E6" data-body-style=
+=3D"font-size:14px; font-family:arial,helvetica,sans-serif; color:#000000; =
+background-color:#FFFFFF;">
+        <div class=3D"webkit">
+          <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"=
+100%" class=3D"wrapper" bgcolor=3D"#FFFFFF">
+            <tr>
+              <td valign=3D"top" bgcolor=3D"#FFFFFF" width=3D"100%">
+                <table width=3D"100%" role=3D"content-container" class=3D"o=
+uter" align=3D"center" cellpadding=3D"0" cellspacing=3D"0" border=3D"0">
+                  <tr>
+                    <td width=3D"100%">
+                      <table width=3D"100%" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0">
+                        <tr>
+                          <td>
+                            <!--[if mso]>
+    <center>
+    <table><tr><td width=3D"800">
+  <![endif]-->
+                                    <table width=3D"100%" cellpadding=3D"0"=
+ cellspacing=3D"0" border=3D"0" style=3D"width:100%; max-width:800px;" alig=
+n=3D"center">
+                                      <tr>
+                                        <td role=3D"modules-container" styl=
+e=3D"padding:0px 0px 0px 0px; color:#000000; text-align:left;" bgcolor=3D"#=
+FFFFFF" width=3D"100%" align=3D"left"><table class=3D"module preheader preh=
+eader-hide" role=3D"module" data-type=3D"preheader" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"display: none !important;=
+ mso-hide: all; visibility: hidden; opacity: 0; color: transparent; height:=
+ 0; width: 0;">
+    <tr>
+      <td role=3D"module-content">
+        <p></p>
+      </td>
+    </tr>
+  </table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" align=3D"=
+center" width=3D"100%" role=3D"module" data-type=3D"columns" style=3D"paddi=
+ng:0px 0px 0px 0px;" bgcolor=3D"#FFFFFF" data-distribution=3D"1">
+    <tbody>
+      <tr role=3D"module-content">
+        <td height=3D"100%" valign=3D"top"><table width=3D"780" style=3D"wi=
+dth:780px; border-spacing:0; border-collapse:collapse; margin:0px 10px 0px =
+10px;" cellpadding=3D"0" cellspacing=3D"0" align=3D"left" border=3D"0" bgco=
+lor=3D"" class=3D"column column-0">
+      <tbody>
+        <tr>
+          <td style=3D"padding:0px;margin:0px;border-spacing:0;"><table cla=
+ss=3D"module" role=3D"module" data-type=3D"code" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"table-layout: fixed;" data=
+-muid=3D"db86868f-7b81-451d-a31d-cfdf5fa9ae84">
+    <tbody>
+      <tr>
+        <td height=3D"100%" valign=3D"top" role=3D"module-content"><div sty=
+le=3D"background-color: #1f2426;color: #fff;font-size: 0; min-height: 85px;=
+">
+             =20
+<img width=3D"100%" height=3D"auto" src=3D"http://cdn.mcauto-images-product=
+ion.sendgrid.net/c20ec14e4d0673c0/a3a5411a-b704-4c52-b389-cfebc62e5047/1200=
+x170.png" alt=3D"TiDB Cloud">
+             =20
+</div></td>
+      </tr>
+    </tbody>
+  </table><table class=3D"module" role=3D"module" data-type=3D"text" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"table-la=
+yout: fixed;" data-muid=3D"d5960be7-6cfb-4cd2-b800-95b8f2994568" data-mc-mo=
+dule-version=3D"2019-10-22">
+    <tbody>
+      <tr>
+        <td style=3D"padding:20px 32px 20px 32px; line-height:24px; text-al=
+ign:inherit; background-color:#FFF;" height=3D"100%" valign=3D"top" bgcolor=
+=3D"#FFF" role=3D"module-content"><div><div style=3D"font-family: inherit; =
+text-align: inherit"><br></div>
+<div style=3D"font-family: inherit; text-align: inherit">Dear Customer,</di=
+v>
+<div style=3D"font-family: inherit; text-align: inherit">We would like to i=
+nform you about a planned System Maintenance action for TiDB Cloud on June =
+11, 2026. This maintenance is crucial to enhance the stability and reliabil=
+ity of our services.</div>
+<h2 style=3D"text-align: inherit; font-family: inherit"><strong>Maintenance=
+ window</strong></h2>
+<ul>
+  <li style=3D"text-align: inherit">Start time: 2026-06-11 17:00 (UTC+8)</l=
+i>
+  <li style=3D"text-align: inherit">End time: 2026-06-11 17:30 (UTC+8)&nbsp=
+;</li>
+  <li style=3D"text-align: inherit">Duration: 30 mins</li>
+</ul>
+<h2 style=3D"text-align: inherit; font-family: inherit"><strong>Impact scop=
+e</strong></h2>
+<ul>
+  <li style=3D"text-align: inherit">All TiDB Starter/Essential instances&nb=
+sp;</li>
+</ul>
+<h2 style=3D"text-align: left; font-family: inherit"><span style=3D"text-al=
+ign: left"><strong>Impact Details</strong></span></h2>
+<div style=3D"font-family: inherit; text-align: inherit">This maintenance a=
+ffects management operations on the TiDB Cloud Console and OpenAPI (<strong=
+>temporarily unavailable for 3-5 mins</strong>). TiDB Cloud connectivity an=
+d standard read/write operations will remain unaffected. You can continue t=
+o access data and run applications as usual. The primary components affecte=
+d are:</div>
+<ul>
+  <li color=3D"rgb(0, 0, 0)" style=3D"text-align: inherit; font-family: inh=
+erit; color: rgb(0, 0, 0); margin-left: 0px; font-size: 14px; font-size: 14=
+px"><span style=3D"box-sizing: border-box; padding-top: 0px; padding-right:=
+ 0px; padding-bottom: 0px; padding-left: 0px; margin-top: 0px; margin-right=
+: 0px; margin-bottom: 0px; margin-left: 0px; font-style: inherit; font-vari=
+ant-ligatures: inherit; font-variant-caps: inherit; font-variant-numeric: i=
+nherit; font-variant-east-asian: inherit; font-variant-alternates: inherit;=
+ font-variant-position: inherit; font-variant-emoji: inherit; font-weight: =
+inherit; font-stretch: inherit; line-height: inherit; font-family: inherit;=
+ font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inh=
+erit; font-feature-settings: inherit; font-variation-settings: inherit; fon=
+t-language-override: inherit; font-size: 14px; vertical-align: baseline; bo=
+rder-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; bor=
+der-left-width: 0px; border-top-style: none; border-right-style: none; bord=
+er-bottom-style: none; border-left-style: none; border-top-color: currentco=
+lor; border-right-color: currentcolor; border-bottom-color: currentcolor; b=
+order-left-color: currentcolor; border-image-source: initial; border-image-=
+slice: initial; border-image-width: initial; border-image-outset: initial; =
+border-image-repeat: initial; list-style-position: initial; list-style-imag=
+e: initial; list-style-type: none; color: #000000; letter-spacing: normal; =
+orphans: 2; text-align: start; text-indent: 0px; text-transform: none; wido=
+ws: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space-colla=
+pse: preserve; text-wrap-mode: wrap; background-color: rgb(255, 255, 255); =
+text-decoration-thickness: initial; text-decoration-style: initial; text-de=
+coration-color: initial; counter-increment: uldepth1 1; padding-inline-star=
+t: 0px">Data Migration &amp; Changefeed: Data Migration (DM), Changefeed ma=
+nagement.</span></li>
+  <li color=3D"rgb(0, 0, 0)" style=3D"text-align: inherit; font-family: inh=
+erit; color: rgb(0, 0, 0); margin-left: 0px; font-size: 14px; font-size: 14=
+px"><span style=3D"box-sizing: border-box; padding-top: 0px; padding-right:=
+ 0px; padding-bottom: 0px; padding-left: 0px; margin-top: 0px; margin-right=
+: 0px; margin-bottom: 0px; margin-left: 0px; font-style: inherit; font-vari=
+ant-ligatures: inherit; font-variant-caps: inherit; font-variant-numeric: i=
+nherit; font-variant-east-asian: inherit; font-variant-alternates: inherit;=
+ font-variant-position: inherit; font-variant-emoji: inherit; font-weight: =
+inherit; font-stretch: inherit; line-height: inherit; font-family: inherit;=
+ font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inh=
+erit; font-feature-settings: inherit; font-variation-settings: inherit; fon=
+t-language-override: inherit; font-size: 14px; vertical-align: baseline; bo=
+rder-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; bor=
+der-left-width: 0px; border-top-style: none; border-right-style: none; bord=
+er-bottom-style: none; border-left-style: none; border-top-color: currentco=
+lor; border-right-color: currentcolor; border-bottom-color: currentcolor; b=
+order-left-color: currentcolor; border-image-source: initial; border-image-=
+slice: initial; border-image-width: initial; border-image-outset: initial; =
+border-image-repeat: initial; list-style-position: initial; list-style-imag=
+e: initial; list-style-type: none; color: #000000; letter-spacing: normal; =
+orphans: 2; text-align: start; text-indent: 0px; text-transform: none; wido=
+ws: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space-colla=
+pse: preserve; text-wrap-mode: wrap; background-color: rgb(255, 255, 255); =
+text-decoration-thickness: initial; text-decoration-style: initial; text-de=
+coration-color: initial; counter-increment: uldepth1 1; padding-inline-star=
+t: 0px">Data Utilities: Export, Import, and Backup Schedule Setting managem=
+ent.</span></li>
+  <li color=3D"rgb(0, 0, 0)" style=3D"text-align: inherit; font-family: inh=
+erit; color: rgb(0, 0, 0); margin-left: 0px; font-size: 14px; font-size: 14=
+px"><span style=3D"box-sizing: border-box; padding-top: 0px; padding-right:=
+ 0px; padding-bottom: 0px; padding-left: 0px; margin-top: 0px; margin-right=
+: 0px; margin-bottom: 0px; margin-left: 0px; font-style: inherit; font-vari=
+ant-ligatures: inherit; font-variant-caps: inherit; font-variant-numeric: i=
+nherit; font-variant-east-asian: inherit; font-variant-alternates: inherit;=
+ font-variant-position: inherit; font-variant-emoji: inherit; font-weight: =
+inherit; font-stretch: inherit; line-height: inherit; font-family: inherit;=
+ font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inh=
+erit; font-feature-settings: inherit; font-variation-settings: inherit; fon=
+t-language-override: inherit; font-size: 14px; vertical-align: baseline; bo=
+rder-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; bor=
+der-left-width: 0px; border-top-style: none; border-right-style: none; bord=
+er-bottom-style: none; border-left-style: none; border-top-color: currentco=
+lor; border-right-color: currentcolor; border-bottom-color: currentcolor; b=
+order-left-color: currentcolor; border-image-source: initial; border-image-=
+slice: initial; border-image-width: initial; border-image-outset: initial; =
+border-image-repeat: initial; list-style-position: initial; list-style-imag=
+e: initial; list-style-type: none; color: #000000; letter-spacing: normal; =
+orphans: 2; text-align: start; text-indent: 0px; text-transform: none; wido=
+ws: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space-colla=
+pse: preserve; text-wrap-mode: wrap; background-color: rgb(255, 255, 255); =
+text-decoration-thickness: initial; text-decoration-style: initial; text-de=
+coration-color: initial; counter-increment: uldepth1 1; padding-inline-star=
+t: 0px">Branch management</span></li>
+  <li style=3D"text-align: inherit; margin-left: 0px; font-family: inherit;=
+ font-size: 14px; color: rgb(0, 0, 0)"><span style=3D"box-sizing: border-bo=
+x; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left:=
+ 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: =
+0px; font-style: inherit; font-variant-ligatures: inherit; font-variant-cap=
+s: inherit; font-variant-numeric: inherit; font-variant-east-asian: inherit=
+; font-variant-alternates: inherit; font-variant-position: inherit; font-va=
+riant-emoji: inherit; font-weight: inherit; font-stretch: inherit; line-hei=
+ght: inherit; font-family: inherit; font-optical-sizing: inherit; font-size=
+-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; fo=
+nt-variation-settings: inherit; font-language-override: inherit; font-size:=
+ 14px; vertical-align: baseline; border-top-width: 0px; border-right-width:=
+ 0px; border-bottom-width: 0px; border-left-width: 0px; border-top-style: n=
+one; border-right-style: none; border-bottom-style: none; border-left-style=
+: none; border-top-color: currentcolor; border-right-color: currentcolor; b=
+order-bottom-color: currentcolor; border-left-color: currentcolor; border-i=
+mage-source: initial; border-image-slice: initial; border-image-width: init=
+ial; border-image-outset: initial; border-image-repeat: initial; list-style=
+-position: initial; list-style-image: initial; list-style-type: none; color=
+: #000000; letter-spacing: normal; orphans: 2; text-align: start; text-inde=
+nt: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-s=
+troke-width: 0px; white-space-collapse: preserve; text-wrap-mode: wrap; bac=
+kground-color: rgb(255, 255, 255); text-decoration-thickness: initial; text=
+-decoration-style: initial; text-decoration-color: initial; counter-increme=
+nt: uldepth1 1; padding-inline-start: 0px">Database Audit Log management</s=
+pan></li>
+</ul>
+<div style=3D"font-family: inherit; text-align: left"><span style=3D"text-a=
+lign: left">We apologize for any inconvenience this may cause. Please feel =
+free to contact us if you have any concerns.</span></div>
+<div style=3D"font-family: inherit; text-align: left"><br></div>
+<div style=3D"font-family: inherit; text-align: left"><span style=3D"text-a=
+lign: left"><strong>Best regards,</strong></span></div>
+<div style=3D"font-family: inherit; text-align: inherit"><strong>TiDB Cloud=
+</strong>&nbsp;</div><div></div></div></td>
+      </tr>
+    </tbody>
+  </table><table class=3D"module" role=3D"module" data-type=3D"text" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"table-la=
+yout: fixed;" data-muid=3D"4d271fdc-f9ba-46d4-9667-92b2ce58edc5" data-mc-mo=
+dule-version=3D"2019-10-22">
+    <tbody>
+      <tr>
+        <td style=3D"padding:18px 0px 18px 0px; line-height:22px; text-alig=
+n:inherit;" height=3D"100%" valign=3D"top" bgcolor=3D"" role=3D"module-cont=
+ent"><div><div style=3D"font-family: inherit; text-align: center"><span sty=
+le=3D"color: #b0bacc; font-family: Roboto, RobotoDraft, Helvetica, Arial, s=
+ans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: nor=
+mal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; o=
+rphans: 2; text-align: -webkit-center; text-indent: 0px; text-transform: no=
+ne; white-space-collapse: collapse; text-wrap-mode: wrap; text-wrap-style: =
+initial; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; back=
+ground-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-=
+decoration-style: initial; text-decoration-color: initial; float: none; dis=
+play: inline">This message was sent from PingCAP, Ltd.</span></div><div></d=
+iv></div></td>
+      </tr>
+    </tbody>
+  </table></td>
+        </tr>
+      </tbody>
+    </table></td>
+      </tr>
+    </tbody>
+  </table></td>
+                                      </tr>
+                                    </table>
+                                    <!--[if mso]>
+                                  </td>
+                                </tr>
+                              </table>
+                            </center>
+                            <![endif]-->
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </center>
+    <img src=3D"https://url8461.tidbcloud.com/wf/open?upn=3Du001.3FXBcXbIBQ=
+Ywpcghfr9QIbpTkNBov1Cmmm1TQmDgUU-2BKf-2F7lLpsjDtyBxpTYartEu-2BE-2F5FgU8txr7=
+ewz6W1ZmAo-2FPp4w5GQ4uYDpWj45yUl0Rqm0PEInMTmXZGrXACGDImFYfcx9VQqwhI5oYk-2BX=
+MVCVZ-2BcoqOirtmalIsoDSVRnvr3llStsl57p4c-2B6gKBBGufLdXLsPJucJ989bpzDZul5o20=
+RRSwz88YImUeh-2FWjzqrd-2FHD7e7-2BjqAFHibMQXBqwshfSpmkbl35XBOuEsSiZixAA10xpV=
+hEgoKNtat3lxUiK9yITE0hiUaj0gBRg2siaNzUkU5ZZJ6zS3AjNrnDIXWgB-2FkSmP5OUrb5gso=
+mw122t-2Fpbceft6kGts37RMTMLBYyL64p9mccQy7n6G-2BLQ-3D-3D" alt=3D"" width=3D"=
+1" height=3D"1" border=3D"0" style=3D"height:1px !important;width:1px !impo=
+rtant;border-width:0 !important;margin-top:0 !important;margin-bottom:0 !im=
+portant;margin-right:0 !important;margin-left:0 !important;padding-top:0 !i=
+mportant;padding-bottom:0 !important;padding-right:0 !important;padding-lef=
+t:0 !important;"/></body>
+  </html>
+--62f0f55da79731b9b72e705d44bb316f27bb8595ba60f11ee1a5295cbb83--
+

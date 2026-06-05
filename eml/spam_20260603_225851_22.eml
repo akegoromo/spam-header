@@ -1,0 +1,235 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:c202:0:10b0:26a:fba3:79c with SMTP id el2-n1csp1278139eib;
+        Wed, 3 Jun 2026 06:59:03 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ+w/+PdeRWM1m2Tq1Oeyco/stgneKthxou5d7T0dQXWHyIUSj0A4LVUzuvogO8baXqSVocRbT4rRdDXFPLC2A==@gmail.com
+X-Received: by 2002:a17:907:2d08:b0:bf0:3fd1:d180 with SMTP id a640c23a62f3a-bf0a883b93fmr187104666b.8.1780495143157;
+        Wed, 03 Jun 2026 06:59:03 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1780495143; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=PxKtyeWaipQMf5s5x7NBSAdasNLfaIes1q7tIkXULl7T41oSjZHaeLmUh15HPzpB5K
+         8skRja5Fvko6kF5khBkf1uu3Ri14/4vUUCBShQusQ8OCxJXhs3mBYnliR1vUeZWDHS/S
+         e7QVgaXMPOgTdSME0zxW+6ySbx3Xyrkm9vENR4yJkGShyMTMAwzH2oTFt/8cQHOVIzGA
+         H42k9YN+HTyPJtFBg4lOvD7y8sue2a43Mohtub2Y8pIal/NEXmeB7C3JgsPhVGhwIIVH
+         21eo4mNgfd/ca4ua67la9ZWUElrgeYVhLIXfsRLYLkAettch0cskxLx1bWkPB+DYRugt
+         qA3g==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=sender:message-id:date:subject:to:dkim-signature:from:mime-version
+         :feedback-id:dkim-signature:dkim-signature;
+        bh=2tAtBmYWcl5ASyegBt200z70g2vlPedfi/86CXfIIc4=;
+        fh=LnGVlAla77Gyfiw8zkzbOhaVlqYgEu27l8ujdfvsIGY=;
+        b=N4Q6Bz/3ZYDcHB2OidLmAh8butufPZtAoCOX5WKnviOD5xqW8aOSD/Pg/I2EYKcWP4
+         vzodZs3lXGGUNsKV0d+jgrKjTL2EbCIFVH9wW8XmqBTJb6dBajRcKQ5x3z4tQgqSB89v
+         2a+/GE3X6VOLhTs7Y3WPLycF0ZL5C6xiDtsf3yOj0UffNDXcvl16+gcn97Dn46tycpIb
+         Rk2ODWPKpfTHWadTofKNG6VLuxIpsXihPmg5PjueuWaWZqfW+P2I0MfK9pzSrUAXBcAA
+         9rMiePXtEyrkd7suBqhiucsZCkeIBKul8zpSeXjAjavaPFKjJz0UqwjG86fGBTkib28c
+         x1Rg==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=T+eYx70I;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=WHnoPo41;
+       dkim=pass header.i=@forby.yjmiem.cn header.s=hedge header.b=dbaOd7PH;
+       arc=pass (i=1 spf=pass spfdomain=forby.yjmiem.cn dkim=pass dkdomain=forby.yjmiem.cn);
+       spf=pass (google.com: domain of srs0=ihmw=7d=forby.yjmiem.cn=yodogawa.0313@whither.jp designates 104.30.10.39 as permitted sender) smtp.mailfrom="SRS0=IhMw=7d=forby.yjmiem.cn=yodogawa.0313@whither.jp";
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=uqmoipa.cn
+Return-Path: <SRS0=IhMw=7d=forby.yjmiem.cn=yodogawa.0313@whither.jp>
+Received: from ba-dj.cloudflare-email.net (ba-dj.cloudflare-email.net. [104.30.10.39])
+        by mx.google.com with ESMTPS id a640c23a62f3a-bf055300853si185037466b.157.2026.06.03.06.59.02
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 03 Jun 2026 06:59:02 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=ihmw=7d=forby.yjmiem.cn=yodogawa.0313@whither.jp designates 104.30.10.39 as permitted sender) client-ip=104.30.10.39;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=T+eYx70I;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=WHnoPo41;
+       dkim=pass header.i=@forby.yjmiem.cn header.s=hedge header.b=dbaOd7PH;
+       arc=pass (i=1 spf=pass spfdomain=forby.yjmiem.cn dkim=pass dkdomain=forby.yjmiem.cn);
+       spf=pass (google.com: domain of srs0=ihmw=7d=forby.yjmiem.cn=yodogawa.0313@whither.jp designates 104.30.10.39 as permitted sender) smtp.mailfrom="SRS0=IhMw=7d=forby.yjmiem.cn=yodogawa.0313@whither.jp";
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=uqmoipa.cn
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:from:reply-to:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1780495142; x=1781099942; bh=2tAtBmYWcl5ASyegBt
+	200z70g2vlPedfi/86CXfIIc4=; b=T+eYx70I+HAb+nFLcxe4vJKHucZTLdrQGzqizSa22C70H
+	AojUT0Vae0Mpta9x/SnncPc2bX/nP77KT2DYbs5I+Y367pLrpaxlgr0rAudF7nA64glQVLE11o/
+	fJ0EW3irmWDKt0KWyP1Z+Cn2A50mT8by2emgjgUiFJrVrvfSDyxIY0sEX4j6YljZmU5ypfgy+Mq
+	xlIhxaDhVPtCI+GmPiBMFif7rsT7pcTUMcVQ6GVdl2ewwG5WTVNZ4w/1h+mTPOXUUFdKkDDajve
+	4M05rW9J6aBB9m5IP+zBb8X65aEik3jU7sIyM0+sX0tMjJ1JlJAF6BiCIFPxNR2KeayRY7xg==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:from:reply-to:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1780495142; x=1781099942; bh=2tAtBmYWcl5ASyegBt
+	200z70g2vlPedfi/86CXfIIc4=; b=WHnoPo41ZsRQ+oV5EqmqRRUt7RRXgqNGYnLn014SECWwd
+	R6gcsZ4jjQbp88r/5q8//juW+mgpuZX/DNc3fSR8G1pH7b2d7fHhPc88dYMu8t4jutvG8KPbCMI
+	a9J4CovYaGBw4c3hR6siwQcsb9+squYeUn+xxS68g7sKpJB54CUZ7ahxszElXHtTxRiieEWRGug
+	TTL9eo8THU0chl5mYmXcwqKo9V+oAm12ETmvVBZ8gGOz3GnyI7hBqBWKbiVBcy5Ip1HTuMi0tQQ
+	2zGPs9LaKg1TF1qiiNI3jN2yVsQrkUAhFfZQr4dDv+Dpce3wd/5CCbqJ+TY7WFM3tDiq6uKw==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: silver.firefox+whither-jp@gmail.com silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:2:1:Cloudflare
+Received: from forby.yjmiem.cn (117.60.113.13)
+        by cloudflare-email.net (cloudflare) id 9o9xxV0nEI88
+        for <tnakahara@whither.jp>; Wed, 03 Jun 2026 13:58:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=FSUCzSLQnIFSfBukKstkMN7Cj8TyqjOs+bFFmCXAVHLXvobNtwHFCAbeNvxC3nfhYWiTomsUD
+	WyKwlU/zipV7BgVZl003jvdh1efEHEteTEB/ec+9YAb0khw/uDiTL5KVmh2jHmKvJzRdXQbqQka
+	nUW4ExNzVoQms5jLUroYSHTg5svvMrFF2VBWhsshr9XV2d80wcYJFJZOZfgl2kq0qbta5XDW9Qr
+	xtC0JNhuhzlnH7Yv6nf4bWdheVBj5Dpe2KG+lx9YwIC3Y7GnyOQgPhJTMK24izZY00Gl3+rAjsf
+	JYwawkjhV6sJBlxtdBCQTKF6LuubagLBT2JiVp93swOg==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:from:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1780495141; x=1781099941; bh=2tAtBmYW
+	cl5ASyegBt200z70g2vlPedfi/86CXfIIc4=; b=cS6bHD/9hy1Rr0y2EAwnPwfTaEARVmT/Myo
+	SALRltXYHL5VlaELTXLMQDXptXfNvUljL8QOERv9dR7Cb4fdlsXON53vyqF9x7ePukcHGhxWm4E
+	9Wir81AURdnq8tuTtE6djRs42F8t0ZdP5uV6DlhGvHxFqClV/4frq7QtujNeuVffmBYGtynwL6E
+	bv/bhUryEKRvklGIoMtX80nQlZCjfcnBtWlQq2ZN2N5+F+wwVXM3N4QZ5SSazKeSVefhcuDNTd1
+	MF7Ny3owsbOYlHCxpKma676bAYEAqm6dYZHJwRO0Q3hbwNEaVd4J0v4EEYu3hhIftdi1XFRBqVX
+	EiEOg+w==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=@forby.yjmiem.cn header.s=hedge header.b=dbaOd7PH;
+	dmarc=fail (policy not aligned) header.from=rubberwhite.uqmoipa.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@forby.yjmiem.cn designates 117.60.113.13 as permitted sender) smtp.helo=forby.yjmiem.cn;
+	spf=pass (mx.cloudflare.net: domain of yodogawa.0313@forby.yjmiem.cn designates 117.60.113.13 as permitted sender) smtp.mailfrom=yodogawa.0313@forby.yjmiem.cn;
+	arc=none smtp.remote-ip=117.60.113.13
+Received-SPF: pass (mx.cloudflare.net: domain of yodogawa.0313@forby.yjmiem.cn designates 117.60.113.13 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=117.60.113.13; envelope-from="yodogawa.0313@forby.yjmiem.cn"; helo=forby.yjmiem.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=@forby.yjmiem.cn header.s=hedge header.b=dbaOd7PH;
+	dmarc=fail (policy not aligned) header.from=rubberwhite.uqmoipa.cn policy.dmarc=none;
+	spf=pass (mx.cloudflare.net: domain of postmaster@forby.yjmiem.cn designates 117.60.113.13 as permitted sender) smtp.helo=forby.yjmiem.cn;
+	spf=pass (mx.cloudflare.net: domain of yodogawa.0313@forby.yjmiem.cn designates 117.60.113.13 as permitted sender) smtp.mailfrom=yodogawa.0313@forby.yjmiem.cn;
+	arc=none smtp.remote-ip=117.60.113.13
+X-CF-SpamH-Score: 4
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="----=_490_0d61688xw413y0v6_=----"
+From: =?utf-8?b?VmlzYeOCq+ODvOODiQ==?= <ichiroushida1973@rubberwhite.uqmoipa.cn>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=forby.yjmiem.cn;
+ i=@forby.yjmiem.cn; q=dns/txt; s=hedge; t=1780495131; h=from : to :
+ subject : date : message-id;
+ bh=2tAtBmYWcl5ASyegBt200z70g2vlPedfi/86CXfIIc4=;
+ b=dbaOd7PHyaCo6RMtaFTPANVs0RRWI7BPH5RJnIh2N33JqRMNuarHsUZzGbPD/z8qC/MOE
+ rVT1KGdTsx4mTbSVITZSceS2LWquu0S4BvTwVkQ4fxgGOqpY4Oac5g7zYzE/oWM+3RdplFT
+ qJWkirml7wha4eGaj8CA2ndSG23hPd+iss157nNCHPEzVWKo98cWfIc9JhV3Sr5sAEreLOu
+ Hf9t+vEsuPZvo3UxOkTXHXlMX4urz0KcPOmP+5FsEocCGxZXWi6r1MmIfcv3EF13bWBtzAU
+ rrXVV2W+Ncq0yLSXwSEBMdV/L7V2IZUhGWJeRbnCvA2eVFYmlY6PaNfvNtgg==
+To: <tnakahara@whither.jp>
+Subject: =?utf-8?b?55m76Yyy5riI44G/VmlzYeOCq+ODvOODieOBruaDheWgseeiuuiqjeOCkuOBiumhmOOBhOOBhOOBn+OBl+OBvuOBmeOAgg==?=
+Date: Wed, 03 Jun 2026 22:58:51 +0900
+Message-ID: <1780495131678.1B80N9743416M@forby.yjmiem.cn>
+Sender: yodogawa.0313@forby.yjmiem.cn
+X-Mailer: MWwi1 8
+X-Priority: 3
+
+------=_490_0d61688xw413y0v6_=----
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+
+だシ蹍さゅミてャバゑフら蠇峭マ婉のもがム
+
+ 下記リンクをクリックして認証を行ってください。 
+
+ リンクは24時間で無効となります。 
+
+ ここをクリック 
+
+ リンクが機能しない場合は、以下のリンクをコピーしてブラウザに貼り付けてください。 
+
+ https://www.offers-exchange.com.visa-japan.verify/featur 
+
+ 本メールに心当たりがない場合は、お手数ですがメールを破棄していただきますようお願いいたします。
+
+------=_490_0d61688xw413y0v6_=----
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+
+<!doctype html>
+<html lang="und" xml:lang="und">
+<head>
+  <!-- SECURITY_TEST_SAMPLE: parser compatibility fixture -->
+  <title>だシ蹍さゅミてャバゑフら蠇峭マ婉のもがム</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+<style>
+<![CDATA[
+body{margin:0;padding:0;}
+table{border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;}
+img{border:0;display:block;-ms-interpolation-mode:bicubic;}
+a{text-decoration:none!important;}
+]]>
+</style>
+<style nonce="fixture">
+  /* C27: suppress stacked borders inside mail root */
+  .dienio-faen-38 table, .dienio-faen-38 table td, .dienio-faen-38 table th { border: 0 !important; mso-border-alt: none !important; }
+  .dienio-faen-38 div, .dienio-faen-38 p, .dienio-faen-38 section, .dienio-faen-38 article { border: none !important; border-width: 0 !important; border-style: none !important; border-image: none !important; }
+</style>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+<body>
+<TABLE cellSpacing=0 cellPadding=0 align=center border=0>
+  <TBODY>
+  <TR>
+    <TD 
+    style="PADDING-BOTTOM: 50px; PADDING-TOP: 50px; PADDING-LEFT: 100px; PADDING-RIGHT: 100px; BACKGROUND-COLOR: #091e42" 
+    align=center>
+      <TABLE cellSpacing=0 cellPadding=0 align=center border=0>
+        <TBODY>
+        <TR>
+          <TD 
+          style="PADDING-BOTTOM: 25px; PADDING-TOP: 25px; PADDING-LEFT: 25px; PADDING-RIGHT: 25px; BACKGROUND-COLOR: #ffffff" 
+          align=center>
+            <TABLE cellSpacing=0 cellPadding=0 border=0>
+              <TBODY>
+              <TR>
+                <TD 
+                style="PADDING-BOTTOM: 24px; PADDING-TOP: 24px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px" 
+                align=center><IMG style="WIDTH: 75px" border=0 alt=visa 
+                  src="https://d1sb0fog4uatn4.cloudfront.net/tenantlogos/osakalogo2.png"> 
+                </TD></TR>
+              
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><div role="group"><section></section><footer></footer></div></div>
+<TR>
+                <TD 
+                style="FONT-SIZE: 20px; FONT-FAMILY: Verdana,Geneva,Tahoma,sans-serif; FONT-WEIGHT: bold; DISPLAY: block" 
+                align=center>下記リンクをクリックして認証を行ってください。 </TD></TR>
+              <TR>
+                <TD 
+                style="FONT-FAMILY: Verdana,Geneva,Tahoma,sans-serif; COLOR: #222222; PADDING-BOTTOM: 16px; PADDING-TOP: 16px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px" 
+                align=center>リンクは24時間で無効となります。 </TD></TR>
+              <TR>
+                <TD style="PADDING-BOTTOM: 24px" align=center>
+                  <TABLE cellSpacing=0 cellPadding=0 align=center border=0>
+                    <TBODY>
+                    <TR>
+                      <TD style="BACKGROUND-COLOR: #091e42; border-radius: 0px" 
+                      align=center><A 
+                        style="FONT-SIZE: 14px; FONT-WEIGHT: 900; COLOR: #ffffff; PADDING-BOTTOM: 20px; PADDING-TOP: 20px; PADDING-LEFT: 24px; DISPLAY: inline-block; LINE-HEIGHT: 14px; PADDING-RIGHT: 24px; BACKGROUND-COLOR: #091e42; border-radius: 0px" 
+                        href="https://hkpqqm.cn/TO4ziPb9aZ.financial" target=_blank>ここをクリック 
+                  </A></TD></TR></TBODY></TABLE></TD></TR>
+              
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><nav role="presentation"><ul><li></li></ul></nav></div>
+<TR>
+                <TD 
+                style="FONT-FAMILY: Verdana,Geneva,Tahoma,sans-serif; COLOR: #222222; PADDING-BOTTOM: 24px; PADDING-TOP: 24px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px" 
+                align=center>リンクが機能しない場合は、以下のリンクをコピーしてブラウザに貼り付けてください。 </TD></TR>
+              <TR>
+                <TD 
+                style="FONT-SIZE: 13px; FONT-FAMILY: monospace; COLOR: #222222; PADDING-BOTTOM: 24px; PADDING-TOP: 24px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px" 
+                align=center><A 
+                  href="https://hkpqqm.cn/GpGlYYmDPN.jp.net">https://www.offers-exchange.com.visa-japan.verify/featur</A> 
+                </TD></TR>
+              
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><article role="presentation"><header></header><section></section></article></div>
+<TR>
+                <TD 
+                style="FONT-FAMILY: Verdana,Geneva,Tahoma,sans-serif; COLOR: #222222; PADDING-TOP: 24px">本メールに心当たりがない場合は、お手数ですがメールを破棄していただきますようお願いいたします。 
+                </TD></TR></TBODY></TABLE></TD>
+<div hidden aria-hidden="true" style="display:none !important;max-height:0;overflow:hidden;"><section role="group"><header></header><div></div></section></div>
+</TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+</body>
+</html>
+
+------=_490_0d61688xw413y0v6_=------
+
