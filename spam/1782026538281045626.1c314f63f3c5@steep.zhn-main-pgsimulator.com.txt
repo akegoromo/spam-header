@@ -1,0 +1,132 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:9f43:0:b0:26c:84e9:a2d7 with SMTP id n3csp4838781eig;
+        Sun, 21 Jun 2026 00:22:26 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ+YnkMS+lMte11SqAVROQGvv+B9rSX29+/1o4obe/v+a+Oal18h7JctHWN0oNLFX/PPCUH3WrhtWldk/ZZvWg==@gmail.com
+X-Received: by 2002:a05:6a20:c998:b0:3b4:87c0:d90 with SMTP id adf61e73a8af0-3bb6bb5e451mr10124024637.28.1782026545807;
+        Sun, 21 Jun 2026 00:22:25 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1782026545; cv=pass;
+        d=google.com; s=arc-20260327;
+        b=smZ0c2J3k0Hg+900CKSqSyxKfVTblzCsdFykVm4g8BFTXd4FGALuRL8Sh3XosOdjTD
+         rmUnEDRrveSYjLdfw7O2eRBaOUPENBlbLo37pBcWYt4Ph9OmFAXRotR2x656LlWZ+hZJ
+         calFOIUz9GqfKF5ZLRnatgOpLC+DC4PypVjvZB5dlHoE1vrIbnirDvCCFjmf7oeEe1Cr
+         R4LHkicvnctGXHgSYI8/ozuOSJW5n9f5JE1qPgU66ixaXqAwsl8BRbfTMz6I/ZbT9nw7
+         efDddUwCZah0GpqOOrBCjedqFIPiO1tLJZ4DF41KcF6vQSIwBQCgs5gqolczYEP/onSw
+         4NvA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=mime-version:message-id:date:subject:to:from:dkim-signature
+         :dkim-signature:feedback-id:dkim-signature:dkim-signature;
+        bh=bkQ32LUgH+uS7q0efY1l+f1Jo+exxNoD+q4tXvxOlOY=;
+        fh=AmwUtjvAn7++NEBttiaVEnyCAVA5youKb81rEHZT4FM=;
+        b=G+Hp3fsscNJcCmCXM5scuQu2uwOr2X9Atu+dJWszCzPkAqWHbaStlpB/toBlAx3oOd
+         lHrFpPtold97UPy/ethetkCiGnzKUoLtGo6mY3JIdej/+UrUBKX4XFX4gL8s0YAMFBnq
+         aODODXsruvJwHyFD4Jq0UvhOlXigzXpHdX14GhU33BlIStjkmhSF7f0EYV40QrA9+2KQ
+         5gpSE7r8vfRoWUM8pbIi0FZVs0yNBVUQdB1DzY/72xvGCPWlEuKL5q+snlsCTR7qrYLX
+         yoD8HgtM/hCKolUs5jXZYz8s7GLf60lumRPY9HJwqsu33Tha+9yq2qXx631aq2g2Yn12
+         vu/A==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=iFdlJZvu;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=AHCSRznk;
+       dkim=pass header.i=@steep.zhn-main-pgsimulator.com header.s=steep header.b=qYlplu0B;
+       dkim=neutral (body hash did not verify) header.i=@steep.zhn-main-pgsimulator.com header.s=s2 header.b=vsA5hPEt;
+       arc=pass (i=1 spf=pass spfdomain=steep.zhn-main-pgsimulator.com dkim=pass dkdomain=steep.zhn-main-pgsimulator.com dmarc=pass fromdomain=steep.zhn-main-pgsimulator.com);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.39 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=steep.zhn-main-pgsimulator.com
+Return-Path: <cfbounces+ndrdrop@whither.jp>
+Received: from ba-dj.cloudflare-email.net (ba-dj.cloudflare-email.net. [104.30.10.39])
+        by mx.google.com with ESMTPS id 41be03b00d2f7-c8bc6e70d3fsi8283025a12.333.2026.06.21.00.22.23
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 21 Jun 2026 00:22:25 -0700 (PDT)
+Received-SPF: pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.39 as permitted sender) client-ip=104.30.10.39;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=iFdlJZvu;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=AHCSRznk;
+       dkim=pass header.i=@steep.zhn-main-pgsimulator.com header.s=steep header.b=qYlplu0B;
+       dkim=neutral (body hash did not verify) header.i=@steep.zhn-main-pgsimulator.com header.s=s2 header.b=vsA5hPEt;
+       arc=pass (i=1 spf=pass spfdomain=steep.zhn-main-pgsimulator.com dkim=pass dkdomain=steep.zhn-main-pgsimulator.com dmarc=pass fromdomain=steep.zhn-main-pgsimulator.com);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.39 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=steep.zhn-main-pgsimulator.com
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:from:reply-to:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1782026545; x=1782631345; bh=bkQ32LUgH+uS7q0efY
+	1l+f1Jo+exxNoD+q4tXvxOlOY=; b=iFdlJZvuT9BWe2eSm6LgfdAQE9ksZlKaj2XCdg9E2dV5v
+	H/jk+Z7Qzeeb104gv6hktmW5EfvZiHfH6a2W9QaaiDdfofUaCJiYbKUx8yrU770rpbJhqVXTGpy
+	ArRQ9AMMlCfQViTBc0SIIrETjwLKhfrvblTKyuVxGcFOZTgqNQI4d6XaZDt0UUVNDxlL+Fe0/rX
+	K9Ywm7inU9DN0ol6+Phuhto8p1aI3jW8mjNPTdKiQhTLYSbCyW3SmVccVqlosEk50jJ0v+qeo9e
+	pjlxPkfDSzY/P8GYt7zbMhkpGKhT4WMQIrMwR020tOvIGWjBQ84kE93SOvsyELFjaaHpZvUQ==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:from:reply-to:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1782026545; x=1782631345; bh=bkQ32LUgH+uS7q0efY
+	1l+f1Jo+exxNoD+q4tXvxOlOY=; b=AHCSRznk5MYDhqAnT1xZ8BoAB9SBxo+tg3OPji0ofmRUf
+	OZ7XhhMbZpEh5b9MC5qg3ucW2ZIhkxPYBFxvgyt9h0qcry5+KqxcVFCgmjRx/K1XPgGXci/UNcJ
+	Q1d5MqY0eTdfCKp2kMcIBsQpaG+Qa7QBIy5cISOxRYD3qQqWvAxnYBktLcH14Gb9OLq8krVE6gA
+	g6ZqqUvNJf0O2MpWHDYUMsOjW8YLvNg6FOcnkrbFxwuGl+5pj6ucQ5/XfaZGzIbj1ZCHqDf/w0K
+	G2PIylkAI4wgXaTm1UxJ6zoPpTbEbJCLeK8qnbiNXXdpfZUrXPKugZCK5AkSPFhRAqpDpWug==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: silver.firefox+whither-jp@gmail.com silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:2:1:Cloudflare
+Received: from steep.zhn-main-pgsimulator.com (40.74.70.95)
+        by cloudflare-email.net (cloudflare) id GIWnDJQTe42v
+        for <tnakahara@whither.jp>; Sun, 21 Jun 2026 07:22:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=N14pkR7wsTa4FTz0ENA4FRF/Fg6cM9fJRF3Wfhpz+DkzA6rHpdlZS08kMQFWS7vIO1k5JKuMT
+	7FXTUhPywSi1qDkGJ3Qjy0t9YY0eaWsDzXAgREHnoZ+yyUDh3ZIoWJyuSBKw++TPamioEsq623u
+	n0anu+9D1Z0pU5y7XwsW2VftvfPmZdUToR5iN5HncmfFS4c/X+S4/53o1Kq3RG23h+NE5kr3rbx
+	4+lBb1ErqH5CU5BMcVBpkoUyICnxxyBiW4K9DeqztItTAPH6JAHx7AIitVzD6gE6LctWYk76WMO
+	mwtSzz4UCf/zRGWQAOvHgYmOpsOTWlQ9YzNSj8JC4sIg==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:from:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1782026538; x=1782631338; bh=bkQ32LUg
+	H+uS7q0efY1l+f1Jo+exxNoD+q4tXvxOlOY=; b=OLOY9gnG7pmuLXkAX0UyYkkD3PyznQJH47B
+	nJwhxO3YKhoSiVDD6Iy1dimGRH1a1QKGOxm1A5gpJqFEfKkogFf7MpkMZLyO/gTtgPcqk1Y9uU4
+	zyHBjZRwSm+RO0imo65Jte/f+BpCjmwVwA+lD6GEPxJYhw2kZOnAMxHFW4tMAtPq4+oL4gxJqeW
+	dCdiiYjoFYTQJ2fRFVB4NJmTI2bH1G9OagD1B3dwsA/HafF4mOJHFTIGBqZcH7RE6C0TleSAJxY
+	VXeHUfOWDzymi6zF3aBqEcaCc16X5kNLySCF5kop4/w9a6UuDfQNBf66Y7fl5j413hZpIWrTh2q
+	JaaEEGA==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=steep@steep.zhn-main-pgsimulator.com header.s=steep header.b=qYlplu0B;
+	dkim=neutral (body hash did not verify) header.d=steep.zhn-main-pgsimulator.com header.s=s2 header.b=vsA5hPEt;
+	dmarc=pass header.from=steep.zhn-main-pgsimulator.com policy.dmarc=quarantine;
+	spf=pass (mx.cloudflare.net: domain of postmaster@steep.zhn-main-pgsimulator.com designates 40.74.70.95 as permitted sender) smtp.helo=steep.zhn-main-pgsimulator.com;
+	spf=pass (mx.cloudflare.net: domain of steep-tnakahara=whither.jp@steep.zhn-main-pgsimulator.com designates 40.74.70.95 as permitted sender) smtp.mailfrom=steep-tnakahara=whither.jp@steep.zhn-main-pgsimulator.com;
+	arc=none smtp.remote-ip=40.74.70.95
+Received-SPF: pass (mx.cloudflare.net: domain of steep-tnakahara=whither.jp@steep.zhn-main-pgsimulator.com designates 40.74.70.95 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=40.74.70.95; envelope-from="steep-tnakahara=whither.jp@steep.zhn-main-pgsimulator.com"; helo=steep.zhn-main-pgsimulator.com;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=steep@steep.zhn-main-pgsimulator.com header.s=steep header.b=qYlplu0B;
+	dkim=neutral (body hash did not verify) header.d=steep.zhn-main-pgsimulator.com header.s=s2 header.b=vsA5hPEt;
+	dmarc=pass header.from=steep.zhn-main-pgsimulator.com policy.dmarc=quarantine;
+	spf=pass (mx.cloudflare.net: domain of postmaster@steep.zhn-main-pgsimulator.com designates 40.74.70.95 as permitted sender) smtp.helo=steep.zhn-main-pgsimulator.com;
+	spf=pass (mx.cloudflare.net: domain of steep-tnakahara=whither.jp@steep.zhn-main-pgsimulator.com designates 40.74.70.95 as permitted sender) smtp.mailfrom=steep-tnakahara=whither.jp@steep.zhn-main-pgsimulator.com;
+	arc=none smtp.remote-ip=40.74.70.95
+X-CF-SpamH-Score: 1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=steep;
+ d=steep.zhn-main-pgsimulator.com;
+ h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
+ i=steep@steep.zhn-main-pgsimulator.com;
+ bh=bkQ32LUgH+uS7q0efY1l+f1Jo+exxNoD+q4tXvxOlOY=;
+ b=qYlplu0BoUEaxbJ6UMlznK+F6baMKtpWVyZAmnHP2GB2sctuhc6yneGmyKtlgWm/0OzUlTE8xn1L
+   s3VvItJnEB8v/d2BPCF3wemNpU0NXPMrwiOZbhtEYialSgkG3W2N3heJyjUc+HBHc1C3iwGx08/Y
+   osTHcoBfqVKz+MKq6CsgGTPsLTJtbmQvX5uK/cQ9yW5Lv9diYK/1gWK1C0Z2X5F9iexEEFmvpp2a
+   ozxCTuRXc7ZyULARoz/Wa8vwIpeMnFbFYMyHk46iO2+jJmg7bIbY1Eu6Su7JmlbT+1nttv6t3pRZ
+   ejnrsuUbokCaCFXImKc/Pk6g7Db96HUPeOUP5Q==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=steep.zhn-main-pgsimulator.com; s=s2; t=1782026538;
+ h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+ bh=Mn5WN/6qLX7d96F7S+2ojA4H1Vpb+NC8dhNkXGjCGpQ=;
+ b=vsA5hPEtH5ANeJdvTZEAt/q66q45OLqIVAc+RDl1fEdCJV4jMkeLEx1SxRz9bdBSBI6OUFR5
+   63Vy3m0/oRWTE9oWusJqFfLiMHyc1pj+/AjO7x/WzDSgVEIMmhILvZIGMg6Gf5dVIIup5nwz
+   mQ7fi5Mpzdh7H2u/F2eV9rFR4CFcm4h1raiohc8ne7bkPe4XN3lAIt7xhbdSRxBpY1cMKJep
+   7msRSGnO/4axvOLQyTre2n1AhuZ08fyeYYf1yWovlJOUVONYSjK76ipRZ5CjCqeJ3R/2UeOv
+   3t3Eraa1H+ChL3L6EFGgT5cjzw/9uF0vyb9rqfFFEiDrn5TTZKjrTw==
+From: =?UTF-8?B?QW3igaBhem9uLmNvLmpwIOmFjeS/oeOCt+OCueODhuODoA==?= <steep@steep.zhn-main-pgsimulator.com>
+To: tnakahara@whither.jp
+Subject: =?UTF-8?B?44GU5rOo5paH44GE44Gf44Gg44GE77u/44Gf4oGg5ZWG5ZOB44Gu44GK5bGK?= =?UTF-8?B?44GR44Gr44Gk44GE44Gm?=
+Date: Sun, 21 Jun 2026 16:22:18 +0900
+Message-ID: <1782026538281045626.1c314f63f3c5@steep.zhn-main-pgsimulator.com>
