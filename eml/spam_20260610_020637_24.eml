@@ -1,0 +1,415 @@
+Delivered-To: silverfirefox@gmail.com
+Received: by 2002:a98:c210:0:20b0:26c:4eeb:3b5a with SMTP id el16-n2csp1463209eib;
+        Tue, 9 Jun 2026 10:06:38 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AFNElJ9qDczGcH7+6PeHY4EziuJqefXtx6wxdSBFaio4xmUeo76W//52hns9VLoHYCUoNQTa2YMAEgIrDW4Ij4qm@gmail.com
+X-Received: by 2002:a17:906:d552:b0:bf1:1d19:cf95 with SMTP id a640c23a62f3a-bf37077232cmr1109489366b.12.1781024798250;
+        Tue, 09 Jun 2026 10:06:38 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781024798; cv=none;
+        d=google.com; s=arc-20240605;
+        b=MmSsygMh6gBAVOtqC7XlmpX3mFW+bzw5+uTSXBNj6G3YlJV9O/2jZFAOFg8OEOoqrw
+         U2iRlf2+IKhdxbOkbjGVX5lAkjQ8l/RpnedtQijAvlE1VFz9HNwrYJ0x7NAGtvXExQvd
+         tlDfFLNy7Jw2ZHiV/sEs4712zazIXmg7r7FwxCMfByZYHreuvipucODlWF5sNbJRgdkZ
+         uT0PSJzge7Uvi9QfBabHWiy72i4To1bYTu/OCIMZcdY6UdvEnH3Lx4i3YQ8NwBJj9YJL
+         te9axMRaimAeuJpkJe56SAjcvAnVDgN19SRVf7DLQugDASBzZiFYkOQUHyTKP1cAt4e8
+         6+IQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:envelope-to:date:subject:from:feedback-id:dkim-signature
+         :message-id;
+        bh=ikEBoem/sTXPw6Hw/JSH63EQIKIAMHXzJ1DT4+EO1P4=;
+        fh=GMSS3jjCGonHKdIEfnKvsCy6Z0N1IFfgELPgutHS5/4=;
+        b=dquJz84guI5VaK7SEsevS2kTAow1OaAmnZzBYxiDoheRrlNI+ssYW5LvquttDSWOsq
+         ZHJLVrq7y1RRADGTynsuRQPKwvz1/h5rpqDmbyl2vORGOVKDKJiuYDq+Iwp+KbtvLSIw
+         6XsGV9qhxuSLnia2Qor6oe5Yruxxpfl6Vc/p/R+VY9rXwFR8F0DuijlQ+fO2F3wRD2QP
+         7M6hnjlaSnX5q18firevxm8Ghfo5aXM6MDo+slSWdHLVRMtpR2Px5P5EsebfNkDw1PU0
+         ahH5zGPq/r0DXJxdpicQoCtZ3TOKKl4dNvtbpQtJowSh6TtGIF09udpqZdgGRb2Qr6Cm
+         2N5g==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=neutral (bad version) header.i=@suntdfs.me header.s=s1 header.b=OvzzTmHs;
+       spf=pass (google.com: domain of gjdamjjhjxfwzqfiefmg@main2026.suntdfs.me designates 5.79.88.23 as permitted sender) smtp.mailfrom=gJDaMJjhJXFWZqFiEFMg@main2026.suntdfs.me
+Return-Path: <gJDaMJjhJXFWZqFiEFMg@main2026.suntdfs.me>
+Received: from unina.it (ibisa.birdsgallery.net. [5.79.88.23])
+        by mx.google.com with ESMTPS id a640c23a62f3a-bf0566eeaa0si1256574866b.286.2026.06.09.10.06.37
+        for <silverfirefox@gmail.com>
+        (version=TLS1 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+        Tue, 09 Jun 2026 10:06:38 -0700 (PDT)
+Received-SPF: pass (google.com: domain of gjdamjjhjxfwzqfiefmg@main2026.suntdfs.me designates 5.79.88.23 as permitted sender) client-ip=5.79.88.23;
+Authentication-Results: mx.google.com;
+       dkim=neutral (bad version) header.i=@suntdfs.me header.s=s1 header.b=OvzzTmHs;
+       spf=pass (google.com: domain of gjdamjjhjxfwzqfiefmg@main2026.suntdfs.me designates 5.79.88.23 as permitted sender) smtp.mailfrom=gJDaMJjhJXFWZqFiEFMg@main2026.suntdfs.me
+Message-ID: <6a28481e.cd6bb58f.1b5ea1.6f89SMTPIN_ADDED_MISSING@mx.google.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=s1; d=suntdfs.me;
+ h=From:Subject:Date:To:Content-Type; i=teamsupport-Silverfirefox-20180335385288@suntdfs.me;
+ bh=ikEBoem/sTXPw6Hw/JSH63EQIKIAMHXzJ1DT4+EO1P4=;
+ b=OvzzTmHspdEY7EB2MFCIWJIl6HQRufrBJBHE8L2ipdC2swNU/+syp1V+1sOfu3iPNkQd9CS2ODqF
+   LTDxR7eZn+/wajwiACD4djE8wL9WvUObBCxUK1FArdA6xYcba+4LmZDJMHDmLsKmraHq4JKD5x4s
+   UWrh5Z4OxWIbLL4INjQICV46dYRUuLlIvUwZezAoUGnNZDCAZMr/iPsRzdnZU0IOQGwBx+I9FTsf
+   9rNQJP19L9rXLarpkiFWNiFBQB1m0GhhscTccqJLlaNzyWJbQH0vTqxFhfbdy0E46ofk1v6xX+Ug
+   TOVFes1pLmsd4qUPjFZUlI7wFaT6jrNTvshnAw==
+Feedback-ID: 1.us-east-1.psHyoMfnH8hkuQnF72JGzzQK1By9IkayShm7uIk1GIc=:AmazonSES
+From: ViewFreeScore <teamsupport-Silverfirefox-20180335385288@suntdfs.me>
+Subject: =?UTF-8?B?QSBXb25kZXJmdWwgU3VtbWVyIEZvciB5b3VyIGNyZWRpdCBzY29yZSB5cWRvbg==?=
+Date: Tue, 09 Jun 2026 17:06:37 +0000 (UTC)
+Envelope-To: support-931593017@googlemail.com
+To: support_6724476@googlemail.com
+X-PVIQ: mkto-RdMCgBVWW-NB6yqY-hZCeCx-FdLezk
+Received: from efianalytics.com (efianalytics.com. 216.244.76.116)
+X-EMMAIL: quk9neluv0gh@4y4wsbqbf76k5n.us
+X-MarketoID: vKD-Gha-ownhcpal:0:jJKk4V:9:oB3EVd:besLKX8VE
+Content-Type: multipart/report; boundary="000000000000SGCNuB7Qm6umj710elBSQB"; report-type=delivery-status
+
+--000000000000SGCNuB7Qm6umj710elBSQB
+Content-Type: multipart/related; boundary="000000000000B0MNRUNyYR84HR9a"
+
+--000000000000B0MNRUNyYR84HR9a
+Content-Type: multipart/alternative; boundary="000000000000B0MNRUNyYR84HR9b"
+
+--000000000000B0MNRUNyYR84HR9b
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Top Stories of the Day: Tue, 09 Jun 2026 17:06:37 +0000 (UTC)
+
+558622259830262713
+-----
+xpuxhpqxoawxdjpxwahdbabcrvpnvsqlnrvoqwvhbvrpidzkwugaiqfcjdutzrqwnvmfpqtmziuyrpsmepkstahmcpxmxixawysnbeujvifujlmiulpmpjbdzhvrrgvpvyffclbertmiyiblmgfcpzfbkdcqbvwvavgquknlmtlgyaizawdeocwyqtjyybhmdirorgzquwjnwc
+
+If you believe this has been sent to you in error, please safely unsubscrib=
+e
+
+--000000000000B0MNRUNyYR84HR9b
+Content-Type: text/html; charset="UTF-8"  
+Content-Transfer-Encoding: 8bit+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViewFreeScore - 3 Credit Scores</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #d4e4f7 0%, #e8f0f7 100%);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 3px solid #0066cc;
+        }
+        
+        .logo {
+            width: 50px;
+            height: 50px;
+            background-color: #0066cc;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 28px;
+            border: 3px solid black;
+        }
+        
+        .header-text {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .header-text .free {
+            color: #0066cc;
+        }
+        
+        /* Main Content */
+        .content {
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 14px;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+        
+        .main-heading {
+            font-size: 42px;
+            color: #0066cc;
+            font-weight: bold;
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+        
+        /* Credit Score Section */
+        .credit-score-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 30px 0 10px 0;
+            color: #666;
+        }
+        
+        .credit-score-header::before {
+            content: "📊";
+            font-size: 24px;
+        }
+        
+        .credit-score-header h2 {
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        
+        .question {
+            color: #333;
+            font-size: 14px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        
+        /* Rating Scale */
+        .rating-scale {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+            padding: 0 10px;
+        }
+        
+        .rating-item {
+            text-align: center;
+        }
+        
+        .rating-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff9900;
+            margin-bottom: 5px;
+        }
+        
+        .rating-star {
+            font-size: 20px;
+            margin: 0 5px;
+            display: inline-block;
+        }
+        
+        .rating-label {
+            font-size: 12px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 8px;
+        }
+        
+        .rating-score {
+            font-size: 18px;
+            font-weight: bold;
+            color: #d9534f;
+            margin-top: 5px;
+        }
+        
+        /* CTA Button */
+        .cta-button {
+            background-color: #ff9900;
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 40px 0;
+            width: 90%;
+            transition: background-color 0.3s ease;
+            letter-spacing: 1px;
+        }
+        
+        .cta-button:hover {
+            background-color: #e68900;
+        }
+        
+        .cta-button::after {
+            content: " ➜";
+        }
+        
+        /* Bureau Logos */
+        .bureau-logos {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+            padding: 20px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .logo-text {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .logo-equifax {
+            color: #d9534f;
+        }
+        
+        .logo-experian {
+            color: #6f42c1;
+        }
+        
+        .logo-transunion {
+            color: #00bcd4;
+        }
+        
+        /* Footer */
+        .footer {
+            padding: 20px;
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+        }
+        
+        .footer-text {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        
+        .footer a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 480px) {
+            .header-text {
+                font-size: 22px;
+            }
+            
+            .main-heading {
+                font-size: 32px;
+            }
+            
+            .rating-scale {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            
+            .bureau-logos {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">1</div>
+            <div class="header-text">View<span class="free">Free</span>Score</div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="content">
+            <p class="subtitle">GET UNLIMITED ACCESS TO YOUR</p>
+            <h1 class="main-heading">3 CREDIT<br>SCORES</h1>
+            
+            <!-- Credit Score Info -->
+            <div class="credit-score-header">
+                <h2>CREDIT SCORE</h2>
+            </div>
+            
+            <p class="question">Do you know what your credit score says about you?</p>
+            
+            <!-- Rating Scale -->
+            <div class="rating-scale">
+                <div class="rating-item">
+                    <div class="rating-number">1</div>
+                    <div class="rating-star">⭐</div>
+                    <div class="rating-label">Poor</div>
+                    <div class="rating-score">340</div>
+                </div>
+                <div class="rating-item">
+                    <div class="rating-number">2</div>
+                    <div class="rating-star">⭐</div>
+                    <div class="rating-label">Fair</div>
+                    <div class="rating-score">575</div>
+                </div>
+                <div class="rating-item">
+                    <div class="rating-number">3</div>
+                    <div class="rating-star">⭐</div>
+                    <div class="rating-label">OK</div>
+                    <div class="rating-score">615</div>
+                </div>
+                <div class="rating-item">
+                    <div class="rating-number">4</div>
+                    <div class="rating-star">⭐</div>
+                    <div class="rating-label">Good</div>
+                    <div class="rating-score">720</div>
+                </div>
+                <div class="rating-item">
+                    <div class="rating-number">5</div>
+                    <div class="rating-star">⭐</div>
+                    <div class="rating-label">Great</div>
+                    <div class="rating-score">805</div>
+                </div>
+            </div>
+            
+            <!-- CTA Button -->
+            <button class="cta-button"><a href="https://storage.googleapis.com/5dmbhkzbwxsc39yw/7fas1cyj3ssujqiy/8c38bd7.html#WMpOJd.dbm?cbfglWH6ccksCJcd80mcdck3c1cfFqQscPhcbbbbQ">  CLICK HERE TO START </a></button>
+            
+            <!-- Bureau Logos -->
+            <div class="bureau-logos">
+                <div class="logo-text logo-equifax">EQUIFAX</div>
+                <div class="logo-text logo-experian">Experian</div>
+                <div class="logo-text logo-transunion">TransUnion</div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p class="footer-text">This is an advertisement.</p>
+            <p class="footer-text">If you wish to unsubscribe from future mailings please click <a href="https://storage.googleapis.com/5dmbhkzbwxsc39yw/7fas1cyj3ssujqiy/8c38bd7.html#WMpOJd.dbm?cbfglWH6dcksCJcd80mcdck3c1cfFqQscPhcbbbbQ">here</a>.</p>
+            <p class="footer-text">The advertiser does not manage your subscription.<br>
+            If you prefer not to receive further communication please <a href="https://storage.googleapis.com/5dmbhkzbwxsc39yw/7fas1cyj3ssujqiy/8c38bd7.html#WMpOJd.dbm?cbfglWH6fcksCJcd80mcdck3c1cfFqQscPhcbbbbQ">unsubscribe here</a>.<br>
+            Or write to: [Brand]</p>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+ <object>
+  <img src="http://u1vxh9.learningenglish.uk.com/WMpOJd.swf?cbfglWH6bcksCJcd80mcdck3c1cfFqQscPhcbbbbQ" width="1" height="1" />
+   <object>
+
+
+--000000000000B0MNRUNyYR84HR9b--
+--000000000000B0MNRUNyYR84HR9a--
+--000000000000SGCNuB7Qm6umj710elBSQB--
