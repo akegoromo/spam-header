@@ -1,0 +1,454 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:878e:0:b0:26e:bbfd:68f with SMTP id x14csp1767039eib;
+        Sun, 5 Jul 2026 11:36:43 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AHgh+RocNbKRUHuK2CLEeHeCxoeKtD7PyooL9ibqdXWmLefW9hA7fygezjHKsMW+nSn6eap9EnYwfGMy/1yxlEmi9g==@gmail.com
+X-Received: by 2002:a05:6a00:4c0d:b0:847:7cf0:347c with SMTP id d2e1a72fcca58-847f6f55f60mr6252857b3a.46.1783276603420;
+        Sun, 05 Jul 2026 11:36:43 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1783276603; cv=pass;
+        d=google.com; s=arc-20260327;
+        b=GsgnIQDei6/0cWkeZa7UKIDkoNO/DF6cVD8afGdNiv8dd5uuExyPiUWrrJwdEaq280
+         U55D5zuk6avFonX5A9VOyMmjoJsD+AC7+2A9nq17QOG5kZs20vUf7dd65923YEVwi30H
+         mZdOAKjENagpGiji/h2j/waMDYWRUvTs1s6MPcd3RR2XP+74E76fvQuEeo6mQhzjckjQ
+         M8wbJkzA+9MM5RQuUKB9nAQUKgQZsloirKAyxFWjrhuXY+ojzP+reMkIkJhq8clFIpUC
+         dlnOpKwqQvfTHaYW0Vf50YIwNVUAODVdlBDrti4qlOYqX/CNOJUCbCqcdaUjlwGiunR4
+         Kb9A==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=precedence:importance:content-transfer-encoding:mime-version
+         :message-id:date:subject:to:from:dkim-signature:feedback-id
+         :dkim-signature:dkim-signature;
+        bh=GirD4eRBGvT3xaAQSPpISWobeQNydgHZiTSvr2nGkag=;
+        fh=nIQsxIZEAW/vtu0pu6FkUSlhX8WYChT6gXLGp4djJoU=;
+        b=gTGktWIdBhJQlTfEdwMtZxMXZOh1A45+g8MwmW1PIXzxFwzquRqvP+l+cQaVO5JhB6
+         I+6bYYu5JpEPwsV70LBrSScTieTffwVIaMvzRYXJ1gl1k2WraI/dAcu4IUl0z0UTNFa0
+         CaHXpIfG0w58CaBiSsZXZokGUPXssAkbYWM2pxCnWNeM6QowwPe+HbvN2DMV3TgP6+Na
+         +qK/W4EHsi4sm8pLzNh++Z9iEHEvLSRyqju0HvAdgBIvlexXjkduHqmRpTJOOPKMra3t
+         GoCOy3AAs+qszduscxKEZ0TNLOrCvQcyovL/8COGAdvc17uuNEu3LMqDfZmY2X+994UQ
+         qZpQ==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b="H8P8y28/";
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=CJghuyqE;
+       dkim=pass header.i=@mail07.jxrmyue.cn header.s=mail07 header.b=ub8sNvuI;
+       arc=pass (i=1 spf=pass spfdomain=mail07.jxrmyue.cn dkim=pass dkdomain=mail07.jxrmyue.cn dmarc=pass fromdomain=mail07.jxrmyue.cn);
+       spf=pass (google.com: domain of srs0=e4cu=7e=mail07.jxrmyue.cn=mail07-penguin=whither.jp@whither.jp designates 104.30.8.228 as permitted sender) smtp.mailfrom="SRS0=E4cU=7e=mail07.jxrmyue.cn=mail07-penguin=whither.jp@whither.jp";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=mail07.jxrmyue.cn
+Return-Path: <SRS0=E4cU=7e=mail07.jxrmyue.cn=mail07-penguin=whither.jp@whither.jp>
+Received: from i-cci.cloudflare-email.net (i-cci.cloudflare-email.net. [104.30.8.228])
+        by mx.google.com with ESMTPS id 41be03b00d2f7-c9e92c78f5csi18830189a12.317.2026.07.05.11.36.42
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 05 Jul 2026 11:36:43 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=e4cu=7e=mail07.jxrmyue.cn=mail07-penguin=whither.jp@whither.jp designates 104.30.8.228 as permitted sender) client-ip=104.30.8.228;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b="H8P8y28/";
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=CJghuyqE;
+       dkim=pass header.i=@mail07.jxrmyue.cn header.s=mail07 header.b=ub8sNvuI;
+       arc=pass (i=1 spf=pass spfdomain=mail07.jxrmyue.cn dkim=pass dkdomain=mail07.jxrmyue.cn dmarc=pass fromdomain=mail07.jxrmyue.cn);
+       spf=pass (google.com: domain of srs0=e4cu=7e=mail07.jxrmyue.cn=mail07-penguin=whither.jp@whither.jp designates 104.30.8.228 as permitted sender) smtp.mailfrom="SRS0=E4cU=7e=mail07.jxrmyue.cn=mail07-penguin=whither.jp@whither.jp";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=mail07.jxrmyue.cn
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:from:reply-to:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1783276603; x=1783881403; bh=GirD4eRBGvT3xaAQSP
+	pISWobeQNydgHZiTSvr2nGkag=; b=H8P8y28/lAM9BF7mLTIgm1gnkoPsbM8oEIQfhPF+zh+6i
+	FG9Nb5W3o5bLXLvCgpuMN7gJJuzAO9+LFqav99g472+cHIGbEQPF1LytkytpvWRyM4+g/dNeEUM
+	x0VF1YtFRgNY6y1XHZ/C5tHNvQnVKM3DKTZ4zBmAOB6vMf7f3ybSH00qHHOVk2ZVV2IlqN3Vp3E
+	iX/+9c8u3tSnn10zhD2nFScVkysmH3n4DQkLeTSyB4stGLPf+h0G/Yzbex1IdkYmdOuVAJ1XgxR
+	xW7vC1xuHYloi4B53xr0gnwECWL5eUA+uQfcleuu0EY8q/w+nhCdHx7q8xWfW0so8id/QgrA==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Date:Subject:To:From:Feedback-ID:from:reply-to:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1783276603; x=1783881403; bh=GirD4eRBGvT3xaAQSP
+	pISWobeQNydgHZiTSvr2nGkag=; b=CJghuyqE2Mg898zNiddu7F1x4rVheUHL3zWAiLYA5VLP3
+	H7X0Ls0BJ7lm1D1DTY8fZ6/r/hJyXSqrfiUJv6SF9zJa96a0HM3dv1KLMF1He/GGYu+dNMacwU/
+	kYGmjzGGXx+5aW8wpDCHVZNT1lAcHBd3b9xmwNTld9g4ZWeQnNelMcyC6cj1PHar8YFoXQB/285
+	EJbSqU3jMVfexy1THur5cN06citu+iKapvvDViq1b9UB2ZcEn74uaG5xTsOzVJk/BjDpvlHl1Zk
+	FK3sJSObdOzSWoOUFdJJEgSLe680VjBDkAE3Tw1DSBvweZ4i58/XWEF0zc49O8fL/MO8fCGw==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: silver.firefox+whither-jp@gmail.com silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:2:1:Cloudflare
+Received: from mail07.jxrmyue.cn (104.168.147.89)
+        by cloudflare-email.net (cloudflare) id vAnF8IkhqcLa
+        for <penguin@whither.jp>; Sun, 05 Jul 2026 18:36:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=Bl+A7C3MlVcFuhnCDswhVTvzghK8CQzHZryuInAbMJj30KfdFNQwiTZ3kSILWiwVQnlPyNuHv
+	WAN/3JPmkKjPXFjgm/Hj8PuzGulkZU9wtPgl8NBxnMEyFZLusLWACwsf7lgcY4uUhgr1VmoHlwO
+	wHkJYl4yl3WUaZf96tPBPhEGiJA0zBfWu7slIVNydTYjoxjYJVQPpOiyAGY24JXg2CYZ1u+YN/g
+	2KXIaA0Ew1l1X+24QjY99xzC2a0Ns7Z9OgIJA65vJKnUb9ZdFMk4ebBQWUTM5xVXSCunoCDsbsJ
+	cdEwqLatxFkdY4iK3vfnItsY93F1JKtPwVLZSGnhXtxA==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:from:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1783276601; x=1783881401; bh=GirD4eRB
+	GvT3xaAQSPpISWobeQNydgHZiTSvr2nGkag=; b=bB3lnQsgDf5fjq3gVwJX/sczOThxJ0fZ88K
+	4yDmfkUhOvS6TllhQ4fQ2/oXu2BUpU0cqqmgOIt/Wz0QhtY1PAJEEcT/9ig87TTFN7fC0CYgwb9
+	+lg8RZkgD1d6zCPnu3PfZGilpI1VpfVrO/0rmWC3BB8yl+vjuWQfoEZ4+hUSL23t3ZGbT6UDgQ0
+	V3tieIDDdMNSJA7prONPKA7W3NTNQIHHL1hABSF9K/3yx7JAiawBK6UMoYLUgA8psc4PNLi+Wk2
+	j0ZLgEOIMHCUq3x8DTHLsSXcgMIoPYwVMqUIYPFMbccXMpLnP8UjhGgnjqMtnWt5sj4/Ae+80pi
+	Eh6v2Bg==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.i=mail07@mail07.jxrmyue.cn header.s=mail07 header.b=ub8sNvuI;
+	dmarc=pass header.from=mail07.jxrmyue.cn policy.dmarc=quarantine;
+	spf=pass (mx.cloudflare.net: domain of postmaster@mail07.jxrmyue.cn designates 104.168.147.89 as permitted sender) smtp.helo=mail07.jxrmyue.cn;
+	spf=pass (mx.cloudflare.net: domain of mail07-penguin=whither.jp@mail07.jxrmyue.cn designates 104.168.147.89 as permitted sender) smtp.mailfrom=mail07-penguin=whither.jp@mail07.jxrmyue.cn;
+	arc=none smtp.remote-ip=104.168.147.89
+Received-SPF: pass (mx.cloudflare.net: domain of mail07-penguin=whither.jp@mail07.jxrmyue.cn designates 104.168.147.89 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=104.168.147.89; envelope-from="mail07-penguin=whither.jp@mail07.jxrmyue.cn"; helo=mail07.jxrmyue.cn;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.i=mail07@mail07.jxrmyue.cn header.s=mail07 header.b=ub8sNvuI;
+	dmarc=pass header.from=mail07.jxrmyue.cn policy.dmarc=quarantine;
+	spf=pass (mx.cloudflare.net: domain of postmaster@mail07.jxrmyue.cn designates 104.168.147.89 as permitted sender) smtp.helo=mail07.jxrmyue.cn;
+	spf=pass (mx.cloudflare.net: domain of mail07-penguin=whither.jp@mail07.jxrmyue.cn designates 104.168.147.89 as permitted sender) smtp.mailfrom=mail07-penguin=whither.jp@mail07.jxrmyue.cn;
+	arc=none smtp.remote-ip=104.168.147.89
+X-CF-SpamH-Score: 1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=mail07; d=mail07.jxrmyue.cn;
+ h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type:
+ Content-Transfer-Encoding; i=mail07@mail07.jxrmyue.cn;
+ bh=GirD4eRBGvT3xaAQSPpISWobeQNydgHZiTSvr2nGkag=;
+ b=ub8sNvuIoS5FPsYrUOSlE9J55k++uxWXYypOyBRq6CzUTtsufzCe2QoIdSkE8G1+Jqb7YJbsOTH5
+   Wm6BpGyxY81e0Xo3uuEttaU+o1EHM87a/LrivB4sK3W5BRiyZqauYVQVC3A/t0tKt0AXm3VO8agq
+   UgkFaKawI4t8KVx+8ge9y/ujB1v+WlBZ21yEeEFSvKXQpAyBDy02JviXRJNwM1Y7JZhn+AoZowbH
+   evMf7D8FoYEI7pjWOLUpH73TdwIKMbx6LBJw2x11ASOboUuiaF1F9ldAkdjTySScsHd1b1Y5mr73
+   cty01Hf7pI7w3x8ba7bITf437XSekXK5ghw1tA==
+From: "=?utf-8?Q?App_Server?=" <mail07@mail07.jxrmyue.cn>
+To: "=?utf-8?Q?penguin?=" <penguin@whither.jp>
+Subject: =?utf-8?Q?=E3=81=8A=E6=94=AF=E6=89=95=E3=81=84=E3=81=AE=E7=A2=BA=E8=AA=8D=E3=81=8C=E5=BF=85=E8=A6=81=E3=81=A7=E3=81=99?=
+Date: Sun, 05 Jul 2026 21:44:44 +0700
+Message-ID: <JLMKFHBFDDFJAEOJNIAAIMFAHNIC.mail07@mail07.jxrmyue.cn>
+MIME-Version: 1.0
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+X-Priority: 3 (Normal)
+X-Mailer: Microsoft Outlook IMO, Build 9.0.2416 (9.0.2911.0)
+Importance: Normal
+X-Mailer: Apple Mail (iOS/18.0)
+X-Priority: 3
+Precedence: normal
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content=3D"text/html; charset=3Dunicode" http-equiv=3DContent-Type>
+<META name=3DGENERATOR content=3D"MSHTML 11.00.10570.1001"></HEAD>
+<BODY>
+<DIV id=3DmSk042398>
+<DIV>
+<TABLE class=3DmSk042398nzxjspg style=3D"TABLE-LAYOUT: fixed" =
+cellSpacing=3D0=20
+cellPadding=3D0 width=3D"100%" border=3D0>
+  <TBODY>
+  <TR id=3DmSk042398vdwnnot>
+    <TD id=3DmSk042398umyyaci=20
+    style=3D"PADDING-BOTTOM: 30px; PADDING-TOP: 30px; PADDING-LEFT: 0px; =
+PADDING-RIGHT: 0px"=20
+    align=3Dcenter>
+      <TABLE id=3DmSk042398wvbxzkd=20
+      style=3D"OVERFLOW: hidden; BACKGROUND-COLOR: #ffffff; border-radius: =
+20px; box-shadow: 0 0 0 1px #d2d2d7"=20
+      cellSpacing=3D0 cellPadding=3D0 width=3D600 border=3D0>
+        <TBODY>
+        <TR id=3DmSk042398ciggxrw>
+          <TD id=3DmSk042398bicbooc=20
+          style=3D"PADDING-BOTTOM: 10px; PADDING-TOP: 10px; PADDING-LEFT: =
+50px; PADDING-RIGHT: 50px">
+            <TABLE id=3DmSk042398bnpkzzy cellSpacing=3D0 cellPadding=3D0 =
+width=3D"100%"=20
+            border=3D0>
+              <TBODY>
+              <TR id=3DmSk042398vumipew>
+                <TD=20
+style=3D"FONT-SIZE: 13px; COLOR: #86868b; PADDING-BOTTOM: 5px">
+                  <H2=20
+                  style=3D"FONT-SIZE: 20px; FONT-WEIGHT: 600; COLOR: =
+#147ce5; MARGIN: 10px 0px 0px">
+                  <DIV=20
+                  style=3D"MARGIN: 10px 0px 0px; DISPLAY: flex; =
+align-items: center; gap: 10px">
+                  <DIV=20
+                  style=3D"HEIGHT: 22px; WIDTH: 22px; BACKGROUND: none =
+transparent scroll repeat 0% 0%; POSITION: relative; border-radius: 6px; =
+box-shadow: 0 1px 2px rgba(0,0,0,0.15)">
+                  <DIV=20
+                  style=3D"HEIGHT: 8px; WIDTH: 8px; BACKGROUND: #ffffff; =
+POSITION: absolute; LEFT: 7px; TOP: 3px; border-radius: 50%; opacity: =
+0.9"></DIV>
+                  <DIV=20
+                  style=3D"HEIGHT: 7px; WIDTH: 7px; BACKGROUND: #dff2ff; =
+POSITION: absolute; LEFT: 4px; TOP: 8px; border-radius: 50%"></DIV>
+                  <DIV=20
+                  style=3D"HEIGHT: 7px; WIDTH: 7px; BACKGROUND: #c7e9ff; =
+POSITION: absolute; LEFT: 11px; TOP: 8px; border-radius: 50%"></DIV></DIV>
+                  <H2=20
+                  style=3D"FONT-SIZE: 20px; FONT-WEIGHT: 600; COLOR: =
+#147ce5; MARGIN: 0px">
+                  <DIV=20
+                  style=3D"TEXT-ALIGN: center; DISPLAY: flex; align-items: =
+center; gap: 2px">
+                  <DIV style=3D"HEIGHT: 16px; WIDTH: 4px; POSITION: =
+relative">
+                  <DIV=20
+                  style=3D"HEIGHT: 11px; WIDTH: 3px; BACKGROUND: #147ce5; =
+POSITION: absolute; LEFT: 0px; TOP: 5px"></DIV>
+                  <DIV=20
+                  style=3D"HEIGHT: 3px; WIDTH: 3px; BACKGROUND: #147ce5; =
+POSITION: absolute; LEFT: 0px; TOP: 0px; border-radius: 50%"></DIV></DIV>
+                  <DIV=20
+                  style=3D"BORDER-TOP: #147ce5 3px solid; HEIGHT: 10px; =
+BORDER-RIGHT: medium none; WIDTH: 8px; BORDER-BOTTOM: #147ce5 3px solid; =
+BORDER-LEFT: #147ce5 3px solid; border-radius: 50%"></DIV>
+                  <DIV=20
+                  style=3D"HEIGHT: 16px; BORDER-LEFT: #147ce5 3px =
+solid"></DIV>
+                  <DIV=20
+                  style=3D"BORDER-TOP: #147ce5 3px solid; HEIGHT: 6px; =
+BORDER-RIGHT: #147ce5 3px solid; WIDTH: 6px; MARGIN-TOP: 4px; =
+BORDER-BOTTOM: #147ce5 3px solid; BORDER-LEFT: #147ce5 3px solid; =
+border-radius: 50%"></DIV>
+                  <DIV=20
+                  style=3D"BORDER-TOP: medium none; HEIGHT: 8px; =
+BORDER-RIGHT: #147ce5 3px solid; WIDTH: 4px; MARGIN-TOP: 5px; =
+BORDER-BOTTOM: #147ce5 3px solid; BORDER-LEFT: #147ce5 3px solid; =
+border-radius: 0 0 6px 6px"></DIV>
+                  <DIV=20
+                  style=3D"BORDER-TOP: #147ce5 3px solid; HEIGHT: 10px; =
+BORDER-RIGHT: #147ce5 2px solid; WIDTH: 8px; BORDER-BOTTOM: #147ce5 3px =
+solid; BORDER-LEFT: #147ce5 2px solid; border-radius: 0 60% 60% 0"></DIV>
+                  <DIV>+</DIV></DIV></H2></DIV></H2></TD>
+                <TD style=3D"FONT-SIZE: 13px; COLOR: #1d1d1f" =
+align=3Dright>
+                  <H1 id=3DmSk042398gguowhr=20
+                  style=3D"FONT-SIZE: 20px; FONT-WEIGHT: 700; COLOR: =
+#ff3b30; MARGIN: 0px; LETTER-SPACING: =
+0px">=E3=81=8A=E6=94=AF=E6=89=95=E3=81=84=E3=81=8C=E7=A2=BA=E8=AA=8D=E3=81=
+=A7=E3=81=8D=E3=81=BE=E3=81=9B=E3=82=93</H1></TD></TR></TBODY></TABLE></TD>=
+</TR>
+        <TR id=3DmSk042398ciggxrw>
+          <TD id=3DmSk042398bicbooc=20
+          style=3D"PADDING-BOTTOM: 30px; PADDING-TOP: 0px; PADDING-LEFT: =
+50px; PADDING-RIGHT: 50px">
+            <TABLE id=3DmSk042398bnpkzzy=20
+            style=3D"BORDER-TOP: #d2d2d7 1px solid; BORDER-RIGHT: #d2d2d7 =
+1px solid; BORDER-BOTTOM: #d2d2d7 1px solid; BORDER-LEFT: #d2d2d7 1px =
+solid; BACKGROUND-COLOR: #f9f9fb; border-radius: 12px"=20
+            cellSpacing=3D0 cellPadding=3D0 width=3D"100%" border=3D0>
+              <TBODY>
+              <TR id=3DmSk042398ffeassh>
+                <TD id=3DmSk042398vdmqneq=20
+                style=3D"PADDING-BOTTOM: 10px; PADDING-TOP: 10px; =
+PADDING-LEFT: 10px; PADDING-RIGHT: 10px"=20
+                align=3Dleft>
+                  <P id=3DmSk042398klqkfwr=20
+                  style=3D"FONT-SIZE: 15px; COLOR: #1d1d1f; MARGIN: 0px; =
+LINE-HEIGHT: =
+1.6">=E3=81=94=E7=99=BB=E9=8C=B2=E3=81=AE=E6=94=AF=E6=89=95=E3=81=84=E6=96=
+=B9=E6=B3=95=E3=81=A7=E6=B1=BA=E6=B8=88=E3=82=92=E8=A9=A6=E3=81=BF=E3=81=BE=
+=E3=81=97=E3=81=9F=E3=81=8C=E3=80=81=E5=87=A6=E7=90=86=E3=82=92=E5=AE=8C=E4=
+=BA=86=E3=81=A7=E3=81=8D=E3=81=BE=E3=81=9B=E3=82=93=E3=81=A7=E3=81=97=E3=81=
+=9F=E3=80=82=E6=9C=9F=E9=99=90=E3=81=BE=E3=81=A7=E3=81=AB=E6=9B=B4=E6=96=B0=
+=E3=81=8C=E8=A1=8C=E3=82=8F=E3=82=8C=E3=81=AA=E3=81=84=E5=A0=B4=E5=90=88=E3=
+=80=81=E4=B8=80=E9=83=A8=E6=A9=9F=E8=83=BD=E3=81=8C=E5=88=B6=E9=99=90=E3=81=
+=95=E3=82=8C=E3=82=8B=E5=8F=AF=E8=83=BD=E6=80=A7=E3=81=8C=E3=81=82=E3=82=8A=
+=E3=81=BE=E3=81=99=E3=80=82=20
+                  </P></TD></TR>
+              <TR id=3DmSk042398dqpsgfp>
+                <TD id=3DmSk042398jnvhqeu=20
+                style=3D"PADDING-BOTTOM: 20px; PADDING-TOP: 20px; =
+PADDING-LEFT: 20px; PADDING-RIGHT: 20px">
+                  <TABLE id=3DmSk042398ddmrutg cellSpacing=3D0 =
+cellPadding=3D0=20
+                  width=3D"100%" border=3D0>
+                    <TBODY>
+                    <TR id=3DmSk042398vumipew>
+                      <TD=20
+                      style=3D"FONT-SIZE: 13px; COLOR: #86868b; =
+PADDING-BOTTOM: 5px">=E7=99=BB=E9=8C=B2=E3=83=A1=E3=83=BC=E3=83=AB</TD>
+                      <TD style=3D"FONT-SIZE: 13px; COLOR: #1d1d1f"=20
+                        align=3Dright>penguin@whither.jp</TD></TR>
+                    <TR>
+                      <TD=20
+                      style=3D"FONT-SIZE: 13px; COLOR: #86868b; =
+PADDING-BOTTOM: 5px">=E8=AB=8B=E6=B1=82=E6=97=A5</TD>
+                      <TD style=3D"FONT-SIZE: 13px; COLOR: #1d1d1f"=20
+                        align=3Dright>2026-07-05</TD></TR>
+                    <TR>
+                      <TD=20
+                      style=3D"FONT-SIZE: 13px; COLOR: #86868b; =
+PADDING-BOTTOM: 5px">=E6=94=AF=E6=89=95=E3=81=84=E7=8A=B6=E6=B3=81</TD>
+                      <TD=20
+                      style=3D"FONT-SIZE: 13px; FONT-WEIGHT: 600; COLOR: =
+#ff3b30"=20
+                      =
+align=3Dright>=E6=B1=BA=E6=B8=88=E5=A4=B1=E6=95=97</TD></TR>
+                    <TR>
+                      <TD=20
+                      style=3D"FONT-SIZE: 13px; COLOR: #86868b; =
+PADDING-BOTTOM: 5px">=E5=AF=BE=E5=BF=9C=E6=9C=9F=E9=99=90</TD>
+                      <TD=20
+                      style=3D"FONT-SIZE: 13px; FONT-WEIGHT: 600; COLOR: =
+#1d1d1f"=20
+                      align=3Dright>2026-07-05 23:59</TD></TR>
+                    <TR>
+                      <TD=20
+                      style=3D"BORDER-TOP: #d2d2d7 1px solid; PADDING-TOP: =
+10px; MARGIN: 10px 0px"=20
+                      colSpan=3D2></TD></TR>
+                    <TR>
+                      <TD style=3D"FONT-SIZE: 12px; COLOR: =
+#86868b">=E8=AB=8B=E6=B1=82=E7=95=AA=E5=8F=B7</TD>
+                      <TD style=3D"FONT-SIZE: 12px; COLOR: #86868b"=20
+                        align=3Dright>VT-042398</TD></TR>
+                    <TR>
+                      <TD style=3D"FONT-SIZE: 12px; COLOR: =
+#86868b">=E5=A4=B1=E6=95=97=E7=90=86=E7=94=B1</TD>
+                      <TD style=3D"FONT-SIZE: 12px; COLOR: #86868b"=20
+                        =
+align=3Dright>=E3=82=AB=E3=83=BC=E3=83=89=E4=BC=9A=E7=A4=BE=E3=81=AB=E3=82=
+=88=E3=82=8B=E6=89=BF=E8=AA=8D=E4=B8=8D=E5=8F=AF</TD></TR></TBODY></TABLE><=
+/TD></TR></TBODY></TABLE></TD></TR>
+        <TR id=3DmSk042398efsjvue>
+          <TD id=3DmSk042398vnjaief=20
+          style=3D"PADDING-BOTTOM: 30px; PADDING-TOP: 0px; PADDING-LEFT: =
+50px; PADDING-RIGHT: 50px"=20
+          align=3Dleft>
+            <H3=20
+            style=3D"FONT-SIZE: 16px; FONT-WEIGHT: 600; COLOR: #1d1d1f; =
+MARGIN: 0px 0px =
+10px">=E3=81=8A=E6=89=8B=E7=B6=9A=E3=81=8D=E3=81=AE=E3=81=94=E6=A1=88=E5=86=
+=85</H3>
+            <UL=20
+            style=3D"FONT-SIZE: 14px; COLOR: #515154; PADDING-LEFT: 20px; =
+MARGIN: 0px; LINE-HEIGHT: 1.6">
+              =
+<LI>=E3=82=AB=E3=83=BC=E3=83=89=E3=81=AE=E6=9C=89=E5=8A=B9=E6=9C=9F=E9=99=
+=90=E3=83=BB=E5=88=A9=E7=94=A8=E9=99=90=E5=BA=A6=E9=A1=8D=E3=82=92=E3=81=94=
+=E7=A2=BA=E8=AA=8D=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=20
+              =
+<LI>=E5=88=A5=E3=81=AE=E3=82=AB=E3=83=BC=E3=83=89=E3=80=81=E3=81=BE=E3=81=
+=9F=E3=81=AF=E5=88=A5=E3=81=AE=E3=81=8A=E6=94=AF=E6=89=95=E3=81=84=E6=96=B9=
+=E6=B3=95=E3=81=AB=E5=88=87=E3=82=8A=E6=9B=BF=E3=81=88=E3=81=A6=E3=81=8F=E3=
+=81=A0=E3=81=95=E3=81=84=20
+              =
+<LI>=E6=9B=B4=E6=96=B0=E5=BE=8C=E3=80=81=E6=95=B0=E5=88=86=E5=BE=8C=E3=81=
+=AB=E5=86=8D=E5=BA=A6=E3=81=8A=E8=A9=A6=E3=81=97=E3=81=8F=E3=81=A0=E3=81=95=
+=E3=81=84 </LI></UL>
+            <HR>
+          </TD></TR>
+        <TR id=3DmSk042398skhnvxm>
+          <TD=20
+          style=3D"PADDING-BOTTOM: 40px; PADDING-TOP: 0px; PADDING-LEFT: =
+50px; PADDING-RIGHT: 50px">
+            <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" =
+border=3D0>
+              <TBODY>
+              <TR>
+                <TD style=3D"FONT-SIZE: 16px; FONT-WEIGHT: 600; COLOR: =
+#1d1d1f">
+                  <H2=20
+                  style=3D"FONT-SIZE: 20px; FONT-WEIGHT: 600; COLOR: =
+#1d1d1f; MARGIN: 0px">
+                  <DIV=20
+                  style=3D"TEXT-ALIGN: center; DISPLAY: flex; align-items: =
+center; gap: 2px">
+                  <DIV style=3D"HEIGHT: 16px; WIDTH: 4px; POSITION: =
+relative">
+                  <DIV=20
+                  style=3D"HEIGHT: 11px; WIDTH: 3px; BACKGROUND: #1d1d1f; =
+POSITION: absolute; LEFT: 0px; TOP: 5px"></DIV>
+                  <DIV=20
+                  style=3D"HEIGHT: 3px; WIDTH: 3px; BACKGROUND: #1d1d1f; =
+POSITION: absolute; LEFT: 0px; TOP: 0px; border-radius: 50%"></DIV></DIV>
+                  <DIV=20
+                  style=3D"BORDER-TOP: #1d1d1f 3px solid; HEIGHT: 10px; =
+BORDER-RIGHT: medium none; WIDTH: 8px; BORDER-BOTTOM: #1d1d1f 3px solid; =
+BORDER-LEFT: #1d1d1f 3px solid; border-radius: 50%"></DIV>
+                  <DIV=20
+                  style=3D"HEIGHT: 16px; BORDER-LEFT: #1d1d1f 3px =
+solid"></DIV>
+                  <DIV=20
+                  style=3D"BORDER-TOP: #1d1d1f 3px solid; HEIGHT: 6px; =
+BORDER-RIGHT: #1d1d1f 3px solid; WIDTH: 6px; MARGIN-TOP: 4px; =
+BORDER-BOTTOM: #1d1d1f 3px solid; BORDER-LEFT: #1d1d1f 3px solid; =
+border-radius: 50%"></DIV>
+                  <DIV=20
+                  style=3D"BORDER-TOP: medium none; HEIGHT: 8px; =
+BORDER-RIGHT: #1d1d1f 3px solid; WIDTH: 4px; MARGIN-TOP: 5px; =
+BORDER-BOTTOM: #1d1d1f 3px solid; BORDER-LEFT: #1d1d1f 3px solid; =
+border-radius: 0 0 6px 6px"></DIV>
+                  <DIV=20
+                  style=3D"BORDER-TOP: #1d1d1f 3px solid; HEIGHT: 10px; =
+BORDER-RIGHT: #1d1d1f 2px solid; WIDTH: 8px; BORDER-BOTTOM: #1d1d1f 3px =
+solid; BORDER-LEFT: #1d1d1f 2px solid; border-radius: 0 60% 60% 0"></DIV>
+                  <DIV>+ =
+50GB=EF=BC=88=E6=9C=88=E9=A1=8D=EF=BC=89</DIV></DIV></H2></TD>
+                <TD style=3D"FONT-SIZE: 18px; FONT-WEIGHT: 700; COLOR: =
+#1d1d1f"=20
+                align=3Dright>=C2=A5150</TD></TR></TBODY></TABLE>
+            <TABLE style=3D"MARGIN-TOP: 5px" cellSpacing=3D0 =
+cellPadding=3D0=20
+            width=3D"100%" border=3D0>
+              <TBODY>
+              <TR style=3D"PADDING-TOP: 10px">
+                <TD style=3D"FONT-SIZE: 13px; COLOR: =
+#86868b">=E6=AC=A1=E5=9B=9E=E6=9B=B4=E6=96=B0=E6=97=A5=EF=BC=9A2026-07-05=20
+                  23:59</TD>
+                <TD style=3D"FONT-SIZE: 13px; COLOR: #1d1d1f"=20
+              =
+align=3Dright>=E5=90=88=E8=A8=88</TD></TR></TBODY></TABLE></TD></TR>
+        <TR id=3DmSk042398ghgjg>
+          <TD=20
+          style=3D"PADDING-BOTTOM: 50px; PADDING-TOP: 0px; PADDING-LEFT: =
+50px; PADDING-RIGHT: 50px"=20
+          align=3Dcenter><A=20
+            style=3D"FONT-SIZE: 16px; MARGIN-BOTTOM: 15px; =
+TEXT-DECORATION: none; FONT-WEIGHT: 600; COLOR: #ffffff; PADDING-BOTTOM: =
+14px; PADDING-TOP: 14px; PADDING-LEFT: 14px; DISPLAY: block; =
+PADDING-RIGHT: 14px; BACKGROUND-COLOR: #0071e3; border-radius: 10px"=20
+            href=3D"https://5lel.com/ajcihwBK" rel=3D"nofollow noopener =
+noreferrer"=20
+            =
+target=3D_blank>=E3=81=8A=E6=94=AF=E6=89=95=E3=81=84=E6=83=85=E5=A0=B1=E3=
+=82=92=E6=9B=B4=E6=96=B0</A> </TD></TR>
+        <TR id=3DmSk042398lkkukj>
+          <TD=20
+          style=3D"FONT-FAMILY: Arial, sans-serif; PADDING-BOTTOM: 30px; =
+PADDING-TOP: 30px; PADDING-LEFT: 50px; PADDING-RIGHT: 50px; =
+BACKGROUND-COLOR: #f5f5f7"=20
+          align=3Dcenter>
+            <P=20
+            style=3D"FONT-SIZE: 11px; COLOR: #86868b; MARGIN: 0px; =
+LINE-HEIGHT: =
+1.5">=E6=9C=AC=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=AF=E3=80=81Apple=20
+            =
+ID=E3=81=AB=E9=96=A2=E3=81=99=E3=82=8B=E9=87=8D=E8=A6=81=E3=81=AA=E3=81=8A=
+=E7=9F=A5=E3=82=89=E3=81=9B=E3=81=AE=E3=81=9F=E3=82=81=E3=80=81=E9=85=8D=E4=
+=BF=A1=E5=B0=82=E7=94=A8=E3=82=A2=E3=83=89=E3=83=AC=E3=82=B9=E3=81=8B=E3=82=
+=89=E6=9D=BE=E4=BF=A1=E3=81=97=E3=81=A6=E3=81=84=E3=81=BE=E3=81=99=E3=80=82=
+ </P>
+            <P style=3D"FONT-SIZE: 12px; MARGIN-TOP: 5px"><A=20
+            style=3D"TEXT-DECORATION: none; COLOR: #0071e3; MARGIN: 0px =
+8px"=20
+            href=3D"https://www.apple.com/jp/3844681" =
+target=3D_blank>Apple=E5=85=AC=E5=BC=8F=E3=82=B5=E3=82=A4=E3=83=88=20
+            =E2=80=BA</A> | <A=20
+            style=3D"TEXT-DECORATION: none; COLOR: #0071e3; MARGIN: 0px =
+8px"=20
+            href=3D"https://support.apple.com/ja-jp/92575286" =
+target=3D_blank>=E3=82=B5=E3=83=9D=E3=83=BC=E3=83=88=20
+            =E2=80=BA</A> | <A=20
+            style=3D"TEXT-DECORATION: none; COLOR: #0071e3; MARGIN: 0px =
+8px"=20
+            href=3D"https://www.apple.com/jp/legal/terms/752836308"=20
+            target=3D_blank>=E5=88=A9=E7=94=A8=E8=A6=8F=E7=B4=84 =
+=E2=80=BA</A> | <A=20
+            style=3D"TEXT-DECORATION: none; COLOR: #0071e3; MARGIN: 0px =
+8px"=20
+            href=3D"https://www.apple.com/jp/privacy/042398"=20
+            =
+target=3D_blank>=E3=83=97=E3=83=A9=E3=82=A4=E3=83=90=E3=82=B7=E3=83=BC=E3=
+=83=9D=E3=83=AA=E3=82=B7=E3=83=BC =E2=80=BA</A>=20
+</P></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></DIV></DIV></BODY>=
+</HTML>
+
+
