@@ -1,0 +1,79 @@
+Delivered-To: silver.firefox@gmail.com
+Received: by 2002:a98:cb0a:0:b0:274:44c9:cd4d with SMTP id r10csp1322248eim;
+        Thu, 20 Aug 2026 01:49:55 -0700 (PDT)
+X-Received: by 2002:a05:6a00:139c:b0:848:2c2e:c7a3 with SMTP id d2e1a72fcca58-851d3965b23mr18150268b3a.16.1787215794897;
+        Thu, 20 Aug 2026 01:49:54 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1787215794; cv=none;
+        d=google.com; s=arc-20260327;
+        b=j01hVo1s7txGcfn43uNgxfOBzmjtVY9USWa2fExZOaSBvuNl9qRiXW4uO0Kzq6zTqc
+         AmKq2t9bH8jLr+j73G85TBbIHS7ylnvHpqIZE3/O6o4X8N59Bv8nn+54XOg3wpNs0ERJ
+         FSWc2ptSdf94lH8or5seEVS94ffg+dK9YeHCGvKUqBD4g8x/Jq+Gl3xg4xs9wBj7Oc3e
+         29AlPs79rQFc1YKCbqRy9f61gOYFfewJc36wJMvPUNZ5l6l/l11w7mEl+3bVLWurhA23
+         ifj+w6bEDyymBfJQxz49ahVmXbt9vWpPo3sURjSpUzXONk57Ykj02XANSW+qAP4O2ERg
+         OoeQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:mime-version:message-id:subject:to:from
+         :date:dkim-signature;
+        bh=OLyaiRXiQFq9iBal0TkBFf/AiCus5dSZMDXPnTi7jZs=;
+        fh=30F+LetgEkDSNSp+uLeo/St8k5O2MuAL6jcfWOE8egk=;
+        b=cZWkyzFgvLq0e2hPK5NEXWE0uKIkbZVrBU3t/aithb/CMrMCeFusQcOXnP1d/Qfd6l
+         PkNWP4k/Vsc4ughdGAQX6nE3qYLPXZ7e2AZ84SjlKt58loUFOO24LCgBBMlYEHQgCFG+
+         way5ZIZsdH7Na1f1WYwXAjXvwPGZ8RIvpEgP5s4+cCcC9tfZmWooPpaND1/YUbQsqn4J
+         ehOtdoZIvYNSzZLBygNr9CiJvXvSjTKlXYO0vGdw4u8r8vYf3WoPdbmu6SdhHmZVpgNv
+         XbQe3y/WiObLhI6MNbcLw8Ix05OadPFsJaQ+WJF2PKl0ypyVE+dxQKlJ0ZCQv6KcRAfJ
+         hCPQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@docomo.ne.jp header.s=dcm20210531 header.b=o6jEJ9zN;
+       spf=pass (google.com: domain of z2qus0jtwk7fmsqi5eug@docomo.ne.jp designates 203.138.203.197 as permitted sender) smtp.mailfrom=z2qus0jtwk7fmsqi5eug@docomo.ne.jp;
+       dmarc=pass (p=QUARANTINE sp=REJECT dis=NONE) header.from=docomo.ne.jp
+Return-Path: <z2qus0jtwk7fmsqi5eug@docomo.ne.jp>
+Received: from mail123.docomo.ne.jp (mail123.docomo.ne.jp. [203.138.203.197])
+        by mx.google.com with ESMTPS id 41be03b00d2f7-cc1556642fdsi6713157a12.224.2026.08.20.01.49.54
+        for <silver.firefox@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 20 Aug 2026 01:49:54 -0700 (PDT)
+Received-SPF: pass (google.com: domain of z2qus0jtwk7fmsqi5eug@docomo.ne.jp designates 203.138.203.197 as permitted sender) client-ip=203.138.203.197;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@docomo.ne.jp header.s=dcm20210531 header.b=o6jEJ9zN;
+       spf=pass (google.com: domain of z2qus0jtwk7fmsqi5eug@docomo.ne.jp designates 203.138.203.197 as permitted sender) smtp.mailfrom=z2qus0jtwk7fmsqi5eug@docomo.ne.jp;
+       dmarc=pass (p=QUARANTINE sp=REJECT dis=NONE) header.from=docomo.ne.jp
+Received: from mfsmax.docomo.ne.jp
+ by mail123.docomo.ne.jp via TCP with SMTP id 16f300a26a1489dbdca1
+ for silver.firefox@gmail.com; Thu, 20 Aug 2026 17:49:52 +0900
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=docomo.ne.jp; s=dcm20210531;
+ h=Date:From:To:Message-ID;
+ b=o6jEJ9zNUvxnGTdw+jOwcxNMxYREQLIDCgOUmTxKXsVn5somVchBux/ANKTP3OVeknUK9jSRgAy
+  H4gI0wRvVpExpJBJejmjv/KWGEpntchZVOyYsPCtgsRABN7t1dbSxbQ0Z3/rlT6nNWjs6osXoKxE
+  CmyrIKom/8NZrUdoOSS71jgho4cT6bZe9wkeRZ469Fs6Ry530IC6SsbcwN8FeulaAgU5g0d47g4G
+  3XoWe7IaM+bEKEgJR3Hpvz5U9/ggYctrxcLFmanVMnBv3bGbYggcjHkj/DHqiVbe9XSrboEWPR9g
+  DkDkJxsA29XWa5Rvb68edbsK5WVQOpDzDrteP1A==;
+ bh=OLyaiRXiQFq9iBal0TkBFf/AiCus5dSZMDXPnTi7jZs=
+Received: from docomo.ne.jp ([10.242.32.68])
+ by mfsmax.docomo.ne.jp(DOCOMO Mail Server Ver2.0) with SMTP id 16f300a26a1489dbdca1
+ for <silver.firefox@gmail.com>; Thu, 20 Aug 2026 17:49:53 +0900 (JST)
+X-DCMMail: spmode
+Date: Thu, 20 Aug 2026 17:49:52 +0900
+From: =?utf-8?B?44CQ5paw552A44Oh44O844Or44GC44KK44CR?=<z2qus0jtwk7fmsqi5eug@docomo.ne.jp>
+To: silver.firefox@gmail.com
+Subject: =?utf-8?B?44CQ5YaZ55yf44GC44KK44CR44OH44O844OI5biM5pyb44Gn44GZ?=
+ =?utf-8?B?4pmq56eBIOOBrumAo+e1oeWFiOOCkumAgeOCi+OBruOBpw==?=
+Message-ID: <P8Nej-11415pM0a@S5NV.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: Base64
+
+5paw552A44Oh44O844Or44GM5bGK44GE44Gm44GK44KK44G+44GZ44Gu44Gn44CB5Lul5LiL44KI
+44KK44GU56K66KqN5LiL44GV44GE4pmqDQoNCuOAkOmAgeS/oeiAheWQjSjlt67lh7rkurop44CR
+DQrmuJrmp5gNCuOAkOODoeODvOODq+OCv+OCpOODiOODq+OAkQ0K44CQ5YaZ55yf44GC44KK44CR
+44OH44O844OI5biM5pyb44Gn44GZ4pmq56eB44Gu6YCj57Wh5YWI44KS6YCB44KL44Gu44GnDQrj
+gJDmnKzmlofjgJENCuebtOaOpeS8muOBhuOBruOCgk9L44Gq5Lq644Gg44Gj44Gf44KJ44CB6Zu7
+6Kmx44Go44GL44GnLi4uDQoNCuKWvOS7peS4i+OCiOOCiuODoeODvOODq+OCkuOBlOeiuuiqjemg
+guOBkeOBvuOBmeKWvA0KaHR0cDovLzV5dXE0LmNvbS9yMk9yL2wvci9sL2cNCi0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tDQoNCuKYheOCteOCpOODiOODreOCsOOCpOODs+eUqFVSTOKYhQ0KaHR0cDov
+LzV5dXE0LmNvbS9CZ3N0cEcvDQoNCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tDQriiarjgZTos6rl
+lY/jg7vphY3kv6HlgZzmraLjga/jgZPjgaHjgonjgYvjgoniiasNCmluZm9ANXl1cTQuY29tDQot
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLQ0KDQrjgJBIQVBQWeOAkeOCteODneODvOODiOOCu+ODs+OC
+v+ODvA0KDQo=
+

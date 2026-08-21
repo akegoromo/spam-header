@@ -1,0 +1,316 @@
+Delivered-To: silverfirefox@gmail.com
+Received: by 2002:a98:d7c7:0:b0:274:44c9:cd4d with SMTP id a7csp4070850eil;
+        Tue, 18 Aug 2026 06:48:52 -0700 (PDT)
+X-Received: by 2002:a05:6512:3c87:b0:5b3:1601:29d9 with SMTP id 2adb3069b0e04-5b4740f9c5fmr1782756e87.4.1787060931819;
+        Tue, 18 Aug 2026 06:48:51 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1787060931; cv=none;
+        d=google.com; s=arc-20260327;
+        b=q1+ukPH/9+yOfspptaBqBrYRBHse7fIEdZb7rTTx33wUsb2Q2g44BUkF67iVpeMiyc
+         G/oEjTXFytI1IqSXM5DzcbGk4P0uycxl4RyMRFLOzGj8JgtmiYMPCfCONM6K4er2dAxa
+         gE/Vxw8AYF8k/nPP1bGFb8NDXVoFJAvSprqkxTll956fEK7MRVVQIf2kfR8XrI985lSC
+         B5L/tQwPzI7CYufGT7Fnr3YMr6BD+o1PKRlSIJjSx/t25FSjJ8+LujILDQgz9Ct8nnOr
+         F+fMpov2HB/NRHKIf3NM0SoeVNxAbnMWjKYQgrAH3tgg81A7OysXtyv/KtKyxYjyi83p
+         sDtw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=in-reply-to:references:cc:to:envelope-to:date:subject:from
+         :dkim-signature:message-id;
+        bh=CcbL8OqUAOxkriBGpjWN56Kzkvf7XifHbaFYTczXN+Q=;
+        fh=Br7b+0fOQ5Dz6DtBKXrgg05LQXEDaHN6OVpQ6Hl/nXk=;
+        b=i3kp9nkUELjg4StoWdCmRYZp8hFdd/fi4ZmhQPN3qprmyKSNZYbsgddkq41X+IIpJd
+         SOLVqV+B1NcyqL6VWXev93hS0L+1D6MaEAHqsRcs+H8IdRgDD4IeOOWPJvV6XvGhMjt/
+         pO8ABkgzbXfG4lnaYIRfCfbpeLKJUMBb9d88dQht+7G3UzhpXuXjZwo0Iw3FBaRGWEGj
+         oZGv5Jn/RNbfJhL1SpUWftCiH2zIVb3HMRoHr07PMtsei6k3b4SoEIPvEZ3teTYNSxnc
+         tf9QH/uBKkqTFSLHPwgRokDFggDXsFFhf7tgZa9Tb4aFkKAWMqbKEeskoWaSojiOkfiA
+         zdPw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=permerror (no key for signature) header.i=@questionprov071999.com header.s=s1 header.b=SFzXqwdg;
+       spf=pass (google.com: domain of return_skghszy@skghszy.emkdfs.me designates 5.79.88.23 as permitted sender) smtp.mailfrom=return_skghszy@skghszy.emkdfs.me
+Return-Path: <return_skghszy@skghszy.emkdfs.me>
+Received: from ibisa.birdsgallery.net (ibisa.birdsgallery.net. [5.79.88.23])
+        by mx.google.com with ESMTPS id 2adb3069b0e04-5b46d049419si2827501e87.235.2026.08.18.06.48.51
+        for <silverfirefox@gmail.com>
+        (version=TLS1 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+        Tue, 18 Aug 2026 06:48:51 -0700 (PDT)
+Received-SPF: pass (google.com: domain of return_skghszy@skghszy.emkdfs.me designates 5.79.88.23 as permitted sender) client-ip=5.79.88.23;
+Authentication-Results: mx.google.com;
+       dkim=permerror (no key for signature) header.i=@questionprov071999.com header.s=s1 header.b=SFzXqwdg;
+       spf=pass (google.com: domain of return_skghszy@skghszy.emkdfs.me designates 5.79.88.23 as permitted sender) smtp.mailfrom=return_skghszy@skghszy.emkdfs.me
+Message-ID: <6a8462c3.670f3323.1ab61c.73eeSMTPIN_ADDED_MISSING@mx.google.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=s1; d=questionprov071999.com;
+ h=From:Subject:Date:To:CC:References:In-Reply-To:Content-Type; i=4974668618050@questionprov071999.com;
+ bh=CcbL8OqUAOxkriBGpjWN56Kzkvf7XifHbaFYTczXN+Q=;
+ b=SFzXqwdg88BYJKtHVz0z+8QSRCc9U8uQJ9VDPKuKdOeHZ0r555+kpNHjHdxb7dnvr8JuIiwW/1cC
+   bH/qtp4ekY99cd7OLRheYgM6cUo7OHR054tYToOFjOSsVvd0ZArb2aZUpAQjGUk8W2EPoOClqY22
+   jUjI44QtvjAq3GWfTc3jJDQZdVV7EC2DhMfLF/NK3B1ZnOhXCYYG6ZR1ZlRBFjvbB6XyXnYtcfg0
+   Bb3jyYVh6QTw2vAiyQNHPgVYYySjv316xNN1YxigkDD6Jfdz4fnh6wGQnvOyXlOoUVIJv8Mq4iLF
+   TWUGNhSfIrdrof6688lXkGtkWsfie4R+OPn2kw==
+From:  "=?UTF-8?B?UGFya01vYmlsZcKp?="  <4974668618050@questionprov071999.com>
+Subject: =?UTF-8?B?U2lsdmVyZmlyZWZveCwgIENsYWltIFlvdXIgRnJlZSBDYXIgQ29vbGVyIOKchSDwn46BIDE4IEF1Z3VzdCAyMDI2?=
+Date: Tue, 18 Aug 2026 13:48:48 +0000 (UTC)
+Envelope-To: SERVICE-201697723@googlemail.com
+To: <silverfirefox@gmail.com>
+X-DKIM_SIGN_REQUIRED: YES
+X-Broadcast-Id: 355946
+CC: <news_lzhces@gmail.com>
+Received: from efianalytics.com (efianalytics.com. 216.244.76.116)
+References: <@mail-00000000000.srv1.hPVlERGoakzaG.edu>
+In-Reply-To: <cpEzZVwy2eZcQB2dGydGv3IePdHnigR1ImMyFVlRZDeRfcC6ZoRmkidfh0LlMg1iynQ9uQ5MXtYs10LSfoyMAaQSCwojskLw9sz9tzuOLXQVpxt1v1h787jygPVzkn0lm8mtXWD5gfAkrECyrw1pAjxdysHcMmki7QG6rWHATxx6uAqKnpiyUyC6f1AXflK6XWFFHlXH@cpEzZVwy2eZcQB2dGydGv3IePdHnigR1ImMyFVlRZDeRfcC6ZoRmkidfh0LlMg1iynQ9uQ5MXtYs10LSfoyMAaQSCwojskLw9sz9tzuOLXQVpxt1v1h787jygPVzkn0lm8mtXWD5gfAkrECyrw1pAjxdysHcMmki7QG6rWHATxx6uAqKnpiyUyC6f1AXflK6XWFFHlXH.cpEzZVwy2eZcQB2dGydGv3IePdHnigR1ImMyFVlRZDeRfcC6ZoRmkidfh0LlMg1iynQ9uQ5MXtYs10LSfoyMAaQSCwojskLw9sz9tzuOLXQVpxt1v1h787jygPVzkn0lm8mtXWD5gfAkrECyrw1pAjxdysHcMmki7QG6rWHATxx6uAqKnpiyUyC6f1AXflK6XWFFHlXH.AFaoVOvAOpTLjmf>
+X-MSG-ID: M16883~c9876114~r737~56058
+x-evs: GZVGPA
+X-MSG-LINK: T1R1g6nHS3XQ2tksWoQCo9coS84YxueeQ
+X-EmailType-Id: 355946
+Content-Type: text/html; charset=utf-8
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+<body style="margin:0;padding:0;background:#ffffff;font-family:Arial,Helvetica,sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;">
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;background:#ffffff;">
+<tr>
+<td align="center" style="padding:36px 12px 16px;background:#ffffff;">
+
+<a href="https://storage.googleapis.com/cej0g46t6h8o2v1s/folnbyzs9sq7wn9u/d54dbdc.html#FOG1rcw3GF.php4?jD927f*vttv3qXvyr*V*W0wm6*V6KF1*vW*V1C*vJ*vC237*VVsBz9*vtTtv6" target="_blank" style="text-decoration:none;color:inherit;display:block;">
+
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:600px;background:#edfff0;">
+<tr>
+<td style="padding:28px 20px 38px;">
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr>
+
+<!-- COOLER -->
+
+<td width="48%" valign="middle" align="center" style="width:48%;padding:10px 10px 0 0;">
+
+<table role="presentation" width="250" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:250px;">
+<tr>
+<td align="center">
+
+<!-- top lid -->
+
+<table role="presentation" width="225" cellpadding="0" cellspacing="0" border="0" style="width:90%;margin:0 auto;">
+<tr>
+<td style="height:46px;background:#f8f8f4;border-radius:22px 22px 6px 6px;border-bottom:5px solid #d7d7d2;box-shadow:0 3px 5px rgba(0,0,0,.18);">
+
+<table role="presentation" width="92%" cellpadding="0" cellspacing="0" border="0" style="margin:auto;">
+<tr>
+<td align="center" style="height:27px;background:#cfe9fa;border-radius:18px 18px 4px 4px;">
+
+<span style="font-size:7px;line-height:9px;font-weight:bold;font-style:italic;letter-spacing:.4px;color:#27577e;">
+PARKING MADE EASY.
+</span>
+
+</td>
+</tr>
+</table>
+
+</td>
+</tr>
+</table>
+
+<!-- main cooler -->
+
+<table role="presentation" width="225" cellpadding="0" cellspacing="0" border="0" style="width:90%;margin-top:-2px;">
+<tr>
+<td style="height:165px;background:#15508a;border-radius:4px 4px 17px 17px;border-left:5px solid #104474;border-right:5px solid #104474;box-shadow:0 8px 12px rgba(0,0,0,.22);">
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+
+<!-- upper edge -->
+
+<tr>
+<td style="height:20px;background:#1d5c96;border-bottom:3px solid #0e426f;">
+&nbsp;
+</td>
+</tr>
+
+<!-- front -->
+
+<tr>
+<td align="center" style="padding-top:22px;">
+
+<table role="presentation" width="80%" cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td align="center" style="height:68px;border:2px solid #104473;border-radius:8px;background:#19548a;box-shadow:inset 0 4px 8px rgba(0,0,0,.16);">
+
+<table role="presentation" cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td style="width:27px;height:27px;border:2px solid #ffffff;border-radius:50%;font-size:16px;line-height:27px;color:#ffffff;text-align:center;font-weight:bold;">
+P
+</td>
+<td style="padding-left:7px;font-size:16px;line-height:20px;color:#ffffff;font-weight:bold;">
+ParkMobile
+</td>
+</tr>
+</table>
+
+</td>
+</tr>
+</table>
+
+</td>
+</tr>
+
+<tr>
+<td align="center" style="padding-top:10px;font-size:10px;line-height:13px;color:#d9e5ef;">
+ParkMobile USA.
+</td>
+</tr>
+
+</table>
+
+</td>
+</tr>
+</table>
+
+<!-- front latches -->
+
+<table role="presentation" width="225" cellpadding="0" cellspacing="0" border="0" style="width:90%;margin-top:-164px;">
+<tr>
+<td width="22%" style="width:22%;padding-left:12px;">
+<table role="presentation" cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td style="width:12px;height:35px;background:#22282c;border-radius:2px 2px 5px 5px;box-shadow:1px 2px 3px rgba(0,0,0,.35);">
+&nbsp;
+</td>
+</tr>
+</table>
+</td>
+
+<td width="56%" style="width:56%;">
+&nbsp;
+</td>
+
+<td width="22%" align="right" style="width:22%;padding-right:12px;">
+<table role="presentation" cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td style="width:12px;height:35px;background:#22282c;border-radius:2px 2px 5px 5px;box-shadow:1px 2px 3px rgba(0,0,0,.35);">
+&nbsp;
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<!-- side handle -->
+
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" align="right" style="margin-top:22px;margin-right:2px;">
+<tr>
+<td style="width:16px;height:57px;border:4px solid #2d3439;border-left:0;border-radius:0 8px 8px 0;">
+&nbsp;
+</td>
+</tr>
+</table>
+
+</td>
+</tr>
+</table>
+
+</td>
+
+<!-- RIGHT CONTENT -->
+
+<td width="52%" valign="top" style="width:52%;padding:0 0 0 10px;">
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+
+<tr>
+<td style="padding:0 0 22px 0;">
+
+<table role="presentation" cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td valign="middle" style="width:36px;height:36px;background:#19ad4f;border-radius:50%;font-size:23px;line-height:36px;text-align:center;color:#ffffff;font-weight:bold;">
+P
+</td>
+<td valign="middle" style="padding-left:8px;font-size:23px;line-height:23px;font-weight:bold;color:#050505;">
+ParkMobile<span style="font-size:7px;vertical-align:top;">™</span>
+<div style="font-size:6px;line-height:8px;text-align:center;font-weight:bold;">
+By Arrive
+</div>
+</td>
+</tr>
+</table>
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+<a href="https://storage.googleapis.com/cej0g46t6h8o2v1s/folnbyzs9sq7wn9u/d54dbdc.html#FOG1rcw3GF.php4?jD927f*vttv3qXvyr*V*W0wm6*V6KF1*vW*V1C*vJ*vC237*VVsBz9*vtTtv6" target="_blank" style="text-decoration:none;color:#050505;">
+
+<div style="font-size:39px;line-height:43px;font-weight:800;font-style:italic;letter-spacing:-2px;white-space:nowrap;">
+Congratulations
+</div>
+
+<div style="padding-top:13px;font-size:20px;line-height:25px;font-weight:500;">
+Claim Your FREE GIFT
+</div>
+
+<div style="padding-top:13px;font-size:19px;line-height:24px;font-weight:bold;color:#d8175d;">
+Car Cooler
+</div>
+
+<div style="padding-top:34px;font-size:14px;line-height:20px;font-weight:bold;color:#171717;">
+The best gift to keep your food and drinks fresh, this is your chance to receive this gift from us, available for a limited time only! Don't miss out.
+</div>
+
+</a>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:34px;">
+<tr>
+<td align="center" style="height:57px;background:#377b54;">
+
+<a href="https://storage.googleapis.com/cej0g46t6h8o2v1s/folnbyzs9sq7wn9u/d54dbdc.html#FOG1rcw3GF.php4?jD927f*vttv3qXvyr*V*W0wm6*V6KF1*vW*V1C*vJ*vC237*VVsBz9*vtTtv6" target="_blank" style="display:block;padding:19px 8px;text-decoration:none;color:#ffffff;font-size:16px;line-height:19px;font-weight:bold;letter-spacing:1px;">
+CLAIM IT NOW
+</a>
+
+</td>
+</tr>
+</table>
+
+</td>
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+</table>
+
+</td>
+</tr>
+</table>
+
+</a>
+
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:600px;background:#ffffff;">
+<tr>
+<td align="center" style="padding:24px 0 0;background:#ffffff;">
+
+<a href="https://storage.googleapis.com/cej0g46t6h8o2v1s/folnbyzs9sq7wn9u/d54dbdc.html#FOG1rcw3GF.php4?JD927f*VTTv3qXVyr*W*W0Wm6*V6Kf1*vw*V1C*Vj*vc237*vVSBZ9*VtTtV6" target="_blank" style="font-size:12px;line-height:16px;color:#888888;text-decoration:underline;">
+Unsubscribe
+</a>
+
+</td>
+</tr>
+</table>
+
+</td>
+</tr>
+</table>
+<object>
+  <img src="http://6f958e.fightingfit.uk.com/FOG1rcw3GF.swf?JD927F*VTtV3qxvyR*T*W0WM6*v6KF1*vw*V1C*vj*vC237*vVsBz9*VTttv6" width="1" height="1" />
+</object>
+
+</body>
+</html>
