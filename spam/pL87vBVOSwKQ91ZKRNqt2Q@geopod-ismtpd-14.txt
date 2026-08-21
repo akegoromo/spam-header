@@ -1,0 +1,126 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a05:640c:2c95:b0:274:44c9:cd4d with SMTP id u21csp502195eiv;
+        Thu, 13 Aug 2026 19:51:21 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AHgh+RpO7z/t1N29ROcPBy57edvyU8HY7NRjsmtOc2yNc7Vih0zTZ8D142XehlTmici2xfr4X031SzZOGOkRzV3zGQ==@gmail.com
+X-Received: by 2002:a05:6214:4988:b0:8f1:617b:2692 with SMTP id 6a1803df08f44-90a910f490bmr33726596d6.10.1786675881452;
+        Thu, 13 Aug 2026 19:51:21 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1786675881; cv=pass;
+        d=google.com; s=arc-20260327;
+        b=Ma/+T7dPVNfRoH+0RP1oS73xuXxjqYMElDHM2nxitH7WZYHDpK+jiJLPMrbqL1spnN
+         dQt81GB2uQuBtpd8oGEID25rio2xxd8qhycK1oqwPKMXIJOixxK4myfnY34iGJLU/ZLm
+         4m1FiFzFFq/lXedGAtr2i4R2sP8qMmHQb4Iw/qzahaAaHO+6apOHUQAzBLCatd26T5yt
+         dYmR/EgJVBJVCrha4L8ln5WZV9vDGOH4RGSsDCIg8wntSpYobuKkVl7nITk6P0E/a9zZ
+         IQp9p+ph9rorh1pnhSqnIYe0BmO7qAC2FeujAEKAQU8ms3CYtv4dqTNfY8EbPXs2L3iI
+         sw1w==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=to:list-id:reply-to:subject:message-id:mime-version:from:date
+         :dkim-signature:feedback-id:dkim-signature:dkim-signature;
+        bh=pySE5BtKySI5kCxllcp0L0XVhZzeTeFYQMzXO/iO1as=;
+        fh=AmwUtjvAn7++NEBttiaVEnyCAVA5youKb81rEHZT4FM=;
+        b=nH65Had3RZR6OJV+dV90SDSocXHSqe1qV+GDYB1JqeFGF4soRtBN54PHRHixdzcxas
+         8Cb9+WLe/b3sKFSNyGALlpp/vy5t+ExCKn/RWjcrGITClN5xuj8nFaC+y6+xAPenzZ+O
+         XixJYF/bsNquXtZ3JRKP+D2neu+gU4M+vbiAv/ObeNly0ztgpxNaKDiJ48jDzSJXU4C8
+         dP5ergEn5uVjjl/KZk0ZU8cvHprr5UyhcpjwV8yPiZy+pD4eztyzdtNOyLeK28tcCqim
+         gKaRnXIlpwjDQgrpcnV3mGmTbTpZFyfXv5FvV6WRh9wAM3kwzJyMa9ob0vbyvf5nFolL
+         u7WA==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=U2jaOfni;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=SR19AgLZ;
+       dkim=pass header.i=@luod.art header.s=s1 header.b=CbREvyLX;
+       arc=pass (i=1 spf=pass spfdomain=em2048.luod.art dkim=pass dkdomain=luod.art dmarc=pass fromdomain=luod.art);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.8.228 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=luod.art
+Return-Path: <cfbounces+ndrdrop@whither.jp>
+Received: from i-cci.cloudflare-email.net (i-cci.cloudflare-email.net. [104.30.8.228])
+        by mx.google.com with ESMTPS id 6a1803df08f44-90a9212b7bcsi7542486d6.144.2026.08.13.19.51.20
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 13 Aug 2026 19:51:21 -0700 (PDT)
+Received-SPF: pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.8.228 as permitted sender) client-ip=104.30.8.228;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=U2jaOfni;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=SR19AgLZ;
+       dkim=pass header.i=@luod.art header.s=s1 header.b=CbREvyLX;
+       arc=pass (i=1 spf=pass spfdomain=em2048.luod.art dkim=pass dkdomain=luod.art dmarc=pass fromdomain=luod.art);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.8.228 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=luod.art
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=To:List-ID:Reply-To:Subject:From:Date:Feedback-ID:from:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1786675881; x=1787280681; bh=pySE5BtKySI5kCxllc
+	p0L0XVhZzeTeFYQMzXO/iO1as=; b=U2jaOfniuprZI/8yu5gz9r4N4DDlVHWUpatnUE75ulGx/
+	q6M0JdEfW481GhWxgWcpQLlBKptPBHbqsJ9oY0S8qj8MUsUMvimNfNQsv9csHDIr8mrJ7rmEyVr
+	BS+b5hbn9eJfSSmA5Araf7MCrfcVFXC8sld/ri3dQff5gpONK2PV+tYZYWcNICl06QiPjecAhyL
+	5JpsmWK08G7ZaEe6k5I5+TC5ypoDfzoihzLSrLylFk/APU71l7hTWLi1wmRtammhD5rptGJmEVo
+	c8Ow6Sm54vNA2BC8xgR1tUt6FWd2fhzAJD0WFaF5SCFKcyh/QXThS1atD2NsdXbm7aQTxm3w==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=To:List-ID:Reply-To:Subject:From:Date:Feedback-ID:from:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1786675881; x=1787280681; bh=pySE5BtKySI5kCxllc
+	p0L0XVhZzeTeFYQMzXO/iO1as=; b=SR19AgLZMo6x2d49o5zf5LIU32Cnzhq+Rvi+79d1tNzuF
+	w1WCuCVRP2HvLPTJGjNMKPtn2G9NH7omxJLrBEB1fpNYVih1f1gMouhEezMOi28MFXzpVraEl6M
+	ux/B8rR8LeI4jLGtvCJXAbhsqtmLxyrq4pzkm/69qMkildfCfTecjG+t0pDslRAipjGA5yPBw5q
+	aPUlZN8FxUpHDcX+e/XfvbUoHuXHCjRhLX5tG5AQu30pDISg7EhGibjl6kjuGRf5O9TMFxobVGw
+	WlReVhVtguWQd/ovtqj+GpLelLfsQL21UKI/jL+3tA64gUcySTwQifMCgWvo3eCnGaQZc9Ow==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: silver.firefox+whither-jp@gmail.com silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:2:1:Cloudflare
+Received: from s.wrqvwxzv.outbound-mail.sendgrid.net (149.72.154.232)
+        by cloudflare-email.net (cloudflare) id A6lPI0cFacbH
+        for <tnakahara@whither.jp>; Fri, 14 Aug 2026 02:51:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=WhbGPcJUv5IBW5lKM/yhdibWEHXFeZuPyCnUOnfuzsUQolwNN6l1xWPz71woyIT5lH7e0Luso
+	q7ME57ZCoG7v0wVrRM9bne2Qptty6gzLy6krNJPdjJU973Hq0R6n2a8Fbwturg4usX2HRmX+9MR
+	Kh3HS2g7a5EuTyCxgYZvJ0YPVQUTOzID6A2sLQtVvZTHJBVtmst1W4cxRxFNW8mlyp4HpLoChkS
+	R9nLN44tqPnChVBBMUfFMA76c7sLfU+9f7PsAK8MSHyNz4NfTQ7BWpVVCf5+iGa5jO9KNQUCKOS
+	DvQG+rOoK0KIO5xVZUxlhYPuseWfdFVv5cemSKeX/3Hw==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=To:List-ID:Reply-To:Subject:From:Date:from:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1786675879; x=1787280679; bh=pySE5BtK
+	ySI5kCxllcp0L0XVhZzeTeFYQMzXO/iO1as=; b=f5ZwDDNTEAmMRxgPFT7uLpeeNBrHAtWwh0z
+	KIE5ywQ+rggOBdXd4axKTDA9eAKvo2kIaCwofIdC70SfJ8/G9Bs9x92qW4AoUYhKJj2JdMViLUw
+	kz85ByngzP8+OaJPUae280cSgTq7Pc4zJEet/wMr/3MKvkhLsAJtSj8bPZb1hXFpHNVK5U2xSB/
+	BftOqVj5sVFZg6Nc8eUnZlNhL+BwSoKELIcuYPuc1CqzYLhZlrfMk+s798l6lNrpUv89+4ZpRpk
+	tBLux+5ke58uKJAXqM9OQ2BJvwvNdwQ5Tpf0T1wGV8ijcJvnJ4PjvgfsLC9G+kuSutg4wNzwPv4
+	tTuTnLw==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.d=luod.art header.s=s1 header.b=CbREvyLX;
+	dmarc=pass header.from=luod.art policy.dmarc=none;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@s.wrqvwxzv.outbound-mail.sendgrid.net) smtp.helo=s.wrqvwxzv.outbound-mail.sendgrid.net;
+	spf=pass (mx.cloudflare.net: domain of bounces+112284149-1a7a-tnakahara=whither.jp@em2048.luod.art designates 149.72.154.232 as permitted sender) smtp.mailfrom=bounces+112284149-1a7a-tnakahara=whither.jp@em2048.luod.art;
+	arc=none smtp.remote-ip=149.72.154.232
+Received-SPF: pass (mx.cloudflare.net: domain of bounces+112284149-1a7a-tnakahara=whither.jp@em2048.luod.art designates 149.72.154.232 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=149.72.154.232; envelope-from="bounces+112284149-1a7a-tnakahara=whither.jp@em2048.luod.art"; helo=s.wrqvwxzv.outbound-mail.sendgrid.net;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.d=luod.art header.s=s1 header.b=CbREvyLX;
+	dmarc=pass header.from=luod.art policy.dmarc=none;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@s.wrqvwxzv.outbound-mail.sendgrid.net) smtp.helo=s.wrqvwxzv.outbound-mail.sendgrid.net;
+	spf=pass (mx.cloudflare.net: domain of bounces+112284149-1a7a-tnakahara=whither.jp@em2048.luod.art designates 149.72.154.232 as permitted sender) smtp.mailfrom=bounces+112284149-1a7a-tnakahara=whither.jp@em2048.luod.art;
+	arc=none smtp.remote-ip=149.72.154.232
+X-CF-SpamH-Score: 0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=luod.art;
+	h=content-type:date:from:mime-version:subject:reply-to:list-id:to:cc:
+	content-type:date:from:subject:to;
+	s=s1; t=1786675878;
+	bh=pySE5BtKySI5kCxllcp0L0XVhZzeTeFYQMzXO/iO1as=;
+	b=CbREvyLXaiGuEoAukKTlMC2YQilJ+TAO7WpxlcYmTyVtc7iwH9hlTFt7erLpK01chK8S
+	UKIPSBzb9QKYhAbYz5y3oG0UEHWwbx3FyumJiAbR6ZRfdEb0E7BMxSQpymYTpGL4lsDNWt
+	n6FSkZe8xsdwNd3Cw3grUvtZ9yZy0Cb+suHrX0ztYnx1cD3n3UgfObglONrDdXgJuc9AnY
+	f2jqO++uFiOXx0s2Ls0NLnQWCKAZggbAzDfTFagtrzFemv+mWBWr6MJhsDzSExKjVa6zzO
+	TCf1vl2/7hDKKlaZPlJrKU5jp8j7gu15zRmeRDBCU/p7lT0Lg+vGqpEaFY+4a+hw==
+Received: by recvd-6c87f6f5c5-bl4kh with SMTP id recvd-6c87f6f5c5-bl4kh-1-6A7E82A6-12
+	2026-08-14 02:51:18.152924643 +0000 UTC m=+1411047.935784058
+Received: from MTEyMjg0MTQ5 (unknown)
+	by geopod-ismtpd-14 (SG) with HTTP
+	id pL87vBVOSwKQ91ZKRNqt2Q
+	Fri, 14 Aug 2026 02:51:18.139 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=289a503b9c0b0ba63846ffdf36fdef96c413056d01506352888ed1f221ab
+Date: Fri, 14 Aug 2026 02:51:18 +0000 (UTC)
+From: =?UTF-8?b?44K444Kn44O844K344O844OT44O85omL57aa44GN44K144Od44O844OI?=
+	<edisoneva@luod.art>
+Mime-Version: 1.0
+Message-ID: <pL87vBVOSwKQ91ZKRNqt2Q@geopod-ismtpd-14>

@@ -1,0 +1,115 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a05:640c:2c95:b0:274:44c9:cd4d with SMTP id u21csp476114eiv;
+        Thu, 13 Aug 2026 19:08:12 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AHgh+Rr7wy+8gReuUg1VkShoGMcd1SLR93saYe3zfcc9/6sG2/P9orjdH6UFQpYV00XGHJEtL9cegUapUI1q25/c6A==@gmail.com
+X-Received: by 2002:a17:902:e543:b0:2c8:1c05:16aa with SMTP id d9443c01a7336-2d3b0cbe5b0mr21919785ad.19.1786673291981;
+        Thu, 13 Aug 2026 19:08:11 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1786673291; cv=pass;
+        d=google.com; s=arc-20260327;
+        b=JFV6CbGut8IdgCG8SResJfWrRlanLpbT4YaRWnKuOPrF6S+k+K8oExWmCH/C271SyG
+         Y23I5Cg75gX9IxGvbfHUV2QuC0YTBIbH5kb18ZhniEELPsbTIkc84dLvzlrleMsD5lNd
+         zDUJxw60GxoAxFuxtoWLX+yg7jrXPNqjeW0/EZc0T0ntLtmeA+7eDt1qLVOWjhypw5ZP
+         4wUQPBQlmq8hDZZI+KEmP5aAI275n5OQZx4T+u/YlA0EYyZsN6qZvYsAQO/eENg7vjQj
+         0qbxvJezq6HhaB8BnD92mcXEikn0Pz21ly2Lgx2QFKWqBV0ltdx/Q7ufn/ORS5r8NoD/
+         Q37w==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:subject:to:from:message-id:dkim-signature
+         :feedback-id:dkim-signature:dkim-signature:date;
+        bh=zD91bDFdFEn1vrRMQYfi5LjH306FZ2+l8H7RR6xbDxM=;
+        fh=ENXOhFKW7CT4pn4Lz1vO6o5YQQdiV/Ih3E4yEdfzxpY=;
+        b=D/esBsiCciJiV96NCa4YEkocR5E6HBH3Sw67+3tawT8pzepFW3fDXRFj+HDxsFTMG9
+         fAMQXafUyk4LkwIUACVCln/ugx7wWS3lsr8b0t0kYOSz/Ndv6No42zZtJFy7XoRD80Og
+         0YaIQKWobwxEugASzfgF7bP+oO5+5K2Jc7BAn53zqZXH8mPN1Pl1GgP1CuHsyAUbjjOL
+         EEilpV7MfvBYbhjlKI+Lrwsk1pi5JyOP+KA+T0iKpqqrl6NStxRCG69W5U99u3dos/MQ
+         HtUzchRmMDpe6UwWHFuy421aPMoSgAJ+lHvvfkDPFDsJdf3AYdNAEFkVXKnNCNR7wBvr
+         3LMA==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=Wyr1pNmX;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=iURj5q3K;
+       dkim=permerror (no key for signature) header.i=@apple.com header.s=default header.b=ejOP2id5;
+       arc=pass (i=1 spf=pass spfdomain=electricfs.com);
+       spf=pass (google.com: domain of srs0=ludx=hg=electricfs.com=noreply-penguin=whither.jp@whither.jp designates 104.30.8.228 as permitted sender) smtp.mailfrom="SRS0=LUDx=hg=electricfs.com=noreply-penguin=whither.jp@whither.jp";
+       dmarc=fail (p=QUARANTINE sp=REJECT dis=NONE) header.from=apple.com
+Return-Path: <SRS0=LUDx=hg=electricfs.com=noreply-penguin=whither.jp@whither.jp>
+Received: from i-cci.cloudflare-email.net (i-cci.cloudflare-email.net. [104.30.8.228])
+        by mx.google.com with ESMTPS id d9443c01a7336-2d527b094dbsi2287465ad.139.2026.08.13.19.08.10
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 13 Aug 2026 19:08:11 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=ludx=hg=electricfs.com=noreply-penguin=whither.jp@whither.jp designates 104.30.8.228 as permitted sender) client-ip=104.30.8.228;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=Wyr1pNmX;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=iURj5q3K;
+       dkim=permerror (no key for signature) header.i=@apple.com header.s=default header.b=ejOP2id5;
+       arc=pass (i=1 spf=pass spfdomain=electricfs.com);
+       spf=pass (google.com: domain of srs0=ludx=hg=electricfs.com=noreply-penguin=whither.jp@whither.jp designates 104.30.8.228 as permitted sender) smtp.mailfrom="SRS0=LUDx=hg=electricfs.com=noreply-penguin=whither.jp@whither.jp";
+       dmarc=fail (p=QUARANTINE sp=REJECT dis=NONE) header.from=apple.com
+Date: Thu, 13 Aug 2026 19:08:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Subject:To:From:Feedback-ID:from:reply-to:date:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1786673291; x=1787278091; bh=zD91bDFdFEn1vrRMQY
+	fi5LjH306FZ2+l8H7RR6xbDxM=; b=Wyr1pNmXnArGql/YGZm/1BW7qZkMEvfTC0EmtDCiY8oXD
+	cipV3CuBkbptZRQCzFDr651x9BiBpKuKJqQ30/LUPLO8Ul4AuGoFyroi8GqPaPVHYn/QgAXLlXU
+	vzeg4T6HP1QfBQXh9aMTcy49MFHthYERWpyUe0at0hIy3i3KILd7vm3w2qW7OJdivPVWHxhjXBH
+	5eDG/6ylweLJNYhaUVRyXccdwrwQi29jau5ifBqJxyBvzs4pF0/YnVun834IqIDJ7Tf8XFvhEJd
+	vKEaIcQZdCvb40PmO2uNYJiOrQZjPWHOcwBqXVIdtLRiYCzJ/4mgQ3rJyccWuS19zcAsBjRw==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Subject:To:From:Feedback-ID:from:reply-to:date:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1786673291; x=1787278091; bh=zD91bDFdFEn1vrRMQY
+	fi5LjH306FZ2+l8H7RR6xbDxM=; b=iURj5q3KJ1YJxL679Svl2zQLskLKF92IrNoNluVRwBkId
+	wdCDeWg7DhKQg+rUf53p6L2o0qoRK/y1cMrEN4mfaaIujnTmACuKdPmESPCNe7VDZq3oNkRdUyl
+	3mFlvs9fbBzGF5QWsuSJVKw+0H/NlDpdKSITbYLgLy7FffhpO69VPrmOZ6yrW4ZDgvOyENIwxm6
+	yjb4ucKiTO4cf9+ijZX+9Wb3GKUJ1b2GAkBoUoUXEbQ8IxHcWglx+aC7RmeMj85K/b/xLTlGUJD
+	grirBl/mK1JlG7n0qT2UlJusQN5DcP2Le9OVsBPadV7UeNzfxH6IQrHxhifba1SgcB7WiYuA==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: silver.firefox+whither-jp@gmail.com silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:2:1:Cloudflare
+Received: from electricfs.com (23.100.96.242)
+        by cloudflare-email.net (cloudflare) id ss2pmmAW52DT
+        for <penguin@whither.jp>; Fri, 14 Aug 2026 02:08:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=dqCtFU19XLvzqW/w8N+lg7V1UZPL0bRnNVPn0lwA8I5bGRuhOo9+28GjuMfg3FbwEG7gG1GSe
+	9boJVeGm3yMSUzX0ZBf6WECMrkkO0t7qu4qln6x97wKOdZgtyxZfg+vs9dF7KFPegNwQPqrBFiG
+	S+dZ1RnmwcUmzouxEekxqlG+wBXSk0ycjyiNT5R9V0k1rkf1ijaIK7b8KKBFNEkmA6QW2gwK7+x
+	nFi6c+TCYFFLKSF98p+s7SCYq50NSN2/uOz3g15geGL/75GiogAXDvWsoNvpCbZ/3+14+qWDwIU
+	ZKJekA0S5mNit94SJxqDUoX7NEgNQig4knk5eLMlc7BQ==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Subject:To:From:from:reply-to:date:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1786673287; x=1787278087; bh=zD91bDFd
+	FEn1vrRMQYfi5LjH306FZ2+l8H7RR6xbDxM=; b=RZHlF/UUvk7cEJ4yEnpBwvRwS5ejsjeaRxt
+	1cJUs9HrRQPRWEiGlQn3cATDvvjrKpTot8yO4ooCoYhmSRBD7TUPBHCDzI4WAo4cXSfEc76Gek+
+	tF3Ko9PDUgzOYTF06gu+rVmfgAwL5ictzfZpqSDVPUYMTBNCNB9YWWFjkMUJX4Qnf+lDMflX2u4
+	k8CLHz7tIhWsAJE1Gf8FAQaonU3cXKBpsRu6DsvOgx7X+UbyDEhmcK7ceH6rkIpj83vGpwZt3mQ
+	s3gAHsMgMYwowvsFO8ZKGtPOMwtFYR/1jBIkFEZwRBczHTB5DC+bqqsCn92soKeqk6a2yDRW9nN
+	/FVI9wA==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=permerror (dns record not found) header.i=info@apple.com header.s=default header.b=ejOP2id5;
+	dmarc=fail (policy not aligned) header.from=apple.com policy.dmarc=quarantine;
+	spf=pass (mx.cloudflare.net: domain of postmaster@electricfs.com designates 23.100.96.242 as permitted sender) smtp.helo=electricfs.com;
+	spf=pass (mx.cloudflare.net: domain of noreply-penguin=whither.jp@electricfs.com designates 23.100.96.242 as permitted sender) smtp.mailfrom=noreply-penguin=whither.jp@electricfs.com;
+	arc=none smtp.remote-ip=23.100.96.242
+Received-SPF: pass (mx.cloudflare.net: domain of noreply-penguin=whither.jp@electricfs.com designates 23.100.96.242 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=23.100.96.242; envelope-from="noreply-penguin=whither.jp@electricfs.com"; helo=electricfs.com;
+Authentication-Results: mx.cloudflare.net;
+	dkim=permerror (dns record not found) header.i=info@apple.com header.s=default header.b=ejOP2id5;
+	dmarc=fail (policy not aligned) header.from=apple.com policy.dmarc=quarantine;
+	spf=pass (mx.cloudflare.net: domain of postmaster@electricfs.com designates 23.100.96.242 as permitted sender) smtp.helo=electricfs.com;
+	spf=pass (mx.cloudflare.net: domain of noreply-penguin=whither.jp@electricfs.com designates 23.100.96.242 as permitted sender) smtp.mailfrom=noreply-penguin=whither.jp@electricfs.com;
+	arc=none smtp.remote-ip=23.100.96.242
+X-CF-SpamH-Score: 3
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=default; d=apple.com;
+ h=Message-ID:From:To:Subject:Content-Type:Content-Transfer-Encoding;
+ i=info@apple.com;
+ bh=zD91bDFdFEn1vrRMQYfi5LjH306FZ2+l8H7RR6xbDxM=;
+ b=ejOP2id5ZYxsieqibZMiaZ7hpsqOYtHecoeJ0KdPtFnHypz+/bRs1sufcLqGZpNYa6VV0p7uKC2R
+   1sIlYlravSt9wdY/SF1TL/gJFSDZSlJQ5KySmv6e56L+OaECP68nDrPsQvIKhe2YT5mZA34mPta/
+   58lYVBbvxq90QK7NPsh10WyG0VVV7KD2c7HUo34ynEIMRdJhqyKSb0iVvARxCOVD0f1CKzRro+JM
+   R8Q8Iig1ls3qW4lUxAc/+qX3Xo3NVfE+CvW20vDjflVWs2NS9vocSgZTyBvm16B6/ar9i25Z2Zxk
+   Ip8eLBmlP1qHIedhCrsEimd2w5Jf5CTaMhmijw==
+Message-ID: <afebe9e0214e7276dc9707da30ecf87f@apple.com>
