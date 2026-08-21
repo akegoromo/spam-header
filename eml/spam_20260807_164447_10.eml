@@ -1,0 +1,439 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:a146:0:b0:272:cc70:54b6 with SMTP id k6csp5178093eic;
+        Fri, 7 Aug 2026 00:44:52 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AHgh+Rp8uHm7Z0xd/Po7K7fWzkM3yePWEaeF236KFBE9jRekF9O87mOJY+LAostcau5SwUMwpnAQWqiTZyD47s3whA==@gmail.com
+X-Received: by 2002:a05:620a:31a4:b0:92b:6e09:b0d9 with SMTP id af79cd13be357-93659657e55mr1258773785a.21.1786088691779;
+        Fri, 07 Aug 2026 00:44:51 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1786088691; cv=pass;
+        d=google.com; s=arc-20260327;
+        b=b1PD1D7NRtJI4a8Y2EcfVy2cgDORmECWa1x6oura7h7wQ0aWxTSXreAgI68B6p4ZWE
+         rRpji5ReIKEEKCT9JSxxwFcvSZyuQWWFPrWpq2hgwjooMic28xc0CAI0JpN1GLZ4YaXk
+         STyRZm15zf3UjyLxkvX7lqWglQhA9I/OuYe1SdFctA+sZdbMsDmJ0JshvPL14IdDENzB
+         OcW7pgEjccC/yfWNrL5JCgsGv7wO5oTodQNqZ3XJsupePq24RreXRIzm4TzfdMLeXxh7
+         hdekN3nrkJtRith36+ZvY4aJPJHi5LItm+tLRdVioalD9vPcq6PYStIkQQCUmkOgnRWG
+         e47A==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=to:list-id:reply-to:subject:message-id:mime-version:from:date
+         :dkim-signature:feedback-id:dkim-signature:dkim-signature;
+        bh=8oMJkoBed5JyOPRbl6xZne/XHzgY5wVGm1zAdqm2aVI=;
+        fh=qiMXRaPi1E4B7pNYHv0kY8kKvWMH6z5Z6bF+8QXduDY=;
+        b=jMI8d5W7N8bnEG61P6V6c4utSIMM3SNoZiKj3SY6q+jQyvRHmg93MfK01lAY6X9OK0
+         hE7fdtGxNbnwf7ySgHj4jfg+lYirW1in9nQI8a3HcZVc4drtTvdgv2PaWMpE+QPwhs/d
+         oo9FCZLuixFRBhq6Qi2sr8aNOjDNnfKEYiQ9lDkIQAp2Rhdik5rR2iyhrc4dvzIOnU1P
+         sloL8Ewa7jnyWPOj0ZsIOMX93bb5q+yFLFcHyL/Qx2QSvm/r+RdqbvoZgifgE6GBkDcT
+         Xm8RWkph2xe+gJgcqNIaLweFV4iYJ5YqrTnBk41qwGAV1Q5vqe9pyyQTVGz+cfoEr3pk
+         fo7A==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=OewiVKLk;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=RQKLNVdm;
+       dkim=pass header.i=@kazapha.me header.s=s1 header.b=Ii3+wz6d;
+       arc=pass (i=1 spf=pass spfdomain=em1be4.kazapha.me dkim=pass dkdomain=kazapha.me dmarc=pass fromdomain=kazapha.me);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.39 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kazapha.me
+Return-Path: <cfbounces+ndrdrop@whither.jp>
+Received: from ba-dj.cloudflare-email.net (ba-dj.cloudflare-email.net. [104.30.10.39])
+        by mx.google.com with ESMTPS id af79cd13be357-9366e3e07c9si101281585a.385.2026.08.07.00.44.50
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 07 Aug 2026 00:44:51 -0700 (PDT)
+Received-SPF: pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.39 as permitted sender) client-ip=104.30.10.39;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=OewiVKLk;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=RQKLNVdm;
+       dkim=pass header.i=@kazapha.me header.s=s1 header.b=Ii3+wz6d;
+       arc=pass (i=1 spf=pass spfdomain=em1be4.kazapha.me dkim=pass dkdomain=kazapha.me dmarc=pass fromdomain=kazapha.me);
+       spf=pass (google.com: domain of cfbounces+ndrdrop@whither.jp designates 104.30.10.39 as permitted sender) smtp.mailfrom=cfbounces+ndrdrop@whither.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kazapha.me
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=To:List-ID:Reply-To:Subject:From:Date:Feedback-ID:from:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1786088691; x=1786693491; bh=8oMJkoBed5JyOPRbl6
+	xZne/XHzgY5wVGm1zAdqm2aVI=; b=OewiVKLkhyEsZeafpomTUjLlV7vSOEUWcsW787E3MmL63
+	XoHy9rDvy7Ntdm9yj9if21pP0ourpQqQOwwr8ZogoNH6cLS29K/TYtx0XfM84guhJYdqJfcLo0X
+	mvYwmyLenpjVQ1vLnAqVUXD/qgzCHhNK00HQjytKj0+l9IRqmXzVKwFCdPYMf6q0fdMqKE2MDQv
+	03Tj4CZb7lhq2PmFc6Kaz68nQiykLrRAvzvkF56TjmS4XcHEvrVEzO5BpwMRyxxYYpciUwdxjhQ
+	A5+/Ib8Mj/GAAsdE/OsVw1c7qmnQYdX4SETlZlVAzWiAYjeJOLop9oarELjyv10K0rFbQdmA==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=To:List-ID:Reply-To:Subject:From:Date:Feedback-ID:from:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1786088691; x=1786693491; bh=8oMJkoBed5JyOPRbl6
+	xZne/XHzgY5wVGm1zAdqm2aVI=; b=RQKLNVdmg8/h36+qaxgruQU37ZKxz0EUqQiGagxzGYA5D
+	BJBfi88/LUQ2Hm94ShPJVma+M4rhnRf8Y6pdjuGtLxmT5wskP6PzwdDS5neSpVrkQTtyJSX7TF6
+	xpUVZJ+i6Legt8rquDalZ8RHa5XNU2It4zJdwmvimH13LLyxi6AoeyjM4jenFuBTADuhr5L0r3N
+	ZM1VXjQV4/FwhgESwOJAg1Bwv1W6sJaVew9A2pWMNDIPUSaEowmJZaYQqfLrRCyfh1VFxnLkAn8
+	MA/f4Eymy5DkQS5qqzeKPpFsXjQU9ZFE9igSSX5ST5TpKUMRuyTyWIJczLFqXlwOwwTo7jAA==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: silver.firefox+whither-jp@gmail.com silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:2:1:Cloudflare
+Received: from s.wrqvqshf.outbound-mail.sendgrid.net (149.72.70.15)
+        by cloudflare-email.net (cloudflare) id cNxnz88dalYZ
+        for <penguin@whither.jp>; Fri, 07 Aug 2026 07:44:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=V/sOdR9Wye88gRU5r2d5XzsRDymO/SeiH1jgIY8nnsRJ5Z67V4XA744QRLoyGZ/sP3aXMvSVJ
+	yI5RapCe3IDiGh9bd0ibmtXagiEyBaIeLKZCqzKyeXpAnDyc6NWzuwT4EVBjFhUr5xPFMl8x4d8
+	kFdLownEJhH9AuDyBPeI4wAzFLNk6j7z/RIMA05YvlejPy2zt3XexDWhNWcS6VKPxWUJB3rXvOQ
+	reqaMGZey9rR3TG/QaHwaVY3ZOXnPq6AEyoClJrtktJGbvbA9bKsFbQosl1Ru+CToWvFDgwbxka
+	9zus+dDgTIpBHyn5cbbWBI47bHECIWVxJoZ5zmk7uEQA==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=To:List-ID:Reply-To:Subject:From:Date:from:cc:resent-date:resent-from
+	:resent-to:resent-cc:in-reply-to:references:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1786088688; x=1786693488; bh=8oMJkoBe
+	d5JyOPRbl6xZne/XHzgY5wVGm1zAdqm2aVI=; b=b7IOBpZ9ESdQVp46j9KRsSzbhGLuJ13m8LU
+	cyC6HMoNBVY+jNANPCiihhtkZJLGYOzT14AjknK6548Qi6goyIsfnTkHM9jMKBIciRjgjcbE6SN
+	8Uyxj8FjuatgImIcjgqmwvgRIntDOlpXiq1+f0euHW123FKlpsk5gfd6n10Gm6KdkHJ1CKh6VYq
+	wmh0TNmLk0rhBhPpKNjma+3sK0PE2UIg8IyZA9UARodm4UjAer+6Ej1VUU4CeN5ZTj/yOMJgxYn
+	39imYUCOSPUIkEp9V4r0CHTbZS/2QDLWFB4jaXUu0Jd/IiPpdsNewQzvBRyHI7nrEb1ds2FeHqw
+	yMKHwOQ==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.d=kazapha.me header.s=s1 header.b=Ii3+wz6d;
+	dmarc=pass header.from=kazapha.me policy.dmarc=none;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@s.wrqvqshf.outbound-mail.sendgrid.net) smtp.helo=s.wrqvqshf.outbound-mail.sendgrid.net;
+	spf=pass (mx.cloudflare.net: domain of bounces+53650702-e1d2-penguin=whither.jp@em1be4.kazapha.me designates 149.72.70.15 as permitted sender) smtp.mailfrom=bounces+53650702-e1d2-penguin=whither.jp@em1be4.kazapha.me;
+	arc=none smtp.remote-ip=149.72.70.15
+Received-SPF: pass (mx.cloudflare.net: domain of bounces+53650702-e1d2-penguin=whither.jp@em1be4.kazapha.me designates 149.72.70.15 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=149.72.70.15; envelope-from="bounces+53650702-e1d2-penguin=whither.jp@em1be4.kazapha.me"; helo=s.wrqvqshf.outbound-mail.sendgrid.net;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.d=kazapha.me header.s=s1 header.b=Ii3+wz6d;
+	dmarc=pass header.from=kazapha.me policy.dmarc=none;
+	spf=none (mx.cloudflare.net: no SPF records found for postmaster@s.wrqvqshf.outbound-mail.sendgrid.net) smtp.helo=s.wrqvqshf.outbound-mail.sendgrid.net;
+	spf=pass (mx.cloudflare.net: domain of bounces+53650702-e1d2-penguin=whither.jp@em1be4.kazapha.me designates 149.72.70.15 as permitted sender) smtp.mailfrom=bounces+53650702-e1d2-penguin=whither.jp@em1be4.kazapha.me;
+	arc=none smtp.remote-ip=149.72.70.15
+X-CF-SpamH-Score: 0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kazapha.me;
+	h=content-type:date:from:mime-version:subject:reply-to:list-id:to:cc:
+	content-type:date:from:subject:to;
+	s=s1; t=1786088687;
+	bh=8oMJkoBed5JyOPRbl6xZne/XHzgY5wVGm1zAdqm2aVI=;
+	b=Ii3+wz6d2BL+DHl4SNyx4QjeS257f707gvWXTONoCOjFmASP5WUbtGIC0j2UoejJgVL/
+	0OchdMYetexMdIY1h3v+jRXKyxYizilbDO6zePbOC4WA8MAuA+bSxY4ey81fFVGt71bGL3
+	cPVKnV+YC/MdeLxA1q8NO8f3f3JVlRKtJCNe110dpiQxh6W9FDfcha0TH1s8CvB0tWQbkW
+	yApPv1tzNkbYcAsvhlSQC6z2cUtg6+A4YZGMIBOUCRL/jnE4CfjZSiAnUDsUI6scAmWjlh
+	jeCI1HwAAjtwk8/r8W2my459WqxLzJdhRMXRjwaGyjXaoRAb3NBODNTqqr+arnww==
+Received: by recvd-57bdbf96f7-l4pmk with SMTP id recvd-57bdbf96f7-l4pmk-1-6A758CEF-23
+	2026-08-07 07:44:47.743217196 +0000 UTC m=+823847.216858631
+Received: from NTM2NTA3MDI (unknown)
+	by geopod-ismtpd-7 (SG) with HTTP
+	id tg8J1thzRqW9iIEFO2QSuQ
+	Fri, 07 Aug 2026 07:44:47.726 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=14010e2b303145f2578dac3d38e474b158aeefc6553f413de47da46ebd64
+Date: Fri, 07 Aug 2026 07:44:47 +0000 (UTC)
+From: ANA =?UTF-8?b?44Oe44Kk44Os44O844K444Kv44Op44OW?=
+	<nancyjames@kazapha.me>
+Mime-Version: 1.0
+Message-ID: <tg8J1thzRqW9iIEFO2QSuQ@geopod-ismtpd-7>
+Subject: 
+ =?UTF-8?B?44GK55+l44KJ44Gb77ya5L+d5pyJ44Oe44Kk44Or44Gu5aSx5Yq544Gr44Gk44GE44Gm?=
+Reply-To: welcome@kazapha.me
+List-ID: Transactional <welcome.kazapha.me>
+X-SG-EID: 
+ =?us-ascii?Q?u001=2EdW3biXlDPZQwdK3ic385Qu3b6Gc7cFiDI8VzVQDdAt6bgBRsuZkImX9ks?=
+ =?us-ascii?Q?2RWYAcWFnKBE=2FBJSwMYa6mckSLXv6XzlgAsVfxn?=
+ =?us-ascii?Q?A0BpzXo2+iDKLqQePcZdnFNS6ZobpciB1EYfLmj?=
+ =?us-ascii?Q?Of3ouFrJdqnvuzt+Tk7RjMRYiudGmmtwWDY1N3k?=
+ =?us-ascii?Q?tuzbEDnkJ2MQGcK8zAStTxy9J2FvtrTv720vU2O?=
+ =?us-ascii?Q?hPXRxajDzkH149VuLMF14=2FfxaahtawY2Gcb5iZg?=
+ =?us-ascii?Q?hBgYGp=2FFyKEHqNB75wtB67sZcw=3D=3D?=
+To: penguin@whither.jp
+X-Entity-ID: u001.DZenqAaStTOt6SXw9RG57g==
+
+--14010e2b303145f2578dac3d38e474b158aeefc6553f413de47da46ebd64
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+ANA=E3=83=9E=E3=82=A4=E3=83=AC=E3=83=BC=E3=82=B8=E3=82=AF=E3=83=A9=E3=83=96=
+=EF=BD=9C=E3=83=9E=E3=82=A4=E3=83=AB=E6=9C=89=E5=8A=B9=E6=9C=9F=E9=99=90=E3=
+=81=AE=E3=81=8A=E7=9F=A5=E3=82=89=E3=81=9B
+
+ANA=E3=83=9E=E3=82=A4=E3=83=AC=E3=83=BC=E3=82=B8=E3=82=AF=E3=83=A9=E3=83=96=
+=EF=BD=9C=E3=83=9E=E3=82=A4=E3=83=AB=E6=9C=89=E5=8A=B9=E6=9C=9F=E9=99=90=E3=
+=81=AE=E3=81=8A=E7=9F=A5=E3=82=89=E3=81=9B
+
+=E3=81=8A=E5=AE=A2=E6=A7=98
+
+=E5=B9=B3=E7=B4=A0=E3=82=88=E3=82=8AANA=E3=83=9E=E3=82=A4=E3=83=AC=E3=83=BC=
+=E3=82=B8=E3=82=AF=E3=83=A9=E3=83=96=E3=82=92=E3=81=94=E6=84=9B=E9=A1=A7=E3=
+=81=84=E3=81=9F=E3=81=A0=E3=81=8D=E3=80=81=E8=AA=A0=E3=81=AB=E3=81=82=E3=82=
+=8A=E3=81=8C=E3=81=A8=E3=81=86=E3=81=94=E3=81=96=E3=81=84=E3=81=BE=E3=81=99=
+=E3=80=82
+
+=E3=81=8A=E5=AE=A2=E6=A7=98=E3=81=AE=E4=BC=9A=E5=93=A1=E3=82=A2=E3=82=AB=E3=
+=82=A6=E3=83=B3=E3=83=88=E3=81=AB=E8=93=84=E7=A9=8D=E3=81=95=E3=82=8C=E3=81=
+=A6=E3=81=84=E3=82=8B=E3=83=9E=E3=82=A4=E3=83=AB=E3=81=AE=E4=B8=80=E9=83=A8=
+=E3=81=8C=E3=80=81=E3=81=BE=E3=82=82=E3=81=AA=E3=81=8F=E6=9C=89=E5=8A=B9=E6=
+=9C=9F=E9=99=90=E3=82=92=E8=BF=8E=E3=81=88=E3=81=BE=E3=81=99=E3=80=82
+
+=E6=9C=89=E5=8A=B9=E6=9C=9F=E9=99=90=E3=82=92=E9=81=8E=E3=81=8E=E3=81=BE=E3=
+=81=99=E3=81=A8=E8=A9=B2=E5=BD=93=E3=83=9E=E3=82=A4=E3=83=AB=E3=81=AF=E8=87=
+=AA=E5=8B=95=E7=9A=84=E3=81=AB=E5=A4=B1=E5=8A=B9=E3=81=97=E3=80=81=E3=81=94=
+=E5=88=A9=E7=94=A8=E3=81=84=E3=81=9F=E3=81=A0=E3=81=91=E3=81=AA=E3=81=8F=E3=
+=81=AA=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82
+=E5=A4=B1=E5=8A=B9=E5=BE=8C=E3=81=AE=E3=83=9E=E3=82=A4=E3=83=AB=E3=81=AF=E5=
+=8E=9F=E5=89=87=E5=BE=A9=E6=B4=BB=E3=83=BB=E5=86=8D=E4=BB=98=E4=B8=8E=E3=81=
+=8C=E3=81=A7=E3=81=8D=E3=81=8B=E3=81=AD=E3=81=BE=E3=81=99=E3=81=AE=E3=81=A7=
+=E3=80=81=E3=81=8A=E6=97=A9=E3=82=81=E3=81=AB=E3=81=94=E6=B4=BB=E7=94=A8=E3=
+=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82
+
+=E2=96=A0=E3=83=9E=E3=82=A4=E3=83=AB=E5=A4=B1=E5=8A=B9=E6=97=A5=E6=99=82
+
+2026=E5=B9=B48=E6=9C=8810=E6=97=A5=EF=BC=88=E6=9C=88=EF=BC=8923:59
+
+=E2=96=A0=E5=A4=B1=E5=8A=B9=E5=AF=BE=E8=B1=A1=E3=83=9E=E3=82=A4=E3=83=AB
+
+9,885=E3=83=9E=E3=82=A4=E3=83=AB
+
+=E2=96=A0=E3=83=9E=E3=82=A4=E3=83=AB=E3=81=94=E6=B4=BB=E7=94=A8=E4=BE=8B
+
+=E5=9B=BD=E5=86=85=E7=B7=9A=E3=83=BB=E5=9B=BD=E9=9A=9B=E7=B7=9A=E7=89=B9=E5=
+=85=B8=E8=88=AA=E7=A9=BA=E5=88=B8=E3=81=B8=E3=81=AE=E4=BA=A4=E6=8F=9B
+
+=E3=83=9E=E3=82=A4=E3=83=AB=E3=82=92=E5=88=A9=E7=94=A8=E3=81=97=E3=81=9F=E5=
+=BA=A7=E5=B8=AD=E3=82=A2=E3=83=83=E3=83=97=E3=82=B0=E3=83=AC=E3=83=BC=E3=83=
+=89=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9
+
+ANA=E3=82=B7=E3=83=A7=E3=83=83=E3=83=94=E3=83=B3=E3=82=B0=E3=80=81=E5=90=84=
+=E7=A8=AE=E3=82=AA=E3=83=B3=E3=83=A9=E3=82=A4=E3=83=B3=E3=83=A2=E3=83=BC=E3=
+=83=AB=E3=81=A7=E3=81=AE=E5=95=86=E5=93=81=E4=BA=A4=E6=8F=9B
+
+=E6=8F=90=E6=90=BA=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9=E3=81=AE=E3=83=9D=E3=
+=82=A4=E3=83=B3=E3=83=88=E3=83=BB=E3=82=AE=E3=83=95=E3=83=88=E5=88=B8=E3=81=
+=B8=E3=81=AE=E4=BA=A4=E6=8F=9B
+
+=E4=B8=8B=E8=A8=98=E3=83=9C=E3=82=BF=E3=83=B3=E3=82=88=E3=82=8A=E3=83=9E=E3=
+=82=A4=E3=83=9A=E3=83=BC=E3=82=B8=E3=81=B8=E3=83=AD=E3=82=B0=E3=82=A4=E3=83=
+=B3=E3=81=97=E3=80=81=E3=83=9E=E3=82=A4=E3=83=AB=E3=81=AE=E3=81=94=E7=A2=BA=
+=E8=AA=8D=E3=81=8A=E3=82=88=E3=81=B3=E4=BA=A4=E6=8F=9B=E6=89=8B=E7=B6=9A=E3=
+=81=8D=E3=82=92=E3=81=8A=E9=A1=98=E3=81=84=E3=81=84=E3=81=9F=E3=81=97=E3=81=
+=BE=E3=81=99=E3=80=82
+
+=E3=83=9E=E3=82=A4=E3=83=AB=E3=82=92=E7=A2=BA=E8=AA=8D=E3=83=BB=E4=BA=A4=E6=
+=8F=9B=E3=81=99=E3=82=8B
+
+=E2=80=BB=E6=9C=89=E5=8A=B9=E6=9C=9F=E9=99=90=E3=82=92=E9=81=8E=E3=81=8E=E3=
+=81=9F=E3=83=9E=E3=82=A4=E3=83=AB=E3=81=AF=E3=80=81=E3=81=84=E3=81=8B=E3=81=
+=AA=E3=82=8B=E7=90=86=E7=94=B1=E3=81=A7=E3=81=82=E3=81=A3=E3=81=A6=E3=82=82=
+=E5=BE=A9=E6=97=A7=E3=83=BB=E5=86=8D=E7=99=BA=E8=A1=8C=E3=81=AF=E6=89=BF=E3=
+=82=8C=E3=81=BE=E3=81=9B=E3=82=93=E3=80=82=E6=9C=9F=E9=99=90=E5=86=85=E3=81=
+=AE=E6=89=8B=E7=B6=9A=E3=81=8D=E3=82=92=E3=81=8A=E3=81=99=E3=81=99=E3=82=81=
+=E3=81=84=E3=81=9F=E3=81=97=E3=81=BE=E3=81=99=E3=80=82
+
+=E3=81=94=E4=B8=8D=E6=98=8E=E3=81=AA=E7=82=B9=E3=81=8C=E3=81=94=E3=81=96=E3=
+=81=84=E3=81=BE=E3=81=97=E3=81=9F=E3=82=89=E3=80=81ANA=E3=83=9E=E3=82=A4=E3=
+=83=AC=E3=83=BC=E3=82=B8=E3=82=AF=E3=83=A9=E3=83=96=E3=82=B5=E3=83=9D=E3=83=
+=BC=E3=83=88=E3=82=BB=E3=83=B3=E3=82=BF=E3=83=BC=E3=81=B8=E3=81=8A=E5=95=8F=
+=E3=81=84=E5=90=88=E3=82=8F=E3=81=9B=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=
+=80=82
+
+=E6=9C=AC=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=AF=E9=80=81=E4=BF=A1=E5=B0=82=E7=
+=94=A8=E3=82=A2=E3=83=89=E3=83=AC=E3=82=B9=E3=82=88=E3=82=8A=E8=87=AA=E5=8B=
+=95=E9=85=8D=E4=BF=A1=E3=81=95=E3=82=8C=E3=81=A6=E3=81=8A=E3=82=8A=E3=81=BE=
+=E3=81=99=E3=80=82=E6=9C=AC=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=AB=E8=BF=94=E4=
+=BF=A1=E3=81=84=E3=81=9F=E3=81=A0=E3=81=84=E3=81=A6=E3=82=82=E3=81=94=E5=AF=
+=BE=E5=BF=9C=E3=81=8C=E3=81=A7=E3=81=8D=E3=81=BE=E3=81=9B=E3=82=93=E3=81=AE=
+=E3=81=A7=E3=80=81=E3=81=82=E3=82=89=E3=81=8B=E3=81=98=E3=82=81=E3=81=94=E4=
+=BA=86=E6=89=BF=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82
+
+=E5=85=A8=E6=97=A5=E6=9C=AC=E7=A9=BA=E8=BC=B8=E6=A0=AA=E5=BC=8F=E4=BC=9A=E7=
+=A4=BE
+
+=E3=80=92105=E2=80=917133 =E6=9D=B1=E4=BA=AC=E9=83=BD=E6=B8=AF=E5=8C=BA=E6=
+=9D=B1=E6=96=B0=E6=A9=8B1=E2=80=915=E2=80=912 =E6=B1=90=E7=95=99=E3=82=B7=
+=E3=83=86=E3=82=A3=E3=82=BB=E3=83=B3=E3=82=BF=E3=83=BC
+
+ANA=E3=83=9E=E3=82=A4=E3=83=AC=E3=83=BC=E3=82=B8=E3=82=AF=E3=83=A9=E3=83=96=
+=E3=82=B5=E3=83=9D=E3=83=BC=E3=83=88=E3=82=BB=E3=83=B3=E3=82=BF=E3=83=BC
+
+=C2=A9ANA 2026 All rights reserved.
+--14010e2b303145f2578dac3d38e474b158aeefc6553f413de47da46ebd64
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html>
+<html lang=3D"ja">
+<head>
+<meta charset=3D"UTF-8">
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1.=
+0">
+<title>ANA=E3=83=9E=E3=82=A4=E3=83=AC=E3=83=BC=E3=82=B8=E3=82=AF=E3=83=A9=
+=E3=83=96=EF=BD=9C=E3=83=9E=E3=82=A4=E3=83=AB=E6=9C=89=E5=8A=B9=E6=9C=9F=E9=
+=99=90=E3=81=AE=E3=81=8A=E7=9F=A5=E3=82=89=E3=81=9B</title>
+<style>
+body {
+    font-family: "=E3=83=A1=E3=82=A4=E3=83=AA=E3=82=AA", Meiryo, Helvetica,=
+ Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color:#222222;
+    background:#ffffff;
+    max-width:680px;
+    margin:20px auto;
+    padding:0 16px;
+}
+h1 {
+    font-size:18px;
+    color:#00529B;
+    font-weight:bold;
+    margin-bottom:24px;
+}
+.box-info {
+    background:#f0f5fa;
+    padding:18px 20px;
+    border-radius:6px;
+    margin:22px 0;
+}
+.btn-wrap {
+    text-align:center;
+    margin:30px 0;
+}
+.ana-btn {
+    display:inline-block;
+    background-color:#00529B;
+    color:#ffffff !important;
+    text-decoration:none;
+    font-weight:bold;
+    padding:14px 32px;
+    border-radius:4px;
+    font-size:16px;
+}
+ul {
+    padding-left:22px;
+}
+.footer-text {
+    font-size:13px;
+    color:#444444;
+    line-height:1.8;
+    margin-top:40px;
+}
+.copyright {
+    font-size:12px;
+    color:#666666;
+    text-align:center;
+    margin-top:30px;
+}
+</style>
+</head>
+<body>
+
+<h1>ANA=E3=83=9E=E3=82=A4=E3=83=AC=E3=83=BC=E3=82=B8=E3=82=AF=E3=83=A9=E3=
+=83=96=EF=BD=9C=E3=83=9E=E3=82=A4=E3=83=AB=E6=9C=89=E5=8A=B9=E6=9C=9F=E9=99=
+=90=E3=81=AE=E3=81=8A=E7=9F=A5=E3=82=89=E3=81=9B</h1>
+
+<p>=E3=81=8A=E5=AE=A2=E6=A7=98</p>
+
+<p>=E5=B9=B3=E7=B4=A0=E3=82=88=E3=82=8AANA=E3=83=9E=E3=82=A4=E3=83=AC=E3=83=
+=BC=E3=82=B8=E3=82=AF=E3=83=A9=E3=83=96=E3=82=92=E3=81=94=E6=84=9B=E9=A1=A7=
+=E3=81=84=E3=81=9F=E3=81=A0=E3=81=8D=E3=80=81=E8=AA=A0=E3=81=AB=E3=81=82=E3=
+=82=8A=E3=81=8C=E3=81=A8=E3=81=86=E3=81=94=E3=81=96=E3=81=84=E3=81=BE=E3=81=
+=99=E3=80=82</p>
+
+<p>=E3=81=8A=E5=AE=A2=E6=A7=98=E3=81=AE=E4=BC=9A=E5=93=A1=E3=82=A2=E3=82=AB=
+=E3=82=A6=E3=83=B3=E3=83=88=E3=81=AB=E8=93=84=E7=A9=8D=E3=81=95=E3=82=8C=E3=
+=81=A6=E3=81=84=E3=82=8B=E3=83=9E=E3=82=A4=E3=83=AB=E3=81=AE=E4=B8=80=E9=83=
+=A8=E3=81=8C=E3=80=81=E3=81=BE=E3=82=82=E3=81=AA=E3=81=8F=E6=9C=89=E5=8A=B9=
+=E6=9C=9F=E9=99=90=E3=82=92=E8=BF=8E=E3=81=88=E3=81=BE=E3=81=99=E3=80=82</p=
+>
+
+<p>=E6=9C=89=E5=8A=B9=E6=9C=9F=E9=99=90=E3=82=92=E9=81=8E=E3=81=8E=E3=81=BE=
+=E3=81=99=E3=81=A8=E8=A9=B2=E5=BD=93=E3=83=9E=E3=82=A4=E3=83=AB=E3=81=AF=E8=
+=87=AA=E5=8B=95=E7=9A=84=E3=81=AB=E5=A4=B1=E5=8A=B9=E3=81=97=E3=80=81=E3=81=
+=94=E5=88=A9=E7=94=A8=E3=81=84=E3=81=9F=E3=81=A0=E3=81=91=E3=81=AA=E3=81=8F=
+=E3=81=AA=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82
+=E5=A4=B1=E5=8A=B9=E5=BE=8C=E3=81=AE=E3=83=9E=E3=82=A4=E3=83=AB=E3=81=AF=E5=
+=8E=9F=E5=89=87=E5=BE=A9=E6=B4=BB=E3=83=BB=E5=86=8D=E4=BB=98=E4=B8=8E=E3=81=
+=8C=E3=81=A7=E3=81=8D=E3=81=8B=E3=81=AD=E3=81=BE=E3=81=99=E3=81=AE=E3=81=A7=
+=E3=80=81=E3=81=8A=E6=97=A9=E3=82=81=E3=81=AB=E3=81=94=E6=B4=BB=E7=94=A8=E3=
+=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82</p>
+
+
+<div class=3D"box-info">
+<p><strong>=E2=96=A0=E3=83=9E=E3=82=A4=E3=83=AB=E5=A4=B1=E5=8A=B9=E6=97=A5=
+=E6=99=82</strong><br>
+2026=E5=B9=B48=E6=9C=8810=E6=97=A5=EF=BC=88=E6=9C=88=EF=BC=8923:59
+</p>
+<p><strong>=E2=96=A0=E5=A4=B1=E5=8A=B9=E5=AF=BE=E8=B1=A1=E3=83=9E=E3=82=A4=
+=E3=83=AB</strong><br>
+9,885=E3=83=9E=E3=82=A4=E3=83=AB
+</p>
+</div>
+
+
+<p><strong>=E2=96=A0=E3=83=9E=E3=82=A4=E3=83=AB=E3=81=94=E6=B4=BB=E7=94=A8=
+=E4=BE=8B</strong></p>
+<ul style=3D"list-style-type:disc;">
+<li>=E5=9B=BD=E5=86=85=E7=B7=9A=E3=83=BB=E5=9B=BD=E9=9A=9B=E7=B7=9A=E7=89=
+=B9=E5=85=B8=E8=88=AA=E7=A9=BA=E5=88=B8=E3=81=B8=E3=81=AE=E4=BA=A4=E6=8F=9B=
+</li>
+<li>=E3=83=9E=E3=82=A4=E3=83=AB=E3=82=92=E5=88=A9=E7=94=A8=E3=81=97=E3=81=
+=9F=E5=BA=A7=E5=B8=AD=E3=82=A2=E3=83=83=E3=83=97=E3=82=B0=E3=83=AC=E3=83=BC=
+=E3=83=89=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9</li>
+<li>ANA=E3=82=B7=E3=83=A7=E3=83=83=E3=83=94=E3=83=B3=E3=82=B0=E3=80=81=E5=
+=90=84=E7=A8=AE=E3=82=AA=E3=83=B3=E3=83=A9=E3=82=A4=E3=83=B3=E3=83=A2=E3=83=
+=BC=E3=83=AB=E3=81=A7=E3=81=AE=E5=95=86=E5=93=81=E4=BA=A4=E6=8F=9B</li>
+<li>=E6=8F=90=E6=90=BA=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9=E3=81=AE=E3=83=
+=9D=E3=82=A4=E3=83=B3=E3=83=88=E3=83=BB=E3=82=AE=E3=83=95=E3=83=88=E5=88=B8=
+=E3=81=B8=E3=81=AE=E4=BA=A4=E6=8F=9B</li>
+</ul>
+
+<p>=E4=B8=8B=E8=A8=98=E3=83=9C=E3=82=BF=E3=83=B3=E3=82=88=E3=82=8A=E3=83=9E=
+=E3=82=A4=E3=83=9A=E3=83=BC=E3=82=B8=E3=81=B8=E3=83=AD=E3=82=B0=E3=82=A4=E3=
+=83=B3=E3=81=97=E3=80=81=E3=83=9E=E3=82=A4=E3=83=AB=E3=81=AE=E3=81=94=E7=A2=
+=BA=E8=AA=8D=E3=81=8A=E3=82=88=E3=81=B3=E4=BA=A4=E6=8F=9B=E6=89=8B=E7=B6=9A=
+=E3=81=8D=E3=82=92=E3=81=8A=E9=A1=98=E3=81=84=E3=81=84=E3=81=9F=E3=81=97=E3=
+=81=BE=E3=81=99=E3=80=82</p>
+
+
+<div class=3D"btn-wrap">
+<a href=3D"https://pebresh.me/evsew" class=3D"ana-btn">=E3=83=9E=E3=82=A4=
+=E3=83=AB=E3=82=92=E7=A2=BA=E8=AA=8D=E3=83=BB=E4=BA=A4=E6=8F=9B=E3=81=99=E3=
+=82=8B</a>
+</div>
+
+
+<p>=E2=80=BB=E6=9C=89=E5=8A=B9=E6=9C=9F=E9=99=90=E3=82=92=E9=81=8E=E3=81=8E=
+=E3=81=9F=E3=83=9E=E3=82=A4=E3=83=AB=E3=81=AF=E3=80=81=E3=81=84=E3=81=8B=E3=
+=81=AA=E3=82=8B=E7=90=86=E7=94=B1=E3=81=A7=E3=81=82=E3=81=A3=E3=81=A6=E3=82=
+=82=E5=BE=A9=E6=97=A7=E3=83=BB=E5=86=8D=E7=99=BA=E8=A1=8C=E3=81=AF=E6=89=BF=
+=E3=82=8C=E3=81=BE=E3=81=9B=E3=82=93=E3=80=82=E6=9C=9F=E9=99=90=E5=86=85=E3=
+=81=AE=E6=89=8B=E7=B6=9A=E3=81=8D=E3=82=92=E3=81=8A=E3=81=99=E3=81=99=E3=82=
+=81=E3=81=84=E3=81=9F=E3=81=97=E3=81=BE=E3=81=99=E3=80=82</p>
+
+<p>=E3=81=94=E4=B8=8D=E6=98=8E=E3=81=AA=E7=82=B9=E3=81=8C=E3=81=94=E3=81=96=
+=E3=81=84=E3=81=BE=E3=81=97=E3=81=9F=E3=82=89=E3=80=81ANA=E3=83=9E=E3=82=A4=
+=E3=83=AC=E3=83=BC=E3=82=B8=E3=82=AF=E3=83=A9=E3=83=96=E3=82=B5=E3=83=9D=E3=
+=83=BC=E3=83=88=E3=82=BB=E3=83=B3=E3=82=BF=E3=83=BC=E3=81=B8=E3=81=8A=E5=95=
+=8F=E3=81=84=E5=90=88=E3=82=8F=E3=81=9B=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=
+=E3=80=82</p>
+
+
+<div class=3D"footer-text">
+<p>=E6=9C=AC=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=AF=E9=80=81=E4=BF=A1=E5=B0=82=
+=E7=94=A8=E3=82=A2=E3=83=89=E3=83=AC=E3=82=B9=E3=82=88=E3=82=8A=E8=87=AA=E5=
+=8B=95=E9=85=8D=E4=BF=A1=E3=81=95=E3=82=8C=E3=81=A6=E3=81=8A=E3=82=8A=E3=81=
+=BE=E3=81=99=E3=80=82=E6=9C=AC=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=AB=E8=BF=94=
+=E4=BF=A1=E3=81=84=E3=81=9F=E3=81=A0=E3=81=84=E3=81=A6=E3=82=82=E3=81=94=E5=
+=AF=BE=E5=BF=9C=E3=81=8C=E3=81=A7=E3=81=8D=E3=81=BE=E3=81=9B=E3=82=93=E3=81=
+=AE=E3=81=A7=E3=80=81=E3=81=82=E3=82=89=E3=81=8B=E3=81=98=E3=82=81=E3=81=94=
+=E4=BA=86=E6=89=BF=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82</p>
+</div>
+
+
+<div class=3D"copyright">
+<p>=E5=85=A8=E6=97=A5=E6=9C=AC=E7=A9=BA=E8=BC=B8=E6=A0=AA=E5=BC=8F=E4=BC=9A=
+=E7=A4=BE<br>
+=E3=80=92105=E2=80=917133 =E6=9D=B1=E4=BA=AC=E9=83=BD=E6=B8=AF=E5=8C=BA=E6=
+=9D=B1=E6=96=B0=E6=A9=8B1=E2=80=915=E2=80=912 =E6=B1=90=E7=95=99=E3=82=B7=
+=E3=83=86=E3=82=A3=E3=82=BB=E3=83=B3=E3=82=BF=E3=83=BC<br>
+ANA=E3=83=9E=E3=82=A4=E3=83=AC=E3=83=BC=E3=82=B8=E3=82=AF=E3=83=A9=E3=83=96=
+=E3=82=B5=E3=83=9D=E3=83=BC=E3=83=88=E3=82=BB=E3=83=B3=E3=82=BF=E3=83=BC<br=
+>
+=C2=A9ANA 2026 All rights reserved.</p>
+</div>
+
+</body>
+</html>
+--14010e2b303145f2578dac3d38e474b158aeefc6553f413de47da46ebd64--
+
