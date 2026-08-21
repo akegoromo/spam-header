@@ -1,0 +1,484 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a05:640c:6308:10b0:272:7217:fbee with SMTP id o8-n1csp2246732eiy;
+        Sat, 1 Aug 2026 16:52:42 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AHgh+RoawJNPrXnM8E2gTe50paea7YGGkr6HjxyAP70VsPy63V99r1BpG+fMMGgwONJLWK2fXBXCRzM3JlEdCp/aZA==@gmail.com
+X-Received: by 2002:a17:903:2a83:b0:2ca:be8:62d with SMTP id d9443c01a7336-2d0523bd1b7mr51932275ad.32.1785628362635;
+        Sat, 01 Aug 2026 16:52:42 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1785628362; cv=pass;
+        d=google.com; s=arc-20260327;
+        b=ISQtrDg68re8d5Y5NibcYP8jVGWQE/NHD0ltzV+yyTEPTGHyMvi7kj/HpQC9t67DU7
+         DVSEDrpIIgJzwaNqwdg2UMRUiPy9CC16UwZI0HydfRhGRjvCpefQwsSt1vuCH9B0JQXf
+         icUK/9NudLBqqd4RIo3gvUS0LPOpu/kJZ3a3TGWfcTJG17HTetLzKz5EsNiXFfKf2zPo
+         7/ssLfAxzCXPze6XcDX16ZZriTMskCRIphPh9bWFGhaCvtiXDGwaT1uo9bnBxC1seA2r
+         tBwTtcCH1tO8ixlwuEa5rMCk7rn7ag0ONkPBFAmLVCwr8KbPDVC64tQSRFxcp0WHFMZt
+         gh6w==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=dkim-signature:mime-version:list-unsubscribe:message-id:date
+         :subject:to:from:content-transfer-encoding:feedback-id
+         :dkim-signature:dkim-signature;
+        bh=6zbRNVXBcLyvTGrMfd2KO1+7Ui/p9qPDo93hUDLb10I=;
+        fh=TWDil1H8Ib6MqX/1yJC4Mbzp1OWvXQdI6oJfAExPUn4=;
+        b=eqxpnN6dfFdXckE9aZD5TxsUSvA2l/zdknCuzP1XiLyvVpMh6hnewbkiVO+lwesXj/
+         g6iBWtnFyK2dGqaG1IVuJj1ZUjFwJn5Zn2q3HExQDz6SqS9lcPgVPTmV2AIqxctzdXri
+         icLroPLoVVLypd140CsHbQlOaxs4YpRSwgeurNyrJ/BanmC/s5h+pvLPXkzAAF1jP9Ew
+         Miwgy26b+YD+NpwPzujkux3crAN11Zf+mUasZzVZCA1potCK4kUGs0t0IhXEerPBt5De
+         D3Trdsyogha86xOcleKnEDi3T1d5Itn4MXHJA/nLoak85Au3twQ7AA+lRFic0bwfL5O7
+         uTcg==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=HLtI1xlD;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=BKHixLlR;
+       dkim=pass header.i=@xipiki.heichamall.com header.s=s1785596082 header.b=lBO1l0Nr;
+       arc=pass (i=1 spf=pass spfdomain=xipiki.heichamall.com dkim=pass dkdomain=xipiki.heichamall.com dmarc=pass fromdomain=xipiki.heichamall.com);
+       spf=pass (google.com: domain of srs0=mptr=2f=xipiki.heichamall.com=s9ciubkq@whither.jp designates 104.30.8.61 as permitted sender) smtp.mailfrom="SRS0=MpTr=2f=xipiki.heichamall.com=s9ciubkq@whither.jp";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=xipiki.heichamall.com
+Return-Path: <SRS0=MpTr=2f=xipiki.heichamall.com=s9ciubkq@whither.jp>
+Received: from i-gb.cloudflare-email.net (i-gb.cloudflare-email.net. [104.30.8.61])
+        by mx.google.com with ESMTPS id d9443c01a7336-2d04b1f2120si75867905ad.176.2026.08.01.16.52.40
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 01 Aug 2026 16:52:42 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=mptr=2f=xipiki.heichamall.com=s9ciubkq@whither.jp designates 104.30.8.61 as permitted sender) client-ip=104.30.8.61;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=HLtI1xlD;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=BKHixLlR;
+       dkim=pass header.i=@xipiki.heichamall.com header.s=s1785596082 header.b=lBO1l0Nr;
+       arc=pass (i=1 spf=pass spfdomain=xipiki.heichamall.com dkim=pass dkdomain=xipiki.heichamall.com dmarc=pass fromdomain=xipiki.heichamall.com);
+       spf=pass (google.com: domain of srs0=mptr=2f=xipiki.heichamall.com=s9ciubkq@whither.jp designates 104.30.8.61 as permitted sender) smtp.mailfrom="SRS0=MpTr=2f=xipiki.heichamall.com=s9ciubkq@whither.jp";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=xipiki.heichamall.com
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=List-Unsubscribe:Date:Subject:To:From:Feedback-ID:from:reply-to:cc
+	:resent-date:resent-from:resent-to:resent-cc:in-reply-to:references
+	:list-id:list-help:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1785628362; x=1786233162; bh=6zbRNVXBcLyvTGrMfd
+	2KO1+7Ui/p9qPDo93hUDLb10I=; b=HLtI1xlDPQotlM/Rsjo8kqpxUQylCvICMm5Mrtena+wOW
+	00H38JSsfTkSRN7IL9pRroJ6aXgA1TP2K3H6t9ps4xpIPM86RRu/zATfbjhNYxGjHEcWfxDTFlf
+	3be2h5TbRnXsz/WFeYcIE4Q7IbHzHJeRaiH9SirZ/4J+Thy/iKMBTVNdIj2FLcFvuGSvLzI9n/u
+	L1QELfOFJBqGLIAewpQulf09+uV6SEkYX42zol3LcGDQJRoyxWSGGRbYX9VNCluFgSc00YivCYF
+	kMp6qigjYVbqmeGwowQmGOzehrksC0WqSAMs65FxtSZ9GnTD1Kr4JADH5iCMUSdJfLmv75Ow==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=List-Unsubscribe:Date:Subject:To:From:Feedback-ID:from:reply-to:cc
+	:resent-date:resent-from:resent-to:resent-cc:in-reply-to:references
+	:list-id:list-help:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1785628362; x=1786233162; bh=6zbRNVXBcLyvTGrMfd
+	2KO1+7Ui/p9qPDo93hUDLb10I=; b=BKHixLlRO+1VmSNgMSIWXW6ufgtlDqBJYriQi2dFOnJol
+	SumfmKiyeNjWD6WPDfrDA4W64jct+JGwINGsJZ9yfVLGBy8vrSPSqf6Ot4XD9UJ50YfLgxbtu0v
+	p8i7KwkXvCeCPgEyodFZ3gG0eNkeRjgPsmtmrB9tYXA9Gji7k0BRCvvL9NSUeoJ5FF6CsZoUTOQ
+	bb8q0LNfULn2pYjslCbkPQk8DfkOvhN44r9vE0M/934yEX5LyhVnz6q+VwuhIzeb6XoE0bSmpZA
+	ATBdoOsmcviGsBJONTmf/v9hO+BEK8sTY/gu67FMAt/daRt94DL/6zSP0YlUqZMR0G6SkHpw==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: silver.firefox+whither-jp@gmail.com silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:2:1:Cloudflare
+Received: from xipiki.heichamall.com (34.153.196.221)
+        by cloudflare-email.net (cloudflare) id MoS4TvdTdmKY
+        for <penguin@whither.jp>; Sat, 01 Aug 2026 23:52:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=E5s4XlV5gM9rO19z6N9W4VTopV3bHSVlNLCs9M/oUFpb0fZItvJ02jSS7WS6aVP5yf5d/nnT0
+	MKTC4Q2UmgkAEZPIqhlJab9oD8gXL/A6pvMNC+SuOPcImbkWmcTnau9nk2BVwsoFjrB/JpidHat
+	sLzUin/SCltcGS0pCjwdf3tECeQzSUKC/VbWzPY6JSQwm6uPKSOd6MJ0HQd/nU9z3+YODPajYxm
+	7DAB82ilcwA2TCi+j7r1budJSHdSDMJt/f04oD31bYUw2ylq8h+tITvuhXegG4bgTZ9mbcVrl0D
+	2us9BP0HLj8au5E2VEoaEUEU8p39YZfaaAqpfRiVQrXQ==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Date:Subject:To:From:from:reply-to:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1785628357; x=1786233157; bh=6zbRNVXB
+	cLyvTGrMfd2KO1+7Ui/p9qPDo93hUDLb10I=; b=YgrTHMVNA7uKlVDoRCcuLMxu9Q22lSk3+so
+	WiKq5RAPrBSWlgkGahcRwXqzAz2nEMuQc6ENg3mXcsgMOcMwvROovHe022y1i4aJDORnvoHIRFM
+	+98FrrSv22oS1XSvfzNxpydC9g5Aeco/dwr/xc+RswgTRZ8xF3YmzaDqQSVKqkz5wp7MamSzIE8
+	LmSJxyBdhG2sZEZAVs85ND6qOr0ZB7/UNcL//kXjiekoW4aOBMMWoUIo6cdnYsWjRx1qFcFDfVy
+	a5DJ/sOgZzlzL4VISbe19X/oKnrxIFLRZDCDElJvxvFMnuhLtxUf2W/dMSV1Utuly+R/KZxSliv
+	EER1h6Q==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=pass header.d=xipiki.heichamall.com header.s=s1785596082 header.b=lBO1l0Nr;
+	dmarc=pass header.from=xipiki.heichamall.com policy.dmarc=quarantine;
+	spf=pass (mx.cloudflare.net: domain of postmaster@xipiki.heichamall.com designates 34.153.196.221 as permitted sender) smtp.helo=xipiki.heichamall.com;
+	spf=pass (mx.cloudflare.net: domain of s9ciubkq@xipiki.heichamall.com designates 34.153.196.221 as permitted sender) smtp.mailfrom=s9ciubkq@xipiki.heichamall.com;
+	arc=none smtp.remote-ip=34.153.196.221
+Received-SPF: pass (mx.cloudflare.net: domain of s9ciubkq@xipiki.heichamall.com designates 34.153.196.221 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=34.153.196.221; envelope-from="s9ciubkq@xipiki.heichamall.com"; helo=xipiki.heichamall.com;
+Authentication-Results: mx.cloudflare.net;
+	dkim=pass header.d=xipiki.heichamall.com header.s=s1785596082 header.b=lBO1l0Nr;
+	dmarc=pass header.from=xipiki.heichamall.com policy.dmarc=quarantine;
+	spf=pass (mx.cloudflare.net: domain of postmaster@xipiki.heichamall.com designates 34.153.196.221 as permitted sender) smtp.helo=xipiki.heichamall.com;
+	spf=pass (mx.cloudflare.net: domain of s9ciubkq@xipiki.heichamall.com designates 34.153.196.221 as permitted sender) smtp.mailfrom=s9ciubkq@xipiki.heichamall.com;
+	arc=none smtp.remote-ip=34.153.196.221
+X-CF-SpamH-Score: 1
+Content-Type: text/html; charset="iso-2022-jp"
+Content-Transfer-Encoding: quoted-printable
+From: =?iso-2022-jp?b?VkpBGyRCISY7MDBmPTtNJyUrITwlSSEmJVEhPCUvQl9AWiUkJVklcyVIGyhC?= <s9ciubkq@xipiki.heichamall.com>
+To: =?iso-2022-jp?b?UGVuZ3VpbhskQiQqNVJNTRsoQg==?= <penguin@whither.jp>
+Subject: =?iso-2022-jp?b?GyRCIUAbKEIgGyRCQ2pBKjdrMkwkTiQqQ04kaSQ7GyhCIBskQiE/GyhCIA==?=
+ =?iso-2022-jp?b?GyRCJWYlSyVQITwlNSVrISYlOSU/JTglKiEmJTglYyVRJXMbKEIg?=
+ =?iso-2022-jp?b?GyRCQl9AWiQ0PjdCVBsoQi0gUjE3ODU2MjgzNTU=?=
+Date: Sun, 02 Aug 2026 08:52:35 +0900 (JST)
+X-Priority: 2
+Message-ID: <1785628355.1d31fa57a84b92cb@xipiki.heichamall.com>
+List-Unsubscribe: <mailto:s9ciubkq@xipiki.heichamall.com?subject=unsubscribe&body=c293aa9d0e-fe0a18dc6364-fed196c1de67-fed4-ff67692>
+MIME-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=xipiki.heichamall.com; s=s1785596082;
+	h=from:subject:date:message-id:to:mime-version:list-unsubscribe;
+	bh=6zbRNVXBcLyvTGrMfd2KO1+7Ui/p9qPDo93hUDLb10I=;
+	b=lBO1l0NruU7MPm8YrKYZz3liNDhR/JrlrecjpKU0TYn9dLQN/dvj5QE3BSebo5ohjTKKWFFHlM
+	nz5RUy960BdZHuy0/SCgMx1iGBCKKKGlH+rJstML3evzvyYls50feRshIOd2crS2VlNqqoMG8S/w
+	y8CoV+J2PxnqBH0AN2OxHl8h9FwlCY8qXBbogY0eZ7JNiWBp33R1CJNFw5um3u9TQB5Zy6hwhcmC
+	HBfBusTo5taCsJo4OMHuQHjTGa6O6cwpBGLOI+zwDAwUiD66c3LCuglzERh0WCvVplP8u0m/XthR
+	YuPe1S5pjR5j/dCKndNdjQ3C62ilE/U4jC/48ugg==
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.=
+w3.org/TR/html4/loose.dtd">
+<html lang=3D"ja">
+<head>
+  <title>=1B$B!Z=3DEMW![EvA*$N$*CN$i$;!'=1B(BUSJ=1B$BB_@Z%$%Y%s%H$4>7BT=1B(=
+B</title>
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1.0" />
+  <style type=3D"text/css">
+   /* Resets */=20
+   body  -webkit-text-size-adjust: none; -ms-text-size-adjust: none; margin=
+: 0; padding: 0; =20
+   table  border-spacing: 0; =20
+   table th  border-collapse: collapse; =20
+   th, td  font-size: 12px; line-height: 1.5; color: #000000; font-weight: =
+normal; font-family: '=1B$B%a%$%j%*=1B(B', Meiryo, '=1B$B%R%i%.%N3Q%4=1B(B =
+Pro W3', 'Hiragino Kaku Gothic Pro', arial, Osaka, '=1B$B#M#S=1B(B =1B$B#P%=
+4%7%C%/=1B(B', 'MS PGothic', sans-serif; margin: 0; padding: 0; =20
+   font  font-weight: normal; =20
+   td  word-break: break-all; =20
+   td, img  vertical-align: top;=20
+  </style>
+</head>
+
+<body bgcolor=3D"#FFFFFF" bottommargin=3D"0" leftmargin=3D"0" link=3D"#0084=
+6D" rightmargin=3D"0" style=3D"font-size: 12px; text-align: center" text=3D=
+"#333333" topmargin=3D"0">
+ =20
+  <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-c=
+ollapse: separate; margin:0 auto;" width=3D"100%">
+    <tbody>
+      <tr>
+        <td align=3D"center" bgcolor=3D"#FFFFFF" valign=3D"top">
+          <!--=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D conten=
+t start =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D-->
+          <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+768" style=3D"max-width:100%;">
+            <tbody>
+
+
+              <!--=1B$B"'%a%$%s2hA|"'=1B(B-->
+              <tr>
+                <td align=3D"center" style=3D"font-size:0; line-height:1;">
+                  <img src=3D"https://www.vja.gr.jp/img/campaign/detail/det=
+ail109_l_b020622.jpg" alt=3D"USJ=1B$BB_@Z%$%Y%s%H$4>7BT=1B(B" style=3D"widt=
+h:100%;max-width:728px;display:block;height:auto;" />
+                </td>
+              </tr>
+              <tr><td height=3D"40" style=3D"font-size: 0px; line-height: 1=
+"></td></tr>
+              <!--=1B$B"%%a%$%s2hA|"%=1B(B-->
+
+              <!--=1B$B"'%a%$%s%3%s%F%s%D"'=1B(B-->
+              <tr>
+                <td align=3D"center">
+                  <table align=3D"center" bgcolor=3D"#FFFFFF" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" width=3D"728" style=3D"max-width:95%;">
+                    <tbody>
+                      <tr>
+                        <td align=3D"center" style=3D"font-size: 32px; font=
+-weight: bold; color: #333333; line-height: 1.5; padding-bottom:30px;">
+                           =1B$B!Z=1B(B =1B$BCjA*7k2LDLCN=1B(B =1B$B![=1B(B
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align=3D"left" style=3D"vertical-align: top; fo=
+nt-size: 20px; color: #333333; line-height: 1.8;" valign=3D"top">
+                          <!-- DbM8qqJY -->
+                          =1B$BJ?AG$O=1B(BVJA=1B$B!&;00f=3D;M'%+!<%I$r$4MxM=
+Q$$$?$@$-!"@?$K$"$j$,$H$&$4$6$$$^$9!#=1B(B<br /><br />
+                          =1B$B%-%c%s%Z!<%s$K$41~Jg$$$?$@$-@?$K$"$j$,$H$&$4=
+$6$$$^$7$?!#CjA*$N7k2L!"=1B(B<br />
+                          <strong style=3D"color:#d32f2f;font-size:22px;">=
+=1B$B$*5RMM$,8+;v$4EvA*$5$l$^$7$?$3$H$r$*CN$i$;$$$?$7$^$9!#=1B(B</strong>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              <tr><td height=3D"52" style=3D"font-size: 0px; line-height: 1=
+"></td></tr>
+
+              <!--=1B$B"'EvA*FbMFOH"'=1B(B-->
+              <tr>
+                <td align=3D"center" bgcolor=3D"#FFFFFF" valign=3D"top">
+                  <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" w=
+idth=3D"728" style=3D"max-width:95%; border:1px solid #DDDDDD; background-c=
+olor:#fcfcfc;">
+                    <tbody>
+                      <tr>
+                        <td align=3D"center" style=3D"padding: 25px;">
+                          <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%">
+                            <tbody>
+                              <tr>
+                                <!-- =1B$B%A%1%C%H2hA|=1B(B -->
+                                <td align=3D"center" valign=3D"middle" widt=
+h=3D"150" style=3D"padding-right:20px;">
+                                  <img src=3D"https://cdn.l-tike.com/leisur=
+e/usj/img/ticket_logo_studio01.png" alt=3D"USJ" style=3D"width:120px; heigh=
+t:auto; display:block;" />
+                                </td>
+                                <!-- =1B$B>\:Y%F%-%9%H=1B(B -->
+                                <td align=3D"left" valign=3D"middle">
+                                  <table border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" width=3D"100%">
+                                    <tbody>
+                                      <tr>
+                                        <td style=3D"font-size: 20px; font-=
+weight: bold; color: #333333; line-height: 1.4; padding-bottom: 8px;">
+                                          A=1B$B%3!<%9!'=1B(B2=1B$BEy=1B(B =
+=1B$B%Q!<%/B_@Z%$%Y%s%H$4>7BT=1B(B
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td style=3D"font-size: 16px; color=
+: #666666; line-height: 1.4; padding-bottom: 12px;">
+                                          =1B$B$4>7BT?M?t!'=1B(B2=1B$BL>MMJ=
+,=1B(B
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td style=3D"font-size: 18px; font-=
+weight: bold; color: #00846D; line-height: 1.4;">
+                                          USJ =1B$BB_@Z%$%Y%s%H=1B(B
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              <tr><td height=3D"50" style=3D"font-size: 0px; line-height: 1=
+;"></td></tr>
+              <!--=1B$B"%EvA*FbMFOH"%=1B(B-->
+
+              <!--=1B$B"'%9%F%C%W!&=1B(BCTA=1B$B"'=1B(B-->
+              <tr>
+                <td align=3D"center">
+                  <table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" width=3D"728" style=3D"max-width:95%;">
+                    <tbody>
+                      <tr>
+                        <td align=3D"center" style=3D"font-size: 22px; font=
+-weight: bold; color: #333333; line-height: 1.5; padding-bottom:20px;">
+                          =1B$B"'=1B(B =1B$BEvA*%A%1%C%H!J=1B(BQR=1B$B%3!<%=
+I!K$N$*<u$1<h$j<j=3Dg=1B(B =1B$B"'=1B(B
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align=3D"left" style=3D"font-size: 18px; color:=
+ #333333; line-height: 1.6; padding-bottom:30px;">
+                          <strong style=3D"color:#00846D;">1. </strong> =1B=
+$B%j%s%/@h$N=1B(BVpass=1B$B%m%0%$%s%Z!<%8$X%"%/%;%9=1B(B<br>
+                          <strong style=3D"color:#00846D;">2. </strong> =1B=
+$BEvA*<T@lMQ2hLL$h$j!"%Q!<%/F~>lMQ$N=1B(BQR=1B$B%3!<%I$rI=3D<(!&J]B8=1B(B
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+
+              <tr>
+                <td align=3D"center" style=3D"font-size:0; line-height:1;">
+                  <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" s=
+tyle=3D"margin:0 auto; background-color:#00846D; border-radius:5px;">
+                    <tr>
+                      <td align=3D"center" style=3D"padding: 20px 60px;">
+                        <a href=3D"https://aiytsboz.heichamall.com/?ja=3DYu=
+kPm9ic7F8MD26vHcfWD5EFwrXRc7sx4Ss7RrqiK2hEsoKq1yJ_V360dfEVpCJTYdLfNE2PW3YtA=
+WMHFBt_UNbsMoLhfn_C4Hpe8WZXRgWfIz6PmMr9334z1QOPTlbmOyEX&mail=3D0802" target=
+=3D"_blank" style=3D"color: #ffffff; text-decoration:none; font-size:24px; =
+font-weight:bold; display:block;" id=3D"FYZHss">
+                          =1B$BF~>lMQ=1B(BQR=1B$B%3!<%I$r<hF@$9$k=1B(B =1B$=
+B!d=1B(B
+                        </a>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr><td height=3D"20" style=3D"font-size: 0px; line-height: 1=
+"></td></tr>
+
+              <!-- Limit -->
+              <tr>
+                <td align=3D"center">
+                  <table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" width=3D"728" style=3D"max-width:95%;">
+                    <tbody>
+                      <tr>
+                        <td align=3D"center" style=3D"font-size: 18px; colo=
+r: #555555; line-height: 1.5; padding-bottom:5px;">
+                          =1B$B$*<u<h<jB3$-4|8B=1B(B
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align=3D"center" style=3D"font-size: 26px; font=
+-weight: bold; color: #d32f2f; line-height: 1.5;">
+                          2026=1B$BG/=1B(B08=1B$B7n=1B(B05=1B$BF|=1B(B 23:5=
+9=1B$B$^$G=1B(B
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              <tr><td height=3D"60" style=3D"font-size: 0px; line-height: 1=
+"></td></tr>
+              <!--=1B$B"%%9%F%C%W!&=1B(BCTA=1B$B"%=1B(B-->
+
+              <!--=1B$B"'Cm0U!&$=3D$NB>"'=1B(B-->
+              <tr>
+                <td align=3D"left">
+                  <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" w=
+idth=3D"728" style=3D"max-width:95%; margin:0 auto;">
+                    <tbody>
+                      <tr>
+                        <td align=3D"left" style=3D" vertical-align: top; f=
+ont-size: 18px; line-height: 1.5; font-weight: normal; color: #707070; " wi=
+dth=3D"4%">=1B$B"(=1B(B</td>
+                        <td align=3D"left" style=3D" vertical-align: top; f=
+ont-size: 18px; line-height: 1.5; font-weight: normal; color: #707070;" val=
+ign=3D"top" width=3D"96%">
+                          =1B$B4|4V$r2a$.$^$9$H>^IJ$r$*<u$1<h$j$$$?$@$1$^$;=
+$s=1B(B
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align=3D"left" style=3D" vertical-align: top; f=
+ont-size: 18px; line-height: 1.5; font-weight: normal; color: #707070; " wi=
+dth=3D"4%">=1B$B"(=1B(B</td>
+                        <td align=3D"left" style=3D" vertical-align: top; f=
+ont-size: 18px; line-height: 1.5; font-weight: normal; color: #707070;" val=
+ign=3D"top" width=3D"96%">
+                          =1B$B=3Di$a$F=1B(BVpass=1B$B$r$4MxMQ$5$l$kJ}$O!"%=
+5!<%S%9MxMQ5,Ls$K$4F10U$$$?$@$/I,MW$,$4$6$$$^$9!#=1B(B
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              <tr><td height=3D"60" style=3D"font-size: 10px; line-height: =
+1"></td></tr>
+              <!--=1B$B"%Cm0U!&$=3D$NB>"%=1B(B-->
+
+              <!--=1B$B"'%U%C%?!<!&%O%s%I%k%M!<%`!&$*Ld$$9g$o$;"'=1B(B-->
+              <tr>
+                <td align=3D"center" style=3D"border-top:#DDDDDD solid 2px;=
+">
+                  <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" w=
+idth=3D"728" style=3D"max-width:95%;">
+                    <tbody>
+                      <tr><td height=3D"32" style=3D"font-size:10px; line-h=
+eight:1;"></td></tr>
+                      <tr>
+                        <td align=3D"left" style=3D"vertical-align:top; fon=
+t-size:20px; color:#707070; line-height:1.5;" valign=3D"top">
+                          =1B$B%a!<%kKAF,$K%O%s%I%k%M!<%`$,I=3D<($5$l$k$3$H=
+$K$h$j!"IT?3$J%a!<%k$H8+J,$1$k$3$H$,$G$-$^$9!#=1B(B
+                        </td>
+                      </tr>
+                      <tr><td height=3D"24" style=3D"font-size:10px; line-h=
+eight:1;"></td></tr>
+                      <tr>
+                        <td align=3D"left" style=3D"font-size:20px; color:#=
+707070; line-height:1.5;">
+                          =1B$B"(=1B(B =1B$BK\%a!<%k$OAw?.@lMQ$G$9!#$4JV?.$=
+$$?$@$$$F$b$*Ez$($G$-$^$;$s!#=1B(B<!-- DbM8qqJY --><br>
+                          =1B$B"(=1B(B =1B$BK\%a!<%k$O=3DEMW$J$*CN$i$;$N$?$=
+a!"%a!<%kG[?.$r!V<u$1<h$i$J$$!W$K@_Dj$5$l$F$$$kJ}$K$bAw?.$7$F$*$j$^$9!#=1B(B
+                        </td>
+                      </tr>
+                      <tr><td height=3D"32" style=3D"font-size:10px; line-h=
+eight:1;"></td></tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              <!--=1B$B"%%U%C%?!<!&%O%s%I%k%M!<%`!&$*Ld$$9g$o$;"%=1B(B-->
+
+              <!--=1B$B"'H/9T<T"'=1B(B-->
+              <tr>
+                <td align=3D"center" bgcolor=3D"#F5F5F5">
+                  <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" w=
+idth=3D"728" style=3D"max-width:95%;">
+                    <tbody>
+                      <tr><td height=3D"24" style=3D"font-size:10px; line-h=
+eight:1;"></td></tr>
+                      <tr><td align=3D"center" style=3D"vertical-align:top;=
+ font-size:20px; color:#333333; line-height:1.5; font-weight:bold;" valign=
+=3D"top">=1B$BH/9T<T=1B(B</td></tr>
+                      <tr><td height=3D"8" style=3D"font-size:0px; line-hei=
+ght:1;"></td></tr>
+                      <tr>
+                        <td align=3D"center" style=3D"vertical-align:top; f=
+ont-size:20px; color:#00846D; line-height:1.5;" valign=3D"top">
+                          Sumitomo Mitsui Card Co., Ltd.
+                        </td>
+                      </tr>
+                      <tr><td height=3D"8" style=3D"font-size:0px; line-hei=
+ght:1;"></td></tr>
+                      <tr>
+                        <td align=3D"center" style=3D" vertical-align:top; =
+font-size:20px; color:#333333; line-height:1.5;" valign=3D"top">
+                          =1B$BEl5~ET9>El6hK-=3D'=1B(B2=1B$BCzL\=1B(B2=1B$B=
+HV=1B(B31=1B$B9f=1B(B SMBC=1B$BK-=3D'%S%k=1B(B
+                        </td>
+                      </tr>
+                      <tr><td height=3D"16" style=3D"font-size:10px; line-h=
+eight:1;"></td></tr>
+                      <tr><td height=3D"2" style=3D"font-size: 0px; line-he=
+ight: 1.5; border-top: 1px solid #DDDDDD;"></td></tr>
+                      <tr><td height=3D"16" style=3D"font-size:10px; line-h=
+eight:1;"></td></tr>
+                      <tr>
+                        <td align=3D"center" style=3D"vertical-align:top; f=
+ont-size:18px; color:#333333; line-height:1.5;" valign=3D"top">
+                          =1B$BK\%a!<%k$K4X$9$k0l@Z$N5-;v$NL5CGE>:\$*$h$S:F=
+G[I[$r6X$8$^$9!#=1B(B
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align=3D"center" style=3D"vertical-align:top; f=
+ont-size:18px; color:#333333; line-height:1.5;" valign=3D"top">
+                          Copyright (C) Sumitomo Mitsui Card Co., Ltd.
+                        </td>
+                      </tr>
+                      <tr><td height=3D"24" style=3D"font-size:10px; line-h=
+eight:1;"></td></tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              <!--=1B$B"%H/9T<T"%=1B(B-->
+
+            </tbody>
+          </table>
+          <!--=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D / cont=
+ent end =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D-->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
+

@@ -1,0 +1,221 @@
+Delivered-To: silverfirefox@gmail.com
+Received: by 2002:a05:640c:80d0:20b0:272:7217:fbee with SMTP id ep16-n2csp6325281eib;
+        Thu, 30 Jul 2026 03:54:00 -0700 (PDT)
+X-Received: by 2002:a17:907:9343:b0:c15:bde6:ef8b with SMTP id a640c23a62f3a-c1fa57b0ce2mr100416766b.61.1785408840534;
+        Thu, 30 Jul 2026 03:54:00 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1785408840; cv=none;
+        d=google.com; s=arc-20260327;
+        b=D0OxGxljPSYDB1Y3kfhPr5ntZD1V2lf7sZnf+xrA0fW1q7Mny3guW5l665uqC3GOnh
+         /t5atb7eRHA4pbE3SY5iBFL/8+Hv7EonmSbBZKkWyXwY8qwcF1j0FfhFc+QCnjTiA3VM
+         Qjlci3RTWefeZOvoKnasHK/AwFfQIJMPTxh+CiVpsJKYCkb2jxCnSU/crNJVYWA2zwMb
+         UqQdB5xiUZIFKk/ijFgnhpPVUIrq0jL2ZuymrQ1UbnzvPgAyJMil3JJEcjdBg89JgLmO
+         lKYDawqhKODeLXvewzzkjg0aV8zQvfHKV46zhMMs0NJkw20eZkXGPGe5EFre71Pes36i
+         sBrA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=in-reply-to:references:cc:sender:to:envelope-to:date:subject:from
+         :dkim-signature:message-id;
+        bh=QWveLXSpMwHb5pxmYhr/1FTxNPB3UepeVtBO+P88r0c=;
+        fh=Y94RGPIqvhx7zQdKp5ANe9wTOqrs0fCuVspD80sb81I=;
+        b=IjGuzNqHYgEaxKCuM/g8g16QBzSQhtAIB0iphfEvM+4sLEqCVUe7huir2FBHl25Qja
+         nsuWuTgqD5UgD/UPfjJ1XsuN9Udw3MR4Xw/qdP7EiBnmTDZczDlR2xUh5ryEcGSo5aaT
+         lp4oTpZEGEiBBG15ytXlxPN5E8bGCoXtqQh1gtNtxM/isO+e/xek6Ewnh+GCYnJgd3mD
+         Tbuf0U6k5grttUrOqv+reuBNGy6oennZnFOA7gvHyo4iA9V65GnYEmTfQUE517QDlxnw
+         jrz6EYutEZBAaTmjpXqheE2/X9jNH8q2BXhkSVejo9Iv1moy9+BFWek/xrBHWjLNTMzu
+         jXZQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@wonga.de.com header.s=s1 header.b=jiK0DO6s;
+       spf=pass (google.com: domain of info@blog.grunt.com designates 95.214.53.253 as permitted sender) smtp.mailfrom=info@blog.grunt.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=grunt.com
+Return-Path: <info@blog.grunt.com>
+Received: from recipe.npdog.org (recipe.npdog.org. [95.214.53.253])
+        by mx.google.com with ESMTPS id a640c23a62f3a-c1fa90e28ebsi117844766b.366.2026.07.30.03.54.00
+        for <silverfirefox@gmail.com>
+        (version=TLS1 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+        Thu, 30 Jul 2026 03:54:00 -0700 (PDT)
+Received-SPF: pass (google.com: domain of info@blog.grunt.com designates 95.214.53.253 as permitted sender) client-ip=95.214.53.253;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@wonga.de.com header.s=s1 header.b=jiK0DO6s;
+       spf=pass (google.com: domain of info@blog.grunt.com designates 95.214.53.253 as permitted sender) smtp.mailfrom=info@blog.grunt.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=grunt.com
+Message-ID: <6a6b2d48.816d0674.375470.02e0SMTPIN_ADDED_MISSING@mx.google.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=s1; d=wonga.de.com;
+ h=From:Subject:Date:To:Sender:CC:References:In-Reply-To:Content-Type; i=Support_9A6QA@wonga.de.com;
+ bh=QWveLXSpMwHb5pxmYhr/1FTxNPB3UepeVtBO+P88r0c=;
+ b=jiK0DO6sPeSA8w2N8UWkFsh9o6LpdUWjSVEqFOZJXbYUG+8ub1yvRl3+9ngG4Op4fs7BG2kUJYZd
+   3XChdkbj+qLDwiR546gZWOcWFsGSVKeKA0WcGB99iKNHURC+bD7j1SezeJnJU2wCozia6Oundf8s
+   3NO7LL6XaQQ+JM0Qxy+SR1k4wf5NXkRHwp30p3TJmTo3oHQo4dnbjVPgaaYe8kBjGNepFmY9CPen
+   LxCLhuejEVRIB/HNe6CbS2mkX3mk0CXTGdh3y/mfHIwzBN/az0F6JE5qkYl+V8EAICiY0y3DWrCi
+   o0N3hrcBRWexJMNdprPnX+s081Xu2zN7ZoL+3A==
+From:  "Walmart*"  <return_elwzgwa@blog.grunt.com>
+Subject: 🔔 Silverfirefox 𝐘𝐨𝐮 𝐡𝐚𝐯𝐞 𝐛𝐞𝐞𝐧 𝐬𝐞𝐥𝐞𝐜𝐭𝐞𝐝
+Date: Thu, 30 Jul 2026 10:54:00 +0000 (UTC)
+Envelope-To: SERVICE-957171234@googlemail.com
+To: <silverfirefox@gmail.com>
+Sender: <Support_9A6QA@wonga.de.com>
+X-DKIM_SIGN_REQUIRED: YES
+X-Broadcast-Id: 750551
+CC: <news_driwjz@gmail.com>
+Received: from efianalytics.com (efianalytics.com. 216.244.76.116)
+References: <@mail-00000000000.srv1.abaLKnnfULRze.edu>
+In-Reply-To: <12OUymWhgirK7Xc1mM9BFcCPSOn0KvflhRRyjhEDQCACaksGsA6DpIxGbYaKYXNxxawZ5zHmhUWHmHC2LiO4A12S6dfcC2ktvRVEExKJFdvT8iYtG1zjhSyHQVg43xadVyVzqv8na7fDohg0DrsmDS47O1QAYHIEUMay1Gm5sRwXhnSxytyKZTgRiaf3mE8dgEx5jRtZ@12OUymWhgirK7Xc1mM9BFcCPSOn0KvflhRRyjhEDQCACaksGsA6DpIxGbYaKYXNxxawZ5zHmhUWHmHC2LiO4A12S6dfcC2ktvRVEExKJFdvT8iYtG1zjhSyHQVg43xadVyVzqv8na7fDohg0DrsmDS47O1QAYHIEUMay1Gm5sRwXhnSxytyKZTgRiaf3mE8dgEx5jRtZ.12OUymWhgirK7Xc1mM9BFcCPSOn0KvflhRRyjhEDQCACaksGsA6DpIxGbYaKYXNxxawZ5zHmhUWHmHC2LiO4A12S6dfcC2ktvRVEExKJFdvT8iYtG1zjhSyHQVg43xadVyVzqv8na7fDohg0DrsmDS47O1QAYHIEUMay1Gm5sRwXhnSxytyKZTgRiaf3mE8dgEx5jRtZ.AttTPMcsbebYJHS>
+X-MSG-ID: M76982~c1443033~r04685~4241727
+x-evs: XZDXXI
+X-MSG-LINK: zRjlYUrYc7M4i9Yy7FGdyZfanSOmsPyqz
+X-EmailType-Id: 750551
+Content-Type: text/html; charset=utf-8
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Walmart Winner Rewards</title>
+<style>
+body{
+    margin:0;
+    background:#f2f2f2;
+    font-family:Arial, Helvetica, sans-serif;
+}
+.container{
+    max-width:650px;
+    margin:0 auto;
+    background:#ffffff;
+    text-align:center;
+}
+.header{
+    background:#1e7dc8;
+    color:white;
+    padding:15px;
+    font-size:22px;
+    font-weight:bold;
+}
+.image-box img{
+    width:280px;
+    margin:20px 0;
+}
+h1{
+    margin:5px;
+}
+.subtitle{
+    color:#444;
+    font-size:16px;
+}
+.table-box{
+    width:90%;
+    margin:20px auto;
+    border-collapse:collapse;
+}
+.table-box td{
+    border:1px solid #ccc;
+    padding:10px;
+    text-align:left;
+}
+.green{
+    background:#c8e6c9;
+}
+.button{
+    display:inline-block;
+    background:#1e7dc8;
+    color:white;
+    padding:18px 30px;
+    font-size:22px;
+    font-weight:bold;
+    border-radius:6px;
+    text-decoration:none;
+    margin:20px 0;
+}
+.list{
+    text-align:left;
+    width:85%;
+    margin:0 auto;
+    color:#333;
+}
+.footer{
+    font-size:12px;
+    color:#777;
+    margin:20px;
+}
+.small{
+    color:red;
+    font-size:12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+Walmart Winner Rewards 🎉
+</div>
+
+<div class="image-box">
+<img src="iphone.jpg" alt="iPhone 17 Pro Max">
+</div>
+
+<h1>🎉 Congratulations!</h1>
+<p class="subtitle">You have won a <b>FREE iPhone 17 Pro Max</b></p>
+
+<p>
+Thank you for being part of the Walmart community<br>
+Your exclusive reward is now available and ready to be claimed.<br>
+Act fast – this offer is only valid for a limited time!
+</p>
+
+<table class="table-box">
+<tr>
+<td><b>Name</b></td>
+<td>Silverfirefox</td>
+</tr>
+
+<tr>
+<td><b>Email</b></td>
+<td>silverfirefox@gmail.com</td>
+</tr>
+
+<tr>
+<td><b>Status</b></td>
+<td class="green">Confirmed</td>
+</tr>
+
+<tr>
+<td><b>Date</b></td>
+<td>Thu, 30 Jul 2026 10:54:00 +0000 (UTC)</td>
+</tr>
+
+<tr>
+<td><b>Reference ID</b></td>
+<td>IPH9351971868</td>
+</tr>
+
+<tr>
+<td><b>Prize</b></td>
+<td class="green">🎁 iPhone 17 Pro Max</td>
+</tr>
+</table>
+
+<a href="https://storage.googleapis.com/7lufmkd4n6au6t4h/qwktbil5mnp02piz/3d4e00d.html#zsWQGw.shtml?vfbWjjyrwL_gAAAAABqay1IMAcmiIwMLHDmLlYPKcZ7ZAVqXg_LERUnWGRCl0N4OoITr8kp1EJZFPxSBheql8LD4EVF3XXJi3anFbvAar9yi4F-o2fuEWSePHLhT22ZPO0ihXzwZcHEqGaCjIleCzittYAW-4YYgQ90hoaCfywNXQ==" class="button">🎁 Claim Your iPhone 17 Pro Max</a>
+
+<div class="list">
+<ul>
+<li>📱 Brand new iPhone 17 Pro Max – unlocked</li>
+<li>⚡ Lightning-fast performance & advanced camera</li>
+<li>🎁 Bonus Walmart gifts included with your win</li>
+<li>⏳ Limited-time offer – confirm within 48 hours</li>
+</ul>
+</div>
+
+<p class="small">
+*Offer available to selected winners only. Confirmation required.
+</p>
+
+<div class="footer">
+© 2026 Walmart. All rights reserved.<br>
+Privacy Policy • Terms & Conditions
+</div>
+
+</div>
+
+</body>
+</html>

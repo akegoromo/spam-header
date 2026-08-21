@@ -1,0 +1,201 @@
+Delivered-To: silver.firefox+whither-jp@gmail.com
+Received: by 2002:a98:a146:0:b0:272:cc70:54b6 with SMTP id k6csp3504229eic;
+        Wed, 5 Aug 2026 15:59:45 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AHgh+Rp7GjLUIRPZK23NBZRpXGLhIlu2hPd/3kNgCuEkWbcE1lmqfO0iPn+/7I+ypf/dO81q0BJBnmEfdKZfcLbAQQ==@gmail.com
+X-Received: by 2002:a05:6a00:4b11:b0:845:e41f:9696 with SMTP id d2e1a72fcca58-84f2e00ea6dmr10842812b3a.25.1785970785084;
+        Wed, 05 Aug 2026 15:59:45 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1785970785; cv=pass;
+        d=google.com; s=arc-20260327;
+        b=oqnN467HWOYRu6J47L9FCZTrrgjmt4t9+iVK24N4w+hI2vkiuGTp48qQFGhmKQXcya
+         gfGyfx4lOvk52liAR4jmZmprCZ7ZmUICrt+J9Eq68Z82kk0F7Zi3RyKIGMnJaBgbV3V1
+         deocPB4wIdphFaIAH24Ty2OdnEzAkvYAIJ79He3S0Yb4VSyH+XOU2Z1lxEvXv3cKrwgu
+         K7nDa89eHwGJXNCeYXqhBmQ+muDvjVpnMTnrrbshJbpGGpJ5lb4ctX8HilOgtmrBI45t
+         nQHfK1zCyrsAl3qWoJa/DnWtrgmksccwaD7vg2X5ZLnMLULfz3BOfExgmn/gUX2kjfEc
+         iO/w==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:subject:to:from:message-id:dkim-signature
+         :feedback-id:dkim-signature:dkim-signature:date;
+        bh=k5AGPDbrpK74x+UVF1XnabGdie1O0vHsHaLvLpRvknI=;
+        fh=LnGVlAla77Gyfiw8zkzbOhaVlqYgEu27l8ujdfvsIGY=;
+        b=sP1OmjztZBn3fGH56bngNWydxv6o4ClbJHm1VjOkvCOWY7HxCx8YUCpu2XTT1pUe1e
+         wyPip/1cUze1o8CK4IJIk7ZGzxv8kTEM2br16846Az13HNjtM9/8nnm1QHf8zFaeyCU8
+         D7Q7Z/wwq6/hDSMvfDgzORjjc56PpZqZchADOdgGMuVjS00O35mqlYmQ57WVUF0p8Qcj
+         edHx0MQLhDt3a2KjdlxgLoPyaYrRnWXJ2vN9ACy2p91lHWhi+l9kLeK6dfxzsknBy0Nu
+         TMlFcTHckVSmLYks7e5Dl/Dp3eQjx7OEMoUeNwhspWu3dcX1k5sKnsv3n167ssQUZt8o
+         5iyQ==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=c3LPL3AN;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=Cns6XSbZ;
+       dkim=permerror (no key for signature) header.i=@amazon.co.jp header.s=default header.b=TFnSIzIs;
+       arc=pass (i=1 spf=pass spfdomain=dgboyang.com);
+       spf=pass (google.com: domain of srs0=r2yi=6f=dgboyang.com=noreply-tnakahara=whither.jp@whither.jp designates 104.30.8.61 as permitted sender) smtp.mailfrom="SRS0=R2Yi=6f=dgboyang.com=noreply-tnakahara=whither.jp@whither.jp";
+       dmarc=fail (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=amazon.co.jp
+Return-Path: <SRS0=R2Yi=6f=dgboyang.com=noreply-tnakahara=whither.jp@whither.jp>
+Received: from i-gb.cloudflare-email.net (i-gb.cloudflare-email.net. [104.30.8.61])
+        by mx.google.com with ESMTPS id d2e1a72fcca58-84f453b12b8si768929b3a.18.2026.08.05.15.59.43
+        for <silver.firefox+whither-jp@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 05 Aug 2026 15:59:45 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=r2yi=6f=dgboyang.com=noreply-tnakahara=whither.jp@whither.jp designates 104.30.8.61 as permitted sender) client-ip=104.30.8.61;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudflare-email.net header.s=cf2024-1 header.b=c3LPL3AN;
+       dkim=pass header.i=@whither.jp header.s=cf2024-1 header.b=Cns6XSbZ;
+       dkim=permerror (no key for signature) header.i=@amazon.co.jp header.s=default header.b=TFnSIzIs;
+       arc=pass (i=1 spf=pass spfdomain=dgboyang.com);
+       spf=pass (google.com: domain of srs0=r2yi=6f=dgboyang.com=noreply-tnakahara=whither.jp@whither.jp designates 104.30.8.61 as permitted sender) smtp.mailfrom="SRS0=R2Yi=6f=dgboyang.com=noreply-tnakahara=whither.jp@whither.jp";
+       dmarc=fail (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=amazon.co.jp
+Date: Wed, 05 Aug 2026 15:59:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Subject:To:From:Feedback-ID:from:reply-to:date:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1785970784; x=1786575584; bh=k5AGPDbrpK74x+UVF1
+	XnabGdie1O0vHsHaLvLpRvknI=; b=c3LPL3ANm+aHmejBseGYtSx5z0LZCMi4XFl6Ku+NqxZKi
+	iBH8byH8QTZgPbZb9qgvEOKpScRw6gnSIOJ9xJ3mmx5rnHEI9hhrpdPI7Q+pNc5JOCxTwWC0nQb
+	AzuuKnyYxqMYWBy2EzHpJ50hOhnhwnIjsjhjW8gUOZ4WgbhrIX4K8SwZuxf/xEue4qwAqQ24nE2
+	RauDIqZpVCVq2C1vELedSa4IXuT3Crf3JXP3ubpOOGexUeeYO/WEal3PQ3MF+p9t8N/iRyR31+t
+	SZWjCkoyXQ8duj99YXY4m/rx5TZ14dIkmGcT/FQTq76zHaSMp3MPshhpda2n0JmeiRLpiqvg==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=whither.jp; c=relaxed/relaxed;
+	h=Subject:To:From:Feedback-ID:from:reply-to:date:cc:resent-date
+	:resent-from:resent-to:resent-cc:in-reply-to:references:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive; t=1785970784; x=1786575584; bh=k5AGPDbrpK74x+UVF1
+	XnabGdie1O0vHsHaLvLpRvknI=; b=Cns6XSbZiaAf4fPrJYDqc8O3qT3Bx9Y5c+LNkUcl3YyBQ
+	c5mkX18pXsBUhEhOONvqCMx+TRPIIPHcNXChLoybTh/yzmPqWOPqGYlU9PRc2lGfDG1FBG3SwXb
+	VmMqKlgKjD3Sp7L34YVdPJHJL/YeJQ1iR48IcGtiz5cSGF2hYU2JChYMkv55Ok6UP7RHuA4WLmx
+	Gdo3I9sq6c/jZmGkiULXWmyF2uTvLb2GQY8JvZB5yoB4abrDz4CHr7YNU7HPpNzNmCZZdjLuI5+
+	8bG9wDhkGoOoSlJqNIdxPd7rTjxw8VcQeo9nAPSAF+MPWycd6RXoYM8ciiV7tzYFgzR8ajfw==;
+X-Forwarded-To: silver.firefox+whither-jp@gmail.com
+X-Forwarded-For: silver.firefox+whither-jp@gmail.com silver.firefox+whither-jp@gmail.com
+Feedback-ID: whither.jp:2:1:Cloudflare
+Received: from dgboyang.com (52.140.200.84)
+        by cloudflare-email.net (cloudflare) id 52QjsPQNm3DR
+        for <tnakahara@whither.jp>; Wed, 05 Aug 2026 22:59:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none;
+	b=O1Xp3jpIHFSkEQKCNQS+kLUm0mJ/wzZnuDMP9LOOpd3CjVkin183QtWn6hWWDXawdhi3fqYk/
+	lFDAX9pnZfdxepQ0kTWl6doI/98FM64f+YypG7jUXrNfS6PX0D4ek7qZYOEWuxPAIEcpO+zKeD5
+	Gaj4IdaKE9NF0bvgDQUhCw7QmkO2kbgJclI0jhPww6CtG/L6UZY04EUOwVt9X9sxYE5OwVuMpJC
+	gVhWwAgC+HR7QfXMykzIygfDtmDMn/eoEF+x+E7Nfkj90RiNNyK4Dll6yaI2FTGGxq21o5FM9RO
+	E77DYeA1dfN/d/q+3Ws1WtYhQrmZqzubNnhuKU61N/Ew==;
+ARC-Message-Signature: i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed;
+	h=Subject:To:From:from:reply-to:date:cc:resent-date:resent-from:resent-to
+	:resent-cc:in-reply-to:references:list-id:list-help:list-subscribe
+	:list-post:list-owner:list-archive; t=1785970779; x=1786575579; bh=k5AGPDbr
+	pK74x+UVF1XnabGdie1O0vHsHaLvLpRvknI=; b=TjWPOgyglfZM8xyDBy/tSuD2PpHvxQs4n7H
+	Xu+Ncw6XRgnJVT3urSV4/+pyHJncOsAZA6O/NSE3Xp8aRsV64XwvjZa6Jio1sdi2jlioipb4/7o
+	OyqHq26XhYLkSS7KyTsXiIjgVfk3nUoLhlWLBdQCNKr3zxcdPPP3BBhT4l7gkmVMBAMd54TBaOk
+	CclVpiz9Uyt9pHY9biR+geYirNS5wSfVB0zwFEhLzDNr87REwSwdqwE74wsiOp9s32cIjSPJnIp
+	SVElRh9u2CoaWmTAxGQYxbFdZKPuH6aRPrrV0DVR5LjHgz86RH5n06RmEOPRT61fUTWzvAbJcLY
+	8vRtdoQ==;
+ARC-Authentication-Results: i=1; mx.cloudflare.net;
+	dkim=permerror (dns record not found) header.i=info@amazon.co.jp header.s=default header.b=TFnSIzIs;
+	dmarc=fail (policy not aligned) header.from=amazon.co.jp policy.dmarc=quarantine;
+	spf=pass (mx.cloudflare.net: domain of postmaster@dgboyang.com designates 52.140.200.84 as permitted sender) smtp.helo=dgboyang.com;
+	spf=pass (mx.cloudflare.net: domain of noreply-tnakahara=whither.jp@dgboyang.com designates 52.140.200.84 as permitted sender) smtp.mailfrom=noreply-tnakahara=whither.jp@dgboyang.com;
+	arc=none smtp.remote-ip=52.140.200.84
+Received-SPF: pass (mx.cloudflare.net: domain of noreply-tnakahara=whither.jp@dgboyang.com designates 52.140.200.84 as permitted sender)
+	receiver=mx.cloudflare.net; client-ip=52.140.200.84; envelope-from="noreply-tnakahara=whither.jp@dgboyang.com"; helo=dgboyang.com;
+Authentication-Results: mx.cloudflare.net;
+	dkim=permerror (dns record not found) header.i=info@amazon.co.jp header.s=default header.b=TFnSIzIs;
+	dmarc=fail (policy not aligned) header.from=amazon.co.jp policy.dmarc=quarantine;
+	spf=pass (mx.cloudflare.net: domain of postmaster@dgboyang.com designates 52.140.200.84 as permitted sender) smtp.helo=dgboyang.com;
+	spf=pass (mx.cloudflare.net: domain of noreply-tnakahara=whither.jp@dgboyang.com designates 52.140.200.84 as permitted sender) smtp.mailfrom=noreply-tnakahara=whither.jp@dgboyang.com;
+	arc=none smtp.remote-ip=52.140.200.84
+X-CF-SpamH-Score: 4
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=default; d=amazon.co.jp;
+ h=Message-ID:From:To:Subject:Content-Type:Content-Transfer-Encoding;
+ i=info@amazon.co.jp;
+ bh=k5AGPDbrpK74x+UVF1XnabGdie1O0vHsHaLvLpRvknI=;
+ b=TFnSIzIsViKf1XRs8laBcvTgyKmaBYwRZ42POpDy6Ob5WeyU2HshLbPGIeqxkztknjhFvH/m09I8
+   cz5nAxu2ohWIdAPPRrMvS4/PYlLkxoTnVLU6Dc7s4D+Y7beKAjHFNb+xl4kIeMPjQH3OQbAxxM3k
+   mLqglRosJMB3MSnMeJAQqQdNkG9VH9VywyFfznCMk4xnXzirmIxCrBK5Zj+E2+hH0N+FfVIGc9fL
+   GbIHDtYvja1eCpWXux5bOek82afbm8oOMzXmFflIxFcgzxN10gU+zJBNB3IJxaV2UCV1rEIMvkwX
+   GeJjlS40OvyoRVFMZ2dNQli42nf5Ot1iSScvig==
+Message-ID: <c95a28dffcd6a7456c83975238fe4ebb@amazon.co.jp>
+From: =?utf-8?Q?Ama=EF=BB=BFzon?= <info@amazon.co.jp>
+To: <tnakahara@whither.jp>
+Subject: =?utf-8?Q?=E3=80=90=E2=80=8D=E3=81=8A=E2=80=8B=E5=B1=8A?=
+	=?utf-8?Q?=EF=BB=BF=E3=81=91=E2=80=8C=E4=BA=88=E5=AE=9A=E2=80=8D?=
+	=?utf-8?Q?=E3=80=91=E2=80=8B=E3=81=94=EF=BB=BF=E6=B3=A8=E2=80=8C?=
+	=?utf-8?Q?=E6=96=87=E2=80=8D=E5=95=86=E2=80=8B=E5=93=81=EF=BB=BF?=
+	=?utf-8?Q?=E3=81=AE=E2=80=8C=E9=85=8D=E2=80=8D=E9=80=81=E2=80=8B?=
+	=?utf-8?Q?=E7=8A=B6=EF=BB=BF=E6=B3=81=E2=80=8C=E3=81=8A=E2=80=8D?=
+	=?utf-8?Q?=E3=82=88=E2=80=8B=E3=81=B3=EF=BB=BF=E5=8F=97=E2=80=8C?=
+	=?utf-8?Q?=E5=8F=96=E2=80=8D=E6=96=B9=E2=80=8B=E6=B3=95=EF=BB=BF?=
+	=?utf-8?Q?=E3=81=AE=E2=80=8C=E7=A2=BA=E2=80=8D=E8=AA=8D=E2=80=8B?=
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML lang=ja><HEAD>
+<META charset=UTF-8>
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"></HEAD>
+<BODY 
+style="FONT-FAMILY: 'Hiragino Kaku Gothic ProN','メイリオ',Arial,sans-serif; 
+PADDING-BOTTOM: 16px; PADDING-TOP: 16px; PADDING-LEFT: 16px; MARGIN: 0px; 
+PADDING-RIGHT: 16px">
+<TABLE 
+style="BORDER-TOP: #000000 1px solid; BORDER-COLLAPSE: collapse; 
+BORDER-BOTTOM: #000000 1px solid" 
+cellSpacing=0 cellPadding=0 width="100%" bgColor=#00a859>
+  <TBODY>
+  <TR>
+    <TD 
+    style="FONT-SIZE: 14px; HEIGHT: 20px; VERTICAL-ALIGN: middle; 
+FONT-WEIGHT: 700; COLOR: #000000; TEXT-ALIGN: center; LETTER-SPACING: 0px; 
+LINE-HEIGHT: 24px">ア﻿マ﻿ゾ‍ン‍が 
+      送信したメールです </TD></TR></TBODY></TABLE>
+<DIV 
+style="MAX-WIDTH: 540px; BACKGROUND: #fafafa; PADDING-BOTTOM: 20px; 
+PADDING-TOP: 20px; PADDING-LEFT: 20px; MARGIN: 0px auto; PADDING-RIGHT: 
+20px">
+<DIV 
+style="FONT-SIZE: 14px; BORDER-TOP: #232f3e 2px solid; BORDER-RIGHT: 
+#d6d6d6 1px solid; BACKGROUND: #fff; BORDER-BOTTOM: #d6d6d6 1px solid; 
+COLOR: #111; PADDING-BOTTOM: 18px; PADDING-TOP: 18px; PADDING-LEFT: 18px; 
+BORDER-LEFT: #d6d6d6 1px solid; LINE-HEIGHT: 1.5; PADDING-RIGHT: 
+18px"><TR>
+<DIV 
+style="FONT-SIZE: 18px; MARGIN-BOTTOM: 18px; FONT-WEIGHT: bold; 
+LINE-HEIGHT: 24px">お客様 
+</DIV>
+<P 
+style="MARGIN: 0px 0px 
+14px">ご注文‌いただいた商‍品​は、2026年08月06日にお﻿届‌け‍を予定しております。<BR><BR>現​在﻿、配‌送‍先​および受﻿取‌方
+‍法（<B>"置​き﻿配"</B>）の設定内容に不‌備‍がないか、配​送﻿状‌況‍の確認画面より再度ご確​認﻿をお願いいたします。 
+</P>
+<P 
+style="MARGIN: 0px 0px 
+14px">また、配‌送‍担当のド​ラ﻿イ‌バ‍ーより、お電話（<B>050-1526-3429</B>）またはS​M﻿Sにて、ご連‌絡‍させていただく
+場合がございます。 
+</P>
+<DIV 
+style="MARGIN-BOTTOM: 16px; BACKGROUND: #f7f7f7; PADDING-BOTTOM: 12px; 
+PADDING-TOP: 12px; PADDING-LEFT: 12px; PADDING-RIGHT: 12px; border-radius: 
+4px">配​送﻿業‌者：<B 
+style="COLOR: #c45500">ア﻿マ﻿ゾ‍ン‍</B><BR></DIV>
+<DIV 
+style="PADDING-BOTTOM: 10px; TEXT-ALIGN: center; PADDING-TOP: 10px; 
+PADDING-LEFT: 0px; PADDING-RIGHT: 0px"><A 
+style="FONT-SIZE: 15px; TEXT-DECORATION: none; BACKGROUND: #ffa41c; 
+FONT-WEIGHT: bold; COLOR: #111; TEXT-ALIGN: center; DISPLAY: block; 
+LINE-HEIGHT: 48px; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,
+0.1)" 
+href="https://aifuto.com/page/hnjaixtled" rel=nofollow 
+target=_blank>配‌送‍状​況﻿を確‌認‍する</A> </DIV>
+<HR 
+style="BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px; BORDER-BOTTOM: 
+#e7e7e7 1px solid; MARGIN: 14px 0px 16px; BORDER-TOP-WIDTH: 0px">
+
+<DIV 
+style="FONT-SIZE: 10px; COLOR: #666; LINE-HEIGHT: 
+1.6">※本メ​ー﻿ルは配‌信‍専​用﻿アドレスから送信されています。<BR>※ア﻿マ﻿ゾ‍ン‍ポイントの有効期限や、最新の注文履歴についてはカ​ス﻿
+タ‌マ‍ー​サ﻿ー‌ビ‍スにお問い合わせください。 
+</DIV></DIV></DIV>
+<DIV 
+style="FONT-SIZE: 1px; WHITE-SPACE: nowrap; COLOR: #ffffff; DISPLAY: 
+none">{RANDOM:64}‌‍​﻿{RANDOM:64}‌‍​﻿{RANDOM:64} 
+</DIV></BODY></HTML>
+
+
